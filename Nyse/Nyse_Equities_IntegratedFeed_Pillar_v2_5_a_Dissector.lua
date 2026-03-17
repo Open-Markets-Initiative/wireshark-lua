@@ -153,100 +153,28 @@ omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_index = ProtoField
 local show = {}
 
 -- Nyse Equities IntegratedFeed Pillar 2.5.a Element Dissection Options
-show.add_order_message = true
-show.add_order_refresh_message = true
-show.cross_correction_message = true
-show.cross_trade_message = true
-show.delete_order_message = true
-show.heartbeat_response_message = true
-show.imbalance_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
-show.message_unavailable_message = true
-show.modify_order_message = true
-show.non_displayed_trade_message = true
-show.order_execution_message = true
 show.packet = true
 show.packet_header = true
-show.refresh_header_message = true
-show.refresh_request_message = true
-show.replace_order_message = true
-show.request_response_message = true
-show.retail_price_improvement_message = true
-show.retransmission_request_message = true
-show.security_status_message = true
 show.send_time = true
-show.sequence_number_reset_message = true
-show.source_time_reference_message = true
-show.stock_summary_message = true
-show.symbol_clear_message = true
-show.symbol_index_mapping_message = true
-show.symbol_index_mapping_request_message = true
-show.trade_cancel_message = true
 
 -- Register Nyse Equities IntegratedFeed Pillar 2.5.a Show Options
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_add_order_refresh_message = Pref.bool("Show Add Order Refresh Message", show.add_order_refresh_message, "Parse and add Add Order Refresh Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_cross_correction_message = Pref.bool("Show Cross Correction Message", show.cross_correction_message, "Parse and add Cross Correction Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_imbalance_message = Pref.bool("Show Imbalance Message", show.imbalance_message, "Parse and add Imbalance Message to protocol tree")
+omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_non_displayed_trade_message = Pref.bool("Show Non Displayed Trade Message", show.non_displayed_trade_message, "Parse and add Non Displayed Trade Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_retail_price_improvement_message = Pref.bool("Show Retail Price Improvement Message", show.retail_price_improvement_message, "Parse and add Retail Price Improvement Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
 omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_stock_summary_message = Pref.bool("Show Stock Summary Message", show.stock_summary_message, "Parse and add Stock Summary Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_add_order_message then
-    show.add_order_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_add_order_message
-    changed = true
-  end
-  if show.add_order_refresh_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_add_order_refresh_message then
-    show.add_order_refresh_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_add_order_refresh_message
-    changed = true
-  end
-  if show.cross_correction_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_cross_correction_message then
-    show.cross_correction_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_cross_correction_message
-    changed = true
-  end
-  if show.cross_trade_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_cross_trade_message then
-    show.cross_trade_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_cross_trade_message
-    changed = true
-  end
-  if show.delete_order_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_delete_order_message then
-    show.delete_order_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_delete_order_message
-    changed = true
-  end
-  if show.heartbeat_response_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_heartbeat_response_message
-    changed = true
-  end
-  if show.imbalance_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_imbalance_message then
-    show.imbalance_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_imbalance_message
+  if show.application_messages ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_application_messages then
+    show.application_messages = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_message then
@@ -257,22 +185,6 @@ function omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs_changed()
     show.message_header = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_message_header
     changed = true
   end
-  if show.message_unavailable_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_message_unavailable_message
-    changed = true
-  end
-  if show.modify_order_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_modify_order_message then
-    show.modify_order_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_modify_order_message
-    changed = true
-  end
-  if show.non_displayed_trade_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_non_displayed_trade_message then
-    show.non_displayed_trade_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_non_displayed_trade_message
-    changed = true
-  end
-  if show.order_execution_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_order_execution_message then
-    show.order_execution_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_order_execution_message
-    changed = true
-  end
   if show.packet ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_packet then
     show.packet = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_packet
     changed = true
@@ -281,64 +193,8 @@ function omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs_changed()
     show.packet_header = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_header_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_refresh_header_message then
-    show.refresh_header_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_refresh_header_message
-    changed = true
-  end
-  if show.refresh_request_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_refresh_request_message then
-    show.refresh_request_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_refresh_request_message
-    changed = true
-  end
-  if show.replace_order_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_replace_order_message then
-    show.replace_order_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_replace_order_message
-    changed = true
-  end
-  if show.request_response_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_request_response_message then
-    show.request_response_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_request_response_message
-    changed = true
-  end
-  if show.retail_price_improvement_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_retail_price_improvement_message then
-    show.retail_price_improvement_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_retail_price_improvement_message
-    changed = true
-  end
-  if show.retransmission_request_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_retransmission_request_message
-    changed = true
-  end
-  if show.security_status_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_security_status_message then
-    show.security_status_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_security_status_message
-    changed = true
-  end
   if show.send_time ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_send_time then
     show.send_time = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_send_time
-    changed = true
-  end
-  if show.sequence_number_reset_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_sequence_number_reset_message
-    changed = true
-  end
-  if show.source_time_reference_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_source_time_reference_message then
-    show.source_time_reference_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_source_time_reference_message
-    changed = true
-  end
-  if show.stock_summary_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_stock_summary_message then
-    show.stock_summary_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_stock_summary_message
-    changed = true
-  end
-  if show.symbol_clear_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_clear_message
-    changed = true
-  end
-  if show.symbol_index_mapping_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_index_mapping_message
-    changed = true
-  end
-  if show.symbol_index_mapping_request_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_symbol_index_mapping_request_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_nyse_equities_integratedfeed_pillar_v2_5_a.prefs.show_trade_cancel_message
     changed = true
   end
 
@@ -3182,7 +3038,7 @@ end
 
 -- Dissect: Stock Summary Message
 nyse_equities_integratedfeed_pillar_v2_5_a.stock_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.stock_summary_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.stock_summary_message.fields(buffer, offset, packet, parent)
@@ -3234,7 +3090,7 @@ end
 
 -- Dissect: Retail Price Improvement Message
 nyse_equities_integratedfeed_pillar_v2_5_a.retail_price_improvement_message.dissect = function(buffer, offset, packet, parent)
-  if show.retail_price_improvement_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.retail_price_improvement_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.retail_price_improvement_message.fields(buffer, offset, packet, parent)
@@ -3290,7 +3146,7 @@ end
 
 -- Dissect: Cross Correction Message
 nyse_equities_integratedfeed_pillar_v2_5_a.cross_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.cross_correction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.cross_correction_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.cross_correction_message.fields(buffer, offset, packet, parent)
@@ -3342,7 +3198,7 @@ end
 
 -- Dissect: Trade Cancel Message
 nyse_equities_integratedfeed_pillar_v2_5_a.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.trade_cancel_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -3406,7 +3262,7 @@ end
 
 -- Dissect: Cross Trade Message
 nyse_equities_integratedfeed_pillar_v2_5_a.cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.cross_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.cross_trade_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.cross_trade_message.fields(buffer, offset, packet, parent)
@@ -3490,7 +3346,7 @@ end
 
 -- Dissect: Non Displayed Trade Message
 nyse_equities_integratedfeed_pillar_v2_5_a.non_displayed_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.non_displayed_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.non_displayed_trade_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.non_displayed_trade_message.fields(buffer, offset, packet, parent)
@@ -3566,7 +3422,7 @@ end
 
 -- Dissect: Add Order Refresh Message
 nyse_equities_integratedfeed_pillar_v2_5_a.add_order_refresh_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_refresh_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.add_order_refresh_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.add_order_refresh_message.fields(buffer, offset, packet, parent)
@@ -3694,7 +3550,7 @@ end
 
 -- Dissect: Imbalance Message
 nyse_equities_integratedfeed_pillar_v2_5_a.imbalance_message.dissect = function(buffer, offset, packet, parent)
-  if show.imbalance_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.imbalance_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.imbalance_message.fields(buffer, offset, packet, parent)
@@ -3766,7 +3622,7 @@ end
 
 -- Dissect: Replace Order Message
 nyse_equities_integratedfeed_pillar_v2_5_a.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.replace_order_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.replace_order_message.fields(buffer, offset, packet, parent)
@@ -3854,7 +3710,7 @@ end
 
 -- Dissect: Order Execution Message
 nyse_equities_integratedfeed_pillar_v2_5_a.order_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_execution_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.order_execution_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.order_execution_message.fields(buffer, offset, packet, parent)
@@ -3910,7 +3766,7 @@ end
 
 -- Dissect: Delete Order Message
 nyse_equities_integratedfeed_pillar_v2_5_a.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.delete_order_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.delete_order_message.fields(buffer, offset, packet, parent)
@@ -3982,7 +3838,7 @@ end
 
 -- Dissect: Modify Order Message
 nyse_equities_integratedfeed_pillar_v2_5_a.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.modify_order_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.modify_order_message.fields(buffer, offset, packet, parent)
@@ -4054,7 +3910,7 @@ end
 
 -- Dissect: Add Order Message
 nyse_equities_integratedfeed_pillar_v2_5_a.add_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.add_order_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.add_order_message.fields(buffer, offset, packet, parent)
@@ -4106,7 +3962,7 @@ end
 
 -- Dissect: Refresh Header Message
 nyse_equities_integratedfeed_pillar_v2_5_a.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_header_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.refresh_header_message.fields(buffer, offset, packet, parent)
@@ -4202,7 +4058,7 @@ end
 
 -- Dissect: Security Status Message
 nyse_equities_integratedfeed_pillar_v2_5_a.security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.security_status_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.security_status_message.fields(buffer, offset, packet, parent)
@@ -4254,7 +4110,7 @@ end
 
 -- Dissect: Symbol Clear Message
 nyse_equities_integratedfeed_pillar_v2_5_a.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.symbol_clear_message.fields(buffer, offset, packet, parent)
@@ -4306,7 +4162,7 @@ end
 
 -- Dissect: Message Unavailable Message
 nyse_equities_integratedfeed_pillar_v2_5_a.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.message_unavailable_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.message_unavailable_message.fields(buffer, offset, packet, parent)
@@ -4358,7 +4214,7 @@ end
 
 -- Dissect: Refresh Request Message
 nyse_equities_integratedfeed_pillar_v2_5_a.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.refresh_request_message.fields(buffer, offset, packet, parent)
@@ -4414,7 +4270,7 @@ end
 
 -- Dissect: Symbol Index Mapping Request Message
 nyse_equities_integratedfeed_pillar_v2_5_a.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
@@ -4454,7 +4310,7 @@ end
 
 -- Dissect: Heartbeat Response Message
 nyse_equities_integratedfeed_pillar_v2_5_a.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.heartbeat_response_message.fields(buffer, offset, packet, parent)
@@ -4518,7 +4374,7 @@ end
 
 -- Dissect: Request Response Message
 nyse_equities_integratedfeed_pillar_v2_5_a.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.request_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.request_response_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.request_response_message.fields(buffer, offset, packet, parent)
@@ -4574,7 +4430,7 @@ end
 
 -- Dissect: Retransmission Request Message
 nyse_equities_integratedfeed_pillar_v2_5_a.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.retransmission_request_message.fields(buffer, offset, packet, parent)
@@ -4674,7 +4530,7 @@ end
 
 -- Dissect: Symbol Index Mapping Message
 nyse_equities_integratedfeed_pillar_v2_5_a.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -4722,7 +4578,7 @@ end
 
 -- Dissect: Source Time Reference Message
 nyse_equities_integratedfeed_pillar_v2_5_a.source_time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.source_time_reference_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.source_time_reference_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.source_time_reference_message.fields(buffer, offset, packet, parent)
@@ -4774,7 +4630,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_integratedfeed_pillar_v2_5_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_equities_integratedfeed_pillar_v2_5_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)

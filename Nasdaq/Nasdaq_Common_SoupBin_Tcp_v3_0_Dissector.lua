@@ -48,48 +48,22 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet = ProtoField.n
 local show = {}
 
 -- Nasdaq Common SoupBin Tcp 3.0 Element Dissection Options
-show.debug_packet = true
-show.login_accepted_packet = true
-show.login_rejected_packet = true
-show.login_request_packet = true
+show.session_messages = true
 show.packet = true
 show.packet_header = true
-show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
-show.unsequenced_data_packet = true
 
 -- Register Nasdaq Common SoupBin Tcp 3.0 Show Options
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.debug_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet then
-    show.debug_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_debug_packet
-    changed = true
-  end
-  if show.login_accepted_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_accepted_packet
-    changed = true
-  end
-  if show.login_rejected_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_rejected_packet
-    changed = true
-  end
-  if show.login_request_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet then
-    show.login_request_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_login_request_packet
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet then
     show.packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet
     changed = true
@@ -98,16 +72,12 @@ function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
     show.packet_header = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header
     changed = true
   end
-  if show.sequenced_data_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequenced_data_packet
+  if show.session_messages ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages then
+    show.session_messages = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages
     changed = true
   end
   if show.soup_bin_tcp_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet then
     show.soup_bin_tcp_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet
-    changed = true
-  end
-  if show.unsequenced_data_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_unsequenced_data_packet
     changed = true
   end
 
@@ -515,7 +485,7 @@ nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.dissect = function(buffer
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -567,7 +537,7 @@ end
 
 -- Dissect: Login Request Packet
 nasdaq_common_soupbin_tcp_v3_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0.login_request_packet.fields(buffer, offset, packet, parent)
@@ -626,7 +596,7 @@ nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.dissect = function(buffer, 
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet, buffer(offset, 0))
     local current = nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -666,7 +636,7 @@ end
 
 -- Dissect: Login Rejected Packet
 nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.fields(buffer, offset, packet, parent)
@@ -710,7 +680,7 @@ end
 
 -- Dissect: Login Accepted Packet
 nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.fields(buffer, offset, packet, parent)
@@ -750,7 +720,7 @@ end
 
 -- Dissect: Debug Packet
 nasdaq_common_soupbin_tcp_v3_0.debug_packet.dissect = function(buffer, offset, packet, parent)
-  if show.debug_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0.debug_packet.fields(buffer, offset, packet, parent)

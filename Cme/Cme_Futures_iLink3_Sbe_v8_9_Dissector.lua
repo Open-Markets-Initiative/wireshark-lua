@@ -456,88 +456,43 @@ show.broken_dates_request_group = true
 show.broken_dates_request_groups = true
 show.broken_dates_response_group = true
 show.broken_dates_response_groups = true
-show.business_reject = true
+show.application_messages = true
 show.calculated_ccy_last_qty = true
 show.contra_calculated_ccy_last_qty = true
 show.contra_gross_trade_amt = true
 show.credentials = true
-show.establish = true
-show.establishment_ack = true
-show.establishment_reject = true
 show.exec_inst = true
-show.execution_ack = true
-show.execution_report_cancel = true
-show.execution_report_elimination = true
-show.execution_report_modify = true
-show.execution_report_new = true
-show.execution_report_pending_cancel = true
-show.execution_report_pending_replace = true
-show.execution_report_reject = true
-show.execution_report_status = true
-show.execution_report_trade_addendum_outright = true
-show.execution_report_trade_addendum_spread = true
-show.execution_report_trade_addendum_spread_leg = true
-show.execution_report_trade_outright = true
-show.execution_report_trade_spread = true
-show.execution_report_trade_spread_leg = true
 show.fills_group = true
 show.fills_groups = true
 show.gross_trade_amt = true
 show.group_size = true
 show.leg_option_delta = true
-show.mass_quote = true
-show.mass_quote_ack = true
-show.mass_quote_request = true
 show.mass_quote_request_entries_group = true
 show.mass_quote_request_entries_groups = true
-show.mass_quote_response = true
 show.mass_quote_response_entries_group = true
 show.mass_quote_response_entries_groups = true
 show.maturity_month_year = true
 show.message_header = true
-show.negotiate = true
-show.negotiation_reject = true
-show.negotiation_response = true
-show.new_order_cross = true
-show.new_order_single = true
-show.not_applied = true
 show.option_delta = true
-show.order_cancel_reject = true
-show.order_cancel_replace_reject = true
-show.order_cancel_replace_request = true
-show.order_cancel_request = true
-show.order_mass_action_report = true
-show.order_mass_action_request = true
-show.order_mass_status_request = true
-show.order_status_request = true
 show.outright_order_events_group = true
 show.outright_order_events_groups = true
 show.outright_trade_events_group = true
 show.outright_trade_events_groups = true
 show.packet = true
-show.party_details_definition_request = true
-show.party_details_definition_request_ack = true
 show.party_details_group = true
 show.party_details_groups = true
-show.party_details_list_report = true
-show.party_details_list_request = true
 show.party_ids_group = true
 show.party_ids_groups = true
 show.quote_ack_entries_group = true
 show.quote_ack_entries_groups = true
-show.quote_cancel = true
-show.quote_cancel_ack = true
 show.quote_cancel_ack_entries_group = true
 show.quote_cancel_ack_entries_groups = true
 show.quote_cancel_ack_sets_group = true
 show.quote_cancel_ack_sets_groups = true
-show.quote_cancel_by_group = true
 show.quote_cancel_by_group_entries_group = true
 show.quote_cancel_by_group_entries_groups = true
-show.quote_cancel_by_instrument = true
 show.quote_cancel_by_instrument_entries_group = true
 show.quote_cancel_by_instrument_entries_groups = true
-show.quote_cancel_by_set = true
 show.quote_cancel_by_set_entries_group = true
 show.quote_cancel_by_set_entries_groups = true
 show.quote_cancel_entries_group = true
@@ -548,22 +503,13 @@ show.quote_entries_group = true
 show.quote_entries_groups = true
 show.related_sym_group = true
 show.related_sym_groups = true
-show.request_for_cross = true
-show.request_for_quote = true
-show.request_for_quote_ack = true
 show.request_legs_group = true
 show.request_legs_groups = true
 show.requesting_party_ids_group = true
 show.requesting_party_ids_groups = true
 show.response_legs_group = true
 show.response_legs_groups = true
-show.retransmission = true
-show.retransmit_reject = true
-show.retransmit_request = true
 show.risk_free_rate = true
-show.security_definition_request = true
-show.security_definition_response = true
-show.sequence = true
 show.sides_group = true
 show.sides_groups = true
 show.simple_open_frame = true
@@ -572,7 +518,6 @@ show.spread_order_events_group = true
 show.spread_order_events_groups = true
 show.spread_trade_events_group = true
 show.spread_trade_events_groups = true
-show.terminate = true
 show.time_to_expiration = true
 show.trade_addendum_legs_group = true
 show.trade_addendum_legs_groups = true
@@ -589,88 +534,43 @@ omi_cme_futures_ilink3_sbe_v8_9.prefs.show_broken_dates_request_group = Pref.boo
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_broken_dates_request_groups = Pref.bool("Show Broken Dates Request Groups", show.broken_dates_request_groups, "Parse and add Broken Dates Request Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_broken_dates_response_group = Pref.bool("Show Broken Dates Response Group", show.broken_dates_response_group, "Parse and add Broken Dates Response Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_broken_dates_response_groups = Pref.bool("Show Broken Dates Response Groups", show.broken_dates_response_groups, "Parse and add Broken Dates Response Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_business_reject = Pref.bool("Show Business Reject", show.business_reject, "Parse and add Business Reject to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_calculated_ccy_last_qty = Pref.bool("Show Calculated Ccy Last Qty", show.calculated_ccy_last_qty, "Parse and add Calculated Ccy Last Qty to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_contra_calculated_ccy_last_qty = Pref.bool("Show Contra Calculated Ccy Last Qty", show.contra_calculated_ccy_last_qty, "Parse and add Contra Calculated Ccy Last Qty to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_contra_gross_trade_amt = Pref.bool("Show Contra Gross Trade Amt", show.contra_gross_trade_amt, "Parse and add Contra Gross Trade Amt to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_credentials = Pref.bool("Show Credentials", show.credentials, "Parse and add Credentials to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establish = Pref.bool("Show Establish", show.establish, "Parse and add Establish to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establishment_ack = Pref.bool("Show Establishment Ack", show.establishment_ack, "Parse and add Establishment Ack to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establishment_reject = Pref.bool("Show Establishment Reject", show.establishment_reject, "Parse and add Establishment Reject to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_ack = Pref.bool("Show Execution Ack", show.execution_ack, "Parse and add Execution Ack to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_cancel = Pref.bool("Show Execution Report Cancel", show.execution_report_cancel, "Parse and add Execution Report Cancel to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_elimination = Pref.bool("Show Execution Report Elimination", show.execution_report_elimination, "Parse and add Execution Report Elimination to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_modify = Pref.bool("Show Execution Report Modify", show.execution_report_modify, "Parse and add Execution Report Modify to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_new = Pref.bool("Show Execution Report New", show.execution_report_new, "Parse and add Execution Report New to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_pending_cancel = Pref.bool("Show Execution Report Pending Cancel", show.execution_report_pending_cancel, "Parse and add Execution Report Pending Cancel to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_pending_replace = Pref.bool("Show Execution Report Pending Replace", show.execution_report_pending_replace, "Parse and add Execution Report Pending Replace to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_reject = Pref.bool("Show Execution Report Reject", show.execution_report_reject, "Parse and add Execution Report Reject to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_status = Pref.bool("Show Execution Report Status", show.execution_report_status, "Parse and add Execution Report Status to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_outright = Pref.bool("Show Execution Report Trade Addendum Outright", show.execution_report_trade_addendum_outright, "Parse and add Execution Report Trade Addendum Outright to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_spread = Pref.bool("Show Execution Report Trade Addendum Spread", show.execution_report_trade_addendum_spread, "Parse and add Execution Report Trade Addendum Spread to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_spread_leg = Pref.bool("Show Execution Report Trade Addendum Spread Leg", show.execution_report_trade_addendum_spread_leg, "Parse and add Execution Report Trade Addendum Spread Leg to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_outright = Pref.bool("Show Execution Report Trade Outright", show.execution_report_trade_outright, "Parse and add Execution Report Trade Outright to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_spread = Pref.bool("Show Execution Report Trade Spread", show.execution_report_trade_spread, "Parse and add Execution Report Trade Spread to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_spread_leg = Pref.bool("Show Execution Report Trade Spread Leg", show.execution_report_trade_spread_leg, "Parse and add Execution Report Trade Spread Leg to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_fills_group = Pref.bool("Show Fills Group", show.fills_group, "Parse and add Fills Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_fills_groups = Pref.bool("Show Fills Groups", show.fills_groups, "Parse and add Fills Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_gross_trade_amt = Pref.bool("Show Gross Trade Amt", show.gross_trade_amt, "Parse and add Gross Trade Amt to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_leg_option_delta = Pref.bool("Show Leg Option Delta", show.leg_option_delta, "Parse and add Leg Option Delta to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote = Pref.bool("Show Mass Quote", show.mass_quote, "Parse and add Mass Quote to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_ack = Pref.bool("Show Mass Quote Ack", show.mass_quote_ack, "Parse and add Mass Quote Ack to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request = Pref.bool("Show Mass Quote Request", show.mass_quote_request, "Parse and add Mass Quote Request to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request_entries_group = Pref.bool("Show Mass Quote Request Entries Group", show.mass_quote_request_entries_group, "Parse and add Mass Quote Request Entries Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request_entries_groups = Pref.bool("Show Mass Quote Request Entries Groups", show.mass_quote_request_entries_groups, "Parse and add Mass Quote Request Entries Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_response = Pref.bool("Show Mass Quote Response", show.mass_quote_response, "Parse and add Mass Quote Response to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_response_entries_group = Pref.bool("Show Mass Quote Response Entries Group", show.mass_quote_response_entries_group, "Parse and add Mass Quote Response Entries Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_response_entries_groups = Pref.bool("Show Mass Quote Response Entries Groups", show.mass_quote_response_entries_groups, "Parse and add Mass Quote Response Entries Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiate = Pref.bool("Show Negotiate", show.negotiate, "Parse and add Negotiate to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiation_reject = Pref.bool("Show Negotiation Reject", show.negotiation_reject, "Parse and add Negotiation Reject to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiation_response = Pref.bool("Show Negotiation Response", show.negotiation_response, "Parse and add Negotiation Response to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_new_order_cross = Pref.bool("Show New Order Cross", show.new_order_cross, "Parse and add New Order Cross to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_new_order_single = Pref.bool("Show New Order Single", show.new_order_single, "Parse and add New Order Single to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_not_applied = Pref.bool("Show Not Applied", show.not_applied, "Parse and add Not Applied to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_option_delta = Pref.bool("Show Option Delta", show.option_delta, "Parse and add Option Delta to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_reject = Pref.bool("Show Order Cancel Reject", show.order_cancel_reject, "Parse and add Order Cancel Reject to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_replace_reject = Pref.bool("Show Order Cancel Replace Reject", show.order_cancel_replace_reject, "Parse and add Order Cancel Replace Reject to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_replace_request = Pref.bool("Show Order Cancel Replace Request", show.order_cancel_replace_request, "Parse and add Order Cancel Replace Request to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_request = Pref.bool("Show Order Cancel Request", show.order_cancel_request, "Parse and add Order Cancel Request to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_action_report = Pref.bool("Show Order Mass Action Report", show.order_mass_action_report, "Parse and add Order Mass Action Report to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_action_request = Pref.bool("Show Order Mass Action Request", show.order_mass_action_request, "Parse and add Order Mass Action Request to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_status_request = Pref.bool("Show Order Mass Status Request", show.order_mass_status_request, "Parse and add Order Mass Status Request to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_status_request = Pref.bool("Show Order Status Request", show.order_status_request, "Parse and add Order Status Request to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_outright_order_events_group = Pref.bool("Show Outright Order Events Group", show.outright_order_events_group, "Parse and add Outright Order Events Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_outright_order_events_groups = Pref.bool("Show Outright Order Events Groups", show.outright_order_events_groups, "Parse and add Outright Order Events Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_outright_trade_events_group = Pref.bool("Show Outright Trade Events Group", show.outright_trade_events_group, "Parse and add Outright Trade Events Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_outright_trade_events_groups = Pref.bool("Show Outright Trade Events Groups", show.outright_trade_events_groups, "Parse and add Outright Trade Events Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_definition_request = Pref.bool("Show Party Details Definition Request", show.party_details_definition_request, "Parse and add Party Details Definition Request to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_definition_request_ack = Pref.bool("Show Party Details Definition Request Ack", show.party_details_definition_request_ack, "Parse and add Party Details Definition Request Ack to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_group = Pref.bool("Show Party Details Group", show.party_details_group, "Parse and add Party Details Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_groups = Pref.bool("Show Party Details Groups", show.party_details_groups, "Parse and add Party Details Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_list_report = Pref.bool("Show Party Details List Report", show.party_details_list_report, "Parse and add Party Details List Report to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_list_request = Pref.bool("Show Party Details List Request", show.party_details_list_request, "Parse and add Party Details List Request to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_ids_group = Pref.bool("Show Party Ids Group", show.party_ids_group, "Parse and add Party Ids Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_ids_groups = Pref.bool("Show Party Ids Groups", show.party_ids_groups, "Parse and add Party Ids Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_ack_entries_group = Pref.bool("Show Quote Ack Entries Group", show.quote_ack_entries_group, "Parse and add Quote Ack Entries Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_ack_entries_groups = Pref.bool("Show Quote Ack Entries Groups", show.quote_ack_entries_groups, "Parse and add Quote Ack Entries Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel = Pref.bool("Show Quote Cancel", show.quote_cancel, "Parse and add Quote Cancel to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack = Pref.bool("Show Quote Cancel Ack", show.quote_cancel_ack, "Parse and add Quote Cancel Ack to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack_entries_group = Pref.bool("Show Quote Cancel Ack Entries Group", show.quote_cancel_ack_entries_group, "Parse and add Quote Cancel Ack Entries Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack_entries_groups = Pref.bool("Show Quote Cancel Ack Entries Groups", show.quote_cancel_ack_entries_groups, "Parse and add Quote Cancel Ack Entries Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack_sets_group = Pref.bool("Show Quote Cancel Ack Sets Group", show.quote_cancel_ack_sets_group, "Parse and add Quote Cancel Ack Sets Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack_sets_groups = Pref.bool("Show Quote Cancel Ack Sets Groups", show.quote_cancel_ack_sets_groups, "Parse and add Quote Cancel Ack Sets Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group = Pref.bool("Show Quote Cancel By Group", show.quote_cancel_by_group, "Parse and add Quote Cancel By Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group_entries_group = Pref.bool("Show Quote Cancel By Group Entries Group", show.quote_cancel_by_group_entries_group, "Parse and add Quote Cancel By Group Entries Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group_entries_groups = Pref.bool("Show Quote Cancel By Group Entries Groups", show.quote_cancel_by_group_entries_groups, "Parse and add Quote Cancel By Group Entries Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument = Pref.bool("Show Quote Cancel By Instrument", show.quote_cancel_by_instrument, "Parse and add Quote Cancel By Instrument to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument_entries_group = Pref.bool("Show Quote Cancel By Instrument Entries Group", show.quote_cancel_by_instrument_entries_group, "Parse and add Quote Cancel By Instrument Entries Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument_entries_groups = Pref.bool("Show Quote Cancel By Instrument Entries Groups", show.quote_cancel_by_instrument_entries_groups, "Parse and add Quote Cancel By Instrument Entries Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_set = Pref.bool("Show Quote Cancel By Set", show.quote_cancel_by_set, "Parse and add Quote Cancel By Set to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_set_entries_group = Pref.bool("Show Quote Cancel By Set Entries Group", show.quote_cancel_by_set_entries_group, "Parse and add Quote Cancel By Set Entries Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_set_entries_groups = Pref.bool("Show Quote Cancel By Set Entries Groups", show.quote_cancel_by_set_entries_groups, "Parse and add Quote Cancel By Set Entries Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_entries_group = Pref.bool("Show Quote Cancel Entries Group", show.quote_cancel_entries_group, "Parse and add Quote Cancel Entries Group to protocol tree")
@@ -681,22 +581,13 @@ omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_entries_group = Pref.bool("Show
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_entries_groups = Pref.bool("Show Quote Entries Groups", show.quote_entries_groups, "Parse and add Quote Entries Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross = Pref.bool("Show Request For Cross", show.request_for_cross, "Parse and add Request For Cross to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote = Pref.bool("Show Request For Quote", show.request_for_quote, "Parse and add Request For Quote to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote_ack = Pref.bool("Show Request For Quote Ack", show.request_for_quote_ack, "Parse and add Request For Quote Ack to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_legs_group = Pref.bool("Show Request Legs Group", show.request_legs_group, "Parse and add Request Legs Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_legs_groups = Pref.bool("Show Request Legs Groups", show.request_legs_groups, "Parse and add Request Legs Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_requesting_party_ids_group = Pref.bool("Show Requesting Party Ids Group", show.requesting_party_ids_group, "Parse and add Requesting Party Ids Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_requesting_party_ids_groups = Pref.bool("Show Requesting Party Ids Groups", show.requesting_party_ids_groups, "Parse and add Requesting Party Ids Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_response_legs_group = Pref.bool("Show Response Legs Group", show.response_legs_group, "Parse and add Response Legs Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_response_legs_groups = Pref.bool("Show Response Legs Groups", show.response_legs_groups, "Parse and add Response Legs Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmission = Pref.bool("Show Retransmission", show.retransmission, "Parse and add Retransmission to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmit_reject = Pref.bool("Show Retransmit Reject", show.retransmit_reject, "Parse and add Retransmit Reject to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmit_request = Pref.bool("Show Retransmit Request", show.retransmit_request, "Parse and add Retransmit Request to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_risk_free_rate = Pref.bool("Show Risk Free Rate", show.risk_free_rate, "Parse and add Risk Free Rate to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_security_definition_request = Pref.bool("Show Security Definition Request", show.security_definition_request, "Parse and add Security Definition Request to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_security_definition_response = Pref.bool("Show Security Definition Response", show.security_definition_response, "Parse and add Security Definition Response to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_sequence = Pref.bool("Show Sequence", show.sequence, "Parse and add Sequence to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_sides_group = Pref.bool("Show Sides Group", show.sides_group, "Parse and add Sides Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_simple_open_frame = Pref.bool("Show Simple Open Frame", show.simple_open_frame, "Parse and add Simple Open Frame to protocol tree")
@@ -705,7 +596,6 @@ omi_cme_futures_ilink3_sbe_v8_9.prefs.show_spread_order_events_group = Pref.bool
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_spread_order_events_groups = Pref.bool("Show Spread Order Events Groups", show.spread_order_events_groups, "Parse and add Spread Order Events Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_spread_trade_events_group = Pref.bool("Show Spread Trade Events Group", show.spread_trade_events_group, "Parse and add Spread Trade Events Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_spread_trade_events_groups = Pref.bool("Show Spread Trade Events Groups", show.spread_trade_events_groups, "Parse and add Spread Trade Events Groups to protocol tree")
-omi_cme_futures_ilink3_sbe_v8_9.prefs.show_terminate = Pref.bool("Show Terminate", show.terminate, "Parse and add Terminate to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_time_to_expiration = Pref.bool("Show Time To Expiration", show.time_to_expiration, "Parse and add Time To Expiration to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_trade_addendum_legs_group = Pref.bool("Show Trade Addendum Legs Group", show.trade_addendum_legs_group, "Parse and add Trade Addendum Legs Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_9.prefs.show_trade_addendum_legs_groups = Pref.bool("Show Trade Addendum Legs Groups", show.trade_addendum_legs_groups, "Parse and add Trade Addendum Legs Groups to protocol tree")
@@ -728,6 +618,10 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.affected_orders_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_affected_orders_groups
     changed = true
   end
+  if show.application_messages ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_application_messages then
+    show.application_messages = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_application_messages
+    changed = true
+  end
   if show.broken_dates_request_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_broken_dates_request_group then
     show.broken_dates_request_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_broken_dates_request_group
     changed = true
@@ -742,10 +636,6 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
   end
   if show.broken_dates_response_groups ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_broken_dates_response_groups then
     show.broken_dates_response_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_broken_dates_response_groups
-    changed = true
-  end
-  if show.business_reject ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_business_reject then
-    show.business_reject = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_business_reject
     changed = true
   end
   if show.calculated_ccy_last_qty ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_calculated_ccy_last_qty then
@@ -764,80 +654,8 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.credentials = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_credentials
     changed = true
   end
-  if show.establish ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establish then
-    show.establish = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establish
-    changed = true
-  end
-  if show.establishment_ack ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establishment_ack then
-    show.establishment_ack = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establishment_ack
-    changed = true
-  end
-  if show.establishment_reject ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establishment_reject then
-    show.establishment_reject = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_establishment_reject
-    changed = true
-  end
   if show.exec_inst ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_exec_inst then
     show.exec_inst = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_exec_inst
-    changed = true
-  end
-  if show.execution_ack ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_ack then
-    show.execution_ack = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_ack
-    changed = true
-  end
-  if show.execution_report_cancel ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_cancel then
-    show.execution_report_cancel = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_cancel
-    changed = true
-  end
-  if show.execution_report_elimination ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_elimination then
-    show.execution_report_elimination = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_elimination
-    changed = true
-  end
-  if show.execution_report_modify ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_modify then
-    show.execution_report_modify = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_modify
-    changed = true
-  end
-  if show.execution_report_new ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_new then
-    show.execution_report_new = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_new
-    changed = true
-  end
-  if show.execution_report_pending_cancel ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_pending_cancel then
-    show.execution_report_pending_cancel = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_pending_cancel
-    changed = true
-  end
-  if show.execution_report_pending_replace ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_pending_replace then
-    show.execution_report_pending_replace = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_pending_replace
-    changed = true
-  end
-  if show.execution_report_reject ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_reject then
-    show.execution_report_reject = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_reject
-    changed = true
-  end
-  if show.execution_report_status ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_status then
-    show.execution_report_status = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_status
-    changed = true
-  end
-  if show.execution_report_trade_addendum_outright ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_outright then
-    show.execution_report_trade_addendum_outright = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_outright
-    changed = true
-  end
-  if show.execution_report_trade_addendum_spread ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_spread then
-    show.execution_report_trade_addendum_spread = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_spread
-    changed = true
-  end
-  if show.execution_report_trade_addendum_spread_leg ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_spread_leg then
-    show.execution_report_trade_addendum_spread_leg = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_addendum_spread_leg
-    changed = true
-  end
-  if show.execution_report_trade_outright ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_outright then
-    show.execution_report_trade_outright = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_outright
-    changed = true
-  end
-  if show.execution_report_trade_spread ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_spread then
-    show.execution_report_trade_spread = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_spread
-    changed = true
-  end
-  if show.execution_report_trade_spread_leg ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_spread_leg then
-    show.execution_report_trade_spread_leg = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_execution_report_trade_spread_leg
     changed = true
   end
   if show.fills_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_fills_group then
@@ -860,28 +678,12 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.leg_option_delta = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_leg_option_delta
     changed = true
   end
-  if show.mass_quote ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote then
-    show.mass_quote = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote
-    changed = true
-  end
-  if show.mass_quote_ack ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_ack then
-    show.mass_quote_ack = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_ack
-    changed = true
-  end
-  if show.mass_quote_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request then
-    show.mass_quote_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request
-    changed = true
-  end
   if show.mass_quote_request_entries_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request_entries_group then
     show.mass_quote_request_entries_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request_entries_group
     changed = true
   end
   if show.mass_quote_request_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request_entries_groups then
     show.mass_quote_request_entries_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_request_entries_groups
-    changed = true
-  end
-  if show.mass_quote_response ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_response then
-    show.mass_quote_response = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_response
     changed = true
   end
   if show.mass_quote_response_entries_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_mass_quote_response_entries_group then
@@ -900,64 +702,8 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.message_header = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_message_header
     changed = true
   end
-  if show.negotiate ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiate then
-    show.negotiate = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiate
-    changed = true
-  end
-  if show.negotiation_reject ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiation_reject then
-    show.negotiation_reject = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiation_reject
-    changed = true
-  end
-  if show.negotiation_response ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiation_response then
-    show.negotiation_response = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_negotiation_response
-    changed = true
-  end
-  if show.new_order_cross ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_new_order_cross then
-    show.new_order_cross = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_new_order_cross
-    changed = true
-  end
-  if show.new_order_single ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_new_order_single then
-    show.new_order_single = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_new_order_single
-    changed = true
-  end
-  if show.not_applied ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_not_applied then
-    show.not_applied = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_not_applied
-    changed = true
-  end
   if show.option_delta ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_option_delta then
     show.option_delta = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_option_delta
-    changed = true
-  end
-  if show.order_cancel_reject ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_reject then
-    show.order_cancel_reject = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_reject
-    changed = true
-  end
-  if show.order_cancel_replace_reject ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_replace_reject then
-    show.order_cancel_replace_reject = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_replace_reject
-    changed = true
-  end
-  if show.order_cancel_replace_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_replace_request then
-    show.order_cancel_replace_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_replace_request
-    changed = true
-  end
-  if show.order_cancel_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_request then
-    show.order_cancel_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_cancel_request
-    changed = true
-  end
-  if show.order_mass_action_report ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_action_report then
-    show.order_mass_action_report = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_action_report
-    changed = true
-  end
-  if show.order_mass_action_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_action_request then
-    show.order_mass_action_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_action_request
-    changed = true
-  end
-  if show.order_mass_status_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_status_request then
-    show.order_mass_status_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_mass_status_request
-    changed = true
-  end
-  if show.order_status_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_status_request then
-    show.order_status_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_order_status_request
     changed = true
   end
   if show.outright_order_events_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_outright_order_events_group then
@@ -980,28 +726,12 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.packet = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_packet
     changed = true
   end
-  if show.party_details_definition_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_definition_request then
-    show.party_details_definition_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_definition_request
-    changed = true
-  end
-  if show.party_details_definition_request_ack ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_definition_request_ack then
-    show.party_details_definition_request_ack = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_definition_request_ack
-    changed = true
-  end
   if show.party_details_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_group then
     show.party_details_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_group
     changed = true
   end
   if show.party_details_groups ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_groups then
     show.party_details_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_groups
-    changed = true
-  end
-  if show.party_details_list_report ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_list_report then
-    show.party_details_list_report = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_list_report
-    changed = true
-  end
-  if show.party_details_list_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_list_request then
-    show.party_details_list_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_details_list_request
     changed = true
   end
   if show.party_ids_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_party_ids_group then
@@ -1020,14 +750,6 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.quote_ack_entries_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_ack_entries_groups
     changed = true
   end
-  if show.quote_cancel ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel then
-    show.quote_cancel = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel
-    changed = true
-  end
-  if show.quote_cancel_ack ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack then
-    show.quote_cancel_ack = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack
-    changed = true
-  end
   if show.quote_cancel_ack_entries_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack_entries_group then
     show.quote_cancel_ack_entries_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack_entries_group
     changed = true
@@ -1044,10 +766,6 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.quote_cancel_ack_sets_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_ack_sets_groups
     changed = true
   end
-  if show.quote_cancel_by_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group then
-    show.quote_cancel_by_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group
-    changed = true
-  end
   if show.quote_cancel_by_group_entries_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group_entries_group then
     show.quote_cancel_by_group_entries_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group_entries_group
     changed = true
@@ -1056,20 +774,12 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.quote_cancel_by_group_entries_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group_entries_groups
     changed = true
   end
-  if show.quote_cancel_by_instrument ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument then
-    show.quote_cancel_by_instrument = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument
-    changed = true
-  end
   if show.quote_cancel_by_instrument_entries_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument_entries_group then
     show.quote_cancel_by_instrument_entries_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument_entries_group
     changed = true
   end
   if show.quote_cancel_by_instrument_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument_entries_groups then
     show.quote_cancel_by_instrument_entries_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument_entries_groups
-    changed = true
-  end
-  if show.quote_cancel_by_set ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_set then
-    show.quote_cancel_by_set = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_set
     changed = true
   end
   if show.quote_cancel_by_set_entries_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_set_entries_group then
@@ -1112,18 +822,6 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.related_sym_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_related_sym_groups
     changed = true
   end
-  if show.request_for_cross ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross then
-    show.request_for_cross = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_cross
-    changed = true
-  end
-  if show.request_for_quote ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote then
-    show.request_for_quote = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote
-    changed = true
-  end
-  if show.request_for_quote_ack ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote_ack then
-    show.request_for_quote_ack = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_for_quote_ack
-    changed = true
-  end
   if show.request_legs_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_legs_group then
     show.request_legs_group = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_request_legs_group
     changed = true
@@ -1148,32 +846,8 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
     show.response_legs_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_response_legs_groups
     changed = true
   end
-  if show.retransmission ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmission then
-    show.retransmission = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmission
-    changed = true
-  end
-  if show.retransmit_reject ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmit_reject then
-    show.retransmit_reject = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmit_reject
-    changed = true
-  end
-  if show.retransmit_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmit_request then
-    show.retransmit_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_retransmit_request
-    changed = true
-  end
   if show.risk_free_rate ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_risk_free_rate then
     show.risk_free_rate = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_risk_free_rate
-    changed = true
-  end
-  if show.security_definition_request ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_security_definition_request then
-    show.security_definition_request = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_security_definition_request
-    changed = true
-  end
-  if show.security_definition_response ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_security_definition_response then
-    show.security_definition_response = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_security_definition_response
-    changed = true
-  end
-  if show.sequence ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_sequence then
-    show.sequence = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_sequence
     changed = true
   end
   if show.sides_group ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_sides_group then
@@ -1206,10 +880,6 @@ function omi_cme_futures_ilink3_sbe_v8_9.prefs_changed()
   end
   if show.spread_trade_events_groups ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_spread_trade_events_groups then
     show.spread_trade_events_groups = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_spread_trade_events_groups
-    changed = true
-  end
-  if show.terminate ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_terminate then
-    show.terminate = omi_cme_futures_ilink3_sbe_v8_9.prefs.show_terminate
     changed = true
   end
   if show.time_to_expiration ~= omi_cme_futures_ilink3_sbe_v8_9.prefs.show_time_to_expiration then
@@ -9659,7 +9329,7 @@ end
 
 -- Dissect: Mass Quote Response
 cme_futures_ilink3_sbe_v8_9.mass_quote_response.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.mass_quote_response, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.mass_quote_response.fields(buffer, offset, packet, parent)
@@ -9847,7 +9517,7 @@ end
 
 -- Dissect: Quote Cancel By Instrument
 cme_futures_ilink3_sbe_v8_9.quote_cancel_by_instrument.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancel_by_instrument then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.quote_cancel_by_instrument, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.quote_cancel_by_instrument.fields(buffer, offset, packet, parent)
@@ -10040,7 +9710,7 @@ end
 
 -- Dissect: Quote Cancel By Group
 cme_futures_ilink3_sbe_v8_9.quote_cancel_by_group.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancel_by_group then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.quote_cancel_by_group, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.quote_cancel_by_group.fields(buffer, offset, packet, parent)
@@ -10233,7 +9903,7 @@ end
 
 -- Dissect: Quote Cancel By Set
 cme_futures_ilink3_sbe_v8_9.quote_cancel_by_set.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancel_by_set then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.quote_cancel_by_set, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.quote_cancel_by_set.fields(buffer, offset, packet, parent)
@@ -10476,7 +10146,7 @@ end
 
 -- Dissect: Mass Quote Request
 cme_futures_ilink3_sbe_v8_9.mass_quote_request.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.mass_quote_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.mass_quote_request.fields(buffer, offset, packet, parent)
@@ -10690,7 +10360,7 @@ end
 
 -- Dissect: Request For Cross
 cme_futures_ilink3_sbe_v8_9.request_for_cross.dissect = function(buffer, offset, packet, parent)
-  if show.request_for_cross then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_cross, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.request_for_cross.fields(buffer, offset, packet, parent)
@@ -10846,7 +10516,7 @@ end
 
 -- Dissect: Execution Report Pending Replace
 cme_futures_ilink3_sbe_v8_9.execution_report_pending_replace.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_replace then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_pending_replace, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_pending_replace.fields(buffer, offset, packet, parent)
@@ -11010,7 +10680,7 @@ end
 
 -- Dissect: Execution Report Pending Cancel
 cme_futures_ilink3_sbe_v8_9.execution_report_pending_cancel.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_cancel then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_pending_cancel, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_pending_cancel.fields(buffer, offset, packet, parent)
@@ -11413,7 +11083,7 @@ end
 
 -- Dissect: Quote Cancel Ack
 cme_futures_ilink3_sbe_v8_9.quote_cancel_ack.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancel_ack then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.quote_cancel_ack, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.quote_cancel_ack.fields(buffer, offset, packet, parent)
@@ -11714,7 +11384,7 @@ end
 
 -- Dissect: Order Mass Action Report
 cme_futures_ilink3_sbe_v8_9.order_mass_action_report.dissect = function(buffer, offset, packet, parent)
-  if show.order_mass_action_report then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.order_mass_action_report, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.order_mass_action_report.fields(buffer, offset, packet, parent)
@@ -12246,7 +11916,7 @@ end
 
 -- Dissect: Security Definition Response
 cme_futures_ilink3_sbe_v8_9.security_definition_response.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.security_definition_response, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.security_definition_response.fields(buffer, offset, packet, parent)
@@ -12587,7 +12257,7 @@ end
 
 -- Dissect: Security Definition Request
 cme_futures_ilink3_sbe_v8_9.security_definition_request.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.security_definition_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.security_definition_request.fields(buffer, offset, packet, parent)
@@ -13116,7 +12786,7 @@ end
 
 -- Dissect: Execution Report Trade Addendum Spread Leg
 cme_futures_ilink3_sbe_v8_9.execution_report_trade_addendum_spread_leg.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_addendum_spread_leg then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_trade_addendum_spread_leg, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_trade_addendum_spread_leg.fields(buffer, offset, packet, parent)
@@ -13551,7 +13221,7 @@ end
 
 -- Dissect: Execution Report Trade Addendum Spread
 cme_futures_ilink3_sbe_v8_9.execution_report_trade_addendum_spread.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_addendum_spread then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_trade_addendum_spread, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_trade_addendum_spread.fields(buffer, offset, packet, parent)
@@ -14028,7 +13698,7 @@ end
 
 -- Dissect: Execution Report Trade Addendum Outright
 cme_futures_ilink3_sbe_v8_9.execution_report_trade_addendum_outright.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_addendum_outright then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_trade_addendum_outright, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_trade_addendum_outright.fields(buffer, offset, packet, parent)
@@ -14132,7 +13802,7 @@ end
 
 -- Dissect: Request For Quote Ack
 cme_futures_ilink3_sbe_v8_9.request_for_quote_ack.dissect = function(buffer, offset, packet, parent)
-  if show.request_for_quote_ack then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_quote_ack, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.request_for_quote_ack.fields(buffer, offset, packet, parent)
@@ -14412,7 +14082,7 @@ end
 
 -- Dissect: Mass Quote Ack
 cme_futures_ilink3_sbe_v8_9.mass_quote_ack.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_ack then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.mass_quote_ack, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.mass_quote_ack.fields(buffer, offset, packet, parent)
@@ -14507,7 +14177,7 @@ end
 
 -- Dissect: New Order Cross
 cme_futures_ilink3_sbe_v8_9.new_order_cross.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_cross then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.new_order_cross, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.new_order_cross.fields(buffer, offset, packet, parent)
@@ -14703,7 +14373,7 @@ end
 
 -- Dissect: Request For Quote
 cme_futures_ilink3_sbe_v8_9.request_for_quote.dissect = function(buffer, offset, packet, parent)
-  if show.request_for_quote then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.request_for_quote, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.request_for_quote.fields(buffer, offset, packet, parent)
@@ -14799,7 +14469,7 @@ end
 
 -- Dissect: Execution Ack
 cme_futures_ilink3_sbe_v8_9.execution_ack.dissect = function(buffer, offset, packet, parent)
-  if show.execution_ack then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_ack, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_ack.fields(buffer, offset, packet, parent)
@@ -15168,7 +14838,7 @@ end
 
 -- Dissect: Party Details List Report
 cme_futures_ilink3_sbe_v8_9.party_details_list_report.dissect = function(buffer, offset, packet, parent)
-  if show.party_details_list_report then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.party_details_list_report, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.party_details_list_report.fields(buffer, offset, packet, parent)
@@ -15455,7 +15125,7 @@ end
 
 -- Dissect: Party Details List Request
 cme_futures_ilink3_sbe_v8_9.party_details_list_request.dissect = function(buffer, offset, packet, parent)
-  if show.party_details_list_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.party_details_list_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.party_details_list_request.fields(buffer, offset, packet, parent)
@@ -15567,7 +15237,7 @@ end
 
 -- Dissect: Order Cancel Replace Reject
 cme_futures_ilink3_sbe_v8_9.order_cancel_replace_reject.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_replace_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.order_cancel_replace_reject, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.order_cancel_replace_reject.fields(buffer, offset, packet, parent)
@@ -15679,7 +15349,7 @@ end
 
 -- Dissect: Order Cancel Reject
 cme_futures_ilink3_sbe_v8_9.order_cancel_reject.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.order_cancel_reject, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.order_cancel_reject.fields(buffer, offset, packet, parent)
@@ -15879,7 +15549,7 @@ end
 
 -- Dissect: Execution Report Cancel
 cme_futures_ilink3_sbe_v8_9.execution_report_cancel.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_cancel then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_cancel, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_cancel.fields(buffer, offset, packet, parent)
@@ -15947,7 +15617,7 @@ end
 
 -- Dissect: Order Status Request
 cme_futures_ilink3_sbe_v8_9.order_status_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_status_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.order_status_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.order_status_request.fields(buffer, offset, packet, parent)
@@ -16155,7 +15825,7 @@ end
 
 -- Dissect: Execution Report Status
 cme_futures_ilink3_sbe_v8_9.execution_report_status.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_status then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_status, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_status.fields(buffer, offset, packet, parent)
@@ -16343,7 +16013,7 @@ end
 
 -- Dissect: Execution Report Modify
 cme_futures_ilink3_sbe_v8_9.execution_report_modify.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_modify then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_modify, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_modify.fields(buffer, offset, packet, parent)
@@ -16431,7 +16101,7 @@ end
 
 -- Dissect: Order Mass Status Request
 cme_futures_ilink3_sbe_v8_9.order_mass_status_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_mass_status_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.order_mass_status_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.order_mass_status_request.fields(buffer, offset, packet, parent)
@@ -16535,7 +16205,7 @@ end
 
 -- Dissect: Order Mass Action Request
 cme_futures_ilink3_sbe_v8_9.order_mass_action_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_mass_action_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.order_mass_action_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.order_mass_action_request.fields(buffer, offset, packet, parent)
@@ -16858,7 +16528,7 @@ end
 
 -- Dissect: Quote Cancel
 cme_futures_ilink3_sbe_v8_9.quote_cancel.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancel then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.quote_cancel, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.quote_cancel.fields(buffer, offset, packet, parent)
@@ -17380,7 +17050,7 @@ end
 
 -- Dissect: Execution Report Trade Spread Leg
 cme_futures_ilink3_sbe_v8_9.execution_report_trade_spread_leg.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_spread_leg then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_trade_spread_leg, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_trade_spread_leg.fields(buffer, offset, packet, parent)
@@ -17753,7 +17423,7 @@ end
 
 -- Dissect: Execution Report Trade Spread
 cme_futures_ilink3_sbe_v8_9.execution_report_trade_spread.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_spread then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_trade_spread, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_trade_spread.fields(buffer, offset, packet, parent)
@@ -18194,7 +17864,7 @@ end
 
 -- Dissect: Execution Report Trade Outright
 cme_futures_ilink3_sbe_v8_9.execution_report_trade_outright.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_outright then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_trade_outright, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_trade_outright.fields(buffer, offset, packet, parent)
@@ -18370,7 +18040,7 @@ end
 
 -- Dissect: Execution Report Elimination
 cme_futures_ilink3_sbe_v8_9.execution_report_elimination.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_elimination then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_elimination, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_elimination.fields(buffer, offset, packet, parent)
@@ -18558,7 +18228,7 @@ end
 
 -- Dissect: Execution Report Reject
 cme_futures_ilink3_sbe_v8_9.execution_report_reject.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_reject, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_reject.fields(buffer, offset, packet, parent)
@@ -18742,7 +18412,7 @@ end
 
 -- Dissect: Execution Report New
 cme_futures_ilink3_sbe_v8_9.execution_report_new.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_new then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.execution_report_new, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.execution_report_new.fields(buffer, offset, packet, parent)
@@ -18838,7 +18508,7 @@ end
 
 -- Dissect: Business Reject
 cme_futures_ilink3_sbe_v8_9.business_reject.dissect = function(buffer, offset, packet, parent)
-  if show.business_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.business_reject, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.business_reject.fields(buffer, offset, packet, parent)
@@ -18993,7 +18663,7 @@ end
 
 -- Dissect: Party Details Definition Request Ack
 cme_futures_ilink3_sbe_v8_9.party_details_definition_request_ack.dissect = function(buffer, offset, packet, parent)
-  if show.party_details_definition_request_ack then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.party_details_definition_request_ack, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.party_details_definition_request_ack.fields(buffer, offset, packet, parent)
@@ -19123,7 +18793,7 @@ end
 
 -- Dissect: Party Details Definition Request
 cme_futures_ilink3_sbe_v8_9.party_details_definition_request.dissect = function(buffer, offset, packet, parent)
-  if show.party_details_definition_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.party_details_definition_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.party_details_definition_request.fields(buffer, offset, packet, parent)
@@ -19374,7 +19044,7 @@ end
 
 -- Dissect: Mass Quote
 cme_futures_ilink3_sbe_v8_9.mass_quote.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.mass_quote, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.mass_quote.fields(buffer, offset, packet, parent)
@@ -19462,7 +19132,7 @@ end
 
 -- Dissect: Order Cancel Request
 cme_futures_ilink3_sbe_v8_9.order_cancel_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.order_cancel_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.order_cancel_request.fields(buffer, offset, packet, parent)
@@ -19602,7 +19272,7 @@ end
 
 -- Dissect: Order Cancel Replace Request
 cme_futures_ilink3_sbe_v8_9.order_cancel_replace_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_replace_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.order_cancel_replace_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.order_cancel_replace_request.fields(buffer, offset, packet, parent)
@@ -19738,7 +19408,7 @@ end
 
 -- Dissect: New Order Single
 cme_futures_ilink3_sbe_v8_9.new_order_single.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_single then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.new_order_single, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.new_order_single.fields(buffer, offset, packet, parent)
@@ -19790,7 +19460,7 @@ end
 
 -- Dissect: Not Applied
 cme_futures_ilink3_sbe_v8_9.not_applied.dissect = function(buffer, offset, packet, parent)
-  if show.not_applied then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.not_applied, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.not_applied.fields(buffer, offset, packet, parent)
@@ -19850,7 +19520,7 @@ end
 
 -- Dissect: Retransmit Reject
 cme_futures_ilink3_sbe_v8_9.retransmit_reject.dissect = function(buffer, offset, packet, parent)
-  if show.retransmit_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.retransmit_reject, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.retransmit_reject.fields(buffer, offset, packet, parent)
@@ -19910,7 +19580,7 @@ end
 
 -- Dissect: Retransmission
 cme_futures_ilink3_sbe_v8_9.retransmission.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.retransmission, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.retransmission.fields(buffer, offset, packet, parent)
@@ -19966,7 +19636,7 @@ end
 
 -- Dissect: Retransmit Request
 cme_futures_ilink3_sbe_v8_9.retransmit_request.dissect = function(buffer, offset, packet, parent)
-  if show.retransmit_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.retransmit_request, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.retransmit_request.fields(buffer, offset, packet, parent)
@@ -20022,7 +19692,7 @@ end
 
 -- Dissect: Terminate
 cme_futures_ilink3_sbe_v8_9.terminate.dissect = function(buffer, offset, packet, parent)
-  if show.terminate then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.terminate, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.terminate.fields(buffer, offset, packet, parent)
@@ -20074,7 +19744,7 @@ end
 
 -- Dissect: Sequence
 cme_futures_ilink3_sbe_v8_9.sequence.dissect = function(buffer, offset, packet, parent)
-  if show.sequence then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.sequence, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.sequence.fields(buffer, offset, packet, parent)
@@ -20142,7 +19812,7 @@ end
 
 -- Dissect: Establishment Reject
 cme_futures_ilink3_sbe_v8_9.establishment_reject.dissect = function(buffer, offset, packet, parent)
-  if show.establishment_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.establishment_reject, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.establishment_reject.fields(buffer, offset, packet, parent)
@@ -20218,7 +19888,7 @@ end
 
 -- Dissect: Establishment Ack
 cme_futures_ilink3_sbe_v8_9.establishment_ack.dissect = function(buffer, offset, packet, parent)
-  if show.establishment_ack then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.establishment_ack, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.establishment_ack.fields(buffer, offset, packet, parent)
@@ -20389,7 +20059,7 @@ end
 
 -- Dissect: Establish
 cme_futures_ilink3_sbe_v8_9.establish.dissect = function(buffer, offset, packet, parent)
-  if show.establish then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.establish, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.establish.fields(buffer, offset, packet, parent)
@@ -20453,7 +20123,7 @@ end
 
 -- Dissect: Negotiation Reject
 cme_futures_ilink3_sbe_v8_9.negotiation_reject.dissect = function(buffer, offset, packet, parent)
-  if show.negotiation_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.negotiation_reject, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.negotiation_reject.fields(buffer, offset, packet, parent)
@@ -20538,7 +20208,7 @@ end
 
 -- Dissect: Negotiation Response
 cme_futures_ilink3_sbe_v8_9.negotiation_response.dissect = function(buffer, offset, packet, parent)
-  if show.negotiation_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.negotiation_response, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.negotiation_response.fields(buffer, offset, packet, parent)
@@ -20613,7 +20283,7 @@ end
 
 -- Dissect: Negotiate
 cme_futures_ilink3_sbe_v8_9.negotiate.dissect = function(buffer, offset, packet, parent)
-  if show.negotiate then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_ilink3_sbe_v8_9.fields.negotiate, buffer(offset, 0))
     local index = cme_futures_ilink3_sbe_v8_9.negotiate.fields(buffer, offset, packet, parent)

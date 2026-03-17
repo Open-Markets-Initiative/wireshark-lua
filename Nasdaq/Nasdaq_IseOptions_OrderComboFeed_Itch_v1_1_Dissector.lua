@@ -88,51 +88,33 @@ local show = {}
 
 -- Nasdaq IseOptions OrderComboFeed Itch 1.1 Element Dissection Options
 show.auction_response = true
-show.complex_strategy_auction_message = true
-show.complex_strategy_directory_message = true
-show.complex_strategy_order_on_book_message = true
+show.application_messages = true
 show.leg_information = true
 show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
-show.strategy_open_closed_message = true
-show.strategy_trading_action_message = true
-show.system_event_message = true
 
 -- Register Nasdaq IseOptions OrderComboFeed Itch 1.1 Show Options
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_auction_response = Pref.bool("Show Auction Response", show.auction_response, "Parse and add Auction Response to protocol tree")
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_auction_message = Pref.bool("Show Complex Strategy Auction Message", show.complex_strategy_auction_message, "Parse and add Complex Strategy Auction Message to protocol tree")
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_directory_message = Pref.bool("Show Complex Strategy Directory Message", show.complex_strategy_directory_message, "Parse and add Complex Strategy Directory Message to protocol tree")
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_order_on_book_message = Pref.bool("Show Complex Strategy Order On Book Message", show.complex_strategy_order_on_book_message, "Parse and add Complex Strategy Order On Book Message to protocol tree")
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_leg_information = Pref.bool("Show Leg Information", show.leg_information, "Parse and add Leg Information to protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_strategy_open_closed_message = Pref.bool("Show Strategy Open Closed Message", show.strategy_open_closed_message, "Parse and add Strategy Open Closed Message to protocol tree")
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_strategy_trading_action_message = Pref.bool("Show Strategy Trading Action Message", show.strategy_trading_action_message, "Parse and add Strategy Trading Action Message to protocol tree")
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_application_messages
+    changed = true
+  end
   if show.auction_response ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_auction_response then
     show.auction_response = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_auction_response
-    changed = true
-  end
-  if show.complex_strategy_auction_message ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_auction_message then
-    show.complex_strategy_auction_message = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_auction_message
-    changed = true
-  end
-  if show.complex_strategy_directory_message ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_directory_message then
-    show.complex_strategy_directory_message = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_directory_message
-    changed = true
-  end
-  if show.complex_strategy_order_on_book_message ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_order_on_book_message then
-    show.complex_strategy_order_on_book_message = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_complex_strategy_order_on_book_message
     changed = true
   end
   if show.leg_information ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_leg_information then
@@ -153,18 +135,6 @@ function omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs_changed()
   end
   if show.packet_header ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_packet_header
-    changed = true
-  end
-  if show.strategy_open_closed_message ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_strategy_open_closed_message then
-    show.strategy_open_closed_message = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_strategy_open_closed_message
-    changed = true
-  end
-  if show.strategy_trading_action_message ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_strategy_trading_action_message then
-    show.strategy_trading_action_message = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_strategy_trading_action_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_system_event_message
     changed = true
   end
 
@@ -1616,7 +1586,7 @@ end
 
 -- Dissect: Complex Strategy Auction Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_auction_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_strategy_auction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_auction_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_auction_message.fields(buffer, offset, packet, parent)
@@ -1700,7 +1670,7 @@ end
 
 -- Dissect: Complex Strategy Order On Book Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_order_on_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_strategy_order_on_book_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_order_on_book_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_order_on_book_message.fields(buffer, offset, packet, parent)
@@ -1748,7 +1718,7 @@ end
 
 -- Dissect: Strategy Open Closed Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.strategy_open_closed_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_open_closed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_open_closed_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1.strategy_open_closed_message.fields(buffer, offset, packet, parent)
@@ -1796,7 +1766,7 @@ end
 
 -- Dissect: Strategy Trading Action Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.strategy_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_trading_action_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1.strategy_trading_action_message.fields(buffer, offset, packet, parent)
@@ -1957,7 +1927,7 @@ end
 
 -- Dissect: Complex Strategy Directory Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_strategy_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_directory_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_directory_message.fields(buffer, offset, packet, parent)
@@ -2021,7 +1991,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1.system_event_message.fields(buffer, offset, packet, parent)

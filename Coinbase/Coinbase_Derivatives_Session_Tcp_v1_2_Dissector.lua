@@ -61,60 +61,24 @@ omi_coinbase_derivatives_session_tcp_v1_2.fields.test_request_message = ProtoFie
 local show = {}
 
 -- Coinbase Derivatives Session Tcp 1.2 Element Dissection Options
-show.gap_fill_message = true
-show.heartbeat_message = true
-show.logged_out_message = true
-show.logon_conf_message = true
-show.logon_message = true
-show.logout_message = true
+show.application_messages = true
 show.message_header = true
 show.packet = true
-show.reject_message = true
-show.resend_request_message = true
 show.sbe_message = true
-show.test_request_message = true
 
 -- Register Coinbase Derivatives Session Tcp 1.2 Show Options
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_gap_fill_message = Pref.bool("Show Gap Fill Message", show.gap_fill_message, "Parse and add Gap Fill Message to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_heartbeat_message = Pref.bool("Show Heartbeat Message", show.heartbeat_message, "Parse and add Heartbeat Message to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logged_out_message = Pref.bool("Show Logged Out Message", show.logged_out_message, "Parse and add Logged Out Message to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logon_conf_message = Pref.bool("Show Logon Conf Message", show.logon_conf_message, "Parse and add Logon Conf Message to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
+omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_reject_message = Pref.bool("Show Reject Message", show.reject_message, "Parse and add Reject Message to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_resend_request_message = Pref.bool("Show Resend Request Message", show.resend_request_message, "Parse and add Resend Request Message to protocol tree")
 omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_test_request_message = Pref.bool("Show Test Request Message", show.test_request_message, "Parse and add Test Request Message to protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_derivatives_session_tcp_v1_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.gap_fill_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_gap_fill_message then
-    show.gap_fill_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_gap_fill_message
-    changed = true
-  end
-  if show.heartbeat_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_heartbeat_message then
-    show.heartbeat_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_heartbeat_message
-    changed = true
-  end
-  if show.logged_out_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logged_out_message then
-    show.logged_out_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logged_out_message
-    changed = true
-  end
-  if show.logon_conf_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logon_conf_message then
-    show.logon_conf_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logon_conf_message
-    changed = true
-  end
-  if show.logon_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logon_message then
-    show.logon_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logon_message
-    changed = true
-  end
-  if show.logout_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logout_message then
-    show.logout_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_logout_message
+  if show.application_messages ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_application_messages then
+    show.application_messages = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_application_messages
     changed = true
   end
   if show.message_header ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_message_header then
@@ -125,20 +89,8 @@ function omi_coinbase_derivatives_session_tcp_v1_2.prefs_changed()
     show.packet = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_packet
     changed = true
   end
-  if show.reject_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_reject_message then
-    show.reject_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_reject_message
-    changed = true
-  end
-  if show.resend_request_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_resend_request_message then
-    show.resend_request_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_resend_request_message
-    changed = true
-  end
   if show.sbe_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_sbe_message then
     show.sbe_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_sbe_message
-    changed = true
-  end
-  if show.test_request_message ~= omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_test_request_message then
-    show.test_request_message = omi_coinbase_derivatives_session_tcp_v1_2.prefs.show_test_request_message
     changed = true
   end
 
@@ -862,7 +814,7 @@ end
 
 -- Dissect: Reject Message
 coinbase_derivatives_session_tcp_v1_2.reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.reject_message.fields(buffer, offset, packet, parent)
@@ -932,7 +884,7 @@ end
 
 -- Dissect: Gap Fill Message
 coinbase_derivatives_session_tcp_v1_2.gap_fill_message.dissect = function(buffer, offset, packet, parent)
-  if show.gap_fill_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.gap_fill_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.gap_fill_message.fields(buffer, offset, packet, parent)
@@ -976,7 +928,7 @@ end
 
 -- Dissect: Resend Request Message
 coinbase_derivatives_session_tcp_v1_2.resend_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.resend_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.resend_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.resend_request_message.fields(buffer, offset, packet, parent)
@@ -1016,7 +968,7 @@ end
 
 -- Dissect: Test Request Message
 coinbase_derivatives_session_tcp_v1_2.test_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.test_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.test_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.test_request_message.fields(buffer, offset, packet, parent)
@@ -1056,7 +1008,7 @@ end
 
 -- Dissect: Heartbeat Message
 coinbase_derivatives_session_tcp_v1_2.heartbeat_message.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.heartbeat_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.heartbeat_message.fields(buffer, offset, packet, parent)
@@ -1096,7 +1048,7 @@ end
 
 -- Dissect: Logged Out Message
 coinbase_derivatives_session_tcp_v1_2.logged_out_message.dissect = function(buffer, offset, packet, parent)
-  if show.logged_out_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.logged_out_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.logged_out_message.fields(buffer, offset, packet, parent)
@@ -1136,7 +1088,7 @@ end
 
 -- Dissect: Logout Message
 coinbase_derivatives_session_tcp_v1_2.logout_message.dissect = function(buffer, offset, packet, parent)
-  if show.logout_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.logout_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.logout_message.fields(buffer, offset, packet, parent)
@@ -1176,7 +1128,7 @@ end
 
 -- Dissect: Logon Conf Message
 coinbase_derivatives_session_tcp_v1_2.logon_conf_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_conf_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.logon_conf_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.logon_conf_message.fields(buffer, offset, packet, parent)
@@ -1224,7 +1176,7 @@ end
 
 -- Dissect: Logon Message
 coinbase_derivatives_session_tcp_v1_2.logon_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.logon_message, buffer(offset, 0))
     local index = coinbase_derivatives_session_tcp_v1_2.logon_message.fields(buffer, offset, packet, parent)

@@ -134,20 +134,10 @@ local show = {}
 -- Siac Cqs Output Cta 1.91 Element Dissection Options
 show.adf_timestamp = true
 show.administrative = true
-show.administrative_unformatted_message = true
-show.auction_status_message = true
+show.application_messages = true
 show.block_header = true
 show.control = true
-show.disaster_recovery_data_center_activation_message = true
-show.end_of_day_message = true
-show.end_of_test_cycle_message = true
-show.finra_close_message = true
-show.finra_open_message = true
-show.line_integrity_message = true
-show.long_quote_message = true
 show.market_status = true
-show.market_wide_circuit_breaker_decline_level_status_message = true
-show.market_wide_circuit_breaker_status_message = true
 show.message = true
 show.message_header = true
 show.national_best_bid_long_appendage = true
@@ -157,30 +147,15 @@ show.national_best_offer_short_appendage = true
 show.packet = true
 show.participant_timestamp = true
 show.quote = true
-show.reset_block_sequence_number_message = true
-show.short_quote_message = true
 show.sip_block_timestamp = true
-show.special_long_quote_message = true
-show.start_of_day_message = true
-show.start_of_test_cycle_message = true
 
 -- Register Siac Cqs Output Cta 1.91 Show Options
 omi_siac_cqs_output_cta_v1_91.prefs.show_adf_timestamp = Pref.bool("Show Adf Timestamp", show.adf_timestamp, "Parse and add Adf Timestamp to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_administrative_unformatted_message = Pref.bool("Show Administrative Unformatted Message", show.administrative_unformatted_message, "Parse and add Administrative Unformatted Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_auction_status_message = Pref.bool("Show Auction Status Message", show.auction_status_message, "Parse and add Auction Status Message to protocol tree")
+omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_disaster_recovery_data_center_activation_message = Pref.bool("Show Disaster Recovery Data Center Activation Message", show.disaster_recovery_data_center_activation_message, "Parse and add Disaster Recovery Data Center Activation Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_end_of_test_cycle_message = Pref.bool("Show End Of Test Cycle Message", show.end_of_test_cycle_message, "Parse and add End Of Test Cycle Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_finra_close_message = Pref.bool("Show Finra Close Message", show.finra_close_message, "Parse and add Finra Close Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_finra_open_message = Pref.bool("Show Finra Open Message", show.finra_open_message, "Parse and add Finra Open Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_long_quote_message = Pref.bool("Show Long Quote Message", show.long_quote_message, "Parse and add Long Quote Message to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Message", show.market_wide_circuit_breaker_decline_level_status_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_status_message = Pref.bool("Show Market Wide Circuit Breaker Status Message", show.market_wide_circuit_breaker_status_message, "Parse and add Market Wide Circuit Breaker Status Message to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage = Pref.bool("Show National Best Bid Long Appendage", show.national_best_bid_long_appendage, "Parse and add National Best Bid Long Appendage to protocol tree")
@@ -190,12 +165,7 @@ omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_short_appendage = P
 omi_siac_cqs_output_cta_v1_91.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp = Pref.bool("Show Participant Timestamp", show.participant_timestamp, "Parse and add Participant Timestamp to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_reset_block_sequence_number_message = Pref.bool("Show Reset Block Sequence Number Message", show.reset_block_sequence_number_message, "Parse and add Reset Block Sequence Number Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_short_quote_message = Pref.bool("Show Short Quote Message", show.short_quote_message, "Parse and add Short Quote Message to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_special_long_quote_message = Pref.bool("Show Special Long Quote Message", show.special_long_quote_message, "Parse and add Special Long Quote Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_start_of_test_cycle_message = Pref.bool("Show Start Of Test Cycle Message", show.start_of_test_cycle_message, "Parse and add Start Of Test Cycle Message to protocol tree")
 
 -- Handle changed preferences
 function omi_siac_cqs_output_cta_v1_91.prefs_changed()
@@ -210,12 +180,8 @@ function omi_siac_cqs_output_cta_v1_91.prefs_changed()
     show.administrative = omi_siac_cqs_output_cta_v1_91.prefs.show_administrative
     changed = true
   end
-  if show.administrative_unformatted_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_administrative_unformatted_message then
-    show.administrative_unformatted_message = omi_siac_cqs_output_cta_v1_91.prefs.show_administrative_unformatted_message
-    changed = true
-  end
-  if show.auction_status_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_auction_status_message then
-    show.auction_status_message = omi_siac_cqs_output_cta_v1_91.prefs.show_auction_status_message
+  if show.application_messages ~= omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages then
+    show.application_messages = omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages
     changed = true
   end
   if show.block_header ~= omi_siac_cqs_output_cta_v1_91.prefs.show_block_header then
@@ -226,44 +192,8 @@ function omi_siac_cqs_output_cta_v1_91.prefs_changed()
     show.control = omi_siac_cqs_output_cta_v1_91.prefs.show_control
     changed = true
   end
-  if show.disaster_recovery_data_center_activation_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_disaster_recovery_data_center_activation_message then
-    show.disaster_recovery_data_center_activation_message = omi_siac_cqs_output_cta_v1_91.prefs.show_disaster_recovery_data_center_activation_message
-    changed = true
-  end
-  if show.end_of_day_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_end_of_day_message then
-    show.end_of_day_message = omi_siac_cqs_output_cta_v1_91.prefs.show_end_of_day_message
-    changed = true
-  end
-  if show.end_of_test_cycle_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_end_of_test_cycle_message then
-    show.end_of_test_cycle_message = omi_siac_cqs_output_cta_v1_91.prefs.show_end_of_test_cycle_message
-    changed = true
-  end
-  if show.finra_close_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_finra_close_message then
-    show.finra_close_message = omi_siac_cqs_output_cta_v1_91.prefs.show_finra_close_message
-    changed = true
-  end
-  if show.finra_open_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_finra_open_message then
-    show.finra_open_message = omi_siac_cqs_output_cta_v1_91.prefs.show_finra_open_message
-    changed = true
-  end
-  if show.line_integrity_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_line_integrity_message then
-    show.line_integrity_message = omi_siac_cqs_output_cta_v1_91.prefs.show_line_integrity_message
-    changed = true
-  end
-  if show.long_quote_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_long_quote_message then
-    show.long_quote_message = omi_siac_cqs_output_cta_v1_91.prefs.show_long_quote_message
-    changed = true
-  end
   if show.market_status ~= omi_siac_cqs_output_cta_v1_91.prefs.show_market_status then
     show.market_status = omi_siac_cqs_output_cta_v1_91.prefs.show_market_status
-    changed = true
-  end
-  if show.market_wide_circuit_breaker_decline_level_status_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message then
-    show.market_wide_circuit_breaker_decline_level_status_message = omi_siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_decline_level_status_message
-    changed = true
-  end
-  if show.market_wide_circuit_breaker_status_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_status_message then
-    show.market_wide_circuit_breaker_status_message = omi_siac_cqs_output_cta_v1_91.prefs.show_market_wide_circuit_breaker_status_message
     changed = true
   end
   if show.message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_message then
@@ -302,28 +232,8 @@ function omi_siac_cqs_output_cta_v1_91.prefs_changed()
     show.quote = omi_siac_cqs_output_cta_v1_91.prefs.show_quote
     changed = true
   end
-  if show.reset_block_sequence_number_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_reset_block_sequence_number_message then
-    show.reset_block_sequence_number_message = omi_siac_cqs_output_cta_v1_91.prefs.show_reset_block_sequence_number_message
-    changed = true
-  end
-  if show.short_quote_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_short_quote_message then
-    show.short_quote_message = omi_siac_cqs_output_cta_v1_91.prefs.show_short_quote_message
-    changed = true
-  end
   if show.sip_block_timestamp ~= omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp then
     show.sip_block_timestamp = omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp
-    changed = true
-  end
-  if show.special_long_quote_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_special_long_quote_message then
-    show.special_long_quote_message = omi_siac_cqs_output_cta_v1_91.prefs.show_special_long_quote_message
-    changed = true
-  end
-  if show.start_of_day_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_start_of_day_message then
-    show.start_of_day_message = omi_siac_cqs_output_cta_v1_91.prefs.show_start_of_day_message
-    changed = true
-  end
-  if show.start_of_test_cycle_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_start_of_test_cycle_message then
-    show.start_of_test_cycle_message = omi_siac_cqs_output_cta_v1_91.prefs.show_start_of_test_cycle_message
     changed = true
   end
 
@@ -3177,7 +3087,7 @@ siac_cqs_output_cta_v1_91.special_long_quote_message.dissect = function(buffer, 
   local index = offset + size_of_special_long_quote_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.special_long_quote_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.special_long_quote_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.special_long_quote_message.fields(buffer, offset, packet, parent, size_of_special_long_quote_message)
     parent:set_len(size_of_special_long_quote_message)
@@ -3296,7 +3206,7 @@ siac_cqs_output_cta_v1_91.short_quote_message.dissect = function(buffer, offset,
   local index = offset + size_of_short_quote_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.short_quote_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.short_quote_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.short_quote_message.fields(buffer, offset, packet, parent, size_of_short_quote_message)
     parent:set_len(size_of_short_quote_message)
@@ -3457,7 +3367,7 @@ siac_cqs_output_cta_v1_91.long_quote_message.dissect = function(buffer, offset, 
   local index = offset + size_of_long_quote_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.long_quote_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.long_quote_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.long_quote_message.fields(buffer, offset, packet, parent, size_of_long_quote_message)
     parent:set_len(size_of_long_quote_message)
@@ -3549,7 +3459,7 @@ siac_cqs_output_cta_v1_91.auction_status_message.dissect = function(buffer, offs
   local index = offset + size_of_auction_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.auction_status_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.auction_status_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.auction_status_message.fields(buffer, offset, packet, parent, size_of_auction_status_message)
     parent:set_len(size_of_auction_status_message)
@@ -3695,7 +3605,7 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.dissect = f
   local index = offset + size_of_market_wide_circuit_breaker_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_wide_circuit_breaker_status_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
     parent:set_len(size_of_market_wide_circuit_breaker_status_message)
@@ -3769,7 +3679,7 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_messa
   local index = offset + size_of_market_wide_circuit_breaker_decline_level_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_wide_circuit_breaker_decline_level_status_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
     parent:set_len(size_of_market_wide_circuit_breaker_decline_level_status_message)
@@ -3901,7 +3811,7 @@ siac_cqs_output_cta_v1_91.end_of_day_message.dissect = function(buffer, offset, 
   local index = offset + size_of_end_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.end_of_day_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
     parent:set_len(size_of_end_of_day_message)
@@ -3963,7 +3873,7 @@ siac_cqs_output_cta_v1_91.line_integrity_message.dissect = function(buffer, offs
   local index = offset + size_of_line_integrity_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.line_integrity_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.line_integrity_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.line_integrity_message.fields(buffer, offset, packet, parent, size_of_line_integrity_message)
     parent:set_len(size_of_line_integrity_message)
@@ -4025,7 +3935,7 @@ siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.disse
   local index = offset + size_of_disaster_recovery_data_center_activation_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.disaster_recovery_data_center_activation_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
     parent:set_len(size_of_disaster_recovery_data_center_activation_message)
@@ -4087,7 +3997,7 @@ siac_cqs_output_cta_v1_91.finra_open_message.dissect = function(buffer, offset, 
   local index = offset + size_of_finra_open_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.finra_open_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_open_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.finra_open_message.fields(buffer, offset, packet, parent, size_of_finra_open_message)
     parent:set_len(size_of_finra_open_message)
@@ -4149,7 +4059,7 @@ siac_cqs_output_cta_v1_91.end_of_test_cycle_message.dissect = function(buffer, o
   local index = offset + size_of_end_of_test_cycle_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_test_cycle_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.end_of_test_cycle_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
     parent:set_len(size_of_end_of_test_cycle_message)
@@ -4211,7 +4121,7 @@ siac_cqs_output_cta_v1_91.start_of_test_cycle_message.dissect = function(buffer,
   local index = offset + size_of_start_of_test_cycle_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.start_of_test_cycle_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
     parent:set_len(size_of_start_of_test_cycle_message)
@@ -4273,7 +4183,7 @@ siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.dissect = function
   local index = offset + size_of_reset_block_sequence_number_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.reset_block_sequence_number_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.reset_block_sequence_number_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
     parent:set_len(size_of_reset_block_sequence_number_message)
@@ -4335,7 +4245,7 @@ siac_cqs_output_cta_v1_91.finra_close_message.dissect = function(buffer, offset,
   local index = offset + size_of_finra_close_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.finra_close_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_close_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.finra_close_message.fields(buffer, offset, packet, parent, size_of_finra_close_message)
     parent:set_len(size_of_finra_close_message)
@@ -4397,7 +4307,7 @@ siac_cqs_output_cta_v1_91.start_of_day_message.dissect = function(buffer, offset
   local index = offset + size_of_start_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.start_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.start_of_day_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
     parent:set_len(size_of_start_of_day_message)
@@ -4560,7 +4470,7 @@ siac_cqs_output_cta_v1_91.administrative_unformatted_message.dissect = function(
   local index = offset + size_of_administrative_unformatted_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.administrative_unformatted_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message, buffer(offset, 0))
     local current = siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
     parent:set_len(size_of_administrative_unformatted_message)

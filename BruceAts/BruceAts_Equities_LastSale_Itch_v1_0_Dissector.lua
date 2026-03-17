@@ -59,30 +59,24 @@ show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
-show.reg_sho_short_sale_price_test_restricted_indicator = true
-show.stock_directory = true
-show.stock_trading_action = true
-show.system_event_message = true
-show.trade_cancel_message = true
-show.trade_report_message = true
+show.application_messages = true
 
 -- Register BruceAts Equities LastSale Itch 1.0 Show Options
 omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator", show.reg_sho_short_sale_price_test_restricted_indicator, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator to protocol tree")
-omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_stock_directory = Pref.bool("Show Stock Directory", show.stock_directory, "Parse and add Stock Directory to protocol tree")
-omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_stock_trading_action = Pref.bool("Show Stock Trading Action", show.stock_trading_action, "Parse and add Stock Trading Action to protocol tree")
-omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
+omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
 -- Handle changed preferences
 function omi_bruceats_equities_lastsale_itch_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_application_messages then
+    show.application_messages = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_application_messages
+    changed = true
+  end
   if show.message ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_message then
     show.message = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_message
     changed = true
@@ -97,30 +91,6 @@ function omi_bruceats_equities_lastsale_itch_v1_0.prefs_changed()
   end
   if show.packet_header ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_packet_header then
     show.packet_header = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_packet_header
-    changed = true
-  end
-  if show.reg_sho_short_sale_price_test_restricted_indicator ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator then
-    show.reg_sho_short_sale_price_test_restricted_indicator = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator
-    changed = true
-  end
-  if show.stock_directory ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_stock_directory then
-    show.stock_directory = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_stock_directory
-    changed = true
-  end
-  if show.stock_trading_action ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_stock_trading_action then
-    show.stock_trading_action = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_stock_trading_action
-    changed = true
-  end
-  if show.system_event_message ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_system_event_message then
-    show.system_event_message = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_system_event_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_cancel_message
-    changed = true
-  end
-  if show.trade_report_message ~= omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_report_message then
-    show.trade_report_message = omi_bruceats_equities_lastsale_itch_v1_0.prefs.show_trade_report_message
     changed = true
   end
 
@@ -703,7 +673,7 @@ end
 
 -- Dissect: Trade Cancel Message
 bruceats_equities_lastsale_itch_v1_0.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.trade_cancel_message, buffer(offset, 0))
     local index = bruceats_equities_lastsale_itch_v1_0.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -763,7 +733,7 @@ end
 
 -- Dissect: Trade Report Message
 bruceats_equities_lastsale_itch_v1_0.trade_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.trade_report_message, buffer(offset, 0))
     local index = bruceats_equities_lastsale_itch_v1_0.trade_report_message.fields(buffer, offset, packet, parent)
@@ -815,7 +785,7 @@ end
 
 -- Dissect: Reg Sho Short Sale Price Test Restricted Indicator
 bruceats_equities_lastsale_itch_v1_0.reg_sho_short_sale_price_test_restricted_indicator.dissect = function(buffer, offset, packet, parent)
-  if show.reg_sho_short_sale_price_test_restricted_indicator then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.reg_sho_short_sale_price_test_restricted_indicator, buffer(offset, 0))
     local index = bruceats_equities_lastsale_itch_v1_0.reg_sho_short_sale_price_test_restricted_indicator.fields(buffer, offset, packet, parent)
@@ -867,7 +837,7 @@ end
 
 -- Dissect: Stock Trading Action
 bruceats_equities_lastsale_itch_v1_0.stock_trading_action.dissect = function(buffer, offset, packet, parent)
-  if show.stock_trading_action then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.stock_trading_action, buffer(offset, 0))
     local index = bruceats_equities_lastsale_itch_v1_0.stock_trading_action.fields(buffer, offset, packet, parent)
@@ -927,7 +897,7 @@ end
 
 -- Dissect: Stock Directory
 bruceats_equities_lastsale_itch_v1_0.stock_directory.dissect = function(buffer, offset, packet, parent)
-  if show.stock_directory then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.stock_directory, buffer(offset, 0))
     local index = bruceats_equities_lastsale_itch_v1_0.stock_directory.fields(buffer, offset, packet, parent)
@@ -975,7 +945,7 @@ end
 
 -- Dissect: System Event Message
 bruceats_equities_lastsale_itch_v1_0.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bruceats_equities_lastsale_itch_v1_0.fields.system_event_message, buffer(offset, 0))
     local index = bruceats_equities_lastsale_itch_v1_0.system_event_message.fields(buffer, offset, packet, parent)

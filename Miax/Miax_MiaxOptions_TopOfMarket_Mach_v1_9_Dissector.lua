@@ -100,37 +100,15 @@ local show = {}
 
 -- Miax MiaxOptions TopOfMarket Mach 1.9 Element Dissection Options
 show.application_message = true
-show.double_sided_top_of_market_compact_message = true
+show.application_messages = true
 show.message = true
 show.packet = true
-show.series_update = true
-show.system_state_message = true
-show.system_time_message = true
-show.top_of_market_bid_compact_message = true
-show.top_of_market_offer_compact_message = true
-show.trade_cancel_message = true
-show.trade_message = true
-show.underlying_trading_status_message = true
-show.wide_double_sided_top_of_market_message = true
-show.wide_top_of_market_bid_message = true
-show.wide_top_of_market_offer_message = true
 
 -- Register Miax MiaxOptions TopOfMarket Mach 1.9 Show Options
 omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message = Pref.bool("Show Double Sided Top Of Market Compact Message", show.double_sided_top_of_market_compact_message, "Parse and add Double Sided Top Of Market Compact Message to protocol tree")
+omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_series_update = Pref.bool("Show Series Update", show.series_update, "Parse and add Series Update to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_top_of_market_bid_compact_message = Pref.bool("Show Top Of Market Bid Compact Message", show.top_of_market_bid_compact_message, "Parse and add Top Of Market Bid Compact Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_top_of_market_offer_compact_message = Pref.bool("Show Top Of Market Offer Compact Message", show.top_of_market_offer_compact_message, "Parse and add Top Of Market Offer Compact Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_underlying_trading_status_message = Pref.bool("Show Underlying Trading Status Message", show.underlying_trading_status_message, "Parse and add Underlying Trading Status Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message = Pref.bool("Show Wide Double Sided Top Of Market Message", show.wide_double_sided_top_of_market_message, "Parse and add Wide Double Sided Top Of Market Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_top_of_market_bid_message = Pref.bool("Show Wide Top Of Market Bid Message", show.wide_top_of_market_bid_message, "Parse and add Wide Top Of Market Bid Message to protocol tree")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_top_of_market_offer_message = Pref.bool("Show Wide Top Of Market Offer Message", show.wide_top_of_market_offer_message, "Parse and add Wide Top Of Market Offer Message to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs_changed()
@@ -141,8 +119,8 @@ function omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs_changed()
     show.application_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_message
     changed = true
   end
-  if show.double_sided_top_of_market_compact_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message then
-    show.double_sided_top_of_market_compact_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_double_sided_top_of_market_compact_message
+  if show.application_messages ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_messages then
+    show.application_messages = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_message then
@@ -151,50 +129,6 @@ function omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs_changed()
   end
   if show.packet ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_packet then
     show.packet = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_packet
-    changed = true
-  end
-  if show.series_update ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_series_update then
-    show.series_update = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_series_update
-    changed = true
-  end
-  if show.system_state_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_system_state_message then
-    show.system_state_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_system_state_message
-    changed = true
-  end
-  if show.system_time_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_system_time_message then
-    show.system_time_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_system_time_message
-    changed = true
-  end
-  if show.top_of_market_bid_compact_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_top_of_market_bid_compact_message then
-    show.top_of_market_bid_compact_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_top_of_market_bid_compact_message
-    changed = true
-  end
-  if show.top_of_market_offer_compact_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_top_of_market_offer_compact_message then
-    show.top_of_market_offer_compact_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_top_of_market_offer_compact_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_trade_cancel_message
-    changed = true
-  end
-  if show.trade_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_trade_message then
-    show.trade_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_trade_message
-    changed = true
-  end
-  if show.underlying_trading_status_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_underlying_trading_status_message then
-    show.underlying_trading_status_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_underlying_trading_status_message
-    changed = true
-  end
-  if show.wide_double_sided_top_of_market_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message then
-    show.wide_double_sided_top_of_market_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_double_sided_top_of_market_message
-    changed = true
-  end
-  if show.wide_top_of_market_bid_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_top_of_market_bid_message then
-    show.wide_top_of_market_bid_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_top_of_market_bid_message
-    changed = true
-  end
-  if show.wide_top_of_market_offer_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_top_of_market_offer_message then
-    show.wide_top_of_market_offer_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_wide_top_of_market_offer_message
     changed = true
   end
 
@@ -1888,7 +1822,7 @@ end
 
 -- Dissect: Underlying Trading Status Message
 miax_miaxoptions_topofmarket_mach_v1_9.underlying_trading_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_trading_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.underlying_trading_status_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.underlying_trading_status_message.fields(buffer, offset, packet, parent)
@@ -1952,7 +1886,7 @@ end
 
 -- Dissect: Trade Cancel Message
 miax_miaxoptions_topofmarket_mach_v1_9.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_cancel_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -2024,7 +1958,7 @@ end
 
 -- Dissect: Trade Message
 miax_miaxoptions_topofmarket_mach_v1_9.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.trade_message.fields(buffer, offset, packet, parent)
@@ -2100,7 +2034,7 @@ end
 
 -- Dissect: Wide Double Sided Top Of Market Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_double_sided_top_of_market_message.dissect = function(buffer, offset, packet, parent)
-  if show.wide_double_sided_top_of_market_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_double_sided_top_of_market_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.wide_double_sided_top_of_market_message.fields(buffer, offset, packet, parent)
@@ -2176,7 +2110,7 @@ end
 
 -- Dissect: Double Sided Top Of Market Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.double_sided_top_of_market_compact_message.dissect = function(buffer, offset, packet, parent)
-  if show.double_sided_top_of_market_compact_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.double_sided_top_of_market_compact_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.double_sided_top_of_market_compact_message.fields(buffer, offset, packet, parent)
@@ -2236,7 +2170,7 @@ end
 
 -- Dissect: Wide Top Of Market Offer Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.wide_top_of_market_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_offer_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_offer_message.fields(buffer, offset, packet, parent)
@@ -2296,7 +2230,7 @@ end
 
 -- Dissect: Wide Top Of Market Bid Message
 miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_bid_message.dissect = function(buffer, offset, packet, parent)
-  if show.wide_top_of_market_bid_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_bid_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.wide_top_of_market_bid_message.fields(buffer, offset, packet, parent)
@@ -2356,7 +2290,7 @@ end
 
 -- Dissect: Top Of Market Offer Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_offer_compact_message.dissect = function(buffer, offset, packet, parent)
-  if show.top_of_market_offer_compact_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.top_of_market_offer_compact_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_offer_compact_message.fields(buffer, offset, packet, parent)
@@ -2416,7 +2350,7 @@ end
 
 -- Dissect: Top Of Market Bid Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_bid_compact_message.dissect = function(buffer, offset, packet, parent)
-  if show.top_of_market_bid_compact_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.top_of_market_bid_compact_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.top_of_market_bid_compact_message.fields(buffer, offset, packet, parent)
@@ -2468,7 +2402,7 @@ end
 
 -- Dissect: System State Message
 miax_miaxoptions_topofmarket_mach_v1_9.system_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.system_state_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.system_state_message.fields(buffer, offset, packet, parent)
@@ -2572,7 +2506,7 @@ end
 
 -- Dissect: Series Update
 miax_miaxoptions_topofmarket_mach_v1_9.series_update.dissect = function(buffer, offset, packet, parent)
-  if show.series_update then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.series_update, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.series_update.fields(buffer, offset, packet, parent)
@@ -2612,7 +2546,7 @@ end
 
 -- Dissect: System Time Message
 miax_miaxoptions_topofmarket_mach_v1_9.system_time_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.system_time_message, buffer(offset, 0))
     local index = miax_miaxoptions_topofmarket_mach_v1_9.system_time_message.fields(buffer, offset, packet, parent)

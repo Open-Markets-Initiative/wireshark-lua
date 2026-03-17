@@ -505,35 +505,19 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.timetables_group_index = P
 local show = {}
 
 -- Euronext Optiq MarketDataGateway Sbe 5.33 Element Dissection Options
-show.apa_full_trade_information_message = true
-show.apa_quotes_message = true
-show.apa_standing_data_message = true
-show.bf_instrument_reference_message = true
-show.bf_instrument_suspension_message = true
-show.bf_trade_message = true
-show.bfnav_message = true
+show.application_messages = true
 show.contract_emm_properties_group = true
 show.contract_emm_properties_groups = true
-show.contract_standing_data_message = true
 show.emm_pattern_rep_group = true
 show.emm_pattern_rep_groups = true
-show.end_of_day_message = true
-show.end_of_snapshot_message = true
-show.full_trade_information_message = true
 show.group_size_encoding = true
-show.health_status_message = true
-show.index_summary_message = true
 show.interest_payment_date_rep_group = true
 show.interest_payment_date_rep_groups = true
-show.lis_package_structure_message = true
-show.long_order_update_message = true
 show.long_order_updates_group = true
 show.long_order_updates_groups = true
 show.market_data_packet_header = true
 show.market_states_group = true
 show.market_states_groups = true
-show.market_status_change_message = true
-show.market_update_message = true
 show.market_updates_group = true
 show.market_updates_groups = true
 show.message_header = true
@@ -543,65 +527,38 @@ show.new_stats_groups = true
 show.not_used_groups = true
 show.optiq_message = true
 show.order_type_rules = true
-show.order_update_message = true
 show.order_updates_group = true
 show.order_updates_groups = true
 show.outright_rep_group = true
 show.outright_rep_groups = true
-show.outright_standing_data_message = true
 show.package_components_group = true
 show.package_components_groups = true
 show.packet = true
 show.packet_flags = true
 show.phase_qualifier = true
-show.price_update_message = true
 show.price_updates_group = true
 show.price_updates_groups = true
-show.real_time_index_message = true
-show.standing_data_message = true
-show.start_of_day_message = true
-show.start_of_snapshot_message = true
-show.statistics_message = true
 show.strategy_authorized = true
 show.strategy_standing_data_group = true
 show.strategy_standing_data_groups = true
-show.strategy_standing_data_message = true
-show.technical_notification_message = true
-show.timetable_message = true
 show.timetables_group = true
 show.timetables_groups = true
 show.trade_qualifier = true
 
 -- Register Euronext Optiq MarketDataGateway Sbe 5.33 Show Options
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_full_trade_information_message = Pref.bool("Show Apa Full Trade Information Message", show.apa_full_trade_information_message, "Parse and add Apa Full Trade Information Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_quotes_message = Pref.bool("Show Apa Quotes Message", show.apa_quotes_message, "Parse and add Apa Quotes Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_standing_data_message = Pref.bool("Show Apa Standing Data Message", show.apa_standing_data_message, "Parse and add Apa Standing Data Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_instrument_reference_message = Pref.bool("Show Bf Instrument Reference Message", show.bf_instrument_reference_message, "Parse and add Bf Instrument Reference Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_instrument_suspension_message = Pref.bool("Show Bf Instrument Suspension Message", show.bf_instrument_suspension_message, "Parse and add Bf Instrument Suspension Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_trade_message = Pref.bool("Show Bf Trade Message", show.bf_trade_message, "Parse and add Bf Trade Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bfnav_message = Pref.bool("Show Bfnav Message", show.bfnav_message, "Parse and add Bfnav Message to protocol tree")
+omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_contract_emm_properties_group = Pref.bool("Show Contract Emm Properties Group", show.contract_emm_properties_group, "Parse and add Contract Emm Properties Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_contract_emm_properties_groups = Pref.bool("Show Contract Emm Properties Groups", show.contract_emm_properties_groups, "Parse and add Contract Emm Properties Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_contract_standing_data_message = Pref.bool("Show Contract Standing Data Message", show.contract_standing_data_message, "Parse and add Contract Standing Data Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_emm_pattern_rep_group = Pref.bool("Show Emm Pattern Rep Group", show.emm_pattern_rep_group, "Parse and add Emm Pattern Rep Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_emm_pattern_rep_groups = Pref.bool("Show Emm Pattern Rep Groups", show.emm_pattern_rep_groups, "Parse and add Emm Pattern Rep Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_end_of_snapshot_message = Pref.bool("Show End Of Snapshot Message", show.end_of_snapshot_message, "Parse and add End Of Snapshot Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_full_trade_information_message = Pref.bool("Show Full Trade Information Message", show.full_trade_information_message, "Parse and add Full Trade Information Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_health_status_message = Pref.bool("Show Health Status Message", show.health_status_message, "Parse and add Health Status Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_index_summary_message = Pref.bool("Show Index Summary Message", show.index_summary_message, "Parse and add Index Summary Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_interest_payment_date_rep_group = Pref.bool("Show Interest Payment Date Rep Group", show.interest_payment_date_rep_group, "Parse and add Interest Payment Date Rep Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_interest_payment_date_rep_groups = Pref.bool("Show Interest Payment Date Rep Groups", show.interest_payment_date_rep_groups, "Parse and add Interest Payment Date Rep Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_lis_package_structure_message = Pref.bool("Show Lis Package Structure Message", show.lis_package_structure_message, "Parse and add Lis Package Structure Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_long_order_update_message = Pref.bool("Show Long Order Update Message", show.long_order_update_message, "Parse and add Long Order Update Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_long_order_updates_group = Pref.bool("Show Long Order Updates Group", show.long_order_updates_group, "Parse and add Long Order Updates Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_long_order_updates_groups = Pref.bool("Show Long Order Updates Groups", show.long_order_updates_groups, "Parse and add Long Order Updates Groups to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_data_packet_header = Pref.bool("Show Market Data Packet Header", show.market_data_packet_header, "Parse and add Market Data Packet Header to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_states_group = Pref.bool("Show Market States Group", show.market_states_group, "Parse and add Market States Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_states_groups = Pref.bool("Show Market States Groups", show.market_states_groups, "Parse and add Market States Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_status_change_message = Pref.bool("Show Market Status Change Message", show.market_status_change_message, "Parse and add Market Status Change Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_update_message = Pref.bool("Show Market Update Message", show.market_update_message, "Parse and add Market Update Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_updates_group = Pref.bool("Show Market Updates Group", show.market_updates_group, "Parse and add Market Updates Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_updates_groups = Pref.bool("Show Market Updates Groups", show.market_updates_groups, "Parse and add Market Updates Groups to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
@@ -611,31 +568,20 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_new_stats_groups = Pre
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_not_used_groups = Pref.bool("Show Not Used Groups", show.not_used_groups, "Parse and add Not Used Groups to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_optiq_message = Pref.bool("Show Optiq Message", show.optiq_message, "Parse and add Optiq Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_type_rules = Pref.bool("Show Order Type Rules", show.order_type_rules, "Parse and add Order Type Rules to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_update_message = Pref.bool("Show Order Update Message", show.order_update_message, "Parse and add Order Update Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_updates_group = Pref.bool("Show Order Updates Group", show.order_updates_group, "Parse and add Order Updates Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_updates_groups = Pref.bool("Show Order Updates Groups", show.order_updates_groups, "Parse and add Order Updates Groups to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_outright_rep_group = Pref.bool("Show Outright Rep Group", show.outright_rep_group, "Parse and add Outright Rep Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_outright_rep_groups = Pref.bool("Show Outright Rep Groups", show.outright_rep_groups, "Parse and add Outright Rep Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_outright_standing_data_message = Pref.bool("Show Outright Standing Data Message", show.outright_standing_data_message, "Parse and add Outright Standing Data Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_package_components_group = Pref.bool("Show Package Components Group", show.package_components_group, "Parse and add Package Components Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_package_components_groups = Pref.bool("Show Package Components Groups", show.package_components_groups, "Parse and add Package Components Groups to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_packet_flags = Pref.bool("Show Packet Flags", show.packet_flags, "Parse and add Packet Flags to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_phase_qualifier = Pref.bool("Show Phase Qualifier", show.phase_qualifier, "Parse and add Phase Qualifier to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_update_message = Pref.bool("Show Price Update Message", show.price_update_message, "Parse and add Price Update Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_updates_group = Pref.bool("Show Price Updates Group", show.price_updates_group, "Parse and add Price Updates Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_updates_groups = Pref.bool("Show Price Updates Groups", show.price_updates_groups, "Parse and add Price Updates Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_real_time_index_message = Pref.bool("Show Real Time Index Message", show.real_time_index_message, "Parse and add Real Time Index Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_standing_data_message = Pref.bool("Show Standing Data Message", show.standing_data_message, "Parse and add Standing Data Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_start_of_snapshot_message = Pref.bool("Show Start Of Snapshot Message", show.start_of_snapshot_message, "Parse and add Start Of Snapshot Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_statistics_message = Pref.bool("Show Statistics Message", show.statistics_message, "Parse and add Statistics Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_authorized = Pref.bool("Show Strategy Authorized", show.strategy_authorized, "Parse and add Strategy Authorized to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_standing_data_group = Pref.bool("Show Strategy Standing Data Group", show.strategy_standing_data_group, "Parse and add Strategy Standing Data Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_standing_data_groups = Pref.bool("Show Strategy Standing Data Groups", show.strategy_standing_data_groups, "Parse and add Strategy Standing Data Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_standing_data_message = Pref.bool("Show Strategy Standing Data Message", show.strategy_standing_data_message, "Parse and add Strategy Standing Data Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_technical_notification_message = Pref.bool("Show Technical Notification Message", show.technical_notification_message, "Parse and add Technical Notification Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_timetable_message = Pref.bool("Show Timetable Message", show.timetable_message, "Parse and add Timetable Message to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_timetables_group = Pref.bool("Show Timetables Group", show.timetables_group, "Parse and add Timetables Group to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_timetables_groups = Pref.bool("Show Timetables Groups", show.timetables_groups, "Parse and add Timetables Groups to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_trade_qualifier = Pref.bool("Show Trade Qualifier", show.trade_qualifier, "Parse and add Trade Qualifier to protocol tree")
@@ -645,32 +591,8 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.apa_full_trade_information_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_full_trade_information_message then
-    show.apa_full_trade_information_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_full_trade_information_message
-    changed = true
-  end
-  if show.apa_quotes_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_quotes_message then
-    show.apa_quotes_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_quotes_message
-    changed = true
-  end
-  if show.apa_standing_data_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_standing_data_message then
-    show.apa_standing_data_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_apa_standing_data_message
-    changed = true
-  end
-  if show.bf_instrument_reference_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_instrument_reference_message then
-    show.bf_instrument_reference_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_instrument_reference_message
-    changed = true
-  end
-  if show.bf_instrument_suspension_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_instrument_suspension_message then
-    show.bf_instrument_suspension_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_instrument_suspension_message
-    changed = true
-  end
-  if show.bf_trade_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_trade_message then
-    show.bf_trade_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bf_trade_message
-    changed = true
-  end
-  if show.bfnav_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bfnav_message then
-    show.bfnav_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_bfnav_message
+  if show.application_messages ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_application_messages then
+    show.application_messages = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_application_messages
     changed = true
   end
   if show.contract_emm_properties_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_contract_emm_properties_group then
@@ -681,10 +603,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
     show.contract_emm_properties_groups = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_contract_emm_properties_groups
     changed = true
   end
-  if show.contract_standing_data_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_contract_standing_data_message then
-    show.contract_standing_data_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_contract_standing_data_message
-    changed = true
-  end
   if show.emm_pattern_rep_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_emm_pattern_rep_group then
     show.emm_pattern_rep_group = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_emm_pattern_rep_group
     changed = true
@@ -693,28 +611,8 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
     show.emm_pattern_rep_groups = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_emm_pattern_rep_groups
     changed = true
   end
-  if show.end_of_day_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_end_of_day_message then
-    show.end_of_day_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_end_of_day_message
-    changed = true
-  end
-  if show.end_of_snapshot_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_end_of_snapshot_message then
-    show.end_of_snapshot_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_end_of_snapshot_message
-    changed = true
-  end
-  if show.full_trade_information_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_full_trade_information_message then
-    show.full_trade_information_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_full_trade_information_message
-    changed = true
-  end
   if show.group_size_encoding ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_group_size_encoding then
     show.group_size_encoding = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_group_size_encoding
-    changed = true
-  end
-  if show.health_status_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_health_status_message then
-    show.health_status_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_health_status_message
-    changed = true
-  end
-  if show.index_summary_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_index_summary_message then
-    show.index_summary_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_index_summary_message
     changed = true
   end
   if show.interest_payment_date_rep_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_interest_payment_date_rep_group then
@@ -723,14 +621,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
   end
   if show.interest_payment_date_rep_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_interest_payment_date_rep_groups then
     show.interest_payment_date_rep_groups = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_interest_payment_date_rep_groups
-    changed = true
-  end
-  if show.lis_package_structure_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_lis_package_structure_message then
-    show.lis_package_structure_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_lis_package_structure_message
-    changed = true
-  end
-  if show.long_order_update_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_long_order_update_message then
-    show.long_order_update_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_long_order_update_message
     changed = true
   end
   if show.long_order_updates_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_long_order_updates_group then
@@ -751,14 +641,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
   end
   if show.market_states_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_states_groups then
     show.market_states_groups = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_states_groups
-    changed = true
-  end
-  if show.market_status_change_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_status_change_message then
-    show.market_status_change_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_status_change_message
-    changed = true
-  end
-  if show.market_update_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_update_message then
-    show.market_update_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_update_message
     changed = true
   end
   if show.market_updates_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_market_updates_group then
@@ -797,10 +679,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
     show.order_type_rules = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_type_rules
     changed = true
   end
-  if show.order_update_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_update_message then
-    show.order_update_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_update_message
-    changed = true
-  end
   if show.order_updates_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_updates_group then
     show.order_updates_group = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_order_updates_group
     changed = true
@@ -815,10 +693,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
   end
   if show.outright_rep_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_outright_rep_groups then
     show.outright_rep_groups = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_outright_rep_groups
-    changed = true
-  end
-  if show.outright_standing_data_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_outright_standing_data_message then
-    show.outright_standing_data_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_outright_standing_data_message
     changed = true
   end
   if show.package_components_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_package_components_group then
@@ -841,36 +715,12 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
     show.phase_qualifier = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_phase_qualifier
     changed = true
   end
-  if show.price_update_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_update_message then
-    show.price_update_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_update_message
-    changed = true
-  end
   if show.price_updates_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_updates_group then
     show.price_updates_group = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_updates_group
     changed = true
   end
   if show.price_updates_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_updates_groups then
     show.price_updates_groups = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_price_updates_groups
-    changed = true
-  end
-  if show.real_time_index_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_real_time_index_message then
-    show.real_time_index_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_real_time_index_message
-    changed = true
-  end
-  if show.standing_data_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_standing_data_message then
-    show.standing_data_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_standing_data_message
-    changed = true
-  end
-  if show.start_of_day_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_start_of_day_message then
-    show.start_of_day_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_start_of_day_message
-    changed = true
-  end
-  if show.start_of_snapshot_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_start_of_snapshot_message then
-    show.start_of_snapshot_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_start_of_snapshot_message
-    changed = true
-  end
-  if show.statistics_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_statistics_message then
-    show.statistics_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_statistics_message
     changed = true
   end
   if show.strategy_authorized ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_authorized then
@@ -883,18 +733,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs_changed()
   end
   if show.strategy_standing_data_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_standing_data_groups then
     show.strategy_standing_data_groups = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_standing_data_groups
-    changed = true
-  end
-  if show.strategy_standing_data_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_standing_data_message then
-    show.strategy_standing_data_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_strategy_standing_data_message
-    changed = true
-  end
-  if show.technical_notification_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_technical_notification_message then
-    show.technical_notification_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_technical_notification_message
-    changed = true
-  end
-  if show.timetable_message ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_timetable_message then
-    show.timetable_message = omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_timetable_message
     changed = true
   end
   if show.timetables_group ~= omi_euronext_optiq_marketdatagateway_sbe_v5_33.prefs.show_timetables_group then
@@ -13149,7 +12987,7 @@ end
 
 -- Dissect: End Of Snapshot Message
 euronext_optiq_marketdatagateway_sbe_v5_33.end_of_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.end_of_snapshot_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.end_of_snapshot_message.fields(buffer, offset, packet, parent)
@@ -13193,7 +13031,7 @@ end
 
 -- Dissect: Start Of Snapshot Message
 euronext_optiq_marketdatagateway_sbe_v5_33.start_of_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.start_of_snapshot_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.start_of_snapshot_message.fields(buffer, offset, packet, parent)
@@ -13249,7 +13087,7 @@ end
 
 -- Dissect: Bf Instrument Suspension Message
 euronext_optiq_marketdatagateway_sbe_v5_33.bf_instrument_suspension_message.dissect = function(buffer, offset, packet, parent)
-  if show.bf_instrument_suspension_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.bf_instrument_suspension_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.bf_instrument_suspension_message.fields(buffer, offset, packet, parent)
@@ -13325,7 +13163,7 @@ end
 
 -- Dissect: Bfnav Message
 euronext_optiq_marketdatagateway_sbe_v5_33.bfnav_message.dissect = function(buffer, offset, packet, parent)
-  if show.bfnav_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.bfnav_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.bfnav_message.fields(buffer, offset, packet, parent)
@@ -13437,7 +13275,7 @@ end
 
 -- Dissect: Bf Trade Message
 euronext_optiq_marketdatagateway_sbe_v5_33.bf_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.bf_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.bf_trade_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.bf_trade_message.fields(buffer, offset, packet, parent)
@@ -13824,7 +13662,7 @@ end
 
 -- Dissect: Bf Instrument Reference Message
 euronext_optiq_marketdatagateway_sbe_v5_33.bf_instrument_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.bf_instrument_reference_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.bf_instrument_reference_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.bf_instrument_reference_message.fields(buffer, offset, packet, parent)
@@ -14028,7 +13866,7 @@ end
 
 -- Dissect: Apa Full Trade Information Message
 euronext_optiq_marketdatagateway_sbe_v5_33.apa_full_trade_information_message.dissect = function(buffer, offset, packet, parent)
-  if show.apa_full_trade_information_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.apa_full_trade_information_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.apa_full_trade_information_message.fields(buffer, offset, packet, parent)
@@ -14144,7 +13982,7 @@ end
 
 -- Dissect: Apa Standing Data Message
 euronext_optiq_marketdatagateway_sbe_v5_33.apa_standing_data_message.dissect = function(buffer, offset, packet, parent)
-  if show.apa_standing_data_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.apa_standing_data_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.apa_standing_data_message.fields(buffer, offset, packet, parent)
@@ -14228,7 +14066,7 @@ end
 
 -- Dissect: Apa Quotes Message
 euronext_optiq_marketdatagateway_sbe_v5_33.apa_quotes_message.dissect = function(buffer, offset, packet, parent)
-  if show.apa_quotes_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.apa_quotes_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.apa_quotes_message.fields(buffer, offset, packet, parent)
@@ -14423,7 +14261,7 @@ end
 
 -- Dissect: Lis Package Structure Message
 euronext_optiq_marketdatagateway_sbe_v5_33.lis_package_structure_message.dissect = function(buffer, offset, packet, parent)
-  if show.lis_package_structure_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.lis_package_structure_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.lis_package_structure_message.fields(buffer, offset, packet, parent)
@@ -14631,7 +14469,7 @@ end
 
 -- Dissect: Long Order Update Message
 euronext_optiq_marketdatagateway_sbe_v5_33.long_order_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.long_order_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.long_order_update_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.long_order_update_message.fields(buffer, offset, packet, parent)
@@ -14879,7 +14717,7 @@ end
 
 -- Dissect: Outright Standing Data Message
 euronext_optiq_marketdatagateway_sbe_v5_33.outright_standing_data_message.dissect = function(buffer, offset, packet, parent)
-  if show.outright_standing_data_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.outright_standing_data_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.outright_standing_data_message.fields(buffer, offset, packet, parent)
@@ -15780,7 +15618,7 @@ end
 
 -- Dissect: Contract Standing Data Message
 euronext_optiq_marketdatagateway_sbe_v5_33.contract_standing_data_message.dissect = function(buffer, offset, packet, parent)
-  if show.contract_standing_data_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.contract_standing_data_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.contract_standing_data_message.fields(buffer, offset, packet, parent)
@@ -15990,7 +15828,7 @@ end
 
 -- Dissect: Strategy Standing Data Message
 euronext_optiq_marketdatagateway_sbe_v5_33.strategy_standing_data_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_standing_data_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.strategy_standing_data_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.strategy_standing_data_message.fields(buffer, offset, packet, parent)
@@ -16098,7 +15936,7 @@ end
 
 -- Dissect: Index Summary Message
 euronext_optiq_marketdatagateway_sbe_v5_33.index_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.index_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.index_summary_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.index_summary_message.fields(buffer, offset, packet, parent)
@@ -16265,7 +16103,7 @@ end
 
 -- Dissect: Statistics Message
 euronext_optiq_marketdatagateway_sbe_v5_33.statistics_message.dissect = function(buffer, offset, packet, parent)
-  if show.statistics_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.statistics_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.statistics_message.fields(buffer, offset, packet, parent)
@@ -16345,7 +16183,7 @@ end
 
 -- Dissect: Real Time Index Message
 euronext_optiq_marketdatagateway_sbe_v5_33.real_time_index_message.dissect = function(buffer, offset, packet, parent)
-  if show.real_time_index_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.real_time_index_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.real_time_index_message.fields(buffer, offset, packet, parent)
@@ -16852,7 +16690,7 @@ end
 
 -- Dissect: Standing Data Message
 euronext_optiq_marketdatagateway_sbe_v5_33.standing_data_message.dissect = function(buffer, offset, packet, parent)
-  if show.standing_data_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.standing_data_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.standing_data_message.fields(buffer, offset, packet, parent)
@@ -17162,7 +17000,7 @@ end
 
 -- Dissect: Timetable Message
 euronext_optiq_marketdatagateway_sbe_v5_33.timetable_message.dissect = function(buffer, offset, packet, parent)
-  if show.timetable_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.timetable_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.timetable_message.fields(buffer, offset, packet, parent)
@@ -17381,7 +17219,7 @@ end
 
 -- Dissect: Market Status Change Message
 euronext_optiq_marketdatagateway_sbe_v5_33.market_status_change_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_status_change_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.market_status_change_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.market_status_change_message.fields(buffer, offset, packet, parent)
@@ -17842,7 +17680,7 @@ end
 
 -- Dissect: Full Trade Information Message
 euronext_optiq_marketdatagateway_sbe_v5_33.full_trade_information_message.dissect = function(buffer, offset, packet, parent)
-  if show.full_trade_information_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.full_trade_information_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.full_trade_information_message.fields(buffer, offset, packet, parent)
@@ -18034,7 +17872,7 @@ end
 
 -- Dissect: Price Update Message
 euronext_optiq_marketdatagateway_sbe_v5_33.price_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.price_update_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.price_update_message.fields(buffer, offset, packet, parent)
@@ -18234,7 +18072,7 @@ end
 
 -- Dissect: Order Update Message
 euronext_optiq_marketdatagateway_sbe_v5_33.order_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.order_update_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.order_update_message.fields(buffer, offset, packet, parent)
@@ -18418,7 +18256,7 @@ end
 
 -- Dissect: Market Update Message
 euronext_optiq_marketdatagateway_sbe_v5_33.market_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.market_update_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.market_update_message.fields(buffer, offset, packet, parent)
@@ -18478,7 +18316,7 @@ end
 
 -- Dissect: Technical Notification Message
 euronext_optiq_marketdatagateway_sbe_v5_33.technical_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.technical_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.technical_notification_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.technical_notification_message.fields(buffer, offset, packet, parent)
@@ -18522,7 +18360,7 @@ end
 
 -- Dissect: Health Status Message
 euronext_optiq_marketdatagateway_sbe_v5_33.health_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.health_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.health_status_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.health_status_message.fields(buffer, offset, packet, parent)
@@ -18566,7 +18404,7 @@ end
 
 -- Dissect: End Of Day Message
 euronext_optiq_marketdatagateway_sbe_v5_33.end_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_day_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.end_of_day_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.end_of_day_message.fields(buffer, offset, packet, parent)
@@ -18610,7 +18448,7 @@ end
 
 -- Dissect: Start Of Day Message
 euronext_optiq_marketdatagateway_sbe_v5_33.start_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_day_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_33.fields.start_of_day_message, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_33.start_of_day_message.fields(buffer, offset, packet, parent)

@@ -66,44 +66,26 @@ omi_imperative_intelligentcross_mdf_v1_11.fields.message_index = ProtoField.new(
 local show = {}
 
 -- Imperative IntelligentCross Mdf 1.11 Element Dissection Options
-show.market_event_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
-show.new_order_add_message = true
-show.order_cancel_all_message = true
-show.order_executed_message = true
-show.order_partial_cancel_message = true
-show.order_updated_message = true
 show.packet = true
 show.packet_header = true
-show.symbol_information_message = true
-show.symbol_state_message = true
-show.trade_break_message = true
-show.trade_message = true
 
 -- Register Imperative IntelligentCross Mdf 1.11 Show Options
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message = Pref.bool("Show Market Event Message", show.market_event_message, "Parse and add Market Event Message to protocol tree")
+omi_imperative_intelligentcross_mdf_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message = Pref.bool("Show New Order Add Message", show.new_order_add_message, "Parse and add New Order Add Message to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message = Pref.bool("Show Order Cancel All Message", show.order_cancel_all_message, "Parse and add Order Cancel All Message to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message = Pref.bool("Show Order Partial Cancel Message", show.order_partial_cancel_message, "Parse and add Order Partial Cancel Message to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message = Pref.bool("Show Order Updated Message", show.order_updated_message, "Parse and add Order Updated Message to protocol tree")
 omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message = Pref.bool("Show Symbol Information Message", show.symbol_information_message, "Parse and add Symbol Information Message to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message = Pref.bool("Show Symbol State Message", show.symbol_state_message, "Parse and add Symbol State Message to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
-omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 
 -- Handle changed preferences
 function omi_imperative_intelligentcross_mdf_v1_11.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.market_event_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message then
-    show.market_event_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_market_event_message
+  if show.application_messages ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_application_messages then
+    show.application_messages = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message then
@@ -114,48 +96,12 @@ function omi_imperative_intelligentcross_mdf_v1_11.prefs_changed()
     show.message_header = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message_header
     changed = true
   end
-  if show.new_order_add_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message then
-    show.new_order_add_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_new_order_add_message
-    changed = true
-  end
-  if show.order_cancel_all_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message then
-    show.order_cancel_all_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_cancel_all_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message then
-    show.order_executed_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_partial_cancel_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message then
-    show.order_partial_cancel_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_partial_cancel_message
-    changed = true
-  end
-  if show.order_updated_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message then
-    show.order_updated_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_order_updated_message
-    changed = true
-  end
   if show.packet ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet then
     show.packet = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header then
     show.packet_header = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_packet_header
-    changed = true
-  end
-  if show.symbol_information_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message then
-    show.symbol_information_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_information_message
-    changed = true
-  end
-  if show.symbol_state_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message then
-    show.symbol_state_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_symbol_state_message
-    changed = true
-  end
-  if show.trade_break_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message then
-    show.trade_break_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_break_message
-    changed = true
-  end
-  if show.trade_message ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message then
-    show.trade_message = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_trade_message
     changed = true
   end
 
@@ -881,7 +827,7 @@ end
 
 -- Dissect: Trade Break Message
 imperative_intelligentcross_mdf_v1_11.trade_break_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_break_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.trade_break_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.trade_break_message.fields(buffer, offset, packet, parent)
@@ -949,7 +895,7 @@ end
 
 -- Dissect: Trade Message
 imperative_intelligentcross_mdf_v1_11.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.trade_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.trade_message.fields(buffer, offset, packet, parent)
@@ -1013,7 +959,7 @@ end
 
 -- Dissect: Order Executed Message
 imperative_intelligentcross_mdf_v1_11.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_executed_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.order_executed_message.fields(buffer, offset, packet, parent)
@@ -1069,7 +1015,7 @@ end
 
 -- Dissect: Order Updated Message
 imperative_intelligentcross_mdf_v1_11.order_updated_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_updated_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_updated_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.order_updated_message.fields(buffer, offset, packet, parent)
@@ -1117,7 +1063,7 @@ end
 
 -- Dissect: Order Cancel All Message
 imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_all_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.fields(buffer, offset, packet, parent)
@@ -1169,7 +1115,7 @@ end
 
 -- Dissect: Order Partial Cancel Message
 imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_partial_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_partial_cancel_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.fields(buffer, offset, packet, parent)
@@ -1237,7 +1183,7 @@ end
 
 -- Dissect: New Order Add Message
 imperative_intelligentcross_mdf_v1_11.new_order_add_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_add_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.new_order_add_message.fields(buffer, offset, packet, parent)
@@ -1297,7 +1243,7 @@ end
 
 -- Dissect: Symbol State Message
 imperative_intelligentcross_mdf_v1_11.symbol_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_state_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.symbol_state_message.fields(buffer, offset, packet, parent)
@@ -1357,7 +1303,7 @@ end
 
 -- Dissect: Symbol Information Message
 imperative_intelligentcross_mdf_v1_11.symbol_information_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_information_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_information_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.symbol_information_message.fields(buffer, offset, packet, parent)
@@ -1405,7 +1351,7 @@ end
 
 -- Dissect: Market Event Message
 imperative_intelligentcross_mdf_v1_11.market_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.market_event_message, buffer(offset, 0))
     local index = imperative_intelligentcross_mdf_v1_11.market_event_message.fields(buffer, offset, packet, parent)

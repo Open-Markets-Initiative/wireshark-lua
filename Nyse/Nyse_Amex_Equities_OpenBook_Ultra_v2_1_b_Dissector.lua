@@ -67,37 +67,33 @@ local show = {}
 
 -- Nyse Amex Equities OpenBook Ultra 2.1.b Element Dissection Options
 show.delta_price_point = true
-show.delta_update_message = true
+show.application_messages = true
 show.delta_update_messages = true
 show.full_price_point = true
-show.full_update_message = true
 show.full_update_messages = true
 show.packet = true
 show.packet_header = true
-show.sequence_number_reset_message = true
 
 -- Register Nyse Amex Equities OpenBook Ultra 2.1.b Show Options
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point = Pref.bool("Show Delta Price Point", show.delta_price_point, "Parse and add Delta Price Point to protocol tree")
-omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message = Pref.bool("Show Delta Update Message", show.delta_update_message, "Parse and add Delta Update Message to protocol tree")
+omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages = Pref.bool("Show Delta Update Messages", show.delta_update_messages, "Parse and add Delta Update Messages to protocol tree")
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point = Pref.bool("Show Full Price Point", show.full_price_point, "Parse and add Full Price Point to protocol tree")
-omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message = Pref.bool("Show Full Update Message", show.full_update_message, "Parse and add Full Update Message to protocol tree")
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages = Pref.bool("Show Full Update Messages", show.full_update_messages, "Parse and add Full Update Messages to protocol tree")
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.delta_price_point ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point then
-    show.delta_price_point = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point
+  if show.application_messages ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_application_messages then
+    show.application_messages = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_application_messages
     changed = true
   end
-  if show.delta_update_message ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message then
-    show.delta_update_message = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_message
+  if show.delta_price_point ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point then
+    show.delta_price_point = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point
     changed = true
   end
   if show.delta_update_messages ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages then
@@ -106,10 +102,6 @@ function omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs_changed()
   end
   if show.full_price_point ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point then
     show.full_price_point = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point
-    changed = true
-  end
-  if show.full_update_message ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message then
-    show.full_update_message = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_message
     changed = true
   end
   if show.full_update_messages ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages then
@@ -122,10 +114,6 @@ function omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs_changed()
   end
   if show.packet_header ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header then
     show.packet_header = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_packet_header
-    changed = true
-  end
-  if show.sequence_number_reset_message ~= omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_nyse_amex_equities_openbook_ultra_v2_1_b.prefs.show_sequence_number_reset_message
     changed = true
   end
 
@@ -968,7 +956,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -1111,7 +1099,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b.delta_update_message.dissect = function
   local index = offset + size_of_delta_update_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.delta_update_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message, buffer(offset, 0))
     local current = nyse_amex_equities_openbook_ultra_v2_1_b.delta_update_message.fields(buffer, offset, packet, parent, size_of_delta_update_message)
     parent:set_len(size_of_delta_update_message)
@@ -1298,7 +1286,7 @@ nyse_amex_equities_openbook_ultra_v2_1_b.full_update_message.dissect = function(
   local index = offset + size_of_full_update_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.full_update_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message, buffer(offset, 0))
     local current = nyse_amex_equities_openbook_ultra_v2_1_b.full_update_message.fields(buffer, offset, packet, parent, size_of_full_update_message)
     parent:set_len(size_of_full_update_message)

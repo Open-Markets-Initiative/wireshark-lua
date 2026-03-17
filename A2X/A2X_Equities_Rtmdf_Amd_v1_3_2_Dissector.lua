@@ -78,50 +78,28 @@ omi_a2x_equities_rtmdf_amd_v1_3_2.fields.message_index = ProtoField.new("Message
 local show = {}
 
 -- A2X Equities Rtmdf Amd 1.3.2 Element Dissection Options
-show.auction_on_demand_message = true
-show.market_at_close = true
+show.application_messages = true
 show.market_flags = true
 show.message = true
 show.message_header = true
-show.order_add_message = true
-show.order_cancel_message = true
-show.order_modify_message = true
 show.packet = true
-show.security_definition_message = true
 show.security_flags = true
-show.security_status_message = true
-show.tick_table_data_message = true
-show.trade_bust_message = true
-show.trade_message = true
 
 -- Register A2X Equities Rtmdf Amd 1.3.2 Show Options
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message = Pref.bool("Show Auction On Demand Message", show.auction_on_demand_message, "Parse and add Auction On Demand Message to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close = Pref.bool("Show Market At Close", show.market_at_close, "Parse and add Market At Close to protocol tree")
+omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_flags = Pref.bool("Show Market Flags", show.market_flags, "Parse and add Market Flags to protocol tree")
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message = Pref.bool("Show Order Add Message", show.order_add_message, "Parse and add Order Add Message to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message = Pref.bool("Show Security Definition Message", show.security_definition_message, "Parse and add Security Definition Message to protocol tree")
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message = Pref.bool("Show Tick Table Data Message", show.tick_table_data_message, "Parse and add Tick Table Data Message to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
-omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 
 -- Handle changed preferences
 function omi_a2x_equities_rtmdf_amd_v1_3_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_on_demand_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message then
-    show.auction_on_demand_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_auction_on_demand_message
-    changed = true
-  end
-  if show.market_at_close ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close then
-    show.market_at_close = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_at_close
+  if show.application_messages ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_application_messages then
+    show.application_messages = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_application_messages
     changed = true
   end
   if show.market_flags ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_market_flags then
@@ -136,44 +114,12 @@ function omi_a2x_equities_rtmdf_amd_v1_3_2.prefs_changed()
     show.message_header = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_header
     changed = true
   end
-  if show.order_add_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message then
-    show.order_add_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_add_message
-    changed = true
-  end
-  if show.order_cancel_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message then
-    show.order_cancel_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_cancel_message
-    changed = true
-  end
-  if show.order_modify_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message then
-    show.order_modify_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_order_modify_message
-    changed = true
-  end
   if show.packet ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet then
     show.packet = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet
     changed = true
   end
-  if show.security_definition_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message then
-    show.security_definition_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_definition_message
-    changed = true
-  end
   if show.security_flags ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags then
     show.security_flags = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags
-    changed = true
-  end
-  if show.security_status_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message then
-    show.security_status_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_status_message
-    changed = true
-  end
-  if show.tick_table_data_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message then
-    show.tick_table_data_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_tick_table_data_message
-    changed = true
-  end
-  if show.trade_bust_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message then
-    show.trade_bust_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_bust_message
-    changed = true
-  end
-  if show.trade_message ~= omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message then
-    show.trade_message = omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_trade_message
     changed = true
   end
 
@@ -964,7 +910,7 @@ end
 
 -- Dissect: Market At Close
 a2x_equities_rtmdf_amd_v1_3_2.market_at_close.dissect = function(buffer, offset, packet, parent)
-  if show.market_at_close then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.market_at_close, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.market_at_close.fields(buffer, offset, packet, parent)
@@ -1016,7 +962,7 @@ end
 
 -- Dissect: Auction On Demand Message
 a2x_equities_rtmdf_amd_v1_3_2.auction_on_demand_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_on_demand_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.auction_on_demand_message.fields(buffer, offset, packet, parent)
@@ -1125,7 +1071,7 @@ end
 
 -- Dissect: Security Status Message
 a2x_equities_rtmdf_amd_v1_3_2.security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_status_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.security_status_message.fields(buffer, offset, packet, parent)
@@ -1256,7 +1202,7 @@ end
 
 -- Dissect: Security Definition Message
 a2x_equities_rtmdf_amd_v1_3_2.security_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.security_definition_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.security_definition_message.fields(buffer, offset, packet, parent)
@@ -1308,7 +1254,7 @@ end
 
 -- Dissect: Tick Table Data Message
 a2x_equities_rtmdf_amd_v1_3_2.tick_table_data_message.dissect = function(buffer, offset, packet, parent)
-  if show.tick_table_data_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_data_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.tick_table_data_message.fields(buffer, offset, packet, parent)
@@ -1364,7 +1310,7 @@ end
 
 -- Dissect: Trade Bust Message
 a2x_equities_rtmdf_amd_v1_3_2.trade_bust_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_bust_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.trade_bust_message.fields(buffer, offset, packet, parent)
@@ -1428,7 +1374,7 @@ end
 
 -- Dissect: Trade Message
 a2x_equities_rtmdf_amd_v1_3_2.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.trade_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.trade_message.fields(buffer, offset, packet, parent)
@@ -1484,7 +1430,7 @@ end
 
 -- Dissect: Order Modify Message
 a2x_equities_rtmdf_amd_v1_3_2.order_modify_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_modify_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.order_modify_message.fields(buffer, offset, packet, parent)
@@ -1532,7 +1478,7 @@ end
 
 -- Dissect: Order Cancel Message
 a2x_equities_rtmdf_amd_v1_3_2.order_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_cancel_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.order_cancel_message.fields(buffer, offset, packet, parent)
@@ -1592,7 +1538,7 @@ end
 
 -- Dissect: Order Add Message
 a2x_equities_rtmdf_amd_v1_3_2.order_add_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_add_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_equities_rtmdf_amd_v1_3_2.fields.order_add_message, buffer(offset, 0))
     local index = a2x_equities_rtmdf_amd_v1_3_2.order_add_message.fields(buffer, offset, packet, parent)

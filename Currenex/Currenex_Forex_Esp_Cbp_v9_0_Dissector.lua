@@ -64,52 +64,22 @@ omi_currenex_forex_esp_cbp_v9_0.fields.trade_ticker_message = ProtoField.new("Tr
 local show = {}
 
 -- Currenex Forex Esp Cbp 9.0 Element Dissection Options
-show.heartbeat = true
-show.instrument_info = true
-show.logon = true
-show.logout = true
+show.application_messages = true
 show.message_header = true
 show.packet = true
-show.price_cancel_message = true
-show.price_message = true
-show.reject_message = true
-show.subscription_reply = true
-show.subscription_request = true
-show.trade_ticker_message = true
 
 -- Register Currenex Forex Esp Cbp 9.0 Show Options
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_instrument_info = Pref.bool("Show Instrument Info", show.instrument_info, "Parse and add Instrument Info to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_logon = Pref.bool("Show Logon", show.logon, "Parse and add Logon to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_logout = Pref.bool("Show Logout", show.logout, "Parse and add Logout to protocol tree")
+omi_currenex_forex_esp_cbp_v9_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_forex_esp_cbp_v9_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_currenex_forex_esp_cbp_v9_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_price_cancel_message = Pref.bool("Show Price Cancel Message", show.price_cancel_message, "Parse and add Price Cancel Message to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_price_message = Pref.bool("Show Price Message", show.price_message, "Parse and add Price Message to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_reject_message = Pref.bool("Show Reject Message", show.reject_message, "Parse and add Reject Message to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_subscription_reply = Pref.bool("Show Subscription Reply", show.subscription_reply, "Parse and add Subscription Reply to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_subscription_request = Pref.bool("Show Subscription Request", show.subscription_request, "Parse and add Subscription Request to protocol tree")
-omi_currenex_forex_esp_cbp_v9_0.prefs.show_trade_ticker_message = Pref.bool("Show Trade Ticker Message", show.trade_ticker_message, "Parse and add Trade Ticker Message to protocol tree")
 
 -- Handle changed preferences
 function omi_currenex_forex_esp_cbp_v9_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.heartbeat ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_heartbeat then
-    show.heartbeat = omi_currenex_forex_esp_cbp_v9_0.prefs.show_heartbeat
-    changed = true
-  end
-  if show.instrument_info ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_instrument_info then
-    show.instrument_info = omi_currenex_forex_esp_cbp_v9_0.prefs.show_instrument_info
-    changed = true
-  end
-  if show.logon ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_logon then
-    show.logon = omi_currenex_forex_esp_cbp_v9_0.prefs.show_logon
-    changed = true
-  end
-  if show.logout ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_logout then
-    show.logout = omi_currenex_forex_esp_cbp_v9_0.prefs.show_logout
+  if show.application_messages ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_application_messages then
+    show.application_messages = omi_currenex_forex_esp_cbp_v9_0.prefs.show_application_messages
     changed = true
   end
   if show.message_header ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_message_header then
@@ -118,30 +88,6 @@ function omi_currenex_forex_esp_cbp_v9_0.prefs_changed()
   end
   if show.packet ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_packet then
     show.packet = omi_currenex_forex_esp_cbp_v9_0.prefs.show_packet
-    changed = true
-  end
-  if show.price_cancel_message ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_price_cancel_message then
-    show.price_cancel_message = omi_currenex_forex_esp_cbp_v9_0.prefs.show_price_cancel_message
-    changed = true
-  end
-  if show.price_message ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_price_message then
-    show.price_message = omi_currenex_forex_esp_cbp_v9_0.prefs.show_price_message
-    changed = true
-  end
-  if show.reject_message ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_reject_message then
-    show.reject_message = omi_currenex_forex_esp_cbp_v9_0.prefs.show_reject_message
-    changed = true
-  end
-  if show.subscription_reply ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_subscription_reply then
-    show.subscription_reply = omi_currenex_forex_esp_cbp_v9_0.prefs.show_subscription_reply
-    changed = true
-  end
-  if show.subscription_request ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_subscription_request then
-    show.subscription_request = omi_currenex_forex_esp_cbp_v9_0.prefs.show_subscription_request
-    changed = true
-  end
-  if show.trade_ticker_message ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_trade_ticker_message then
-    show.trade_ticker_message = omi_currenex_forex_esp_cbp_v9_0.prefs.show_trade_ticker_message
     changed = true
   end
 
@@ -1023,7 +969,7 @@ end
 
 -- Dissect: Reject Message
 currenex_forex_esp_cbp_v9_0.reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reject_message, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.reject_message.fields(buffer, offset, packet, parent)
@@ -1075,7 +1021,7 @@ end
 
 -- Dissect: Trade Ticker Message
 currenex_forex_esp_cbp_v9_0.trade_ticker_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_ticker_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.trade_ticker_message, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.trade_ticker_message.fields(buffer, offset, packet, parent)
@@ -1119,7 +1065,7 @@ end
 
 -- Dissect: Price Cancel Message
 currenex_forex_esp_cbp_v9_0.price_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_cancel_message, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.price_cancel_message.fields(buffer, offset, packet, parent)
@@ -1187,7 +1133,7 @@ end
 
 -- Dissect: Price Message
 currenex_forex_esp_cbp_v9_0.price_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_message, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.price_message.fields(buffer, offset, packet, parent)
@@ -1239,7 +1185,7 @@ end
 
 -- Dissect: Subscription Reply
 currenex_forex_esp_cbp_v9_0.subscription_reply.dissect = function(buffer, offset, packet, parent)
-  if show.subscription_reply then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.subscription_reply, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.subscription_reply.fields(buffer, offset, packet, parent)
@@ -1291,7 +1237,7 @@ end
 
 -- Dissect: Subscription Request
 currenex_forex_esp_cbp_v9_0.subscription_request.dissect = function(buffer, offset, packet, parent)
-  if show.subscription_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.subscription_request, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.subscription_request.fields(buffer, offset, packet, parent)
@@ -1347,7 +1293,7 @@ end
 
 -- Dissect: Instrument Info
 currenex_forex_esp_cbp_v9_0.instrument_info.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_info then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.instrument_info, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.instrument_info.fields(buffer, offset, packet, parent)
@@ -1387,7 +1333,7 @@ end
 
 -- Dissect: Heartbeat
 currenex_forex_esp_cbp_v9_0.heartbeat.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.heartbeat, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.heartbeat.fields(buffer, offset, packet, parent)
@@ -1435,7 +1381,7 @@ end
 
 -- Dissect: Logout
 currenex_forex_esp_cbp_v9_0.logout.dissect = function(buffer, offset, packet, parent)
-  if show.logout then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.logout, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.logout.fields(buffer, offset, packet, parent)
@@ -1483,7 +1429,7 @@ end
 
 -- Dissect: Logon
 currenex_forex_esp_cbp_v9_0.logon.dissect = function(buffer, offset, packet, parent)
-  if show.logon then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.logon, buffer(offset, 0))
     local index = currenex_forex_esp_cbp_v9_0.logon.fields(buffer, offset, packet, parent)

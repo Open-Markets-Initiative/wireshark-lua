@@ -58,42 +58,28 @@ omi_aquis_equities_snapshot_amd_v4_1.fields.message_index = ProtoField.new("Mess
 local show = {}
 
 -- Aquis Equities Snapshot Amd 4.1 Element Dissection Options
-show.book_entry_message = true
-show.book_status_message = true
-show.ma_c_book_entry_message = true
+show.application_messages = true
 show.market_flags = true
 show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
-show.snapshot_start_message = true
 
 -- Register Aquis Equities Snapshot Amd 4.1 Show Options
-omi_aquis_equities_snapshot_amd_v4_1.prefs.show_book_entry_message = Pref.bool("Show Book Entry Message", show.book_entry_message, "Parse and add Book Entry Message to protocol tree")
-omi_aquis_equities_snapshot_amd_v4_1.prefs.show_book_status_message = Pref.bool("Show Book Status Message", show.book_status_message, "Parse and add Book Status Message to protocol tree")
-omi_aquis_equities_snapshot_amd_v4_1.prefs.show_ma_c_book_entry_message = Pref.bool("Show Ma C Book Entry Message", show.ma_c_book_entry_message, "Parse and add Ma C Book Entry Message to protocol tree")
+omi_aquis_equities_snapshot_amd_v4_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_aquis_equities_snapshot_amd_v4_1.prefs.show_market_flags = Pref.bool("Show Market Flags", show.market_flags, "Parse and add Market Flags to protocol tree")
 omi_aquis_equities_snapshot_amd_v4_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_aquis_equities_snapshot_amd_v4_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_aquis_equities_snapshot_amd_v4_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_aquis_equities_snapshot_amd_v4_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_aquis_equities_snapshot_amd_v4_1.prefs.show_snapshot_start_message = Pref.bool("Show Snapshot Start Message", show.snapshot_start_message, "Parse and add Snapshot Start Message to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_snapshot_amd_v4_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.book_entry_message ~= omi_aquis_equities_snapshot_amd_v4_1.prefs.show_book_entry_message then
-    show.book_entry_message = omi_aquis_equities_snapshot_amd_v4_1.prefs.show_book_entry_message
-    changed = true
-  end
-  if show.book_status_message ~= omi_aquis_equities_snapshot_amd_v4_1.prefs.show_book_status_message then
-    show.book_status_message = omi_aquis_equities_snapshot_amd_v4_1.prefs.show_book_status_message
-    changed = true
-  end
-  if show.ma_c_book_entry_message ~= omi_aquis_equities_snapshot_amd_v4_1.prefs.show_ma_c_book_entry_message then
-    show.ma_c_book_entry_message = omi_aquis_equities_snapshot_amd_v4_1.prefs.show_ma_c_book_entry_message
+  if show.application_messages ~= omi_aquis_equities_snapshot_amd_v4_1.prefs.show_application_messages then
+    show.application_messages = omi_aquis_equities_snapshot_amd_v4_1.prefs.show_application_messages
     changed = true
   end
   if show.market_flags ~= omi_aquis_equities_snapshot_amd_v4_1.prefs.show_market_flags then
@@ -114,10 +100,6 @@ function omi_aquis_equities_snapshot_amd_v4_1.prefs_changed()
   end
   if show.packet_header ~= omi_aquis_equities_snapshot_amd_v4_1.prefs.show_packet_header then
     show.packet_header = omi_aquis_equities_snapshot_amd_v4_1.prefs.show_packet_header
-    changed = true
-  end
-  if show.snapshot_start_message ~= omi_aquis_equities_snapshot_amd_v4_1.prefs.show_snapshot_start_message then
-    show.snapshot_start_message = omi_aquis_equities_snapshot_amd_v4_1.prefs.show_snapshot_start_message
     changed = true
   end
 
@@ -604,7 +586,7 @@ end
 
 -- Dissect: Ma C Book Entry Message
 aquis_equities_snapshot_amd_v4_1.ma_c_book_entry_message.dissect = function(buffer, offset, packet, parent)
-  if show.ma_c_book_entry_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_snapshot_amd_v4_1.fields.ma_c_book_entry_message, buffer(offset, 0))
     local index = aquis_equities_snapshot_amd_v4_1.ma_c_book_entry_message.fields(buffer, offset, packet, parent)
@@ -660,7 +642,7 @@ end
 
 -- Dissect: Book Entry Message
 aquis_equities_snapshot_amd_v4_1.book_entry_message.dissect = function(buffer, offset, packet, parent)
-  if show.book_entry_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_snapshot_amd_v4_1.fields.book_entry_message, buffer(offset, 0))
     local index = aquis_equities_snapshot_amd_v4_1.book_entry_message.fields(buffer, offset, packet, parent)
@@ -781,7 +763,7 @@ end
 
 -- Dissect: Book Status Message
 aquis_equities_snapshot_amd_v4_1.book_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.book_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_snapshot_amd_v4_1.fields.book_status_message, buffer(offset, 0))
     local index = aquis_equities_snapshot_amd_v4_1.book_status_message.fields(buffer, offset, packet, parent)
@@ -829,7 +811,7 @@ end
 
 -- Dissect: Snapshot Start Message
 aquis_equities_snapshot_amd_v4_1.snapshot_start_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_start_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_snapshot_amd_v4_1.fields.snapshot_start_message, buffer(offset, 0))
     local index = aquis_equities_snapshot_amd_v4_1.snapshot_start_message.fields(buffer, offset, packet, parent)

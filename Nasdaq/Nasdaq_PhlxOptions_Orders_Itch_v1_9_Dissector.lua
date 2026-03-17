@@ -96,76 +96,40 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_index = ProtoField.new("M
 local show = {}
 
 -- Nasdaq PhlxOptions Orders Itch 1.9 Element Dissection Options
-show.auction_notification_message = true
-show.complex_auction_notification_message = true
+show.application_messages = true
 show.complex_order_leg = true
-show.complex_order_message = true
 show.complex_order_strategy_leg = true
-show.complex_order_strategy_message = true
-show.complex_trading_action_message = true
 show.expiration = true
 show.message = true
 show.message_header = true
-show.options_directory_message = true
 show.packet = true
 show.packet_header = true
-show.security_open_closed_message = true
-show.security_trading_action_message = true
-show.simple_order_message = true
-show.strategy_open_closed_message = true
-show.system_event_message = true
 
 -- Register Nasdaq PhlxOptions Orders Itch 1.9 Show Options
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_auction_notification_message = Pref.bool("Show Complex Auction Notification Message", show.complex_auction_notification_message, "Parse and add Complex Auction Notification Message to protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg = Pref.bool("Show Complex Order Leg", show.complex_order_leg, "Parse and add Complex Order Leg to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_message = Pref.bool("Show Complex Order Message", show.complex_order_message, "Parse and add Complex Order Message to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg = Pref.bool("Show Complex Order Strategy Leg", show.complex_order_strategy_leg, "Parse and add Complex Order Strategy Leg to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_message = Pref.bool("Show Complex Order Strategy Message", show.complex_order_strategy_message, "Parse and add Complex Order Strategy Message to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_trading_action_message = Pref.bool("Show Complex Trading Action Message", show.complex_trading_action_message, "Parse and add Complex Trading Action Message to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_expiration = Pref.bool("Show Expiration", show.expiration, "Parse and add Expiration to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_security_trading_action_message = Pref.bool("Show Security Trading Action Message", show.security_trading_action_message, "Parse and add Security Trading Action Message to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_simple_order_message = Pref.bool("Show Simple Order Message", show.simple_order_message, "Parse and add Simple Order Message to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_strategy_open_closed_message = Pref.bool("Show Strategy Open Closed Message", show.strategy_open_closed_message, "Parse and add Strategy Open Closed Message to protocol tree")
-omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_notification_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_auction_notification_message then
-    show.auction_notification_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_auction_notification_message
-    changed = true
-  end
-  if show.complex_auction_notification_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_auction_notification_message then
-    show.complex_auction_notification_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_auction_notification_message
+  if show.application_messages ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages
     changed = true
   end
   if show.complex_order_leg ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg then
     show.complex_order_leg = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg
     changed = true
   end
-  if show.complex_order_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_message then
-    show.complex_order_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_message
-    changed = true
-  end
   if show.complex_order_strategy_leg ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg then
     show.complex_order_strategy_leg = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg
-    changed = true
-  end
-  if show.complex_order_strategy_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_message then
-    show.complex_order_strategy_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_message
-    changed = true
-  end
-  if show.complex_trading_action_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_trading_action_message then
-    show.complex_trading_action_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_trading_action_message
     changed = true
   end
   if show.expiration ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_expiration then
@@ -180,36 +144,12 @@ function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
     show.message_header = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_header
     changed = true
   end
-  if show.options_directory_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_options_directory_message then
-    show.options_directory_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_options_directory_message
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet then
     show.packet = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet_header
-    changed = true
-  end
-  if show.security_open_closed_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_security_open_closed_message then
-    show.security_open_closed_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_security_open_closed_message
-    changed = true
-  end
-  if show.security_trading_action_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_security_trading_action_message then
-    show.security_trading_action_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_security_trading_action_message
-    changed = true
-  end
-  if show.simple_order_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_simple_order_message then
-    show.simple_order_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_simple_order_message
-    changed = true
-  end
-  if show.strategy_open_closed_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_strategy_open_closed_message then
-    show.strategy_open_closed_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_strategy_open_closed_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_system_event_message
     changed = true
   end
 
@@ -1604,7 +1544,7 @@ end
 
 -- Dissect: Complex Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_auction_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_auction_notification_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.fields(buffer, offset, packet, parent)
@@ -1738,7 +1678,7 @@ end
 
 -- Dissect: Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.auction_notification_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.fields(buffer, offset, packet, parent)
@@ -1941,7 +1881,7 @@ end
 
 -- Dissect: Complex Order Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.complex_order_message.fields(buffer, offset, packet, parent)
@@ -2053,7 +1993,7 @@ end
 
 -- Dissect: Simple Order Message
 nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.simple_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.simple_order_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.fields(buffer, offset, packet, parent)
@@ -2105,7 +2045,7 @@ end
 
 -- Dissect: Strategy Open Closed Message
 nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_open_closed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.strategy_open_closed_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.fields(buffer, offset, packet, parent)
@@ -2173,7 +2113,7 @@ end
 
 -- Dissect: Security Open Closed Message
 nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_open_closed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.security_open_closed_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.fields(buffer, offset, packet, parent)
@@ -2225,7 +2165,7 @@ end
 
 -- Dissect: Complex Trading Action Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_trading_action_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.fields(buffer, offset, packet, parent)
@@ -2293,7 +2233,7 @@ end
 
 -- Dissect: Security Trading Action Message
 nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.security_trading_action_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.fields(buffer, offset, packet, parent)
@@ -2447,7 +2387,7 @@ end
 
 -- Dissect: Complex Order Strategy Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_strategy_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message.fields(buffer, offset, packet, parent)
@@ -2527,7 +2467,7 @@ end
 
 -- Dissect: Options Directory Message
 nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.options_directory_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.fields(buffer, offset, packet, parent)
@@ -2579,7 +2519,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.fields(buffer, offset, packet, parent)

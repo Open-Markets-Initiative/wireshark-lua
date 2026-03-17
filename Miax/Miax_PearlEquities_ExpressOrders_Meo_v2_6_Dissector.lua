@@ -169,77 +169,43 @@ local show = {}
 
 -- Miax PearlEquities ExpressOrders Meo 2.6 Element Dissection Options
 show.additional_liquidity_indicator = true
-show.cancel_order_by_exchange_order_id_request = true
-show.cancel_order_by_exchange_order_id_response_message = true
-show.cancel_order_request = true
-show.cancel_order_response = true
-show.cancel_reduce_size_order_notification = true
+show.application_messages = true
 show.esesm_tcp_packet = true
-show.execution_notification = true
 show.goodbye_packet = true
 show.login_request = true
 show.login_response = true
 show.logout_request = true
-show.mass_cancel_request = true
-show.mass_cancel_response = true
 show.modify_order_instructions = true
-show.modify_order_notification = true
-show.modify_order_request_message = true
-show.modify_order_response = true
 show.new_order_instructions = true
-show.new_order_notification = true
-show.new_order_request_message = true
-show.new_order_response_message = true
 show.order_execution_instructions = true
-show.order_price_update_notification = true
 show.packet = true
 show.packet_header = true
-show.reserve_order_replenishment_notification = true
 show.retransmission_request = true
 show.routing = true
 show.self_trade_protection = true
 show.sequenced_data_packet = true
-show.symbol_update = true
 show.synchronization_complete = true
-show.system_state_notification = true
 show.test_packet = true
 show.unsequenced_data_packet = true
 
 -- Register Miax PearlEquities ExpressOrders Meo 2.6 Show Options
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_additional_liquidity_indicator = Pref.bool("Show Additional Liquidity Indicator", show.additional_liquidity_indicator, "Parse and add Additional Liquidity Indicator to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_by_exchange_order_id_request = Pref.bool("Show Cancel Order By Exchange Order Id Request", show.cancel_order_by_exchange_order_id_request, "Parse and add Cancel Order By Exchange Order Id Request to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_by_exchange_order_id_response_message = Pref.bool("Show Cancel Order By Exchange Order Id Response Message", show.cancel_order_by_exchange_order_id_response_message, "Parse and add Cancel Order By Exchange Order Id Response Message to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_request = Pref.bool("Show Cancel Order Request", show.cancel_order_request, "Parse and add Cancel Order Request to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_response = Pref.bool("Show Cancel Order Response", show.cancel_order_response, "Parse and add Cancel Order Response to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_reduce_size_order_notification = Pref.bool("Show Cancel Reduce Size Order Notification", show.cancel_reduce_size_order_notification, "Parse and add Cancel Reduce Size Order Notification to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_tcp_packet = Pref.bool("Show Esesm Tcp Packet", show.esesm_tcp_packet, "Parse and add Esesm Tcp Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_execution_notification = Pref.bool("Show Execution Notification", show.execution_notification, "Parse and add Execution Notification to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_mass_cancel_request = Pref.bool("Show Mass Cancel Request", show.mass_cancel_request, "Parse and add Mass Cancel Request to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_mass_cancel_response = Pref.bool("Show Mass Cancel Response", show.mass_cancel_response, "Parse and add Mass Cancel Response to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_instructions = Pref.bool("Show Modify Order Instructions", show.modify_order_instructions, "Parse and add Modify Order Instructions to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_notification = Pref.bool("Show Modify Order Notification", show.modify_order_notification, "Parse and add Modify Order Notification to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_request_message = Pref.bool("Show Modify Order Request Message", show.modify_order_request_message, "Parse and add Modify Order Request Message to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_response = Pref.bool("Show Modify Order Response", show.modify_order_response, "Parse and add Modify Order Response to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_instructions = Pref.bool("Show New Order Instructions", show.new_order_instructions, "Parse and add New Order Instructions to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_notification = Pref.bool("Show New Order Notification", show.new_order_notification, "Parse and add New Order Notification to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_request_message = Pref.bool("Show New Order Request Message", show.new_order_request_message, "Parse and add New Order Request Message to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_response_message = Pref.bool("Show New Order Response Message", show.new_order_response_message, "Parse and add New Order Response Message to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions = Pref.bool("Show Order Execution Instructions", show.order_execution_instructions, "Parse and add Order Execution Instructions to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_price_update_notification = Pref.bool("Show Order Price Update Notification", show.order_price_update_notification, "Parse and add Order Price Update Notification to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_reserve_order_replenishment_notification = Pref.bool("Show Reserve Order Replenishment Notification", show.reserve_order_replenishment_notification, "Parse and add Reserve Order Replenishment Notification to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_routing = Pref.bool("Show Routing", show.routing, "Parse and add Routing to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_self_trade_protection = Pref.bool("Show Self Trade Protection", show.self_trade_protection, "Parse and add Self Trade Protection to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_symbol_update = Pref.bool("Show Symbol Update", show.symbol_update, "Parse and add Symbol Update to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_synchronization_complete = Pref.bool("Show Synchronization Complete", show.synchronization_complete, "Parse and add Synchronization Complete to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_system_state_notification = Pref.bool("Show System State Notification", show.system_state_notification, "Parse and add System State Notification to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_test_packet = Pref.bool("Show Test Packet", show.test_packet, "Parse and add Test Packet to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
@@ -252,32 +218,12 @@ function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
     show.additional_liquidity_indicator = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_additional_liquidity_indicator
     changed = true
   end
-  if show.cancel_order_by_exchange_order_id_request ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_by_exchange_order_id_request then
-    show.cancel_order_by_exchange_order_id_request = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_by_exchange_order_id_request
-    changed = true
-  end
-  if show.cancel_order_by_exchange_order_id_response_message ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_by_exchange_order_id_response_message then
-    show.cancel_order_by_exchange_order_id_response_message = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_by_exchange_order_id_response_message
-    changed = true
-  end
-  if show.cancel_order_request ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_request then
-    show.cancel_order_request = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_request
-    changed = true
-  end
-  if show.cancel_order_response ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_response then
-    show.cancel_order_response = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_order_response
-    changed = true
-  end
-  if show.cancel_reduce_size_order_notification ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_reduce_size_order_notification then
-    show.cancel_reduce_size_order_notification = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_cancel_reduce_size_order_notification
+  if show.application_messages ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages then
+    show.application_messages = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages
     changed = true
   end
   if show.esesm_tcp_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_tcp_packet then
     show.esesm_tcp_packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_tcp_packet
-    changed = true
-  end
-  if show.execution_notification ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_execution_notification then
-    show.execution_notification = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_execution_notification
     changed = true
   end
   if show.goodbye_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_goodbye_packet then
@@ -296,52 +242,16 @@ function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
     show.logout_request = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_logout_request
     changed = true
   end
-  if show.mass_cancel_request ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_mass_cancel_request then
-    show.mass_cancel_request = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_mass_cancel_request
-    changed = true
-  end
-  if show.mass_cancel_response ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_mass_cancel_response then
-    show.mass_cancel_response = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_mass_cancel_response
-    changed = true
-  end
   if show.modify_order_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_instructions then
     show.modify_order_instructions = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_instructions
-    changed = true
-  end
-  if show.modify_order_notification ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_notification then
-    show.modify_order_notification = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_notification
-    changed = true
-  end
-  if show.modify_order_request_message ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_request_message then
-    show.modify_order_request_message = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_request_message
-    changed = true
-  end
-  if show.modify_order_response ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_response then
-    show.modify_order_response = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_response
     changed = true
   end
   if show.new_order_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_instructions then
     show.new_order_instructions = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_instructions
     changed = true
   end
-  if show.new_order_notification ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_notification then
-    show.new_order_notification = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_notification
-    changed = true
-  end
-  if show.new_order_request_message ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_request_message then
-    show.new_order_request_message = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_request_message
-    changed = true
-  end
-  if show.new_order_response_message ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_response_message then
-    show.new_order_response_message = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_response_message
-    changed = true
-  end
   if show.order_execution_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions then
     show.order_execution_instructions = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions
-    changed = true
-  end
-  if show.order_price_update_notification ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_price_update_notification then
-    show.order_price_update_notification = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_price_update_notification
     changed = true
   end
   if show.packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet then
@@ -350,10 +260,6 @@ function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
   end
   if show.packet_header ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet_header then
     show.packet_header = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet_header
-    changed = true
-  end
-  if show.reserve_order_replenishment_notification ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_reserve_order_replenishment_notification then
-    show.reserve_order_replenishment_notification = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_reserve_order_replenishment_notification
     changed = true
   end
   if show.retransmission_request ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_retransmission_request then
@@ -372,16 +278,8 @@ function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
     show.sequenced_data_packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_sequenced_data_packet
     changed = true
   end
-  if show.symbol_update ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_symbol_update then
-    show.symbol_update = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_symbol_update
-    changed = true
-  end
   if show.synchronization_complete ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_synchronization_complete then
     show.synchronization_complete = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_synchronization_complete
-    changed = true
-  end
-  if show.system_state_notification ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_system_state_notification then
-    show.system_state_notification = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_system_state_notification
     changed = true
   end
   if show.test_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_test_packet then
@@ -4059,7 +3957,7 @@ end
 
 -- Dissect: Execution Notification
 miax_pearlequities_expressorders_meo_v2_6.execution_notification.dissect = function(buffer, offset, packet, parent)
-  if show.execution_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.execution_notification, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.execution_notification.fields(buffer, offset, packet, parent)
@@ -4119,7 +4017,7 @@ end
 
 -- Dissect: Reserve Order Replenishment Notification
 miax_pearlequities_expressorders_meo_v2_6.reserve_order_replenishment_notification.dissect = function(buffer, offset, packet, parent)
-  if show.reserve_order_replenishment_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserve_order_replenishment_notification, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.reserve_order_replenishment_notification.fields(buffer, offset, packet, parent)
@@ -4179,7 +4077,7 @@ end
 
 -- Dissect: Mass Cancel Response
 miax_pearlequities_expressorders_meo_v2_6.mass_cancel_response.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.mass_cancel_response, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.mass_cancel_response.fields(buffer, offset, packet, parent)
@@ -4243,7 +4141,7 @@ end
 
 -- Dissect: Mass Cancel Request
 miax_pearlequities_expressorders_meo_v2_6.mass_cancel_request.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.mass_cancel_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.mass_cancel_request.fields(buffer, offset, packet, parent)
@@ -4311,7 +4209,7 @@ end
 
 -- Dissect: Cancel Order By Exchange Order Id Response Message
 miax_pearlequities_expressorders_meo_v2_6.cancel_order_by_exchange_order_id_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_by_exchange_order_id_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_by_exchange_order_id_response_message, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.cancel_order_by_exchange_order_id_response_message.fields(buffer, offset, packet, parent)
@@ -4371,7 +4269,7 @@ end
 
 -- Dissect: Cancel Order By Exchange Order Id Request
 miax_pearlequities_expressorders_meo_v2_6.cancel_order_by_exchange_order_id_request.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_by_exchange_order_id_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_by_exchange_order_id_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.cancel_order_by_exchange_order_id_request.fields(buffer, offset, packet, parent)
@@ -4443,7 +4341,7 @@ end
 
 -- Dissect: Cancel Order Response
 miax_pearlequities_expressorders_meo_v2_6.cancel_order_response.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_response, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.cancel_order_response.fields(buffer, offset, packet, parent)
@@ -4503,7 +4401,7 @@ end
 
 -- Dissect: Cancel Order Request
 miax_pearlequities_expressorders_meo_v2_6.cancel_order_request.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.cancel_order_request.fields(buffer, offset, packet, parent)
@@ -4579,7 +4477,7 @@ end
 
 -- Dissect: Modify Order Response
 miax_pearlequities_expressorders_meo_v2_6.modify_order_response.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_response, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.modify_order_response.fields(buffer, offset, packet, parent)
@@ -4709,7 +4607,7 @@ end
 
 -- Dissect: Modify Order Request Message
 miax_pearlequities_expressorders_meo_v2_6.modify_order_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_request_message, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.modify_order_request_message.fields(buffer, offset, packet, parent)
@@ -4781,7 +4679,7 @@ end
 
 -- Dissect: New Order Response Message
 miax_pearlequities_expressorders_meo_v2_6.new_order_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.new_order_response_message, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.new_order_response_message.fields(buffer, offset, packet, parent)
@@ -5091,7 +4989,7 @@ end
 
 -- Dissect: New Order Request Message
 miax_pearlequities_expressorders_meo_v2_6.new_order_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.new_order_request_message, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.new_order_request_message.fields(buffer, offset, packet, parent)
@@ -5261,7 +5159,7 @@ end
 
 -- Dissect: Order Price Update Notification
 miax_pearlequities_expressorders_meo_v2_6.order_price_update_notification.dissect = function(buffer, offset, packet, parent)
-  if show.order_price_update_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.order_price_update_notification, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.order_price_update_notification.fields(buffer, offset, packet, parent)
@@ -5345,7 +5243,7 @@ end
 
 -- Dissect: Cancel Reduce Size Order Notification
 miax_pearlequities_expressorders_meo_v2_6.cancel_reduce_size_order_notification.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_reduce_size_order_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_reduce_size_order_notification, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.cancel_reduce_size_order_notification.fields(buffer, offset, packet, parent)
@@ -5445,7 +5343,7 @@ end
 
 -- Dissect: Modify Order Notification
 miax_pearlequities_expressorders_meo_v2_6.modify_order_notification.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_notification, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.modify_order_notification.fields(buffer, offset, packet, parent)
@@ -5585,7 +5483,7 @@ end
 
 -- Dissect: New Order Notification
 miax_pearlequities_expressorders_meo_v2_6.new_order_notification.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.new_order_notification, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.new_order_notification.fields(buffer, offset, packet, parent)
@@ -5641,7 +5539,7 @@ end
 
 -- Dissect: System State Notification
 miax_pearlequities_expressorders_meo_v2_6.system_state_notification.dissect = function(buffer, offset, packet, parent)
-  if show.system_state_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.system_state_notification, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.system_state_notification.fields(buffer, offset, packet, parent)
@@ -5721,7 +5619,7 @@ end
 
 -- Dissect: Symbol Update
 miax_pearlequities_expressorders_meo_v2_6.symbol_update.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_update then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.symbol_update, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.symbol_update.fields(buffer, offset, packet, parent)

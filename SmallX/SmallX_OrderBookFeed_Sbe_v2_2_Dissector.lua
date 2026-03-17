@@ -176,35 +176,23 @@ show.incremental_trade_group = true
 show.incremental_trade_groups = true
 show.incremetal_orders_group = true
 show.incremetal_orders_groups = true
-show.index_value_snapshot_message = true
-show.instrument_trading_status_incremental_message = true
+show.application_messages = true
 show.legs_group = true
 show.legs_groups = true
-show.market_summary_incremental_message = true
-show.market_summary_snapshot_message = true
 show.message_header = true
-show.multileg_definition_incremental_v_2_message = true
-show.multileg_definition_snapshot_v_2_message = true
 show.order_attributes = true
-show.order_book_incremental_message = true
-show.order_book_snapshot_message = true
 show.packet = true
 show.packet_flags = true
 show.packet_header = true
 show.sbe_frame = true
-show.single_instrument_definition_incremental_v_2_message = true
-show.single_instrument_definition_snapshot_v_2_message = true
 show.snaphot_orders_group = true
 show.snaphot_orders_groups = true
 show.snapshot_message_instructions = true
 show.trade_bust_group = true
 show.trade_bust_groups = true
-show.trade_bust_message = true
 show.trade_conditions = true
 show.trade_correct_group = true
 show.trade_correct_groups = true
-show.trade_correct_message = true
-show.trades_incremental_message = true
 
 -- Register SmallX OrderBookFeed Sbe 2.2 Show Options
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension = Pref.bool("Show Group Dimension", show.group_dimension, "Parse and add Group Dimension to protocol tree")
@@ -213,41 +201,33 @@ omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group = Pref.bool
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_groups = Pref.bool("Show Incremental Trade Groups", show.incremental_trade_groups, "Parse and add Incremental Trade Groups to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group = Pref.bool("Show Incremetal Orders Group", show.incremetal_orders_group, "Parse and add Incremetal Orders Group to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_groups = Pref.bool("Show Incremetal Orders Groups", show.incremetal_orders_groups, "Parse and add Incremetal Orders Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_index_value_snapshot_message = Pref.bool("Show Index Value Snapshot Message", show.index_value_snapshot_message, "Parse and add Index Value Snapshot Message to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_instrument_trading_status_incremental_message = Pref.bool("Show Instrument Trading Status Incremental Message", show.instrument_trading_status_incremental_message, "Parse and add Instrument Trading Status Incremental Message to protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_market_summary_incremental_message = Pref.bool("Show Market Summary Incremental Message", show.market_summary_incremental_message, "Parse and add Market Summary Incremental Message to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_market_summary_snapshot_message = Pref.bool("Show Market Summary Snapshot Message", show.market_summary_snapshot_message, "Parse and add Market Summary Snapshot Message to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_multileg_definition_incremental_v_2_message = Pref.bool("Show Multileg Definition Incremental V 2 Message", show.multileg_definition_incremental_v_2_message, "Parse and add Multileg Definition Incremental V 2 Message to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_multileg_definition_snapshot_v_2_message = Pref.bool("Show Multileg Definition Snapshot V 2 Message", show.multileg_definition_snapshot_v_2_message, "Parse and add Multileg Definition Snapshot V 2 Message to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_attributes = Pref.bool("Show Order Attributes", show.order_attributes, "Parse and add Order Attributes to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_book_incremental_message = Pref.bool("Show Order Book Incremental Message", show.order_book_incremental_message, "Parse and add Order Book Incremental Message to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_book_snapshot_message = Pref.bool("Show Order Book Snapshot Message", show.order_book_snapshot_message, "Parse and add Order Book Snapshot Message to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_flags = Pref.bool("Show Packet Flags", show.packet_flags, "Parse and add Packet Flags to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_sbe_frame = Pref.bool("Show Sbe Frame", show.sbe_frame, "Parse and add Sbe Frame to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_single_instrument_definition_incremental_v_2_message = Pref.bool("Show Single Instrument Definition Incremental V 2 Message", show.single_instrument_definition_incremental_v_2_message, "Parse and add Single Instrument Definition Incremental V 2 Message to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_single_instrument_definition_snapshot_v_2_message = Pref.bool("Show Single Instrument Definition Snapshot V 2 Message", show.single_instrument_definition_snapshot_v_2_message, "Parse and add Single Instrument Definition Snapshot V 2 Message to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group = Pref.bool("Show Snaphot Orders Group", show.snaphot_orders_group, "Parse and add Snaphot Orders Group to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_groups = Pref.bool("Show Snaphot Orders Groups", show.snaphot_orders_groups, "Parse and add Snaphot Orders Groups to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snapshot_message_instructions = Pref.bool("Show Snapshot Message Instructions", show.snapshot_message_instructions, "Parse and add Snapshot Message Instructions to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group = Pref.bool("Show Trade Bust Group", show.trade_bust_group, "Parse and add Trade Bust Group to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_groups = Pref.bool("Show Trade Bust Groups", show.trade_bust_groups, "Parse and add Trade Bust Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group = Pref.bool("Show Trade Correct Group", show.trade_correct_group, "Parse and add Trade Correct Group to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups = Pref.bool("Show Trade Correct Groups", show.trade_correct_groups, "Parse and add Trade Correct Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_message = Pref.bool("Show Trade Correct Message", show.trade_correct_message, "Parse and add Trade Correct Message to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trades_incremental_message = Pref.bool("Show Trades Incremental Message", show.trades_incremental_message, "Parse and add Trades Incremental Message to protocol tree")
 
 -- Handle changed preferences
 function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages then
+    show.application_messages = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages
+    changed = true
+  end
   if show.group_dimension ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension then
     show.group_dimension = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension
     changed = true
@@ -272,14 +252,6 @@ function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
     show.incremetal_orders_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_groups
     changed = true
   end
-  if show.index_value_snapshot_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_index_value_snapshot_message then
-    show.index_value_snapshot_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_index_value_snapshot_message
-    changed = true
-  end
-  if show.instrument_trading_status_incremental_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_instrument_trading_status_incremental_message then
-    show.instrument_trading_status_incremental_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_instrument_trading_status_incremental_message
-    changed = true
-  end
   if show.legs_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group then
     show.legs_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group
     changed = true
@@ -288,36 +260,12 @@ function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
     show.legs_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_groups
     changed = true
   end
-  if show.market_summary_incremental_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_market_summary_incremental_message then
-    show.market_summary_incremental_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_market_summary_incremental_message
-    changed = true
-  end
-  if show.market_summary_snapshot_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_market_summary_snapshot_message then
-    show.market_summary_snapshot_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_market_summary_snapshot_message
-    changed = true
-  end
   if show.message_header ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_message_header then
     show.message_header = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_message_header
     changed = true
   end
-  if show.multileg_definition_incremental_v_2_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_multileg_definition_incremental_v_2_message then
-    show.multileg_definition_incremental_v_2_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_multileg_definition_incremental_v_2_message
-    changed = true
-  end
-  if show.multileg_definition_snapshot_v_2_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_multileg_definition_snapshot_v_2_message then
-    show.multileg_definition_snapshot_v_2_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_multileg_definition_snapshot_v_2_message
-    changed = true
-  end
   if show.order_attributes ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_attributes then
     show.order_attributes = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_attributes
-    changed = true
-  end
-  if show.order_book_incremental_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_book_incremental_message then
-    show.order_book_incremental_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_book_incremental_message
-    changed = true
-  end
-  if show.order_book_snapshot_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_book_snapshot_message then
-    show.order_book_snapshot_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_book_snapshot_message
     changed = true
   end
   if show.packet ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet then
@@ -334,14 +282,6 @@ function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
   end
   if show.sbe_frame ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_sbe_frame then
     show.sbe_frame = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_sbe_frame
-    changed = true
-  end
-  if show.single_instrument_definition_incremental_v_2_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_single_instrument_definition_incremental_v_2_message then
-    show.single_instrument_definition_incremental_v_2_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_single_instrument_definition_incremental_v_2_message
-    changed = true
-  end
-  if show.single_instrument_definition_snapshot_v_2_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_single_instrument_definition_snapshot_v_2_message then
-    show.single_instrument_definition_snapshot_v_2_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_single_instrument_definition_snapshot_v_2_message
     changed = true
   end
   if show.snaphot_orders_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group then
@@ -364,10 +304,6 @@ function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
     show.trade_bust_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_groups
     changed = true
   end
-  if show.trade_bust_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_message then
-    show.trade_bust_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_message
-    changed = true
-  end
   if show.trade_conditions ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions then
     show.trade_conditions = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions
     changed = true
@@ -378,14 +314,6 @@ function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
   end
   if show.trade_correct_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups then
     show.trade_correct_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups
-    changed = true
-  end
-  if show.trade_correct_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_message then
-    show.trade_correct_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_message
-    changed = true
-  end
-  if show.trades_incremental_message ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trades_incremental_message then
-    show.trades_incremental_message = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trades_incremental_message
     changed = true
   end
 
@@ -3304,7 +3232,7 @@ end
 
 -- Dissect: Multileg Definition Snapshot V 2 Message
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.dissect = function(buffer, offset, packet, parent)
-  if show.multileg_definition_snapshot_v_2_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_snapshot_v_2_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.fields(buffer, offset, packet, parent)
@@ -3452,7 +3380,7 @@ end
 
 -- Dissect: Single Instrument Definition Snapshot V 2 Message
 smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.dissect = function(buffer, offset, packet, parent)
-  if show.single_instrument_definition_snapshot_v_2_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.single_instrument_definition_snapshot_v_2_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.fields(buffer, offset, packet, parent)
@@ -3677,7 +3605,7 @@ end
 
 -- Dissect: Multileg Definition Incremental V 2 Message
 smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message.dissect = function(buffer, offset, packet, parent)
-  if show.multileg_definition_incremental_v_2_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_incremental_v_2_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message.fields(buffer, offset, packet, parent)
@@ -3821,7 +3749,7 @@ end
 
 -- Dissect: Single Instrument Definition Incremental V 2 Message
 smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.dissect = function(buffer, offset, packet, parent)
-  if show.single_instrument_definition_incremental_v_2_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.single_instrument_definition_incremental_v_2_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.fields(buffer, offset, packet, parent)
@@ -3901,7 +3829,7 @@ end
 
 -- Dissect: Index Value Snapshot Message
 smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.index_value_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.index_value_snapshot_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.fields(buffer, offset, packet, parent)
@@ -4017,7 +3945,7 @@ end
 
 -- Dissect: Market Summary Snapshot Message
 smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_summary_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.market_summary_snapshot_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.fields(buffer, offset, packet, parent)
@@ -4272,7 +4200,7 @@ end
 
 -- Dissect: Order Book Snapshot Message
 smallx_orderbookfeed_sbe_v2_2.order_book_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_book_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_book_snapshot_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.order_book_snapshot_message.fields(buffer, offset, packet, parent)
@@ -4364,7 +4292,7 @@ end
 
 -- Dissect: Market Summary Incremental Message
 smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_summary_incremental_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.market_summary_incremental_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message.fields(buffer, offset, packet, parent)
@@ -4570,7 +4498,7 @@ end
 
 -- Dissect: Order Book Incremental Message
 smallx_orderbookfeed_sbe_v2_2.order_book_incremental_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_book_incremental_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_book_incremental_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.order_book_incremental_message.fields(buffer, offset, packet, parent)
@@ -4846,7 +4774,7 @@ end
 
 -- Dissect: Trade Bust Message
 smallx_orderbookfeed_sbe_v2_2.trade_bust_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_bust_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.trade_bust_message.fields(buffer, offset, packet, parent)
@@ -5076,7 +5004,7 @@ end
 
 -- Dissect: Trade Correct Message
 smallx_orderbookfeed_sbe_v2_2.trade_correct_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_correct_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_correct_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.trade_correct_message.fields(buffer, offset, packet, parent)
@@ -5298,7 +5226,7 @@ end
 
 -- Dissect: Trades Incremental Message
 smallx_orderbookfeed_sbe_v2_2.trades_incremental_message.dissect = function(buffer, offset, packet, parent)
-  if show.trades_incremental_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trades_incremental_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.trades_incremental_message.fields(buffer, offset, packet, parent)
@@ -5358,7 +5286,7 @@ end
 
 -- Dissect: Instrument Trading Status Incremental Message
 smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_trading_status_incremental_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_trading_status_incremental_message, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.fields(buffer, offset, packet, parent)

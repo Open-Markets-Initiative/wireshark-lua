@@ -278,10 +278,8 @@ omi_cme_futures_mdp3_sbe_v1_6.fields.snapshot_full_refresh_38_no_m_d_entries_gro
 local show = {}
 
 -- Cme Futures Mdp3 Sbe 1.6 Element Dissection Options
-show.admin_login = true
-show.admin_logout = true
+show.application_messages = true
 show.binary_packet_header = true
-show.channel_reset = true
 show.channel_reset_group = true
 show.channel_reset_groups = true
 show.group_size = true
@@ -333,33 +331,18 @@ show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group = true
 show.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups = true
 show.match_event_indicator = true
 show.maturity_month_year = true
-show.md_incremental_refresh_book = true
-show.md_incremental_refresh_daily_statistics = true
-show.md_incremental_refresh_limits_banding = true
-show.md_incremental_refresh_session_statistics = true
-show.md_incremental_refresh_trade = true
-show.md_incremental_refresh_trade_summary = true
-show.md_incremental_refresh_volume = true
-show.md_instrument_definition_future = true
-show.md_instrument_definition_option = true
-show.md_instrument_definition_spread = true
 show.message = true
 show.message_header = true
 show.packet = true
-show.quote_request = true
 show.related_sym_group = true
 show.related_sym_groups = true
-show.security_status = true
 show.settl_price_type = true
-show.snapshot_full_refresh = true
 show.snapshot_full_refresh_38_no_m_d_entries_group = true
 show.snapshot_full_refresh_38_no_m_d_entries_groups = true
 
 -- Register Cme Futures Mdp3 Sbe 1.6 Show Options
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_admin_login = Pref.bool("Show Admin Login", show.admin_login, "Parse and add Admin Login to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_admin_logout = Pref.bool("Show Admin Logout", show.admin_logout, "Parse and add Admin Logout to protocol tree")
+omi_cme_futures_mdp3_sbe_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_channel_reset = Pref.bool("Show Channel Reset", show.channel_reset, "Parse and add Channel Reset to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_channel_reset_group = Pref.bool("Show Channel Reset Group", show.channel_reset_group, "Parse and add Channel Reset Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_channel_reset_groups = Pref.bool("Show Channel Reset Groups", show.channel_reset_groups, "Parse and add Channel Reset Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
@@ -411,25 +394,12 @@ omi_cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_instrument_definition_spread_29_no_
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_groups = Pref.bool("Show M D Instrument Definition Spread 29 No M D Feed Types Groups", show.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups, "Parse and add M D Instrument Definition Spread 29 No M D Feed Types Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_book = Pref.bool("Show Md Incremental Refresh Book", show.md_incremental_refresh_book, "Parse and add Md Incremental Refresh Book to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_daily_statistics = Pref.bool("Show Md Incremental Refresh Daily Statistics", show.md_incremental_refresh_daily_statistics, "Parse and add Md Incremental Refresh Daily Statistics to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_limits_banding = Pref.bool("Show Md Incremental Refresh Limits Banding", show.md_incremental_refresh_limits_banding, "Parse and add Md Incremental Refresh Limits Banding to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_session_statistics = Pref.bool("Show Md Incremental Refresh Session Statistics", show.md_incremental_refresh_session_statistics, "Parse and add Md Incremental Refresh Session Statistics to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_trade = Pref.bool("Show Md Incremental Refresh Trade", show.md_incremental_refresh_trade, "Parse and add Md Incremental Refresh Trade to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_trade_summary = Pref.bool("Show Md Incremental Refresh Trade Summary", show.md_incremental_refresh_trade_summary, "Parse and add Md Incremental Refresh Trade Summary to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_volume = Pref.bool("Show Md Incremental Refresh Volume", show.md_incremental_refresh_volume, "Parse and add Md Incremental Refresh Volume to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_future = Pref.bool("Show Md Instrument Definition Future", show.md_instrument_definition_future, "Parse and add Md Instrument Definition Future to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_option = Pref.bool("Show Md Instrument Definition Option", show.md_instrument_definition_option, "Parse and add Md Instrument Definition Option to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_spread = Pref.bool("Show Md Instrument Definition Spread", show.md_instrument_definition_spread, "Parse and add Md Instrument Definition Spread to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_related_sym_group = Pref.bool("Show Related Sym Group", show.related_sym_group, "Parse and add Related Sym Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_related_sym_groups = Pref.bool("Show Related Sym Groups", show.related_sym_groups, "Parse and add Related Sym Groups to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_security_status = Pref.bool("Show Security Status", show.security_status, "Parse and add Security Status to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_6.prefs.show_snapshot_full_refresh = Pref.bool("Show Snapshot Full Refresh", show.snapshot_full_refresh, "Parse and add Snapshot Full Refresh to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_snapshot_full_refresh_38_no_m_d_entries_group = Pref.bool("Show Snapshot Full Refresh 38 No M D Entries Group", show.snapshot_full_refresh_38_no_m_d_entries_group, "Parse and add Snapshot Full Refresh 38 No M D Entries Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_6.prefs.show_snapshot_full_refresh_38_no_m_d_entries_groups = Pref.bool("Show Snapshot Full Refresh 38 No M D Entries Groups", show.snapshot_full_refresh_38_no_m_d_entries_groups, "Parse and add Snapshot Full Refresh 38 No M D Entries Groups to protocol tree")
 
@@ -438,20 +408,12 @@ function omi_cme_futures_mdp3_sbe_v1_6.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.admin_login ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_admin_login then
-    show.admin_login = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_admin_login
-    changed = true
-  end
-  if show.admin_logout ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_admin_logout then
-    show.admin_logout = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_admin_logout
+  if show.application_messages ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_application_messages then
+    show.application_messages = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_application_messages
     changed = true
   end
   if show.binary_packet_header ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_binary_packet_header
-    changed = true
-  end
-  if show.channel_reset ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_channel_reset then
-    show.channel_reset = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_channel_reset
     changed = true
   end
   if show.channel_reset_group ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_channel_reset_group then
@@ -658,46 +620,6 @@ function omi_cme_futures_mdp3_sbe_v1_6.prefs_changed()
     show.maturity_month_year = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_maturity_month_year
     changed = true
   end
-  if show.md_incremental_refresh_book ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_book then
-    show.md_incremental_refresh_book = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_book
-    changed = true
-  end
-  if show.md_incremental_refresh_daily_statistics ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_daily_statistics then
-    show.md_incremental_refresh_daily_statistics = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_daily_statistics
-    changed = true
-  end
-  if show.md_incremental_refresh_limits_banding ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_limits_banding then
-    show.md_incremental_refresh_limits_banding = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_limits_banding
-    changed = true
-  end
-  if show.md_incremental_refresh_session_statistics ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_session_statistics then
-    show.md_incremental_refresh_session_statistics = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_session_statistics
-    changed = true
-  end
-  if show.md_incremental_refresh_trade ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_trade then
-    show.md_incremental_refresh_trade = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_trade
-    changed = true
-  end
-  if show.md_incremental_refresh_trade_summary ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_trade_summary then
-    show.md_incremental_refresh_trade_summary = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_trade_summary
-    changed = true
-  end
-  if show.md_incremental_refresh_volume ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_volume then
-    show.md_incremental_refresh_volume = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_incremental_refresh_volume
-    changed = true
-  end
-  if show.md_instrument_definition_future ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_future then
-    show.md_instrument_definition_future = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_future
-    changed = true
-  end
-  if show.md_instrument_definition_option ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_option then
-    show.md_instrument_definition_option = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_option
-    changed = true
-  end
-  if show.md_instrument_definition_spread ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_spread then
-    show.md_instrument_definition_spread = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_md_instrument_definition_spread
-    changed = true
-  end
   if show.message ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_message then
     show.message = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_message
     changed = true
@@ -710,10 +632,6 @@ function omi_cme_futures_mdp3_sbe_v1_6.prefs_changed()
     show.packet = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_packet
     changed = true
   end
-  if show.quote_request ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_quote_request then
-    show.quote_request = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_quote_request
-    changed = true
-  end
   if show.related_sym_group ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_related_sym_group then
     show.related_sym_group = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_related_sym_group
     changed = true
@@ -722,16 +640,8 @@ function omi_cme_futures_mdp3_sbe_v1_6.prefs_changed()
     show.related_sym_groups = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_related_sym_groups
     changed = true
   end
-  if show.security_status ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_security_status then
-    show.security_status = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_security_status
-    changed = true
-  end
   if show.settl_price_type ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_settl_price_type then
     show.settl_price_type = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_settl_price_type
-    changed = true
-  end
-  if show.snapshot_full_refresh ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_snapshot_full_refresh then
-    show.snapshot_full_refresh = omi_cme_futures_mdp3_sbe_v1_6.prefs.show_snapshot_full_refresh
     changed = true
   end
   if show.snapshot_full_refresh_38_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_6.prefs.show_snapshot_full_refresh_38_no_m_d_entries_group then
@@ -4891,7 +4801,7 @@ end
 
 -- Dissect: Md Incremental Refresh Trade Summary
 cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_trade_summary.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_trade_summary then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_incremental_refresh_trade_summary, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_trade_summary.fields(buffer, offset, packet, parent)
@@ -6014,7 +5924,7 @@ end
 
 -- Dissect: Md Instrument Definition Option
 cme_futures_mdp3_sbe_v1_6.md_instrument_definition_option.dissect = function(buffer, offset, packet, parent)
-  if show.md_instrument_definition_option then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_instrument_definition_option, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_instrument_definition_option.fields(buffer, offset, packet, parent)
@@ -6202,7 +6112,7 @@ end
 
 -- Dissect: Quote Request
 cme_futures_mdp3_sbe_v1_6.quote_request.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.quote_request, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.quote_request.fields(buffer, offset, packet, parent)
@@ -6433,7 +6343,7 @@ end
 
 -- Dissect: Snapshot Full Refresh
 cme_futures_mdp3_sbe_v1_6.snapshot_full_refresh.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_full_refresh then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.snapshot_full_refresh, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.snapshot_full_refresh.fields(buffer, offset, packet, parent)
@@ -6612,7 +6522,7 @@ end
 
 -- Dissect: Md Incremental Refresh Volume
 cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_volume.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_volume then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_incremental_refresh_volume, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_volume.fields(buffer, offset, packet, parent)
@@ -6807,7 +6717,7 @@ end
 
 -- Dissect: Md Incremental Refresh Trade
 cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_trade.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_trade then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_incremental_refresh_trade, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_trade.fields(buffer, offset, packet, parent)
@@ -6994,7 +6904,7 @@ end
 
 -- Dissect: Md Incremental Refresh Session Statistics
 cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_session_statistics.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_session_statistics then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_incremental_refresh_session_statistics, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_session_statistics.fields(buffer, offset, packet, parent)
@@ -7173,7 +7083,7 @@ end
 
 -- Dissect: Md Incremental Refresh Limits Banding
 cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_limits_banding.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_limits_banding then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_incremental_refresh_limits_banding, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_limits_banding.fields(buffer, offset, packet, parent)
@@ -7368,7 +7278,7 @@ end
 
 -- Dissect: Md Incremental Refresh Daily Statistics
 cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_daily_statistics.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_daily_statistics then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_incremental_refresh_daily_statistics, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_daily_statistics.fields(buffer, offset, packet, parent)
@@ -7563,7 +7473,7 @@ end
 
 -- Dissect: Md Incremental Refresh Book
 cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_book.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_book then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_incremental_refresh_book, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_incremental_refresh_book.fields(buffer, offset, packet, parent)
@@ -7635,7 +7545,7 @@ end
 
 -- Dissect: Security Status
 cme_futures_mdp3_sbe_v1_6.security_status.dissect = function(buffer, offset, packet, parent)
-  if show.security_status then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.security_status, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.security_status.fields(buffer, offset, packet, parent)
@@ -8433,7 +8343,7 @@ end
 
 -- Dissect: Md Instrument Definition Spread
 cme_futures_mdp3_sbe_v1_6.md_instrument_definition_spread.dissect = function(buffer, offset, packet, parent)
-  if show.md_instrument_definition_spread then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_instrument_definition_spread, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_instrument_definition_spread.fields(buffer, offset, packet, parent)
@@ -9137,7 +9047,7 @@ end
 
 -- Dissect: Md Instrument Definition Future
 cme_futures_mdp3_sbe_v1_6.md_instrument_definition_future.dissect = function(buffer, offset, packet, parent)
-  if show.md_instrument_definition_future then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_instrument_definition_future, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.md_instrument_definition_future.fields(buffer, offset, packet, parent)
@@ -9177,7 +9087,7 @@ end
 
 -- Dissect: Admin Logout
 cme_futures_mdp3_sbe_v1_6.admin_logout.dissect = function(buffer, offset, packet, parent)
-  if show.admin_logout then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.admin_logout, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.admin_logout.fields(buffer, offset, packet, parent)
@@ -9217,7 +9127,7 @@ end
 
 -- Dissect: Admin Login
 cme_futures_mdp3_sbe_v1_6.admin_login.dissect = function(buffer, offset, packet, parent)
-  if show.admin_login then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.admin_login, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.admin_login.fields(buffer, offset, packet, parent)
@@ -9375,7 +9285,7 @@ end
 
 -- Dissect: Channel Reset
 cme_futures_mdp3_sbe_v1_6.channel_reset.dissect = function(buffer, offset, packet, parent)
-  if show.channel_reset then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.channel_reset, buffer(offset, 0))
     local index = cme_futures_mdp3_sbe_v1_6.channel_reset.fields(buffer, offset, packet, parent)

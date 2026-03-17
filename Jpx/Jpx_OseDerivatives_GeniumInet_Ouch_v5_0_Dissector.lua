@@ -86,114 +86,26 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet = Pro
 local show = {}
 
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Element Dissection Options
-show.cancel_by_order_id = true
-show.cancel_order = true
-show.debug_packet = true
-show.enter_mm_order = true
-show.enter_order = true
-show.login_accepted_packet = true
-show.login_rejected_packet = true
-show.login_request_packet = true
-show.mass_cancel = true
-show.mass_cancel_accepted = true
-show.order_accepted = true
-show.order_canceled = true
-show.order_executed = true
-show.order_rejected = true
-show.order_replaced = true
+show.application_messages = true
+show.session_messages = true
 show.packet = true
 show.packet_header = true
-show.replace_order = true
-show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
-show.unsequenced_data_packet = true
 
 -- Register Jpx OseDerivatives GeniumInet Ouch 5.0 Show Options
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id = Pref.bool("Show Cancel By Order Id", show.cancel_by_order_id, "Parse and add Cancel By Order Id to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order = Pref.bool("Show Cancel Order", show.cancel_order, "Parse and add Cancel Order to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_mm_order = Pref.bool("Show Enter Mm Order", show.enter_mm_order, "Parse and add Enter Mm Order to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order = Pref.bool("Show Enter Order", show.enter_order, "Parse and add Enter Order to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel = Pref.bool("Show Mass Cancel", show.mass_cancel, "Parse and add Mass Cancel to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted = Pref.bool("Show Mass Cancel Accepted", show.mass_cancel_accepted, "Parse and add Mass Cancel Accepted to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted = Pref.bool("Show Order Accepted", show.order_accepted, "Parse and add Order Accepted to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled = Pref.bool("Show Order Canceled", show.order_canceled, "Parse and add Order Canceled to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed = Pref.bool("Show Order Executed", show.order_executed, "Parse and add Order Executed to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected = Pref.bool("Show Order Rejected", show.order_rejected, "Parse and add Order Rejected to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced = Pref.bool("Show Order Replaced", show.order_replaced, "Parse and add Order Replaced to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order = Pref.bool("Show Replace Order", show.replace_order, "Parse and add Replace Order to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_by_order_id ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id then
-    show.cancel_by_order_id = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_by_order_id
-    changed = true
-  end
-  if show.cancel_order ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order then
-    show.cancel_order = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_cancel_order
-    changed = true
-  end
-  if show.debug_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_debug_packet then
-    show.debug_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_debug_packet
-    changed = true
-  end
-  if show.enter_mm_order ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_mm_order then
-    show.enter_mm_order = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_mm_order
-    changed = true
-  end
-  if show.enter_order ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order then
-    show.enter_order = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_enter_order
-    changed = true
-  end
-  if show.login_accepted_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_accepted_packet
-    changed = true
-  end
-  if show.login_rejected_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_rejected_packet
-    changed = true
-  end
-  if show.login_request_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_request_packet then
-    show.login_request_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_login_request_packet
-    changed = true
-  end
-  if show.mass_cancel ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel then
-    show.mass_cancel = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel
-    changed = true
-  end
-  if show.mass_cancel_accepted ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted then
-    show.mass_cancel_accepted = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_mass_cancel_accepted
-    changed = true
-  end
-  if show.order_accepted ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted then
-    show.order_accepted = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_accepted
-    changed = true
-  end
-  if show.order_canceled ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled then
-    show.order_canceled = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_canceled
-    changed = true
-  end
-  if show.order_executed ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed then
-    show.order_executed = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_executed
-    changed = true
-  end
-  if show.order_rejected ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected then
-    show.order_rejected = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_rejected
-    changed = true
-  end
-  if show.order_replaced ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced then
-    show.order_replaced = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_order_replaced
+  if show.application_messages ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_application_messages then
+    show.application_messages = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_application_messages
     changed = true
   end
   if show.packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_packet then
@@ -204,20 +116,12 @@ function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
     show.packet_header = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_packet_header
     changed = true
   end
-  if show.replace_order ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order then
-    show.replace_order = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_replace_order
-    changed = true
-  end
-  if show.sequenced_data_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequenced_data_packet
+  if show.session_messages ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_session_messages then
+    show.session_messages = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_session_messages
     changed = true
   end
   if show.soup_bin_tcp_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_soup_bin_tcp_packet then
     show.soup_bin_tcp_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_soup_bin_tcp_packet
-    changed = true
-  end
-  if show.unsequenced_data_packet ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_unsequenced_data_packet
     changed = true
   end
 
@@ -1861,7 +1765,7 @@ end
 
 -- Dissect: Mass Cancel
 jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields(buffer, offset, packet, parent)
@@ -1909,7 +1813,7 @@ end
 
 -- Dissect: Cancel By Order Id
 jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_by_order_id then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields(buffer, offset, packet, parent)
@@ -1949,7 +1853,7 @@ end
 
 -- Dissect: Cancel Order
 jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields(buffer, offset, packet, parent)
@@ -2017,7 +1921,7 @@ end
 
 -- Dissect: Replace Order
 jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields(buffer, offset, packet, parent)
@@ -2081,7 +1985,7 @@ end
 
 -- Dissect: Enter Mm Order
 jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect = function(buffer, offset, packet, parent)
-  if show.enter_mm_order then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_mm_order, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields(buffer, offset, packet, parent)
@@ -2157,7 +2061,7 @@ end
 
 -- Dissect: Enter Order
 jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect = function(buffer, offset, packet, parent)
-  if show.enter_order then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_order, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields(buffer, offset, packet, parent)
@@ -2243,7 +2147,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect = functi
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -2295,7 +2199,7 @@ end
 
 -- Dissect: Login Request Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_request_packet, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.fields(buffer, offset, packet, parent)
@@ -2363,7 +2267,7 @@ end
 
 -- Dissect: Order Executed
 jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_executed, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.fields(buffer, offset, packet, parent)
@@ -2423,7 +2327,7 @@ end
 
 -- Dissect: Order Canceled
 jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.dissect = function(buffer, offset, packet, parent)
-  if show.order_canceled then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_canceled, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.fields(buffer, offset, packet, parent)
@@ -2515,7 +2419,7 @@ end
 
 -- Dissect: Order Replaced
 jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.dissect = function(buffer, offset, packet, parent)
-  if show.order_replaced then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.fields(buffer, offset, packet, parent)
@@ -2563,7 +2467,7 @@ end
 
 -- Dissect: Order Rejected
 jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.dissect = function(buffer, offset, packet, parent)
-  if show.order_rejected then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_rejected, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.fields(buffer, offset, packet, parent)
@@ -2611,7 +2515,7 @@ end
 
 -- Dissect: Mass Cancel Accepted
 jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_accepted then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel_accepted, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.fields(buffer, offset, packet, parent)
@@ -2699,7 +2603,7 @@ end
 
 -- Dissect: Order Accepted
 jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.dissect = function(buffer, offset, packet, parent)
-  if show.order_accepted then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_accepted, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.fields(buffer, offset, packet, parent)
@@ -2785,7 +2689,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.dissect = function
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet, buffer(offset, 0))
     local current = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -2825,7 +2729,7 @@ end
 
 -- Dissect: Login Rejected Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_rejected_packet, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.login_rejected_packet.fields(buffer, offset, packet, parent)
@@ -2869,7 +2773,7 @@ end
 
 -- Dissect: Login Accepted Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_accepted_packet, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.fields(buffer, offset, packet, parent)
@@ -2909,7 +2813,7 @@ end
 
 -- Dissect: Debug Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect = function(buffer, offset, packet, parent)
-  if show.debug_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_packet, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.fields(buffer, offset, packet, parent)

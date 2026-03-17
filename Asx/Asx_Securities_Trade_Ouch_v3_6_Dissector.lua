@@ -95,104 +95,34 @@ omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_data_packet = ProtoField.n
 local show = {}
 
 -- Asx Securities Trade Ouch 3.6 Element Dissection Options
-show.cancel_by_order_id_message = true
-show.cancel_order_message = true
-show.debug_packet = true
-show.enter_order_message = true
-show.login_accepted_packet = true
-show.login_rejected_packet = true
-show.login_request_packet = true
+show.application_messages = true
+show.session_messages = true
 show.match_attributes = true
-show.order_accepted_message = true
-show.order_cancelled_message = true
-show.order_executed_message = true
-show.order_rejected_message = true
-show.order_replaced_message = true
 show.packet = true
 show.packet_header = true
 show.regulatory_data = true
-show.replace_order_message = true
-show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
-show.unsequenced_data_packet = true
 
 -- Register Asx Securities Trade Ouch 3.6 Show Options
-omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message = Pref.bool("Show Cancel By Order Id Message", show.cancel_by_order_id_message, "Parse and add Cancel By Order Id Message to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_asx_securities_trade_ouch_v3_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes = Pref.bool("Show Match Attributes", show.match_attributes, "Parse and add Match Attributes to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_regulatory_data = Pref.bool("Show Regulatory Data", show.regulatory_data, "Parse and add Regulatory Data to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
 -- Handle changed preferences
 function omi_asx_securities_trade_ouch_v3_6.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_by_order_id_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message then
-    show.cancel_by_order_id_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_by_order_id_message
-    changed = true
-  end
-  if show.cancel_order_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message then
-    show.cancel_order_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_cancel_order_message
-    changed = true
-  end
-  if show.debug_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_debug_packet then
-    show.debug_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_debug_packet
-    changed = true
-  end
-  if show.enter_order_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message then
-    show.enter_order_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_enter_order_message
-    changed = true
-  end
-  if show.login_accepted_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_login_accepted_packet
-    changed = true
-  end
-  if show.login_rejected_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_login_rejected_packet
-    changed = true
-  end
-  if show.login_request_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet then
-    show.login_request_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_login_request_packet
+  if show.application_messages ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_application_messages then
+    show.application_messages = omi_asx_securities_trade_ouch_v3_6.prefs.show_application_messages
     changed = true
   end
   if show.match_attributes ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes then
     show.match_attributes = omi_asx_securities_trade_ouch_v3_6.prefs.show_match_attributes
-    changed = true
-  end
-  if show.order_accepted_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message then
-    show.order_accepted_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_accepted_message
-    changed = true
-  end
-  if show.order_cancelled_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message then
-    show.order_cancelled_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_cancelled_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message then
-    show.order_executed_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_rejected_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message then
-    show.order_rejected_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_rejected_message
-    changed = true
-  end
-  if show.order_replaced_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message then
-    show.order_replaced_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_order_replaced_message
     changed = true
   end
   if show.packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_packet then
@@ -207,20 +137,12 @@ function omi_asx_securities_trade_ouch_v3_6.prefs_changed()
     show.regulatory_data = omi_asx_securities_trade_ouch_v3_6.prefs.show_regulatory_data
     changed = true
   end
-  if show.replace_order_message ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message then
-    show.replace_order_message = omi_asx_securities_trade_ouch_v3_6.prefs.show_replace_order_message
-    changed = true
-  end
-  if show.sequenced_data_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_sequenced_data_packet
+  if show.session_messages ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_session_messages then
+    show.session_messages = omi_asx_securities_trade_ouch_v3_6.prefs.show_session_messages
     changed = true
   end
   if show.soup_bin_tcp_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet then
     show.soup_bin_tcp_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet
-    changed = true
-  end
-  if show.unsequenced_data_packet ~= omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_asx_securities_trade_ouch_v3_6.prefs.show_unsequenced_data_packet
     changed = true
   end
 
@@ -1537,7 +1459,7 @@ end
 
 -- Dissect: Cancel By Order Id Message
 asx_securities_trade_ouch_v3_6.cancel_by_order_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_by_order_id_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.cancel_by_order_id_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.cancel_by_order_id_message.fields(buffer, offset, packet, parent)
@@ -1577,7 +1499,7 @@ end
 
 -- Dissect: Cancel Order Message
 asx_securities_trade_ouch_v3_6.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.cancel_order_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.cancel_order_message.fields(buffer, offset, packet, parent)
@@ -1717,7 +1639,7 @@ end
 
 -- Dissect: Replace Order Message
 asx_securities_trade_ouch_v3_6.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.replace_order_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.replace_order_message.fields(buffer, offset, packet, parent)
@@ -1817,7 +1739,7 @@ end
 
 -- Dissect: Enter Order Message
 asx_securities_trade_ouch_v3_6.enter_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.enter_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.enter_order_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.enter_order_message.fields(buffer, offset, packet, parent)
@@ -1895,7 +1817,7 @@ asx_securities_trade_ouch_v3_6.unsequenced_data_packet.dissect = function(buffer
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = asx_securities_trade_ouch_v3_6.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -1947,7 +1869,7 @@ end
 
 -- Dissect: Login Request Packet
 asx_securities_trade_ouch_v3_6.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.login_request_packet, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.login_request_packet.fields(buffer, offset, packet, parent)
@@ -2061,7 +1983,7 @@ end
 
 -- Dissect: Order Executed Message
 asx_securities_trade_ouch_v3_6.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_executed_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.order_executed_message.fields(buffer, offset, packet, parent)
@@ -2121,7 +2043,7 @@ end
 
 -- Dissect: Order Cancelled Message
 asx_securities_trade_ouch_v3_6.order_cancelled_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancelled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_cancelled_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.order_cancelled_message.fields(buffer, offset, packet, parent)
@@ -2237,7 +2159,7 @@ end
 
 -- Dissect: Order Replaced Message
 asx_securities_trade_ouch_v3_6.order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_replaced_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.order_replaced_message.fields(buffer, offset, packet, parent)
@@ -2285,7 +2207,7 @@ end
 
 -- Dissect: Order Rejected Message
 asx_securities_trade_ouch_v3_6.order_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_rejected_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_rejected_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.order_rejected_message.fields(buffer, offset, packet, parent)
@@ -2397,7 +2319,7 @@ end
 
 -- Dissect: Order Accepted Message
 asx_securities_trade_ouch_v3_6.order_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_accepted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.order_accepted_message, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.order_accepted_message.fields(buffer, offset, packet, parent)
@@ -2479,7 +2401,7 @@ asx_securities_trade_ouch_v3_6.sequenced_data_packet.dissect = function(buffer, 
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.sequenced_data_packet, buffer(offset, 0))
     local current = asx_securities_trade_ouch_v3_6.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -2519,7 +2441,7 @@ end
 
 -- Dissect: Login Rejected Packet
 asx_securities_trade_ouch_v3_6.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.login_rejected_packet, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.login_rejected_packet.fields(buffer, offset, packet, parent)
@@ -2563,7 +2485,7 @@ end
 
 -- Dissect: Login Accepted Packet
 asx_securities_trade_ouch_v3_6.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.login_accepted_packet, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.login_accepted_packet.fields(buffer, offset, packet, parent)
@@ -2603,7 +2525,7 @@ end
 
 -- Dissect: Debug Packet
 asx_securities_trade_ouch_v3_6.debug_packet.dissect = function(buffer, offset, packet, parent)
-  if show.debug_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_trade_ouch_v3_6.fields.debug_packet, buffer(offset, 0))
     local index = asx_securities_trade_ouch_v3_6.debug_packet.fields(buffer, offset, packet, parent)

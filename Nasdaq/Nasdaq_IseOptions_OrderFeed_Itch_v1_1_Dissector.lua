@@ -88,40 +88,28 @@ omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index = ProtoField.new(
 local show = {}
 
 -- Nasdaq IseOptions OrderFeed Itch 1.1 Element Dissection Options
-show.auction_message = true
+show.application_messages = true
 show.auction_response = true
 show.message = true
 show.message_header = true
-show.opening_imbalance_message = true
-show.option_directory_message = true
-show.order_on_book_message = true
 show.packet = true
 show.packet_header = true
-show.security_open_closed_message = true
-show.system_event_message = true
-show.trading_action_message = true
 
 -- Register Nasdaq IseOptions OrderFeed Itch 1.1 Show Options
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message = Pref.bool("Show Auction Message", show.auction_message, "Parse and add Auction Message to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response = Pref.bool("Show Auction Response", show.auction_response, "Parse and add Auction Response to protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message = Pref.bool("Show Opening Imbalance Message", show.opening_imbalance_message, "Parse and add Opening Imbalance Message to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message = Pref.bool("Show Option Directory Message", show.option_directory_message, "Parse and add Option Directory Message to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message = Pref.bool("Show Order On Book Message", show.order_on_book_message, "Parse and add Order On Book Message to protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message then
-    show.auction_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_message
+  if show.application_messages ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_application_messages
     changed = true
   end
   if show.auction_response ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response then
@@ -136,36 +124,12 @@ function omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs_changed()
     show.message_header = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header
     changed = true
   end
-  if show.opening_imbalance_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message then
-    show.opening_imbalance_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_opening_imbalance_message
-    changed = true
-  end
-  if show.option_directory_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message then
-    show.option_directory_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_option_directory_message
-    changed = true
-  end
-  if show.order_on_book_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message then
-    show.order_on_book_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_order_on_book_message
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet then
     show.packet = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header
-    changed = true
-  end
-  if show.security_open_closed_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message then
-    show.security_open_closed_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_security_open_closed_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_system_event_message
-    changed = true
-  end
-  if show.trading_action_message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message then
-    show.trading_action_message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_trading_action_message
     changed = true
   end
 
@@ -1658,7 +1622,7 @@ end
 
 -- Dissect: Auction Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.auction_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_message.fields(buffer, offset, packet, parent)
@@ -1738,7 +1702,7 @@ end
 
 -- Dissect: Order On Book Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_on_book_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.fields(buffer, offset, packet, parent)
@@ -1798,7 +1762,7 @@ end
 
 -- Dissect: Opening Imbalance Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.dissect = function(buffer, offset, packet, parent)
-  if show.opening_imbalance_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.fields(buffer, offset, packet, parent)
@@ -1846,7 +1810,7 @@ end
 
 -- Dissect: Security Open Closed Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_open_closed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.fields(buffer, offset, packet, parent)
@@ -1894,7 +1858,7 @@ end
 
 -- Dissect: Trading Action Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.fields(buffer, offset, packet, parent)
@@ -1994,7 +1958,7 @@ end
 
 -- Dissect: Option Directory Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.fields(buffer, offset, packet, parent)
@@ -2058,7 +2022,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.fields(buffer, offset, packet, parent)

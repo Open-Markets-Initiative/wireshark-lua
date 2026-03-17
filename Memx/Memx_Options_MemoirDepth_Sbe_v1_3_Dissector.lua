@@ -85,104 +85,40 @@ omi_memx_options_memoirdepth_sbe_v1_3.fields.trading_session_status_message = Pr
 local show = {}
 
 -- Memx Options MemoirDepth Sbe 1.3 Element Dissection Options
-show.broken_trade_message = true
-show.clear_book_message = true
+show.application_messages = true
 show.common_header = true
-show.corrected_trade_message = true
-show.instrument_directory_message = true
-show.instrument_trading_status_message = true
 show.message = true
-show.order_added_extended_message = true
-show.order_added_long_message = true
-show.order_added_short_message = true
-show.order_deleted_message = true
-show.order_executed_message = true
-show.order_reduced_message = true
 show.packet = true
 show.sbe_header = true
 show.sbe_message = true
 show.sequenced_message = true
-show.snapshot_complete_message = true
 show.trade_conditions = true
-show.trading_session_status_message = true
 
 -- Register Memx Options MemoirDepth Sbe 1.3 Show Options
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
+omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_corrected_trade_message = Pref.bool("Show Corrected Trade Message", show.corrected_trade_message, "Parse and add Corrected Trade Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_instrument_trading_status_message = Pref.bool("Show Instrument Trading Status Message", show.instrument_trading_status_message, "Parse and add Instrument Trading Status Message to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_extended_message = Pref.bool("Show Order Added Extended Message", show.order_added_extended_message, "Parse and add Order Added Extended Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_long_message = Pref.bool("Show Order Added Long Message", show.order_added_long_message, "Parse and add Order Added Long Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_short_message = Pref.bool("Show Order Added Short Message", show.order_added_short_message, "Parse and add Order Added Short Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_reduced_message = Pref.bool("Show Order Reduced Message", show.order_reduced_message, "Parse and add Order Reduced Message to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
-omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_options_memoirdepth_sbe_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.broken_trade_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_broken_trade_message then
-    show.broken_trade_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_broken_trade_message
-    changed = true
-  end
-  if show.clear_book_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_clear_book_message then
-    show.clear_book_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_clear_book_message
+  if show.application_messages ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_application_messages then
+    show.application_messages = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_application_messages
     changed = true
   end
   if show.common_header ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_common_header then
     show.common_header = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_common_header
     changed = true
   end
-  if show.corrected_trade_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_corrected_trade_message then
-    show.corrected_trade_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_corrected_trade_message
-    changed = true
-  end
-  if show.instrument_directory_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_instrument_directory_message
-    changed = true
-  end
-  if show.instrument_trading_status_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_instrument_trading_status_message then
-    show.instrument_trading_status_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_instrument_trading_status_message
-    changed = true
-  end
   if show.message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_message then
     show.message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_message
-    changed = true
-  end
-  if show.order_added_extended_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_extended_message then
-    show.order_added_extended_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_extended_message
-    changed = true
-  end
-  if show.order_added_long_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_long_message then
-    show.order_added_long_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_long_message
-    changed = true
-  end
-  if show.order_added_short_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_short_message then
-    show.order_added_short_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_added_short_message
-    changed = true
-  end
-  if show.order_deleted_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_deleted_message then
-    show.order_deleted_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_deleted_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_executed_message then
-    show.order_executed_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_reduced_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_reduced_message then
-    show.order_reduced_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_order_reduced_message
     changed = true
   end
   if show.packet ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_packet then
@@ -201,16 +137,8 @@ function omi_memx_options_memoirdepth_sbe_v1_3.prefs_changed()
     show.sequenced_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_sequenced_message
     changed = true
   end
-  if show.snapshot_complete_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_snapshot_complete_message then
-    show.snapshot_complete_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_snapshot_complete_message
-    changed = true
-  end
   if show.trade_conditions ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_trade_conditions then
     show.trade_conditions = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_trade_conditions
-    changed = true
-  end
-  if show.trading_session_status_message ~= omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_trading_session_status_message then
-    show.trading_session_status_message = omi_memx_options_memoirdepth_sbe_v1_3.prefs.show_trading_session_status_message
     changed = true
   end
 
@@ -1416,7 +1344,7 @@ end
 
 -- Dissect: Clear Book Message
 memx_options_memoirdepth_sbe_v1_3.clear_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.clear_book_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
@@ -1527,7 +1455,7 @@ end
 
 -- Dissect: Order Executed Message
 memx_options_memoirdepth_sbe_v1_3.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.order_executed_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.order_executed_message.fields(buffer, offset, packet, parent)
@@ -1595,7 +1523,7 @@ end
 
 -- Dissect: Order Reduced Message
 memx_options_memoirdepth_sbe_v1_3.order_reduced_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_reduced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.order_reduced_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.order_reduced_message.fields(buffer, offset, packet, parent)
@@ -1647,7 +1575,7 @@ end
 
 -- Dissect: Order Deleted Message
 memx_options_memoirdepth_sbe_v1_3.order_deleted_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_deleted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.order_deleted_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.order_deleted_message.fields(buffer, offset, packet, parent)
@@ -1711,7 +1639,7 @@ end
 
 -- Dissect: Order Added Extended Message
 memx_options_memoirdepth_sbe_v1_3.order_added_extended_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_added_extended_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.order_added_extended_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.order_added_extended_message.fields(buffer, offset, packet, parent)
@@ -1771,7 +1699,7 @@ end
 
 -- Dissect: Order Added Long Message
 memx_options_memoirdepth_sbe_v1_3.order_added_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_added_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.order_added_long_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.order_added_long_message.fields(buffer, offset, packet, parent)
@@ -1831,7 +1759,7 @@ end
 
 -- Dissect: Order Added Short Message
 memx_options_memoirdepth_sbe_v1_3.order_added_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_added_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.order_added_short_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.order_added_short_message.fields(buffer, offset, packet, parent)
@@ -1875,7 +1803,7 @@ end
 
 -- Dissect: Snapshot Complete Message
 memx_options_memoirdepth_sbe_v1_3.snapshot_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_complete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
@@ -1939,7 +1867,7 @@ end
 
 -- Dissect: Corrected Trade Message
 memx_options_memoirdepth_sbe_v1_3.corrected_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.corrected_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.corrected_trade_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.corrected_trade_message.fields(buffer, offset, packet, parent)
@@ -1995,7 +1923,7 @@ end
 
 -- Dissect: Broken Trade Message
 memx_options_memoirdepth_sbe_v1_3.broken_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.broken_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.broken_trade_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.broken_trade_message.fields(buffer, offset, packet, parent)
@@ -2039,7 +1967,7 @@ end
 
 -- Dissect: Trading Session Status Message
 memx_options_memoirdepth_sbe_v1_3.trading_session_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_session_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
@@ -2091,7 +2019,7 @@ end
 
 -- Dissect: Instrument Trading Status Message
 memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_trading_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.instrument_trading_status_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.instrument_trading_status_message.fields(buffer, offset, packet, parent)
@@ -2171,7 +2099,7 @@ end
 
 -- Dissect: Instrument Directory Message
 memx_options_memoirdepth_sbe_v1_3.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirdepth_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
     local index = memx_options_memoirdepth_sbe_v1_3.instrument_directory_message.fields(buffer, offset, packet, parent)

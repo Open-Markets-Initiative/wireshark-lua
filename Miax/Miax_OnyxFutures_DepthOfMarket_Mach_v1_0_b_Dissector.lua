@@ -103,82 +103,36 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg_index = Pro
 local show = {}
 
 -- Miax OnyxFutures DepthOfMarket Mach 1.0.b Element Dissection Options
-show.add_order_message = true
-show.anticipated_opening_price_message = true
+show.application_messages = true
 show.application_message = true
-show.complex_instrument_definition_message = true
-show.delete_order_message = true
-show.instrument_clear_message = true
 show.instrument_leg = true
-show.instrument_trading_status_notification_message = true
 show.message = true
 show.modify_flags = true
-show.modify_order_message = true
-show.open_interest_update_message = true
-show.order_execution_message = true
 show.packet = true
-show.settlement_price_update_message = true
-show.simple_instrument_definition_message = true
-show.system_state_message = true
-show.total_volume_update_message = true
-show.trade_cancel_message = true
 
 -- Register Miax OnyxFutures DepthOfMarket Mach 1.0.b Show Options
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_anticipated_opening_price_message = Pref.bool("Show Anticipated Opening Price Message", show.anticipated_opening_price_message, "Parse and add Anticipated Opening Price Message to protocol tree")
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_complex_instrument_definition_message = Pref.bool("Show Complex Instrument Definition Message", show.complex_instrument_definition_message, "Parse and add Complex Instrument Definition Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_clear_message = Pref.bool("Show Instrument Clear Message", show.instrument_clear_message, "Parse and add Instrument Clear Message to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message = Pref.bool("Show Instrument Trading Status Notification Message", show.instrument_trading_status_notification_message, "Parse and add Instrument Trading Status Notification Message to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_open_interest_update_message = Pref.bool("Show Open Interest Update Message", show.open_interest_update_message, "Parse and add Open Interest Update Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_settlement_price_update_message = Pref.bool("Show Settlement Price Update Message", show.settlement_price_update_message, "Parse and add Settlement Price Update Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_simple_instrument_definition_message = Pref.bool("Show Simple Instrument Definition Message", show.simple_instrument_definition_message, "Parse and add Simple Instrument Definition Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_total_volume_update_message = Pref.bool("Show Total Volume Update Message", show.total_volume_update_message, "Parse and add Total Volume Update Message to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_add_order_message then
-    show.add_order_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_add_order_message
-    changed = true
-  end
-  if show.anticipated_opening_price_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_anticipated_opening_price_message then
-    show.anticipated_opening_price_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_anticipated_opening_price_message
-    changed = true
-  end
   if show.application_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_message then
     show.application_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_message
     changed = true
   end
-  if show.complex_instrument_definition_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_complex_instrument_definition_message then
-    show.complex_instrument_definition_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_complex_instrument_definition_message
-    changed = true
-  end
-  if show.delete_order_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_delete_order_message then
-    show.delete_order_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_delete_order_message
-    changed = true
-  end
-  if show.instrument_clear_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_clear_message then
-    show.instrument_clear_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_clear_message
+  if show.application_messages ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_messages then
+    show.application_messages = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_messages
     changed = true
   end
   if show.instrument_leg ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg then
     show.instrument_leg = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg
-    changed = true
-  end
-  if show.instrument_trading_status_notification_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message then
-    show.instrument_trading_status_notification_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message
     changed = true
   end
   if show.message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message then
@@ -189,40 +143,8 @@ function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()
     show.modify_flags = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags
     changed = true
   end
-  if show.modify_order_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_order_message then
-    show.modify_order_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_order_message
-    changed = true
-  end
-  if show.open_interest_update_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_open_interest_update_message then
-    show.open_interest_update_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_open_interest_update_message
-    changed = true
-  end
-  if show.order_execution_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_order_execution_message then
-    show.order_execution_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_order_execution_message
-    changed = true
-  end
   if show.packet ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_packet then
     show.packet = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_packet
-    changed = true
-  end
-  if show.settlement_price_update_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_settlement_price_update_message then
-    show.settlement_price_update_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_settlement_price_update_message
-    changed = true
-  end
-  if show.simple_instrument_definition_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_simple_instrument_definition_message then
-    show.simple_instrument_definition_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_simple_instrument_definition_message
-    changed = true
-  end
-  if show.system_state_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_system_state_message then
-    show.system_state_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_system_state_message
-    changed = true
-  end
-  if show.total_volume_update_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_total_volume_update_message then
-    show.total_volume_update_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_total_volume_update_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_trade_cancel_message
     changed = true
   end
 
@@ -1792,7 +1714,7 @@ end
 
 -- Dissect: Trade Cancel Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trade_cancel_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -1868,7 +1790,7 @@ end
 
 -- Dissect: Order Execution Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_execution_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_execution_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.fields(buffer, offset, packet, parent)
@@ -1916,7 +1838,7 @@ end
 
 -- Dissect: Delete Order Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.delete_order_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.fields(buffer, offset, packet, parent)
@@ -2019,7 +1941,7 @@ end
 
 -- Dissect: Modify Order Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_order_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.fields(buffer, offset, packet, parent)
@@ -2083,7 +2005,7 @@ end
 
 -- Dissect: Add Order Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.add_order_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.fields(buffer, offset, packet, parent)
@@ -2127,7 +2049,7 @@ end
 
 -- Dissect: Instrument Clear Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_clear_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.fields(buffer, offset, packet, parent)
@@ -2179,7 +2101,7 @@ end
 
 -- Dissect: Total Volume Update Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.total_volume_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.total_volume_update_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.fields(buffer, offset, packet, parent)
@@ -2231,7 +2153,7 @@ end
 
 -- Dissect: Open Interest Update Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_interest_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.open_interest_update_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.fields(buffer, offset, packet, parent)
@@ -2291,7 +2213,7 @@ end
 
 -- Dissect: Settlement Price Update Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.settlement_price_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.settlement_price_update_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.fields(buffer, offset, packet, parent)
@@ -2343,7 +2265,7 @@ end
 
 -- Dissect: Anticipated Opening Price Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.anticipated_opening_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.anticipated_opening_price_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.fields(buffer, offset, packet, parent)
@@ -2395,7 +2317,7 @@ end
 
 -- Dissect: Instrument Trading Status Notification Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_trading_status_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.fields(buffer, offset, packet, parent)
@@ -2447,7 +2369,7 @@ end
 
 -- Dissect: System State Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.system_state_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.fields(buffer, offset, packet, parent)
@@ -2659,7 +2581,7 @@ end
 
 -- Dissect: Complex Instrument Definition Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_instrument_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.complex_instrument_definition_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.fields(buffer, offset, packet, parent)
@@ -2799,7 +2721,7 @@ end
 
 -- Dissect: Simple Instrument Definition Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.simple_instrument_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.simple_instrument_definition_message, buffer(offset, 0))
     local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.fields(buffer, offset, packet, parent)

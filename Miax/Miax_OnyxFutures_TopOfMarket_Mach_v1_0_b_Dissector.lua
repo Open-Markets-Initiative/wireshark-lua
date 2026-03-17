@@ -90,29 +90,17 @@ local show = {}
 
 -- Miax OnyxFutures TopOfMarket Mach 1.0.b Element Dissection Options
 show.application_message = true
-show.best_bid_and_offer_message = true
-show.complex_instrument_definition_message = true
+show.application_messages = true
 show.instrument_leg = true
-show.instrument_trading_status_notification_message = true
-show.last_sale_message = true
 show.message = true
 show.packet = true
-show.simple_instrument_definition_message = true
-show.system_state_message = true
-show.trade_cancel_message = true
 
 -- Register Miax OnyxFutures TopOfMarket Mach 1.0.b Show Options
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_best_bid_and_offer_message = Pref.bool("Show Best Bid And Offer Message", show.best_bid_and_offer_message, "Parse and add Best Bid And Offer Message to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_complex_instrument_definition_message = Pref.bool("Show Complex Instrument Definition Message", show.complex_instrument_definition_message, "Parse and add Complex Instrument Definition Message to protocol tree")
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message = Pref.bool("Show Instrument Trading Status Notification Message", show.instrument_trading_status_notification_message, "Parse and add Instrument Trading Status Notification Message to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_last_sale_message = Pref.bool("Show Last Sale Message", show.last_sale_message, "Parse and add Last Sale Message to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_simple_instrument_definition_message = Pref.bool("Show Simple Instrument Definition Message", show.simple_instrument_definition_message, "Parse and add Simple Instrument Definition Message to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()
@@ -123,24 +111,12 @@ function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()
     show.application_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message
     changed = true
   end
-  if show.best_bid_and_offer_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_best_bid_and_offer_message then
-    show.best_bid_and_offer_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_best_bid_and_offer_message
-    changed = true
-  end
-  if show.complex_instrument_definition_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_complex_instrument_definition_message then
-    show.complex_instrument_definition_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_complex_instrument_definition_message
+  if show.application_messages ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages then
+    show.application_messages = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages
     changed = true
   end
   if show.instrument_leg ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg then
     show.instrument_leg = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg
-    changed = true
-  end
-  if show.instrument_trading_status_notification_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message then
-    show.instrument_trading_status_notification_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message
-    changed = true
-  end
-  if show.last_sale_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_last_sale_message then
-    show.last_sale_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_last_sale_message
     changed = true
   end
   if show.message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_message then
@@ -149,18 +125,6 @@ function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()
   end
   if show.packet ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet then
     show.packet = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet
-    changed = true
-  end
-  if show.simple_instrument_definition_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_simple_instrument_definition_message then
-    show.simple_instrument_definition_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_simple_instrument_definition_message
-    changed = true
-  end
-  if show.system_state_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_system_state_message then
-    show.system_state_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_system_state_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_trade_cancel_message
     changed = true
   end
 
@@ -1589,7 +1553,7 @@ end
 
 -- Dissect: Trade Cancel Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_cancel_message, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -1645,7 +1609,7 @@ end
 
 -- Dissect: Last Sale Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.dissect = function(buffer, offset, packet, parent)
-  if show.last_sale_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.last_sale_message, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.fields(buffer, offset, packet, parent)
@@ -1705,7 +1669,7 @@ end
 
 -- Dissect: Best Bid And Offer Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_and_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.best_bid_and_offer_message, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.fields(buffer, offset, packet, parent)
@@ -1757,7 +1721,7 @@ end
 
 -- Dissect: Instrument Trading Status Notification Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_trading_status_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.fields(buffer, offset, packet, parent)
@@ -1809,7 +1773,7 @@ end
 
 -- Dissect: System State Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_state_message, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.fields(buffer, offset, packet, parent)
@@ -2021,7 +1985,7 @@ end
 
 -- Dissect: Complex Instrument Definition Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.complex_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_instrument_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.complex_instrument_definition_message, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.complex_instrument_definition_message.fields(buffer, offset, packet, parent)
@@ -2161,7 +2125,7 @@ end
 
 -- Dissect: Simple Instrument Definition Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.simple_instrument_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.simple_instrument_definition_message, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.fields(buffer, offset, packet, parent)

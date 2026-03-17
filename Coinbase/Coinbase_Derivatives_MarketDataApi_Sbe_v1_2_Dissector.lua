@@ -139,107 +139,41 @@ local show = {}
 
 -- Coinbase Derivatives MarketDataApi Sbe 1.2 Element Dissection Options
 show.definition_flags = true
-show.end_of_snapshot_message = true
-show.implied_order_update_message = true
+show.application_messages = true
 show.instr_header = true
-show.market_stat_message = true
 show.message_header = true
-show.open_interest_message = true
-show.order_delete_message = true
-show.order_put_message = true
-show.order_snapshot_message = true
-show.outright_instrument_definition_message = true
 show.packet = true
 show.packet_header = true
-show.retransmit_reject_message = true
-show.retransmit_request_message = true
 show.sbe_message = true
-show.spread_instrument_definition_message = true
-show.spread_trade_amend_message = true
-show.start_of_outright_instrument_snapshot_message = true
-show.start_of_spread_instrument_snapshot_message = true
-show.trade_amend_message = true
-show.trade_bust_message = true
-show.trade_message = true
-show.trade_session_volume_message = true
-show.trade_summary_message = true
-show.trading_status_update_message = true
 
 -- Register Coinbase Derivatives MarketDataApi Sbe 1.2 Show Options
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_definition_flags = Pref.bool("Show Definition Flags", show.definition_flags, "Parse and add Definition Flags to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_end_of_snapshot_message = Pref.bool("Show End Of Snapshot Message", show.end_of_snapshot_message, "Parse and add End Of Snapshot Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_implied_order_update_message = Pref.bool("Show Implied Order Update Message", show.implied_order_update_message, "Parse and add Implied Order Update Message to protocol tree")
+omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_instr_header = Pref.bool("Show Instr Header", show.instr_header, "Parse and add Instr Header to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_market_stat_message = Pref.bool("Show Market Stat Message", show.market_stat_message, "Parse and add Market Stat Message to protocol tree")
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_put_message = Pref.bool("Show Order Put Message", show.order_put_message, "Parse and add Order Put Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_snapshot_message = Pref.bool("Show Order Snapshot Message", show.order_snapshot_message, "Parse and add Order Snapshot Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_outright_instrument_definition_message = Pref.bool("Show Outright Instrument Definition Message", show.outright_instrument_definition_message, "Parse and add Outright Instrument Definition Message to protocol tree")
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_retransmit_reject_message = Pref.bool("Show Retransmit Reject Message", show.retransmit_reject_message, "Parse and add Retransmit Reject Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_retransmit_request_message = Pref.bool("Show Retransmit Request Message", show.retransmit_request_message, "Parse and add Retransmit Request Message to protocol tree")
 omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_spread_instrument_definition_message = Pref.bool("Show Spread Instrument Definition Message", show.spread_instrument_definition_message, "Parse and add Spread Instrument Definition Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_spread_trade_amend_message = Pref.bool("Show Spread Trade Amend Message", show.spread_trade_amend_message, "Parse and add Spread Trade Amend Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_start_of_outright_instrument_snapshot_message = Pref.bool("Show Start Of Outright Instrument Snapshot Message", show.start_of_outright_instrument_snapshot_message, "Parse and add Start Of Outright Instrument Snapshot Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_start_of_spread_instrument_snapshot_message = Pref.bool("Show Start Of Spread Instrument Snapshot Message", show.start_of_spread_instrument_snapshot_message, "Parse and add Start Of Spread Instrument Snapshot Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_amend_message = Pref.bool("Show Trade Amend Message", show.trade_amend_message, "Parse and add Trade Amend Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_session_volume_message = Pref.bool("Show Trade Session Volume Message", show.trade_session_volume_message, "Parse and add Trade Session Volume Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_summary_message = Pref.bool("Show Trade Summary Message", show.trade_summary_message, "Parse and add Trade Summary Message to protocol tree")
-omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trading_status_update_message = Pref.bool("Show Trading Status Update Message", show.trading_status_update_message, "Parse and add Trading Status Update Message to protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_application_messages then
+    show.application_messages = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_application_messages
+    changed = true
+  end
   if show.definition_flags ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_definition_flags then
     show.definition_flags = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_definition_flags
-    changed = true
-  end
-  if show.end_of_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_end_of_snapshot_message then
-    show.end_of_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_end_of_snapshot_message
-    changed = true
-  end
-  if show.implied_order_update_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_implied_order_update_message then
-    show.implied_order_update_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_implied_order_update_message
     changed = true
   end
   if show.instr_header ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_instr_header then
     show.instr_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_instr_header
     changed = true
   end
-  if show.market_stat_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_market_stat_message then
-    show.market_stat_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_market_stat_message
-    changed = true
-  end
   if show.message_header ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_message_header then
     show.message_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_message_header
-    changed = true
-  end
-  if show.open_interest_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_open_interest_message then
-    show.open_interest_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_open_interest_message
-    changed = true
-  end
-  if show.order_delete_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_delete_message then
-    show.order_delete_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_delete_message
-    changed = true
-  end
-  if show.order_put_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_put_message then
-    show.order_put_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_put_message
-    changed = true
-  end
-  if show.order_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_snapshot_message then
-    show.order_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_order_snapshot_message
-    changed = true
-  end
-  if show.outright_instrument_definition_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_outright_instrument_definition_message then
-    show.outright_instrument_definition_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_outright_instrument_definition_message
     changed = true
   end
   if show.packet ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_packet then
@@ -250,56 +184,8 @@ function omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs_changed()
     show.packet_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_packet_header
     changed = true
   end
-  if show.retransmit_reject_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_retransmit_reject_message then
-    show.retransmit_reject_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_retransmit_reject_message
-    changed = true
-  end
-  if show.retransmit_request_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_retransmit_request_message then
-    show.retransmit_request_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_retransmit_request_message
-    changed = true
-  end
   if show.sbe_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_sbe_message then
     show.sbe_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_sbe_message
-    changed = true
-  end
-  if show.spread_instrument_definition_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_spread_instrument_definition_message then
-    show.spread_instrument_definition_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_spread_instrument_definition_message
-    changed = true
-  end
-  if show.spread_trade_amend_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_spread_trade_amend_message then
-    show.spread_trade_amend_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_spread_trade_amend_message
-    changed = true
-  end
-  if show.start_of_outright_instrument_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_start_of_outright_instrument_snapshot_message then
-    show.start_of_outright_instrument_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_start_of_outright_instrument_snapshot_message
-    changed = true
-  end
-  if show.start_of_spread_instrument_snapshot_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_start_of_spread_instrument_snapshot_message then
-    show.start_of_spread_instrument_snapshot_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_start_of_spread_instrument_snapshot_message
-    changed = true
-  end
-  if show.trade_amend_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_amend_message then
-    show.trade_amend_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_amend_message
-    changed = true
-  end
-  if show.trade_bust_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_bust_message then
-    show.trade_bust_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_bust_message
-    changed = true
-  end
-  if show.trade_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_message then
-    show.trade_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_message
-    changed = true
-  end
-  if show.trade_session_volume_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_session_volume_message then
-    show.trade_session_volume_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_session_volume_message
-    changed = true
-  end
-  if show.trade_summary_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_summary_message then
-    show.trade_summary_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trade_summary_message
-    changed = true
-  end
-  if show.trading_status_update_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trading_status_update_message then
-    show.trading_status_update_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_2.prefs.show_trading_status_update_message
     changed = true
   end
 
@@ -2667,7 +2553,7 @@ end
 
 -- Dissect: Retransmit Reject Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmit_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.retransmit_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message.fields(buffer, offset, packet, parent)
@@ -2711,7 +2597,7 @@ end
 
 -- Dissect: Retransmit Request Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmit_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.retransmit_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_request_message.fields(buffer, offset, packet, parent)
@@ -2890,7 +2776,7 @@ end
 
 -- Dissect: End Of Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.end_of_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.end_of_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.end_of_snapshot_message.fields(buffer, offset, packet, parent)
@@ -2946,7 +2832,7 @@ end
 
 -- Dissect: Order Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.order_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message.fields(buffer, offset, packet, parent)
@@ -3058,7 +2944,7 @@ end
 
 -- Dissect: Start Of Spread Instrument Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_spread_instrument_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_spread_instrument_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.start_of_spread_instrument_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_spread_instrument_snapshot_message.fields(buffer, offset, packet, parent)
@@ -3158,7 +3044,7 @@ end
 
 -- Dissect: Start Of Outright Instrument Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_outright_instrument_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_outright_instrument_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.start_of_outright_instrument_snapshot_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_outright_instrument_snapshot_message.fields(buffer, offset, packet, parent)
@@ -3266,7 +3152,7 @@ end
 
 -- Dissect: Open Interest Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_interest_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.open_interest_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest_message.fields(buffer, offset, packet, parent)
@@ -3314,7 +3200,7 @@ end
 
 -- Dissect: Trade Session Volume Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_session_volume_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_session_volume_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trade_session_volume_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_session_volume_message.fields(buffer, offset, packet, parent)
@@ -3362,7 +3248,7 @@ end
 
 -- Dissect: Market Stat Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_stat_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.market_stat_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message.fields(buffer, offset, packet, parent)
@@ -3414,7 +3300,7 @@ end
 
 -- Dissect: Trade Bust Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_bust_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trade_bust_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_bust_message.fields(buffer, offset, packet, parent)
@@ -3490,7 +3376,7 @@ end
 
 -- Dissect: Spread Trade Amend Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.spread_trade_amend_message.dissect = function(buffer, offset, packet, parent)
-  if show.spread_trade_amend_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.spread_trade_amend_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.spread_trade_amend_message.fields(buffer, offset, packet, parent)
@@ -3550,7 +3436,7 @@ end
 
 -- Dissect: Trade Amend Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_amend_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_amend_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trade_amend_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_amend_message.fields(buffer, offset, packet, parent)
@@ -3610,7 +3496,7 @@ end
 
 -- Dissect: Trade Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trade_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_message.fields(buffer, offset, packet, parent)
@@ -3670,7 +3556,7 @@ end
 
 -- Dissect: Trade Summary Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trade_summary_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message.fields(buffer, offset, packet, parent)
@@ -3726,7 +3612,7 @@ end
 
 -- Dissect: Implied Order Update Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.implied_order_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.implied_order_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.implied_order_update_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.implied_order_update_message.fields(buffer, offset, packet, parent)
@@ -3770,7 +3656,7 @@ end
 
 -- Dissect: Order Delete Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_delete_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_delete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.order_delete_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.order_delete_message.fields(buffer, offset, packet, parent)
@@ -3822,7 +3708,7 @@ end
 
 -- Dissect: Order Put Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_put_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_put_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.order_put_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.order_put_message.fields(buffer, offset, packet, parent)
@@ -3874,7 +3760,7 @@ end
 
 -- Dissect: Trading Status Update Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_status_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trading_status_update_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status_update_message.fields(buffer, offset, packet, parent)
@@ -3994,7 +3880,7 @@ end
 
 -- Dissect: Spread Instrument Definition Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.spread_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.spread_instrument_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.spread_instrument_definition_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.spread_instrument_definition_message.fields(buffer, offset, packet, parent)
@@ -4102,7 +3988,7 @@ end
 
 -- Dissect: Outright Instrument Definition Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.outright_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.outright_instrument_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.outright_instrument_definition_message, buffer(offset, 0))
     local index = coinbase_derivatives_marketdataapi_sbe_v1_2.outright_instrument_definition_message.fields(buffer, offset, packet, parent)

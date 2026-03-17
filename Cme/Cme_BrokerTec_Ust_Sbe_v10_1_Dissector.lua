@@ -68,7 +68,7 @@ show.group_size = true
 show.incremental_refresh_btec_group = true
 show.incremental_refresh_btec_groups = true
 show.md_entry_px = true
-show.md_incremental_refresh_btec = true
+show.application_messages = true
 show.message = true
 show.message_header = true
 show.packet = true
@@ -80,7 +80,7 @@ omi_cme_brokertec_ust_sbe_v10_1.prefs.show_group_size = Pref.bool("Show Group Si
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group = Pref.bool("Show Incremental Refresh Btec Group", show.incremental_refresh_btec_group, "Parse and add Incremental Refresh Btec Group to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_groups = Pref.bool("Show Incremental Refresh Btec Groups", show.incremental_refresh_btec_groups, "Parse and add Incremental Refresh Btec Groups to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
-omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_incremental_refresh_btec = Pref.bool("Show Md Incremental Refresh Btec", show.md_incremental_refresh_btec, "Parse and add Md Incremental Refresh Btec to protocol tree")
+omi_cme_brokertec_ust_sbe_v10_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -90,6 +90,10 @@ function omi_cme_brokertec_ust_sbe_v10_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_application_messages then
+    show.application_messages = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_application_messages
+    changed = true
+  end
   if show.binary_packet_header ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_binary_packet_header
     changed = true
@@ -112,10 +116,6 @@ function omi_cme_brokertec_ust_sbe_v10_1.prefs_changed()
   end
   if show.md_entry_px ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_entry_px then
     show.md_entry_px = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_entry_px
-    changed = true
-  end
-  if show.md_incremental_refresh_btec ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_incremental_refresh_btec then
-    show.md_incremental_refresh_btec = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_incremental_refresh_btec
     changed = true
   end
   if show.message ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message then
@@ -1250,7 +1250,7 @@ end
 
 -- Dissect: Md Incremental Refresh Btec
 cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_btec then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_incremental_refresh_btec, buffer(offset, 0))
     local index = cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec.fields(buffer, offset, packet, parent)

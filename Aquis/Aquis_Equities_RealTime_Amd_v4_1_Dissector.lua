@@ -89,54 +89,32 @@ omi_aquis_equities_realtime_amd_v4_1.fields.message_index = ProtoField.new("Mess
 local show = {}
 
 -- Aquis Equities RealTime Amd 4.1 Element Dissection Options
-show.ao_d_update_message = true
-show.ma_c_update_message = true
+show.application_messages = true
 show.market_flags = true
 show.md_flags = true
 show.message = true
 show.message_header = true
-show.order_add = true
-show.order_cancel = true
-show.order_modify = true
 show.packet = true
 show.packet_header = true
 show.security_definition_flags = true
-show.security_definition_message = true
-show.security_status_message = true
-show.tick_table_data_message = true
-show.trade = true
-show.trade_bust_message = true
 
 -- Register Aquis Equities RealTime Amd 4.1 Show Options
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_ao_d_update_message = Pref.bool("Show Ao D Update Message", show.ao_d_update_message, "Parse and add Ao D Update Message to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_ma_c_update_message = Pref.bool("Show Ma C Update Message", show.ma_c_update_message, "Parse and add Ma C Update Message to protocol tree")
+omi_aquis_equities_realtime_amd_v4_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_market_flags = Pref.bool("Show Market Flags", show.market_flags, "Parse and add Market Flags to protocol tree")
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_md_flags = Pref.bool("Show Md Flags", show.md_flags, "Parse and add Md Flags to protocol tree")
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_add = Pref.bool("Show Order Add", show.order_add, "Parse and add Order Add to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_cancel = Pref.bool("Show Order Cancel", show.order_cancel, "Parse and add Order Cancel to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_modify = Pref.bool("Show Order Modify", show.order_modify, "Parse and add Order Modify to protocol tree")
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_definition_flags = Pref.bool("Show Security Definition Flags", show.security_definition_flags, "Parse and add Security Definition Flags to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_definition_message = Pref.bool("Show Security Definition Message", show.security_definition_message, "Parse and add Security Definition Message to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_tick_table_data_message = Pref.bool("Show Tick Table Data Message", show.tick_table_data_message, "Parse and add Tick Table Data Message to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-omi_aquis_equities_realtime_amd_v4_1.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_realtime_amd_v4_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.ao_d_update_message ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_ao_d_update_message then
-    show.ao_d_update_message = omi_aquis_equities_realtime_amd_v4_1.prefs.show_ao_d_update_message
-    changed = true
-  end
-  if show.ma_c_update_message ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_ma_c_update_message then
-    show.ma_c_update_message = omi_aquis_equities_realtime_amd_v4_1.prefs.show_ma_c_update_message
+  if show.application_messages ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_application_messages then
+    show.application_messages = omi_aquis_equities_realtime_amd_v4_1.prefs.show_application_messages
     changed = true
   end
   if show.market_flags ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_market_flags then
@@ -155,18 +133,6 @@ function omi_aquis_equities_realtime_amd_v4_1.prefs_changed()
     show.message_header = omi_aquis_equities_realtime_amd_v4_1.prefs.show_message_header
     changed = true
   end
-  if show.order_add ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_add then
-    show.order_add = omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_add
-    changed = true
-  end
-  if show.order_cancel ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_cancel then
-    show.order_cancel = omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_cancel
-    changed = true
-  end
-  if show.order_modify ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_modify then
-    show.order_modify = omi_aquis_equities_realtime_amd_v4_1.prefs.show_order_modify
-    changed = true
-  end
   if show.packet ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_packet then
     show.packet = omi_aquis_equities_realtime_amd_v4_1.prefs.show_packet
     changed = true
@@ -177,26 +143,6 @@ function omi_aquis_equities_realtime_amd_v4_1.prefs_changed()
   end
   if show.security_definition_flags ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_definition_flags then
     show.security_definition_flags = omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_definition_flags
-    changed = true
-  end
-  if show.security_definition_message ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_definition_message then
-    show.security_definition_message = omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_definition_message
-    changed = true
-  end
-  if show.security_status_message ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_status_message then
-    show.security_status_message = omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_status_message
-    changed = true
-  end
-  if show.tick_table_data_message ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_tick_table_data_message then
-    show.tick_table_data_message = omi_aquis_equities_realtime_amd_v4_1.prefs.show_tick_table_data_message
-    changed = true
-  end
-  if show.trade ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_trade then
-    show.trade = omi_aquis_equities_realtime_amd_v4_1.prefs.show_trade
-    changed = true
-  end
-  if show.trade_bust_message ~= omi_aquis_equities_realtime_amd_v4_1.prefs.show_trade_bust_message then
-    show.trade_bust_message = omi_aquis_equities_realtime_amd_v4_1.prefs.show_trade_bust_message
     changed = true
   end
 
@@ -1125,7 +1071,7 @@ end
 
 -- Dissect: Ma C Update Message
 aquis_equities_realtime_amd_v4_1.ma_c_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.ma_c_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.ma_c_update_message, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.ma_c_update_message.fields(buffer, offset, packet, parent)
@@ -1177,7 +1123,7 @@ end
 
 -- Dissect: Ao D Update Message
 aquis_equities_realtime_amd_v4_1.ao_d_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.ao_d_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.ao_d_update_message, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.ao_d_update_message.fields(buffer, offset, packet, parent)
@@ -1290,7 +1236,7 @@ end
 
 -- Dissect: Security Status Message
 aquis_equities_realtime_amd_v4_1.security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.security_status_message, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.security_status_message.fields(buffer, offset, packet, parent)
@@ -1447,7 +1393,7 @@ end
 
 -- Dissect: Security Definition Message
 aquis_equities_realtime_amd_v4_1.security_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.security_definition_message, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.security_definition_message.fields(buffer, offset, packet, parent)
@@ -1499,7 +1445,7 @@ end
 
 -- Dissect: Tick Table Data Message
 aquis_equities_realtime_amd_v4_1.tick_table_data_message.dissect = function(buffer, offset, packet, parent)
-  if show.tick_table_data_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.tick_table_data_message, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.tick_table_data_message.fields(buffer, offset, packet, parent)
@@ -1559,7 +1505,7 @@ end
 
 -- Dissect: Trade Bust Message
 aquis_equities_realtime_amd_v4_1.trade_bust_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.trade_bust_message, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.trade_bust_message.fields(buffer, offset, packet, parent)
@@ -1678,7 +1624,7 @@ end
 
 -- Dissect: Trade
 aquis_equities_realtime_amd_v4_1.trade.dissect = function(buffer, offset, packet, parent)
-  if show.trade then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.trade, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.trade.fields(buffer, offset, packet, parent)
@@ -1738,7 +1684,7 @@ end
 
 -- Dissect: Order Modify
 aquis_equities_realtime_amd_v4_1.order_modify.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.order_modify, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.order_modify.fields(buffer, offset, packet, parent)
@@ -1790,7 +1736,7 @@ end
 
 -- Dissect: Order Cancel
 aquis_equities_realtime_amd_v4_1.order_cancel.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.order_cancel, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.order_cancel.fields(buffer, offset, packet, parent)
@@ -1854,7 +1800,7 @@ end
 
 -- Dissect: Order Add
 aquis_equities_realtime_amd_v4_1.order_add.dissect = function(buffer, offset, packet, parent)
-  if show.order_add then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_realtime_amd_v4_1.fields.order_add, buffer(offset, 0))
     local index = aquis_equities_realtime_amd_v4_1.order_add.fields(buffer, offset, packet, parent)

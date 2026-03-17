@@ -252,126 +252,44 @@ omi_nyse_equities_binarygateway_pillar_v5_17.fields.stream_avail = ProtoField.ne
 local show = {}
 
 -- Nyse Equities BinaryGateway Pillar 5.17 Element Dissection Options
-show.application_layer_reject_message = true
-show.auction_price_data_message = true
-show.auction_request_message = true
+show.application_messages = true
 show.bitfield_flow_indicator = true
 show.bitfield_order_instructions = true
-show.bulk_cancel_request_message = true
-show.close = true
-show.close_response = true
-show.dmm_symbol_reference_data_message = true
-show.equities_symbol_reference_data_message = true
-show.execution_report_message = true
-show.gt_begin_message = true
-show.gt_end_message = true
-show.heartbeat = true
-show.login_message = true
-show.login_response = true
+show.session_messages = true
 show.manual_action_id = true
-show.manual_action_request_message = true
-show.manual_action_response_message = true
-show.minimum_price_variant_class_reference_data_message = true
-show.minimum_price_variant_level_reference_data_message = true
-show.mmid_configuration_message = true
-show.mpid_configuration_message = true
 show.mpv_level_definition = true
 show.msg_header = true
-show.new_order_single_and_cancel_replace_request_message = true
-show.open = true
-show.open_response = true
 show.optional_order_add_on = true
 show.optional_settlement_type_add_on = true
-show.order_and_cancel_replace_acknowledgement_message = true
-show.order_cancel_request_message = true
-show.order_modify_cancel_request_acknowledgment_and_urout_message = true
-show.order_modify_request_message = true
-show.order_priority_update_acknowledgment_message = true
 show.ref_seq_msg_id = true
-show.risk_action_request_message = true
-show.risk_control_acknowledgement_message = true
-show.risk_control_alert_message = true
-show.risk_limit_update_request_message = true
-show.seq_msg = true
 show.seq_msg_header = true
 show.seq_msg_id = true
-show.session_configuration_acknowledgement_message = true
-show.session_configuration_request_message = true
-show.stream_avail = true
 show.stream_id = true
 show.sub_msg_header = true
-show.symbol_subscription_acknowledgement_message = true
-show.symbol_subscription_request_message = true
-show.trade_bust_correct_message = true
 
 -- Register Nyse Equities BinaryGateway Pillar 5.17 Show Options
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_application_layer_reject_message = Pref.bool("Show Application Layer Reject Message", show.application_layer_reject_message, "Parse and add Application Layer Reject Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_auction_price_data_message = Pref.bool("Show Auction Price Data Message", show.auction_price_data_message, "Parse and add Auction Price Data Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_auction_request_message = Pref.bool("Show Auction Request Message", show.auction_request_message, "Parse and add Auction Request Message to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bitfield_flow_indicator = Pref.bool("Show Bitfield Flow Indicator", show.bitfield_flow_indicator, "Parse and add Bitfield Flow Indicator to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bitfield_order_instructions = Pref.bool("Show Bitfield Order Instructions", show.bitfield_order_instructions, "Parse and add Bitfield Order Instructions to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bulk_cancel_request_message = Pref.bool("Show Bulk Cancel Request Message", show.bulk_cancel_request_message, "Parse and add Bulk Cancel Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_dmm_symbol_reference_data_message = Pref.bool("Show Dmm Symbol Reference Data Message", show.dmm_symbol_reference_data_message, "Parse and add Dmm Symbol Reference Data Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_equities_symbol_reference_data_message = Pref.bool("Show Equities Symbol Reference Data Message", show.equities_symbol_reference_data_message, "Parse and add Equities Symbol Reference Data Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_execution_report_message = Pref.bool("Show Execution Report Message", show.execution_report_message, "Parse and add Execution Report Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_gt_begin_message = Pref.bool("Show Gt Begin Message", show.gt_begin_message, "Parse and add Gt Begin Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_gt_end_message = Pref.bool("Show Gt End Message", show.gt_end_message, "Parse and add Gt End Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
+omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_id = Pref.bool("Show Manual Action Id", show.manual_action_id, "Parse and add Manual Action Id to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_request_message = Pref.bool("Show Manual Action Request Message", show.manual_action_request_message, "Parse and add Manual Action Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_response_message = Pref.bool("Show Manual Action Response Message", show.manual_action_response_message, "Parse and add Manual Action Response Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_minimum_price_variant_class_reference_data_message = Pref.bool("Show Minimum Price Variant Class Reference Data Message", show.minimum_price_variant_class_reference_data_message, "Parse and add Minimum Price Variant Class Reference Data Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_minimum_price_variant_level_reference_data_message = Pref.bool("Show Minimum Price Variant Level Reference Data Message", show.minimum_price_variant_level_reference_data_message, "Parse and add Minimum Price Variant Level Reference Data Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mmid_configuration_message = Pref.bool("Show Mmid Configuration Message", show.mmid_configuration_message, "Parse and add Mmid Configuration Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mpid_configuration_message = Pref.bool("Show Mpid Configuration Message", show.mpid_configuration_message, "Parse and add Mpid Configuration Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_new_order_single_and_cancel_replace_request_message = Pref.bool("Show New Order Single And Cancel Replace Request Message", show.new_order_single_and_cancel_replace_request_message, "Parse and add New Order Single And Cancel Replace Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_open = Pref.bool("Show Open", show.open, "Parse and add Open to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_settlement_type_add_on = Pref.bool("Show Optional Settlement Type Add On", show.optional_settlement_type_add_on, "Parse and add Optional Settlement Type Add On to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_and_cancel_replace_acknowledgement_message = Pref.bool("Show Order And Cancel Replace Acknowledgement Message", show.order_and_cancel_replace_acknowledgement_message, "Parse and add Order And Cancel Replace Acknowledgement Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_cancel_request_acknowledgment_and_urout_message = Pref.bool("Show Order Modify Cancel Request Acknowledgment And Urout Message", show.order_modify_cancel_request_acknowledgment_and_urout_message, "Parse and add Order Modify Cancel Request Acknowledgment And Urout Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_request_message = Pref.bool("Show Order Modify Request Message", show.order_modify_request_message, "Parse and add Order Modify Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_priority_update_acknowledgment_message = Pref.bool("Show Order Priority Update Acknowledgment Message", show.order_priority_update_acknowledgment_message, "Parse and add Order Priority Update Acknowledgment Message to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_acknowledgement_message = Pref.bool("Show Risk Control Acknowledgement Message", show.risk_control_acknowledgement_message, "Parse and add Risk Control Acknowledgement Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_alert_message = Pref.bool("Show Risk Control Alert Message", show.risk_control_alert_message, "Parse and add Risk Control Alert Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_limit_update_request_message = Pref.bool("Show Risk Limit Update Request Message", show.risk_limit_update_request_message, "Parse and add Risk Limit Update Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_acknowledgement_message = Pref.bool("Show Session Configuration Acknowledgement Message", show.session_configuration_acknowledgement_message, "Parse and add Session Configuration Acknowledgement Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
 omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_symbol_subscription_acknowledgement_message = Pref.bool("Show Symbol Subscription Acknowledgement Message", show.symbol_subscription_acknowledgement_message, "Parse and add Symbol Subscription Acknowledgement Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_symbol_subscription_request_message = Pref.bool("Show Symbol Subscription Request Message", show.symbol_subscription_request_message, "Parse and add Symbol Subscription Request Message to protocol tree")
-omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_trade_bust_correct_message = Pref.bool("Show Trade Bust Correct Message", show.trade_bust_correct_message, "Parse and add Trade Bust Correct Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.application_layer_reject_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_application_layer_reject_message then
-    show.application_layer_reject_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_application_layer_reject_message
-    changed = true
-  end
-  if show.auction_price_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_auction_price_data_message then
-    show.auction_price_data_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_auction_price_data_message
-    changed = true
-  end
-  if show.auction_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_auction_request_message then
-    show.auction_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_auction_request_message
+  if show.application_messages ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_application_messages then
+    show.application_messages = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_application_messages
     changed = true
   end
   if show.bitfield_flow_indicator ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bitfield_flow_indicator then
@@ -382,76 +300,8 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
     show.bitfield_order_instructions = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bitfield_order_instructions
     changed = true
   end
-  if show.bulk_cancel_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bulk_cancel_request_message then
-    show.bulk_cancel_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bulk_cancel_request_message
-    changed = true
-  end
-  if show.close ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_close then
-    show.close = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_close
-    changed = true
-  end
-  if show.close_response ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_close_response then
-    show.close_response = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_close_response
-    changed = true
-  end
-  if show.dmm_symbol_reference_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_dmm_symbol_reference_data_message then
-    show.dmm_symbol_reference_data_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_dmm_symbol_reference_data_message
-    changed = true
-  end
-  if show.equities_symbol_reference_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_equities_symbol_reference_data_message then
-    show.equities_symbol_reference_data_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_equities_symbol_reference_data_message
-    changed = true
-  end
-  if show.execution_report_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_execution_report_message then
-    show.execution_report_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_execution_report_message
-    changed = true
-  end
-  if show.gt_begin_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_gt_begin_message then
-    show.gt_begin_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_gt_begin_message
-    changed = true
-  end
-  if show.gt_end_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_gt_end_message then
-    show.gt_end_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_gt_end_message
-    changed = true
-  end
-  if show.heartbeat ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_heartbeat then
-    show.heartbeat = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_heartbeat
-    changed = true
-  end
-  if show.login_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_login_message then
-    show.login_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_login_message
-    changed = true
-  end
-  if show.login_response ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_login_response then
-    show.login_response = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_login_response
-    changed = true
-  end
   if show.manual_action_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_id then
     show.manual_action_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_id
-    changed = true
-  end
-  if show.manual_action_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_request_message then
-    show.manual_action_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_request_message
-    changed = true
-  end
-  if show.manual_action_response_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_response_message then
-    show.manual_action_response_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_response_message
-    changed = true
-  end
-  if show.minimum_price_variant_class_reference_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_minimum_price_variant_class_reference_data_message then
-    show.minimum_price_variant_class_reference_data_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_minimum_price_variant_class_reference_data_message
-    changed = true
-  end
-  if show.minimum_price_variant_level_reference_data_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_minimum_price_variant_level_reference_data_message then
-    show.minimum_price_variant_level_reference_data_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_minimum_price_variant_level_reference_data_message
-    changed = true
-  end
-  if show.mmid_configuration_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mmid_configuration_message then
-    show.mmid_configuration_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mmid_configuration_message
-    changed = true
-  end
-  if show.mpid_configuration_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mpid_configuration_message then
-    show.mpid_configuration_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mpid_configuration_message
     changed = true
   end
   if show.mpv_level_definition ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mpv_level_definition then
@@ -462,18 +312,6 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
     show.msg_header = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_msg_header
     changed = true
   end
-  if show.new_order_single_and_cancel_replace_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_new_order_single_and_cancel_replace_request_message then
-    show.new_order_single_and_cancel_replace_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_new_order_single_and_cancel_replace_request_message
-    changed = true
-  end
-  if show.open ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_open then
-    show.open = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_open
-    changed = true
-  end
-  if show.open_response ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_open_response then
-    show.open_response = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_open_response
-    changed = true
-  end
   if show.optional_order_add_on ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_order_add_on then
     show.optional_order_add_on = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_order_add_on
     changed = true
@@ -482,48 +320,8 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
     show.optional_settlement_type_add_on = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_settlement_type_add_on
     changed = true
   end
-  if show.order_and_cancel_replace_acknowledgement_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_and_cancel_replace_acknowledgement_message then
-    show.order_and_cancel_replace_acknowledgement_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_and_cancel_replace_acknowledgement_message
-    changed = true
-  end
-  if show.order_cancel_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_cancel_request_message then
-    show.order_cancel_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_cancel_request_message
-    changed = true
-  end
-  if show.order_modify_cancel_request_acknowledgment_and_urout_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_cancel_request_acknowledgment_and_urout_message then
-    show.order_modify_cancel_request_acknowledgment_and_urout_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_cancel_request_acknowledgment_and_urout_message
-    changed = true
-  end
-  if show.order_modify_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_request_message then
-    show.order_modify_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_modify_request_message
-    changed = true
-  end
-  if show.order_priority_update_acknowledgment_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_priority_update_acknowledgment_message then
-    show.order_priority_update_acknowledgment_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_order_priority_update_acknowledgment_message
-    changed = true
-  end
   if show.ref_seq_msg_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id then
     show.ref_seq_msg_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id
-    changed = true
-  end
-  if show.risk_action_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_action_request_message then
-    show.risk_action_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_action_request_message
-    changed = true
-  end
-  if show.risk_control_acknowledgement_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_acknowledgement_message then
-    show.risk_control_acknowledgement_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_acknowledgement_message
-    changed = true
-  end
-  if show.risk_control_alert_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_alert_message then
-    show.risk_control_alert_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_control_alert_message
-    changed = true
-  end
-  if show.risk_limit_update_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_limit_update_request_message then
-    show.risk_limit_update_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_risk_limit_update_request_message
-    changed = true
-  end
-  if show.seq_msg ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg then
-    show.seq_msg = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg
     changed = true
   end
   if show.seq_msg_header ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_header then
@@ -534,16 +332,8 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
     show.seq_msg_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_id
     changed = true
   end
-  if show.session_configuration_acknowledgement_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_acknowledgement_message then
-    show.session_configuration_acknowledgement_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_acknowledgement_message
-    changed = true
-  end
-  if show.session_configuration_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_request_message then
-    show.session_configuration_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_configuration_request_message
-    changed = true
-  end
-  if show.stream_avail ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_stream_avail then
-    show.stream_avail = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_stream_avail
+  if show.session_messages ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_messages then
+    show.session_messages = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_messages
     changed = true
   end
   if show.stream_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_stream_id then
@@ -552,18 +342,6 @@ function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
   end
   if show.sub_msg_header ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_sub_msg_header then
     show.sub_msg_header = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_sub_msg_header
-    changed = true
-  end
-  if show.symbol_subscription_acknowledgement_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_symbol_subscription_acknowledgement_message then
-    show.symbol_subscription_acknowledgement_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_symbol_subscription_acknowledgement_message
-    changed = true
-  end
-  if show.symbol_subscription_request_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_symbol_subscription_request_message then
-    show.symbol_subscription_request_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_symbol_subscription_request_message
-    changed = true
-  end
-  if show.trade_bust_correct_message ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_trade_bust_correct_message then
-    show.trade_bust_correct_message = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_trade_bust_correct_message
     changed = true
   end
 
@@ -6243,7 +6021,7 @@ nyse_equities_binarygateway_pillar_v5_17.risk_control_alert_message.dissect = fu
   local index = offset + size_of_risk_control_alert_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.risk_control_alert_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_control_alert_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.risk_control_alert_message.fields(buffer, offset, packet, parent, size_of_risk_control_alert_message)
     parent:set_len(size_of_risk_control_alert_message)
@@ -6386,7 +6164,7 @@ nyse_equities_binarygateway_pillar_v5_17.risk_control_acknowledgement_message.di
   local index = offset + size_of_risk_control_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.risk_control_acknowledgement_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_control_acknowledgement_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.risk_control_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
     parent:set_len(size_of_risk_control_acknowledgement_message)
@@ -6566,7 +6344,7 @@ nyse_equities_binarygateway_pillar_v5_17.manual_action_request_message.dissect =
   local index = offset + size_of_manual_action_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.manual_action_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.manual_action_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.manual_action_request_message.fields(buffer, offset, packet, parent, size_of_manual_action_request_message)
     parent:set_len(size_of_manual_action_request_message)
@@ -6625,7 +6403,7 @@ nyse_equities_binarygateway_pillar_v5_17.auction_request_message.dissect = funct
   local index = offset + size_of_auction_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.auction_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.auction_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.auction_request_message.fields(buffer, offset, packet, parent, size_of_auction_request_message)
     parent:set_len(size_of_auction_request_message)
@@ -6702,7 +6480,7 @@ nyse_equities_binarygateway_pillar_v5_17.auction_price_data_message.dissect = fu
   local index = offset + size_of_auction_price_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.auction_price_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.auction_price_data_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.auction_price_data_message.fields(buffer, offset, packet, parent, size_of_auction_price_data_message)
     parent:set_len(size_of_auction_price_data_message)
@@ -6752,7 +6530,7 @@ nyse_equities_binarygateway_pillar_v5_17.gt_end_message.dissect = function(buffe
   local index = offset + size_of_gt_end_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.gt_end_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.gt_end_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.gt_end_message.fields(buffer, offset, packet, parent, size_of_gt_end_message)
     parent:set_len(size_of_gt_end_message)
@@ -6802,7 +6580,7 @@ nyse_equities_binarygateway_pillar_v5_17.gt_begin_message.dissect = function(buf
   local index = offset + size_of_gt_begin_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.gt_begin_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.gt_begin_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.gt_begin_message.fields(buffer, offset, packet, parent, size_of_gt_begin_message)
     parent:set_len(size_of_gt_begin_message)
@@ -6861,7 +6639,7 @@ nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_acknowledgement_mes
   local index = offset + size_of_symbol_subscription_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.symbol_subscription_acknowledgement_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.symbol_subscription_acknowledgement_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_symbol_subscription_acknowledgement_message)
     parent:set_len(size_of_symbol_subscription_acknowledgement_message)
@@ -6932,7 +6710,7 @@ nyse_equities_binarygateway_pillar_v5_17.application_layer_reject_message.dissec
   local index = offset + size_of_application_layer_reject_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.application_layer_reject_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.application_layer_reject_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.application_layer_reject_message.fields(buffer, offset, packet, parent, size_of_application_layer_reject_message)
     parent:set_len(size_of_application_layer_reject_message)
@@ -7056,7 +6834,7 @@ nyse_equities_binarygateway_pillar_v5_17.trade_bust_correct_message.dissect = fu
   local index = offset + size_of_trade_bust_correct_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_bust_correct_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.trade_bust_correct_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.trade_bust_correct_message.fields(buffer, offset, packet, parent, size_of_trade_bust_correct_message)
     parent:set_len(size_of_trade_bust_correct_message)
@@ -7242,7 +7020,7 @@ nyse_equities_binarygateway_pillar_v5_17.execution_report_message.dissect = func
   local index = offset + size_of_execution_report_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.execution_report_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.execution_report_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.execution_report_message.fields(buffer, offset, packet, parent, size_of_execution_report_message)
     parent:set_len(size_of_execution_report_message)
@@ -7322,7 +7100,7 @@ nyse_equities_binarygateway_pillar_v5_17.order_priority_update_acknowledgment_me
   local index = offset + size_of_order_priority_update_acknowledgment_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_priority_update_acknowledgment_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_priority_update_acknowledgment_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.order_priority_update_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_order_priority_update_acknowledgment_message)
     parent:set_len(size_of_order_priority_update_acknowledgment_message)
@@ -7457,7 +7235,7 @@ nyse_equities_binarygateway_pillar_v5_17.order_modify_cancel_request_acknowledgm
   local index = offset + size_of_order_modify_cancel_request_acknowledgment_and_urout_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_modify_cancel_request_acknowledgment_and_urout_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_modify_cancel_request_acknowledgment_and_urout_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.order_modify_cancel_request_acknowledgment_and_urout_message.fields(buffer, offset, packet, parent, size_of_order_modify_cancel_request_acknowledgment_and_urout_message)
     parent:set_len(size_of_order_modify_cancel_request_acknowledgment_and_urout_message)
@@ -7743,7 +7521,7 @@ nyse_equities_binarygateway_pillar_v5_17.order_and_cancel_replace_acknowledgemen
   local index = offset + size_of_order_and_cancel_replace_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_and_cancel_replace_acknowledgement_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_and_cancel_replace_acknowledgement_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.order_and_cancel_replace_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_order_and_cancel_replace_acknowledgement_message)
     parent:set_len(size_of_order_and_cancel_replace_acknowledgement_message)
@@ -7838,7 +7616,7 @@ nyse_equities_binarygateway_pillar_v5_17.session_configuration_acknowledgement_m
   local index = offset + size_of_session_configuration_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.session_configuration_acknowledgement_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.session_configuration_acknowledgement_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.session_configuration_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_session_configuration_acknowledgement_message)
     parent:set_len(size_of_session_configuration_acknowledgement_message)
@@ -7900,7 +7678,7 @@ nyse_equities_binarygateway_pillar_v5_17.mmid_configuration_message.dissect = fu
   local index = offset + size_of_mmid_configuration_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.mmid_configuration_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.mmid_configuration_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.mmid_configuration_message.fields(buffer, offset, packet, parent, size_of_mmid_configuration_message)
     parent:set_len(size_of_mmid_configuration_message)
@@ -7962,7 +7740,7 @@ nyse_equities_binarygateway_pillar_v5_17.mpid_configuration_message.dissect = fu
   local index = offset + size_of_mpid_configuration_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.mpid_configuration_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.mpid_configuration_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.mpid_configuration_message.fields(buffer, offset, packet, parent, size_of_mpid_configuration_message)
     parent:set_len(size_of_mpid_configuration_message)
@@ -8076,7 +7854,7 @@ nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_level_reference_d
   local index = offset + size_of_minimum_price_variant_level_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.minimum_price_variant_level_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.minimum_price_variant_level_reference_data_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_level_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_level_reference_data_message)
     parent:set_len(size_of_minimum_price_variant_level_reference_data_message)
@@ -8138,7 +7916,7 @@ nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_class_reference_d
   local index = offset + size_of_minimum_price_variant_class_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.minimum_price_variant_class_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.minimum_price_variant_class_reference_data_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_class_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_class_reference_data_message)
     parent:set_len(size_of_minimum_price_variant_class_reference_data_message)
@@ -8233,7 +8011,7 @@ nyse_equities_binarygateway_pillar_v5_17.dmm_symbol_reference_data_message.disse
   local index = offset + size_of_dmm_symbol_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.dmm_symbol_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.dmm_symbol_reference_data_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.dmm_symbol_reference_data_message.fields(buffer, offset, packet, parent, size_of_dmm_symbol_reference_data_message)
     parent:set_len(size_of_dmm_symbol_reference_data_message)
@@ -8307,7 +8085,7 @@ nyse_equities_binarygateway_pillar_v5_17.equities_symbol_reference_data_message.
   local index = offset + size_of_equities_symbol_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.equities_symbol_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.equities_symbol_reference_data_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.equities_symbol_reference_data_message.fields(buffer, offset, packet, parent, size_of_equities_symbol_reference_data_message)
     parent:set_len(size_of_equities_symbol_reference_data_message)
@@ -8393,7 +8171,7 @@ nyse_equities_binarygateway_pillar_v5_17.risk_action_request_message.dissect = f
   local index = offset + size_of_risk_action_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.risk_action_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_action_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.risk_action_request_message.fields(buffer, offset, packet, parent, size_of_risk_action_request_message)
     parent:set_len(size_of_risk_action_request_message)
@@ -8503,7 +8281,7 @@ nyse_equities_binarygateway_pillar_v5_17.risk_limit_update_request_message.disse
   local index = offset + size_of_risk_limit_update_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.risk_limit_update_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.risk_limit_update_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.risk_limit_update_request_message.fields(buffer, offset, packet, parent, size_of_risk_limit_update_request_message)
     parent:set_len(size_of_risk_limit_update_request_message)
@@ -8583,7 +8361,7 @@ nyse_equities_binarygateway_pillar_v5_17.manual_action_response_message.dissect 
   local index = offset + size_of_manual_action_response_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.manual_action_response_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.manual_action_response_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.manual_action_response_message.fields(buffer, offset, packet, parent, size_of_manual_action_response_message)
     parent:set_len(size_of_manual_action_response_message)
@@ -8636,7 +8414,7 @@ nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_request_message.dis
   local index = offset + size_of_symbol_subscription_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.symbol_subscription_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.symbol_subscription_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.symbol_subscription_request_message.fields(buffer, offset, packet, parent, size_of_symbol_subscription_request_message)
     parent:set_len(size_of_symbol_subscription_request_message)
@@ -8704,7 +8482,7 @@ nyse_equities_binarygateway_pillar_v5_17.bulk_cancel_request_message.dissect = f
   local index = offset + size_of_bulk_cancel_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.bulk_cancel_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.bulk_cancel_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.bulk_cancel_request_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_message)
     parent:set_len(size_of_bulk_cancel_request_message)
@@ -8772,7 +8550,7 @@ nyse_equities_binarygateway_pillar_v5_17.order_modify_request_message.dissect = 
   local index = offset + size_of_order_modify_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_modify_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_modify_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.order_modify_request_message.fields(buffer, offset, packet, parent, size_of_order_modify_request_message)
     parent:set_len(size_of_order_modify_request_message)
@@ -8831,7 +8609,7 @@ nyse_equities_binarygateway_pillar_v5_17.order_cancel_request_message.dissect = 
   local index = offset + size_of_order_cancel_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_cancel_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.order_cancel_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.order_cancel_request_message.fields(buffer, offset, packet, parent, size_of_order_cancel_request_message)
     parent:set_len(size_of_order_cancel_request_message)
@@ -8923,7 +8701,7 @@ nyse_equities_binarygateway_pillar_v5_17.new_order_single_and_cancel_replace_req
   local index = offset + size_of_new_order_single_and_cancel_replace_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_single_and_cancel_replace_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.new_order_single_and_cancel_replace_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.new_order_single_and_cancel_replace_request_message.fields(buffer, offset, packet, parent, size_of_new_order_single_and_cancel_replace_request_message)
     parent:set_len(size_of_new_order_single_and_cancel_replace_request_message)
@@ -8991,7 +8769,7 @@ nyse_equities_binarygateway_pillar_v5_17.session_configuration_request_message.d
   local index = offset + size_of_session_configuration_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.session_configuration_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.session_configuration_request_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.session_configuration_request_message.fields(buffer, offset, packet, parent, size_of_session_configuration_request_message)
     parent:set_len(size_of_session_configuration_request_message)
@@ -9332,7 +9110,7 @@ nyse_equities_binarygateway_pillar_v5_17.seq_msg.dissect = function(buffer, offs
   local index = offset + size_of_seq_msg
 
   -- Optionally add group/struct element to protocol tree
-  if show.seq_msg then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.seq_msg, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
     parent:set_len(size_of_seq_msg)
@@ -9388,7 +9166,7 @@ nyse_equities_binarygateway_pillar_v5_17.close_response.dissect = function(buffe
   local index = offset + size_of_close_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.close_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.close_response, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
     parent:set_len(size_of_close_response)
@@ -9441,7 +9219,7 @@ nyse_equities_binarygateway_pillar_v5_17.close.dissect = function(buffer, offset
   local index = offset + size_of_close
 
   -- Optionally add group/struct element to protocol tree
-  if show.close then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.close, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.close.fields(buffer, offset, packet, parent, size_of_close)
     parent:set_len(size_of_close)
@@ -9500,7 +9278,7 @@ nyse_equities_binarygateway_pillar_v5_17.open_response.dissect = function(buffer
   local index = offset + size_of_open_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.open_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.open_response, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
     parent:set_len(size_of_open_response)
@@ -9565,7 +9343,7 @@ nyse_equities_binarygateway_pillar_v5_17.open.dissect = function(buffer, offset,
   local index = offset + size_of_open
 
   -- Optionally add group/struct element to protocol tree
-  if show.open then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.open, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.open.fields(buffer, offset, packet, parent, size_of_open)
     parent:set_len(size_of_open)
@@ -9615,7 +9393,7 @@ nyse_equities_binarygateway_pillar_v5_17.heartbeat.dissect = function(buffer, of
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
-  if show.heartbeat then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.heartbeat, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
     parent:set_len(size_of_heartbeat)
@@ -9674,7 +9452,7 @@ nyse_equities_binarygateway_pillar_v5_17.stream_avail.dissect = function(buffer,
   local index = offset + size_of_stream_avail
 
   -- Optionally add group/struct element to protocol tree
-  if show.stream_avail then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.stream_avail, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
     parent:set_len(size_of_stream_avail)
@@ -9730,7 +9508,7 @@ nyse_equities_binarygateway_pillar_v5_17.login_response.dissect = function(buffe
   local index = offset + size_of_login_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.login_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.login_response, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
     parent:set_len(size_of_login_response)
@@ -9792,7 +9570,7 @@ nyse_equities_binarygateway_pillar_v5_17.login_message.dissect = function(buffer
   local index = offset + size_of_login_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.login_message then
+  if show.session_messages then
     parent = parent:add(omi_nyse_equities_binarygateway_pillar_v5_17.fields.login_message, buffer(offset, 0))
     local current = nyse_equities_binarygateway_pillar_v5_17.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
     parent:set_len(size_of_login_message)

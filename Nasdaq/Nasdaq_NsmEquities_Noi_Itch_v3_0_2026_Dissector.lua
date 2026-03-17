@@ -87,48 +87,26 @@ omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.message_index = ProtoField.new(
 local show = {}
 
 -- Nasdaq NsmEquities Noi Itch 3.0.2026 Element Dissection Options
-show.cross_trade_message = true
-show.direct_listing_with_capital_raise_price_discovery_message = true
-show.ipo_quoting_period_update_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
-show.net_order_imbalance_indicator_message = true
 show.packet = true
 show.packet_header = true
-show.reg_sho_short_sale_price_test_restricted_indicator_message = true
-show.stock_directory_message = true
-show.stock_trading_action_message = true
-show.system_event = true
 
 -- Register Nasdaq NsmEquities Noi Itch 3.0.2026 Show Options
-omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
-omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_direct_listing_with_capital_raise_price_discovery_message = Pref.bool("Show Direct Listing With Capital Raise Price Discovery Message", show.direct_listing_with_capital_raise_price_discovery_message, "Parse and add Direct Listing With Capital Raise Price Discovery Message to protocol tree")
-omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_ipo_quoting_period_update_message = Pref.bool("Show Ipo Quoting Period Update Message", show.ipo_quoting_period_update_message, "Parse and add Ipo Quoting Period Update Message to protocol tree")
+omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
 omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
-omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
-omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
-omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_system_event = Pref.bool("Show System Event", show.system_event, "Parse and add System Event to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cross_trade_message ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_cross_trade_message then
-    show.cross_trade_message = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_cross_trade_message
-    changed = true
-  end
-  if show.direct_listing_with_capital_raise_price_discovery_message ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_direct_listing_with_capital_raise_price_discovery_message then
-    show.direct_listing_with_capital_raise_price_discovery_message = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_direct_listing_with_capital_raise_price_discovery_message
-    changed = true
-  end
-  if show.ipo_quoting_period_update_message ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_ipo_quoting_period_update_message then
-    show.ipo_quoting_period_update_message = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_ipo_quoting_period_update_message
+  if show.application_messages ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_message then
@@ -139,32 +117,12 @@ function omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs_changed()
     show.message_header = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_message_header
     changed = true
   end
-  if show.net_order_imbalance_indicator_message ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_net_order_imbalance_indicator_message then
-    show.net_order_imbalance_indicator_message = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_net_order_imbalance_indicator_message
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet then
     show.packet = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet_header
-    changed = true
-  end
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
-    show.reg_sho_short_sale_price_test_restricted_indicator_message = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
-    changed = true
-  end
-  if show.stock_directory_message ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_stock_directory_message then
-    show.stock_directory_message = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_stock_directory_message
-    changed = true
-  end
-  if show.stock_trading_action_message ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_stock_trading_action_message then
-    show.stock_trading_action_message = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_stock_trading_action_message
-    changed = true
-  end
-  if show.system_event ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_system_event then
-    show.system_event = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_system_event
     changed = true
   end
 
@@ -1999,7 +1957,7 @@ end
 
 -- Dissect: Direct Listing With Capital Raise Price Discovery Message
 nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.dissect = function(buffer, offset, packet, parent)
-  if show.direct_listing_with_capital_raise_price_discovery_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.direct_listing_with_capital_raise_price_discovery_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.fields(buffer, offset, packet, parent)
@@ -2059,7 +2017,7 @@ end
 
 -- Dissect: Ipo Quoting Period Update Message
 nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.ipo_quoting_period_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.ipo_quoting_period_update_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.fields(buffer, offset, packet, parent)
@@ -2123,7 +2081,7 @@ end
 
 -- Dissect: Cross Trade Message
 nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.cross_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.cross_trade_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.fields(buffer, offset, packet, parent)
@@ -2203,7 +2161,7 @@ end
 
 -- Dissect: Net Order Imbalance Indicator Message
 nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.net_order_imbalance_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
@@ -2255,7 +2213,7 @@ end
 
 -- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
@@ -2311,7 +2269,7 @@ end
 
 -- Dissect: Stock Trading Action Message
 nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.stock_trading_action_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.fields(buffer, offset, packet, parent)
@@ -2411,7 +2369,7 @@ end
 
 -- Dissect: Stock Directory Message
 nasdaq_nsmequities_noi_itch_v3_0_2026.stock_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.stock_directory_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_noi_itch_v3_0_2026.stock_directory_message.fields(buffer, offset, packet, parent)
@@ -2459,7 +2417,7 @@ end
 
 -- Dissect: System Event
 nasdaq_nsmequities_noi_itch_v3_0_2026.system_event.dissect = function(buffer, offset, packet, parent)
-  if show.system_event then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.system_event, buffer(offset, 0))
     local index = nasdaq_nsmequities_noi_itch_v3_0_2026.system_event.fields(buffer, offset, packet, parent)

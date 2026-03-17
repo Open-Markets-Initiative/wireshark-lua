@@ -216,53 +216,22 @@ omi_memx_options_memo_sbe_v1_9.fields.two_sided_quotes_group_index = ProtoField.
 local show = {}
 
 -- Memx Options Memo Sbe 1.9 Element Dissection Options
-show.allocation_instruction_ack_message = true
-show.allocation_instruction_alert_message = true
-show.allocation_instruction_message = true
+show.application_messages = true
 show.common_header = true
 show.exec_inst = true
 show.execution_allocations_group = true
 show.execution_allocations_groups = true
-show.execution_report_bulk_quote_component_new_message = true
-show.execution_report_bulk_quote_pending_new_message = true
-show.execution_report_canceled_message = true
-show.execution_report_new_message = true
-show.execution_report_pending_cancel_message = true
-show.execution_report_pending_replace_message = true
-show.execution_report_rejected_message = true
-show.execution_report_replaced_message = true
-show.execution_report_restatement_message = true
-show.execution_report_trade_break_message = true
-show.execution_report_trade_correction_message = true
-show.execution_report_trade_message = true
 show.login_accepted_message = true
 show.login_rejected_message = true
 show.login_request_message = true
-show.long_one_sided_bulk_quote_message = true
-show.long_two_sided_bulk_quote_message = true
-show.mass_cancel_bulk_clear_all_lockouts_request_message = true
-show.mass_cancel_bulk_clear_lockout_accepted_message = true
-show.mass_cancel_bulk_clear_lockout_reject_message = true
-show.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message = true
-show.mass_cancel_clear_lockout_done_message = true
-show.mass_cancel_clear_lockout_reject_message = true
-show.mass_cancel_clear_lockout_request_message = true
-show.mass_cancel_done_message = true
 show.mass_cancel_inst = true
-show.mass_cancel_reject_message = true
-show.mass_cancel_request_message = true
 show.nested_parties_group = true
 show.nested_parties_groups = true
-show.new_order_single_message = true
 show.one_sided_quotes_group = true
 show.one_sided_quotes_groups = true
-show.order_cancel_reject_message = true
-show.order_cancel_replace_request_message = true
-show.order_cancel_request_message = true
 show.packet = true
 show.parties_group = true
 show.parties_groups = true
-show.pending_mass_cancel_message = true
 show.repeating_group_dimensions = true
 show.replay_all_request_message = true
 show.replay_begin_message = true
@@ -276,8 +245,6 @@ show.requested_allocations_groups = true
 show.sbe_header = true
 show.sbe_message = true
 show.sequenced_message = true
-show.short_one_sided_bulk_quote_message = true
-show.short_two_sided_bulk_quote_message = true
 show.start_of_session_message = true
 show.stream_begin_message = true
 show.stream_complete_message = true
@@ -286,56 +253,24 @@ show.stream_request_message = true
 show.two_sided_quotes_group = true
 show.two_sided_quotes_groups = true
 show.unsequenced_message = true
-show.user_notification_message = true
 
 -- Register Memx Options Memo Sbe 1.9 Show Options
-omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_ack_message = Pref.bool("Show Allocation Instruction Ack Message", show.allocation_instruction_ack_message, "Parse and add Allocation Instruction Ack Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_alert_message = Pref.bool("Show Allocation Instruction Alert Message", show.allocation_instruction_alert_message, "Parse and add Allocation Instruction Alert Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_message = Pref.bool("Show Allocation Instruction Message", show.allocation_instruction_message, "Parse and add Allocation Instruction Message to protocol tree")
+omi_memx_options_memo_sbe_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_execution_allocations_group = Pref.bool("Show Execution Allocations Group", show.execution_allocations_group, "Parse and add Execution Allocations Group to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_execution_allocations_groups = Pref.bool("Show Execution Allocations Groups", show.execution_allocations_groups, "Parse and add Execution Allocations Groups to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_bulk_quote_component_new_message = Pref.bool("Show Execution Report Bulk Quote Component New Message", show.execution_report_bulk_quote_component_new_message, "Parse and add Execution Report Bulk Quote Component New Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_bulk_quote_pending_new_message = Pref.bool("Show Execution Report Bulk Quote Pending New Message", show.execution_report_bulk_quote_pending_new_message, "Parse and add Execution Report Bulk Quote Pending New Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_canceled_message = Pref.bool("Show Execution Report Canceled Message", show.execution_report_canceled_message, "Parse and add Execution Report Canceled Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_new_message = Pref.bool("Show Execution Report New Message", show.execution_report_new_message, "Parse and add Execution Report New Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_pending_cancel_message = Pref.bool("Show Execution Report Pending Cancel Message", show.execution_report_pending_cancel_message, "Parse and add Execution Report Pending Cancel Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_pending_replace_message = Pref.bool("Show Execution Report Pending Replace Message", show.execution_report_pending_replace_message, "Parse and add Execution Report Pending Replace Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_rejected_message = Pref.bool("Show Execution Report Rejected Message", show.execution_report_rejected_message, "Parse and add Execution Report Rejected Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_replaced_message = Pref.bool("Show Execution Report Replaced Message", show.execution_report_replaced_message, "Parse and add Execution Report Replaced Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_restatement_message = Pref.bool("Show Execution Report Restatement Message", show.execution_report_restatement_message, "Parse and add Execution Report Restatement Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_break_message = Pref.bool("Show Execution Report Trade Break Message", show.execution_report_trade_break_message, "Parse and add Execution Report Trade Break Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_correction_message = Pref.bool("Show Execution Report Trade Correction Message", show.execution_report_trade_correction_message, "Parse and add Execution Report Trade Correction Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_message = Pref.bool("Show Execution Report Trade Message", show.execution_report_trade_message, "Parse and add Execution Report Trade Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_long_one_sided_bulk_quote_message = Pref.bool("Show Long One Sided Bulk Quote Message", show.long_one_sided_bulk_quote_message, "Parse and add Long One Sided Bulk Quote Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_long_two_sided_bulk_quote_message = Pref.bool("Show Long Two Sided Bulk Quote Message", show.long_two_sided_bulk_quote_message, "Parse and add Long Two Sided Bulk Quote Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_all_lockouts_request_message = Pref.bool("Show Mass Cancel Bulk Clear All Lockouts Request Message", show.mass_cancel_bulk_clear_all_lockouts_request_message, "Parse and add Mass Cancel Bulk Clear All Lockouts Request Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockout_accepted_message = Pref.bool("Show Mass Cancel Bulk Clear Lockout Accepted Message", show.mass_cancel_bulk_clear_lockout_accepted_message, "Parse and add Mass Cancel Bulk Clear Lockout Accepted Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockout_reject_message = Pref.bool("Show Mass Cancel Bulk Clear Lockout Reject Message", show.mass_cancel_bulk_clear_lockout_reject_message, "Parse and add Mass Cancel Bulk Clear Lockout Reject Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message = Pref.bool("Show Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message", show.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message, "Parse and add Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_done_message = Pref.bool("Show Mass Cancel Clear Lockout Done Message", show.mass_cancel_clear_lockout_done_message, "Parse and add Mass Cancel Clear Lockout Done Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_reject_message = Pref.bool("Show Mass Cancel Clear Lockout Reject Message", show.mass_cancel_clear_lockout_reject_message, "Parse and add Mass Cancel Clear Lockout Reject Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_request_message = Pref.bool("Show Mass Cancel Clear Lockout Request Message", show.mass_cancel_clear_lockout_request_message, "Parse and add Mass Cancel Clear Lockout Request Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_done_message = Pref.bool("Show Mass Cancel Done Message", show.mass_cancel_done_message, "Parse and add Mass Cancel Done Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_inst = Pref.bool("Show Mass Cancel Inst", show.mass_cancel_inst, "Parse and add Mass Cancel Inst to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_reject_message = Pref.bool("Show Mass Cancel Reject Message", show.mass_cancel_reject_message, "Parse and add Mass Cancel Reject Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_request_message = Pref.bool("Show Mass Cancel Request Message", show.mass_cancel_request_message, "Parse and add Mass Cancel Request Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_nested_parties_group = Pref.bool("Show Nested Parties Group", show.nested_parties_group, "Parse and add Nested Parties Group to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_nested_parties_groups = Pref.bool("Show Nested Parties Groups", show.nested_parties_groups, "Parse and add Nested Parties Groups to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_one_sided_quotes_group = Pref.bool("Show One Sided Quotes Group", show.one_sided_quotes_group, "Parse and add One Sided Quotes Group to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_one_sided_quotes_groups = Pref.bool("Show One Sided Quotes Groups", show.one_sided_quotes_groups, "Parse and add One Sided Quotes Groups to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_reject_message = Pref.bool("Show Order Cancel Reject Message", show.order_cancel_reject_message, "Parse and add Order Cancel Reject Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_parties_group = Pref.bool("Show Parties Group", show.parties_group, "Parse and add Parties Group to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_parties_groups = Pref.bool("Show Parties Groups", show.parties_groups, "Parse and add Parties Groups to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_pending_mass_cancel_message = Pref.bool("Show Pending Mass Cancel Message", show.pending_mass_cancel_message, "Parse and add Pending Mass Cancel Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_repeating_group_dimensions = Pref.bool("Show Repeating Group Dimensions", show.repeating_group_dimensions, "Parse and add Repeating Group Dimensions to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
@@ -349,8 +284,6 @@ omi_memx_options_memo_sbe_v1_9.prefs.show_requested_allocations_groups = Pref.bo
 omi_memx_options_memo_sbe_v1_9.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_short_one_sided_bulk_quote_message = Pref.bool("Show Short One Sided Bulk Quote Message", show.short_one_sided_bulk_quote_message, "Parse and add Short One Sided Bulk Quote Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_short_two_sided_bulk_quote_message = Pref.bool("Show Short Two Sided Bulk Quote Message", show.short_two_sided_bulk_quote_message, "Parse and add Short Two Sided Bulk Quote Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
@@ -359,23 +292,14 @@ omi_memx_options_memo_sbe_v1_9.prefs.show_stream_request_message = Pref.bool("Sh
 omi_memx_options_memo_sbe_v1_9.prefs.show_two_sided_quotes_group = Pref.bool("Show Two Sided Quotes Group", show.two_sided_quotes_group, "Parse and add Two Sided Quotes Group to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_two_sided_quotes_groups = Pref.bool("Show Two Sided Quotes Groups", show.two_sided_quotes_groups, "Parse and add Two Sided Quotes Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_9.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
-omi_memx_options_memo_sbe_v1_9.prefs.show_user_notification_message = Pref.bool("Show User Notification Message", show.user_notification_message, "Parse and add User Notification Message to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_options_memo_sbe_v1_9.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.allocation_instruction_ack_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_ack_message then
-    show.allocation_instruction_ack_message = omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_ack_message
-    changed = true
-  end
-  if show.allocation_instruction_alert_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_alert_message then
-    show.allocation_instruction_alert_message = omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_alert_message
-    changed = true
-  end
-  if show.allocation_instruction_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_message then
-    show.allocation_instruction_message = omi_memx_options_memo_sbe_v1_9.prefs.show_allocation_instruction_message
+  if show.application_messages ~= omi_memx_options_memo_sbe_v1_9.prefs.show_application_messages then
+    show.application_messages = omi_memx_options_memo_sbe_v1_9.prefs.show_application_messages
     changed = true
   end
   if show.common_header ~= omi_memx_options_memo_sbe_v1_9.prefs.show_common_header then
@@ -394,54 +318,6 @@ function omi_memx_options_memo_sbe_v1_9.prefs_changed()
     show.execution_allocations_groups = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_allocations_groups
     changed = true
   end
-  if show.execution_report_bulk_quote_component_new_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_bulk_quote_component_new_message then
-    show.execution_report_bulk_quote_component_new_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_bulk_quote_component_new_message
-    changed = true
-  end
-  if show.execution_report_bulk_quote_pending_new_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_bulk_quote_pending_new_message then
-    show.execution_report_bulk_quote_pending_new_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_bulk_quote_pending_new_message
-    changed = true
-  end
-  if show.execution_report_canceled_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_canceled_message then
-    show.execution_report_canceled_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_canceled_message
-    changed = true
-  end
-  if show.execution_report_new_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_new_message then
-    show.execution_report_new_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_new_message
-    changed = true
-  end
-  if show.execution_report_pending_cancel_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_pending_cancel_message then
-    show.execution_report_pending_cancel_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_pending_cancel_message
-    changed = true
-  end
-  if show.execution_report_pending_replace_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_pending_replace_message then
-    show.execution_report_pending_replace_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_pending_replace_message
-    changed = true
-  end
-  if show.execution_report_rejected_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_rejected_message then
-    show.execution_report_rejected_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_rejected_message
-    changed = true
-  end
-  if show.execution_report_replaced_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_replaced_message then
-    show.execution_report_replaced_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_replaced_message
-    changed = true
-  end
-  if show.execution_report_restatement_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_restatement_message then
-    show.execution_report_restatement_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_restatement_message
-    changed = true
-  end
-  if show.execution_report_trade_break_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_break_message then
-    show.execution_report_trade_break_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_break_message
-    changed = true
-  end
-  if show.execution_report_trade_correction_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_correction_message then
-    show.execution_report_trade_correction_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_correction_message
-    changed = true
-  end
-  if show.execution_report_trade_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_message then
-    show.execution_report_trade_message = omi_memx_options_memo_sbe_v1_9.prefs.show_execution_report_trade_message
-    changed = true
-  end
   if show.login_accepted_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_login_accepted_message then
     show.login_accepted_message = omi_memx_options_memo_sbe_v1_9.prefs.show_login_accepted_message
     changed = true
@@ -454,56 +330,8 @@ function omi_memx_options_memo_sbe_v1_9.prefs_changed()
     show.login_request_message = omi_memx_options_memo_sbe_v1_9.prefs.show_login_request_message
     changed = true
   end
-  if show.long_one_sided_bulk_quote_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_long_one_sided_bulk_quote_message then
-    show.long_one_sided_bulk_quote_message = omi_memx_options_memo_sbe_v1_9.prefs.show_long_one_sided_bulk_quote_message
-    changed = true
-  end
-  if show.long_two_sided_bulk_quote_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_long_two_sided_bulk_quote_message then
-    show.long_two_sided_bulk_quote_message = omi_memx_options_memo_sbe_v1_9.prefs.show_long_two_sided_bulk_quote_message
-    changed = true
-  end
-  if show.mass_cancel_bulk_clear_all_lockouts_request_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_all_lockouts_request_message then
-    show.mass_cancel_bulk_clear_all_lockouts_request_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_all_lockouts_request_message
-    changed = true
-  end
-  if show.mass_cancel_bulk_clear_lockout_accepted_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockout_accepted_message then
-    show.mass_cancel_bulk_clear_lockout_accepted_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockout_accepted_message
-    changed = true
-  end
-  if show.mass_cancel_bulk_clear_lockout_reject_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockout_reject_message then
-    show.mass_cancel_bulk_clear_lockout_reject_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockout_reject_message
-    changed = true
-  end
-  if show.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message then
-    show.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message
-    changed = true
-  end
-  if show.mass_cancel_clear_lockout_done_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_done_message then
-    show.mass_cancel_clear_lockout_done_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_done_message
-    changed = true
-  end
-  if show.mass_cancel_clear_lockout_reject_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_reject_message then
-    show.mass_cancel_clear_lockout_reject_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_reject_message
-    changed = true
-  end
-  if show.mass_cancel_clear_lockout_request_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_request_message then
-    show.mass_cancel_clear_lockout_request_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_clear_lockout_request_message
-    changed = true
-  end
-  if show.mass_cancel_done_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_done_message then
-    show.mass_cancel_done_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_done_message
-    changed = true
-  end
   if show.mass_cancel_inst ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_inst then
     show.mass_cancel_inst = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_inst
-    changed = true
-  end
-  if show.mass_cancel_reject_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_reject_message then
-    show.mass_cancel_reject_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_reject_message
-    changed = true
-  end
-  if show.mass_cancel_request_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_request_message then
-    show.mass_cancel_request_message = omi_memx_options_memo_sbe_v1_9.prefs.show_mass_cancel_request_message
     changed = true
   end
   if show.nested_parties_group ~= omi_memx_options_memo_sbe_v1_9.prefs.show_nested_parties_group then
@@ -514,28 +342,12 @@ function omi_memx_options_memo_sbe_v1_9.prefs_changed()
     show.nested_parties_groups = omi_memx_options_memo_sbe_v1_9.prefs.show_nested_parties_groups
     changed = true
   end
-  if show.new_order_single_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_new_order_single_message then
-    show.new_order_single_message = omi_memx_options_memo_sbe_v1_9.prefs.show_new_order_single_message
-    changed = true
-  end
   if show.one_sided_quotes_group ~= omi_memx_options_memo_sbe_v1_9.prefs.show_one_sided_quotes_group then
     show.one_sided_quotes_group = omi_memx_options_memo_sbe_v1_9.prefs.show_one_sided_quotes_group
     changed = true
   end
   if show.one_sided_quotes_groups ~= omi_memx_options_memo_sbe_v1_9.prefs.show_one_sided_quotes_groups then
     show.one_sided_quotes_groups = omi_memx_options_memo_sbe_v1_9.prefs.show_one_sided_quotes_groups
-    changed = true
-  end
-  if show.order_cancel_reject_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_reject_message then
-    show.order_cancel_reject_message = omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_reject_message
-    changed = true
-  end
-  if show.order_cancel_replace_request_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_replace_request_message then
-    show.order_cancel_replace_request_message = omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_replace_request_message
-    changed = true
-  end
-  if show.order_cancel_request_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_request_message then
-    show.order_cancel_request_message = omi_memx_options_memo_sbe_v1_9.prefs.show_order_cancel_request_message
     changed = true
   end
   if show.packet ~= omi_memx_options_memo_sbe_v1_9.prefs.show_packet then
@@ -548,10 +360,6 @@ function omi_memx_options_memo_sbe_v1_9.prefs_changed()
   end
   if show.parties_groups ~= omi_memx_options_memo_sbe_v1_9.prefs.show_parties_groups then
     show.parties_groups = omi_memx_options_memo_sbe_v1_9.prefs.show_parties_groups
-    changed = true
-  end
-  if show.pending_mass_cancel_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_pending_mass_cancel_message then
-    show.pending_mass_cancel_message = omi_memx_options_memo_sbe_v1_9.prefs.show_pending_mass_cancel_message
     changed = true
   end
   if show.repeating_group_dimensions ~= omi_memx_options_memo_sbe_v1_9.prefs.show_repeating_group_dimensions then
@@ -606,14 +414,6 @@ function omi_memx_options_memo_sbe_v1_9.prefs_changed()
     show.sequenced_message = omi_memx_options_memo_sbe_v1_9.prefs.show_sequenced_message
     changed = true
   end
-  if show.short_one_sided_bulk_quote_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_short_one_sided_bulk_quote_message then
-    show.short_one_sided_bulk_quote_message = omi_memx_options_memo_sbe_v1_9.prefs.show_short_one_sided_bulk_quote_message
-    changed = true
-  end
-  if show.short_two_sided_bulk_quote_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_short_two_sided_bulk_quote_message then
-    show.short_two_sided_bulk_quote_message = omi_memx_options_memo_sbe_v1_9.prefs.show_short_two_sided_bulk_quote_message
-    changed = true
-  end
   if show.start_of_session_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_start_of_session_message then
     show.start_of_session_message = omi_memx_options_memo_sbe_v1_9.prefs.show_start_of_session_message
     changed = true
@@ -644,10 +444,6 @@ function omi_memx_options_memo_sbe_v1_9.prefs_changed()
   end
   if show.unsequenced_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_unsequenced_message then
     show.unsequenced_message = omi_memx_options_memo_sbe_v1_9.prefs.show_unsequenced_message
-    changed = true
-  end
-  if show.user_notification_message ~= omi_memx_options_memo_sbe_v1_9.prefs.show_user_notification_message then
-    show.user_notification_message = omi_memx_options_memo_sbe_v1_9.prefs.show_user_notification_message
     changed = true
   end
 
@@ -4928,7 +4724,7 @@ end
 
 -- Dissect: Mass Cancel Bulk Clear Lockout Accepted Message
 memx_options_memo_sbe_v1_9.mass_cancel_bulk_clear_lockout_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_bulk_clear_lockout_accepted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_bulk_clear_lockout_accepted_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_bulk_clear_lockout_accepted_message.fields(buffer, offset, packet, parent)
@@ -4976,7 +4772,7 @@ end
 
 -- Dissect: Mass Cancel Bulk Clear Lockout Reject Message
 memx_options_memo_sbe_v1_9.mass_cancel_bulk_clear_lockout_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_bulk_clear_lockout_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_bulk_clear_lockout_reject_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_bulk_clear_lockout_reject_message.fields(buffer, offset, packet, parent)
@@ -5032,7 +4828,7 @@ end
 
 -- Dissect: Mass Cancel Clear Lockout Done Message
 memx_options_memo_sbe_v1_9.mass_cancel_clear_lockout_done_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_clear_lockout_done_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_clear_lockout_done_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_clear_lockout_done_message.fields(buffer, offset, packet, parent)
@@ -5088,7 +4884,7 @@ end
 
 -- Dissect: Mass Cancel Clear Lockout Reject Message
 memx_options_memo_sbe_v1_9.mass_cancel_clear_lockout_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_clear_lockout_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_clear_lockout_reject_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_clear_lockout_reject_message.fields(buffer, offset, packet, parent)
@@ -5132,7 +4928,7 @@ end
 
 -- Dissect: User Notification Message
 memx_options_memo_sbe_v1_9.user_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.user_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.user_notification_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.user_notification_message.fields(buffer, offset, packet, parent)
@@ -5622,7 +5418,7 @@ end
 
 -- Dissect: Allocation Instruction Alert Message
 memx_options_memo_sbe_v1_9.allocation_instruction_alert_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_instruction_alert_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.allocation_instruction_alert_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.allocation_instruction_alert_message.fields(buffer, offset, packet, parent)
@@ -5707,7 +5503,7 @@ end
 
 -- Dissect: Allocation Instruction Ack Message
 memx_options_memo_sbe_v1_9.allocation_instruction_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_instruction_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.allocation_instruction_ack_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.allocation_instruction_ack_message.fields(buffer, offset, packet, parent)
@@ -5771,7 +5567,7 @@ end
 
 -- Dissect: Order Cancel Reject Message
 memx_options_memo_sbe_v1_9.order_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.order_cancel_reject_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.order_cancel_reject_message.fields(buffer, offset, packet, parent)
@@ -5823,7 +5619,7 @@ end
 
 -- Dissect: Mass Cancel Done Message
 memx_options_memo_sbe_v1_9.mass_cancel_done_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_done_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_done_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_done_message.fields(buffer, offset, packet, parent)
@@ -5952,7 +5748,7 @@ end
 
 -- Dissect: Mass Cancel Reject Message
 memx_options_memo_sbe_v1_9.mass_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_reject_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
@@ -6024,7 +5820,7 @@ end
 
 -- Dissect: Pending Mass Cancel Message
 memx_options_memo_sbe_v1_9.pending_mass_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.pending_mass_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.pending_mass_cancel_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.pending_mass_cancel_message.fields(buffer, offset, packet, parent)
@@ -6120,7 +5916,7 @@ end
 
 -- Dissect: Execution Report Restatement Message
 memx_options_memo_sbe_v1_9.execution_report_restatement_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_restatement_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_restatement_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_restatement_message.fields(buffer, offset, packet, parent)
@@ -6204,7 +6000,7 @@ end
 
 -- Dissect: Execution Report Trade Break Message
 memx_options_memo_sbe_v1_9.execution_report_trade_break_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_break_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_trade_break_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
@@ -6296,7 +6092,7 @@ end
 
 -- Dissect: Execution Report Trade Correction Message
 memx_options_memo_sbe_v1_9.execution_report_trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_correction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_trade_correction_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
@@ -6396,7 +6192,7 @@ end
 
 -- Dissect: Execution Report Replaced Message
 memx_options_memo_sbe_v1_9.execution_report_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_replaced_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_replaced_message.fields(buffer, offset, packet, parent)
@@ -6488,7 +6284,7 @@ end
 
 -- Dissect: Execution Report Pending Replace Message
 memx_options_memo_sbe_v1_9.execution_report_pending_replace_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_replace_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_pending_replace_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
@@ -6580,7 +6376,7 @@ end
 
 -- Dissect: Execution Report Canceled Message
 memx_options_memo_sbe_v1_9.execution_report_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_canceled_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_canceled_message.fields(buffer, offset, packet, parent)
@@ -6656,7 +6452,7 @@ end
 
 -- Dissect: Execution Report Pending Cancel Message
 memx_options_memo_sbe_v1_9.execution_report_pending_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_pending_cancel_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
@@ -6907,7 +6703,7 @@ end
 
 -- Dissect: Execution Report Trade Message
 memx_options_memo_sbe_v1_9.execution_report_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_trade_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_trade_message.fields(buffer, offset, packet, parent)
@@ -6983,7 +6779,7 @@ end
 
 -- Dissect: Execution Report Rejected Message
 memx_options_memo_sbe_v1_9.execution_report_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_rejected_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_rejected_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_rejected_message.fields(buffer, offset, packet, parent)
@@ -7071,7 +6867,7 @@ end
 
 -- Dissect: Execution Report Bulk Quote Component New Message
 memx_options_memo_sbe_v1_9.execution_report_bulk_quote_component_new_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_bulk_quote_component_new_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_bulk_quote_component_new_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_bulk_quote_component_new_message.fields(buffer, offset, packet, parent)
@@ -7233,7 +7029,7 @@ end
 
 -- Dissect: Execution Report Bulk Quote Pending New Message
 memx_options_memo_sbe_v1_9.execution_report_bulk_quote_pending_new_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_bulk_quote_pending_new_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_bulk_quote_pending_new_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_bulk_quote_pending_new_message.fields(buffer, offset, packet, parent)
@@ -7398,7 +7194,7 @@ end
 
 -- Dissect: Execution Report New Message
 memx_options_memo_sbe_v1_9.execution_report_new_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_new_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.execution_report_new_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.execution_report_new_message.fields(buffer, offset, packet, parent)
@@ -7607,7 +7403,7 @@ end
 
 -- Dissect: Allocation Instruction Message
 memx_options_memo_sbe_v1_9.allocation_instruction_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_instruction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.allocation_instruction_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.allocation_instruction_message.fields(buffer, offset, packet, parent)
@@ -7659,7 +7455,7 @@ end
 
 -- Dissect: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
 memx_options_memo_sbe_v1_9.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
@@ -7703,7 +7499,7 @@ end
 
 -- Dissect: Mass Cancel Bulk Clear All Lockouts Request Message
 memx_options_memo_sbe_v1_9.mass_cancel_bulk_clear_all_lockouts_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_bulk_clear_all_lockouts_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_bulk_clear_all_lockouts_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
@@ -7755,7 +7551,7 @@ end
 
 -- Dissect: Mass Cancel Clear Lockout Request Message
 memx_options_memo_sbe_v1_9.mass_cancel_clear_lockout_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_clear_lockout_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_clear_lockout_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_clear_lockout_request_message.fields(buffer, offset, packet, parent)
@@ -7823,7 +7619,7 @@ end
 
 -- Dissect: Mass Cancel Request Message
 memx_options_memo_sbe_v1_9.mass_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.mass_cancel_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.mass_cancel_request_message.fields(buffer, offset, packet, parent)
@@ -7887,7 +7683,7 @@ end
 
 -- Dissect: Order Cancel Request Message
 memx_options_memo_sbe_v1_9.order_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.order_cancel_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.order_cancel_request_message.fields(buffer, offset, packet, parent)
@@ -7963,7 +7759,7 @@ end
 
 -- Dissect: Order Cancel Replace Request Message
 memx_options_memo_sbe_v1_9.order_cancel_replace_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_replace_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.order_cancel_replace_request_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
@@ -8177,7 +7973,7 @@ end
 
 -- Dissect: Long One Sided Bulk Quote Message
 memx_options_memo_sbe_v1_9.long_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.long_one_sided_bulk_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.long_one_sided_bulk_quote_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
@@ -8272,7 +8068,7 @@ end
 
 -- Dissect: Short One Sided Bulk Quote Message
 memx_options_memo_sbe_v1_9.short_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_one_sided_bulk_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.short_one_sided_bulk_quote_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.short_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
@@ -8490,7 +8286,7 @@ end
 
 -- Dissect: Long Two Sided Bulk Quote Message
 memx_options_memo_sbe_v1_9.long_two_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.long_two_sided_bulk_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.long_two_sided_bulk_quote_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.long_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
@@ -8585,7 +8381,7 @@ end
 
 -- Dissect: Short Two Sided Bulk Quote Message
 memx_options_memo_sbe_v1_9.short_two_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_two_sided_bulk_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.short_two_sided_bulk_quote_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.short_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
@@ -8715,7 +8511,7 @@ end
 
 -- Dissect: New Order Single Message
 memx_options_memo_sbe_v1_9.new_order_single_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_single_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memo_sbe_v1_9.fields.new_order_single_message, buffer(offset, 0))
     local index = memx_options_memo_sbe_v1_9.new_order_single_message.fields(buffer, offset, packet, parent)

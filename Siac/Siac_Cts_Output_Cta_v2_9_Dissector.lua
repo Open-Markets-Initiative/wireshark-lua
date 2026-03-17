@@ -166,105 +166,51 @@ local show = {}
 
 -- Siac Cts Output Cta 2.9 Element Dissection Options
 show.administrative = true
-show.approximate_adjusted_volume_market_center_message = true
-show.approximate_trades_and_total_dollar_value_message = true
-show.auction_status_message = true
-show.bid_and_offer_index_message = true
+show.application_messages = true
 show.block_header = true
 show.consolidated_data = true
-show.consolidated_end_of_day_summary_message = true
-show.consolidated_start_of_day_summary_message = true
 show.control = true
 show.corrected_trade = true
-show.crossing_session_summary_message = true
-show.disaster_recovery_data_center_activation_message = true
-show.end_of_day_message = true
-show.end_of_end_of_day_message = true
-show.end_of_start_of_day_message = true
 show.index = true
-show.index_message = true
-show.line_integrity_message = true
-show.long_trade_message = true
 show.market_status = true
-show.market_wide_circuit_breaker_decline_level_status_message = true
-show.market_wide_circuit_breaker_status_message = true
 show.message = true
 show.message_header = true
 show.original_trade = true
 show.packet = true
 show.participant_data = true
-show.participant_end_of_day_summary_message = true
-show.participant_start_of_day_summary_message = true
 show.participants = true
 show.prior_day = true
-show.prior_day_trade_correction_message = true
 show.prior_day_trade_date_and_time = true
-show.prior_day_trade_message = true
-show.reset_block_sequence_number_message = true
 show.sale_conditions = true
-show.short_trade_message = true
 show.sip_block_timestamp = true
-show.start_of_day_message = true
-show.start_of_end_of_day_message = true
-show.start_of_start_of_day_message = true
 show.summary = true
 show.timestamp_1 = true
 show.timestamp_2 = true
 show.trade = true
-show.trade_cancel_error_message = true
-show.trade_correction_message = true
-show.trading_status_message = true
 
 -- Register Siac Cts Output Cta 2.9 Show Options
 omi_siac_cts_output_cta_v2_9.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_approximate_adjusted_volume_market_center_message = Pref.bool("Show Approximate Adjusted Volume Market Center Message", show.approximate_adjusted_volume_market_center_message, "Parse and add Approximate Adjusted Volume Market Center Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_approximate_trades_and_total_dollar_value_message = Pref.bool("Show Approximate Trades And Total Dollar Value Message", show.approximate_trades_and_total_dollar_value_message, "Parse and add Approximate Trades And Total Dollar Value Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_auction_status_message = Pref.bool("Show Auction Status Message", show.auction_status_message, "Parse and add Auction Status Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_bid_and_offer_index_message = Pref.bool("Show Bid And Offer Index Message", show.bid_and_offer_index_message, "Parse and add Bid And Offer Index Message to protocol tree")
+omi_siac_cts_output_cta_v2_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_data = Pref.bool("Show Consolidated Data", show.consolidated_data, "Parse and add Consolidated Data to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_end_of_day_summary_message = Pref.bool("Show Consolidated End Of Day Summary Message", show.consolidated_end_of_day_summary_message, "Parse and add Consolidated End Of Day Summary Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_start_of_day_summary_message = Pref.bool("Show Consolidated Start Of Day Summary Message", show.consolidated_start_of_day_summary_message, "Parse and add Consolidated Start Of Day Summary Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_corrected_trade = Pref.bool("Show Corrected Trade", show.corrected_trade, "Parse and add Corrected Trade to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_crossing_session_summary_message = Pref.bool("Show Crossing Session Summary Message", show.crossing_session_summary_message, "Parse and add Crossing Session Summary Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_disaster_recovery_data_center_activation_message = Pref.bool("Show Disaster Recovery Data Center Activation Message", show.disaster_recovery_data_center_activation_message, "Parse and add Disaster Recovery Data Center Activation Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_end_of_end_of_day_message = Pref.bool("Show End Of End Of Day Message", show.end_of_end_of_day_message, "Parse and add End Of End Of Day Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_end_of_start_of_day_message = Pref.bool("Show End Of Start Of Day Message", show.end_of_start_of_day_message, "Parse and add End Of Start Of Day Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_index = Pref.bool("Show Index", show.index, "Parse and add Index to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_index_message = Pref.bool("Show Index Message", show.index_message, "Parse and add Index Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_long_trade_message = Pref.bool("Show Long Trade Message", show.long_trade_message, "Parse and add Long Trade Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_market_wide_circuit_breaker_decline_level_status_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Message", show.market_wide_circuit_breaker_decline_level_status_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_market_wide_circuit_breaker_status_message = Pref.bool("Show Market Wide Circuit Breaker Status Message", show.market_wide_circuit_breaker_status_message, "Parse and add Market Wide Circuit Breaker Status Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_original_trade = Pref.bool("Show Original Trade", show.original_trade, "Parse and add Original Trade to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_participant_data = Pref.bool("Show Participant Data", show.participant_data, "Parse and add Participant Data to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_participant_end_of_day_summary_message = Pref.bool("Show Participant End Of Day Summary Message", show.participant_end_of_day_summary_message, "Parse and add Participant End Of Day Summary Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_participant_start_of_day_summary_message = Pref.bool("Show Participant Start Of Day Summary Message", show.participant_start_of_day_summary_message, "Parse and add Participant Start Of Day Summary Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_participants = Pref.bool("Show Participants", show.participants, "Parse and add Participants to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_prior_day = Pref.bool("Show Prior Day", show.prior_day, "Parse and add Prior Day to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_correction_message = Pref.bool("Show Prior Day Trade Correction Message", show.prior_day_trade_correction_message, "Parse and add Prior Day Trade Correction Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_date_and_time = Pref.bool("Show Prior Day Trade Date And Time", show.prior_day_trade_date_and_time, "Parse and add Prior Day Trade Date And Time to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_message = Pref.bool("Show Prior Day Trade Message", show.prior_day_trade_message, "Parse and add Prior Day Trade Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_reset_block_sequence_number_message = Pref.bool("Show Reset Block Sequence Number Message", show.reset_block_sequence_number_message, "Parse and add Reset Block Sequence Number Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_sale_conditions = Pref.bool("Show Sale Conditions", show.sale_conditions, "Parse and add Sale Conditions to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_short_trade_message = Pref.bool("Show Short Trade Message", show.short_trade_message, "Parse and add Short Trade Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_start_of_end_of_day_message = Pref.bool("Show Start Of End Of Day Message", show.start_of_end_of_day_message, "Parse and add Start Of End Of Day Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_start_of_start_of_day_message = Pref.bool("Show Start Of Start Of Day Message", show.start_of_start_of_day_message, "Parse and add Start Of Start Of Day Message to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_summary = Pref.bool("Show Summary", show.summary, "Parse and add Summary to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_timestamp_1 = Pref.bool("Show Timestamp 1", show.timestamp_1, "Parse and add Timestamp 1 to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_timestamp_2 = Pref.bool("Show Timestamp 2", show.timestamp_2, "Parse and add Timestamp 2 to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
-omi_siac_cts_output_cta_v2_9.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
 
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_9.prefs_changed()
@@ -275,20 +221,8 @@ function omi_siac_cts_output_cta_v2_9.prefs_changed()
     show.administrative = omi_siac_cts_output_cta_v2_9.prefs.show_administrative
     changed = true
   end
-  if show.approximate_adjusted_volume_market_center_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_approximate_adjusted_volume_market_center_message then
-    show.approximate_adjusted_volume_market_center_message = omi_siac_cts_output_cta_v2_9.prefs.show_approximate_adjusted_volume_market_center_message
-    changed = true
-  end
-  if show.approximate_trades_and_total_dollar_value_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_approximate_trades_and_total_dollar_value_message then
-    show.approximate_trades_and_total_dollar_value_message = omi_siac_cts_output_cta_v2_9.prefs.show_approximate_trades_and_total_dollar_value_message
-    changed = true
-  end
-  if show.auction_status_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_auction_status_message then
-    show.auction_status_message = omi_siac_cts_output_cta_v2_9.prefs.show_auction_status_message
-    changed = true
-  end
-  if show.bid_and_offer_index_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_bid_and_offer_index_message then
-    show.bid_and_offer_index_message = omi_siac_cts_output_cta_v2_9.prefs.show_bid_and_offer_index_message
+  if show.application_messages ~= omi_siac_cts_output_cta_v2_9.prefs.show_application_messages then
+    show.application_messages = omi_siac_cts_output_cta_v2_9.prefs.show_application_messages
     changed = true
   end
   if show.block_header ~= omi_siac_cts_output_cta_v2_9.prefs.show_block_header then
@@ -299,14 +233,6 @@ function omi_siac_cts_output_cta_v2_9.prefs_changed()
     show.consolidated_data = omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_data
     changed = true
   end
-  if show.consolidated_end_of_day_summary_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_end_of_day_summary_message then
-    show.consolidated_end_of_day_summary_message = omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_end_of_day_summary_message
-    changed = true
-  end
-  if show.consolidated_start_of_day_summary_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_start_of_day_summary_message then
-    show.consolidated_start_of_day_summary_message = omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_start_of_day_summary_message
-    changed = true
-  end
   if show.control ~= omi_siac_cts_output_cta_v2_9.prefs.show_control then
     show.control = omi_siac_cts_output_cta_v2_9.prefs.show_control
     changed = true
@@ -315,52 +241,12 @@ function omi_siac_cts_output_cta_v2_9.prefs_changed()
     show.corrected_trade = omi_siac_cts_output_cta_v2_9.prefs.show_corrected_trade
     changed = true
   end
-  if show.crossing_session_summary_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_crossing_session_summary_message then
-    show.crossing_session_summary_message = omi_siac_cts_output_cta_v2_9.prefs.show_crossing_session_summary_message
-    changed = true
-  end
-  if show.disaster_recovery_data_center_activation_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_disaster_recovery_data_center_activation_message then
-    show.disaster_recovery_data_center_activation_message = omi_siac_cts_output_cta_v2_9.prefs.show_disaster_recovery_data_center_activation_message
-    changed = true
-  end
-  if show.end_of_day_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_end_of_day_message then
-    show.end_of_day_message = omi_siac_cts_output_cta_v2_9.prefs.show_end_of_day_message
-    changed = true
-  end
-  if show.end_of_end_of_day_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_end_of_end_of_day_message then
-    show.end_of_end_of_day_message = omi_siac_cts_output_cta_v2_9.prefs.show_end_of_end_of_day_message
-    changed = true
-  end
-  if show.end_of_start_of_day_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_end_of_start_of_day_message then
-    show.end_of_start_of_day_message = omi_siac_cts_output_cta_v2_9.prefs.show_end_of_start_of_day_message
-    changed = true
-  end
   if show.index ~= omi_siac_cts_output_cta_v2_9.prefs.show_index then
     show.index = omi_siac_cts_output_cta_v2_9.prefs.show_index
     changed = true
   end
-  if show.index_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_index_message then
-    show.index_message = omi_siac_cts_output_cta_v2_9.prefs.show_index_message
-    changed = true
-  end
-  if show.line_integrity_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_line_integrity_message then
-    show.line_integrity_message = omi_siac_cts_output_cta_v2_9.prefs.show_line_integrity_message
-    changed = true
-  end
-  if show.long_trade_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_long_trade_message then
-    show.long_trade_message = omi_siac_cts_output_cta_v2_9.prefs.show_long_trade_message
-    changed = true
-  end
   if show.market_status ~= omi_siac_cts_output_cta_v2_9.prefs.show_market_status then
     show.market_status = omi_siac_cts_output_cta_v2_9.prefs.show_market_status
-    changed = true
-  end
-  if show.market_wide_circuit_breaker_decline_level_status_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_market_wide_circuit_breaker_decline_level_status_message then
-    show.market_wide_circuit_breaker_decline_level_status_message = omi_siac_cts_output_cta_v2_9.prefs.show_market_wide_circuit_breaker_decline_level_status_message
-    changed = true
-  end
-  if show.market_wide_circuit_breaker_status_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_market_wide_circuit_breaker_status_message then
-    show.market_wide_circuit_breaker_status_message = omi_siac_cts_output_cta_v2_9.prefs.show_market_wide_circuit_breaker_status_message
     changed = true
   end
   if show.message ~= omi_siac_cts_output_cta_v2_9.prefs.show_message then
@@ -383,14 +269,6 @@ function omi_siac_cts_output_cta_v2_9.prefs_changed()
     show.participant_data = omi_siac_cts_output_cta_v2_9.prefs.show_participant_data
     changed = true
   end
-  if show.participant_end_of_day_summary_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_participant_end_of_day_summary_message then
-    show.participant_end_of_day_summary_message = omi_siac_cts_output_cta_v2_9.prefs.show_participant_end_of_day_summary_message
-    changed = true
-  end
-  if show.participant_start_of_day_summary_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_participant_start_of_day_summary_message then
-    show.participant_start_of_day_summary_message = omi_siac_cts_output_cta_v2_9.prefs.show_participant_start_of_day_summary_message
-    changed = true
-  end
   if show.participants ~= omi_siac_cts_output_cta_v2_9.prefs.show_participants then
     show.participants = omi_siac_cts_output_cta_v2_9.prefs.show_participants
     changed = true
@@ -399,44 +277,16 @@ function omi_siac_cts_output_cta_v2_9.prefs_changed()
     show.prior_day = omi_siac_cts_output_cta_v2_9.prefs.show_prior_day
     changed = true
   end
-  if show.prior_day_trade_correction_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_correction_message then
-    show.prior_day_trade_correction_message = omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_correction_message
-    changed = true
-  end
   if show.prior_day_trade_date_and_time ~= omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_date_and_time then
     show.prior_day_trade_date_and_time = omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_date_and_time
-    changed = true
-  end
-  if show.prior_day_trade_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_message then
-    show.prior_day_trade_message = omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_message
-    changed = true
-  end
-  if show.reset_block_sequence_number_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_reset_block_sequence_number_message then
-    show.reset_block_sequence_number_message = omi_siac_cts_output_cta_v2_9.prefs.show_reset_block_sequence_number_message
     changed = true
   end
   if show.sale_conditions ~= omi_siac_cts_output_cta_v2_9.prefs.show_sale_conditions then
     show.sale_conditions = omi_siac_cts_output_cta_v2_9.prefs.show_sale_conditions
     changed = true
   end
-  if show.short_trade_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_short_trade_message then
-    show.short_trade_message = omi_siac_cts_output_cta_v2_9.prefs.show_short_trade_message
-    changed = true
-  end
   if show.sip_block_timestamp ~= omi_siac_cts_output_cta_v2_9.prefs.show_sip_block_timestamp then
     show.sip_block_timestamp = omi_siac_cts_output_cta_v2_9.prefs.show_sip_block_timestamp
-    changed = true
-  end
-  if show.start_of_day_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_start_of_day_message then
-    show.start_of_day_message = omi_siac_cts_output_cta_v2_9.prefs.show_start_of_day_message
-    changed = true
-  end
-  if show.start_of_end_of_day_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_start_of_end_of_day_message then
-    show.start_of_end_of_day_message = omi_siac_cts_output_cta_v2_9.prefs.show_start_of_end_of_day_message
-    changed = true
-  end
-  if show.start_of_start_of_day_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_start_of_start_of_day_message then
-    show.start_of_start_of_day_message = omi_siac_cts_output_cta_v2_9.prefs.show_start_of_start_of_day_message
     changed = true
   end
   if show.summary ~= omi_siac_cts_output_cta_v2_9.prefs.show_summary then
@@ -453,18 +303,6 @@ function omi_siac_cts_output_cta_v2_9.prefs_changed()
   end
   if show.trade ~= omi_siac_cts_output_cta_v2_9.prefs.show_trade then
     show.trade = omi_siac_cts_output_cta_v2_9.prefs.show_trade
-    changed = true
-  end
-  if show.trade_cancel_error_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_trade_cancel_error_message then
-    show.trade_cancel_error_message = omi_siac_cts_output_cta_v2_9.prefs.show_trade_cancel_error_message
-    changed = true
-  end
-  if show.trade_correction_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_trade_correction_message then
-    show.trade_correction_message = omi_siac_cts_output_cta_v2_9.prefs.show_trade_correction_message
-    changed = true
-  end
-  if show.trading_status_message ~= omi_siac_cts_output_cta_v2_9.prefs.show_trading_status_message then
-    show.trading_status_message = omi_siac_cts_output_cta_v2_9.prefs.show_trading_status_message
     changed = true
   end
 
@@ -3809,7 +3647,7 @@ siac_cts_output_cta_v2_9.trade_cancel_error_message.dissect = function(buffer, o
   local index = offset + size_of_trade_cancel_error_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_cancel_error_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.trade_cancel_error_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.trade_cancel_error_message.fields(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
     parent:set_len(size_of_trade_cancel_error_message)
@@ -3895,7 +3733,7 @@ siac_cts_output_cta_v2_9.short_trade_message.dissect = function(buffer, offset, 
   local index = offset + size_of_short_trade_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.short_trade_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.short_trade_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.short_trade_message.fields(buffer, offset, packet, parent, size_of_short_trade_message)
     parent:set_len(size_of_short_trade_message)
@@ -3996,7 +3834,7 @@ siac_cts_output_cta_v2_9.trading_status_message.dissect = function(buffer, offse
   local index = offset + size_of_trading_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trading_status_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.trading_status_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.trading_status_message.fields(buffer, offset, packet, parent, size_of_trading_status_message)
     parent:set_len(size_of_trading_status_message)
@@ -4106,7 +3944,7 @@ siac_cts_output_cta_v2_9.long_trade_message.dissect = function(buffer, offset, p
   local index = offset + size_of_long_trade_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.long_trade_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.long_trade_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.long_trade_message.fields(buffer, offset, packet, parent, size_of_long_trade_message)
     parent:set_len(size_of_long_trade_message)
@@ -4381,7 +4219,7 @@ siac_cts_output_cta_v2_9.trade_correction_message.dissect = function(buffer, off
   local index = offset + size_of_trade_correction_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_correction_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.trade_correction_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.trade_correction_message.fields(buffer, offset, packet, parent, size_of_trade_correction_message)
     parent:set_len(size_of_trade_correction_message)
@@ -4473,7 +4311,7 @@ siac_cts_output_cta_v2_9.auction_status_message.dissect = function(buffer, offse
   local index = offset + size_of_auction_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.auction_status_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.auction_status_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.auction_status_message.fields(buffer, offset, packet, parent, size_of_auction_status_message)
     parent:set_len(size_of_auction_status_message)
@@ -4651,7 +4489,7 @@ siac_cts_output_cta_v2_9.participant_end_of_day_summary_message.dissect = functi
   local index = offset + size_of_participant_end_of_day_summary_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.participant_end_of_day_summary_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.participant_end_of_day_summary_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.participant_end_of_day_summary_message.fields(buffer, offset, packet, parent, size_of_participant_end_of_day_summary_message)
     parent:set_len(size_of_participant_end_of_day_summary_message)
@@ -4749,7 +4587,7 @@ siac_cts_output_cta_v2_9.consolidated_end_of_day_summary_message.dissect = funct
   local index = offset + size_of_consolidated_end_of_day_summary_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.consolidated_end_of_day_summary_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.consolidated_end_of_day_summary_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.consolidated_end_of_day_summary_message.fields(buffer, offset, packet, parent, size_of_consolidated_end_of_day_summary_message)
     parent:set_len(size_of_consolidated_end_of_day_summary_message)
@@ -4826,7 +4664,7 @@ siac_cts_output_cta_v2_9.participant_start_of_day_summary_message.dissect = func
   local index = offset + size_of_participant_start_of_day_summary_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.participant_start_of_day_summary_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.participant_start_of_day_summary_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.participant_start_of_day_summary_message.fields(buffer, offset, packet, parent, size_of_participant_start_of_day_summary_message)
     parent:set_len(size_of_participant_start_of_day_summary_message)
@@ -4915,7 +4753,7 @@ siac_cts_output_cta_v2_9.consolidated_start_of_day_summary_message.dissect = fun
   local index = offset + size_of_consolidated_start_of_day_summary_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.consolidated_start_of_day_summary_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.consolidated_start_of_day_summary_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.consolidated_start_of_day_summary_message.fields(buffer, offset, packet, parent, size_of_consolidated_start_of_day_summary_message)
     parent:set_len(size_of_consolidated_start_of_day_summary_message)
@@ -5088,7 +4926,7 @@ siac_cts_output_cta_v2_9.prior_day_trade_message.dissect = function(buffer, offs
   local index = offset + size_of_prior_day_trade_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.prior_day_trade_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.prior_day_trade_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.prior_day_trade_message.fields(buffer, offset, packet, parent, size_of_prior_day_trade_message)
     parent:set_len(size_of_prior_day_trade_message)
@@ -5165,7 +5003,7 @@ siac_cts_output_cta_v2_9.prior_day_trade_correction_message.dissect = function(b
   local index = offset + size_of_prior_day_trade_correction_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.prior_day_trade_correction_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.prior_day_trade_correction_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.prior_day_trade_correction_message.fields(buffer, offset, packet, parent, size_of_prior_day_trade_correction_message)
     parent:set_len(size_of_prior_day_trade_correction_message)
@@ -5310,7 +5148,7 @@ siac_cts_output_cta_v2_9.crossing_session_summary_message.dissect = function(buf
   local index = offset + size_of_crossing_session_summary_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.crossing_session_summary_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.crossing_session_summary_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.crossing_session_summary_message.fields(buffer, offset, packet, parent, size_of_crossing_session_summary_message)
     parent:set_len(size_of_crossing_session_summary_message)
@@ -5378,7 +5216,7 @@ siac_cts_output_cta_v2_9.approximate_trades_and_total_dollar_value_message.disse
   local index = offset + size_of_approximate_trades_and_total_dollar_value_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.approximate_trades_and_total_dollar_value_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.approximate_trades_and_total_dollar_value_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.approximate_trades_and_total_dollar_value_message.fields(buffer, offset, packet, parent, size_of_approximate_trades_and_total_dollar_value_message)
     parent:set_len(size_of_approximate_trades_and_total_dollar_value_message)
@@ -5498,7 +5336,7 @@ siac_cts_output_cta_v2_9.approximate_adjusted_volume_market_center_message.disse
   local index = offset + size_of_approximate_adjusted_volume_market_center_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.approximate_adjusted_volume_market_center_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.approximate_adjusted_volume_market_center_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.approximate_adjusted_volume_market_center_message.fields(buffer, offset, packet, parent, size_of_approximate_adjusted_volume_market_center_message)
     parent:set_len(size_of_approximate_adjusted_volume_market_center_message)
@@ -5566,7 +5404,7 @@ siac_cts_output_cta_v2_9.market_wide_circuit_breaker_status_message.dissect = fu
   local index = offset + size_of_market_wide_circuit_breaker_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_wide_circuit_breaker_status_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_status_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
     parent:set_len(size_of_market_wide_circuit_breaker_status_message)
@@ -5640,7 +5478,7 @@ siac_cts_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_messag
   local index = offset + size_of_market_wide_circuit_breaker_decline_level_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_wide_circuit_breaker_decline_level_status_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_decline_level_status_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
     parent:set_len(size_of_market_wide_circuit_breaker_decline_level_status_message)
@@ -5793,7 +5631,7 @@ siac_cts_output_cta_v2_9.bid_and_offer_index_message.dissect = function(buffer, 
   local index = offset + size_of_bid_and_offer_index_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.bid_and_offer_index_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.bid_and_offer_index_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.bid_and_offer_index_message.fields(buffer, offset, packet, parent, size_of_bid_and_offer_index_message)
     parent:set_len(size_of_bid_and_offer_index_message)
@@ -5861,7 +5699,7 @@ siac_cts_output_cta_v2_9.index_message.dissect = function(buffer, offset, packet
   local index = offset + size_of_index_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.index_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.index_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.index_message.fields(buffer, offset, packet, parent, size_of_index_message)
     parent:set_len(size_of_index_message)
@@ -5993,7 +5831,7 @@ siac_cts_output_cta_v2_9.end_of_day_message.dissect = function(buffer, offset, p
   local index = offset + size_of_end_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.end_of_day_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
     parent:set_len(size_of_end_of_day_message)
@@ -6055,7 +5893,7 @@ siac_cts_output_cta_v2_9.line_integrity_message.dissect = function(buffer, offse
   local index = offset + size_of_line_integrity_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.line_integrity_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.line_integrity_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.line_integrity_message.fields(buffer, offset, packet, parent, size_of_line_integrity_message)
     parent:set_len(size_of_line_integrity_message)
@@ -6117,7 +5955,7 @@ siac_cts_output_cta_v2_9.disaster_recovery_data_center_activation_message.dissec
   local index = offset + size_of_disaster_recovery_data_center_activation_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.disaster_recovery_data_center_activation_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.disaster_recovery_data_center_activation_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
     parent:set_len(size_of_disaster_recovery_data_center_activation_message)
@@ -6179,7 +6017,7 @@ siac_cts_output_cta_v2_9.reset_block_sequence_number_message.dissect = function(
   local index = offset + size_of_reset_block_sequence_number_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.reset_block_sequence_number_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.reset_block_sequence_number_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.reset_block_sequence_number_message.fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
     parent:set_len(size_of_reset_block_sequence_number_message)
@@ -6241,7 +6079,7 @@ siac_cts_output_cta_v2_9.start_of_day_message.dissect = function(buffer, offset,
   local index = offset + size_of_start_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.start_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.start_of_day_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
     parent:set_len(size_of_start_of_day_message)
@@ -6385,7 +6223,7 @@ siac_cts_output_cta_v2_9.end_of_start_of_day_message.dissect = function(buffer, 
   local index = offset + size_of_end_of_start_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_start_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.end_of_start_of_day_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.end_of_start_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_start_of_day_message)
     parent:set_len(size_of_end_of_start_of_day_message)
@@ -6447,7 +6285,7 @@ siac_cts_output_cta_v2_9.start_of_start_of_day_message.dissect = function(buffer
   local index = offset + size_of_start_of_start_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.start_of_start_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.start_of_start_of_day_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.start_of_start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_start_of_day_message)
     parent:set_len(size_of_start_of_start_of_day_message)
@@ -6509,7 +6347,7 @@ siac_cts_output_cta_v2_9.end_of_end_of_day_message.dissect = function(buffer, of
   local index = offset + size_of_end_of_end_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_end_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.end_of_end_of_day_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.end_of_end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_end_of_day_message)
     parent:set_len(size_of_end_of_end_of_day_message)
@@ -6571,7 +6409,7 @@ siac_cts_output_cta_v2_9.start_of_end_of_day_message.dissect = function(buffer, 
   local index = offset + size_of_start_of_end_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.start_of_end_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.start_of_end_of_day_message, buffer(offset, 0))
     local current = siac_cts_output_cta_v2_9.start_of_end_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_end_of_day_message)
     parent:set_len(size_of_start_of_end_of_day_message)

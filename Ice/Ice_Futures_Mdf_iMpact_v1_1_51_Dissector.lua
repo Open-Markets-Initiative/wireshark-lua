@@ -325,144 +325,42 @@ omi_ice_futures_mdf_impact_v1_1_51.fields.strategy_leg_definition_index = ProtoF
 local show = {}
 
 -- Ice Futures Mdf iMpact 1.1.51 Element Dissection Options
-show.add_or_modify_order_message = true
-show.add_price_level_message = true
-show.cancelled_trade_message = true
-show.change_price_level_message = true
-show.close_price_message = true
-show.delete_order_message = true
-show.delete_price_level_message = true
-show.end_of_day_market_summary_message = true
+show.application_messages = true
 show.extra_leg_definition = true
 show.extra_strategy_leg_definition = true
-show.fixing_indicative_price_message = true
-show.fixing_lockdown_message = true
-show.fixing_transition_message = true
-show.fragment_wrapper_message = true
 show.hedge_definition = true
-show.index_prices_message = true
-show.interval_price_limit_notification_message = true
-show.investigated_trade_message = true
 show.leg_definition = true
-show.market_event_message = true
-show.market_snapshot_message = true
-show.market_snapshot_order_message = true
-show.market_snapshot_price_level_message = true
-show.market_state_change_message = true
-show.market_statistics_message = true
 show.message = true
-show.message_bundle_marker = true
 show.message_header = true
 show.modify_flags = true
-show.new_expiry_message = true
-show.new_futures_strategy_definition_message = true
-show.new_options_market_definition_message = true
-show.new_options_strategy_definition_message = true
-show.open_interest_message = true
-show.open_price_message = true
-show.option_open_interest_message = true
-show.option_settlement_price_message = true
 show.packet = true
 show.packet_header = true
-show.pre_open_price_indicator_message = true
-show.rfq_message = true
-show.settlement_price_message = true
 show.special_field = true
-show.special_field_message = true
-show.spot_market_trade_message = true
 show.strategy_leg_definition = true
-show.strip_info_message = true
-show.system_text_message = true
 show.trade_flags = true
-show.trade_message = true
 
 -- Register Ice Futures Mdf iMpact 1.1.51 Show Options
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_add_or_modify_order_message = Pref.bool("Show Add Or Modify Order Message", show.add_or_modify_order_message, "Parse and add Add Or Modify Order Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_add_price_level_message = Pref.bool("Show Add Price Level Message", show.add_price_level_message, "Parse and add Add Price Level Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_cancelled_trade_message = Pref.bool("Show Cancelled Trade Message", show.cancelled_trade_message, "Parse and add Cancelled Trade Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_change_price_level_message = Pref.bool("Show Change Price Level Message", show.change_price_level_message, "Parse and add Change Price Level Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_close_price_message = Pref.bool("Show Close Price Message", show.close_price_message, "Parse and add Close Price Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_delete_price_level_message = Pref.bool("Show Delete Price Level Message", show.delete_price_level_message, "Parse and add Delete Price Level Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_end_of_day_market_summary_message = Pref.bool("Show End Of Day Market Summary Message", show.end_of_day_market_summary_message, "Parse and add End Of Day Market Summary Message to protocol tree")
+omi_ice_futures_mdf_impact_v1_1_51.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_extra_leg_definition = Pref.bool("Show Extra Leg Definition", show.extra_leg_definition, "Parse and add Extra Leg Definition to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_extra_strategy_leg_definition = Pref.bool("Show Extra Strategy Leg Definition", show.extra_strategy_leg_definition, "Parse and add Extra Strategy Leg Definition to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_indicative_price_message = Pref.bool("Show Fixing Indicative Price Message", show.fixing_indicative_price_message, "Parse and add Fixing Indicative Price Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_lockdown_message = Pref.bool("Show Fixing Lockdown Message", show.fixing_lockdown_message, "Parse and add Fixing Lockdown Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_transition_message = Pref.bool("Show Fixing Transition Message", show.fixing_transition_message, "Parse and add Fixing Transition Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fragment_wrapper_message = Pref.bool("Show Fragment Wrapper Message", show.fragment_wrapper_message, "Parse and add Fragment Wrapper Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_hedge_definition = Pref.bool("Show Hedge Definition", show.hedge_definition, "Parse and add Hedge Definition to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_index_prices_message = Pref.bool("Show Index Prices Message", show.index_prices_message, "Parse and add Index Prices Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_interval_price_limit_notification_message = Pref.bool("Show Interval Price Limit Notification Message", show.interval_price_limit_notification_message, "Parse and add Interval Price Limit Notification Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_investigated_trade_message = Pref.bool("Show Investigated Trade Message", show.investigated_trade_message, "Parse and add Investigated Trade Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_event_message = Pref.bool("Show Market Event Message", show.market_event_message, "Parse and add Market Event Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_message = Pref.bool("Show Market Snapshot Message", show.market_snapshot_message, "Parse and add Market Snapshot Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_order_message = Pref.bool("Show Market Snapshot Order Message", show.market_snapshot_order_message, "Parse and add Market Snapshot Order Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_price_level_message = Pref.bool("Show Market Snapshot Price Level Message", show.market_snapshot_price_level_message, "Parse and add Market Snapshot Price Level Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_state_change_message = Pref.bool("Show Market State Change Message", show.market_state_change_message, "Parse and add Market State Change Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_statistics_message = Pref.bool("Show Market Statistics Message", show.market_statistics_message, "Parse and add Market Statistics Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_message_bundle_marker = Pref.bool("Show Message Bundle Marker", show.message_bundle_marker, "Parse and add Message Bundle Marker to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_expiry_message = Pref.bool("Show New Expiry Message", show.new_expiry_message, "Parse and add New Expiry Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_futures_strategy_definition_message = Pref.bool("Show New Futures Strategy Definition Message", show.new_futures_strategy_definition_message, "Parse and add New Futures Strategy Definition Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_options_market_definition_message = Pref.bool("Show New Options Market Definition Message", show.new_options_market_definition_message, "Parse and add New Options Market Definition Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_options_strategy_definition_message = Pref.bool("Show New Options Strategy Definition Message", show.new_options_strategy_definition_message, "Parse and add New Options Strategy Definition Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_open_price_message = Pref.bool("Show Open Price Message", show.open_price_message, "Parse and add Open Price Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_option_open_interest_message = Pref.bool("Show Option Open Interest Message", show.option_open_interest_message, "Parse and add Option Open Interest Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_option_settlement_price_message = Pref.bool("Show Option Settlement Price Message", show.option_settlement_price_message, "Parse and add Option Settlement Price Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_pre_open_price_indicator_message = Pref.bool("Show Pre Open Price Indicator Message", show.pre_open_price_indicator_message, "Parse and add Pre Open Price Indicator Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_rfq_message = Pref.bool("Show Rfq Message", show.rfq_message, "Parse and add Rfq Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_settlement_price_message = Pref.bool("Show Settlement Price Message", show.settlement_price_message, "Parse and add Settlement Price Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_special_field = Pref.bool("Show Special Field", show.special_field, "Parse and add Special Field to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_special_field_message = Pref.bool("Show Special Field Message", show.special_field_message, "Parse and add Special Field Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_spot_market_trade_message = Pref.bool("Show Spot Market Trade Message", show.spot_market_trade_message, "Parse and add Spot Market Trade Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_strategy_leg_definition = Pref.bool("Show Strategy Leg Definition", show.strategy_leg_definition, "Parse and add Strategy Leg Definition to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_strip_info_message = Pref.bool("Show Strip Info Message", show.strip_info_message, "Parse and add Strip Info Message to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_system_text_message = Pref.bool("Show System Text Message", show.system_text_message, "Parse and add System Text Message to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 
 -- Handle changed preferences
 function omi_ice_futures_mdf_impact_v1_1_51.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_or_modify_order_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_add_or_modify_order_message then
-    show.add_or_modify_order_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_add_or_modify_order_message
-    changed = true
-  end
-  if show.add_price_level_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_add_price_level_message then
-    show.add_price_level_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_add_price_level_message
-    changed = true
-  end
-  if show.cancelled_trade_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_cancelled_trade_message then
-    show.cancelled_trade_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_cancelled_trade_message
-    changed = true
-  end
-  if show.change_price_level_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_change_price_level_message then
-    show.change_price_level_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_change_price_level_message
-    changed = true
-  end
-  if show.close_price_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_close_price_message then
-    show.close_price_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_close_price_message
-    changed = true
-  end
-  if show.delete_order_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_delete_order_message then
-    show.delete_order_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_delete_order_message
-    changed = true
-  end
-  if show.delete_price_level_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_delete_price_level_message then
-    show.delete_price_level_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_delete_price_level_message
-    changed = true
-  end
-  if show.end_of_day_market_summary_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_end_of_day_market_summary_message then
-    show.end_of_day_market_summary_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_end_of_day_market_summary_message
+  if show.application_messages ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_application_messages then
+    show.application_messages = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_application_messages
     changed = true
   end
   if show.extra_leg_definition ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_extra_leg_definition then
@@ -473,72 +371,16 @@ function omi_ice_futures_mdf_impact_v1_1_51.prefs_changed()
     show.extra_strategy_leg_definition = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_extra_strategy_leg_definition
     changed = true
   end
-  if show.fixing_indicative_price_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_indicative_price_message then
-    show.fixing_indicative_price_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_indicative_price_message
-    changed = true
-  end
-  if show.fixing_lockdown_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_lockdown_message then
-    show.fixing_lockdown_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_lockdown_message
-    changed = true
-  end
-  if show.fixing_transition_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_transition_message then
-    show.fixing_transition_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fixing_transition_message
-    changed = true
-  end
-  if show.fragment_wrapper_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fragment_wrapper_message then
-    show.fragment_wrapper_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_fragment_wrapper_message
-    changed = true
-  end
   if show.hedge_definition ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_hedge_definition then
     show.hedge_definition = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_hedge_definition
-    changed = true
-  end
-  if show.index_prices_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_index_prices_message then
-    show.index_prices_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_index_prices_message
-    changed = true
-  end
-  if show.interval_price_limit_notification_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_interval_price_limit_notification_message then
-    show.interval_price_limit_notification_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_interval_price_limit_notification_message
-    changed = true
-  end
-  if show.investigated_trade_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_investigated_trade_message then
-    show.investigated_trade_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_investigated_trade_message
     changed = true
   end
   if show.leg_definition ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_leg_definition then
     show.leg_definition = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_leg_definition
     changed = true
   end
-  if show.market_event_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_event_message then
-    show.market_event_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_event_message
-    changed = true
-  end
-  if show.market_snapshot_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_message then
-    show.market_snapshot_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_message
-    changed = true
-  end
-  if show.market_snapshot_order_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_order_message then
-    show.market_snapshot_order_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_order_message
-    changed = true
-  end
-  if show.market_snapshot_price_level_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_price_level_message then
-    show.market_snapshot_price_level_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_snapshot_price_level_message
-    changed = true
-  end
-  if show.market_state_change_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_state_change_message then
-    show.market_state_change_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_state_change_message
-    changed = true
-  end
-  if show.market_statistics_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_statistics_message then
-    show.market_statistics_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_market_statistics_message
-    changed = true
-  end
   if show.message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_message then
     show.message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_message
-    changed = true
-  end
-  if show.message_bundle_marker ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_message_bundle_marker then
-    show.message_bundle_marker = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_message_bundle_marker
     changed = true
   end
   if show.message_header ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_message_header then
@@ -549,38 +391,6 @@ function omi_ice_futures_mdf_impact_v1_1_51.prefs_changed()
     show.modify_flags = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_modify_flags
     changed = true
   end
-  if show.new_expiry_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_expiry_message then
-    show.new_expiry_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_expiry_message
-    changed = true
-  end
-  if show.new_futures_strategy_definition_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_futures_strategy_definition_message then
-    show.new_futures_strategy_definition_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_futures_strategy_definition_message
-    changed = true
-  end
-  if show.new_options_market_definition_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_options_market_definition_message then
-    show.new_options_market_definition_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_options_market_definition_message
-    changed = true
-  end
-  if show.new_options_strategy_definition_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_options_strategy_definition_message then
-    show.new_options_strategy_definition_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_new_options_strategy_definition_message
-    changed = true
-  end
-  if show.open_interest_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_open_interest_message then
-    show.open_interest_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_open_interest_message
-    changed = true
-  end
-  if show.open_price_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_open_price_message then
-    show.open_price_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_open_price_message
-    changed = true
-  end
-  if show.option_open_interest_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_option_open_interest_message then
-    show.option_open_interest_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_option_open_interest_message
-    changed = true
-  end
-  if show.option_settlement_price_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_option_settlement_price_message then
-    show.option_settlement_price_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_option_settlement_price_message
-    changed = true
-  end
   if show.packet ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_packet then
     show.packet = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_packet
     changed = true
@@ -589,48 +399,16 @@ function omi_ice_futures_mdf_impact_v1_1_51.prefs_changed()
     show.packet_header = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_packet_header
     changed = true
   end
-  if show.pre_open_price_indicator_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_pre_open_price_indicator_message then
-    show.pre_open_price_indicator_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_pre_open_price_indicator_message
-    changed = true
-  end
-  if show.rfq_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_rfq_message then
-    show.rfq_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_rfq_message
-    changed = true
-  end
-  if show.settlement_price_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_settlement_price_message then
-    show.settlement_price_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_settlement_price_message
-    changed = true
-  end
   if show.special_field ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_special_field then
     show.special_field = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_special_field
-    changed = true
-  end
-  if show.special_field_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_special_field_message then
-    show.special_field_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_special_field_message
-    changed = true
-  end
-  if show.spot_market_trade_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_spot_market_trade_message then
-    show.spot_market_trade_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_spot_market_trade_message
     changed = true
   end
   if show.strategy_leg_definition ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_strategy_leg_definition then
     show.strategy_leg_definition = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_strategy_leg_definition
     changed = true
   end
-  if show.strip_info_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_strip_info_message then
-    show.strip_info_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_strip_info_message
-    changed = true
-  end
-  if show.system_text_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_system_text_message then
-    show.system_text_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_system_text_message
-    changed = true
-  end
   if show.trade_flags ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_flags then
     show.trade_flags = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_flags
-    changed = true
-  end
-  if show.trade_message ~= omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_message then
-    show.trade_message = omi_ice_futures_mdf_impact_v1_1_51.prefs.show_trade_message
     changed = true
   end
 
@@ -8481,7 +8259,7 @@ end
 
 -- Dissect: Rfq Message
 ice_futures_mdf_impact_v1_1_51.rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.rfq_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.rfq_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.rfq_message.fields(buffer, offset, packet, parent)
@@ -8533,7 +8311,7 @@ end
 
 -- Dissect: Delete Price Level Message
 ice_futures_mdf_impact_v1_1_51.delete_price_level_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_price_level_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.delete_price_level_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.delete_price_level_message.fields(buffer, offset, packet, parent)
@@ -8605,7 +8383,7 @@ end
 
 -- Dissect: Change Price Level Message
 ice_futures_mdf_impact_v1_1_51.change_price_level_message.dissect = function(buffer, offset, packet, parent)
-  if show.change_price_level_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.change_price_level_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.change_price_level_message.fields(buffer, offset, packet, parent)
@@ -8677,7 +8455,7 @@ end
 
 -- Dissect: Add Price Level Message
 ice_futures_mdf_impact_v1_1_51.add_price_level_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_price_level_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.add_price_level_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.add_price_level_message.fields(buffer, offset, packet, parent)
@@ -8745,7 +8523,7 @@ end
 
 -- Dissect: Market Snapshot Price Level Message
 ice_futures_mdf_impact_v1_1_51.market_snapshot_price_level_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_snapshot_price_level_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.market_snapshot_price_level_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.market_snapshot_price_level_message.fields(buffer, offset, packet, parent)
@@ -8805,7 +8583,7 @@ end
 
 -- Dissect: Fixing Indicative Price Message
 ice_futures_mdf_impact_v1_1_51.fixing_indicative_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.fixing_indicative_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.fixing_indicative_price_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.fixing_indicative_price_message.fields(buffer, offset, packet, parent)
@@ -8893,7 +8671,7 @@ end
 
 -- Dissect: Fixing Lockdown Message
 ice_futures_mdf_impact_v1_1_51.fixing_lockdown_message.dissect = function(buffer, offset, packet, parent)
-  if show.fixing_lockdown_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.fixing_lockdown_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.fixing_lockdown_message.fields(buffer, offset, packet, parent)
@@ -8953,7 +8731,7 @@ end
 
 -- Dissect: Fixing Transition Message
 ice_futures_mdf_impact_v1_1_51.fixing_transition_message.dissect = function(buffer, offset, packet, parent)
-  if show.fixing_transition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.fixing_transition_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.fixing_transition_message.fields(buffer, offset, packet, parent)
@@ -9001,7 +8779,7 @@ end
 
 -- Dissect: Message Bundle Marker
 ice_futures_mdf_impact_v1_1_51.message_bundle_marker.dissect = function(buffer, offset, packet, parent)
-  if show.message_bundle_marker then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.message_bundle_marker, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.message_bundle_marker.fields(buffer, offset, packet, parent)
@@ -9057,7 +8835,7 @@ end
 
 -- Dissect: Delete Order Message
 ice_futures_mdf_impact_v1_1_51.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.delete_order_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.delete_order_message.fields(buffer, offset, packet, parent)
@@ -9188,7 +8966,7 @@ end
 
 -- Dissect: Add Or Modify Order Message
 ice_futures_mdf_impact_v1_1_51.add_or_modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_or_modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.add_or_modify_order_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.add_or_modify_order_message.fields(buffer, offset, packet, parent)
@@ -9264,7 +9042,7 @@ end
 
 -- Dissect: Market Snapshot Order Message
 ice_futures_mdf_impact_v1_1_51.market_snapshot_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_snapshot_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.market_snapshot_order_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.market_snapshot_order_message.fields(buffer, offset, packet, parent)
@@ -9332,7 +9110,7 @@ end
 
 -- Dissect: Option Settlement Price Message
 ice_futures_mdf_impact_v1_1_51.option_settlement_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_settlement_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.option_settlement_price_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.option_settlement_price_message.fields(buffer, offset, packet, parent)
@@ -9384,7 +9162,7 @@ end
 
 -- Dissect: Option Open Interest Message
 ice_futures_mdf_impact_v1_1_51.option_open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_open_interest_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.option_open_interest_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.option_open_interest_message.fields(buffer, offset, packet, parent)
@@ -9584,7 +9362,7 @@ end
 
 -- Dissect: New Options Market Definition Message
 ice_futures_mdf_impact_v1_1_51.new_options_market_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_options_market_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.new_options_market_definition_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.new_options_market_definition_message.fields(buffer, offset, packet, parent)
@@ -10053,7 +9831,7 @@ end
 
 -- Dissect: New Options Strategy Definition Message
 ice_futures_mdf_impact_v1_1_51.new_options_strategy_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_options_strategy_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.new_options_strategy_definition_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.new_options_strategy_definition_message.fields(buffer, offset, packet, parent)
@@ -10105,7 +9883,7 @@ end
 
 -- Dissect: Fragment Wrapper Message
 ice_futures_mdf_impact_v1_1_51.fragment_wrapper_message.dissect = function(buffer, offset, packet, parent)
-  if show.fragment_wrapper_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.fragment_wrapper_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.fragment_wrapper_message.fields(buffer, offset, packet, parent)
@@ -10275,7 +10053,7 @@ end
 
 -- Dissect: Special Field Message
 ice_futures_mdf_impact_v1_1_51.special_field_message.dissect = function(buffer, offset, packet, parent)
-  if show.special_field_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.special_field_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.special_field_message.fields(buffer, offset, packet, parent)
@@ -10487,7 +10265,7 @@ end
 
 -- Dissect: New Expiry Message
 ice_futures_mdf_impact_v1_1_51.new_expiry_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_expiry_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.new_expiry_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.new_expiry_message.fields(buffer, offset, packet, parent)
@@ -10961,7 +10739,7 @@ end
 
 -- Dissect: New Futures Strategy Definition Message
 ice_futures_mdf_impact_v1_1_51.new_futures_strategy_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_futures_strategy_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.new_futures_strategy_definition_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.new_futures_strategy_definition_message.fields(buffer, offset, packet, parent)
@@ -11029,7 +10807,7 @@ end
 
 -- Dissect: Interval Price Limit Notification Message
 ice_futures_mdf_impact_v1_1_51.interval_price_limit_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.interval_price_limit_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.interval_price_limit_notification_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.interval_price_limit_notification_message.fields(buffer, offset, packet, parent)
@@ -11105,7 +10883,7 @@ end
 
 -- Dissect: Strip Info Message
 ice_futures_mdf_impact_v1_1_51.strip_info_message.dissect = function(buffer, offset, packet, parent)
-  if show.strip_info_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.strip_info_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.strip_info_message.fields(buffer, offset, packet, parent)
@@ -11161,7 +10939,7 @@ end
 
 -- Dissect: Pre Open Price Indicator Message
 ice_futures_mdf_impact_v1_1_51.pre_open_price_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.pre_open_price_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.pre_open_price_indicator_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.pre_open_price_indicator_message.fields(buffer, offset, packet, parent)
@@ -11209,7 +10987,7 @@ end
 
 -- Dissect: Market Event Message
 ice_futures_mdf_impact_v1_1_51.market_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.market_event_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.market_event_message.fields(buffer, offset, packet, parent)
@@ -11297,7 +11075,7 @@ end
 
 -- Dissect: End Of Day Market Summary Message
 ice_futures_mdf_impact_v1_1_51.end_of_day_market_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_day_market_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.end_of_day_market_summary_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.end_of_day_market_summary_message.fields(buffer, offset, packet, parent)
@@ -11365,7 +11143,7 @@ end
 
 -- Dissect: Index Prices Message
 ice_futures_mdf_impact_v1_1_51.index_prices_message.dissect = function(buffer, offset, packet, parent)
-  if show.index_prices_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.index_prices_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.index_prices_message.fields(buffer, offset, packet, parent)
@@ -11425,7 +11203,7 @@ end
 
 -- Dissect: Settlement Price Message
 ice_futures_mdf_impact_v1_1_51.settlement_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.settlement_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.settlement_price_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.settlement_price_message.fields(buffer, offset, packet, parent)
@@ -11473,7 +11251,7 @@ end
 
 -- Dissect: Close Price Message
 ice_futures_mdf_impact_v1_1_51.close_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.close_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.close_price_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.close_price_message.fields(buffer, offset, packet, parent)
@@ -11521,7 +11299,7 @@ end
 
 -- Dissect: Open Price Message
 ice_futures_mdf_impact_v1_1_51.open_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.open_price_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.open_price_message.fields(buffer, offset, packet, parent)
@@ -11577,7 +11355,7 @@ end
 
 -- Dissect: Open Interest Message
 ice_futures_mdf_impact_v1_1_51.open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_interest_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.open_interest_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.open_interest_message.fields(buffer, offset, packet, parent)
@@ -11625,7 +11403,7 @@ end
 
 -- Dissect: System Text Message
 ice_futures_mdf_impact_v1_1_51.system_text_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_text_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.system_text_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.system_text_message.fields(buffer, offset, packet, parent)
@@ -11673,7 +11451,7 @@ end
 
 -- Dissect: Market State Change Message
 ice_futures_mdf_impact_v1_1_51.market_state_change_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_state_change_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.market_state_change_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.market_state_change_message.fields(buffer, offset, packet, parent)
@@ -11745,7 +11523,7 @@ end
 
 -- Dissect: Market Statistics Message
 ice_futures_mdf_impact_v1_1_51.market_statistics_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_statistics_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.market_statistics_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.market_statistics_message.fields(buffer, offset, packet, parent)
@@ -11809,7 +11587,7 @@ end
 
 -- Dissect: Cancelled Trade Message
 ice_futures_mdf_impact_v1_1_51.cancelled_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancelled_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.cancelled_trade_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.cancelled_trade_message.fields(buffer, offset, packet, parent)
@@ -11877,7 +11655,7 @@ end
 
 -- Dissect: Investigated Trade Message
 ice_futures_mdf_impact_v1_1_51.investigated_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.investigated_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.investigated_trade_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.investigated_trade_message.fields(buffer, offset, packet, parent)
@@ -11949,7 +11727,7 @@ end
 
 -- Dissect: Spot Market Trade Message
 ice_futures_mdf_impact_v1_1_51.spot_market_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.spot_market_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.spot_market_trade_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.spot_market_trade_message.fields(buffer, offset, packet, parent)
@@ -12123,7 +11901,7 @@ end
 
 -- Dissect: Trade Message
 ice_futures_mdf_impact_v1_1_51.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.trade_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.trade_message.fields(buffer, offset, packet, parent)
@@ -12259,7 +12037,7 @@ end
 
 -- Dissect: Market Snapshot Message
 ice_futures_mdf_impact_v1_1_51.market_snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_snapshot_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_futures_mdf_impact_v1_1_51.fields.market_snapshot_message, buffer(offset, 0))
     local index = ice_futures_mdf_impact_v1_1_51.market_snapshot_message.fields(buffer, offset, packet, parent)

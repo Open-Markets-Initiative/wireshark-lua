@@ -83,45 +83,33 @@ local show = {}
 
 -- 24X Equities MemoirLastSale Sbe 1.3 Element Dissection Options
 show.common_header = true
-show.instrument_directory_message = true
+show.application_messages = true
 show.message = true
 show.packet = true
-show.reg_sho_restriction_message = true
 show.sbe_header = true
 show.sbe_message = true
-show.security_trading_status_message = true
 show.sequenced_message = true
-show.trade_cancel_message = true
-show.trade_correct_message = true
-show.trade_report_message = true
-show.trading_session_status_message = true
 
 -- Register 24X Equities MemoirLastSale Sbe 1.3 Show Options
 omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
+omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_reg_sho_restriction_message = Pref.bool("Show Reg Sho Restriction Message", show.reg_sho_restriction_message, "Parse and add Reg Sho Restriction Message to protocol tree")
 omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
 omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
 omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_correct_message = Pref.bool("Show Trade Correct Message", show.trade_correct_message, "Parse and add Trade Correct Message to protocol tree")
-omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
-omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
 
 -- Handle changed preferences
 function omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.common_header ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_common_header then
-    show.common_header = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_common_header
+  if show.application_messages ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_application_messages then
+    show.application_messages = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_application_messages
     changed = true
   end
-  if show.instrument_directory_message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_instrument_directory_message
+  if show.common_header ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_common_header then
+    show.common_header = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_common_header
     changed = true
   end
   if show.message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_message then
@@ -132,10 +120,6 @@ function omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs_changed()
     show.packet = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_packet
     changed = true
   end
-  if show.reg_sho_restriction_message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_reg_sho_restriction_message then
-    show.reg_sho_restriction_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_reg_sho_restriction_message
-    changed = true
-  end
   if show.sbe_header ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_sbe_header then
     show.sbe_header = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_sbe_header
     changed = true
@@ -144,28 +128,8 @@ function omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs_changed()
     show.sbe_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_sbe_message
     changed = true
   end
-  if show.security_trading_status_message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_security_trading_status_message then
-    show.security_trading_status_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_security_trading_status_message
-    changed = true
-  end
   if show.sequenced_message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_sequenced_message then
     show.sequenced_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_cancel_message
-    changed = true
-  end
-  if show.trade_correct_message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_correct_message then
-    show.trade_correct_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_correct_message
-    changed = true
-  end
-  if show.trade_report_message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_report_message then
-    show.trade_report_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_report_message
-    changed = true
-  end
-  if show.trading_session_status_message ~= omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trading_session_status_message then
-    show.trading_session_status_message = omi_n24x_equities_memoirlastsale_sbe_v1_3.prefs.show_trading_session_status_message
     changed = true
   end
 
@@ -1652,7 +1616,7 @@ end
 
 -- Dissect: Trade Correct Message
 n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_correct_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message, buffer(offset, 0))
     local index = n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.fields(buffer, offset, packet, parent)
@@ -1724,7 +1688,7 @@ end
 
 -- Dissect: Trade Cancel Message
 n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message, buffer(offset, 0))
     local index = n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -1796,7 +1760,7 @@ end
 
 -- Dissect: Trade Report Message
 n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message, buffer(offset, 0))
     local index = n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.fields(buffer, offset, packet, parent)
@@ -1840,7 +1804,7 @@ end
 
 -- Dissect: Trading Session Status Message
 n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_session_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
     local index = n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
@@ -1892,7 +1856,7 @@ end
 
 -- Dissect: Security Trading Status Message
 n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_trading_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
     local index = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.fields(buffer, offset, packet, parent)
@@ -1940,7 +1904,7 @@ end
 
 -- Dissect: Reg Sho Restriction Message
 n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.dissect = function(buffer, offset, packet, parent)
-  if show.reg_sho_restriction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
     local index = n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
@@ -2004,7 +1968,7 @@ end
 
 -- Dissect: Instrument Directory Message
 n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
     local index = n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.fields(buffer, offset, packet, parent)

@@ -107,13 +107,8 @@ show.body_header = true
 show.body_message = true
 show.business_header = true
 show.frame_header = true
-show.moc_imbalance_message = true
+show.application_messages = true
 show.packet = true
-show.quote_message = true
-show.stock_status_message = true
-show.symbol_status_message = true
-show.trade_cancelled_message = true
-show.trade_report_message = true
 
 -- Register Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Show Options
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
@@ -121,19 +116,18 @@ omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_header = Pref.bool("S
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_message = Pref.bool("Show Body Message", show.body_message, "Parse and add Body Message to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_business_header = Pref.bool("Show Business Header", show.business_header, "Parse and add Business Header to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_moc_imbalance_message = Pref.bool("Show Moc Imbalance Message", show.moc_imbalance_message, "Parse and add Moc Imbalance Message to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_stock_status_message = Pref.bool("Show Stock Status Message", show.stock_status_message, "Parse and add Stock Status Message to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_trade_cancelled_message = Pref.bool("Show Trade Cancelled Message", show.trade_cancelled_message, "Parse and add Trade Cancelled Message to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
 
 -- Handle changed preferences
 function omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages then
+    show.application_messages = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages
+    changed = true
+  end
   if show.body ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body then
     show.body = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body
     changed = true
@@ -154,32 +148,8 @@ function omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs_changed()
     show.frame_header = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_frame_header
     changed = true
   end
-  if show.moc_imbalance_message ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_moc_imbalance_message then
-    show.moc_imbalance_message = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_moc_imbalance_message
-    changed = true
-  end
   if show.packet ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_packet then
     show.packet = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_packet
-    changed = true
-  end
-  if show.quote_message ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_quote_message then
-    show.quote_message = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_quote_message
-    changed = true
-  end
-  if show.stock_status_message ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_stock_status_message then
-    show.stock_status_message = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_stock_status_message
-    changed = true
-  end
-  if show.symbol_status_message ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_symbol_status_message then
-    show.symbol_status_message = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_symbol_status_message
-    changed = true
-  end
-  if show.trade_cancelled_message ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_trade_cancelled_message then
-    show.trade_cancelled_message = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_trade_cancelled_message
-    changed = true
-  end
-  if show.trade_report_message ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_trade_report_message then
-    show.trade_report_message = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_trade_report_message
     changed = true
   end
 
@@ -1970,7 +1940,7 @@ end
 
 -- Dissect: Quote Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.quote_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.quote_message.fields(buffer, offset, packet, parent)
@@ -2042,7 +2012,7 @@ end
 
 -- Dissect: Stock Status Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.stock_status_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_status_message.fields(buffer, offset, packet, parent)
@@ -2122,7 +2092,7 @@ end
 
 -- Dissect: Moc Imbalance Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_imbalance_message.dissect = function(buffer, offset, packet, parent)
-  if show.moc_imbalance_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.moc_imbalance_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_imbalance_message.fields(buffer, offset, packet, parent)
@@ -2202,7 +2172,7 @@ end
 
 -- Dissect: Trade Cancelled Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_cancelled_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancelled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.trade_cancelled_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_cancelled_message.fields(buffer, offset, packet, parent)
@@ -2310,7 +2280,7 @@ end
 
 -- Dissect: Trade Report Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.trade_report_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_report_message.fields(buffer, offset, packet, parent)
@@ -2410,7 +2380,7 @@ end
 
 -- Dissect: Symbol Status Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.symbol_status_message, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.symbol_status_message.fields(buffer, offset, packet, parent)

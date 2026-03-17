@@ -119,90 +119,26 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.message_index = ProtoFiel
 local show = {}
 
 -- Nasdaq NsmEquities TotalView Itch 5.0.2017 Element Dissection Options
-show.add_order_no_mpid_attribution_message = true
-show.add_order_with_mpid_attribution_message = true
-show.broken_trade_message = true
-show.cross_trade_message = true
-show.ipo_quoting_period_update = true
-show.luld_auction_collar_message = true
-show.market_participant_position_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
-show.mwcb_decline_level_message = true
-show.mwcb_status_level_message = true
-show.net_order_imbalance_indicator_message = true
-show.non_cross_trade_message = true
-show.order_cancel_message = true
-show.order_delete_message = true
-show.order_executed_message = true
-show.order_executed_with_price_message = true
-show.order_replace_message = true
 show.packet = true
 show.packet_header = true
-show.reg_sho_short_sale_price_test_restricted_indicator_message = true
-show.retail_interest_message = true
-show.stock_directory_message = true
-show.stock_trading_action_message = true
-show.system_event_message = true
 
 -- Register Nasdaq NsmEquities TotalView Itch 5.0.2017 Show Options
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_add_order_no_mpid_attribution_message = Pref.bool("Show Add Order No Mpid Attribution Message", show.add_order_no_mpid_attribution_message, "Parse and add Add Order No Mpid Attribution Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_add_order_with_mpid_attribution_message = Pref.bool("Show Add Order With Mpid Attribution Message", show.add_order_with_mpid_attribution_message, "Parse and add Add Order With Mpid Attribution Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_ipo_quoting_period_update = Pref.bool("Show Ipo Quoting Period Update", show.ipo_quoting_period_update, "Parse and add Ipo Quoting Period Update to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_luld_auction_collar_message = Pref.bool("Show Luld Auction Collar Message", show.luld_auction_collar_message, "Parse and add Luld Auction Collar Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_mwcb_status_level_message = Pref.bool("Show Mwcb Status Level Message", show.mwcb_status_level_message, "Parse and add Mwcb Status Level Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_non_cross_trade_message = Pref.bool("Show Non Cross Trade Message", show.non_cross_trade_message, "Parse and add Non Cross Trade Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_retail_interest_message = Pref.bool("Show Retail Interest Message", show.retail_interest_message, "Parse and add Retail Interest Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_no_mpid_attribution_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_add_order_no_mpid_attribution_message then
-    show.add_order_no_mpid_attribution_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_add_order_no_mpid_attribution_message
-    changed = true
-  end
-  if show.add_order_with_mpid_attribution_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_add_order_with_mpid_attribution_message then
-    show.add_order_with_mpid_attribution_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_add_order_with_mpid_attribution_message
-    changed = true
-  end
-  if show.broken_trade_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_broken_trade_message then
-    show.broken_trade_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_broken_trade_message
-    changed = true
-  end
-  if show.cross_trade_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_cross_trade_message then
-    show.cross_trade_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_cross_trade_message
-    changed = true
-  end
-  if show.ipo_quoting_period_update ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_ipo_quoting_period_update then
-    show.ipo_quoting_period_update = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_ipo_quoting_period_update
-    changed = true
-  end
-  if show.luld_auction_collar_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_luld_auction_collar_message then
-    show.luld_auction_collar_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_luld_auction_collar_message
-    changed = true
-  end
-  if show.market_participant_position_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_market_participant_position_message then
-    show.market_participant_position_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_market_participant_position_message
+  if show.application_messages ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_message then
@@ -213,68 +149,12 @@ function omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs_changed()
     show.message_header = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_message_header
     changed = true
   end
-  if show.mwcb_decline_level_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_mwcb_decline_level_message then
-    show.mwcb_decline_level_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_mwcb_decline_level_message
-    changed = true
-  end
-  if show.mwcb_status_level_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_mwcb_status_level_message then
-    show.mwcb_status_level_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_mwcb_status_level_message
-    changed = true
-  end
-  if show.net_order_imbalance_indicator_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_net_order_imbalance_indicator_message then
-    show.net_order_imbalance_indicator_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_net_order_imbalance_indicator_message
-    changed = true
-  end
-  if show.non_cross_trade_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_non_cross_trade_message then
-    show.non_cross_trade_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_non_cross_trade_message
-    changed = true
-  end
-  if show.order_cancel_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_cancel_message then
-    show.order_cancel_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_cancel_message
-    changed = true
-  end
-  if show.order_delete_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_delete_message then
-    show.order_delete_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_delete_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_executed_message then
-    show.order_executed_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_executed_with_price_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_executed_with_price_message then
-    show.order_executed_with_price_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_executed_with_price_message
-    changed = true
-  end
-  if show.order_replace_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_replace_message then
-    show.order_replace_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_order_replace_message
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_packet then
     show.packet = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_packet_header
-    changed = true
-  end
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
-    show.reg_sho_short_sale_price_test_restricted_indicator_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
-    changed = true
-  end
-  if show.retail_interest_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_retail_interest_message then
-    show.retail_interest_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_retail_interest_message
-    changed = true
-  end
-  if show.stock_directory_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_stock_directory_message then
-    show.stock_directory_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_stock_directory_message
-    changed = true
-  end
-  if show.stock_trading_action_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_stock_trading_action_message then
-    show.stock_trading_action_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_stock_trading_action_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_system_event_message
     changed = true
   end
 
@@ -2572,7 +2452,7 @@ end
 
 -- Dissect: Retail Interest Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.retail_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.retail_interest_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.retail_interest_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.retail_interest_message.fields(buffer, offset, packet, parent)
@@ -2656,7 +2536,7 @@ end
 
 -- Dissect: Net Order Imbalance Indicator Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.net_order_imbalance_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.net_order_imbalance_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
@@ -2708,7 +2588,7 @@ end
 
 -- Dissect: Broken Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.broken_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.broken_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.broken_trade_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.broken_trade_message.fields(buffer, offset, packet, parent)
@@ -2776,7 +2656,7 @@ end
 
 -- Dissect: Cross Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.cross_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.cross_trade_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.cross_trade_message.fields(buffer, offset, packet, parent)
@@ -2848,7 +2728,7 @@ end
 
 -- Dissect: Non Cross Trade Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.non_cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.non_cross_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.non_cross_trade_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.non_cross_trade_message.fields(buffer, offset, packet, parent)
@@ -2912,7 +2792,7 @@ end
 
 -- Dissect: Order Replace Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.order_replace_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_replace_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.order_replace_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.order_replace_message.fields(buffer, offset, packet, parent)
@@ -2964,7 +2844,7 @@ end
 
 -- Dissect: Order Delete Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.order_delete_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_delete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.order_delete_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.order_delete_message.fields(buffer, offset, packet, parent)
@@ -3020,7 +2900,7 @@ end
 
 -- Dissect: Order Cancel Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.order_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.order_cancel_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.order_cancel_message.fields(buffer, offset, packet, parent)
@@ -3088,7 +2968,7 @@ end
 
 -- Dissect: Order Executed With Price Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.order_executed_with_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_with_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.order_executed_with_price_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.order_executed_with_price_message.fields(buffer, offset, packet, parent)
@@ -3148,7 +3028,7 @@ end
 
 -- Dissect: Order Executed Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.order_executed_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.order_executed_message.fields(buffer, offset, packet, parent)
@@ -3220,7 +3100,7 @@ end
 
 -- Dissect: Add Order With Mpid Attribution Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_with_mpid_attribution_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_with_mpid_attribution_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.add_order_with_mpid_attribution_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_with_mpid_attribution_message.fields(buffer, offset, packet, parent)
@@ -3288,7 +3168,7 @@ end
 
 -- Dissect: Luld Auction Collar Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.dissect = function(buffer, offset, packet, parent)
-  if show.luld_auction_collar_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.luld_auction_collar_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.fields(buffer, offset, packet, parent)
@@ -3356,7 +3236,7 @@ end
 
 -- Dissect: Add Order No Mpid Attribution Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_no_mpid_attribution_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_no_mpid_attribution_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.add_order_no_mpid_attribution_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_no_mpid_attribution_message.fields(buffer, offset, packet, parent)
@@ -3420,7 +3300,7 @@ end
 
 -- Dissect: Ipo Quoting Period Update
 nasdaq_nsmequities_totalview_itch_v5_0_2017.ipo_quoting_period_update.dissect = function(buffer, offset, packet, parent)
-  if show.ipo_quoting_period_update then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.ipo_quoting_period_update, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.ipo_quoting_period_update.fields(buffer, offset, packet, parent)
@@ -3472,7 +3352,7 @@ end
 
 -- Dissect: Mwcb Status Level Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.mwcb_status_level_message.dissect = function(buffer, offset, packet, parent)
-  if show.mwcb_status_level_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.mwcb_status_level_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.mwcb_status_level_message.fields(buffer, offset, packet, parent)
@@ -3532,7 +3412,7 @@ end
 
 -- Dissect: Mwcb Decline Level Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.mwcb_decline_level_message.dissect = function(buffer, offset, packet, parent)
-  if show.mwcb_decline_level_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.mwcb_decline_level_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.mwcb_decline_level_message.fields(buffer, offset, packet, parent)
@@ -3600,7 +3480,7 @@ end
 
 -- Dissect: Market Participant Position Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.market_participant_position_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_participant_position_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.market_participant_position_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.market_participant_position_message.fields(buffer, offset, packet, parent)
@@ -3656,7 +3536,7 @@ end
 
 -- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.reg_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
@@ -3720,7 +3600,7 @@ end
 
 -- Dissect: Stock Trading Action Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.stock_trading_action_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_trading_action_message.fields(buffer, offset, packet, parent)
@@ -3824,7 +3704,7 @@ end
 
 -- Dissect: Stock Directory Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.stock_directory_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_directory_message.fields(buffer, offset, packet, parent)
@@ -3876,7 +3756,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.system_event_message.fields(buffer, offset, packet, parent)

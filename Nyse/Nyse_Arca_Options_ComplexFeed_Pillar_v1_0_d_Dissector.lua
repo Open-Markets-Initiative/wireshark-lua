@@ -139,57 +139,23 @@ omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.message_index = ProtoFiel
 local show = {}
 
 -- Nyse Arca Options ComplexFeed Pillar 1.0.d Element Dissection Options
-show.complex_series_index_mapping_message = true
-show.heartbeat_response_message = true
+show.application_messages = true
 show.leg_definition = true
 show.message = true
 show.message_header = true
-show.message_unavailable_message = true
-show.options_quote_message = true
-show.options_status_message = true
-show.options_trade_message = true
-show.outright_series_index_mapping_message = true
 show.packet = true
 show.packet_header = true
-show.refresh_header_message = true
-show.refresh_request_message = true
-show.request_response_message = true
-show.retransmission_request_message = true
-show.security_status_message = true
 show.send_time = true
-show.sequence_number_reset_message = true
-show.series_rfq_message = true
-show.symbol_clear_message = true
-show.symbol_index_mapping_message = true
-show.symbol_index_mapping_request_message = true
-show.time_reference_message = true
 show.trade_condition = true
 
 -- Register Nyse Arca Options ComplexFeed Pillar 1.0.d Show Options
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_complex_series_index_mapping_message = Pref.bool("Show Complex Series Index Mapping Message", show.complex_series_index_mapping_message, "Parse and add Complex Series Index Mapping Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_quote_message = Pref.bool("Show Options Quote Message", show.options_quote_message, "Parse and add Options Quote Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_status_message = Pref.bool("Show Options Status Message", show.options_status_message, "Parse and add Options Status Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_trade_message = Pref.bool("Show Options Trade Message", show.options_trade_message, "Parse and add Options Trade Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_outright_series_index_mapping_message = Pref.bool("Show Outright Series Index Mapping Message", show.outright_series_index_mapping_message, "Parse and add Outright Series Index Mapping Message to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_series_rfq_message = Pref.bool("Show Series Rfq Message", show.series_rfq_message, "Parse and add Series Rfq Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_time_reference_message = Pref.bool("Show Time Reference Message", show.time_reference_message, "Parse and add Time Reference Message to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
 
 -- Handle changed preferences
@@ -197,12 +163,8 @@ function omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.complex_series_index_mapping_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_complex_series_index_mapping_message then
-    show.complex_series_index_mapping_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_complex_series_index_mapping_message
-    changed = true
-  end
-  if show.heartbeat_response_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_heartbeat_response_message
+  if show.application_messages ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_application_messages then
+    show.application_messages = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_application_messages
     changed = true
   end
   if show.leg_definition ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_leg_definition then
@@ -217,26 +179,6 @@ function omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs_changed()
     show.message_header = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_header
     changed = true
   end
-  if show.message_unavailable_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_unavailable_message
-    changed = true
-  end
-  if show.options_quote_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_quote_message then
-    show.options_quote_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_quote_message
-    changed = true
-  end
-  if show.options_status_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_status_message then
-    show.options_status_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_status_message
-    changed = true
-  end
-  if show.options_trade_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_trade_message then
-    show.options_trade_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_options_trade_message
-    changed = true
-  end
-  if show.outright_series_index_mapping_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_outright_series_index_mapping_message then
-    show.outright_series_index_mapping_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_outright_series_index_mapping_message
-    changed = true
-  end
   if show.packet ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet then
     show.packet = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet
     changed = true
@@ -245,52 +187,8 @@ function omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs_changed()
     show.packet_header = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_header_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_refresh_header_message then
-    show.refresh_header_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_refresh_header_message
-    changed = true
-  end
-  if show.refresh_request_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_refresh_request_message then
-    show.refresh_request_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_refresh_request_message
-    changed = true
-  end
-  if show.request_response_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_request_response_message then
-    show.request_response_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_request_response_message
-    changed = true
-  end
-  if show.retransmission_request_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_retransmission_request_message
-    changed = true
-  end
-  if show.security_status_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_security_status_message then
-    show.security_status_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_security_status_message
-    changed = true
-  end
   if show.send_time ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_send_time then
     show.send_time = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_send_time
-    changed = true
-  end
-  if show.sequence_number_reset_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_sequence_number_reset_message
-    changed = true
-  end
-  if show.series_rfq_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_series_rfq_message then
-    show.series_rfq_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_series_rfq_message
-    changed = true
-  end
-  if show.symbol_clear_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_clear_message
-    changed = true
-  end
-  if show.symbol_index_mapping_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_index_mapping_message
-    changed = true
-  end
-  if show.symbol_index_mapping_request_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_symbol_index_mapping_request_message
-    changed = true
-  end
-  if show.time_reference_message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_time_reference_message then
-    show.time_reference_message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_time_reference_message
     changed = true
   end
   if show.trade_condition ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_trade_condition then
@@ -2909,7 +2807,7 @@ end
 
 -- Dissect: Series Rfq Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.series_rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.series_rfq_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.series_rfq_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.series_rfq_message.fields(buffer, offset, packet, parent)
@@ -3021,7 +2919,7 @@ end
 
 -- Dissect: Options Trade Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.options_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.options_trade_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.options_trade_message.fields(buffer, offset, packet, parent)
@@ -3101,7 +2999,7 @@ end
 
 -- Dissect: Options Quote Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.options_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.options_quote_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.options_quote_message.fields(buffer, offset, packet, parent)
@@ -3228,7 +3126,7 @@ end
 
 -- Dissect: Complex Series Index Mapping Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_series_index_mapping_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.complex_series_index_mapping_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -3292,7 +3190,7 @@ end
 
 -- Dissect: Options Status Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.options_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.options_status_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.options_status_message.fields(buffer, offset, packet, parent)
@@ -3384,7 +3282,7 @@ end
 
 -- Dissect: Outright Series Index Mapping Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.outright_series_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.outright_series_index_mapping_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.outright_series_index_mapping_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.outright_series_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -3436,7 +3334,7 @@ end
 
 -- Dissect: Refresh Header Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_header_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.refresh_header_message.fields(buffer, offset, packet, parent)
@@ -3532,7 +3430,7 @@ end
 
 -- Dissect: Security Status Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.security_status_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.security_status_message.fields(buffer, offset, packet, parent)
@@ -3584,7 +3482,7 @@ end
 
 -- Dissect: Symbol Clear Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_clear_message.fields(buffer, offset, packet, parent)
@@ -3636,7 +3534,7 @@ end
 
 -- Dissect: Message Unavailable Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.message_unavailable_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.message_unavailable_message.fields(buffer, offset, packet, parent)
@@ -3688,7 +3586,7 @@ end
 
 -- Dissect: Refresh Request Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.refresh_request_message.fields(buffer, offset, packet, parent)
@@ -3744,7 +3642,7 @@ end
 
 -- Dissect: Symbol Index Mapping Request Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
@@ -3784,7 +3682,7 @@ end
 
 -- Dissect: Heartbeat Response Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.heartbeat_response_message.fields(buffer, offset, packet, parent)
@@ -3848,7 +3746,7 @@ end
 
 -- Dissect: Request Response Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.request_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.request_response_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.request_response_message.fields(buffer, offset, packet, parent)
@@ -3904,7 +3802,7 @@ end
 
 -- Dissect: Retransmission Request Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.retransmission_request_message.fields(buffer, offset, packet, parent)
@@ -3996,7 +3894,7 @@ end
 
 -- Dissect: Symbol Index Mapping Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -4044,7 +3942,7 @@ end
 
 -- Dissect: Time Reference Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.time_reference_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.time_reference_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.time_reference_message.fields(buffer, offset, packet, parent)
@@ -4096,7 +3994,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_arca_options_complexfeed_pillar_v1_0_d.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_arca_options_complexfeed_pillar_v1_0_d.sequence_number_reset_message.fields(buffer, offset, packet, parent)

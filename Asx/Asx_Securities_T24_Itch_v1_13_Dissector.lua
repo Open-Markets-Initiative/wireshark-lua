@@ -168,142 +168,36 @@ omi_asx_securities_t24_itch_v1_13.fields.message_index = ProtoField.new("Message
 local show = {}
 
 -- Asx Securities T24 Itch 1.13 Element Dissection Options
-show.ad_hoc_text_message = true
-show.anomalous_order_threshold_publish_message = true
+show.application_messages = true
 show.contract_legs = true
-show.custom_market_executed_message = true
-show.custom_market_order_added_message = true
-show.custom_market_order_deleted_message = true
-show.custom_market_order_replaced_message = true
-show.custom_market_trade_message = true
-show.equilibrium_price_auction_info_message = true
-show.future_symbol_directory_message = true
-show.implied_order_added_message = true
-show.implied_order_deleted_message = true
-show.implied_order_replaced_message = true
-show.market_settlement_message = true
 show.market_updates = true
 show.message = true
 show.message_header = true
-show.open_high_low_last_trade_adjustment_message = true
-show.option_symbol_directory_message = true
-show.order_added_message = true
-show.order_book_state_message = true
-show.order_deleted_message = true
-show.order_executed_message = true
-show.order_executed_with_price_message = true
-show.order_replaced_message = true
-show.order_volume_cancelled_message = true
 show.packet = true
 show.packet_header = true
-show.request_for_quote_message = true
 show.session = true
-show.spread_executed_message = true
-show.spread_symbol_directory_message = true
-show.system_event_message = true
-show.time_message = true
-show.trade_cancellation_message = true
-show.trade_spread_execution_chain_message = true
-show.volume_and_open_interest_message = true
 
 -- Register Asx Securities T24 Itch 1.13 Show Options
-omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text_message = Pref.bool("Show Ad Hoc Text Message", show.ad_hoc_text_message, "Parse and add Ad Hoc Text Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish_message = Pref.bool("Show Anomalous Order Threshold Publish Message", show.anomalous_order_threshold_publish_message, "Parse and add Anomalous Order Threshold Publish Message to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs = Pref.bool("Show Contract Legs", show.contract_legs, "Parse and add Contract Legs to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed_message = Pref.bool("Show Custom Market Executed Message", show.custom_market_executed_message, "Parse and add Custom Market Executed Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added_message = Pref.bool("Show Custom Market Order Added Message", show.custom_market_order_added_message, "Parse and add Custom Market Order Added Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted_message = Pref.bool("Show Custom Market Order Deleted Message", show.custom_market_order_deleted_message, "Parse and add Custom Market Order Deleted Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced_message = Pref.bool("Show Custom Market Order Replaced Message", show.custom_market_order_replaced_message, "Parse and add Custom Market Order Replaced Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade_message = Pref.bool("Show Custom Market Trade Message", show.custom_market_trade_message, "Parse and add Custom Market Trade Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info_message = Pref.bool("Show Equilibrium Price Auction Info Message", show.equilibrium_price_auction_info_message, "Parse and add Equilibrium Price Auction Info Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory_message = Pref.bool("Show Future Symbol Directory Message", show.future_symbol_directory_message, "Parse and add Future Symbol Directory Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added_message = Pref.bool("Show Implied Order Added Message", show.implied_order_added_message, "Parse and add Implied Order Added Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted_message = Pref.bool("Show Implied Order Deleted Message", show.implied_order_deleted_message, "Parse and add Implied Order Deleted Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced_message = Pref.bool("Show Implied Order Replaced Message", show.implied_order_replaced_message, "Parse and add Implied Order Replaced Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement_message = Pref.bool("Show Market Settlement Message", show.market_settlement_message, "Parse and add Market Settlement Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_market_updates = Pref.bool("Show Market Updates", show.market_updates, "Parse and add Market Updates to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment_message = Pref.bool("Show Open High Low Last Trade Adjustment Message", show.open_high_low_last_trade_adjustment_message, "Parse and add Open High Low Last Trade Adjustment Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory_message = Pref.bool("Show Option Symbol Directory Message", show.option_symbol_directory_message, "Parse and add Option Symbol Directory Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_added_message = Pref.bool("Show Order Added Message", show.order_added_message, "Parse and add Order Added Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state_message = Pref.bool("Show Order Book State Message", show.order_book_state_message, "Parse and add Order Book State Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled_message = Pref.bool("Show Order Volume Cancelled Message", show.order_volume_cancelled_message, "Parse and add Order Volume Cancelled Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote_message = Pref.bool("Show Request For Quote Message", show.request_for_quote_message, "Parse and add Request For Quote Message to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_session = Pref.bool("Show Session", show.session, "Parse and add Session to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed_message = Pref.bool("Show Spread Executed Message", show.spread_executed_message, "Parse and add Spread Executed Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory_message = Pref.bool("Show Spread Symbol Directory Message", show.spread_symbol_directory_message, "Parse and add Spread Symbol Directory Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation_message = Pref.bool("Show Trade Cancellation Message", show.trade_cancellation_message, "Parse and add Trade Cancellation Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain_message = Pref.bool("Show Trade Spread Execution Chain Message", show.trade_spread_execution_chain_message, "Parse and add Trade Spread Execution Chain Message to protocol tree")
-omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message = Pref.bool("Show Volume And Open Interest Message", show.volume_and_open_interest_message, "Parse and add Volume And Open Interest Message to protocol tree")
 
 -- Handle changed preferences
 function omi_asx_securities_t24_itch_v1_13.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.ad_hoc_text_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text_message then
-    show.ad_hoc_text_message = omi_asx_securities_t24_itch_v1_13.prefs.show_ad_hoc_text_message
-    changed = true
-  end
-  if show.anomalous_order_threshold_publish_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish_message then
-    show.anomalous_order_threshold_publish_message = omi_asx_securities_t24_itch_v1_13.prefs.show_anomalous_order_threshold_publish_message
+  if show.application_messages ~= omi_asx_securities_t24_itch_v1_13.prefs.show_application_messages then
+    show.application_messages = omi_asx_securities_t24_itch_v1_13.prefs.show_application_messages
     changed = true
   end
   if show.contract_legs ~= omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs then
     show.contract_legs = omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs
-    changed = true
-  end
-  if show.custom_market_executed_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed_message then
-    show.custom_market_executed_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_executed_message
-    changed = true
-  end
-  if show.custom_market_order_added_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added_message then
-    show.custom_market_order_added_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_added_message
-    changed = true
-  end
-  if show.custom_market_order_deleted_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted_message then
-    show.custom_market_order_deleted_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_deleted_message
-    changed = true
-  end
-  if show.custom_market_order_replaced_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced_message then
-    show.custom_market_order_replaced_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_order_replaced_message
-    changed = true
-  end
-  if show.custom_market_trade_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade_message then
-    show.custom_market_trade_message = omi_asx_securities_t24_itch_v1_13.prefs.show_custom_market_trade_message
-    changed = true
-  end
-  if show.equilibrium_price_auction_info_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info_message then
-    show.equilibrium_price_auction_info_message = omi_asx_securities_t24_itch_v1_13.prefs.show_equilibrium_price_auction_info_message
-    changed = true
-  end
-  if show.future_symbol_directory_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory_message then
-    show.future_symbol_directory_message = omi_asx_securities_t24_itch_v1_13.prefs.show_future_symbol_directory_message
-    changed = true
-  end
-  if show.implied_order_added_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added_message then
-    show.implied_order_added_message = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_added_message
-    changed = true
-  end
-  if show.implied_order_deleted_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted_message then
-    show.implied_order_deleted_message = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_deleted_message
-    changed = true
-  end
-  if show.implied_order_replaced_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced_message then
-    show.implied_order_replaced_message = omi_asx_securities_t24_itch_v1_13.prefs.show_implied_order_replaced_message
-    changed = true
-  end
-  if show.market_settlement_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement_message then
-    show.market_settlement_message = omi_asx_securities_t24_itch_v1_13.prefs.show_market_settlement_message
     changed = true
   end
   if show.market_updates ~= omi_asx_securities_t24_itch_v1_13.prefs.show_market_updates then
@@ -318,42 +212,6 @@ function omi_asx_securities_t24_itch_v1_13.prefs_changed()
     show.message_header = omi_asx_securities_t24_itch_v1_13.prefs.show_message_header
     changed = true
   end
-  if show.open_high_low_last_trade_adjustment_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment_message then
-    show.open_high_low_last_trade_adjustment_message = omi_asx_securities_t24_itch_v1_13.prefs.show_open_high_low_last_trade_adjustment_message
-    changed = true
-  end
-  if show.option_symbol_directory_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory_message then
-    show.option_symbol_directory_message = omi_asx_securities_t24_itch_v1_13.prefs.show_option_symbol_directory_message
-    changed = true
-  end
-  if show.order_added_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_added_message then
-    show.order_added_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_added_message
-    changed = true
-  end
-  if show.order_book_state_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state_message then
-    show.order_book_state_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_book_state_message
-    changed = true
-  end
-  if show.order_deleted_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted_message then
-    show.order_deleted_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_deleted_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_message then
-    show.order_executed_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_executed_with_price_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price_message then
-    show.order_executed_with_price_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_executed_with_price_message
-    changed = true
-  end
-  if show.order_replaced_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced_message then
-    show.order_replaced_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_replaced_message
-    changed = true
-  end
-  if show.order_volume_cancelled_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled_message then
-    show.order_volume_cancelled_message = omi_asx_securities_t24_itch_v1_13.prefs.show_order_volume_cancelled_message
-    changed = true
-  end
   if show.packet ~= omi_asx_securities_t24_itch_v1_13.prefs.show_packet then
     show.packet = omi_asx_securities_t24_itch_v1_13.prefs.show_packet
     changed = true
@@ -362,40 +220,8 @@ function omi_asx_securities_t24_itch_v1_13.prefs_changed()
     show.packet_header = omi_asx_securities_t24_itch_v1_13.prefs.show_packet_header
     changed = true
   end
-  if show.request_for_quote_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote_message then
-    show.request_for_quote_message = omi_asx_securities_t24_itch_v1_13.prefs.show_request_for_quote_message
-    changed = true
-  end
   if show.session ~= omi_asx_securities_t24_itch_v1_13.prefs.show_session then
     show.session = omi_asx_securities_t24_itch_v1_13.prefs.show_session
-    changed = true
-  end
-  if show.spread_executed_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed_message then
-    show.spread_executed_message = omi_asx_securities_t24_itch_v1_13.prefs.show_spread_executed_message
-    changed = true
-  end
-  if show.spread_symbol_directory_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory_message then
-    show.spread_symbol_directory_message = omi_asx_securities_t24_itch_v1_13.prefs.show_spread_symbol_directory_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_system_event_message then
-    show.system_event_message = omi_asx_securities_t24_itch_v1_13.prefs.show_system_event_message
-    changed = true
-  end
-  if show.time_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_time_message then
-    show.time_message = omi_asx_securities_t24_itch_v1_13.prefs.show_time_message
-    changed = true
-  end
-  if show.trade_cancellation_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation_message then
-    show.trade_cancellation_message = omi_asx_securities_t24_itch_v1_13.prefs.show_trade_cancellation_message
-    changed = true
-  end
-  if show.trade_spread_execution_chain_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain_message then
-    show.trade_spread_execution_chain_message = omi_asx_securities_t24_itch_v1_13.prefs.show_trade_spread_execution_chain_message
-    changed = true
-  end
-  if show.volume_and_open_interest_message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message then
-    show.volume_and_open_interest_message = omi_asx_securities_t24_itch_v1_13.prefs.show_volume_and_open_interest_message
     changed = true
   end
 
@@ -3026,7 +2852,7 @@ end
 
 -- Dissect: Volume And Open Interest Message
 asx_securities_t24_itch_v1_13.volume_and_open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.volume_and_open_interest_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.volume_and_open_interest_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.volume_and_open_interest_message.fields(buffer, offset, packet, parent)
@@ -3098,7 +2924,7 @@ end
 
 -- Dissect: Anomalous Order Threshold Publish Message
 asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.dissect = function(buffer, offset, packet, parent)
-  if show.anomalous_order_threshold_publish_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.anomalous_order_threshold_publish_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.anomalous_order_threshold_publish_message.fields(buffer, offset, packet, parent)
@@ -3154,7 +2980,7 @@ end
 
 -- Dissect: Request For Quote Message
 asx_securities_t24_itch_v1_13.request_for_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.request_for_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.request_for_quote_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.request_for_quote_message.fields(buffer, offset, packet, parent)
@@ -3206,7 +3032,7 @@ end
 
 -- Dissect: Ad Hoc Text Message
 asx_securities_t24_itch_v1_13.ad_hoc_text_message.dissect = function(buffer, offset, packet, parent)
-  if show.ad_hoc_text_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.ad_hoc_text_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.ad_hoc_text_message.fields(buffer, offset, packet, parent)
@@ -3266,7 +3092,7 @@ end
 
 -- Dissect: Market Settlement Message
 asx_securities_t24_itch_v1_13.market_settlement_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_settlement_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.market_settlement_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.market_settlement_message.fields(buffer, offset, packet, parent)
@@ -3424,7 +3250,7 @@ end
 
 -- Dissect: Open High Low Last Trade Adjustment Message
 asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_high_low_last_trade_adjustment_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.fields(buffer, offset, packet, parent)
@@ -3492,7 +3318,7 @@ end
 
 -- Dissect: Equilibrium Price Auction Info Message
 asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.dissect = function(buffer, offset, packet, parent)
-  if show.equilibrium_price_auction_info_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.equilibrium_price_auction_info_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.equilibrium_price_auction_info_message.fields(buffer, offset, packet, parent)
@@ -3540,7 +3366,7 @@ end
 
 -- Dissect: Trade Cancellation Message
 asx_securities_t24_itch_v1_13.trade_cancellation_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancellation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.trade_cancellation_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.trade_cancellation_message.fields(buffer, offset, packet, parent)
@@ -3636,7 +3462,7 @@ end
 
 -- Dissect: Custom Market Trade Message
 asx_securities_t24_itch_v1_13.custom_market_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_trade_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.custom_market_trade_message.fields(buffer, offset, packet, parent)
@@ -3716,7 +3542,7 @@ end
 
 -- Dissect: Custom Market Executed Message
 asx_securities_t24_itch_v1_13.custom_market_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_executed_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.custom_market_executed_message.fields(buffer, offset, packet, parent)
@@ -3820,7 +3646,7 @@ end
 
 -- Dissect: Trade Spread Execution Chain Message
 asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_spread_execution_chain_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.trade_spread_execution_chain_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.trade_spread_execution_chain_message.fields(buffer, offset, packet, parent)
@@ -3912,7 +3738,7 @@ end
 
 -- Dissect: Spread Executed Message
 asx_securities_t24_itch_v1_13.spread_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.spread_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.spread_executed_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.spread_executed_message.fields(buffer, offset, packet, parent)
@@ -3992,7 +3818,7 @@ end
 
 -- Dissect: Order Executed With Price Message
 asx_securities_t24_itch_v1_13.order_executed_with_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_with_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_executed_with_price_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.order_executed_with_price_message.fields(buffer, offset, packet, parent)
@@ -4068,7 +3894,7 @@ end
 
 -- Dissect: Order Executed Message
 asx_securities_t24_itch_v1_13.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_executed_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.order_executed_message.fields(buffer, offset, packet, parent)
@@ -4116,7 +3942,7 @@ end
 
 -- Dissect: Custom Market Order Deleted Message
 asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_order_deleted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_deleted_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.custom_market_order_deleted_message.fields(buffer, offset, packet, parent)
@@ -4172,7 +3998,7 @@ end
 
 -- Dissect: Custom Market Order Replaced Message
 asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_order_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_replaced_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.custom_market_order_replaced_message.fields(buffer, offset, packet, parent)
@@ -4296,7 +4122,7 @@ end
 
 -- Dissect: Custom Market Order Added Message
 asx_securities_t24_itch_v1_13.custom_market_order_added_message.dissect = function(buffer, offset, packet, parent)
-  if show.custom_market_order_added_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.custom_market_order_added_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.custom_market_order_added_message.fields(buffer, offset, packet, parent)
@@ -4352,7 +4178,7 @@ end
 
 -- Dissect: Implied Order Deleted Message
 asx_securities_t24_itch_v1_13.implied_order_deleted_message.dissect = function(buffer, offset, packet, parent)
-  if show.implied_order_deleted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_deleted_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.implied_order_deleted_message.fields(buffer, offset, packet, parent)
@@ -4420,7 +4246,7 @@ end
 
 -- Dissect: Implied Order Replaced Message
 asx_securities_t24_itch_v1_13.implied_order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.implied_order_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_replaced_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.implied_order_replaced_message.fields(buffer, offset, packet, parent)
@@ -4488,7 +4314,7 @@ end
 
 -- Dissect: Implied Order Added Message
 asx_securities_t24_itch_v1_13.implied_order_added_message.dissect = function(buffer, offset, packet, parent)
-  if show.implied_order_added_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.implied_order_added_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.implied_order_added_message.fields(buffer, offset, packet, parent)
@@ -4544,7 +4370,7 @@ end
 
 -- Dissect: Order Deleted Message
 asx_securities_t24_itch_v1_13.order_deleted_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_deleted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_deleted_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.order_deleted_message.fields(buffer, offset, packet, parent)
@@ -4604,7 +4430,7 @@ end
 
 -- Dissect: Order Volume Cancelled Message
 asx_securities_t24_itch_v1_13.order_volume_cancelled_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_volume_cancelled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_volume_cancelled_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.order_volume_cancelled_message.fields(buffer, offset, packet, parent)
@@ -4672,7 +4498,7 @@ end
 
 -- Dissect: Order Replaced Message
 asx_securities_t24_itch_v1_13.order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_replaced_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.order_replaced_message.fields(buffer, offset, packet, parent)
@@ -4740,7 +4566,7 @@ end
 
 -- Dissect: Order Added Message
 asx_securities_t24_itch_v1_13.order_added_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_added_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_added_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.order_added_message.fields(buffer, offset, packet, parent)
@@ -4792,7 +4618,7 @@ end
 
 -- Dissect: Order Book State Message
 asx_securities_t24_itch_v1_13.order_book_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_book_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.order_book_state_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.order_book_state_message.fields(buffer, offset, packet, parent)
@@ -4936,7 +4762,7 @@ end
 
 -- Dissect: Option Symbol Directory Message
 asx_securities_t24_itch_v1_13.option_symbol_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_symbol_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.option_symbol_directory_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.option_symbol_directory_message.fields(buffer, offset, packet, parent)
@@ -5020,7 +4846,7 @@ end
 
 -- Dissect: Spread Symbol Directory Message
 asx_securities_t24_itch_v1_13.spread_symbol_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.spread_symbol_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.spread_symbol_directory_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.spread_symbol_directory_message.fields(buffer, offset, packet, parent)
@@ -5132,7 +4958,7 @@ end
 
 -- Dissect: Future Symbol Directory Message
 asx_securities_t24_itch_v1_13.future_symbol_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_symbol_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.future_symbol_directory_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.future_symbol_directory_message.fields(buffer, offset, packet, parent)
@@ -5180,7 +5006,7 @@ end
 
 -- Dissect: System Event Message
 asx_securities_t24_itch_v1_13.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.system_event_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.system_event_message.fields(buffer, offset, packet, parent)
@@ -5220,7 +5046,7 @@ end
 
 -- Dissect: Time Message
 asx_securities_t24_itch_v1_13.time_message.dissect = function(buffer, offset, packet, parent)
-  if show.time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_securities_t24_itch_v1_13.fields.time_message, buffer(offset, 0))
     local index = asx_securities_t24_itch_v1_13.time_message.fields(buffer, offset, packet, parent)

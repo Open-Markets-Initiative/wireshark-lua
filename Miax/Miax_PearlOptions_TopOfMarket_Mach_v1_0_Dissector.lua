@@ -99,37 +99,15 @@ local show = {}
 
 -- Miax PearlOptions TopOfMarket Mach 1.0 Element Dissection Options
 show.application_message = true
-show.compact_double_sided_top_of_market_message = true
-show.compact_top_of_market_best_offer_message = true
-show.compact_top_of_market_bid_message = true
-show.last_sale_message = true
+show.application_messages = true
 show.message = true
 show.packet = true
-show.pearl_system_time_message = true
-show.series_update_message = true
-show.system_state_message = true
-show.trade_cancel_message = true
-show.underlying_trading_status_notification = true
-show.wide_double_sided_top_of_market_message = true
-show.wide_top_of_market_best_bid_message = true
-show.wide_top_of_market_best_offer_message = true
 
 -- Register Miax PearlOptions TopOfMarket Mach 1.0 Show Options
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_double_sided_top_of_market_message = Pref.bool("Show Compact Double Sided Top Of Market Message", show.compact_double_sided_top_of_market_message, "Parse and add Compact Double Sided Top Of Market Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_top_of_market_best_offer_message = Pref.bool("Show Compact Top Of Market Best Offer Message", show.compact_top_of_market_best_offer_message, "Parse and add Compact Top Of Market Best Offer Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_top_of_market_bid_message = Pref.bool("Show Compact Top Of Market Bid Message", show.compact_top_of_market_bid_message, "Parse and add Compact Top Of Market Bid Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_last_sale_message = Pref.bool("Show Last Sale Message", show.last_sale_message, "Parse and add Last Sale Message to protocol tree")
+omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_pearl_system_time_message = Pref.bool("Show Pearl System Time Message", show.pearl_system_time_message, "Parse and add Pearl System Time Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_series_update_message = Pref.bool("Show Series Update Message", show.series_update_message, "Parse and add Series Update Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_underlying_trading_status_notification = Pref.bool("Show Underlying Trading Status Notification", show.underlying_trading_status_notification, "Parse and add Underlying Trading Status Notification to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_double_sided_top_of_market_message = Pref.bool("Show Wide Double Sided Top Of Market Message", show.wide_double_sided_top_of_market_message, "Parse and add Wide Double Sided Top Of Market Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_bid_message = Pref.bool("Show Wide Top Of Market Best Bid Message", show.wide_top_of_market_best_bid_message, "Parse and add Wide Top Of Market Best Bid Message to protocol tree")
-omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_offer_message = Pref.bool("Show Wide Top Of Market Best Offer Message", show.wide_top_of_market_best_offer_message, "Parse and add Wide Top Of Market Best Offer Message to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v1_0.prefs_changed()
@@ -140,20 +118,8 @@ function omi_miax_pearloptions_topofmarket_mach_v1_0.prefs_changed()
     show.application_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_application_message
     changed = true
   end
-  if show.compact_double_sided_top_of_market_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_double_sided_top_of_market_message then
-    show.compact_double_sided_top_of_market_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_double_sided_top_of_market_message
-    changed = true
-  end
-  if show.compact_top_of_market_best_offer_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_top_of_market_best_offer_message then
-    show.compact_top_of_market_best_offer_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_top_of_market_best_offer_message
-    changed = true
-  end
-  if show.compact_top_of_market_bid_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_top_of_market_bid_message then
-    show.compact_top_of_market_bid_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_compact_top_of_market_bid_message
-    changed = true
-  end
-  if show.last_sale_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_last_sale_message then
-    show.last_sale_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_last_sale_message
+  if show.application_messages ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_application_messages then
+    show.application_messages = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_message then
@@ -162,38 +128,6 @@ function omi_miax_pearloptions_topofmarket_mach_v1_0.prefs_changed()
   end
   if show.packet ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_packet then
     show.packet = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_packet
-    changed = true
-  end
-  if show.pearl_system_time_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_pearl_system_time_message then
-    show.pearl_system_time_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_pearl_system_time_message
-    changed = true
-  end
-  if show.series_update_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_series_update_message then
-    show.series_update_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_series_update_message
-    changed = true
-  end
-  if show.system_state_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_system_state_message then
-    show.system_state_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_system_state_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_trade_cancel_message
-    changed = true
-  end
-  if show.underlying_trading_status_notification ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_underlying_trading_status_notification then
-    show.underlying_trading_status_notification = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_underlying_trading_status_notification
-    changed = true
-  end
-  if show.wide_double_sided_top_of_market_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_double_sided_top_of_market_message then
-    show.wide_double_sided_top_of_market_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_double_sided_top_of_market_message
-    changed = true
-  end
-  if show.wide_top_of_market_best_bid_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_bid_message then
-    show.wide_top_of_market_best_bid_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_bid_message
-    changed = true
-  end
-  if show.wide_top_of_market_best_offer_message ~= omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_offer_message then
-    show.wide_top_of_market_best_offer_message = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_wide_top_of_market_best_offer_message
     changed = true
   end
 
@@ -1938,7 +1872,7 @@ end
 
 -- Dissect: Underlying Trading Status Notification
 miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_trading_status_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.underlying_trading_status_notification, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.fields(buffer, offset, packet, parent)
@@ -2002,7 +1936,7 @@ end
 
 -- Dissect: Trade Cancel Message
 miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.trade_cancel_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -2074,7 +2008,7 @@ end
 
 -- Dissect: Last Sale Message
 miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.dissect = function(buffer, offset, packet, parent)
-  if show.last_sale_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.last_sale_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.fields(buffer, offset, packet, parent)
@@ -2150,7 +2084,7 @@ end
 
 -- Dissect: Wide Double Sided Top Of Market Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.dissect = function(buffer, offset, packet, parent)
-  if show.wide_double_sided_top_of_market_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_double_sided_top_of_market_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.fields(buffer, offset, packet, parent)
@@ -2226,7 +2160,7 @@ end
 
 -- Dissect: Compact Double Sided Top Of Market Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.dissect = function(buffer, offset, packet, parent)
-  if show.compact_double_sided_top_of_market_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.compact_double_sided_top_of_market_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.fields(buffer, offset, packet, parent)
@@ -2286,7 +2220,7 @@ end
 
 -- Dissect: Wide Top Of Market Best Offer Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.wide_top_of_market_best_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_offer_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.fields(buffer, offset, packet, parent)
@@ -2346,7 +2280,7 @@ end
 
 -- Dissect: Wide Top Of Market Best Bid Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.dissect = function(buffer, offset, packet, parent)
-  if show.wide_top_of_market_best_bid_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_bid_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.fields(buffer, offset, packet, parent)
@@ -2406,7 +2340,7 @@ end
 
 -- Dissect: Compact Top Of Market Best Offer Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.compact_top_of_market_best_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_best_offer_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.fields(buffer, offset, packet, parent)
@@ -2466,7 +2400,7 @@ end
 
 -- Dissect: Compact Top Of Market Bid Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.dissect = function(buffer, offset, packet, parent)
-  if show.compact_top_of_market_bid_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_bid_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.fields(buffer, offset, packet, parent)
@@ -2518,7 +2452,7 @@ end
 
 -- Dissect: System State Message
 miax_pearloptions_topofmarket_mach_v1_0.system_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.system_state_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.system_state_message.fields(buffer, offset, packet, parent)
@@ -2618,7 +2552,7 @@ end
 
 -- Dissect: Series Update Message
 miax_pearloptions_topofmarket_mach_v1_0.series_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.series_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.series_update_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.series_update_message.fields(buffer, offset, packet, parent)
@@ -2658,7 +2592,7 @@ end
 
 -- Dissect: Pearl System Time Message
 miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.dissect = function(buffer, offset, packet, parent)
-  if show.pearl_system_time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pearl_system_time_message, buffer(offset, 0))
     local index = miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.fields(buffer, offset, packet, parent)

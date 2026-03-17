@@ -258,115 +258,71 @@ omi_txse_equities_orderentry_seed_v0_1.fields.trading_session_status_message = P
 local show = {}
 
 -- Txse Equities OrderEntry Seed 0.1 Element Dissection Options
-show.cancel_order_message = true
-show.cancel_rejected_message = true
+show.application_messages = true
 show.debug_message = true
 show.define_symbol_bitfields = true
-show.define_symbol_message = true
-show.limit_order_accepted_message = true
 show.limit_order_accepted_presence_bits = true
 show.limit_order_bit_fields = true
-show.limit_order_message = true
 show.limit_order_presence_bits = true
-show.limit_order_rejected_message = true
 show.limit_order_rejected_presence_bits = true
 show.logon_request_packet = true
 show.logon_response_message = true
-show.market_order_accepted_message = true
 show.market_order_accepted_presence_bits = true
 show.market_order_bit_fields = true
-show.market_order_message = true
 show.market_order_presence_bits = true
-show.market_order_rejected_message = true
 show.market_order_rejected_presence_bits = true
-show.mass_cancel_accepted_message = true
 show.mass_cancel_accepted_presence_bits = true
-show.mass_cancel_message = true
 show.mass_cancel_presence_bits = true
-show.mass_cancel_rejected_message = true
 show.mass_cancel_rejected_presence_bits = true
-show.mass_cancel_result_message = true
 show.mass_cancel_result_presence_bits = true
 show.modify_bitfields = true
-show.modify_rejected_message = true
 show.modify_rejected_presence_bits = true
-show.order_canceled_message = true
-show.order_executed_message = true
-show.order_modified_message = true
 show.order_modified_presence_bits = true
-show.order_replaced_message = true
 show.order_replaced_presence_bits = true
-show.order_restated_message = true
 show.order_restated_presence_bits = true
 show.packet = true
 show.rake_message_header = true
 show.rake_tcp_message = true
 show.replace_bitfields = true
-show.replace_order_message = true
 show.replace_order_presence_bits = true
-show.replace_rejected_message = true
 show.replace_rejected_presence_bits = true
-show.symbol_status_message = true
 show.symbol_status_presence_bits = true
 show.tcp_sequenced_message = true
 show.tcp_unsequenced_message = true
-show.trading_session_status_message = true
 show.trading_session_status_presence_bits = true
 
 -- Register Txse Equities OrderEntry Seed 0.1 Show Options
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_cancel_rejected_message = Pref.bool("Show Cancel Rejected Message", show.cancel_rejected_message, "Parse and add Cancel Rejected Message to protocol tree")
+omi_txse_equities_orderentry_seed_v0_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_debug_message = Pref.bool("Show Debug Message", show.debug_message, "Parse and add Debug Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_define_symbol_bitfields = Pref.bool("Show Define Symbol Bitfields", show.define_symbol_bitfields, "Parse and add Define Symbol Bitfields to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_define_symbol_message = Pref.bool("Show Define Symbol Message", show.define_symbol_message, "Parse and add Define Symbol Message to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_accepted_message = Pref.bool("Show Limit Order Accepted Message", show.limit_order_accepted_message, "Parse and add Limit Order Accepted Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_accepted_presence_bits = Pref.bool("Show Limit Order Accepted Presence Bits", show.limit_order_accepted_presence_bits, "Parse and add Limit Order Accepted Presence Bits to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_bit_fields = Pref.bool("Show Limit Order Bit Fields", show.limit_order_bit_fields, "Parse and add Limit Order Bit Fields to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_message = Pref.bool("Show Limit Order Message", show.limit_order_message, "Parse and add Limit Order Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_presence_bits = Pref.bool("Show Limit Order Presence Bits", show.limit_order_presence_bits, "Parse and add Limit Order Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_rejected_message = Pref.bool("Show Limit Order Rejected Message", show.limit_order_rejected_message, "Parse and add Limit Order Rejected Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_rejected_presence_bits = Pref.bool("Show Limit Order Rejected Presence Bits", show.limit_order_rejected_presence_bits, "Parse and add Limit Order Rejected Presence Bits to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_logon_request_packet = Pref.bool("Show Logon Request Packet", show.logon_request_packet, "Parse and add Logon Request Packet to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_logon_response_message = Pref.bool("Show Logon Response Message", show.logon_response_message, "Parse and add Logon Response Message to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_accepted_message = Pref.bool("Show Market Order Accepted Message", show.market_order_accepted_message, "Parse and add Market Order Accepted Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_accepted_presence_bits = Pref.bool("Show Market Order Accepted Presence Bits", show.market_order_accepted_presence_bits, "Parse and add Market Order Accepted Presence Bits to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_bit_fields = Pref.bool("Show Market Order Bit Fields", show.market_order_bit_fields, "Parse and add Market Order Bit Fields to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_message = Pref.bool("Show Market Order Message", show.market_order_message, "Parse and add Market Order Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_presence_bits = Pref.bool("Show Market Order Presence Bits", show.market_order_presence_bits, "Parse and add Market Order Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_rejected_message = Pref.bool("Show Market Order Rejected Message", show.market_order_rejected_message, "Parse and add Market Order Rejected Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_rejected_presence_bits = Pref.bool("Show Market Order Rejected Presence Bits", show.market_order_rejected_presence_bits, "Parse and add Market Order Rejected Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_accepted_message = Pref.bool("Show Mass Cancel Accepted Message", show.mass_cancel_accepted_message, "Parse and add Mass Cancel Accepted Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_accepted_presence_bits = Pref.bool("Show Mass Cancel Accepted Presence Bits", show.mass_cancel_accepted_presence_bits, "Parse and add Mass Cancel Accepted Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_message = Pref.bool("Show Mass Cancel Message", show.mass_cancel_message, "Parse and add Mass Cancel Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_presence_bits = Pref.bool("Show Mass Cancel Presence Bits", show.mass_cancel_presence_bits, "Parse and add Mass Cancel Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_rejected_message = Pref.bool("Show Mass Cancel Rejected Message", show.mass_cancel_rejected_message, "Parse and add Mass Cancel Rejected Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_rejected_presence_bits = Pref.bool("Show Mass Cancel Rejected Presence Bits", show.mass_cancel_rejected_presence_bits, "Parse and add Mass Cancel Rejected Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_result_message = Pref.bool("Show Mass Cancel Result Message", show.mass_cancel_result_message, "Parse and add Mass Cancel Result Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_result_presence_bits = Pref.bool("Show Mass Cancel Result Presence Bits", show.mass_cancel_result_presence_bits, "Parse and add Mass Cancel Result Presence Bits to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_bitfields = Pref.bool("Show Modify Bitfields", show.modify_bitfields, "Parse and add Modify Bitfields to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_rejected_message = Pref.bool("Show Modify Rejected Message", show.modify_rejected_message, "Parse and add Modify Rejected Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_rejected_presence_bits = Pref.bool("Show Modify Rejected Presence Bits", show.modify_rejected_presence_bits, "Parse and add Modify Rejected Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_modified_presence_bits = Pref.bool("Show Order Modified Presence Bits", show.order_modified_presence_bits, "Parse and add Order Modified Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_replaced_presence_bits = Pref.bool("Show Order Replaced Presence Bits", show.order_replaced_presence_bits, "Parse and add Order Replaced Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_restated_message = Pref.bool("Show Order Restated Message", show.order_restated_message, "Parse and add Order Restated Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_restated_presence_bits = Pref.bool("Show Order Restated Presence Bits", show.order_restated_presence_bits, "Parse and add Order Restated Presence Bits to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_rake_message_header = Pref.bool("Show Rake Message Header", show.rake_message_header, "Parse and add Rake Message Header to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_rake_tcp_message = Pref.bool("Show Rake Tcp Message", show.rake_tcp_message, "Parse and add Rake Tcp Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_bitfields = Pref.bool("Show Replace Bitfields", show.replace_bitfields, "Parse and add Replace Bitfields to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_order_presence_bits = Pref.bool("Show Replace Order Presence Bits", show.replace_order_presence_bits, "Parse and add Replace Order Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_rejected_message = Pref.bool("Show Replace Rejected Message", show.replace_rejected_message, "Parse and add Replace Rejected Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_rejected_presence_bits = Pref.bool("Show Replace Rejected Presence Bits", show.replace_rejected_presence_bits, "Parse and add Replace Rejected Presence Bits to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_symbol_status_presence_bits = Pref.bool("Show Symbol Status Presence Bits", show.symbol_status_presence_bits, "Parse and add Symbol Status Presence Bits to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_sequenced_message = Pref.bool("Show Tcp Sequenced Message", show.tcp_sequenced_message, "Parse and add Tcp Sequenced Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_unsequenced_message = Pref.bool("Show Tcp Unsequenced Message", show.tcp_unsequenced_message, "Parse and add Tcp Unsequenced Message to protocol tree")
-omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
 omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_presence_bits = Pref.bool("Show Trading Session Status Presence Bits", show.trading_session_status_presence_bits, "Parse and add Trading Session Status Presence Bits to protocol tree")
 
 -- Handle changed preferences
@@ -374,12 +330,8 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_cancel_order_message then
-    show.cancel_order_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_cancel_order_message
-    changed = true
-  end
-  if show.cancel_rejected_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_cancel_rejected_message then
-    show.cancel_rejected_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_cancel_rejected_message
+  if show.application_messages ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_application_messages then
+    show.application_messages = omi_txse_equities_orderentry_seed_v0_1.prefs.show_application_messages
     changed = true
   end
   if show.debug_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_debug_message then
@@ -390,14 +342,6 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
     show.define_symbol_bitfields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_define_symbol_bitfields
     changed = true
   end
-  if show.define_symbol_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_define_symbol_message then
-    show.define_symbol_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_define_symbol_message
-    changed = true
-  end
-  if show.limit_order_accepted_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_accepted_message then
-    show.limit_order_accepted_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_accepted_message
-    changed = true
-  end
   if show.limit_order_accepted_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_accepted_presence_bits then
     show.limit_order_accepted_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_accepted_presence_bits
     changed = true
@@ -406,16 +350,8 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
     show.limit_order_bit_fields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_bit_fields
     changed = true
   end
-  if show.limit_order_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_message then
-    show.limit_order_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_message
-    changed = true
-  end
   if show.limit_order_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_presence_bits then
     show.limit_order_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_presence_bits
-    changed = true
-  end
-  if show.limit_order_rejected_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_rejected_message then
-    show.limit_order_rejected_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_rejected_message
     changed = true
   end
   if show.limit_order_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_rejected_presence_bits then
@@ -430,10 +366,6 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
     show.logon_response_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_logon_response_message
     changed = true
   end
-  if show.market_order_accepted_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_accepted_message then
-    show.market_order_accepted_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_accepted_message
-    changed = true
-  end
   if show.market_order_accepted_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_accepted_presence_bits then
     show.market_order_accepted_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_accepted_presence_bits
     changed = true
@@ -442,48 +374,24 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
     show.market_order_bit_fields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_bit_fields
     changed = true
   end
-  if show.market_order_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_message then
-    show.market_order_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_message
-    changed = true
-  end
   if show.market_order_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_presence_bits then
     show.market_order_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_presence_bits
-    changed = true
-  end
-  if show.market_order_rejected_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_rejected_message then
-    show.market_order_rejected_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_rejected_message
     changed = true
   end
   if show.market_order_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_rejected_presence_bits then
     show.market_order_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_rejected_presence_bits
     changed = true
   end
-  if show.mass_cancel_accepted_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_accepted_message then
-    show.mass_cancel_accepted_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_accepted_message
-    changed = true
-  end
   if show.mass_cancel_accepted_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_accepted_presence_bits then
     show.mass_cancel_accepted_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_accepted_presence_bits
-    changed = true
-  end
-  if show.mass_cancel_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_message then
-    show.mass_cancel_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_message
     changed = true
   end
   if show.mass_cancel_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_presence_bits then
     show.mass_cancel_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_presence_bits
     changed = true
   end
-  if show.mass_cancel_rejected_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_rejected_message then
-    show.mass_cancel_rejected_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_rejected_message
-    changed = true
-  end
   if show.mass_cancel_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_rejected_presence_bits then
     show.mass_cancel_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_rejected_presence_bits
-    changed = true
-  end
-  if show.mass_cancel_result_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_result_message then
-    show.mass_cancel_result_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_result_message
     changed = true
   end
   if show.mass_cancel_result_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_result_presence_bits then
@@ -494,40 +402,16 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
     show.modify_bitfields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_bitfields
     changed = true
   end
-  if show.modify_rejected_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_rejected_message then
-    show.modify_rejected_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_rejected_message
-    changed = true
-  end
   if show.modify_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_rejected_presence_bits then
     show.modify_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_rejected_presence_bits
-    changed = true
-  end
-  if show.order_canceled_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_canceled_message then
-    show.order_canceled_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_canceled_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_executed_message then
-    show.order_executed_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_modified_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_modified_message then
-    show.order_modified_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_modified_message
     changed = true
   end
   if show.order_modified_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_modified_presence_bits then
     show.order_modified_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_modified_presence_bits
     changed = true
   end
-  if show.order_replaced_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_replaced_message then
-    show.order_replaced_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_replaced_message
-    changed = true
-  end
   if show.order_replaced_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_replaced_presence_bits then
     show.order_replaced_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_replaced_presence_bits
-    changed = true
-  end
-  if show.order_restated_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_restated_message then
-    show.order_restated_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_restated_message
     changed = true
   end
   if show.order_restated_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_restated_presence_bits then
@@ -550,24 +434,12 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
     show.replace_bitfields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_bitfields
     changed = true
   end
-  if show.replace_order_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_order_message then
-    show.replace_order_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_order_message
-    changed = true
-  end
   if show.replace_order_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_order_presence_bits then
     show.replace_order_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_order_presence_bits
     changed = true
   end
-  if show.replace_rejected_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_rejected_message then
-    show.replace_rejected_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_rejected_message
-    changed = true
-  end
   if show.replace_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_rejected_presence_bits then
     show.replace_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_rejected_presence_bits
-    changed = true
-  end
-  if show.symbol_status_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_symbol_status_message then
-    show.symbol_status_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_symbol_status_message
     changed = true
   end
   if show.symbol_status_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_symbol_status_presence_bits then
@@ -580,10 +452,6 @@ function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
   end
   if show.tcp_unsequenced_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_unsequenced_message then
     show.tcp_unsequenced_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_unsequenced_message
-    changed = true
-  end
-  if show.trading_session_status_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_message then
-    show.trading_session_status_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_message
     changed = true
   end
   if show.trading_session_status_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_presence_bits then
@@ -2417,7 +2285,7 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.dissect = function
   local index = offset + size_of_mass_cancel_result_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.mass_cancel_result_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_result_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_result_message)
     parent:set_len(size_of_mass_cancel_result_message)
@@ -2579,7 +2447,7 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.dissect = functi
   local index = offset + size_of_mass_cancel_rejected_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.mass_cancel_rejected_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_rejected_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.mass_cancel_rejected_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_rejected_message)
     parent:set_len(size_of_mass_cancel_rejected_message)
@@ -2741,7 +2609,7 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.dissect = functi
   local index = offset + size_of_mass_cancel_accepted_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.mass_cancel_accepted_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_accepted_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_accepted_message)
     parent:set_len(size_of_mass_cancel_accepted_message)
@@ -2887,7 +2755,7 @@ txse_equities_orderentry_seed_v0_1.order_restated_message.dissect = function(buf
   local index = offset + size_of_order_restated_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_restated_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_restated_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.order_restated_message.fields(buffer, offset, packet, parent, size_of_order_restated_message)
     parent:set_len(size_of_order_restated_message)
@@ -2955,7 +2823,7 @@ txse_equities_orderentry_seed_v0_1.order_executed_message.dissect = function(buf
   local index = offset + size_of_order_executed_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_executed_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_executed_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.order_executed_message.fields(buffer, offset, packet, parent, size_of_order_executed_message)
     parent:set_len(size_of_order_executed_message)
@@ -3180,7 +3048,7 @@ txse_equities_orderentry_seed_v0_1.replace_rejected_message.dissect = function(b
   local index = offset + size_of_replace_rejected_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.replace_rejected_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.replace_rejected_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.replace_rejected_message.fields(buffer, offset, packet, parent, size_of_replace_rejected_message)
     parent:set_len(size_of_replace_rejected_message)
@@ -3380,7 +3248,7 @@ txse_equities_orderentry_seed_v0_1.order_replaced_message.dissect = function(buf
   local index = offset + size_of_order_replaced_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_replaced_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_replaced_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.order_replaced_message.fields(buffer, offset, packet, parent, size_of_order_replaced_message)
     parent:set_len(size_of_order_replaced_message)
@@ -3574,7 +3442,7 @@ txse_equities_orderentry_seed_v0_1.modify_rejected_message.dissect = function(bu
   local index = offset + size_of_modify_rejected_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.modify_rejected_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.modify_rejected_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.modify_rejected_message.fields(buffer, offset, packet, parent, size_of_modify_rejected_message)
     parent:set_len(size_of_modify_rejected_message)
@@ -3725,7 +3593,7 @@ txse_equities_orderentry_seed_v0_1.order_modified_message.dissect = function(buf
   local index = offset + size_of_order_modified_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_modified_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_modified_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.order_modified_message.fields(buffer, offset, packet, parent, size_of_order_modified_message)
     parent:set_len(size_of_order_modified_message)
@@ -3781,7 +3649,7 @@ txse_equities_orderentry_seed_v0_1.cancel_rejected_message.dissect = function(bu
   local index = offset + size_of_cancel_rejected_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.cancel_rejected_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.cancel_rejected_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.cancel_rejected_message.fields(buffer, offset, packet, parent, size_of_cancel_rejected_message)
     parent:set_len(size_of_cancel_rejected_message)
@@ -3840,7 +3708,7 @@ txse_equities_orderentry_seed_v0_1.order_canceled_message.dissect = function(buf
   local index = offset + size_of_order_canceled_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_canceled_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_canceled_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.order_canceled_message.fields(buffer, offset, packet, parent, size_of_order_canceled_message)
     parent:set_len(size_of_order_canceled_message)
@@ -4092,7 +3960,7 @@ txse_equities_orderentry_seed_v0_1.market_order_rejected_message.dissect = funct
   local index = offset + size_of_market_order_rejected_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_order_rejected_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_rejected_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.market_order_rejected_message.fields(buffer, offset, packet, parent, size_of_market_order_rejected_message)
     parent:set_len(size_of_market_order_rejected_message)
@@ -4292,7 +4160,7 @@ txse_equities_orderentry_seed_v0_1.market_order_accepted_message.dissect = funct
   local index = offset + size_of_market_order_accepted_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_order_accepted_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_accepted_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.market_order_accepted_message.fields(buffer, offset, packet, parent, size_of_market_order_accepted_message)
     parent:set_len(size_of_market_order_accepted_message)
@@ -4719,7 +4587,7 @@ txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.dissect = functi
   local index = offset + size_of_limit_order_rejected_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.limit_order_rejected_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_rejected_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.limit_order_rejected_message.fields(buffer, offset, packet, parent, size_of_limit_order_rejected_message)
     parent:set_len(size_of_limit_order_rejected_message)
@@ -5066,7 +4934,7 @@ txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.dissect = functi
   local index = offset + size_of_limit_order_accepted_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.limit_order_accepted_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_accepted_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.fields(buffer, offset, packet, parent, size_of_limit_order_accepted_message)
     parent:set_len(size_of_limit_order_accepted_message)
@@ -5196,7 +5064,7 @@ txse_equities_orderentry_seed_v0_1.symbol_status_message.dissect = function(buff
   local index = offset + size_of_symbol_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.symbol_status_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.symbol_status_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.symbol_status_message.fields(buffer, offset, packet, parent, size_of_symbol_status_message)
     parent:set_len(size_of_symbol_status_message)
@@ -5307,7 +5175,7 @@ txse_equities_orderentry_seed_v0_1.define_symbol_message.dissect = function(buff
   local index = offset + size_of_define_symbol_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.define_symbol_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.define_symbol_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.define_symbol_message.fields(buffer, offset, packet, parent, size_of_define_symbol_message)
     parent:set_len(size_of_define_symbol_message)
@@ -5434,7 +5302,7 @@ txse_equities_orderentry_seed_v0_1.trading_session_status_message.dissect = func
   local index = offset + size_of_trading_session_status_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trading_session_status_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.trading_session_status_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.trading_session_status_message.fields(buffer, offset, packet, parent, size_of_trading_session_status_message)
     parent:set_len(size_of_trading_session_status_message)
@@ -5839,7 +5707,7 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_message.dissect = function(buffer
   local index = offset + size_of_mass_cancel_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.mass_cancel_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.mass_cancel_message.fields(buffer, offset, packet, parent, size_of_mass_cancel_message)
     parent:set_len(size_of_mass_cancel_message)
@@ -5998,7 +5866,7 @@ txse_equities_orderentry_seed_v0_1.replace_order_message.dissect = function(buff
   local index = offset + size_of_replace_order_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.replace_order_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.replace_order_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.replace_order_message.fields(buffer, offset, packet, parent, size_of_replace_order_message)
     parent:set_len(size_of_replace_order_message)
@@ -6048,7 +5916,7 @@ txse_equities_orderentry_seed_v0_1.cancel_order_message.dissect = function(buffe
   local index = offset + size_of_cancel_order_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.cancel_order_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.cancel_order_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.cancel_order_message.fields(buffer, offset, packet, parent, size_of_cancel_order_message)
     parent:set_len(size_of_cancel_order_message)
@@ -6242,7 +6110,7 @@ txse_equities_orderentry_seed_v0_1.market_order_message.dissect = function(buffe
   local index = offset + size_of_market_order_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_order_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_order_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.market_order_message.fields(buffer, offset, packet, parent, size_of_market_order_message)
     parent:set_len(size_of_market_order_message)
@@ -6551,7 +6419,7 @@ txse_equities_orderentry_seed_v0_1.limit_order_message.dissect = function(buffer
   local index = offset + size_of_limit_order_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.limit_order_message then
+  if show.application_messages then
     parent = parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.limit_order_message, buffer(offset, 0))
     local current = txse_equities_orderentry_seed_v0_1.limit_order_message.fields(buffer, offset, packet, parent, size_of_limit_order_message)
     parent:set_len(size_of_limit_order_message)

@@ -94,46 +94,24 @@ show.action_datetime = true
 show.administrative = true
 show.control = true
 show.datetime = true
-show.end_of_day_message = true
-show.end_of_retransmission_requests_message = true
-show.end_of_trade_reporting_message = true
-show.end_of_transmissions_message = true
-show.general_administrative_message = true
+show.application_messages = true
 show.inside_appendage = true
-show.line_integrity_message = true
-show.market_participant_quote_update_message = true
-show.market_session_close_message = true
-show.market_session_open_message = true
 show.message = true
 show.message_header = true
 show.packet = true
 show.quotation = true
-show.sequence_number_reset_message = true
-show.start_of_day_message = true
-show.trading_action_message = true
 
 -- Register Finra Otc Bbds Dfi 2018.1A Show Options
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime = Pref.bool("Show Datetime", show.datetime, "Parse and add Datetime to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message = Pref.bool("Show End Of Retransmission Requests Message", show.end_of_retransmission_requests_message, "Parse and add End Of Retransmission Requests Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
+omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage = Pref.bool("Show Inside Appendage", show.inside_appendage, "Parse and add Inside Appendage to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message = Pref.bool("Show Market Participant Quote Update Message", show.market_participant_quote_update_message, "Parse and add Market Participant Quote Update Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation = Pref.bool("Show Quotation", show.quotation, "Parse and add Quotation to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
 
 -- Handle changed preferences
 function omi_finra_otc_bbds_dfi_v2018_1a.prefs_changed()
@@ -148,6 +126,10 @@ function omi_finra_otc_bbds_dfi_v2018_1a.prefs_changed()
     show.administrative = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative
     changed = true
   end
+  if show.application_messages ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_application_messages then
+    show.application_messages = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_application_messages
+    changed = true
+  end
   if show.control ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control then
     show.control = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control
     changed = true
@@ -156,44 +138,8 @@ function omi_finra_otc_bbds_dfi_v2018_1a.prefs_changed()
     show.datetime = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime
     changed = true
   end
-  if show.end_of_day_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message then
-    show.end_of_day_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_day_message
-    changed = true
-  end
-  if show.end_of_retransmission_requests_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message then
-    show.end_of_retransmission_requests_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_retransmission_requests_message
-    changed = true
-  end
-  if show.end_of_trade_reporting_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message then
-    show.end_of_trade_reporting_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_trade_reporting_message
-    changed = true
-  end
-  if show.end_of_transmissions_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message then
-    show.end_of_transmissions_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_end_of_transmissions_message
-    changed = true
-  end
-  if show.general_administrative_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message then
-    show.general_administrative_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_general_administrative_message
-    changed = true
-  end
   if show.inside_appendage ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage then
     show.inside_appendage = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage
-    changed = true
-  end
-  if show.line_integrity_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message then
-    show.line_integrity_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_line_integrity_message
-    changed = true
-  end
-  if show.market_participant_quote_update_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message then
-    show.market_participant_quote_update_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_participant_quote_update_message
-    changed = true
-  end
-  if show.market_session_close_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message then
-    show.market_session_close_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_close_message
-    changed = true
-  end
-  if show.market_session_open_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message then
-    show.market_session_open_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_market_session_open_message
     changed = true
   end
   if show.message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message then
@@ -210,18 +156,6 @@ function omi_finra_otc_bbds_dfi_v2018_1a.prefs_changed()
   end
   if show.quotation ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation then
     show.quotation = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation
-    changed = true
-  end
-  if show.sequence_number_reset_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_sequence_number_reset_message
-    changed = true
-  end
-  if show.start_of_day_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message then
-    show.start_of_day_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_start_of_day_message
-    changed = true
-  end
-  if show.trading_action_message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message then
-    show.trading_action_message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_trading_action_message
     changed = true
   end
 
@@ -1600,7 +1534,7 @@ end
 
 -- Dissect: End Of Trade Reporting Message
 finra_otc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_trade_reporting_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_trade_reporting_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.fields(buffer, offset, packet, parent)
@@ -1640,7 +1574,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 finra_otc_bbds_dfi_v2018_1a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -1680,7 +1614,7 @@ end
 
 -- Dissect: Line Integrity Message
 finra_otc_bbds_dfi_v2018_1a.line_integrity_message.dissect = function(buffer, offset, packet, parent)
-  if show.line_integrity_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.line_integrity_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.line_integrity_message.fields(buffer, offset, packet, parent)
@@ -1720,7 +1654,7 @@ end
 
 -- Dissect: End Of Transmissions Message
 finra_otc_bbds_dfi_v2018_1a.end_of_transmissions_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_transmissions_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_transmissions_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.end_of_transmissions_message.fields(buffer, offset, packet, parent)
@@ -1760,7 +1694,7 @@ end
 
 -- Dissect: End Of Retransmission Requests Message
 finra_otc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_retransmission_requests_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_retransmission_requests_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message.fields(buffer, offset, packet, parent)
@@ -1800,7 +1734,7 @@ end
 
 -- Dissect: Market Session Close Message
 finra_otc_bbds_dfi_v2018_1a.market_session_close_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_session_close_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_session_close_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.market_session_close_message.fields(buffer, offset, packet, parent)
@@ -1840,7 +1774,7 @@ end
 
 -- Dissect: Market Session Open Message
 finra_otc_bbds_dfi_v2018_1a.market_session_open_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_session_open_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_session_open_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.market_session_open_message.fields(buffer, offset, packet, parent)
@@ -1880,7 +1814,7 @@ end
 
 -- Dissect: End Of Day Message
 finra_otc_bbds_dfi_v2018_1a.end_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_day_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.end_of_day_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.end_of_day_message.fields(buffer, offset, packet, parent)
@@ -1920,7 +1854,7 @@ end
 
 -- Dissect: Start Of Day Message
 finra_otc_bbds_dfi_v2018_1a.start_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_day_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.start_of_day_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.start_of_day_message.fields(buffer, offset, packet, parent)
@@ -2134,7 +2068,7 @@ end
 
 -- Dissect: Trading Action Message
 finra_otc_bbds_dfi_v2018_1a.trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.trading_action_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.trading_action_message.fields(buffer, offset, packet, parent)
@@ -2178,7 +2112,7 @@ end
 
 -- Dissect: General Administrative Message
 finra_otc_bbds_dfi_v2018_1a.general_administrative_message.dissect = function(buffer, offset, packet, parent)
-  if show.general_administrative_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.general_administrative_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.general_administrative_message.fields(buffer, offset, packet, parent)
@@ -2453,7 +2387,7 @@ end
 
 -- Dissect: Market Participant Quote Update Message
 finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_participant_quote_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_update_message, buffer(offset, 0))
     local index = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields(buffer, offset, packet, parent)

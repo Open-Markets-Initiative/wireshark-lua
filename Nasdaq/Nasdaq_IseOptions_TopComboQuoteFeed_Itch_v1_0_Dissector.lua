@@ -99,46 +99,28 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_index = ProtoFi
 local show = {}
 
 -- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Element Dissection Options
-show.complex_strategy_directory_message = true
-show.complex_strategy_ticker_message = true
+show.application_messages = true
 show.leg_information = true
 show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
-show.strategy_best_ask_update = true
-show.strategy_best_bid_and_ask_update = true
-show.strategy_best_bid_update = true
-show.strategy_open_closed_message = true
-show.strategy_trading_action_message = true
-show.system_event_message = true
 
 -- Register Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Show Options
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_complex_strategy_directory_message = Pref.bool("Show Complex Strategy Directory Message", show.complex_strategy_directory_message, "Parse and add Complex Strategy Directory Message to protocol tree")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_complex_strategy_ticker_message = Pref.bool("Show Complex Strategy Ticker Message", show.complex_strategy_ticker_message, "Parse and add Complex Strategy Ticker Message to protocol tree")
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_leg_information = Pref.bool("Show Leg Information", show.leg_information, "Parse and add Leg Information to protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_ask_update = Pref.bool("Show Strategy Best Ask Update", show.strategy_best_ask_update, "Parse and add Strategy Best Ask Update to protocol tree")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_bid_and_ask_update = Pref.bool("Show Strategy Best Bid And Ask Update", show.strategy_best_bid_and_ask_update, "Parse and add Strategy Best Bid And Ask Update to protocol tree")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_bid_update = Pref.bool("Show Strategy Best Bid Update", show.strategy_best_bid_update, "Parse and add Strategy Best Bid Update to protocol tree")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_open_closed_message = Pref.bool("Show Strategy Open Closed Message", show.strategy_open_closed_message, "Parse and add Strategy Open Closed Message to protocol tree")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_trading_action_message = Pref.bool("Show Strategy Trading Action Message", show.strategy_trading_action_message, "Parse and add Strategy Trading Action Message to protocol tree")
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.complex_strategy_directory_message ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_complex_strategy_directory_message then
-    show.complex_strategy_directory_message = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_complex_strategy_directory_message
-    changed = true
-  end
-  if show.complex_strategy_ticker_message ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_complex_strategy_ticker_message then
-    show.complex_strategy_ticker_message = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_complex_strategy_ticker_message
+  if show.application_messages ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_application_messages
     changed = true
   end
   if show.leg_information ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_leg_information then
@@ -159,30 +141,6 @@ function omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs_changed()
   end
   if show.packet_header ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_packet_header
-    changed = true
-  end
-  if show.strategy_best_ask_update ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_ask_update then
-    show.strategy_best_ask_update = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_ask_update
-    changed = true
-  end
-  if show.strategy_best_bid_and_ask_update ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_bid_and_ask_update then
-    show.strategy_best_bid_and_ask_update = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_bid_and_ask_update
-    changed = true
-  end
-  if show.strategy_best_bid_update ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_bid_update then
-    show.strategy_best_bid_update = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_best_bid_update
-    changed = true
-  end
-  if show.strategy_open_closed_message ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_open_closed_message then
-    show.strategy_open_closed_message = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_open_closed_message
-    changed = true
-  end
-  if show.strategy_trading_action_message ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_trading_action_message then
-    show.strategy_trading_action_message = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_strategy_trading_action_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_system_event_message
     changed = true
   end
 
@@ -1752,7 +1710,7 @@ end
 
 -- Dissect: Complex Strategy Ticker Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_strategy_ticker_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.complex_strategy_ticker_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.fields(buffer, offset, packet, parent)
@@ -1828,7 +1786,7 @@ end
 
 -- Dissect: Strategy Best Ask Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_best_ask_update then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_best_ask_update, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update.fields(buffer, offset, packet, parent)
@@ -1904,7 +1862,7 @@ end
 
 -- Dissect: Strategy Best Bid Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_best_bid_update then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_best_bid_update, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.fields(buffer, offset, packet, parent)
@@ -2008,7 +1966,7 @@ end
 
 -- Dissect: Strategy Best Bid And Ask Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_best_bid_and_ask_update then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_best_bid_and_ask_update, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.fields(buffer, offset, packet, parent)
@@ -2056,7 +2014,7 @@ end
 
 -- Dissect: Strategy Trading Action Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_trading_action_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.fields(buffer, offset, packet, parent)
@@ -2104,7 +2062,7 @@ end
 
 -- Dissect: Strategy Open Closed Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_open_closed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_open_closed_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.fields(buffer, offset, packet, parent)
@@ -2265,7 +2223,7 @@ end
 
 -- Dissect: Complex Strategy Directory Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_strategy_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.complex_strategy_directory_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message.fields(buffer, offset, packet, parent)
@@ -2329,7 +2287,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.fields(buffer, offset, packet, parent)

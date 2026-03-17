@@ -39,28 +39,24 @@ omi_aquis_equities_replay_amd_v4_1.fields.replay_response_message = ProtoField.n
 local show = {}
 
 -- Aquis Equities Replay Amd 4.1 Element Dissection Options
-show.login_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
 show.packet = true
-show.replay_request_message = true
-show.replay_response_message = true
 
 -- Register Aquis Equities Replay Amd 4.1 Show Options
-omi_aquis_equities_replay_amd_v4_1.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
+omi_aquis_equities_replay_amd_v4_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_aquis_equities_replay_amd_v4_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_aquis_equities_replay_amd_v4_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_aquis_equities_replay_amd_v4_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_aquis_equities_replay_amd_v4_1.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
-omi_aquis_equities_replay_amd_v4_1.prefs.show_replay_response_message = Pref.bool("Show Replay Response Message", show.replay_response_message, "Parse and add Replay Response Message to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_replay_amd_v4_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.login_message ~= omi_aquis_equities_replay_amd_v4_1.prefs.show_login_message then
-    show.login_message = omi_aquis_equities_replay_amd_v4_1.prefs.show_login_message
+  if show.application_messages ~= omi_aquis_equities_replay_amd_v4_1.prefs.show_application_messages then
+    show.application_messages = omi_aquis_equities_replay_amd_v4_1.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_aquis_equities_replay_amd_v4_1.prefs.show_message then
@@ -73,14 +69,6 @@ function omi_aquis_equities_replay_amd_v4_1.prefs_changed()
   end
   if show.packet ~= omi_aquis_equities_replay_amd_v4_1.prefs.show_packet then
     show.packet = omi_aquis_equities_replay_amd_v4_1.prefs.show_packet
-    changed = true
-  end
-  if show.replay_request_message ~= omi_aquis_equities_replay_amd_v4_1.prefs.show_replay_request_message then
-    show.replay_request_message = omi_aquis_equities_replay_amd_v4_1.prefs.show_replay_request_message
-    changed = true
-  end
-  if show.replay_response_message ~= omi_aquis_equities_replay_amd_v4_1.prefs.show_replay_response_message then
-    show.replay_response_message = omi_aquis_equities_replay_amd_v4_1.prefs.show_replay_response_message
     changed = true
   end
 
@@ -360,7 +348,7 @@ end
 
 -- Dissect: Replay Response Message
 aquis_equities_replay_amd_v4_1.replay_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_replay_amd_v4_1.fields.replay_response_message, buffer(offset, 0))
     local index = aquis_equities_replay_amd_v4_1.replay_response_message.fields(buffer, offset, packet, parent)
@@ -404,7 +392,7 @@ end
 
 -- Dissect: Replay Request Message
 aquis_equities_replay_amd_v4_1.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_replay_amd_v4_1.fields.replay_request_message, buffer(offset, 0))
     local index = aquis_equities_replay_amd_v4_1.replay_request_message.fields(buffer, offset, packet, parent)
@@ -448,7 +436,7 @@ end
 
 -- Dissect: Login Message
 aquis_equities_replay_amd_v4_1.login_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_replay_amd_v4_1.fields.login_message, buffer(offset, 0))
     local index = aquis_equities_replay_amd_v4_1.login_message.fields(buffer, offset, packet, parent)

@@ -108,9 +108,7 @@ show.incremental_refresh_voi_group = true
 show.incremental_refresh_voi_groups = true
 show.low_px = true
 show.maturity_month_year = true
-show.md_incremental_refresh_high_low = true
-show.md_incremental_refresh_settle = true
-show.md_incremental_refresh_voi = true
+show.application_messages = true
 show.message = true
 show.message_header = true
 show.packet = true
@@ -131,9 +129,7 @@ omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group = 
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups = Pref.bool("Show Incremental Refresh Voi Groups", show.incremental_refresh_voi_groups, "Parse and add Incremental Refresh Voi Groups to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px = Pref.bool("Show Low Px", show.low_px, "Parse and add Low Px to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low = Pref.bool("Show Md Incremental Refresh High Low", show.md_incremental_refresh_high_low, "Parse and add Md Incremental Refresh High Low to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle = Pref.bool("Show Md Incremental Refresh Settle", show.md_incremental_refresh_settle, "Parse and add Md Incremental Refresh Settle to protocol tree")
-omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi = Pref.bool("Show Md Incremental Refresh Voi", show.md_incremental_refresh_voi, "Parse and add Md Incremental Refresh Voi to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -146,6 +142,10 @@ function omi_cme_futures_settlements_sbe_v7_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_application_messages then
+    show.application_messages = omi_cme_futures_settlements_sbe_v7_0.prefs.show_application_messages
+    changed = true
+  end
   if show.binary_packet_header ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header
     changed = true
@@ -192,18 +192,6 @@ function omi_cme_futures_settlements_sbe_v7_0.prefs_changed()
   end
   if show.maturity_month_year ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year then
     show.maturity_month_year = omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year
-    changed = true
-  end
-  if show.md_incremental_refresh_high_low ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low then
-    show.md_incremental_refresh_high_low = omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low
-    changed = true
-  end
-  if show.md_incremental_refresh_settle ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle then
-    show.md_incremental_refresh_settle = omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle
-    changed = true
-  end
-  if show.md_incremental_refresh_voi ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi then
-    show.md_incremental_refresh_voi = omi_cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi
     changed = true
   end
   if show.message ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_message then
@@ -1968,7 +1956,7 @@ end
 
 -- Dissect: Md Incremental Refresh High Low
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_high_low then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_high_low.fields(buffer, offset, packet, parent)
@@ -2193,7 +2181,7 @@ end
 
 -- Dissect: Md Incremental Refresh Voi
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_voi then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_voi.fields(buffer, offset, packet, parent)
@@ -2570,7 +2558,7 @@ end
 
 -- Dissect: Md Incremental Refresh Settle
 cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_settle then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle, buffer(offset, 0))
     local index = cme_futures_settlements_sbe_v7_0.md_incremental_refresh_settle.fields(buffer, offset, packet, parent)

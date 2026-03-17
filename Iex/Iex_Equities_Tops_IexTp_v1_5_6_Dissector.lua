@@ -103,52 +103,32 @@ omi_iex_equities_tops_iextp_v1_5_6.fields.message_index = ProtoField.new("Messag
 local show = {}
 
 -- Iex Equities Tops IexTp 1.5.6 Element Dissection Options
-show.auction_information_message = true
+show.application_messages = true
 show.iextp_header = true
 show.message = true
 show.message_header = true
-show.official_price_message = true
-show.operational_halt_status_message = true
 show.packet = true
 show.quote_update_flags = true
-show.quote_update_message = true
 show.sale_condition_flags = true
 show.security_directory_flags = true
-show.security_directory_message = true
-show.security_event_message = true
-show.short_sale_price_test_status_message = true
-show.system_event_message = true
-show.trade_break_message = true
-show.trade_report_message = true
-show.trading_status_message = true
 
 -- Register Iex Equities Tops IexTp 1.5.6 Show Options
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_auction_information_message = Pref.bool("Show Auction Information Message", show.auction_information_message, "Parse and add Auction Information Message to protocol tree")
+omi_iex_equities_tops_iextp_v1_5_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_iextp_header = Pref.bool("Show Iextp Header", show.iextp_header, "Parse and add Iextp Header to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_official_price_message = Pref.bool("Show Official Price Message", show.official_price_message, "Parse and add Official Price Message to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_operational_halt_status_message = Pref.bool("Show Operational Halt Status Message", show.operational_halt_status_message, "Parse and add Operational Halt Status Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_flags = Pref.bool("Show Quote Update Flags", show.quote_update_flags, "Parse and add Quote Update Flags to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags = Pref.bool("Show Sale Condition Flags", show.sale_condition_flags, "Parse and add Sale Condition Flags to protocol tree")
 omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_message = Pref.bool("Show Security Directory Message", show.security_directory_message, "Parse and add Security Directory Message to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_event_message = Pref.bool("Show Security Event Message", show.security_event_message, "Parse and add Security Event Message to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_short_sale_price_test_status_message = Pref.bool("Show Short Sale Price Test Status Message", show.short_sale_price_test_status_message, "Parse and add Short Sale Price Test Status Message to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
-omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
 
 -- Handle changed preferences
 function omi_iex_equities_tops_iextp_v1_5_6.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_information_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_auction_information_message then
-    show.auction_information_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_auction_information_message
+  if show.application_messages ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_application_messages then
+    show.application_messages = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_application_messages
     changed = true
   end
   if show.iextp_header ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_iextp_header then
@@ -163,14 +143,6 @@ function omi_iex_equities_tops_iextp_v1_5_6.prefs_changed()
     show.message_header = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_message_header
     changed = true
   end
-  if show.official_price_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_official_price_message then
-    show.official_price_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_official_price_message
-    changed = true
-  end
-  if show.operational_halt_status_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_operational_halt_status_message then
-    show.operational_halt_status_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_operational_halt_status_message
-    changed = true
-  end
   if show.packet ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_packet then
     show.packet = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_packet
     changed = true
@@ -179,44 +151,12 @@ function omi_iex_equities_tops_iextp_v1_5_6.prefs_changed()
     show.quote_update_flags = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_flags
     changed = true
   end
-  if show.quote_update_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_message then
-    show.quote_update_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_quote_update_message
-    changed = true
-  end
   if show.sale_condition_flags ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags then
     show.sale_condition_flags = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_sale_condition_flags
     changed = true
   end
   if show.security_directory_flags ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags then
     show.security_directory_flags = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_flags
-    changed = true
-  end
-  if show.security_directory_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_message then
-    show.security_directory_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_directory_message
-    changed = true
-  end
-  if show.security_event_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_event_message then
-    show.security_event_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_security_event_message
-    changed = true
-  end
-  if show.short_sale_price_test_status_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_short_sale_price_test_status_message then
-    show.short_sale_price_test_status_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_short_sale_price_test_status_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_system_event_message then
-    show.system_event_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_system_event_message
-    changed = true
-  end
-  if show.trade_break_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trade_break_message then
-    show.trade_break_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trade_break_message
-    changed = true
-  end
-  if show.trade_report_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trade_report_message then
-    show.trade_report_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trade_report_message
-    changed = true
-  end
-  if show.trading_status_message ~= omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trading_status_message then
-    show.trading_status_message = omi_iex_equities_tops_iextp_v1_5_6.prefs.show_trading_status_message
     changed = true
   end
 
@@ -1580,7 +1520,7 @@ end
 
 -- Dissect: Auction Information Message
 iex_equities_tops_iextp_v1_5_6.auction_information_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_information_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.auction_information_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.auction_information_message.fields(buffer, offset, packet, parent)
@@ -1704,7 +1644,7 @@ end
 
 -- Dissect: Trade Break Message
 iex_equities_tops_iextp_v1_5_6.trade_break_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_break_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.trade_break_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.trade_break_message.fields(buffer, offset, packet, parent)
@@ -1756,7 +1696,7 @@ end
 
 -- Dissect: Official Price Message
 iex_equities_tops_iextp_v1_5_6.official_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.official_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.official_price_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.official_price_message.fields(buffer, offset, packet, parent)
@@ -1816,7 +1756,7 @@ end
 
 -- Dissect: Trade Report Message
 iex_equities_tops_iextp_v1_5_6.trade_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.trade_report_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.trade_report_message.fields(buffer, offset, packet, parent)
@@ -1930,7 +1870,7 @@ end
 
 -- Dissect: Quote Update Message
 iex_equities_tops_iextp_v1_5_6.quote_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.quote_update_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.quote_update_message.fields(buffer, offset, packet, parent)
@@ -1978,7 +1918,7 @@ end
 
 -- Dissect: Security Event Message
 iex_equities_tops_iextp_v1_5_6.security_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.security_event_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.security_event_message.fields(buffer, offset, packet, parent)
@@ -2030,7 +1970,7 @@ end
 
 -- Dissect: Short Sale Price Test Status Message
 iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_sale_price_test_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.short_sale_price_test_status_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.short_sale_price_test_status_message.fields(buffer, offset, packet, parent)
@@ -2078,7 +2018,7 @@ end
 
 -- Dissect: Operational Halt Status Message
 iex_equities_tops_iextp_v1_5_6.operational_halt_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.operational_halt_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.operational_halt_status_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.operational_halt_status_message.fields(buffer, offset, packet, parent)
@@ -2130,7 +2070,7 @@ end
 
 -- Dissect: Trading Status Message
 iex_equities_tops_iextp_v1_5_6.trading_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.trading_status_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.trading_status_message.fields(buffer, offset, packet, parent)
@@ -2247,7 +2187,7 @@ end
 
 -- Dissect: Security Directory Message
 iex_equities_tops_iextp_v1_5_6.security_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.security_directory_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.security_directory_message.fields(buffer, offset, packet, parent)
@@ -2291,7 +2231,7 @@ end
 
 -- Dissect: System Event Message
 iex_equities_tops_iextp_v1_5_6.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_tops_iextp_v1_5_6.fields.system_event_message, buffer(offset, 0))
     local index = iex_equities_tops_iextp_v1_5_6.system_event_message.fields(buffer, offset, packet, parent)

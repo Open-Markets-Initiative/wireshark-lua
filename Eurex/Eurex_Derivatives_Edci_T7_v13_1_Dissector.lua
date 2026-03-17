@@ -139,54 +139,30 @@ local show = {}
 
 -- Eurex Derivatives Edci T7 13.1 Element Dissection Options
 show.affected_ord_grp_comp = true
-show.delete_order_broadcast = true
+show.application_messages = true
 show.fills_grp_comp = true
-show.forced_logout_notification = true
-show.heartbeat = true
-show.heartbeat_notification = true
-show.logon_request = true
-show.logon_response = true
-show.logout_request = true
-show.logout_response = true
 show.message = true
 show.message_header = true
 show.notif_header_comp = true
-show.order_exec_report_broadcast = true
 show.packet = true
 show.partition_grp_comp = true
-show.partition_list_notification = true
 show.rbc_header_comp = true
-show.reject = true
 show.request_header_comp = true
 show.response_header_comp = true
-show.session_list_notification = true
-show.session_status_broadcast = true
 show.sessions_grp_comp = true
 
 -- Register Eurex Derivatives Edci T7 13.1 Show Options
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_affected_ord_grp_comp = Pref.bool("Show Affected Ord Grp Comp", show.affected_ord_grp_comp, "Parse and add Affected Ord Grp Comp to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_delete_order_broadcast = Pref.bool("Show Delete Order Broadcast", show.delete_order_broadcast, "Parse and add Delete Order Broadcast to protocol tree")
+omi_eurex_derivatives_edci_t7_v13_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_fills_grp_comp = Pref.bool("Show Fills Grp Comp", show.fills_grp_comp, "Parse and add Fills Grp Comp to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_forced_logout_notification = Pref.bool("Show Forced Logout Notification", show.forced_logout_notification, "Parse and add Forced Logout Notification to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_heartbeat_notification = Pref.bool("Show Heartbeat Notification", show.heartbeat_notification, "Parse and add Heartbeat Notification to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logon_request = Pref.bool("Show Logon Request", show.logon_request, "Parse and add Logon Request to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logon_response = Pref.bool("Show Logon Response", show.logon_response, "Parse and add Logon Response to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logout_response = Pref.bool("Show Logout Response", show.logout_response, "Parse and add Logout Response to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_notif_header_comp = Pref.bool("Show Notif Header Comp", show.notif_header_comp, "Parse and add Notif Header Comp to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_order_exec_report_broadcast = Pref.bool("Show Order Exec Report Broadcast", show.order_exec_report_broadcast, "Parse and add Order Exec Report Broadcast to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_partition_grp_comp = Pref.bool("Show Partition Grp Comp", show.partition_grp_comp, "Parse and add Partition Grp Comp to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_partition_list_notification = Pref.bool("Show Partition List Notification", show.partition_list_notification, "Parse and add Partition List Notification to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_rbc_header_comp = Pref.bool("Show Rbc Header Comp", show.rbc_header_comp, "Parse and add Rbc Header Comp to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_reject = Pref.bool("Show Reject", show.reject, "Parse and add Reject to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_request_header_comp = Pref.bool("Show Request Header Comp", show.request_header_comp, "Parse and add Request Header Comp to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_response_header_comp = Pref.bool("Show Response Header Comp", show.response_header_comp, "Parse and add Response Header Comp to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_session_list_notification = Pref.bool("Show Session List Notification", show.session_list_notification, "Parse and add Session List Notification to protocol tree")
-omi_eurex_derivatives_edci_t7_v13_1.prefs.show_session_status_broadcast = Pref.bool("Show Session Status Broadcast", show.session_status_broadcast, "Parse and add Session Status Broadcast to protocol tree")
 omi_eurex_derivatives_edci_t7_v13_1.prefs.show_sessions_grp_comp = Pref.bool("Show Sessions Grp Comp", show.sessions_grp_comp, "Parse and add Sessions Grp Comp to protocol tree")
 
 -- Handle changed preferences
@@ -198,40 +174,12 @@ function omi_eurex_derivatives_edci_t7_v13_1.prefs_changed()
     show.affected_ord_grp_comp = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_affected_ord_grp_comp
     changed = true
   end
-  if show.delete_order_broadcast ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_delete_order_broadcast then
-    show.delete_order_broadcast = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_delete_order_broadcast
+  if show.application_messages ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_application_messages then
+    show.application_messages = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_application_messages
     changed = true
   end
   if show.fills_grp_comp ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_fills_grp_comp then
     show.fills_grp_comp = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_fills_grp_comp
-    changed = true
-  end
-  if show.forced_logout_notification ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_forced_logout_notification then
-    show.forced_logout_notification = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_forced_logout_notification
-    changed = true
-  end
-  if show.heartbeat ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_heartbeat then
-    show.heartbeat = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_heartbeat
-    changed = true
-  end
-  if show.heartbeat_notification ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_heartbeat_notification then
-    show.heartbeat_notification = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_heartbeat_notification
-    changed = true
-  end
-  if show.logon_request ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logon_request then
-    show.logon_request = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logon_request
-    changed = true
-  end
-  if show.logon_response ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logon_response then
-    show.logon_response = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logon_response
-    changed = true
-  end
-  if show.logout_request ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logout_request then
-    show.logout_request = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logout_request
-    changed = true
-  end
-  if show.logout_response ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logout_response then
-    show.logout_response = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_logout_response
     changed = true
   end
   if show.message ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_message then
@@ -246,10 +194,6 @@ function omi_eurex_derivatives_edci_t7_v13_1.prefs_changed()
     show.notif_header_comp = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_notif_header_comp
     changed = true
   end
-  if show.order_exec_report_broadcast ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_order_exec_report_broadcast then
-    show.order_exec_report_broadcast = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_order_exec_report_broadcast
-    changed = true
-  end
   if show.packet ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_packet then
     show.packet = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_packet
     changed = true
@@ -258,16 +202,8 @@ function omi_eurex_derivatives_edci_t7_v13_1.prefs_changed()
     show.partition_grp_comp = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_partition_grp_comp
     changed = true
   end
-  if show.partition_list_notification ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_partition_list_notification then
-    show.partition_list_notification = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_partition_list_notification
-    changed = true
-  end
   if show.rbc_header_comp ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_rbc_header_comp then
     show.rbc_header_comp = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_rbc_header_comp
-    changed = true
-  end
-  if show.reject ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_reject then
-    show.reject = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_reject
     changed = true
   end
   if show.request_header_comp ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_request_header_comp then
@@ -276,14 +212,6 @@ function omi_eurex_derivatives_edci_t7_v13_1.prefs_changed()
   end
   if show.response_header_comp ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_response_header_comp then
     show.response_header_comp = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_response_header_comp
-    changed = true
-  end
-  if show.session_list_notification ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_session_list_notification then
-    show.session_list_notification = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_session_list_notification
-    changed = true
-  end
-  if show.session_status_broadcast ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_session_status_broadcast then
-    show.session_status_broadcast = omi_eurex_derivatives_edci_t7_v13_1.prefs.show_session_status_broadcast
     changed = true
   end
   if show.sessions_grp_comp ~= omi_eurex_derivatives_edci_t7_v13_1.prefs.show_sessions_grp_comp then
@@ -3194,7 +3122,7 @@ eurex_derivatives_edci_t7_v13_1.session_status_broadcast.dissect = function(buff
   local index = offset + size_of_session_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.session_status_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.session_status_broadcast, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.session_status_broadcast.fields(buffer, offset, packet, parent, size_of_session_status_broadcast)
     parent:set_len(size_of_session_status_broadcast)
@@ -3356,7 +3284,7 @@ eurex_derivatives_edci_t7_v13_1.session_list_notification.dissect = function(buf
   local index = offset + size_of_session_list_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.session_list_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.session_list_notification, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.session_list_notification.fields(buffer, offset, packet, parent, size_of_session_list_notification)
     parent:set_len(size_of_session_list_notification)
@@ -3494,7 +3422,7 @@ eurex_derivatives_edci_t7_v13_1.reject.dissect = function(buffer, offset, packet
   local index = offset + size_of_reject
 
   -- Optionally add group/struct element to protocol tree
-  if show.reject then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.reject, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.reject.fields(buffer, offset, packet, parent, size_of_reject)
     parent:set_len(size_of_reject)
@@ -3608,7 +3536,7 @@ eurex_derivatives_edci_t7_v13_1.partition_list_notification.dissect = function(b
   local index = offset + size_of_partition_list_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.partition_list_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.partition_list_notification, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.partition_list_notification.fields(buffer, offset, packet, parent, size_of_partition_list_notification)
     parent:set_len(size_of_partition_list_notification)
@@ -3850,7 +3778,7 @@ eurex_derivatives_edci_t7_v13_1.order_exec_report_broadcast.dissect = function(b
   local index = offset + size_of_order_exec_report_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_exec_report_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.order_exec_report_broadcast, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.order_exec_report_broadcast.fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
     parent:set_len(size_of_order_exec_report_broadcast)
@@ -3903,7 +3831,7 @@ eurex_derivatives_edci_t7_v13_1.logout_response.dissect = function(buffer, offse
   local index = offset + size_of_logout_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.logout_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.logout_response, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
     parent:set_len(size_of_logout_response)
@@ -4000,7 +3928,7 @@ eurex_derivatives_edci_t7_v13_1.logout_request.dissect = function(buffer, offset
   local index = offset + size_of_logout_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.logout_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.logout_request, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
     parent:set_len(size_of_logout_request)
@@ -4074,7 +4002,7 @@ eurex_derivatives_edci_t7_v13_1.logon_response.dissect = function(buffer, offset
   local index = offset + size_of_logon_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.logon_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.logon_response, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
     parent:set_len(size_of_logon_response)
@@ -4142,7 +4070,7 @@ eurex_derivatives_edci_t7_v13_1.logon_request.dissect = function(buffer, offset,
   local index = offset + size_of_logon_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.logon_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.logon_request, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
     parent:set_len(size_of_logon_request)
@@ -4195,7 +4123,7 @@ eurex_derivatives_edci_t7_v13_1.heartbeat_notification.dissect = function(buffer
   local index = offset + size_of_heartbeat_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.heartbeat_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.heartbeat_notification, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
     parent:set_len(size_of_heartbeat_notification)
@@ -4245,7 +4173,7 @@ eurex_derivatives_edci_t7_v13_1.heartbeat.dissect = function(buffer, offset, pac
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
-  if show.heartbeat then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.heartbeat, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
     parent:set_len(size_of_heartbeat)
@@ -4321,7 +4249,7 @@ eurex_derivatives_edci_t7_v13_1.forced_logout_notification.dissect = function(bu
   local index = offset + size_of_forced_logout_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.forced_logout_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.forced_logout_notification, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
     parent:set_len(size_of_forced_logout_notification)
@@ -4477,7 +4405,7 @@ eurex_derivatives_edci_t7_v13_1.delete_order_broadcast.dissect = function(buffer
   local index = offset + size_of_delete_order_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_order_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_1.fields.delete_order_broadcast, buffer(offset, 0))
     local current = eurex_derivatives_edci_t7_v13_1.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
     parent:set_len(size_of_delete_order_broadcast)

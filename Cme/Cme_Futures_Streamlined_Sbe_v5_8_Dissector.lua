@@ -303,8 +303,7 @@ local show = {}
 
 -- Cme Futures Streamlined Sbe 5.8 Element Dissection Options
 show.accrued_coupons = true
-show.admin_login = true
-show.admin_logout = true
+show.application_messages = true
 show.binary_packet_header = true
 show.cal_fut_px = true
 show.cal_fut_px_optional = true
@@ -352,16 +351,6 @@ show.maturity_month_year = true
 show.md_entry_px_decimal = true
 show.md_entry_px_decimal_optional = true
 show.md_entry_size = true
-show.md_incremental_refresh_eris_351 = true
-show.md_incremental_refresh_eris_353 = true
-show.md_incremental_refresh_eris_reference_data_and_daily_statistics = true
-show.md_incremental_refresh_indices = true
-show.md_incremental_refresh_otc = true
-show.md_incremental_refresh_trade_blocks_340 = true
-show.md_incremental_refresh_trade_blocks_349 = true
-show.md_instrument_definition_eris = true
-show.md_instrument_definition_indices = true
-show.md_news_indices = true
 show.message = true
 show.message_header = true
 show.min_price_increment = true
@@ -384,7 +373,6 @@ show.packet = true
 show.percent_trading = true
 show.previous_eris_pai = true
 show.previous_fixing_rate = true
-show.quote_request = true
 show.quote_request_related_sym_group = true
 show.quote_request_related_sym_groups = true
 show.settl_price_type = true
@@ -406,8 +394,7 @@ show.yield = true
 
 -- Register Cme Futures Streamlined Sbe 5.8 Show Options
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_accrued_coupons = Pref.bool("Show Accrued Coupons", show.accrued_coupons, "Parse and add Accrued Coupons to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_admin_login = Pref.bool("Show Admin Login", show.admin_login, "Parse and add Admin Login to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_admin_logout = Pref.bool("Show Admin Logout", show.admin_logout, "Parse and add Admin Logout to protocol tree")
+omi_cme_futures_streamlined_sbe_v5_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_cal_fut_px = Pref.bool("Show Cal Fut Px", show.cal_fut_px, "Parse and add Cal Fut Px to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_cal_fut_px_optional = Pref.bool("Show Cal Fut Px Optional", show.cal_fut_px_optional, "Parse and add Cal Fut Px Optional to protocol tree")
@@ -455,16 +442,6 @@ omi_cme_futures_streamlined_sbe_v5_8.prefs.show_maturity_month_year = Pref.bool(
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_entry_px_decimal = Pref.bool("Show Md Entry Px Decimal", show.md_entry_px_decimal, "Parse and add Md Entry Px Decimal to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_entry_px_decimal_optional = Pref.bool("Show Md Entry Px Decimal Optional", show.md_entry_px_decimal_optional, "Parse and add Md Entry Px Decimal Optional to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_entry_size = Pref.bool("Show Md Entry Size", show.md_entry_size, "Parse and add Md Entry Size to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_351 = Pref.bool("Show Md Incremental Refresh Eris 351", show.md_incremental_refresh_eris_351, "Parse and add Md Incremental Refresh Eris 351 to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_353 = Pref.bool("Show Md Incremental Refresh Eris 353", show.md_incremental_refresh_eris_353, "Parse and add Md Incremental Refresh Eris 353 to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics = Pref.bool("Show Md Incremental Refresh Eris Reference Data And Daily Statistics", show.md_incremental_refresh_eris_reference_data_and_daily_statistics, "Parse and add Md Incremental Refresh Eris Reference Data And Daily Statistics to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_indices = Pref.bool("Show Md Incremental Refresh Indices", show.md_incremental_refresh_indices, "Parse and add Md Incremental Refresh Indices to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_otc = Pref.bool("Show Md Incremental Refresh Otc", show.md_incremental_refresh_otc, "Parse and add Md Incremental Refresh Otc to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_trade_blocks_340 = Pref.bool("Show Md Incremental Refresh Trade Blocks 340", show.md_incremental_refresh_trade_blocks_340, "Parse and add Md Incremental Refresh Trade Blocks 340 to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_trade_blocks_349 = Pref.bool("Show Md Incremental Refresh Trade Blocks 349", show.md_incremental_refresh_trade_blocks_349, "Parse and add Md Incremental Refresh Trade Blocks 349 to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_instrument_definition_eris = Pref.bool("Show Md Instrument Definition Eris", show.md_instrument_definition_eris, "Parse and add Md Instrument Definition Eris to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_instrument_definition_indices = Pref.bool("Show Md Instrument Definition Indices", show.md_instrument_definition_indices, "Parse and add Md Instrument Definition Indices to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_news_indices = Pref.bool("Show Md News Indices", show.md_news_indices, "Parse and add Md News Indices to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_min_price_increment = Pref.bool("Show Min Price Increment", show.min_price_increment, "Parse and add Min Price Increment to protocol tree")
@@ -487,7 +464,6 @@ omi_cme_futures_streamlined_sbe_v5_8.prefs.show_packet = Pref.bool("Show Packet"
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_percent_trading = Pref.bool("Show Percent Trading", show.percent_trading, "Parse and add Percent Trading to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_previous_eris_pai = Pref.bool("Show Previous Eris Pai", show.previous_eris_pai, "Parse and add Previous Eris Pai to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_previous_fixing_rate = Pref.bool("Show Previous Fixing Rate", show.previous_fixing_rate, "Parse and add Previous Fixing Rate to protocol tree")
-omi_cme_futures_streamlined_sbe_v5_8.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_quote_request_related_sym_group = Pref.bool("Show Quote Request Related Sym Group", show.quote_request_related_sym_group, "Parse and add Quote Request Related Sym Group to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_quote_request_related_sym_groups = Pref.bool("Show Quote Request Related Sym Groups", show.quote_request_related_sym_groups, "Parse and add Quote Request Related Sym Groups to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_8.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
@@ -516,12 +492,8 @@ function omi_cme_futures_streamlined_sbe_v5_8.prefs_changed()
     show.accrued_coupons = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_accrued_coupons
     changed = true
   end
-  if show.admin_login ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_admin_login then
-    show.admin_login = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_admin_login
-    changed = true
-  end
-  if show.admin_logout ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_admin_logout then
-    show.admin_logout = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_admin_logout
+  if show.application_messages ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_application_messages then
+    show.application_messages = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_application_messages
     changed = true
   end
   if show.binary_packet_header ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_binary_packet_header then
@@ -712,46 +684,6 @@ function omi_cme_futures_streamlined_sbe_v5_8.prefs_changed()
     show.md_entry_size = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_entry_size
     changed = true
   end
-  if show.md_incremental_refresh_eris_351 ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_351 then
-    show.md_incremental_refresh_eris_351 = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_351
-    changed = true
-  end
-  if show.md_incremental_refresh_eris_353 ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_353 then
-    show.md_incremental_refresh_eris_353 = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_353
-    changed = true
-  end
-  if show.md_incremental_refresh_eris_reference_data_and_daily_statistics ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics then
-    show.md_incremental_refresh_eris_reference_data_and_daily_statistics = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics
-    changed = true
-  end
-  if show.md_incremental_refresh_indices ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_indices then
-    show.md_incremental_refresh_indices = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_indices
-    changed = true
-  end
-  if show.md_incremental_refresh_otc ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_otc then
-    show.md_incremental_refresh_otc = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_otc
-    changed = true
-  end
-  if show.md_incremental_refresh_trade_blocks_340 ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_trade_blocks_340 then
-    show.md_incremental_refresh_trade_blocks_340 = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_trade_blocks_340
-    changed = true
-  end
-  if show.md_incremental_refresh_trade_blocks_349 ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_trade_blocks_349 then
-    show.md_incremental_refresh_trade_blocks_349 = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_incremental_refresh_trade_blocks_349
-    changed = true
-  end
-  if show.md_instrument_definition_eris ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_instrument_definition_eris then
-    show.md_instrument_definition_eris = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_instrument_definition_eris
-    changed = true
-  end
-  if show.md_instrument_definition_indices ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_instrument_definition_indices then
-    show.md_instrument_definition_indices = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_instrument_definition_indices
-    changed = true
-  end
-  if show.md_news_indices ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_news_indices then
-    show.md_news_indices = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_md_news_indices
-    changed = true
-  end
   if show.message ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_message then
     show.message = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_message
     changed = true
@@ -838,10 +770,6 @@ function omi_cme_futures_streamlined_sbe_v5_8.prefs_changed()
   end
   if show.previous_fixing_rate ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_previous_fixing_rate then
     show.previous_fixing_rate = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_previous_fixing_rate
-    changed = true
-  end
-  if show.quote_request ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_quote_request then
-    show.quote_request = omi_cme_futures_streamlined_sbe_v5_8.prefs.show_quote_request
     changed = true
   end
   if show.quote_request_related_sym_group ~= omi_cme_futures_streamlined_sbe_v5_8.prefs.show_quote_request_related_sym_group then
@@ -6413,7 +6341,7 @@ end
 
 -- Dissect: Md Instrument Definition Eris
 cme_futures_streamlined_sbe_v5_8.md_instrument_definition_eris.dissect = function(buffer, offset, packet, parent)
-  if show.md_instrument_definition_eris then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_instrument_definition_eris, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_instrument_definition_eris.fields(buffer, offset, packet, parent)
@@ -7320,7 +7248,7 @@ end
 
 -- Dissect: Md Incremental Refresh Otc
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_otc.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_otc then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_incremental_refresh_otc, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_otc.fields(buffer, offset, packet, parent)
@@ -7686,7 +7614,7 @@ end
 
 -- Dissect: Md Incremental Refresh Eris 353
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_353.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_eris_353 then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_incremental_refresh_eris_353, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_353.fields(buffer, offset, packet, parent)
@@ -7945,7 +7873,7 @@ end
 
 -- Dissect: Md Incremental Refresh Eris 351
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_351.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_eris_351 then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_incremental_refresh_eris_351, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_351.fields(buffer, offset, packet, parent)
@@ -8707,7 +8635,7 @@ end
 
 -- Dissect: Md Incremental Refresh Trade Blocks 349
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_trade_blocks_349.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_trade_blocks_349 then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_incremental_refresh_trade_blocks_349, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_trade_blocks_349.fields(buffer, offset, packet, parent)
@@ -9135,7 +9063,7 @@ end
 
 -- Dissect: Md Incremental Refresh Indices
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_indices.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_indices then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_incremental_refresh_indices, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_indices.fields(buffer, offset, packet, parent)
@@ -9371,7 +9299,7 @@ end
 
 -- Dissect: Md Instrument Definition Indices
 cme_futures_streamlined_sbe_v5_8.md_instrument_definition_indices.dissect = function(buffer, offset, packet, parent)
-  if show.md_instrument_definition_indices then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_instrument_definition_indices, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_instrument_definition_indices.fields(buffer, offset, packet, parent)
@@ -9585,7 +9513,7 @@ end
 
 -- Dissect: Quote Request
 cme_futures_streamlined_sbe_v5_8.quote_request.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.quote_request, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.quote_request.fields(buffer, offset, packet, parent)
@@ -9909,7 +9837,7 @@ end
 
 -- Dissect: Md Incremental Refresh Trade Blocks 340
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_trade_blocks_340.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_trade_blocks_340 then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_incremental_refresh_trade_blocks_340, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_trade_blocks_340.fields(buffer, offset, packet, parent)
@@ -10180,7 +10108,7 @@ end
 
 -- Dissect: Md News Indices
 cme_futures_streamlined_sbe_v5_8.md_news_indices.dissect = function(buffer, offset, packet, parent)
-  if show.md_news_indices then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_news_indices, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_news_indices.fields(buffer, offset, packet, parent)
@@ -11957,7 +11885,7 @@ end
 
 -- Dissect: Md Incremental Refresh Eris Reference Data And Daily Statistics
 cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_reference_data_and_daily_statistics.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_eris_reference_data_and_daily_statistics then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.md_incremental_refresh_eris_reference_data_and_daily_statistics.fields(buffer, offset, packet, parent)
@@ -11997,7 +11925,7 @@ end
 
 -- Dissect: Admin Logout
 cme_futures_streamlined_sbe_v5_8.admin_logout.dissect = function(buffer, offset, packet, parent)
-  if show.admin_logout then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.admin_logout, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.admin_logout.fields(buffer, offset, packet, parent)
@@ -12037,7 +11965,7 @@ end
 
 -- Dissect: Admin Login
 cme_futures_streamlined_sbe_v5_8.admin_login.dissect = function(buffer, offset, packet, parent)
-  if show.admin_login then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_streamlined_sbe_v5_8.fields.admin_login, buffer(offset, 0))
     local index = cme_futures_streamlined_sbe_v5_8.admin_login.fields(buffer, offset, packet, parent)

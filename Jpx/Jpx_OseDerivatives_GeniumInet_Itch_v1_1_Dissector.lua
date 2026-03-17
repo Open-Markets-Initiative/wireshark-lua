@@ -110,66 +110,28 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_index = ProtoField.ne
 local show = {}
 
 -- Jpx OseDerivatives GeniumInet Itch 1.1 Element Dissection Options
-show.add_order_no_mpid = true
-show.add_order_with_mpid = true
-show.combination_orderbook_leg = true
-show.equilibrium_price_update = true
+show.application_messages = true
 show.message = true
 show.message_header = true
 show.order_attributes = true
-show.order_book_directory = true
-show.order_book_state_message = true
-show.order_delete_message = true
-show.order_executed_message = true
-show.order_executed_with_price_message = true
-show.order_replace_message = true
 show.packet = true
 show.packet_header = true
-show.seconds_message = true
-show.system_event_message = true
-show.tick_size_table_entry = true
-show.trade_message = true
 
 -- Register Jpx OseDerivatives GeniumInet Itch 1.1 Show Options
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_add_order_no_mpid = Pref.bool("Show Add Order No Mpid", show.add_order_no_mpid, "Parse and add Add Order No Mpid to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_add_order_with_mpid = Pref.bool("Show Add Order With Mpid", show.add_order_with_mpid, "Parse and add Add Order With Mpid to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_combination_orderbook_leg = Pref.bool("Show Combination Orderbook Leg", show.combination_orderbook_leg, "Parse and add Combination Orderbook Leg to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_equilibrium_price_update = Pref.bool("Show Equilibrium Price Update", show.equilibrium_price_update, "Parse and add Equilibrium Price Update to protocol tree")
+omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_attributes = Pref.bool("Show Order Attributes", show.order_attributes, "Parse and add Order Attributes to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_book_directory = Pref.bool("Show Order Book Directory", show.order_book_directory, "Parse and add Order Book Directory to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_book_state_message = Pref.bool("Show Order Book State Message", show.order_book_state_message, "Parse and add Order Book State Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_executed_with_price_message = Pref.bool("Show Order Executed With Price Message", show.order_executed_with_price_message, "Parse and add Order Executed With Price Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_seconds_message = Pref.bool("Show Seconds Message", show.seconds_message, "Parse and add Seconds Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_tick_size_table_entry = Pref.bool("Show Tick Size Table Entry", show.tick_size_table_entry, "Parse and add Tick Size Table Entry to protocol tree")
-omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_no_mpid ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_add_order_no_mpid then
-    show.add_order_no_mpid = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_add_order_no_mpid
-    changed = true
-  end
-  if show.add_order_with_mpid ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_add_order_with_mpid then
-    show.add_order_with_mpid = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_add_order_with_mpid
-    changed = true
-  end
-  if show.combination_orderbook_leg ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_combination_orderbook_leg then
-    show.combination_orderbook_leg = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_combination_orderbook_leg
-    changed = true
-  end
-  if show.equilibrium_price_update ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_equilibrium_price_update then
-    show.equilibrium_price_update = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_equilibrium_price_update
+  if show.application_messages ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_application_messages then
+    show.application_messages = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_message then
@@ -184,52 +146,12 @@ function omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs_changed()
     show.order_attributes = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_attributes
     changed = true
   end
-  if show.order_book_directory ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_book_directory then
-    show.order_book_directory = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_book_directory
-    changed = true
-  end
-  if show.order_book_state_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_book_state_message then
-    show.order_book_state_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_book_state_message
-    changed = true
-  end
-  if show.order_delete_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_delete_message then
-    show.order_delete_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_delete_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_executed_message then
-    show.order_executed_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_executed_with_price_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_executed_with_price_message then
-    show.order_executed_with_price_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_executed_with_price_message
-    changed = true
-  end
-  if show.order_replace_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_replace_message then
-    show.order_replace_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_order_replace_message
-    changed = true
-  end
   if show.packet ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_packet then
     show.packet = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_packet_header then
     show.packet_header = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_packet_header
-    changed = true
-  end
-  if show.seconds_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_seconds_message then
-    show.seconds_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_seconds_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_system_event_message then
-    show.system_event_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_system_event_message
-    changed = true
-  end
-  if show.tick_size_table_entry ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_tick_size_table_entry then
-    show.tick_size_table_entry = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_tick_size_table_entry
-    changed = true
-  end
-  if show.trade_message ~= omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_trade_message then
-    show.trade_message = omi_jpx_osederivatives_geniuminet_itch_v1_1.prefs.show_trade_message
     changed = true
   end
 
@@ -1772,7 +1694,7 @@ end
 
 -- Dissect: Equilibrium Price Update
 jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update.dissect = function(buffer, offset, packet, parent)
-  if show.equilibrium_price_update then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.equilibrium_price_update, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update.fields(buffer, offset, packet, parent)
@@ -1852,7 +1774,7 @@ end
 
 -- Dissect: Trade Message
 jpx_osederivatives_geniuminet_itch_v1_1.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trade_message, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.trade_message.fields(buffer, offset, packet, parent)
@@ -1904,7 +1826,7 @@ end
 
 -- Dissect: Order Delete Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_delete_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_delete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_delete_message, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.order_delete_message.fields(buffer, offset, packet, parent)
@@ -2050,7 +1972,7 @@ end
 
 -- Dissect: Order Replace Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_replace_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_replace_message, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message.fields(buffer, offset, packet, parent)
@@ -2134,7 +2056,7 @@ end
 
 -- Dissect: Order Executed With Price Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_executed_with_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_with_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_executed_with_price_message, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.order_executed_with_price_message.fields(buffer, offset, packet, parent)
@@ -2206,7 +2128,7 @@ end
 
 -- Dissect: Order Executed Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_executed_message, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message.fields(buffer, offset, packet, parent)
@@ -2282,7 +2204,7 @@ end
 
 -- Dissect: Add Order With Mpid
 jpx_osederivatives_geniuminet_itch_v1_1.add_order_with_mpid.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_with_mpid then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.add_order_with_mpid, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.add_order_with_mpid.fields(buffer, offset, packet, parent)
@@ -2354,7 +2276,7 @@ end
 
 -- Dissect: Add Order No Mpid
 jpx_osederivatives_geniuminet_itch_v1_1.add_order_no_mpid.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_no_mpid then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.add_order_no_mpid, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.add_order_no_mpid.fields(buffer, offset, packet, parent)
@@ -2402,7 +2324,7 @@ end
 
 -- Dissect: Order Book State Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_book_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_book_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_book_state_message, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.order_book_state_message.fields(buffer, offset, packet, parent)
@@ -2446,7 +2368,7 @@ end
 
 -- Dissect: System Event Message
 jpx_osederivatives_geniuminet_itch_v1_1.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.system_event_message, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.system_event_message.fields(buffer, offset, packet, parent)
@@ -2502,7 +2424,7 @@ end
 
 -- Dissect: Tick Size Table Entry
 jpx_osederivatives_geniuminet_itch_v1_1.tick_size_table_entry.dissect = function(buffer, offset, packet, parent)
-  if show.tick_size_table_entry then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.tick_size_table_entry, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.tick_size_table_entry.fields(buffer, offset, packet, parent)
@@ -2558,7 +2480,7 @@ end
 
 -- Dissect: Combination Orderbook Leg
 jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg.dissect = function(buffer, offset, packet, parent)
-  if show.combination_orderbook_leg then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.combination_orderbook_leg, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg.fields(buffer, offset, packet, parent)
@@ -2670,7 +2592,7 @@ end
 
 -- Dissect: Order Book Directory
 jpx_osederivatives_geniuminet_itch_v1_1.order_book_directory.dissect = function(buffer, offset, packet, parent)
-  if show.order_book_directory then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_book_directory, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.order_book_directory.fields(buffer, offset, packet, parent)
@@ -2713,7 +2635,7 @@ end
 
 -- Dissect: Seconds Message
 jpx_osederivatives_geniuminet_itch_v1_1.seconds_message.dissect = function(buffer, offset, packet, parent)
-  if show.seconds_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.seconds_message, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v1_1.seconds_message.fields(buffer, offset, packet, parent)

@@ -92,100 +92,40 @@ omi_memx_options_memoirtop_sbe_v1_6_a.fields.underlier_instrument_status_message
 local show = {}
 
 -- Memx Options MemoirTop Sbe 1.6.a Element Dissection Options
-show.best_bid_message = true
-show.best_bid_offer_message = true
-show.best_bid_short_message = true
-show.best_offer_message = true
-show.best_offer_short_message = true
-show.broken_trade_message = true
-show.clear_book_message = true
+show.application_messages = true
 show.common_header = true
-show.corrected_trade_message = true
-show.instrument_directory_message = true
 show.message = true
-show.options_instrument_status_message = true
 show.packet = true
 show.sbe_header = true
 show.sbe_message = true
 show.sequenced_message = true
-show.snapshot_complete_message = true
 show.trade_conditions = true
-show.trade_message = true
-show.underlier_instrument_status_message = true
 
 -- Register Memx Options MemoirTop Sbe 1.6.a Show Options
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message = Pref.bool("Show Best Bid Message", show.best_bid_message, "Parse and add Best Bid Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message = Pref.bool("Show Best Bid Offer Message", show.best_bid_offer_message, "Parse and add Best Bid Offer Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message = Pref.bool("Show Best Bid Short Message", show.best_bid_short_message, "Parse and add Best Bid Short Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message = Pref.bool("Show Best Offer Message", show.best_offer_message, "Parse and add Best Offer Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message = Pref.bool("Show Best Offer Short Message", show.best_offer_short_message, "Parse and add Best Offer Short Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
+omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message = Pref.bool("Show Corrected Trade Message", show.corrected_trade_message, "Parse and add Corrected Trade Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message = Pref.bool("Show Options Instrument Status Message", show.options_instrument_status_message, "Parse and add Options Instrument Status Message to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
 omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message = Pref.bool("Show Underlier Instrument Status Message", show.underlier_instrument_status_message, "Parse and add Underlier Instrument Status Message to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_options_memoirtop_sbe_v1_6_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.best_bid_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message then
-    show.best_bid_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_message
-    changed = true
-  end
-  if show.best_bid_offer_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message then
-    show.best_bid_offer_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_offer_message
-    changed = true
-  end
-  if show.best_bid_short_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message then
-    show.best_bid_short_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_bid_short_message
-    changed = true
-  end
-  if show.best_offer_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message then
-    show.best_offer_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_message
-    changed = true
-  end
-  if show.best_offer_short_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message then
-    show.best_offer_short_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_best_offer_short_message
-    changed = true
-  end
-  if show.broken_trade_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message then
-    show.broken_trade_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_broken_trade_message
-    changed = true
-  end
-  if show.clear_book_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message then
-    show.clear_book_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_clear_book_message
+  if show.application_messages ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_application_messages then
+    show.application_messages = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_application_messages
     changed = true
   end
   if show.common_header ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header then
     show.common_header = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_common_header
     changed = true
   end
-  if show.corrected_trade_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message then
-    show.corrected_trade_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_corrected_trade_message
-    changed = true
-  end
-  if show.instrument_directory_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_instrument_directory_message
-    changed = true
-  end
   if show.message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_message then
     show.message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_message
-    changed = true
-  end
-  if show.options_instrument_status_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message then
-    show.options_instrument_status_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_options_instrument_status_message
     changed = true
   end
   if show.packet ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_packet then
@@ -204,20 +144,8 @@ function omi_memx_options_memoirtop_sbe_v1_6_a.prefs_changed()
     show.sequenced_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_sequenced_message
     changed = true
   end
-  if show.snapshot_complete_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message then
-    show.snapshot_complete_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_snapshot_complete_message
-    changed = true
-  end
   if show.trade_conditions ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions then
     show.trade_conditions = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_conditions
-    changed = true
-  end
-  if show.trade_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message then
-    show.trade_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_trade_message
-    changed = true
-  end
-  if show.underlier_instrument_status_message ~= omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message then
-    show.underlier_instrument_status_message = omi_memx_options_memoirtop_sbe_v1_6_a.prefs.show_underlier_instrument_status_message
     changed = true
   end
 
@@ -1602,7 +1530,7 @@ end
 
 -- Dissect: Clear Book Message
 memx_options_memoirtop_sbe_v1_6_a.clear_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.clear_book_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.clear_book_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.clear_book_message.fields(buffer, offset, packet, parent)
@@ -1717,7 +1645,7 @@ end
 
 -- Dissect: Trade Message
 memx_options_memoirtop_sbe_v1_6_a.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.trade_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.trade_message.fields(buffer, offset, packet, parent)
@@ -1773,7 +1701,7 @@ end
 
 -- Dissect: Best Offer Short Message
 memx_options_memoirtop_sbe_v1_6_a.best_offer_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_offer_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_short_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.best_offer_short_message.fields(buffer, offset, packet, parent)
@@ -1829,7 +1757,7 @@ end
 
 -- Dissect: Best Bid Short Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_short_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.best_bid_short_message.fields(buffer, offset, packet, parent)
@@ -1885,7 +1813,7 @@ end
 
 -- Dissect: Best Offer Message
 memx_options_memoirtop_sbe_v1_6_a.best_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_offer_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.best_offer_message.fields(buffer, offset, packet, parent)
@@ -1941,7 +1869,7 @@ end
 
 -- Dissect: Best Bid Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.best_bid_message.fields(buffer, offset, packet, parent)
@@ -2009,7 +1937,7 @@ end
 
 -- Dissect: Best Bid Offer Message
 memx_options_memoirtop_sbe_v1_6_a.best_bid_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.best_bid_offer_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.best_bid_offer_message.fields(buffer, offset, packet, parent)
@@ -2053,7 +1981,7 @@ end
 
 -- Dissect: Snapshot Complete Message
 memx_options_memoirtop_sbe_v1_6_a.snapshot_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_complete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.snapshot_complete_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.snapshot_complete_message.fields(buffer, offset, packet, parent)
@@ -2117,7 +2045,7 @@ end
 
 -- Dissect: Corrected Trade Message
 memx_options_memoirtop_sbe_v1_6_a.corrected_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.corrected_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.corrected_trade_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.corrected_trade_message.fields(buffer, offset, packet, parent)
@@ -2173,7 +2101,7 @@ end
 
 -- Dissect: Broken Trade Message
 memx_options_memoirtop_sbe_v1_6_a.broken_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.broken_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.broken_trade_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.broken_trade_message.fields(buffer, offset, packet, parent)
@@ -2221,7 +2149,7 @@ end
 
 -- Dissect: Underlier Instrument Status Message
 memx_options_memoirtop_sbe_v1_6_a.underlier_instrument_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.underlier_instrument_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.underlier_instrument_status_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.underlier_instrument_status_message.fields(buffer, offset, packet, parent)
@@ -2277,7 +2205,7 @@ end
 
 -- Dissect: Options Instrument Status Message
 memx_options_memoirtop_sbe_v1_6_a.options_instrument_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_instrument_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.options_instrument_status_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.options_instrument_status_message.fields(buffer, offset, packet, parent)
@@ -2357,7 +2285,7 @@ end
 
 -- Dissect: Instrument Directory Message
 memx_options_memoirtop_sbe_v1_6_a.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_options_memoirtop_sbe_v1_6_a.fields.instrument_directory_message, buffer(offset, 0))
     local index = memx_options_memoirtop_sbe_v1_6_a.instrument_directory_message.fields(buffer, offset, packet, parent)

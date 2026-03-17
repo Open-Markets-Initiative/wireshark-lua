@@ -248,138 +248,54 @@ omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail = ProtoFiel
 local show = {}
 
 -- Nyse Arca Options BinaryGateway Pillar 3.15 Element Dissection Options
-show.application_layer_reject = true
-show.bulk_cancel_request = true
+show.application_messages = true
 show.bulk_quote = true
-show.bulk_quote_acknowledgment = true
-show.close = true
-show.close_response = true
+show.session_messages = true
 show.complex_leg = true
 show.complex_leg_ack = true
-show.complex_series_request_acknowledgement = true
 show.covered = true
-show.execution_report = true
 show.exposed = true
-show.heartbeat = true
-show.login_message = true
-show.login_response = true
-show.minimum_price_variant_class_reference_data = true
-show.minimum_price_variant_level_reference_data = true
-show.mpid_configuration = true
 show.mpv_level_definition = true
 show.msg_header = true
-show.new_bulk_quote = true
-show.new_complex_series_request = true
-show.new_order_cross = true
-show.open = true
-show.open_response = true
 show.optional_order_add_on = true
-show.options_market_maker_symbol_appointment_reference_data = true
-show.order_acknowledgement = true
-show.order_cancel_request = true
 show.order_instructions = true
-show.order_modify_request = true
-show.order_priority_update_acknowledgment = true
-show.order_request = true
-show.order_request_acknowledgment = true
 show.quote_ack = true
 show.ref_seq_msg_id = true
-show.risk_action_request = true
-show.risk_control_acknowledgement = true
-show.risk_control_alert = true
-show.risk_limit_update_request = true
-show.seq_msg = true
 show.seq_msg_header = true
 show.seq_msg_id = true
-show.sequenced_filler = true
-show.session_configuration_acknowledgement = true
-show.session_configuration_request_message = true
-show.stream_avail = true
 show.stream_id = true
 show.sub_msg_header = true
-show.trade_bust_or_correct = true
-show.underlying_symbol_reference_data = true
 
 -- Register Nyse Arca Options BinaryGateway Pillar 3.15 Show Options
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject = Pref.bool("Show Application Layer Reject", show.application_layer_reject, "Parse and add Application Layer Reject to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request = Pref.bool("Show Bulk Cancel Request", show.bulk_cancel_request, "Parse and add Bulk Cancel Request to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote = Pref.bool("Show Bulk Quote", show.bulk_quote, "Parse and add Bulk Quote to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment = Pref.bool("Show Bulk Quote Acknowledgment", show.bulk_quote_acknowledgment, "Parse and add Bulk Quote Acknowledgment to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
+omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg_ack = Pref.bool("Show Complex Leg Ack", show.complex_leg_ack, "Parse and add Complex Leg Ack to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement = Pref.bool("Show Complex Series Request Acknowledgement", show.complex_series_request_acknowledgement, "Parse and add Complex Series Request Acknowledgement to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered = Pref.bool("Show Covered", show.covered, "Parse and add Covered to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report = Pref.bool("Show Execution Report", show.execution_report, "Parse and add Execution Report to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed = Pref.bool("Show Exposed", show.exposed, "Parse and add Exposed to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data = Pref.bool("Show Minimum Price Variant Class Reference Data", show.minimum_price_variant_class_reference_data, "Parse and add Minimum Price Variant Class Reference Data to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data = Pref.bool("Show Minimum Price Variant Level Reference Data", show.minimum_price_variant_level_reference_data, "Parse and add Minimum Price Variant Level Reference Data to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration = Pref.bool("Show Mpid Configuration", show.mpid_configuration, "Parse and add Mpid Configuration to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote = Pref.bool("Show New Bulk Quote", show.new_bulk_quote, "Parse and add New Bulk Quote to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request = Pref.bool("Show New Complex Series Request", show.new_complex_series_request, "Parse and add New Complex Series Request to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross = Pref.bool("Show New Order Cross", show.new_order_cross, "Parse and add New Order Cross to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open = Pref.bool("Show Open", show.open, "Parse and add Open to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data = Pref.bool("Show Options Market Maker Symbol Appointment Reference Data", show.options_market_maker_symbol_appointment_reference_data, "Parse and add Options Market Maker Symbol Appointment Reference Data to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement = Pref.bool("Show Order Acknowledgement", show.order_acknowledgement, "Parse and add Order Acknowledgement to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request = Pref.bool("Show Order Cancel Request", show.order_cancel_request, "Parse and add Order Cancel Request to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request = Pref.bool("Show Order Modify Request", show.order_modify_request, "Parse and add Order Modify Request to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment = Pref.bool("Show Order Priority Update Acknowledgment", show.order_priority_update_acknowledgment, "Parse and add Order Priority Update Acknowledgment to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request = Pref.bool("Show Order Request", show.order_request, "Parse and add Order Request to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment = Pref.bool("Show Order Request Acknowledgment", show.order_request_acknowledgment, "Parse and add Order Request Acknowledgment to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack = Pref.bool("Show Quote Ack", show.quote_ack, "Parse and add Quote Ack to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request = Pref.bool("Show Risk Action Request", show.risk_action_request, "Parse and add Risk Action Request to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement = Pref.bool("Show Risk Control Acknowledgement", show.risk_control_acknowledgement, "Parse and add Risk Control Acknowledgement to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert = Pref.bool("Show Risk Control Alert", show.risk_control_alert, "Parse and add Risk Control Alert to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request = Pref.bool("Show Risk Limit Update Request", show.risk_limit_update_request, "Parse and add Risk Limit Update Request to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler = Pref.bool("Show Sequenced Filler", show.sequenced_filler, "Parse and add Sequenced Filler to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement = Pref.bool("Show Session Configuration Acknowledgement", show.session_configuration_acknowledgement, "Parse and add Session Configuration Acknowledgement to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
 omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct = Pref.bool("Show Trade Bust Or Correct", show.trade_bust_or_correct, "Parse and add Trade Bust Or Correct to protocol tree")
-omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data = Pref.bool("Show Underlying Symbol Reference Data", show.underlying_symbol_reference_data, "Parse and add Underlying Symbol Reference Data to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.application_layer_reject ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject then
-    show.application_layer_reject = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_layer_reject
-    changed = true
-  end
-  if show.bulk_cancel_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request then
-    show.bulk_cancel_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_cancel_request
+  if show.application_messages ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_messages then
+    show.application_messages = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_messages
     changed = true
   end
   if show.bulk_quote ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote then
     show.bulk_quote = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote
-    changed = true
-  end
-  if show.bulk_quote_acknowledgment ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment then
-    show.bulk_quote_acknowledgment = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote_acknowledgment
-    changed = true
-  end
-  if show.close ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close then
-    show.close = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close
-    changed = true
-  end
-  if show.close_response ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response then
-    show.close_response = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_close_response
     changed = true
   end
   if show.complex_leg ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg then
@@ -390,44 +306,12 @@ function omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
     show.complex_leg_ack = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg_ack
     changed = true
   end
-  if show.complex_series_request_acknowledgement ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement then
-    show.complex_series_request_acknowledgement = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_series_request_acknowledgement
-    changed = true
-  end
   if show.covered ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered then
     show.covered = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered
     changed = true
   end
-  if show.execution_report ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report then
-    show.execution_report = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_execution_report
-    changed = true
-  end
   if show.exposed ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed then
     show.exposed = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed
-    changed = true
-  end
-  if show.heartbeat ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat then
-    show.heartbeat = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_heartbeat
-    changed = true
-  end
-  if show.login_message ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message then
-    show.login_message = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_message
-    changed = true
-  end
-  if show.login_response ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response then
-    show.login_response = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_login_response
-    changed = true
-  end
-  if show.minimum_price_variant_class_reference_data ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data then
-    show.minimum_price_variant_class_reference_data = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_class_reference_data
-    changed = true
-  end
-  if show.minimum_price_variant_level_reference_data ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data then
-    show.minimum_price_variant_level_reference_data = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_minimum_price_variant_level_reference_data
-    changed = true
-  end
-  if show.mpid_configuration ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration then
-    show.mpid_configuration = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpid_configuration
     changed = true
   end
   if show.mpv_level_definition ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition then
@@ -438,60 +322,12 @@ function omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
     show.msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header
     changed = true
   end
-  if show.new_bulk_quote ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote then
-    show.new_bulk_quote = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_bulk_quote
-    changed = true
-  end
-  if show.new_complex_series_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request then
-    show.new_complex_series_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_complex_series_request
-    changed = true
-  end
-  if show.new_order_cross ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross then
-    show.new_order_cross = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_new_order_cross
-    changed = true
-  end
-  if show.open ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open then
-    show.open = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open
-    changed = true
-  end
-  if show.open_response ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response then
-    show.open_response = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_open_response
-    changed = true
-  end
   if show.optional_order_add_on ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on then
     show.optional_order_add_on = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on
     changed = true
   end
-  if show.options_market_maker_symbol_appointment_reference_data ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data then
-    show.options_market_maker_symbol_appointment_reference_data = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_options_market_maker_symbol_appointment_reference_data
-    changed = true
-  end
-  if show.order_acknowledgement ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement then
-    show.order_acknowledgement = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_acknowledgement
-    changed = true
-  end
-  if show.order_cancel_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request then
-    show.order_cancel_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_cancel_request
-    changed = true
-  end
   if show.order_instructions ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions then
     show.order_instructions = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions
-    changed = true
-  end
-  if show.order_modify_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request then
-    show.order_modify_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_modify_request
-    changed = true
-  end
-  if show.order_priority_update_acknowledgment ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment then
-    show.order_priority_update_acknowledgment = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_priority_update_acknowledgment
-    changed = true
-  end
-  if show.order_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request then
-    show.order_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request
-    changed = true
-  end
-  if show.order_request_acknowledgment ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment then
-    show.order_request_acknowledgment = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_request_acknowledgment
     changed = true
   end
   if show.quote_ack ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack then
@@ -502,26 +338,6 @@ function omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
     show.ref_seq_msg_id = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_ref_seq_msg_id
     changed = true
   end
-  if show.risk_action_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request then
-    show.risk_action_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_action_request
-    changed = true
-  end
-  if show.risk_control_acknowledgement ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement then
-    show.risk_control_acknowledgement = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_acknowledgement
-    changed = true
-  end
-  if show.risk_control_alert ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert then
-    show.risk_control_alert = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_control_alert
-    changed = true
-  end
-  if show.risk_limit_update_request ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request then
-    show.risk_limit_update_request = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_risk_limit_update_request
-    changed = true
-  end
-  if show.seq_msg ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg then
-    show.seq_msg = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg
-    changed = true
-  end
   if show.seq_msg_header ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header then
     show.seq_msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header
     changed = true
@@ -530,20 +346,8 @@ function omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
     show.seq_msg_id = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_id
     changed = true
   end
-  if show.sequenced_filler ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler then
-    show.sequenced_filler = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_filler
-    changed = true
-  end
-  if show.session_configuration_acknowledgement ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement then
-    show.session_configuration_acknowledgement = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_acknowledgement
-    changed = true
-  end
-  if show.session_configuration_request_message ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message then
-    show.session_configuration_request_message = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_configuration_request_message
-    changed = true
-  end
-  if show.stream_avail ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail then
-    show.stream_avail = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_avail
+  if show.session_messages ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_messages then
+    show.session_messages = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_messages
     changed = true
   end
   if show.stream_id ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id then
@@ -552,14 +356,6 @@ function omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
   end
   if show.sub_msg_header ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header then
     show.sub_msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header
-    changed = true
-  end
-  if show.trade_bust_or_correct ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct then
-    show.trade_bust_or_correct = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct
-    changed = true
-  end
-  if show.underlying_symbol_reference_data ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data then
-    show.underlying_symbol_reference_data = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data
     changed = true
   end
 
@@ -6388,7 +6184,7 @@ end
 
 -- Dissect: Complex Series Request Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.complex_series_request_acknowledgement then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.complex_series_request_acknowledgement, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgement.fields(buffer, offset, packet, parent)
@@ -6536,7 +6332,7 @@ end
 
 -- Dissect: Risk Control Alert
 nyse_arca_options_binarygateway_pillar_v3_15.risk_control_alert.dissect = function(buffer, offset, packet, parent)
-  if show.risk_control_alert then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_alert, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.risk_control_alert.fields(buffer, offset, packet, parent)
@@ -6692,7 +6488,7 @@ end
 
 -- Dissect: Risk Control Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.risk_control_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.risk_control_acknowledgement then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_control_acknowledgement, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.risk_control_acknowledgement.fields(buffer, offset, packet, parent)
@@ -6764,7 +6560,7 @@ end
 
 -- Dissect: Application Layer Reject
 nyse_arca_options_binarygateway_pillar_v3_15.application_layer_reject.dissect = function(buffer, offset, packet, parent)
-  if show.application_layer_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.application_layer_reject, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.application_layer_reject.fields(buffer, offset, packet, parent)
@@ -6940,7 +6736,7 @@ end
 
 -- Dissect: Trade Bust Or Correct
 nyse_arca_options_binarygateway_pillar_v3_15.trade_bust_or_correct.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_or_correct then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.trade_bust_or_correct, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.trade_bust_or_correct.fields(buffer, offset, packet, parent)
@@ -7267,7 +7063,7 @@ end
 
 -- Dissect: Execution Report
 nyse_arca_options_binarygateway_pillar_v3_15.execution_report.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.execution_report, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.execution_report.fields(buffer, offset, packet, parent)
@@ -7351,7 +7147,7 @@ end
 
 -- Dissect: Order Priority Update Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_acknowledgment.dissect = function(buffer, offset, packet, parent)
-  if show.order_priority_update_acknowledgment then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_priority_update_acknowledgment, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.order_priority_update_acknowledgment.fields(buffer, offset, packet, parent)
@@ -7475,7 +7271,7 @@ end
 
 -- Dissect: Order Request Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.order_request_acknowledgment.dissect = function(buffer, offset, packet, parent)
-  if show.order_request_acknowledgment then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request_acknowledgment, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.order_request_acknowledgment.fields(buffer, offset, packet, parent)
@@ -7620,7 +7416,7 @@ end
 
 -- Dissect: Bulk Quote Acknowledgment
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.dissect = function(buffer, offset, packet, parent)
-  if show.bulk_quote_acknowledgment then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.fields(buffer, offset, packet, parent)
@@ -7890,7 +7686,7 @@ end
 
 -- Dissect: Order Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.order_acknowledgement then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_acknowledgement, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.order_acknowledgement.fields(buffer, offset, packet, parent)
@@ -7994,7 +7790,7 @@ end
 
 -- Dissect: Session Configuration Acknowledgement
 nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.session_configuration_acknowledgement then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_acknowledgement, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_acknowledgement.fields(buffer, offset, packet, parent)
@@ -8066,7 +7862,7 @@ end
 
 -- Dissect: Options Market Maker Symbol Appointment Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.options_market_maker_symbol_appointment_reference_data.dissect = function(buffer, offset, packet, parent)
-  if show.options_market_maker_symbol_appointment_reference_data then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.options_market_maker_symbol_appointment_reference_data, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.options_market_maker_symbol_appointment_reference_data.fields(buffer, offset, packet, parent)
@@ -8126,7 +7922,7 @@ end
 
 -- Dissect: Mpid Configuration
 nyse_arca_options_binarygateway_pillar_v3_15.mpid_configuration.dissect = function(buffer, offset, packet, parent)
-  if show.mpid_configuration then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.mpid_configuration, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.mpid_configuration.fields(buffer, offset, packet, parent)
@@ -8239,7 +8035,7 @@ end
 
 -- Dissect: Minimum Price Variant Level Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.dissect = function(buffer, offset, packet, parent)
-  if show.minimum_price_variant_level_reference_data then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_level_reference_data, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_reference_data.fields(buffer, offset, packet, parent)
@@ -8299,7 +8095,7 @@ end
 
 -- Dissect: Minimum Price Variant Class Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_class_reference_data.dissect = function(buffer, offset, packet, parent)
-  if show.minimum_price_variant_class_reference_data then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.minimum_price_variant_class_reference_data, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_class_reference_data.fields(buffer, offset, packet, parent)
@@ -8339,7 +8135,7 @@ end
 
 -- Dissect: Sequenced Filler
 nyse_arca_options_binarygateway_pillar_v3_15.sequenced_filler.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_filler then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.sequenced_filler, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.sequenced_filler.fields(buffer, offset, packet, parent)
@@ -8419,7 +8215,7 @@ end
 
 -- Dissect: Underlying Symbol Reference Data
 nyse_arca_options_binarygateway_pillar_v3_15.underlying_symbol_reference_data.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_symbol_reference_data then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.underlying_symbol_reference_data, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.underlying_symbol_reference_data.fields(buffer, offset, packet, parent)
@@ -8527,7 +8323,7 @@ end
 
 -- Dissect: New Complex Series Request
 nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.dissect = function(buffer, offset, packet, parent)
-  if show.new_complex_series_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_complex_series_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.fields(buffer, offset, packet, parent)
@@ -8615,7 +8411,7 @@ end
 
 -- Dissect: Risk Action Request
 nyse_arca_options_binarygateway_pillar_v3_15.risk_action_request.dissect = function(buffer, offset, packet, parent)
-  if show.risk_action_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_action_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.risk_action_request.fields(buffer, offset, packet, parent)
@@ -8727,7 +8523,7 @@ end
 
 -- Dissect: Risk Limit Update Request
 nyse_arca_options_binarygateway_pillar_v3_15.risk_limit_update_request.dissect = function(buffer, offset, packet, parent)
-  if show.risk_limit_update_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.risk_limit_update_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.risk_limit_update_request.fields(buffer, offset, packet, parent)
@@ -8811,7 +8607,7 @@ end
 
 -- Dissect: Bulk Cancel Request
 nyse_arca_options_binarygateway_pillar_v3_15.bulk_cancel_request.dissect = function(buffer, offset, packet, parent)
-  if show.bulk_cancel_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.bulk_cancel_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.bulk_cancel_request.fields(buffer, offset, packet, parent)
@@ -9122,7 +8918,7 @@ end
 
 -- Dissect: New Order Cross
 nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_cross then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_order_cross, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.new_order_cross.fields(buffer, offset, packet, parent)
@@ -9249,7 +9045,7 @@ end
 
 -- Dissect: New Bulk Quote
 nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.dissect = function(buffer, offset, packet, parent)
-  if show.new_bulk_quote then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.new_bulk_quote, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.fields(buffer, offset, packet, parent)
@@ -9317,7 +9113,7 @@ end
 
 -- Dissect: Order Modify Request
 nyse_arca_options_binarygateway_pillar_v3_15.order_modify_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_modify_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.order_modify_request.fields(buffer, offset, packet, parent)
@@ -9373,7 +9169,7 @@ end
 
 -- Dissect: Order Cancel Request
 nyse_arca_options_binarygateway_pillar_v3_15.order_cancel_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_cancel_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.order_cancel_request.fields(buffer, offset, packet, parent)
@@ -9502,7 +9298,7 @@ end
 
 -- Dissect: Order Request
 nyse_arca_options_binarygateway_pillar_v3_15.order_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.order_request, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.order_request.fields(buffer, offset, packet, parent)
@@ -9570,7 +9366,7 @@ end
 
 -- Dissect: Session Configuration Request Message
 nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_configuration_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.session_configuration_request_message, buffer(offset, 0))
     local index = nyse_arca_options_binarygateway_pillar_v3_15.session_configuration_request_message.fields(buffer, offset, packet, parent)
@@ -9847,7 +9643,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.dissect = function(buffer, 
   local index = offset + size_of_seq_msg
 
   -- Optionally add group/struct element to protocol tree
-  if show.seq_msg then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.seq_msg, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
     parent:set_len(size_of_seq_msg)
@@ -9903,7 +9699,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.close_response.dissect = function(b
   local index = offset + size_of_close_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.close_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close_response, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
     parent:set_len(size_of_close_response)
@@ -9956,7 +9752,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.close.dissect = function(buffer, of
   local index = offset + size_of_close
 
   -- Optionally add group/struct element to protocol tree
-  if show.close then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.close, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.close.fields(buffer, offset, packet, parent, size_of_close)
     parent:set_len(size_of_close)
@@ -10015,7 +9811,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.open_response.dissect = function(bu
   local index = offset + size_of_open_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.open_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open_response, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
     parent:set_len(size_of_open_response)
@@ -10080,7 +9876,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.open.dissect = function(buffer, off
   local index = offset + size_of_open
 
   -- Optionally add group/struct element to protocol tree
-  if show.open then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.open, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.open.fields(buffer, offset, packet, parent, size_of_open)
     parent:set_len(size_of_open)
@@ -10130,7 +9926,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.dissect = function(buffer
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
-  if show.heartbeat then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.heartbeat, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
     parent:set_len(size_of_heartbeat)
@@ -10189,7 +9985,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.dissect = function(buf
   local index = offset + size_of_stream_avail
 
   -- Optionally add group/struct element to protocol tree
-  if show.stream_avail then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.stream_avail, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
     parent:set_len(size_of_stream_avail)
@@ -10245,7 +10041,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.login_response.dissect = function(b
   local index = offset + size_of_login_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.login_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_response, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
     parent:set_len(size_of_login_response)
@@ -10307,7 +10103,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.login_message.dissect = function(bu
   local index = offset + size_of_login_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.login_message then
+  if show.session_messages then
     parent = parent:add(omi_nyse_arca_options_binarygateway_pillar_v3_15.fields.login_message, buffer(offset, 0))
     local current = nyse_arca_options_binarygateway_pillar_v3_15.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
     parent:set_len(size_of_login_message)

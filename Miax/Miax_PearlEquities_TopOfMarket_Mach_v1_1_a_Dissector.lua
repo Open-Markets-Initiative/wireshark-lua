@@ -66,29 +66,15 @@ local show = {}
 
 -- Miax PearlEquities TopOfMarket Mach 1.1.a Element Dissection Options
 show.application_message = true
-show.compact_top_of_market_best_bid_and_offer_message = true
-show.last_sale_message = true
+show.application_messages = true
 show.message = true
 show.packet = true
-show.security_trading_status_notification_message = true
-show.symbol_update_message = true
-show.system_state_message = true
-show.system_time_message = true
-show.trade_cancel_message = true
-show.wide_top_of_market_best_bid_and_offer_message = true
 
 -- Register Miax PearlEquities TopOfMarket Mach 1.1.a Show Options
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_compact_top_of_market_best_bid_and_offer_message = Pref.bool("Show Compact Top Of Market Best Bid And Offer Message", show.compact_top_of_market_best_bid_and_offer_message, "Parse and add Compact Top Of Market Best Bid And Offer Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_last_sale_message = Pref.bool("Show Last Sale Message", show.last_sale_message, "Parse and add Last Sale Message to protocol tree")
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_security_trading_status_notification_message = Pref.bool("Show Security Trading Status Notification Message", show.security_trading_status_notification_message, "Parse and add Security Trading Status Notification Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_symbol_update_message = Pref.bool("Show Symbol Update Message", show.symbol_update_message, "Parse and add Symbol Update Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_wide_top_of_market_best_bid_and_offer_message = Pref.bool("Show Wide Top Of Market Best Bid And Offer Message", show.wide_top_of_market_best_bid_and_offer_message, "Parse and add Wide Top Of Market Best Bid And Offer Message to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
@@ -99,12 +85,8 @@ function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
     show.application_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_message
     changed = true
   end
-  if show.compact_top_of_market_best_bid_and_offer_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_compact_top_of_market_best_bid_and_offer_message then
-    show.compact_top_of_market_best_bid_and_offer_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_compact_top_of_market_best_bid_and_offer_message
-    changed = true
-  end
-  if show.last_sale_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_last_sale_message then
-    show.last_sale_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_last_sale_message
+  if show.application_messages ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages then
+    show.application_messages = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_message then
@@ -113,30 +95,6 @@ function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
   end
   if show.packet ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_packet then
     show.packet = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_packet
-    changed = true
-  end
-  if show.security_trading_status_notification_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_security_trading_status_notification_message then
-    show.security_trading_status_notification_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_security_trading_status_notification_message
-    changed = true
-  end
-  if show.symbol_update_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_symbol_update_message then
-    show.symbol_update_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_symbol_update_message
-    changed = true
-  end
-  if show.system_state_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_system_state_message then
-    show.system_state_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_system_state_message
-    changed = true
-  end
-  if show.system_time_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_system_time_message then
-    show.system_time_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_system_time_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_trade_cancel_message
-    changed = true
-  end
-  if show.wide_top_of_market_best_bid_and_offer_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_wide_top_of_market_best_bid_and_offer_message then
-    show.wide_top_of_market_best_bid_and_offer_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_wide_top_of_market_best_bid_and_offer_message
     changed = true
   end
 
@@ -1052,7 +1010,7 @@ end
 
 -- Dissect: Trade Cancel Message
 miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_cancel_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -1116,7 +1074,7 @@ end
 
 -- Dissect: Last Sale Message
 miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.dissect = function(buffer, offset, packet, parent)
-  if show.last_sale_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.last_sale_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.fields(buffer, offset, packet, parent)
@@ -1176,7 +1134,7 @@ end
 
 -- Dissect: Wide Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.wide_top_of_market_best_bid_and_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bid_and_offer_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.fields(buffer, offset, packet, parent)
@@ -1236,7 +1194,7 @@ end
 
 -- Dissect: Compact Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.compact_top_of_market_best_bid_and_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.compact_top_of_market_best_bid_and_offer_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.fields(buffer, offset, packet, parent)
@@ -1292,7 +1250,7 @@ end
 
 -- Dissect: Security Trading Status Notification Message
 miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_trading_status_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.security_trading_status_notification_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.fields(buffer, offset, packet, parent)
@@ -1344,7 +1302,7 @@ end
 
 -- Dissect: System State Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_state_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.fields(buffer, offset, packet, parent)
@@ -1420,7 +1378,7 @@ end
 
 -- Dissect: Symbol Update Message
 miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.symbol_update_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.fields(buffer, offset, packet, parent)
@@ -1460,7 +1418,7 @@ end
 
 -- Dissect: System Time Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_time_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.fields(buffer, offset, packet, parent)

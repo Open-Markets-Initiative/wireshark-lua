@@ -96,128 +96,26 @@ omi_nasdaq_bxequities_orders_ouch_v4_2.fields.unsequenced_data_packet = ProtoFie
 local show = {}
 
 -- Nasdaq BxEquities Orders Ouch 4.2 Element Dissection Options
-show.accepted_message = true
-show.aiq_canceled_message = true
-show.broken_trade_message = true
-show.cancel_order_message = true
-show.cancel_pending_message = true
-show.cancel_reject_message = true
-show.canceled_message = true
-show.debug_packet = true
-show.enter_order_message = true
-show.executed_message = true
-show.login_accepted_packet = true
-show.login_rejected_packet = true
-show.login_request_packet = true
-show.modify_order_message = true
-show.order_modified_message = true
-show.order_priority_update_message = true
+show.application_messages = true
+show.session_messages = true
 show.packet = true
 show.packet_header = true
-show.rejected_message = true
-show.replace_order_message = true
-show.replaced_message = true
-show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
-show.system_event_message = true
-show.trade_now_message = true
-show.unsequenced_data_packet = true
 
 -- Register Nasdaq BxEquities Orders Ouch 4.2 Show Options
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_accepted_message = Pref.bool("Show Accepted Message", show.accepted_message, "Parse and add Accepted Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_aiq_canceled_message = Pref.bool("Show Aiq Canceled Message", show.aiq_canceled_message, "Parse and add Aiq Canceled Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_pending_message = Pref.bool("Show Cancel Pending Message", show.cancel_pending_message, "Parse and add Cancel Pending Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_reject_message = Pref.bool("Show Cancel Reject Message", show.cancel_reject_message, "Parse and add Cancel Reject Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_canceled_message = Pref.bool("Show Canceled Message", show.canceled_message, "Parse and add Canceled Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_executed_message = Pref.bool("Show Executed Message", show.executed_message, "Parse and add Executed Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_order_priority_update_message = Pref.bool("Show Order Priority Update Message", show.order_priority_update_message, "Parse and add Order Priority Update Message to protocol tree")
+omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_rejected_message = Pref.bool("Show Rejected Message", show.rejected_message, "Parse and add Rejected Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_replaced_message = Pref.bool("Show Replaced Message", show.replaced_message, "Parse and add Replaced Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_trade_now_message = Pref.bool("Show Trade Now Message", show.trade_now_message, "Parse and add Trade Now Message to protocol tree")
-omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_bxequities_orders_ouch_v4_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.accepted_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_accepted_message then
-    show.accepted_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_accepted_message
-    changed = true
-  end
-  if show.aiq_canceled_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_aiq_canceled_message then
-    show.aiq_canceled_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_aiq_canceled_message
-    changed = true
-  end
-  if show.broken_trade_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_broken_trade_message then
-    show.broken_trade_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_broken_trade_message
-    changed = true
-  end
-  if show.cancel_order_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_order_message then
-    show.cancel_order_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_order_message
-    changed = true
-  end
-  if show.cancel_pending_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_pending_message then
-    show.cancel_pending_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_pending_message
-    changed = true
-  end
-  if show.cancel_reject_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_reject_message then
-    show.cancel_reject_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_cancel_reject_message
-    changed = true
-  end
-  if show.canceled_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_canceled_message then
-    show.canceled_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_canceled_message
-    changed = true
-  end
-  if show.debug_packet ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_debug_packet then
-    show.debug_packet = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_debug_packet
-    changed = true
-  end
-  if show.enter_order_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_enter_order_message then
-    show.enter_order_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_enter_order_message
-    changed = true
-  end
-  if show.executed_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_executed_message then
-    show.executed_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_executed_message
-    changed = true
-  end
-  if show.login_accepted_packet ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_accepted_packet
-    changed = true
-  end
-  if show.login_rejected_packet ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_rejected_packet
-    changed = true
-  end
-  if show.login_request_packet ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_request_packet then
-    show.login_request_packet = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_login_request_packet
-    changed = true
-  end
-  if show.modify_order_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_modify_order_message then
-    show.modify_order_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_modify_order_message
-    changed = true
-  end
-  if show.order_modified_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_order_modified_message then
-    show.order_modified_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_order_modified_message
-    changed = true
-  end
-  if show.order_priority_update_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_order_priority_update_message then
-    show.order_priority_update_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_order_priority_update_message
+  if show.application_messages ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_application_messages
     changed = true
   end
   if show.packet ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_packet then
@@ -228,36 +126,12 @@ function omi_nasdaq_bxequities_orders_ouch_v4_2.prefs_changed()
     show.packet_header = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_packet_header
     changed = true
   end
-  if show.rejected_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_rejected_message then
-    show.rejected_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_rejected_message
-    changed = true
-  end
-  if show.replace_order_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_replace_order_message then
-    show.replace_order_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_replace_order_message
-    changed = true
-  end
-  if show.replaced_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_replaced_message then
-    show.replaced_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_replaced_message
-    changed = true
-  end
-  if show.sequenced_data_packet ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_sequenced_data_packet
+  if show.session_messages ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_session_messages then
+    show.session_messages = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_session_messages
     changed = true
   end
   if show.soup_bin_tcp_packet ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet then
     show.soup_bin_tcp_packet = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_system_event_message
-    changed = true
-  end
-  if show.trade_now_message ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_trade_now_message then
-    show.trade_now_message = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_trade_now_message
-    changed = true
-  end
-  if show.unsequenced_data_packet ~= omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_unsequenced_data_packet
     changed = true
   end
 
@@ -1671,7 +1545,7 @@ end
 
 -- Dissect: Trade Now Message
 nasdaq_bxequities_orders_ouch_v4_2.trade_now_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_now_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.trade_now_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.trade_now_message.fields(buffer, offset, packet, parent)
@@ -1719,7 +1593,7 @@ end
 
 -- Dissect: Modify Order Message
 nasdaq_bxequities_orders_ouch_v4_2.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.modify_order_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.modify_order_message.fields(buffer, offset, packet, parent)
@@ -1763,7 +1637,7 @@ end
 
 -- Dissect: Cancel Order Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.cancel_order_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.cancel_order_message.fields(buffer, offset, packet, parent)
@@ -1831,7 +1705,7 @@ end
 
 -- Dissect: Replace Order Message
 nasdaq_bxequities_orders_ouch_v4_2.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.replace_order_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.replace_order_message.fields(buffer, offset, packet, parent)
@@ -1915,7 +1789,7 @@ end
 
 -- Dissect: Enter Order Message
 nasdaq_bxequities_orders_ouch_v4_2.enter_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.enter_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.enter_order_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.enter_order_message.fields(buffer, offset, packet, parent)
@@ -1997,7 +1871,7 @@ nasdaq_bxequities_orders_ouch_v4_2.unsequenced_data_packet.dissect = function(bu
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = nasdaq_bxequities_orders_ouch_v4_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -2049,7 +1923,7 @@ end
 
 -- Dissect: Login Request Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.login_request_packet, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.login_request_packet.fields(buffer, offset, packet, parent)
@@ -2101,7 +1975,7 @@ end
 
 -- Dissect: Order Modified Message
 nasdaq_bxequities_orders_ouch_v4_2.order_modified_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_modified_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.order_modified_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.order_modified_message.fields(buffer, offset, packet, parent)
@@ -2157,7 +2031,7 @@ end
 
 -- Dissect: Order Priority Update Message
 nasdaq_bxequities_orders_ouch_v4_2.order_priority_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_priority_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.order_priority_update_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.order_priority_update_message.fields(buffer, offset, packet, parent)
@@ -2201,7 +2075,7 @@ end
 
 -- Dissect: Cancel Reject Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.cancel_reject_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.cancel_reject_message.fields(buffer, offset, packet, parent)
@@ -2245,7 +2119,7 @@ end
 
 -- Dissect: Cancel Pending Message
 nasdaq_bxequities_orders_ouch_v4_2.cancel_pending_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_pending_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.cancel_pending_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.cancel_pending_message.fields(buffer, offset, packet, parent)
@@ -2293,7 +2167,7 @@ end
 
 -- Dissect: Rejected Message
 nasdaq_bxequities_orders_ouch_v4_2.rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.rejected_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.rejected_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.rejected_message.fields(buffer, offset, packet, parent)
@@ -2345,7 +2219,7 @@ end
 
 -- Dissect: Broken Trade Message
 nasdaq_bxequities_orders_ouch_v4_2.broken_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.broken_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.broken_trade_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.broken_trade_message.fields(buffer, offset, packet, parent)
@@ -2405,7 +2279,7 @@ end
 
 -- Dissect: Executed Message
 nasdaq_bxequities_orders_ouch_v4_2.executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.executed_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.executed_message.fields(buffer, offset, packet, parent)
@@ -2469,7 +2343,7 @@ end
 
 -- Dissect: Aiq Canceled Message
 nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.aiq_canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.aiq_canceled_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.aiq_canceled_message.fields(buffer, offset, packet, parent)
@@ -2521,7 +2395,7 @@ end
 
 -- Dissect: Canceled Message
 nasdaq_bxequities_orders_ouch_v4_2.canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.canceled_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.canceled_message.fields(buffer, offset, packet, parent)
@@ -2625,7 +2499,7 @@ end
 
 -- Dissect: Replaced Message
 nasdaq_bxequities_orders_ouch_v4_2.replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.replaced_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.replaced_message.fields(buffer, offset, packet, parent)
@@ -2725,7 +2599,7 @@ end
 
 -- Dissect: Accepted Message
 nasdaq_bxequities_orders_ouch_v4_2.accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.accepted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.accepted_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.accepted_message.fields(buffer, offset, packet, parent)
@@ -2769,7 +2643,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_bxequities_orders_ouch_v4_2.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.system_event_message.fields(buffer, offset, packet, parent)
@@ -2879,7 +2753,7 @@ nasdaq_bxequities_orders_ouch_v4_2.sequenced_data_packet.dissect = function(buff
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.sequenced_data_packet, buffer(offset, 0))
     local current = nasdaq_bxequities_orders_ouch_v4_2.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -2919,7 +2793,7 @@ end
 
 -- Dissect: Login Rejected Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.login_rejected_packet, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.login_rejected_packet.fields(buffer, offset, packet, parent)
@@ -2963,7 +2837,7 @@ end
 
 -- Dissect: Login Accepted Packet
 nasdaq_bxequities_orders_ouch_v4_2.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.login_accepted_packet, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.login_accepted_packet.fields(buffer, offset, packet, parent)
@@ -3003,7 +2877,7 @@ end
 
 -- Dissect: Debug Packet
 nasdaq_bxequities_orders_ouch_v4_2.debug_packet.dissect = function(buffer, offset, packet, parent)
-  if show.debug_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_bxequities_orders_ouch_v4_2.fields.debug_packet, buffer(offset, 0))
     local index = nasdaq_bxequities_orders_ouch_v4_2.debug_packet.fields(buffer, offset, packet, parent)

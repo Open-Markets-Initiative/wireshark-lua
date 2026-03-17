@@ -535,59 +535,11 @@ local show = {}
 -- Eurex Cash Eti T7 10.1 Element Dissection Options
 show.affected_ord_grp_comp = true
 show.affected_order_requests_grp_comp = true
-show.approve_tes_trade_request = true
-show.broadcast_error_notification = true
-show.cross_request = true
-show.cross_request_response = true
-show.delete_all_order_broadcast = true
-show.delete_all_order_nr_response = true
-show.delete_all_order_quote_event_broadcast = true
-show.delete_all_order_request = true
-show.delete_all_order_response = true
-show.delete_all_quote_broadcast = true
-show.delete_all_quote_request = true
-show.delete_all_quote_response = true
-show.delete_order_broadcast = true
-show.delete_order_nr_response = true
-show.delete_order_response = true
-show.delete_order_single_request = true
-show.delete_tes_trade_request = true
+show.application_messages = true
 show.enrichment_rules_grp_comp = true
-show.enter_tes_trade_request = true
-show.extended_deletion_report = true
 show.fills_grp_comp = true
-show.forced_logout_notification = true
-show.forced_user_logout_notification = true
-show.heartbeat = true
-show.heartbeat_notification = true
-show.inquire_enrichment_rule_id_list_request = true
-show.inquire_enrichment_rule_id_list_response = true
-show.inquire_session_list_request = true
-show.inquire_session_list_response = true
-show.inquire_user_request = true
-show.inquire_user_response = true
-show.issuer_notification = true
-show.issuer_security_state_change_request = true
-show.issuer_security_state_change_response = true
-show.legal_notification_broadcast = true
-show.logon_request = true
-show.logon_response = true
-show.logout_request = true
-show.logout_response = true
-show.mass_quote_request = true
-show.mass_quote_response = true
 show.message = true
 show.message_header = true
-show.modify_order_nr_response = true
-show.modify_order_response = true
-show.modify_order_single_request = true
-show.modify_order_single_short_request = true
-show.modify_tes_trade_request = true
-show.new_order_nr_response = true
-show.new_order_response = true
-show.new_order_single_request = true
-show.new_order_single_short_request = true
-show.news_broadcast = true
 show.not_affected_orders_grp_comp = true
 show.not_affected_securities_grp_comp = true
 show.notif_header_comp = true
@@ -595,148 +547,31 @@ show.nr_response_header_me_comp = true
 show.nrbc_header_comp = true
 show.order_book_item_grp_comp = true
 show.order_event_grp_comp = true
-show.order_exec_notification = true
-show.order_exec_report_broadcast = true
-show.order_exec_response = true
 show.packet = true
-show.party_action_report = true
 show.party_details_grp_comp = true
-show.party_entitlements_update_report = true
-show.ping_request = true
-show.ping_response = true
-show.quote_activation_notification = true
-show.quote_activation_request = true
-show.quote_activation_response = true
 show.quote_entry_ack_grp_comp = true
 show.quote_entry_grp_comp = true
 show.quote_event_grp_comp = true
-show.quote_execution_report = true
 show.rbc_header_comp = true
 show.rbc_header_me_comp = true
-show.reject = true
 show.request_header_comp = true
 show.response_header_comp = true
 show.response_header_me_comp = true
-show.retransmit_me_message_request = true
-show.retransmit_me_message_response = true
-show.retransmit_request = true
-show.retransmit_response = true
-show.rfq_broadcast = true
-show.rfq_reject_notification = true
-show.rfq_request = true
-show.rfq_response = true
-show.rfq_specialist_broadcast = true
 show.security_status_event_grp_comp = true
-show.service_availability_broadcast = true
-show.service_availability_market_broadcast = true
 show.sessions_grp_comp = true
 show.side_alloc_grp_bc_comp = true
 show.side_alloc_grp_comp = true
-show.single_quote_request = true
-show.specialist_delete_all_order_broadcast = true
-show.specialist_instrument_event_notification = true
-show.specialist_order_book_notification = true
-show.specialist_rfq_reject_request = true
-show.specialist_rfq_reply_notification = true
-show.specialist_rfq_reply_request = true
-show.specialist_rfq_reply_response = true
-show.specialist_security_state_change_request = true
-show.specialist_security_state_change_response = true
 show.srqs_quote_entry_grp_comp = true
-show.subscribe_request = true
-show.subscribe_response = true
-show.tes_approve_broadcast = true
-show.tes_broadcast = true
-show.tes_delete_broadcast = true
-show.tes_execution_broadcast = true
-show.tes_response = true
-show.tes_trade_broadcast = true
-show.tes_trading_session_status_broadcast = true
-show.throttle_update_notification = true
-show.tm_trading_session_status_broadcast = true
-show.trade_broadcast = true
-show.trading_session_status_broadcast = true
-show.trailing_stop_update_notification = true
-show.unsubscribe_request = true
-show.unsubscribe_response = true
-show.user_login_request = true
-show.user_login_response = true
-show.user_logout_request = true
-show.user_logout_response = true
-show.xetra_en_light_create_deal_notification = true
-show.xetra_en_light_deal_response = true
-show.xetra_en_light_enter_quote_request = true
-show.xetra_en_light_hit_quote_request = true
-show.xetra_en_light_negotiation_notification = true
-show.xetra_en_light_negotiation_requester_notification = true
-show.xetra_en_light_negotiation_status_notification = true
-show.xetra_en_light_open_negotiation_notification = true
-show.xetra_en_light_open_negotiation_request = true
-show.xetra_en_light_open_negotiation_requester_notification = true
-show.xetra_en_light_quote_notification = true
-show.xetra_en_light_quote_requester_notification = true
-show.xetra_en_light_quote_response = true
-show.xetra_en_light_quoting_status_request = true
-show.xetra_en_light_status_broadcast = true
 show.xetra_en_light_target_parties_comp = true
-show.xetra_en_light_update_negotiation_request = true
 
 -- Register Eurex Cash Eti T7 10.1 Show Options
 omi_eurex_cash_eti_t7_v10_1.prefs.show_affected_ord_grp_comp = Pref.bool("Show Affected Ord Grp Comp", show.affected_ord_grp_comp, "Parse and add Affected Ord Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_affected_order_requests_grp_comp = Pref.bool("Show Affected Order Requests Grp Comp", show.affected_order_requests_grp_comp, "Parse and add Affected Order Requests Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_approve_tes_trade_request = Pref.bool("Show Approve Tes Trade Request", show.approve_tes_trade_request, "Parse and add Approve Tes Trade Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_broadcast_error_notification = Pref.bool("Show Broadcast Error Notification", show.broadcast_error_notification, "Parse and add Broadcast Error Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_cross_request = Pref.bool("Show Cross Request", show.cross_request, "Parse and add Cross Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_cross_request_response = Pref.bool("Show Cross Request Response", show.cross_request_response, "Parse and add Cross Request Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_broadcast = Pref.bool("Show Delete All Order Broadcast", show.delete_all_order_broadcast, "Parse and add Delete All Order Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_nr_response = Pref.bool("Show Delete All Order Nr Response", show.delete_all_order_nr_response, "Parse and add Delete All Order Nr Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_quote_event_broadcast = Pref.bool("Show Delete All Order Quote Event Broadcast", show.delete_all_order_quote_event_broadcast, "Parse and add Delete All Order Quote Event Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_request = Pref.bool("Show Delete All Order Request", show.delete_all_order_request, "Parse and add Delete All Order Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_response = Pref.bool("Show Delete All Order Response", show.delete_all_order_response, "Parse and add Delete All Order Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_broadcast = Pref.bool("Show Delete All Quote Broadcast", show.delete_all_quote_broadcast, "Parse and add Delete All Quote Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_request = Pref.bool("Show Delete All Quote Request", show.delete_all_quote_request, "Parse and add Delete All Quote Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_response = Pref.bool("Show Delete All Quote Response", show.delete_all_quote_response, "Parse and add Delete All Quote Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_broadcast = Pref.bool("Show Delete Order Broadcast", show.delete_order_broadcast, "Parse and add Delete Order Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_nr_response = Pref.bool("Show Delete Order Nr Response", show.delete_order_nr_response, "Parse and add Delete Order Nr Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_response = Pref.bool("Show Delete Order Response", show.delete_order_response, "Parse and add Delete Order Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_single_request = Pref.bool("Show Delete Order Single Request", show.delete_order_single_request, "Parse and add Delete Order Single Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_tes_trade_request = Pref.bool("Show Delete Tes Trade Request", show.delete_tes_trade_request, "Parse and add Delete Tes Trade Request to protocol tree")
+omi_eurex_cash_eti_t7_v10_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_enrichment_rules_grp_comp = Pref.bool("Show Enrichment Rules Grp Comp", show.enrichment_rules_grp_comp, "Parse and add Enrichment Rules Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_enter_tes_trade_request = Pref.bool("Show Enter Tes Trade Request", show.enter_tes_trade_request, "Parse and add Enter Tes Trade Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_extended_deletion_report = Pref.bool("Show Extended Deletion Report", show.extended_deletion_report, "Parse and add Extended Deletion Report to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_fills_grp_comp = Pref.bool("Show Fills Grp Comp", show.fills_grp_comp, "Parse and add Fills Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_forced_logout_notification = Pref.bool("Show Forced Logout Notification", show.forced_logout_notification, "Parse and add Forced Logout Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_forced_user_logout_notification = Pref.bool("Show Forced User Logout Notification", show.forced_user_logout_notification, "Parse and add Forced User Logout Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_heartbeat_notification = Pref.bool("Show Heartbeat Notification", show.heartbeat_notification, "Parse and add Heartbeat Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_enrichment_rule_id_list_request = Pref.bool("Show Inquire Enrichment Rule Id List Request", show.inquire_enrichment_rule_id_list_request, "Parse and add Inquire Enrichment Rule Id List Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_enrichment_rule_id_list_response = Pref.bool("Show Inquire Enrichment Rule Id List Response", show.inquire_enrichment_rule_id_list_response, "Parse and add Inquire Enrichment Rule Id List Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_session_list_request = Pref.bool("Show Inquire Session List Request", show.inquire_session_list_request, "Parse and add Inquire Session List Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_session_list_response = Pref.bool("Show Inquire Session List Response", show.inquire_session_list_response, "Parse and add Inquire Session List Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_user_request = Pref.bool("Show Inquire User Request", show.inquire_user_request, "Parse and add Inquire User Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_user_response = Pref.bool("Show Inquire User Response", show.inquire_user_response, "Parse and add Inquire User Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_notification = Pref.bool("Show Issuer Notification", show.issuer_notification, "Parse and add Issuer Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_security_state_change_request = Pref.bool("Show Issuer Security State Change Request", show.issuer_security_state_change_request, "Parse and add Issuer Security State Change Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_security_state_change_response = Pref.bool("Show Issuer Security State Change Response", show.issuer_security_state_change_response, "Parse and add Issuer Security State Change Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_legal_notification_broadcast = Pref.bool("Show Legal Notification Broadcast", show.legal_notification_broadcast, "Parse and add Legal Notification Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_logon_request = Pref.bool("Show Logon Request", show.logon_request, "Parse and add Logon Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_logon_response = Pref.bool("Show Logon Response", show.logon_response, "Parse and add Logon Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_logout_response = Pref.bool("Show Logout Response", show.logout_response, "Parse and add Logout Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_mass_quote_request = Pref.bool("Show Mass Quote Request", show.mass_quote_request, "Parse and add Mass Quote Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_mass_quote_response = Pref.bool("Show Mass Quote Response", show.mass_quote_response, "Parse and add Mass Quote Response to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_nr_response = Pref.bool("Show Modify Order Nr Response", show.modify_order_nr_response, "Parse and add Modify Order Nr Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_response = Pref.bool("Show Modify Order Response", show.modify_order_response, "Parse and add Modify Order Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_single_request = Pref.bool("Show Modify Order Single Request", show.modify_order_single_request, "Parse and add Modify Order Single Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_single_short_request = Pref.bool("Show Modify Order Single Short Request", show.modify_order_single_short_request, "Parse and add Modify Order Single Short Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_tes_trade_request = Pref.bool("Show Modify Tes Trade Request", show.modify_tes_trade_request, "Parse and add Modify Tes Trade Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_nr_response = Pref.bool("Show New Order Nr Response", show.new_order_nr_response, "Parse and add New Order Nr Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_response = Pref.bool("Show New Order Response", show.new_order_response, "Parse and add New Order Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_single_request = Pref.bool("Show New Order Single Request", show.new_order_single_request, "Parse and add New Order Single Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_single_short_request = Pref.bool("Show New Order Single Short Request", show.new_order_single_short_request, "Parse and add New Order Single Short Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_news_broadcast = Pref.bool("Show News Broadcast", show.news_broadcast, "Parse and add News Broadcast to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_not_affected_orders_grp_comp = Pref.bool("Show Not Affected Orders Grp Comp", show.not_affected_orders_grp_comp, "Parse and add Not Affected Orders Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_not_affected_securities_grp_comp = Pref.bool("Show Not Affected Securities Grp Comp", show.not_affected_securities_grp_comp, "Parse and add Not Affected Securities Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_notif_header_comp = Pref.bool("Show Notif Header Comp", show.notif_header_comp, "Parse and add Notif Header Comp to protocol tree")
@@ -744,91 +579,22 @@ omi_eurex_cash_eti_t7_v10_1.prefs.show_nr_response_header_me_comp = Pref.bool("S
 omi_eurex_cash_eti_t7_v10_1.prefs.show_nrbc_header_comp = Pref.bool("Show Nrbc Header Comp", show.nrbc_header_comp, "Parse and add Nrbc Header Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_order_book_item_grp_comp = Pref.bool("Show Order Book Item Grp Comp", show.order_book_item_grp_comp, "Parse and add Order Book Item Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_order_event_grp_comp = Pref.bool("Show Order Event Grp Comp", show.order_event_grp_comp, "Parse and add Order Event Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_notification = Pref.bool("Show Order Exec Notification", show.order_exec_notification, "Parse and add Order Exec Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_report_broadcast = Pref.bool("Show Order Exec Report Broadcast", show.order_exec_report_broadcast, "Parse and add Order Exec Report Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_response = Pref.bool("Show Order Exec Response", show.order_exec_response, "Parse and add Order Exec Response to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_party_action_report = Pref.bool("Show Party Action Report", show.party_action_report, "Parse and add Party Action Report to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_party_details_grp_comp = Pref.bool("Show Party Details Grp Comp", show.party_details_grp_comp, "Parse and add Party Details Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_party_entitlements_update_report = Pref.bool("Show Party Entitlements Update Report", show.party_entitlements_update_report, "Parse and add Party Entitlements Update Report to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_ping_request = Pref.bool("Show Ping Request", show.ping_request, "Parse and add Ping Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_ping_response = Pref.bool("Show Ping Response", show.ping_response, "Parse and add Ping Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_notification = Pref.bool("Show Quote Activation Notification", show.quote_activation_notification, "Parse and add Quote Activation Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_request = Pref.bool("Show Quote Activation Request", show.quote_activation_request, "Parse and add Quote Activation Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_response = Pref.bool("Show Quote Activation Response", show.quote_activation_response, "Parse and add Quote Activation Response to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_entry_ack_grp_comp = Pref.bool("Show Quote Entry Ack Grp Comp", show.quote_entry_ack_grp_comp, "Parse and add Quote Entry Ack Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_entry_grp_comp = Pref.bool("Show Quote Entry Grp Comp", show.quote_entry_grp_comp, "Parse and add Quote Entry Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_event_grp_comp = Pref.bool("Show Quote Event Grp Comp", show.quote_event_grp_comp, "Parse and add Quote Event Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_execution_report = Pref.bool("Show Quote Execution Report", show.quote_execution_report, "Parse and add Quote Execution Report to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_rbc_header_comp = Pref.bool("Show Rbc Header Comp", show.rbc_header_comp, "Parse and add Rbc Header Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_rbc_header_me_comp = Pref.bool("Show Rbc Header Me Comp", show.rbc_header_me_comp, "Parse and add Rbc Header Me Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_reject = Pref.bool("Show Reject", show.reject, "Parse and add Reject to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_request_header_comp = Pref.bool("Show Request Header Comp", show.request_header_comp, "Parse and add Request Header Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_response_header_comp = Pref.bool("Show Response Header Comp", show.response_header_comp, "Parse and add Response Header Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_response_header_me_comp = Pref.bool("Show Response Header Me Comp", show.response_header_me_comp, "Parse and add Response Header Me Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_me_message_request = Pref.bool("Show Retransmit Me Message Request", show.retransmit_me_message_request, "Parse and add Retransmit Me Message Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_me_message_response = Pref.bool("Show Retransmit Me Message Response", show.retransmit_me_message_response, "Parse and add Retransmit Me Message Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_request = Pref.bool("Show Retransmit Request", show.retransmit_request, "Parse and add Retransmit Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_response = Pref.bool("Show Retransmit Response", show.retransmit_response, "Parse and add Retransmit Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_broadcast = Pref.bool("Show Rfq Broadcast", show.rfq_broadcast, "Parse and add Rfq Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_reject_notification = Pref.bool("Show Rfq Reject Notification", show.rfq_reject_notification, "Parse and add Rfq Reject Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_request = Pref.bool("Show Rfq Request", show.rfq_request, "Parse and add Rfq Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_response = Pref.bool("Show Rfq Response", show.rfq_response, "Parse and add Rfq Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_specialist_broadcast = Pref.bool("Show Rfq Specialist Broadcast", show.rfq_specialist_broadcast, "Parse and add Rfq Specialist Broadcast to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_security_status_event_grp_comp = Pref.bool("Show Security Status Event Grp Comp", show.security_status_event_grp_comp, "Parse and add Security Status Event Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_service_availability_broadcast = Pref.bool("Show Service Availability Broadcast", show.service_availability_broadcast, "Parse and add Service Availability Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_service_availability_market_broadcast = Pref.bool("Show Service Availability Market Broadcast", show.service_availability_market_broadcast, "Parse and add Service Availability Market Broadcast to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_sessions_grp_comp = Pref.bool("Show Sessions Grp Comp", show.sessions_grp_comp, "Parse and add Sessions Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_side_alloc_grp_bc_comp = Pref.bool("Show Side Alloc Grp Bc Comp", show.side_alloc_grp_bc_comp, "Parse and add Side Alloc Grp Bc Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_side_alloc_grp_comp = Pref.bool("Show Side Alloc Grp Comp", show.side_alloc_grp_comp, "Parse and add Side Alloc Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_single_quote_request = Pref.bool("Show Single Quote Request", show.single_quote_request, "Parse and add Single Quote Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_delete_all_order_broadcast = Pref.bool("Show Specialist Delete All Order Broadcast", show.specialist_delete_all_order_broadcast, "Parse and add Specialist Delete All Order Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_instrument_event_notification = Pref.bool("Show Specialist Instrument Event Notification", show.specialist_instrument_event_notification, "Parse and add Specialist Instrument Event Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_order_book_notification = Pref.bool("Show Specialist Order Book Notification", show.specialist_order_book_notification, "Parse and add Specialist Order Book Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reject_request = Pref.bool("Show Specialist Rfq Reject Request", show.specialist_rfq_reject_request, "Parse and add Specialist Rfq Reject Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_notification = Pref.bool("Show Specialist Rfq Reply Notification", show.specialist_rfq_reply_notification, "Parse and add Specialist Rfq Reply Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_request = Pref.bool("Show Specialist Rfq Reply Request", show.specialist_rfq_reply_request, "Parse and add Specialist Rfq Reply Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_response = Pref.bool("Show Specialist Rfq Reply Response", show.specialist_rfq_reply_response, "Parse and add Specialist Rfq Reply Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_security_state_change_request = Pref.bool("Show Specialist Security State Change Request", show.specialist_security_state_change_request, "Parse and add Specialist Security State Change Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_security_state_change_response = Pref.bool("Show Specialist Security State Change Response", show.specialist_security_state_change_response, "Parse and add Specialist Security State Change Response to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_srqs_quote_entry_grp_comp = Pref.bool("Show Srqs Quote Entry Grp Comp", show.srqs_quote_entry_grp_comp, "Parse and add Srqs Quote Entry Grp Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_subscribe_request = Pref.bool("Show Subscribe Request", show.subscribe_request, "Parse and add Subscribe Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_subscribe_response = Pref.bool("Show Subscribe Response", show.subscribe_response, "Parse and add Subscribe Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_approve_broadcast = Pref.bool("Show Tes Approve Broadcast", show.tes_approve_broadcast, "Parse and add Tes Approve Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_broadcast = Pref.bool("Show Tes Broadcast", show.tes_broadcast, "Parse and add Tes Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_delete_broadcast = Pref.bool("Show Tes Delete Broadcast", show.tes_delete_broadcast, "Parse and add Tes Delete Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_execution_broadcast = Pref.bool("Show Tes Execution Broadcast", show.tes_execution_broadcast, "Parse and add Tes Execution Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_response = Pref.bool("Show Tes Response", show.tes_response, "Parse and add Tes Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_trade_broadcast = Pref.bool("Show Tes Trade Broadcast", show.tes_trade_broadcast, "Parse and add Tes Trade Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_trading_session_status_broadcast = Pref.bool("Show Tes Trading Session Status Broadcast", show.tes_trading_session_status_broadcast, "Parse and add Tes Trading Session Status Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_throttle_update_notification = Pref.bool("Show Throttle Update Notification", show.throttle_update_notification, "Parse and add Throttle Update Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_tm_trading_session_status_broadcast = Pref.bool("Show Tm Trading Session Status Broadcast", show.tm_trading_session_status_broadcast, "Parse and add Tm Trading Session Status Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_trade_broadcast = Pref.bool("Show Trade Broadcast", show.trade_broadcast, "Parse and add Trade Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_trading_session_status_broadcast = Pref.bool("Show Trading Session Status Broadcast", show.trading_session_status_broadcast, "Parse and add Trading Session Status Broadcast to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_trailing_stop_update_notification = Pref.bool("Show Trailing Stop Update Notification", show.trailing_stop_update_notification, "Parse and add Trailing Stop Update Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_unsubscribe_request = Pref.bool("Show Unsubscribe Request", show.unsubscribe_request, "Parse and add Unsubscribe Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_unsubscribe_response = Pref.bool("Show Unsubscribe Response", show.unsubscribe_response, "Parse and add Unsubscribe Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_user_login_request = Pref.bool("Show User Login Request", show.user_login_request, "Parse and add User Login Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_user_login_response = Pref.bool("Show User Login Response", show.user_login_response, "Parse and add User Login Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_user_logout_request = Pref.bool("Show User Logout Request", show.user_logout_request, "Parse and add User Logout Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_user_logout_response = Pref.bool("Show User Logout Response", show.user_logout_response, "Parse and add User Logout Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_create_deal_notification = Pref.bool("Show Xetra En Light Create Deal Notification", show.xetra_en_light_create_deal_notification, "Parse and add Xetra En Light Create Deal Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_deal_response = Pref.bool("Show Xetra En Light Deal Response", show.xetra_en_light_deal_response, "Parse and add Xetra En Light Deal Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_enter_quote_request = Pref.bool("Show Xetra En Light Enter Quote Request", show.xetra_en_light_enter_quote_request, "Parse and add Xetra En Light Enter Quote Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_hit_quote_request = Pref.bool("Show Xetra En Light Hit Quote Request", show.xetra_en_light_hit_quote_request, "Parse and add Xetra En Light Hit Quote Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_notification = Pref.bool("Show Xetra En Light Negotiation Notification", show.xetra_en_light_negotiation_notification, "Parse and add Xetra En Light Negotiation Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_requester_notification = Pref.bool("Show Xetra En Light Negotiation Requester Notification", show.xetra_en_light_negotiation_requester_notification, "Parse and add Xetra En Light Negotiation Requester Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_status_notification = Pref.bool("Show Xetra En Light Negotiation Status Notification", show.xetra_en_light_negotiation_status_notification, "Parse and add Xetra En Light Negotiation Status Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_notification = Pref.bool("Show Xetra En Light Open Negotiation Notification", show.xetra_en_light_open_negotiation_notification, "Parse and add Xetra En Light Open Negotiation Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_request = Pref.bool("Show Xetra En Light Open Negotiation Request", show.xetra_en_light_open_negotiation_request, "Parse and add Xetra En Light Open Negotiation Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_requester_notification = Pref.bool("Show Xetra En Light Open Negotiation Requester Notification", show.xetra_en_light_open_negotiation_requester_notification, "Parse and add Xetra En Light Open Negotiation Requester Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_notification = Pref.bool("Show Xetra En Light Quote Notification", show.xetra_en_light_quote_notification, "Parse and add Xetra En Light Quote Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_requester_notification = Pref.bool("Show Xetra En Light Quote Requester Notification", show.xetra_en_light_quote_requester_notification, "Parse and add Xetra En Light Quote Requester Notification to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_response = Pref.bool("Show Xetra En Light Quote Response", show.xetra_en_light_quote_response, "Parse and add Xetra En Light Quote Response to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quoting_status_request = Pref.bool("Show Xetra En Light Quoting Status Request", show.xetra_en_light_quoting_status_request, "Parse and add Xetra En Light Quoting Status Request to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_status_broadcast = Pref.bool("Show Xetra En Light Status Broadcast", show.xetra_en_light_status_broadcast, "Parse and add Xetra En Light Status Broadcast to protocol tree")
 omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_target_parties_comp = Pref.bool("Show Xetra En Light Target Parties Comp", show.xetra_en_light_target_parties_comp, "Parse and add Xetra En Light Target Parties Comp to protocol tree")
-omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_update_negotiation_request = Pref.bool("Show Xetra En Light Update Negotiation Request", show.xetra_en_light_update_negotiation_request, "Parse and add Xetra En Light Update Negotiation Request to protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_cash_eti_t7_v10_1.prefs_changed()
@@ -843,168 +609,16 @@ function omi_eurex_cash_eti_t7_v10_1.prefs_changed()
     show.affected_order_requests_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_affected_order_requests_grp_comp
     changed = true
   end
-  if show.approve_tes_trade_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_approve_tes_trade_request then
-    show.approve_tes_trade_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_approve_tes_trade_request
-    changed = true
-  end
-  if show.broadcast_error_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_broadcast_error_notification then
-    show.broadcast_error_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_broadcast_error_notification
-    changed = true
-  end
-  if show.cross_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_cross_request then
-    show.cross_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_cross_request
-    changed = true
-  end
-  if show.cross_request_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_cross_request_response then
-    show.cross_request_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_cross_request_response
-    changed = true
-  end
-  if show.delete_all_order_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_broadcast then
-    show.delete_all_order_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_broadcast
-    changed = true
-  end
-  if show.delete_all_order_nr_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_nr_response then
-    show.delete_all_order_nr_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_nr_response
-    changed = true
-  end
-  if show.delete_all_order_quote_event_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_quote_event_broadcast then
-    show.delete_all_order_quote_event_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_quote_event_broadcast
-    changed = true
-  end
-  if show.delete_all_order_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_request then
-    show.delete_all_order_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_request
-    changed = true
-  end
-  if show.delete_all_order_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_response then
-    show.delete_all_order_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_order_response
-    changed = true
-  end
-  if show.delete_all_quote_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_broadcast then
-    show.delete_all_quote_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_broadcast
-    changed = true
-  end
-  if show.delete_all_quote_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_request then
-    show.delete_all_quote_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_request
-    changed = true
-  end
-  if show.delete_all_quote_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_response then
-    show.delete_all_quote_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_all_quote_response
-    changed = true
-  end
-  if show.delete_order_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_broadcast then
-    show.delete_order_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_broadcast
-    changed = true
-  end
-  if show.delete_order_nr_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_nr_response then
-    show.delete_order_nr_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_nr_response
-    changed = true
-  end
-  if show.delete_order_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_response then
-    show.delete_order_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_response
-    changed = true
-  end
-  if show.delete_order_single_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_single_request then
-    show.delete_order_single_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_order_single_request
-    changed = true
-  end
-  if show.delete_tes_trade_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_tes_trade_request then
-    show.delete_tes_trade_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_delete_tes_trade_request
+  if show.application_messages ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_application_messages then
+    show.application_messages = omi_eurex_cash_eti_t7_v10_1.prefs.show_application_messages
     changed = true
   end
   if show.enrichment_rules_grp_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_enrichment_rules_grp_comp then
     show.enrichment_rules_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_enrichment_rules_grp_comp
     changed = true
   end
-  if show.enter_tes_trade_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_enter_tes_trade_request then
-    show.enter_tes_trade_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_enter_tes_trade_request
-    changed = true
-  end
-  if show.extended_deletion_report ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_extended_deletion_report then
-    show.extended_deletion_report = omi_eurex_cash_eti_t7_v10_1.prefs.show_extended_deletion_report
-    changed = true
-  end
   if show.fills_grp_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_fills_grp_comp then
     show.fills_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_fills_grp_comp
-    changed = true
-  end
-  if show.forced_logout_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_forced_logout_notification then
-    show.forced_logout_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_forced_logout_notification
-    changed = true
-  end
-  if show.forced_user_logout_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_forced_user_logout_notification then
-    show.forced_user_logout_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_forced_user_logout_notification
-    changed = true
-  end
-  if show.heartbeat ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_heartbeat then
-    show.heartbeat = omi_eurex_cash_eti_t7_v10_1.prefs.show_heartbeat
-    changed = true
-  end
-  if show.heartbeat_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_heartbeat_notification then
-    show.heartbeat_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_heartbeat_notification
-    changed = true
-  end
-  if show.inquire_enrichment_rule_id_list_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_enrichment_rule_id_list_request then
-    show.inquire_enrichment_rule_id_list_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_enrichment_rule_id_list_request
-    changed = true
-  end
-  if show.inquire_enrichment_rule_id_list_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_enrichment_rule_id_list_response then
-    show.inquire_enrichment_rule_id_list_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_enrichment_rule_id_list_response
-    changed = true
-  end
-  if show.inquire_session_list_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_session_list_request then
-    show.inquire_session_list_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_session_list_request
-    changed = true
-  end
-  if show.inquire_session_list_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_session_list_response then
-    show.inquire_session_list_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_session_list_response
-    changed = true
-  end
-  if show.inquire_user_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_user_request then
-    show.inquire_user_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_user_request
-    changed = true
-  end
-  if show.inquire_user_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_user_response then
-    show.inquire_user_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_inquire_user_response
-    changed = true
-  end
-  if show.issuer_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_notification then
-    show.issuer_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_notification
-    changed = true
-  end
-  if show.issuer_security_state_change_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_security_state_change_request then
-    show.issuer_security_state_change_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_security_state_change_request
-    changed = true
-  end
-  if show.issuer_security_state_change_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_security_state_change_response then
-    show.issuer_security_state_change_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_issuer_security_state_change_response
-    changed = true
-  end
-  if show.legal_notification_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_legal_notification_broadcast then
-    show.legal_notification_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_legal_notification_broadcast
-    changed = true
-  end
-  if show.logon_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_logon_request then
-    show.logon_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_logon_request
-    changed = true
-  end
-  if show.logon_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_logon_response then
-    show.logon_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_logon_response
-    changed = true
-  end
-  if show.logout_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_logout_request then
-    show.logout_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_logout_request
-    changed = true
-  end
-  if show.logout_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_logout_response then
-    show.logout_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_logout_response
-    changed = true
-  end
-  if show.mass_quote_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_mass_quote_request then
-    show.mass_quote_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_mass_quote_request
-    changed = true
-  end
-  if show.mass_quote_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_mass_quote_response then
-    show.mass_quote_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_mass_quote_response
     changed = true
   end
   if show.message ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_message then
@@ -1013,46 +627,6 @@ function omi_eurex_cash_eti_t7_v10_1.prefs_changed()
   end
   if show.message_header ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_message_header then
     show.message_header = omi_eurex_cash_eti_t7_v10_1.prefs.show_message_header
-    changed = true
-  end
-  if show.modify_order_nr_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_nr_response then
-    show.modify_order_nr_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_nr_response
-    changed = true
-  end
-  if show.modify_order_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_response then
-    show.modify_order_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_response
-    changed = true
-  end
-  if show.modify_order_single_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_single_request then
-    show.modify_order_single_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_single_request
-    changed = true
-  end
-  if show.modify_order_single_short_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_single_short_request then
-    show.modify_order_single_short_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_order_single_short_request
-    changed = true
-  end
-  if show.modify_tes_trade_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_tes_trade_request then
-    show.modify_tes_trade_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_modify_tes_trade_request
-    changed = true
-  end
-  if show.new_order_nr_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_nr_response then
-    show.new_order_nr_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_nr_response
-    changed = true
-  end
-  if show.new_order_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_response then
-    show.new_order_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_response
-    changed = true
-  end
-  if show.new_order_single_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_single_request then
-    show.new_order_single_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_single_request
-    changed = true
-  end
-  if show.new_order_single_short_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_single_short_request then
-    show.new_order_single_short_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_new_order_single_short_request
-    changed = true
-  end
-  if show.news_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_news_broadcast then
-    show.news_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_news_broadcast
     changed = true
   end
   if show.not_affected_orders_grp_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_not_affected_orders_grp_comp then
@@ -1083,52 +657,12 @@ function omi_eurex_cash_eti_t7_v10_1.prefs_changed()
     show.order_event_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_order_event_grp_comp
     changed = true
   end
-  if show.order_exec_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_notification then
-    show.order_exec_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_notification
-    changed = true
-  end
-  if show.order_exec_report_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_report_broadcast then
-    show.order_exec_report_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_report_broadcast
-    changed = true
-  end
-  if show.order_exec_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_response then
-    show.order_exec_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_order_exec_response
-    changed = true
-  end
   if show.packet ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_packet then
     show.packet = omi_eurex_cash_eti_t7_v10_1.prefs.show_packet
     changed = true
   end
-  if show.party_action_report ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_party_action_report then
-    show.party_action_report = omi_eurex_cash_eti_t7_v10_1.prefs.show_party_action_report
-    changed = true
-  end
   if show.party_details_grp_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_party_details_grp_comp then
     show.party_details_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_party_details_grp_comp
-    changed = true
-  end
-  if show.party_entitlements_update_report ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_party_entitlements_update_report then
-    show.party_entitlements_update_report = omi_eurex_cash_eti_t7_v10_1.prefs.show_party_entitlements_update_report
-    changed = true
-  end
-  if show.ping_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_ping_request then
-    show.ping_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_ping_request
-    changed = true
-  end
-  if show.ping_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_ping_response then
-    show.ping_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_ping_response
-    changed = true
-  end
-  if show.quote_activation_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_notification then
-    show.quote_activation_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_notification
-    changed = true
-  end
-  if show.quote_activation_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_request then
-    show.quote_activation_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_request
-    changed = true
-  end
-  if show.quote_activation_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_response then
-    show.quote_activation_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_activation_response
     changed = true
   end
   if show.quote_entry_ack_grp_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_entry_ack_grp_comp then
@@ -1143,20 +677,12 @@ function omi_eurex_cash_eti_t7_v10_1.prefs_changed()
     show.quote_event_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_event_grp_comp
     changed = true
   end
-  if show.quote_execution_report ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_execution_report then
-    show.quote_execution_report = omi_eurex_cash_eti_t7_v10_1.prefs.show_quote_execution_report
-    changed = true
-  end
   if show.rbc_header_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_rbc_header_comp then
     show.rbc_header_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_rbc_header_comp
     changed = true
   end
   if show.rbc_header_me_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_rbc_header_me_comp then
     show.rbc_header_me_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_rbc_header_me_comp
-    changed = true
-  end
-  if show.reject ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_reject then
-    show.reject = omi_eurex_cash_eti_t7_v10_1.prefs.show_reject
     changed = true
   end
   if show.request_header_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_request_header_comp then
@@ -1171,52 +697,8 @@ function omi_eurex_cash_eti_t7_v10_1.prefs_changed()
     show.response_header_me_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_response_header_me_comp
     changed = true
   end
-  if show.retransmit_me_message_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_me_message_request then
-    show.retransmit_me_message_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_me_message_request
-    changed = true
-  end
-  if show.retransmit_me_message_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_me_message_response then
-    show.retransmit_me_message_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_me_message_response
-    changed = true
-  end
-  if show.retransmit_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_request then
-    show.retransmit_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_request
-    changed = true
-  end
-  if show.retransmit_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_response then
-    show.retransmit_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_retransmit_response
-    changed = true
-  end
-  if show.rfq_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_broadcast then
-    show.rfq_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_broadcast
-    changed = true
-  end
-  if show.rfq_reject_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_reject_notification then
-    show.rfq_reject_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_reject_notification
-    changed = true
-  end
-  if show.rfq_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_request then
-    show.rfq_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_request
-    changed = true
-  end
-  if show.rfq_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_response then
-    show.rfq_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_response
-    changed = true
-  end
-  if show.rfq_specialist_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_specialist_broadcast then
-    show.rfq_specialist_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_rfq_specialist_broadcast
-    changed = true
-  end
   if show.security_status_event_grp_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_security_status_event_grp_comp then
     show.security_status_event_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_security_status_event_grp_comp
-    changed = true
-  end
-  if show.service_availability_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_service_availability_broadcast then
-    show.service_availability_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_service_availability_broadcast
-    changed = true
-  end
-  if show.service_availability_market_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_service_availability_market_broadcast then
-    show.service_availability_market_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_service_availability_market_broadcast
     changed = true
   end
   if show.sessions_grp_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_sessions_grp_comp then
@@ -1231,196 +713,12 @@ function omi_eurex_cash_eti_t7_v10_1.prefs_changed()
     show.side_alloc_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_side_alloc_grp_comp
     changed = true
   end
-  if show.single_quote_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_single_quote_request then
-    show.single_quote_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_single_quote_request
-    changed = true
-  end
-  if show.specialist_delete_all_order_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_delete_all_order_broadcast then
-    show.specialist_delete_all_order_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_delete_all_order_broadcast
-    changed = true
-  end
-  if show.specialist_instrument_event_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_instrument_event_notification then
-    show.specialist_instrument_event_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_instrument_event_notification
-    changed = true
-  end
-  if show.specialist_order_book_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_order_book_notification then
-    show.specialist_order_book_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_order_book_notification
-    changed = true
-  end
-  if show.specialist_rfq_reject_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reject_request then
-    show.specialist_rfq_reject_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reject_request
-    changed = true
-  end
-  if show.specialist_rfq_reply_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_notification then
-    show.specialist_rfq_reply_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_notification
-    changed = true
-  end
-  if show.specialist_rfq_reply_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_request then
-    show.specialist_rfq_reply_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_request
-    changed = true
-  end
-  if show.specialist_rfq_reply_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_response then
-    show.specialist_rfq_reply_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_rfq_reply_response
-    changed = true
-  end
-  if show.specialist_security_state_change_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_security_state_change_request then
-    show.specialist_security_state_change_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_security_state_change_request
-    changed = true
-  end
-  if show.specialist_security_state_change_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_security_state_change_response then
-    show.specialist_security_state_change_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_specialist_security_state_change_response
-    changed = true
-  end
   if show.srqs_quote_entry_grp_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_srqs_quote_entry_grp_comp then
     show.srqs_quote_entry_grp_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_srqs_quote_entry_grp_comp
     changed = true
   end
-  if show.subscribe_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_subscribe_request then
-    show.subscribe_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_subscribe_request
-    changed = true
-  end
-  if show.subscribe_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_subscribe_response then
-    show.subscribe_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_subscribe_response
-    changed = true
-  end
-  if show.tes_approve_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_approve_broadcast then
-    show.tes_approve_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_approve_broadcast
-    changed = true
-  end
-  if show.tes_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_broadcast then
-    show.tes_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_broadcast
-    changed = true
-  end
-  if show.tes_delete_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_delete_broadcast then
-    show.tes_delete_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_delete_broadcast
-    changed = true
-  end
-  if show.tes_execution_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_execution_broadcast then
-    show.tes_execution_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_execution_broadcast
-    changed = true
-  end
-  if show.tes_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_response then
-    show.tes_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_response
-    changed = true
-  end
-  if show.tes_trade_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_trade_broadcast then
-    show.tes_trade_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_trade_broadcast
-    changed = true
-  end
-  if show.tes_trading_session_status_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_trading_session_status_broadcast then
-    show.tes_trading_session_status_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_tes_trading_session_status_broadcast
-    changed = true
-  end
-  if show.throttle_update_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_throttle_update_notification then
-    show.throttle_update_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_throttle_update_notification
-    changed = true
-  end
-  if show.tm_trading_session_status_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_tm_trading_session_status_broadcast then
-    show.tm_trading_session_status_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_tm_trading_session_status_broadcast
-    changed = true
-  end
-  if show.trade_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_trade_broadcast then
-    show.trade_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_trade_broadcast
-    changed = true
-  end
-  if show.trading_session_status_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_trading_session_status_broadcast then
-    show.trading_session_status_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_trading_session_status_broadcast
-    changed = true
-  end
-  if show.trailing_stop_update_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_trailing_stop_update_notification then
-    show.trailing_stop_update_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_trailing_stop_update_notification
-    changed = true
-  end
-  if show.unsubscribe_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_unsubscribe_request then
-    show.unsubscribe_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_unsubscribe_request
-    changed = true
-  end
-  if show.unsubscribe_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_unsubscribe_response then
-    show.unsubscribe_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_unsubscribe_response
-    changed = true
-  end
-  if show.user_login_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_user_login_request then
-    show.user_login_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_user_login_request
-    changed = true
-  end
-  if show.user_login_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_user_login_response then
-    show.user_login_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_user_login_response
-    changed = true
-  end
-  if show.user_logout_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_user_logout_request then
-    show.user_logout_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_user_logout_request
-    changed = true
-  end
-  if show.user_logout_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_user_logout_response then
-    show.user_logout_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_user_logout_response
-    changed = true
-  end
-  if show.xetra_en_light_create_deal_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_create_deal_notification then
-    show.xetra_en_light_create_deal_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_create_deal_notification
-    changed = true
-  end
-  if show.xetra_en_light_deal_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_deal_response then
-    show.xetra_en_light_deal_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_deal_response
-    changed = true
-  end
-  if show.xetra_en_light_enter_quote_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_enter_quote_request then
-    show.xetra_en_light_enter_quote_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_enter_quote_request
-    changed = true
-  end
-  if show.xetra_en_light_hit_quote_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_hit_quote_request then
-    show.xetra_en_light_hit_quote_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_hit_quote_request
-    changed = true
-  end
-  if show.xetra_en_light_negotiation_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_notification then
-    show.xetra_en_light_negotiation_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_notification
-    changed = true
-  end
-  if show.xetra_en_light_negotiation_requester_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_requester_notification then
-    show.xetra_en_light_negotiation_requester_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_requester_notification
-    changed = true
-  end
-  if show.xetra_en_light_negotiation_status_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_status_notification then
-    show.xetra_en_light_negotiation_status_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_negotiation_status_notification
-    changed = true
-  end
-  if show.xetra_en_light_open_negotiation_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_notification then
-    show.xetra_en_light_open_negotiation_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_notification
-    changed = true
-  end
-  if show.xetra_en_light_open_negotiation_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_request then
-    show.xetra_en_light_open_negotiation_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_request
-    changed = true
-  end
-  if show.xetra_en_light_open_negotiation_requester_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_requester_notification then
-    show.xetra_en_light_open_negotiation_requester_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_open_negotiation_requester_notification
-    changed = true
-  end
-  if show.xetra_en_light_quote_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_notification then
-    show.xetra_en_light_quote_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_notification
-    changed = true
-  end
-  if show.xetra_en_light_quote_requester_notification ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_requester_notification then
-    show.xetra_en_light_quote_requester_notification = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_requester_notification
-    changed = true
-  end
-  if show.xetra_en_light_quote_response ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_response then
-    show.xetra_en_light_quote_response = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quote_response
-    changed = true
-  end
-  if show.xetra_en_light_quoting_status_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quoting_status_request then
-    show.xetra_en_light_quoting_status_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_quoting_status_request
-    changed = true
-  end
-  if show.xetra_en_light_status_broadcast ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_status_broadcast then
-    show.xetra_en_light_status_broadcast = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_status_broadcast
-    changed = true
-  end
   if show.xetra_en_light_target_parties_comp ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_target_parties_comp then
     show.xetra_en_light_target_parties_comp = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_target_parties_comp
-    changed = true
-  end
-  if show.xetra_en_light_update_negotiation_request ~= omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_update_negotiation_request then
-    show.xetra_en_light_update_negotiation_request = omi_eurex_cash_eti_t7_v10_1.prefs.show_xetra_en_light_update_negotiation_request
     changed = true
   end
 
@@ -13726,7 +13024,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_update_negotiation_request.dissect = func
   local index = offset + size_of_xetra_en_light_update_negotiation_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_update_negotiation_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_update_negotiation_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_update_negotiation_request.fields(buffer, offset, packet, parent, size_of_xetra_en_light_update_negotiation_request)
     parent:set_len(size_of_xetra_en_light_update_negotiation_request)
@@ -13856,7 +13154,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_status_broadcast.dissect = function(buffe
   local index = offset + size_of_xetra_en_light_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_status_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_status_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_status_broadcast.fields(buffer, offset, packet, parent, size_of_xetra_en_light_status_broadcast)
     parent:set_len(size_of_xetra_en_light_status_broadcast)
@@ -13930,7 +13228,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_quoting_status_request.dissect = function
   local index = offset + size_of_xetra_en_light_quoting_status_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_quoting_status_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_quoting_status_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_quoting_status_request.fields(buffer, offset, packet, parent, size_of_xetra_en_light_quoting_status_request)
     parent:set_len(size_of_xetra_en_light_quoting_status_request)
@@ -14044,7 +13342,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_quote_response.dissect = function(buffer,
   local index = offset + size_of_xetra_en_light_quote_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_quote_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_quote_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_quote_response.fields(buffer, offset, packet, parent, size_of_xetra_en_light_quote_response)
     parent:set_len(size_of_xetra_en_light_quote_response)
@@ -14214,7 +13512,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_quote_requester_notification.dissect = fu
   local index = offset + size_of_xetra_en_light_quote_requester_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_quote_requester_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_quote_requester_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_quote_requester_notification.fields(buffer, offset, packet, parent, size_of_xetra_en_light_quote_requester_notification)
     parent:set_len(size_of_xetra_en_light_quote_requester_notification)
@@ -14330,7 +13628,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_quote_notification.dissect = function(buf
   local index = offset + size_of_xetra_en_light_quote_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_quote_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_quote_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_quote_notification.fields(buffer, offset, packet, parent, size_of_xetra_en_light_quote_notification)
     parent:set_len(size_of_xetra_en_light_quote_notification)
@@ -14523,7 +13821,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_open_negotiation_requester_notification.d
   local index = offset + size_of_xetra_en_light_open_negotiation_requester_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_open_negotiation_requester_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_open_negotiation_requester_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_open_negotiation_requester_notification.fields(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_requester_notification)
     parent:set_len(size_of_xetra_en_light_open_negotiation_requester_notification)
@@ -14701,7 +13999,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_open_negotiation_request.dissect = functi
   local index = offset + size_of_xetra_en_light_open_negotiation_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_open_negotiation_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_open_negotiation_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_open_negotiation_request.fields(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_request)
     parent:set_len(size_of_xetra_en_light_open_negotiation_request)
@@ -14820,7 +14118,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_open_negotiation_notification.dissect = f
   local index = offset + size_of_xetra_en_light_open_negotiation_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_open_negotiation_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_open_negotiation_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_open_negotiation_notification.fields(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_notification)
     parent:set_len(size_of_xetra_en_light_open_negotiation_notification)
@@ -14888,7 +14186,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_negotiation_status_notification.dissect =
   local index = offset + size_of_xetra_en_light_negotiation_status_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_negotiation_status_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_negotiation_status_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_negotiation_status_notification.fields(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_status_notification)
     parent:set_len(size_of_xetra_en_light_negotiation_status_notification)
@@ -15072,7 +14370,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_negotiation_requester_notification.dissec
   local index = offset + size_of_xetra_en_light_negotiation_requester_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_negotiation_requester_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_negotiation_requester_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_negotiation_requester_notification.fields(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_requester_notification)
     parent:set_len(size_of_xetra_en_light_negotiation_requester_notification)
@@ -15176,7 +14474,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_negotiation_notification.dissect = functi
   local index = offset + size_of_xetra_en_light_negotiation_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_negotiation_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_negotiation_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_negotiation_notification.fields(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_notification)
     parent:set_len(size_of_xetra_en_light_negotiation_notification)
@@ -15301,7 +14599,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_hit_quote_request.dissect = function(buff
   local index = offset + size_of_xetra_en_light_hit_quote_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_hit_quote_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_hit_quote_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_hit_quote_request.fields(buffer, offset, packet, parent, size_of_xetra_en_light_hit_quote_request)
     parent:set_len(size_of_xetra_en_light_hit_quote_request)
@@ -15423,7 +14721,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_enter_quote_request.dissect = function(bu
   local index = offset + size_of_xetra_en_light_enter_quote_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_enter_quote_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_enter_quote_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_enter_quote_request.fields(buffer, offset, packet, parent, size_of_xetra_en_light_enter_quote_request)
     parent:set_len(size_of_xetra_en_light_enter_quote_request)
@@ -15500,7 +14798,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_deal_response.dissect = function(buffer, 
   local index = offset + size_of_xetra_en_light_deal_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_deal_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_deal_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_deal_response.fields(buffer, offset, packet, parent, size_of_xetra_en_light_deal_response)
     parent:set_len(size_of_xetra_en_light_deal_response)
@@ -15724,7 +15022,7 @@ eurex_cash_eti_t7_v10_1.xetra_en_light_create_deal_notification.dissect = functi
   local index = offset + size_of_xetra_en_light_create_deal_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.xetra_en_light_create_deal_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.xetra_en_light_create_deal_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.xetra_en_light_create_deal_notification.fields(buffer, offset, packet, parent, size_of_xetra_en_light_create_deal_notification)
     parent:set_len(size_of_xetra_en_light_create_deal_notification)
@@ -15777,7 +15075,7 @@ eurex_cash_eti_t7_v10_1.user_logout_response.dissect = function(buffer, offset, 
   local index = offset + size_of_user_logout_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.user_logout_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.user_logout_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.user_logout_response.fields(buffer, offset, packet, parent, size_of_user_logout_response)
     parent:set_len(size_of_user_logout_response)
@@ -15839,7 +15137,7 @@ eurex_cash_eti_t7_v10_1.user_logout_request.dissect = function(buffer, offset, p
   local index = offset + size_of_user_logout_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.user_logout_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.user_logout_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
     parent:set_len(size_of_user_logout_request)
@@ -15892,7 +15190,7 @@ eurex_cash_eti_t7_v10_1.user_login_response.dissect = function(buffer, offset, p
   local index = offset + size_of_user_login_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.user_login_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.user_login_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.user_login_response.fields(buffer, offset, packet, parent, size_of_user_login_response)
     parent:set_len(size_of_user_login_response)
@@ -15957,7 +15255,7 @@ eurex_cash_eti_t7_v10_1.user_login_request.dissect = function(buffer, offset, pa
   local index = offset + size_of_user_login_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.user_login_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.user_login_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
     parent:set_len(size_of_user_login_request)
@@ -16010,7 +15308,7 @@ eurex_cash_eti_t7_v10_1.unsubscribe_response.dissect = function(buffer, offset, 
   local index = offset + size_of_unsubscribe_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsubscribe_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.unsubscribe_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.unsubscribe_response.fields(buffer, offset, packet, parent, size_of_unsubscribe_response)
     parent:set_len(size_of_unsubscribe_response)
@@ -16072,7 +15370,7 @@ eurex_cash_eti_t7_v10_1.unsubscribe_request.dissect = function(buffer, offset, p
   local index = offset + size_of_unsubscribe_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsubscribe_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.unsubscribe_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
     parent:set_len(size_of_unsubscribe_request)
@@ -16246,7 +15544,7 @@ eurex_cash_eti_t7_v10_1.trailing_stop_update_notification.dissect = function(buf
   local index = offset + size_of_trailing_stop_update_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.trailing_stop_update_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.trailing_stop_update_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.trailing_stop_update_notification.fields(buffer, offset, packet, parent, size_of_trailing_stop_update_notification)
     parent:set_len(size_of_trailing_stop_update_notification)
@@ -16314,7 +15612,7 @@ eurex_cash_eti_t7_v10_1.trading_session_status_broadcast.dissect = function(buff
   local index = offset + size_of_trading_session_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.trading_session_status_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.trading_session_status_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
     parent:set_len(size_of_trading_session_status_broadcast)
@@ -16598,7 +15896,7 @@ eurex_cash_eti_t7_v10_1.trade_broadcast.dissect = function(buffer, offset, packe
   local index = offset + size_of_trade_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.trade_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.trade_broadcast.fields(buffer, offset, packet, parent, size_of_trade_broadcast)
     parent:set_len(size_of_trade_broadcast)
@@ -16700,7 +15998,7 @@ eurex_cash_eti_t7_v10_1.throttle_update_notification.dissect = function(buffer, 
   local index = offset + size_of_throttle_update_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.throttle_update_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.throttle_update_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.throttle_update_notification.fields(buffer, offset, packet, parent, size_of_throttle_update_notification)
     parent:set_len(size_of_throttle_update_notification)
@@ -16759,7 +16057,7 @@ eurex_cash_eti_t7_v10_1.tm_trading_session_status_broadcast.dissect = function(b
   local index = offset + size_of_tm_trading_session_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.tm_trading_session_status_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.tm_trading_session_status_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.tm_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
     parent:set_len(size_of_tm_trading_session_status_broadcast)
@@ -16821,7 +16119,7 @@ eurex_cash_eti_t7_v10_1.tes_trading_session_status_broadcast.dissect = function(
   local index = offset + size_of_tes_trading_session_status_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.tes_trading_session_status_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.tes_trading_session_status_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.tes_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
     parent:set_len(size_of_tes_trading_session_status_broadcast)
@@ -17066,7 +16364,7 @@ eurex_cash_eti_t7_v10_1.tes_trade_broadcast.dissect = function(buffer, offset, p
   local index = offset + size_of_tes_trade_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.tes_trade_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.tes_trade_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.tes_trade_broadcast.fields(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
     parent:set_len(size_of_tes_trade_broadcast)
@@ -17125,7 +16423,7 @@ eurex_cash_eti_t7_v10_1.tes_response.dissect = function(buffer, offset, packet, 
   local index = offset + size_of_tes_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.tes_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.tes_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.tes_response.fields(buffer, offset, packet, parent, size_of_tes_response)
     parent:set_len(size_of_tes_response)
@@ -17211,7 +16509,7 @@ eurex_cash_eti_t7_v10_1.tes_execution_broadcast.dissect = function(buffer, offse
   local index = offset + size_of_tes_execution_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.tes_execution_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.tes_execution_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.tes_execution_broadcast.fields(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
     parent:set_len(size_of_tes_execution_broadcast)
@@ -17297,7 +16595,7 @@ eurex_cash_eti_t7_v10_1.tes_delete_broadcast.dissect = function(buffer, offset, 
   local index = offset + size_of_tes_delete_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.tes_delete_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.tes_delete_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.tes_delete_broadcast.fields(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
     parent:set_len(size_of_tes_delete_broadcast)
@@ -17512,7 +16810,7 @@ eurex_cash_eti_t7_v10_1.tes_broadcast.dissect = function(buffer, offset, packet,
   local index = offset + size_of_tes_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.tes_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.tes_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.tes_broadcast.fields(buffer, offset, packet, parent, size_of_tes_broadcast)
     parent:set_len(size_of_tes_broadcast)
@@ -17687,7 +16985,7 @@ eurex_cash_eti_t7_v10_1.tes_approve_broadcast.dissect = function(buffer, offset,
   local index = offset + size_of_tes_approve_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.tes_approve_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.tes_approve_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.tes_approve_broadcast.fields(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
     parent:set_len(size_of_tes_approve_broadcast)
@@ -17746,7 +17044,7 @@ eurex_cash_eti_t7_v10_1.subscribe_response.dissect = function(buffer, offset, pa
   local index = offset + size_of_subscribe_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.subscribe_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.subscribe_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.subscribe_response.fields(buffer, offset, packet, parent, size_of_subscribe_response)
     parent:set_len(size_of_subscribe_response)
@@ -17811,7 +17109,7 @@ eurex_cash_eti_t7_v10_1.subscribe_request.dissect = function(buffer, offset, pac
   local index = offset + size_of_subscribe_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.subscribe_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.subscribe_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
     parent:set_len(size_of_subscribe_request)
@@ -17935,7 +17233,7 @@ eurex_cash_eti_t7_v10_1.specialist_security_state_change_response.dissect = func
   local index = offset + size_of_specialist_security_state_change_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_security_state_change_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_security_state_change_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_security_state_change_response.fields(buffer, offset, packet, parent, size_of_specialist_security_state_change_response)
     parent:set_len(size_of_specialist_security_state_change_response)
@@ -18003,7 +17301,7 @@ eurex_cash_eti_t7_v10_1.specialist_security_state_change_request.dissect = funct
   local index = offset + size_of_specialist_security_state_change_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_security_state_change_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_security_state_change_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_security_state_change_request.fields(buffer, offset, packet, parent, size_of_specialist_security_state_change_request)
     parent:set_len(size_of_specialist_security_state_change_request)
@@ -18059,7 +17357,7 @@ eurex_cash_eti_t7_v10_1.specialist_rfq_reply_response.dissect = function(buffer,
   local index = offset + size_of_specialist_rfq_reply_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_rfq_reply_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_rfq_reply_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_rfq_reply_response.fields(buffer, offset, packet, parent, size_of_specialist_rfq_reply_response)
     parent:set_len(size_of_specialist_rfq_reply_response)
@@ -18142,7 +17440,7 @@ eurex_cash_eti_t7_v10_1.specialist_rfq_reply_request.dissect = function(buffer, 
   local index = offset + size_of_specialist_rfq_reply_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_rfq_reply_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_rfq_reply_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_rfq_reply_request.fields(buffer, offset, packet, parent, size_of_specialist_rfq_reply_request)
     parent:set_len(size_of_specialist_rfq_reply_request)
@@ -18225,7 +17523,7 @@ eurex_cash_eti_t7_v10_1.specialist_rfq_reply_notification.dissect = function(buf
   local index = offset + size_of_specialist_rfq_reply_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_rfq_reply_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_rfq_reply_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_rfq_reply_notification.fields(buffer, offset, packet, parent, size_of_specialist_rfq_reply_notification)
     parent:set_len(size_of_specialist_rfq_reply_notification)
@@ -18299,7 +17597,7 @@ eurex_cash_eti_t7_v10_1.specialist_rfq_reject_request.dissect = function(buffer,
   local index = offset + size_of_specialist_rfq_reject_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_rfq_reject_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_rfq_reject_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_rfq_reject_request.fields(buffer, offset, packet, parent, size_of_specialist_rfq_reject_request)
     parent:set_len(size_of_specialist_rfq_reject_request)
@@ -18552,7 +17850,7 @@ eurex_cash_eti_t7_v10_1.specialist_order_book_notification.dissect = function(bu
   local index = offset + size_of_specialist_order_book_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_order_book_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_order_book_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_order_book_notification.fields(buffer, offset, packet, parent, size_of_specialist_order_book_notification)
     parent:set_len(size_of_specialist_order_book_notification)
@@ -18620,7 +17918,7 @@ eurex_cash_eti_t7_v10_1.specialist_instrument_event_notification.dissect = funct
   local index = offset + size_of_specialist_instrument_event_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_instrument_event_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_instrument_event_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_instrument_event_notification.fields(buffer, offset, packet, parent, size_of_specialist_instrument_event_notification)
     parent:set_len(size_of_specialist_instrument_event_notification)
@@ -18807,7 +18105,7 @@ eurex_cash_eti_t7_v10_1.specialist_delete_all_order_broadcast.dissect = function
   local index = offset + size_of_specialist_delete_all_order_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.specialist_delete_all_order_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.specialist_delete_all_order_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.specialist_delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_specialist_delete_all_order_broadcast)
     parent:set_len(size_of_specialist_delete_all_order_broadcast)
@@ -18935,7 +18233,7 @@ eurex_cash_eti_t7_v10_1.single_quote_request.dissect = function(buffer, offset, 
   local index = offset + size_of_single_quote_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.single_quote_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.single_quote_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.single_quote_request.fields(buffer, offset, packet, parent, size_of_single_quote_request)
     parent:set_len(size_of_single_quote_request)
@@ -19056,7 +18354,7 @@ eurex_cash_eti_t7_v10_1.service_availability_market_broadcast.dissect = function
   local index = offset + size_of_service_availability_market_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.service_availability_market_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.service_availability_market_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.service_availability_market_broadcast.fields(buffer, offset, packet, parent, size_of_service_availability_market_broadcast)
     parent:set_len(size_of_service_availability_market_broadcast)
@@ -19145,7 +18443,7 @@ eurex_cash_eti_t7_v10_1.service_availability_broadcast.dissect = function(buffer
   local index = offset + size_of_service_availability_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.service_availability_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.service_availability_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.service_availability_broadcast.fields(buffer, offset, packet, parent, size_of_service_availability_broadcast)
     parent:set_len(size_of_service_availability_broadcast)
@@ -19210,7 +18508,7 @@ eurex_cash_eti_t7_v10_1.retransmit_response.dissect = function(buffer, offset, p
   local index = offset + size_of_retransmit_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.retransmit_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.retransmit_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.retransmit_response.fields(buffer, offset, packet, parent, size_of_retransmit_response)
     parent:set_len(size_of_retransmit_response)
@@ -19281,7 +18579,7 @@ eurex_cash_eti_t7_v10_1.retransmit_request.dissect = function(buffer, offset, pa
   local index = offset + size_of_retransmit_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.retransmit_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.retransmit_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
     parent:set_len(size_of_retransmit_request)
@@ -19346,7 +18644,7 @@ eurex_cash_eti_t7_v10_1.retransmit_me_message_response.dissect = function(buffer
   local index = offset + size_of_retransmit_me_message_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.retransmit_me_message_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.retransmit_me_message_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.retransmit_me_message_response.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
     parent:set_len(size_of_retransmit_me_message_response)
@@ -19420,7 +18718,7 @@ eurex_cash_eti_t7_v10_1.retransmit_me_message_request.dissect = function(buffer,
   local index = offset + size_of_retransmit_me_message_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.retransmit_me_message_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.retransmit_me_message_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
     parent:set_len(size_of_retransmit_me_message_request)
@@ -19505,7 +18803,7 @@ eurex_cash_eti_t7_v10_1.reject.dissect = function(buffer, offset, packet, parent
   local index = offset + size_of_reject
 
   -- Optionally add group/struct element to protocol tree
-  if show.reject then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.reject, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.reject.fields(buffer, offset, packet, parent, size_of_reject)
     parent:set_len(size_of_reject)
@@ -19582,7 +18880,7 @@ eurex_cash_eti_t7_v10_1.rfq_specialist_broadcast.dissect = function(buffer, offs
   local index = offset + size_of_rfq_specialist_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.rfq_specialist_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.rfq_specialist_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.rfq_specialist_broadcast.fields(buffer, offset, packet, parent, size_of_rfq_specialist_broadcast)
     parent:set_len(size_of_rfq_specialist_broadcast)
@@ -19638,7 +18936,7 @@ eurex_cash_eti_t7_v10_1.rfq_response.dissect = function(buffer, offset, packet, 
   local index = offset + size_of_rfq_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.rfq_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.rfq_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.rfq_response.fields(buffer, offset, packet, parent, size_of_rfq_response)
     parent:set_len(size_of_rfq_response)
@@ -19718,7 +19016,7 @@ eurex_cash_eti_t7_v10_1.rfq_request.dissect = function(buffer, offset, packet, p
   local index = offset + size_of_rfq_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.rfq_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.rfq_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
     parent:set_len(size_of_rfq_request)
@@ -19792,7 +19090,7 @@ eurex_cash_eti_t7_v10_1.rfq_reject_notification.dissect = function(buffer, offse
   local index = offset + size_of_rfq_reject_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.rfq_reject_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.rfq_reject_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.rfq_reject_notification.fields(buffer, offset, packet, parent, size_of_rfq_reject_notification)
     parent:set_len(size_of_rfq_reject_notification)
@@ -19866,7 +19164,7 @@ eurex_cash_eti_t7_v10_1.rfq_broadcast.dissect = function(buffer, offset, packet,
   local index = offset + size_of_rfq_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.rfq_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.rfq_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.rfq_broadcast.fields(buffer, offset, packet, parent, size_of_rfq_broadcast)
     parent:set_len(size_of_rfq_broadcast)
@@ -20022,7 +19320,7 @@ eurex_cash_eti_t7_v10_1.quote_execution_report.dissect = function(buffer, offset
   local index = offset + size_of_quote_execution_report
 
   -- Optionally add group/struct element to protocol tree
-  if show.quote_execution_report then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.quote_execution_report, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.quote_execution_report.fields(buffer, offset, packet, parent, size_of_quote_execution_report)
     parent:set_len(size_of_quote_execution_report)
@@ -20135,7 +19433,7 @@ eurex_cash_eti_t7_v10_1.quote_activation_response.dissect = function(buffer, off
   local index = offset + size_of_quote_activation_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.quote_activation_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.quote_activation_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.quote_activation_response.fields(buffer, offset, packet, parent, size_of_quote_activation_response)
     parent:set_len(size_of_quote_activation_response)
@@ -20215,7 +19513,7 @@ eurex_cash_eti_t7_v10_1.quote_activation_request.dissect = function(buffer, offs
   local index = offset + size_of_quote_activation_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.quote_activation_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.quote_activation_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
     parent:set_len(size_of_quote_activation_request)
@@ -20297,7 +19595,7 @@ eurex_cash_eti_t7_v10_1.quote_activation_notification.dissect = function(buffer,
   local index = offset + size_of_quote_activation_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.quote_activation_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.quote_activation_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.quote_activation_notification.fields(buffer, offset, packet, parent, size_of_quote_activation_notification)
     parent:set_len(size_of_quote_activation_notification)
@@ -20353,7 +19651,7 @@ eurex_cash_eti_t7_v10_1.ping_response.dissect = function(buffer, offset, packet,
   local index = offset + size_of_ping_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.ping_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.ping_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.ping_response.fields(buffer, offset, packet, parent, size_of_ping_response)
     parent:set_len(size_of_ping_response)
@@ -20415,7 +19713,7 @@ eurex_cash_eti_t7_v10_1.ping_request.dissect = function(buffer, offset, packet, 
   local index = offset + size_of_ping_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.ping_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.ping_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.ping_request.fields(buffer, offset, packet, parent, size_of_ping_request)
     parent:set_len(size_of_ping_request)
@@ -20498,7 +19796,7 @@ eurex_cash_eti_t7_v10_1.party_entitlements_update_report.dissect = function(buff
   local index = offset + size_of_party_entitlements_update_report
 
   -- Optionally add group/struct element to protocol tree
-  if show.party_entitlements_update_report then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.party_entitlements_update_report, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.party_entitlements_update_report.fields(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
     parent:set_len(size_of_party_entitlements_update_report)
@@ -20578,7 +19876,7 @@ eurex_cash_eti_t7_v10_1.party_action_report.dissect = function(buffer, offset, p
   local index = offset + size_of_party_action_report
 
   -- Optionally add group/struct element to protocol tree
-  if show.party_action_report then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.party_action_report, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.party_action_report.fields(buffer, offset, packet, parent, size_of_party_action_report)
     parent:set_len(size_of_party_action_report)
@@ -20851,7 +20149,7 @@ eurex_cash_eti_t7_v10_1.order_exec_response.dissect = function(buffer, offset, p
   local index = offset + size_of_order_exec_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_exec_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.order_exec_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.order_exec_response.fields(buffer, offset, packet, parent, size_of_order_exec_response)
     parent:set_len(size_of_order_exec_response)
@@ -21079,7 +20377,7 @@ eurex_cash_eti_t7_v10_1.order_exec_report_broadcast.dissect = function(buffer, o
   local index = offset + size_of_order_exec_report_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_exec_report_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.order_exec_report_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.order_exec_report_broadcast.fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
     parent:set_len(size_of_order_exec_report_broadcast)
@@ -21211,7 +20509,7 @@ eurex_cash_eti_t7_v10_1.order_exec_notification.dissect = function(buffer, offse
   local index = offset + size_of_order_exec_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_exec_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.order_exec_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.order_exec_notification.fields(buffer, offset, packet, parent, size_of_order_exec_notification)
     parent:set_len(size_of_order_exec_notification)
@@ -21296,7 +20594,7 @@ eurex_cash_eti_t7_v10_1.news_broadcast.dissect = function(buffer, offset, packet
   local index = offset + size_of_news_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.news_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.news_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.news_broadcast.fields(buffer, offset, packet, parent, size_of_news_broadcast)
     parent:set_len(size_of_news_broadcast)
@@ -21418,7 +20716,7 @@ eurex_cash_eti_t7_v10_1.new_order_single_short_request.dissect = function(buffer
   local index = offset + size_of_new_order_single_short_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_single_short_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.new_order_single_short_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.new_order_single_short_request.fields(buffer, offset, packet, parent, size_of_new_order_single_short_request)
     parent:set_len(size_of_new_order_single_short_request)
@@ -21597,7 +20895,7 @@ eurex_cash_eti_t7_v10_1.new_order_single_request.dissect = function(buffer, offs
   local index = offset + size_of_new_order_single_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_single_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.new_order_single_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.new_order_single_request.fields(buffer, offset, packet, parent, size_of_new_order_single_request)
     parent:set_len(size_of_new_order_single_request)
@@ -21706,7 +21004,7 @@ eurex_cash_eti_t7_v10_1.new_order_response.dissect = function(buffer, offset, pa
   local index = offset + size_of_new_order_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.new_order_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.new_order_response.fields(buffer, offset, packet, parent, size_of_new_order_response)
     parent:set_len(size_of_new_order_response)
@@ -21809,7 +21107,7 @@ eurex_cash_eti_t7_v10_1.new_order_nr_response.dissect = function(buffer, offset,
   local index = offset + size_of_new_order_nr_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_nr_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.new_order_nr_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
     parent:set_len(size_of_new_order_nr_response)
@@ -21976,7 +21274,7 @@ eurex_cash_eti_t7_v10_1.modify_tes_trade_request.dissect = function(buffer, offs
   local index = offset + size_of_modify_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.modify_tes_trade_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.modify_tes_trade_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.modify_tes_trade_request.fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
     parent:set_len(size_of_modify_tes_trade_request)
@@ -22101,7 +21399,7 @@ eurex_cash_eti_t7_v10_1.modify_order_single_short_request.dissect = function(buf
   local index = offset + size_of_modify_order_single_short_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.modify_order_single_short_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.modify_order_single_short_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.modify_order_single_short_request.fields(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
     parent:set_len(size_of_modify_order_single_short_request)
@@ -22286,7 +21584,7 @@ eurex_cash_eti_t7_v10_1.modify_order_single_request.dissect = function(buffer, o
   local index = offset + size_of_modify_order_single_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.modify_order_single_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.modify_order_single_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.modify_order_single_request.fields(buffer, offset, packet, parent, size_of_modify_order_single_request)
     parent:set_len(size_of_modify_order_single_request)
@@ -22404,7 +21702,7 @@ eurex_cash_eti_t7_v10_1.modify_order_response.dissect = function(buffer, offset,
   local index = offset + size_of_modify_order_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.modify_order_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.modify_order_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.modify_order_response.fields(buffer, offset, packet, parent, size_of_modify_order_response)
     parent:set_len(size_of_modify_order_response)
@@ -22519,7 +21817,7 @@ eurex_cash_eti_t7_v10_1.modify_order_nr_response.dissect = function(buffer, offs
   local index = offset + size_of_modify_order_nr_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.modify_order_nr_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.modify_order_nr_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
     parent:set_len(size_of_modify_order_nr_response)
@@ -22658,7 +21956,7 @@ eurex_cash_eti_t7_v10_1.mass_quote_response.dissect = function(buffer, offset, p
   local index = offset + size_of_mass_quote_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.mass_quote_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.mass_quote_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.mass_quote_response.fields(buffer, offset, packet, parent, size_of_mass_quote_response)
     parent:set_len(size_of_mass_quote_response)
@@ -22832,7 +22130,7 @@ eurex_cash_eti_t7_v10_1.mass_quote_request.dissect = function(buffer, offset, pa
   local index = offset + size_of_mass_quote_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.mass_quote_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.mass_quote_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.mass_quote_request.fields(buffer, offset, packet, parent, size_of_mass_quote_request)
     parent:set_len(size_of_mass_quote_request)
@@ -22885,7 +22183,7 @@ eurex_cash_eti_t7_v10_1.logout_response.dissect = function(buffer, offset, packe
   local index = offset + size_of_logout_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.logout_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.logout_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
     parent:set_len(size_of_logout_response)
@@ -22941,7 +22239,7 @@ eurex_cash_eti_t7_v10_1.logout_request.dissect = function(buffer, offset, packet
   local index = offset + size_of_logout_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.logout_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.logout_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
     parent:set_len(size_of_logout_request)
@@ -23024,7 +22322,7 @@ eurex_cash_eti_t7_v10_1.logon_response.dissect = function(buffer, offset, packet
   local index = offset + size_of_logon_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.logon_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.logon_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
     parent:set_len(size_of_logon_response)
@@ -23122,7 +22420,7 @@ eurex_cash_eti_t7_v10_1.logon_request.dissect = function(buffer, offset, packet,
   local index = offset + size_of_logon_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.logon_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.logon_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
     parent:set_len(size_of_logon_request)
@@ -23207,7 +22505,7 @@ eurex_cash_eti_t7_v10_1.legal_notification_broadcast.dissect = function(buffer, 
   local index = offset + size_of_legal_notification_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.legal_notification_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.legal_notification_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.legal_notification_broadcast.fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
     parent:set_len(size_of_legal_notification_broadcast)
@@ -23263,7 +22561,7 @@ eurex_cash_eti_t7_v10_1.issuer_security_state_change_response.dissect = function
   local index = offset + size_of_issuer_security_state_change_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.issuer_security_state_change_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.issuer_security_state_change_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.issuer_security_state_change_response.fields(buffer, offset, packet, parent, size_of_issuer_security_state_change_response)
     parent:set_len(size_of_issuer_security_state_change_response)
@@ -23403,7 +22701,7 @@ eurex_cash_eti_t7_v10_1.issuer_security_state_change_request.dissect = function(
   local index = offset + size_of_issuer_security_state_change_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.issuer_security_state_change_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.issuer_security_state_change_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.issuer_security_state_change_request.fields(buffer, offset, packet, parent, size_of_issuer_security_state_change_request)
     parent:set_len(size_of_issuer_security_state_change_request)
@@ -23486,7 +22784,7 @@ eurex_cash_eti_t7_v10_1.issuer_notification.dissect = function(buffer, offset, p
   local index = offset + size_of_issuer_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.issuer_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.issuer_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.issuer_notification.fields(buffer, offset, packet, parent, size_of_issuer_notification)
     parent:set_len(size_of_issuer_notification)
@@ -23619,7 +22917,7 @@ eurex_cash_eti_t7_v10_1.inquire_user_response.dissect = function(buffer, offset,
   local index = offset + size_of_inquire_user_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.inquire_user_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.inquire_user_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.inquire_user_response.fields(buffer, offset, packet, parent, size_of_inquire_user_response)
     parent:set_len(size_of_inquire_user_response)
@@ -23678,7 +22976,7 @@ eurex_cash_eti_t7_v10_1.inquire_user_request.dissect = function(buffer, offset, 
   local index = offset + size_of_inquire_user_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.inquire_user_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.inquire_user_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.inquire_user_request.fields(buffer, offset, packet, parent, size_of_inquire_user_request)
     parent:set_len(size_of_inquire_user_request)
@@ -23800,7 +23098,7 @@ eurex_cash_eti_t7_v10_1.inquire_session_list_response.dissect = function(buffer,
   local index = offset + size_of_inquire_session_list_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.inquire_session_list_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.inquire_session_list_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.inquire_session_list_response.fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
     parent:set_len(size_of_inquire_session_list_response)
@@ -23856,7 +23154,7 @@ eurex_cash_eti_t7_v10_1.inquire_session_list_request.dissect = function(buffer, 
   local index = offset + size_of_inquire_session_list_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.inquire_session_list_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.inquire_session_list_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
     parent:set_len(size_of_inquire_session_list_request)
@@ -23985,7 +23283,7 @@ eurex_cash_eti_t7_v10_1.inquire_enrichment_rule_id_list_response.dissect = funct
   local index = offset + size_of_inquire_enrichment_rule_id_list_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.inquire_enrichment_rule_id_list_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.inquire_enrichment_rule_id_list_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.inquire_enrichment_rule_id_list_response.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
     parent:set_len(size_of_inquire_enrichment_rule_id_list_response)
@@ -24044,7 +23342,7 @@ eurex_cash_eti_t7_v10_1.inquire_enrichment_rule_id_list_request.dissect = functi
   local index = offset + size_of_inquire_enrichment_rule_id_list_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.inquire_enrichment_rule_id_list_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.inquire_enrichment_rule_id_list_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.inquire_enrichment_rule_id_list_request.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
     parent:set_len(size_of_inquire_enrichment_rule_id_list_request)
@@ -24097,7 +23395,7 @@ eurex_cash_eti_t7_v10_1.heartbeat_notification.dissect = function(buffer, offset
   local index = offset + size_of_heartbeat_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.heartbeat_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.heartbeat_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
     parent:set_len(size_of_heartbeat_notification)
@@ -24150,7 +23448,7 @@ eurex_cash_eti_t7_v10_1.heartbeat.dissect = function(buffer, offset, packet, par
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
-  if show.heartbeat then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.heartbeat, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
     parent:set_len(size_of_heartbeat)
@@ -24235,7 +23533,7 @@ eurex_cash_eti_t7_v10_1.forced_user_logout_notification.dissect = function(buffe
   local index = offset + size_of_forced_user_logout_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.forced_user_logout_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.forced_user_logout_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.forced_user_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
     parent:set_len(size_of_forced_user_logout_notification)
@@ -24314,7 +23612,7 @@ eurex_cash_eti_t7_v10_1.forced_logout_notification.dissect = function(buffer, of
   local index = offset + size_of_forced_logout_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.forced_logout_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.forced_logout_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
     parent:set_len(size_of_forced_logout_notification)
@@ -24508,7 +23806,7 @@ eurex_cash_eti_t7_v10_1.extended_deletion_report.dissect = function(buffer, offs
   local index = offset + size_of_extended_deletion_report
 
   -- Optionally add group/struct element to protocol tree
-  if show.extended_deletion_report then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.extended_deletion_report, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.extended_deletion_report.fields(buffer, offset, packet, parent, size_of_extended_deletion_report)
     parent:set_len(size_of_extended_deletion_report)
@@ -24605,7 +23903,7 @@ eurex_cash_eti_t7_v10_1.enter_tes_trade_request.dissect = function(buffer, offse
   local index = offset + size_of_enter_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.enter_tes_trade_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.enter_tes_trade_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.enter_tes_trade_request.fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
     parent:set_len(size_of_enter_tes_trade_request)
@@ -24682,7 +23980,7 @@ eurex_cash_eti_t7_v10_1.delete_tes_trade_request.dissect = function(buffer, offs
   local index = offset + size_of_delete_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_tes_trade_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_tes_trade_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_tes_trade_request.fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
     parent:set_len(size_of_delete_tes_trade_request)
@@ -24783,7 +24081,7 @@ eurex_cash_eti_t7_v10_1.delete_order_single_request.dissect = function(buffer, o
   local index = offset + size_of_delete_order_single_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_order_single_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_order_single_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_order_single_request.fields(buffer, offset, packet, parent, size_of_delete_order_single_request)
     parent:set_len(size_of_delete_order_single_request)
@@ -24875,7 +24173,7 @@ eurex_cash_eti_t7_v10_1.delete_order_response.dissect = function(buffer, offset,
   local index = offset + size_of_delete_order_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_order_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_order_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
     parent:set_len(size_of_delete_order_response)
@@ -24967,7 +24265,7 @@ eurex_cash_eti_t7_v10_1.delete_order_nr_response.dissect = function(buffer, offs
   local index = offset + size_of_delete_order_nr_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_order_nr_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_order_nr_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
     parent:set_len(size_of_delete_order_nr_response)
@@ -25086,7 +24384,7 @@ eurex_cash_eti_t7_v10_1.delete_order_broadcast.dissect = function(buffer, offset
   local index = offset + size_of_delete_order_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_order_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_order_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
     parent:set_len(size_of_delete_order_broadcast)
@@ -25153,7 +24451,7 @@ eurex_cash_eti_t7_v10_1.delete_all_quote_response.dissect = function(buffer, off
   local index = offset + size_of_delete_all_quote_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_all_quote_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_all_quote_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
     parent:set_len(size_of_delete_all_quote_response)
@@ -25230,7 +24528,7 @@ eurex_cash_eti_t7_v10_1.delete_all_quote_request.dissect = function(buffer, offs
   local index = offset + size_of_delete_all_quote_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_all_quote_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_all_quote_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
     parent:set_len(size_of_delete_all_quote_request)
@@ -25321,7 +24619,7 @@ eurex_cash_eti_t7_v10_1.delete_all_quote_broadcast.dissect = function(buffer, of
   local index = offset + size_of_delete_all_quote_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_all_quote_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_all_quote_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_all_quote_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
     parent:set_len(size_of_delete_all_quote_broadcast)
@@ -25454,7 +24752,7 @@ eurex_cash_eti_t7_v10_1.delete_all_order_response.dissect = function(buffer, off
   local index = offset + size_of_delete_all_order_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_all_order_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_all_order_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
     parent:set_len(size_of_delete_all_order_response)
@@ -25543,7 +24841,7 @@ eurex_cash_eti_t7_v10_1.delete_all_order_request.dissect = function(buffer, offs
   local index = offset + size_of_delete_all_order_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_all_order_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_all_order_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_all_order_request.fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
     parent:set_len(size_of_delete_all_order_request)
@@ -25614,7 +24912,7 @@ eurex_cash_eti_t7_v10_1.delete_all_order_quote_event_broadcast.dissect = functio
   local index = offset + size_of_delete_all_order_quote_event_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_all_order_quote_event_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_all_order_quote_event_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_all_order_quote_event_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
     parent:set_len(size_of_delete_all_order_quote_event_broadcast)
@@ -25670,7 +24968,7 @@ eurex_cash_eti_t7_v10_1.delete_all_order_nr_response.dissect = function(buffer, 
   local index = offset + size_of_delete_all_order_nr_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_all_order_nr_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_all_order_nr_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_all_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
     parent:set_len(size_of_delete_all_order_nr_response)
@@ -25783,7 +25081,7 @@ eurex_cash_eti_t7_v10_1.delete_all_order_broadcast.dissect = function(buffer, of
   local index = offset + size_of_delete_all_order_broadcast
 
   -- Optionally add group/struct element to protocol tree
-  if show.delete_all_order_broadcast then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.delete_all_order_broadcast, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
     parent:set_len(size_of_delete_all_order_broadcast)
@@ -25839,7 +25137,7 @@ eurex_cash_eti_t7_v10_1.cross_request_response.dissect = function(buffer, offset
   local index = offset + size_of_cross_request_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_request_response then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.cross_request_response, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
     parent:set_len(size_of_cross_request_response)
@@ -25907,7 +25205,7 @@ eurex_cash_eti_t7_v10_1.cross_request.dissect = function(buffer, offset, packet,
   local index = offset + size_of_cross_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.cross_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
     parent:set_len(size_of_cross_request)
@@ -25998,7 +25296,7 @@ eurex_cash_eti_t7_v10_1.broadcast_error_notification.dissect = function(buffer, 
   local index = offset + size_of_broadcast_error_notification
 
   -- Optionally add group/struct element to protocol tree
-  if show.broadcast_error_notification then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.broadcast_error_notification, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.broadcast_error_notification.fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
     parent:set_len(size_of_broadcast_error_notification)
@@ -26129,7 +25427,7 @@ eurex_cash_eti_t7_v10_1.approve_tes_trade_request.dissect = function(buffer, off
   local index = offset + size_of_approve_tes_trade_request
 
   -- Optionally add group/struct element to protocol tree
-  if show.approve_tes_trade_request then
+  if show.application_messages then
     parent = parent:add(omi_eurex_cash_eti_t7_v10_1.fields.approve_tes_trade_request, buffer(offset, 0))
     local current = eurex_cash_eti_t7_v10_1.approve_tes_trade_request.fields(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
     parent:set_len(size_of_approve_tes_trade_request)

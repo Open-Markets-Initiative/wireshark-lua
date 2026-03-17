@@ -306,10 +306,8 @@ omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sides_group_index = ProtoField.
 local show = {}
 
 -- B3 Equities BinaryEntryPoint Sbe 8.1 Element Dissection Options
-show.allocation_instruction_message = true
-show.allocation_report_message = true
+show.application_messages = true
 show.bidirectional_business_header = true
-show.business_message_reject_message = true
 show.client_app_name = true
 show.client_app_version = true
 show.client_ip = true
@@ -318,15 +316,6 @@ show.cross_sides_group = true
 show.cross_sides_groups = true
 show.custodian_info = true
 show.desk_id = true
-show.establish_ack_message = true
-show.establish_message = true
-show.establish_reject_message = true
-show.execution_report_cancel_message = true
-show.execution_report_forward_message = true
-show.execution_report_modify_message = true
-show.execution_report_new_message = true
-show.execution_report_reject_message = true
-show.execution_report_trade_message = true
 show.group_size_encoding = true
 show.inbound_business_header = true
 show.investor_id = true
@@ -334,48 +323,19 @@ show.legs_group = true
 show.legs_groups = true
 show.memo = true
 show.message_header = true
-show.negotiate_message = true
-show.negotiate_reject_message = true
-show.negotiate_response_message = true
-show.new_order_cross_message = true
-show.new_order_single_message = true
-show.not_applied_message = true
-show.order_cancel_replace_request_message = true
-show.order_cancel_request_message = true
-show.order_mass_action_report_message = true
-show.order_mass_action_request_message = true
 show.outbound_business_header = true
 show.packet = true
-show.position_maintenance_cancel_request_message = true
-show.position_maintenance_report_message = true
-show.position_maintenance_request_message = true
 show.positions_group = true
 show.positions_groups = true
-show.quote_cancel_message = true
-show.quote_message = true
-show.quote_request_message = true
-show.quote_request_reject_message = true
-show.quote_status_report_message = true
-show.retransmission_message = true
-show.retransmit_reject_message = true
-show.retransmit_request_message = true
-show.security_definition_request_message = true
-show.security_definition_response_message = true
-show.sequence_message = true
 show.sides_group = true
 show.sides_groups = true
-show.simple_modify_order_message = true
-show.simple_new_order_message = true
 show.simple_open_frame = true
 show.simple_open_framing_header = true
-show.terminate_message = true
 show.text = true
 
 -- Register B3 Equities BinaryEntryPoint Sbe 8.1 Show Options
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_allocation_instruction_message = Pref.bool("Show Allocation Instruction Message", show.allocation_instruction_message, "Parse and add Allocation Instruction Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_allocation_report_message = Pref.bool("Show Allocation Report Message", show.allocation_report_message, "Parse and add Allocation Report Message to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_bidirectional_business_header = Pref.bool("Show Bidirectional Business Header", show.bidirectional_business_header, "Parse and add Bidirectional Business Header to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_business_message_reject_message = Pref.bool("Show Business Message Reject Message", show.business_message_reject_message, "Parse and add Business Message Reject Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_client_app_name = Pref.bool("Show Client App Name", show.client_app_name, "Parse and add Client App Name to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_client_app_version = Pref.bool("Show Client App Version", show.client_app_version, "Parse and add Client App Version to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_client_ip = Pref.bool("Show Client Ip", show.client_ip, "Parse and add Client Ip to protocol tree")
@@ -384,15 +344,6 @@ omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_cross_sides_group = Pref.bo
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_cross_sides_groups = Pref.bool("Show Cross Sides Groups", show.cross_sides_groups, "Parse and add Cross Sides Groups to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_custodian_info = Pref.bool("Show Custodian Info", show.custodian_info, "Parse and add Custodian Info to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_desk_id = Pref.bool("Show Desk Id", show.desk_id, "Parse and add Desk Id to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_ack_message = Pref.bool("Show Establish Ack Message", show.establish_ack_message, "Parse and add Establish Ack Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_message = Pref.bool("Show Establish Message", show.establish_message, "Parse and add Establish Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_reject_message = Pref.bool("Show Establish Reject Message", show.establish_reject_message, "Parse and add Establish Reject Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_cancel_message = Pref.bool("Show Execution Report Cancel Message", show.execution_report_cancel_message, "Parse and add Execution Report Cancel Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_forward_message = Pref.bool("Show Execution Report Forward Message", show.execution_report_forward_message, "Parse and add Execution Report Forward Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_modify_message = Pref.bool("Show Execution Report Modify Message", show.execution_report_modify_message, "Parse and add Execution Report Modify Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_new_message = Pref.bool("Show Execution Report New Message", show.execution_report_new_message, "Parse and add Execution Report New Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_reject_message = Pref.bool("Show Execution Report Reject Message", show.execution_report_reject_message, "Parse and add Execution Report Reject Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_trade_message = Pref.bool("Show Execution Report Trade Message", show.execution_report_trade_message, "Parse and add Execution Report Trade Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_inbound_business_header = Pref.bool("Show Inbound Business Header", show.inbound_business_header, "Parse and add Inbound Business Header to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_investor_id = Pref.bool("Show Investor Id", show.investor_id, "Parse and add Investor Id to protocol tree")
@@ -400,41 +351,14 @@ omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_legs_group = Pref.bool("Sho
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_memo = Pref.bool("Show Memo", show.memo, "Parse and add Memo to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_message = Pref.bool("Show Negotiate Message", show.negotiate_message, "Parse and add Negotiate Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_reject_message = Pref.bool("Show Negotiate Reject Message", show.negotiate_reject_message, "Parse and add Negotiate Reject Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_response_message = Pref.bool("Show Negotiate Response Message", show.negotiate_response_message, "Parse and add Negotiate Response Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_new_order_cross_message = Pref.bool("Show New Order Cross Message", show.new_order_cross_message, "Parse and add New Order Cross Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_not_applied_message = Pref.bool("Show Not Applied Message", show.not_applied_message, "Parse and add Not Applied Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_mass_action_report_message = Pref.bool("Show Order Mass Action Report Message", show.order_mass_action_report_message, "Parse and add Order Mass Action Report Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_mass_action_request_message = Pref.bool("Show Order Mass Action Request Message", show.order_mass_action_request_message, "Parse and add Order Mass Action Request Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_outbound_business_header = Pref.bool("Show Outbound Business Header", show.outbound_business_header, "Parse and add Outbound Business Header to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_cancel_request_message = Pref.bool("Show Position Maintenance Cancel Request Message", show.position_maintenance_cancel_request_message, "Parse and add Position Maintenance Cancel Request Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_report_message = Pref.bool("Show Position Maintenance Report Message", show.position_maintenance_report_message, "Parse and add Position Maintenance Report Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_request_message = Pref.bool("Show Position Maintenance Request Message", show.position_maintenance_request_message, "Parse and add Position Maintenance Request Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_positions_group = Pref.bool("Show Positions Group", show.positions_group, "Parse and add Positions Group to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_positions_groups = Pref.bool("Show Positions Groups", show.positions_groups, "Parse and add Positions Groups to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_cancel_message = Pref.bool("Show Quote Cancel Message", show.quote_cancel_message, "Parse and add Quote Cancel Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_request_message = Pref.bool("Show Quote Request Message", show.quote_request_message, "Parse and add Quote Request Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_request_reject_message = Pref.bool("Show Quote Request Reject Message", show.quote_request_reject_message, "Parse and add Quote Request Reject Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_status_report_message = Pref.bool("Show Quote Status Report Message", show.quote_status_report_message, "Parse and add Quote Status Report Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmission_message = Pref.bool("Show Retransmission Message", show.retransmission_message, "Parse and add Retransmission Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmit_reject_message = Pref.bool("Show Retransmit Reject Message", show.retransmit_reject_message, "Parse and add Retransmit Reject Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmit_request_message = Pref.bool("Show Retransmit Request Message", show.retransmit_request_message, "Parse and add Retransmit Request Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_security_definition_request_message = Pref.bool("Show Security Definition Request Message", show.security_definition_request_message, "Parse and add Security Definition Request Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_security_definition_response_message = Pref.bool("Show Security Definition Response Message", show.security_definition_response_message, "Parse and add Security Definition Response Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_sequence_message = Pref.bool("Show Sequence Message", show.sequence_message, "Parse and add Sequence Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_sides_group = Pref.bool("Show Sides Group", show.sides_group, "Parse and add Sides Group to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_modify_order_message = Pref.bool("Show Simple Modify Order Message", show.simple_modify_order_message, "Parse and add Simple Modify Order Message to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_new_order_message = Pref.bool("Show Simple New Order Message", show.simple_new_order_message, "Parse and add Simple New Order Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_open_frame = Pref.bool("Show Simple Open Frame", show.simple_open_frame, "Parse and add Simple Open Frame to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
-omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_terminate_message = Pref.bool("Show Terminate Message", show.terminate_message, "Parse and add Terminate Message to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_text = Pref.bool("Show Text", show.text, "Parse and add Text to protocol tree")
 
 -- Handle changed preferences
@@ -442,20 +366,12 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.allocation_instruction_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_allocation_instruction_message then
-    show.allocation_instruction_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_allocation_instruction_message
-    changed = true
-  end
-  if show.allocation_report_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_allocation_report_message then
-    show.allocation_report_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_allocation_report_message
+  if show.application_messages ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_application_messages then
+    show.application_messages = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_application_messages
     changed = true
   end
   if show.bidirectional_business_header ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_bidirectional_business_header then
     show.bidirectional_business_header = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_bidirectional_business_header
-    changed = true
-  end
-  if show.business_message_reject_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_business_message_reject_message then
-    show.business_message_reject_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_business_message_reject_message
     changed = true
   end
   if show.client_app_name ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_client_app_name then
@@ -490,42 +406,6 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs_changed()
     show.desk_id = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_desk_id
     changed = true
   end
-  if show.establish_ack_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_ack_message then
-    show.establish_ack_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_ack_message
-    changed = true
-  end
-  if show.establish_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_message then
-    show.establish_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_message
-    changed = true
-  end
-  if show.establish_reject_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_reject_message then
-    show.establish_reject_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_establish_reject_message
-    changed = true
-  end
-  if show.execution_report_cancel_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_cancel_message then
-    show.execution_report_cancel_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_cancel_message
-    changed = true
-  end
-  if show.execution_report_forward_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_forward_message then
-    show.execution_report_forward_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_forward_message
-    changed = true
-  end
-  if show.execution_report_modify_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_modify_message then
-    show.execution_report_modify_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_modify_message
-    changed = true
-  end
-  if show.execution_report_new_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_new_message then
-    show.execution_report_new_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_new_message
-    changed = true
-  end
-  if show.execution_report_reject_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_reject_message then
-    show.execution_report_reject_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_reject_message
-    changed = true
-  end
-  if show.execution_report_trade_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_trade_message then
-    show.execution_report_trade_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_execution_report_trade_message
-    changed = true
-  end
   if show.group_size_encoding ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_group_size_encoding then
     show.group_size_encoding = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_group_size_encoding
     changed = true
@@ -554,64 +434,12 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs_changed()
     show.message_header = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_message_header
     changed = true
   end
-  if show.negotiate_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_message then
-    show.negotiate_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_message
-    changed = true
-  end
-  if show.negotiate_reject_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_reject_message then
-    show.negotiate_reject_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_reject_message
-    changed = true
-  end
-  if show.negotiate_response_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_response_message then
-    show.negotiate_response_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_negotiate_response_message
-    changed = true
-  end
-  if show.new_order_cross_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_new_order_cross_message then
-    show.new_order_cross_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_new_order_cross_message
-    changed = true
-  end
-  if show.new_order_single_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_new_order_single_message then
-    show.new_order_single_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_new_order_single_message
-    changed = true
-  end
-  if show.not_applied_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_not_applied_message then
-    show.not_applied_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_not_applied_message
-    changed = true
-  end
-  if show.order_cancel_replace_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_cancel_replace_request_message then
-    show.order_cancel_replace_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_cancel_replace_request_message
-    changed = true
-  end
-  if show.order_cancel_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_cancel_request_message then
-    show.order_cancel_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_cancel_request_message
-    changed = true
-  end
-  if show.order_mass_action_report_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_mass_action_report_message then
-    show.order_mass_action_report_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_mass_action_report_message
-    changed = true
-  end
-  if show.order_mass_action_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_mass_action_request_message then
-    show.order_mass_action_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_order_mass_action_request_message
-    changed = true
-  end
   if show.outbound_business_header ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_outbound_business_header then
     show.outbound_business_header = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_outbound_business_header
     changed = true
   end
   if show.packet ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_packet then
     show.packet = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_packet
-    changed = true
-  end
-  if show.position_maintenance_cancel_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_cancel_request_message then
-    show.position_maintenance_cancel_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_cancel_request_message
-    changed = true
-  end
-  if show.position_maintenance_report_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_report_message then
-    show.position_maintenance_report_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_report_message
-    changed = true
-  end
-  if show.position_maintenance_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_request_message then
-    show.position_maintenance_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_position_maintenance_request_message
     changed = true
   end
   if show.positions_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_positions_group then
@@ -622,50 +450,6 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs_changed()
     show.positions_groups = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_positions_groups
     changed = true
   end
-  if show.quote_cancel_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_cancel_message then
-    show.quote_cancel_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_cancel_message
-    changed = true
-  end
-  if show.quote_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_message then
-    show.quote_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_message
-    changed = true
-  end
-  if show.quote_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_request_message then
-    show.quote_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_request_message
-    changed = true
-  end
-  if show.quote_request_reject_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_request_reject_message then
-    show.quote_request_reject_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_request_reject_message
-    changed = true
-  end
-  if show.quote_status_report_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_status_report_message then
-    show.quote_status_report_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_quote_status_report_message
-    changed = true
-  end
-  if show.retransmission_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmission_message then
-    show.retransmission_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmission_message
-    changed = true
-  end
-  if show.retransmit_reject_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmit_reject_message then
-    show.retransmit_reject_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmit_reject_message
-    changed = true
-  end
-  if show.retransmit_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmit_request_message then
-    show.retransmit_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_retransmit_request_message
-    changed = true
-  end
-  if show.security_definition_request_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_security_definition_request_message then
-    show.security_definition_request_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_security_definition_request_message
-    changed = true
-  end
-  if show.security_definition_response_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_security_definition_response_message then
-    show.security_definition_response_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_security_definition_response_message
-    changed = true
-  end
-  if show.sequence_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_sequence_message then
-    show.sequence_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_sequence_message
-    changed = true
-  end
   if show.sides_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_sides_group then
     show.sides_group = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_sides_group
     changed = true
@@ -674,24 +458,12 @@ function omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs_changed()
     show.sides_groups = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_sides_groups
     changed = true
   end
-  if show.simple_modify_order_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_modify_order_message then
-    show.simple_modify_order_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_modify_order_message
-    changed = true
-  end
-  if show.simple_new_order_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_new_order_message then
-    show.simple_new_order_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_new_order_message
-    changed = true
-  end
   if show.simple_open_frame ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_open_frame then
     show.simple_open_frame = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_open_frame
     changed = true
   end
   if show.simple_open_framing_header ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_open_framing_header then
     show.simple_open_framing_header = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_simple_open_framing_header
-    changed = true
-  end
-  if show.terminate_message ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_terminate_message then
-    show.terminate_message = omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_terminate_message
     changed = true
   end
   if show.text ~= omi_b3_equities_binaryentrypoint_sbe_v8_1.prefs.show_text then
@@ -9101,7 +8873,7 @@ end
 
 -- Dissect: Order Mass Action Report Message
 b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_mass_action_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_mass_action_report_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.fields(buffer, offset, packet, parent)
@@ -9237,7 +9009,7 @@ end
 
 -- Dissect: Order Mass Action Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_mass_action_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_mass_action_request_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.fields(buffer, offset, packet, parent)
@@ -9333,7 +9105,7 @@ end
 
 -- Dissect: Allocation Report Message
 b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.allocation_report_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.fields(buffer, offset, packet, parent)
@@ -9595,7 +9367,7 @@ end
 
 -- Dissect: Allocation Instruction Message
 b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_instruction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.allocation_instruction_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.fields(buffer, offset, packet, parent)
@@ -9895,7 +9667,7 @@ end
 
 -- Dissect: Position Maintenance Report Message
 b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.position_maintenance_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_report_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.fields(buffer, offset, packet, parent)
@@ -10000,7 +9772,7 @@ end
 
 -- Dissect: Position Maintenance Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.position_maintenance_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_request_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.fields(buffer, offset, packet, parent)
@@ -10064,7 +9836,7 @@ end
 
 -- Dissect: Position Maintenance Cancel Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.position_maintenance_cancel_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_cancel_request_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.fields(buffer, offset, packet, parent)
@@ -10371,7 +10143,7 @@ end
 
 -- Dissect: Quote Request Reject Message
 b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_request_reject_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.fields(buffer, offset, packet, parent)
@@ -10461,7 +10233,7 @@ end
 
 -- Dissect: Quote Cancel Message
 b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_cancel_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.fields(buffer, offset, packet, parent)
@@ -10591,7 +10363,7 @@ end
 
 -- Dissect: Quote Message
 b3_equities_binaryentrypoint_sbe_v8_1.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_message.fields(buffer, offset, packet, parent)
@@ -10751,7 +10523,7 @@ end
 
 -- Dissect: Quote Status Report Message
 b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_status_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_status_report_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.fields(buffer, offset, packet, parent)
@@ -10886,7 +10658,7 @@ end
 
 -- Dissect: Quote Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_request_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.fields(buffer, offset, packet, parent)
@@ -10962,7 +10734,7 @@ end
 
 -- Dissect: Security Definition Response Message
 b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_definition_response_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.fields(buffer, offset, packet, parent)
@@ -11142,7 +10914,7 @@ end
 
 -- Dissect: Security Definition Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_definition_request_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.fields(buffer, offset, packet, parent)
@@ -11222,7 +10994,7 @@ end
 
 -- Dissect: Business Message Reject Message
 b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.business_message_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.business_message_reject_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.fields(buffer, offset, packet, parent)
@@ -11412,7 +11184,7 @@ end
 
 -- Dissect: Execution Report Forward Message
 b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_forward_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execution_report_forward_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.fields(buffer, offset, packet, parent)
@@ -11602,7 +11374,7 @@ end
 
 -- Dissect: Execution Report Reject Message
 b3_equities_binaryentrypoint_sbe_v8_1.execution_report_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execution_report_reject_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_reject_message.fields(buffer, offset, packet, parent)
@@ -11827,7 +11599,7 @@ end
 
 -- Dissect: Execution Report Trade Message
 b3_equities_binaryentrypoint_sbe_v8_1.execution_report_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execution_report_trade_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_trade_message.fields(buffer, offset, packet, parent)
@@ -12037,7 +11809,7 @@ end
 
 -- Dissect: Execution Report Cancel Message
 b3_equities_binaryentrypoint_sbe_v8_1.execution_report_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execution_report_cancel_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_cancel_message.fields(buffer, offset, packet, parent)
@@ -12252,7 +12024,7 @@ end
 
 -- Dissect: Execution Report Modify Message
 b3_equities_binaryentrypoint_sbe_v8_1.execution_report_modify_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_modify_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execution_report_modify_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_modify_message.fields(buffer, offset, packet, parent)
@@ -12467,7 +12239,7 @@ end
 
 -- Dissect: Execution Report New Message
 b3_equities_binaryentrypoint_sbe_v8_1.execution_report_new_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_new_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execution_report_new_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_new_message.fields(buffer, offset, packet, parent)
@@ -12706,7 +12478,7 @@ end
 
 -- Dissect: New Order Cross Message
 b3_equities_binaryentrypoint_sbe_v8_1.new_order_cross_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_cross_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.new_order_cross_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.new_order_cross_message.fields(buffer, offset, packet, parent)
@@ -12816,7 +12588,7 @@ end
 
 -- Dissect: Order Cancel Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.order_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_cancel_request_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.order_cancel_request_message.fields(buffer, offset, packet, parent)
@@ -13044,7 +12816,7 @@ end
 
 -- Dissect: Order Cancel Replace Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.order_cancel_replace_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_replace_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_cancel_replace_request_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
@@ -13209,7 +12981,7 @@ end
 
 -- Dissect: New Order Single Message
 b3_equities_binaryentrypoint_sbe_v8_1.new_order_single_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_single_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.new_order_single_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.new_order_single_message.fields(buffer, offset, packet, parent)
@@ -13344,7 +13116,7 @@ end
 
 -- Dissect: Simple Modify Order Message
 b3_equities_binaryentrypoint_sbe_v8_1.simple_modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.simple_modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.simple_modify_order_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.simple_modify_order_message.fields(buffer, offset, packet, parent)
@@ -13469,7 +13241,7 @@ end
 
 -- Dissect: Simple New Order Message
 b3_equities_binaryentrypoint_sbe_v8_1.simple_new_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.simple_new_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.simple_new_order_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.simple_new_order_message.fields(buffer, offset, packet, parent)
@@ -13517,7 +13289,7 @@ end
 
 -- Dissect: Retransmit Reject Message
 b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmit_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmit_reject_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_message.fields(buffer, offset, packet, parent)
@@ -13569,7 +13341,7 @@ end
 
 -- Dissect: Retransmission Message
 b3_equities_binaryentrypoint_sbe_v8_1.retransmission_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmission_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.retransmission_message.fields(buffer, offset, packet, parent)
@@ -13621,7 +13393,7 @@ end
 
 -- Dissect: Retransmit Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.retransmit_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmit_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmit_request_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.retransmit_request_message.fields(buffer, offset, packet, parent)
@@ -13661,7 +13433,7 @@ end
 
 -- Dissect: Sequence Message
 b3_equities_binaryentrypoint_sbe_v8_1.sequence_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sequence_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.sequence_message.fields(buffer, offset, packet, parent)
@@ -13705,7 +13477,7 @@ end
 
 -- Dissect: Not Applied Message
 b3_equities_binaryentrypoint_sbe_v8_1.not_applied_message.dissect = function(buffer, offset, packet, parent)
-  if show.not_applied_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.not_applied_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.not_applied_message.fields(buffer, offset, packet, parent)
@@ -13753,7 +13525,7 @@ end
 
 -- Dissect: Terminate Message
 b3_equities_binaryentrypoint_sbe_v8_1.terminate_message.dissect = function(buffer, offset, packet, parent)
-  if show.terminate_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.terminate_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.terminate_message.fields(buffer, offset, packet, parent)
@@ -13813,7 +13585,7 @@ end
 
 -- Dissect: Establish Reject Message
 b3_equities_binaryentrypoint_sbe_v8_1.establish_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.establish_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.establish_reject_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.establish_reject_message.fields(buffer, offset, packet, parent)
@@ -13873,7 +13645,7 @@ end
 
 -- Dissect: Establish Ack Message
 b3_equities_binaryentrypoint_sbe_v8_1.establish_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.establish_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.establish_ack_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.establish_ack_message.fields(buffer, offset, packet, parent)
@@ -14029,7 +13801,7 @@ end
 
 -- Dissect: Establish Message
 b3_equities_binaryentrypoint_sbe_v8_1.establish_message.dissect = function(buffer, offset, packet, parent)
-  if show.establish_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.establish_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.establish_message.fields(buffer, offset, packet, parent)
@@ -14093,7 +13865,7 @@ end
 
 -- Dissect: Negotiate Reject Message
 b3_equities_binaryentrypoint_sbe_v8_1.negotiate_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.negotiate_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiate_reject_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.negotiate_reject_message.fields(buffer, offset, packet, parent)
@@ -14145,7 +13917,7 @@ end
 
 -- Dissect: Negotiate Response Message
 b3_equities_binaryentrypoint_sbe_v8_1.negotiate_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.negotiate_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiate_response_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.negotiate_response_message.fields(buffer, offset, packet, parent)
@@ -14443,7 +14215,7 @@ end
 
 -- Dissect: Negotiate Message
 b3_equities_binaryentrypoint_sbe_v8_1.negotiate_message.dissect = function(buffer, offset, packet, parent)
-  if show.negotiate_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiate_message, buffer(offset, 0))
     local index = b3_equities_binaryentrypoint_sbe_v8_1.negotiate_message.fields(buffer, offset, packet, parent)

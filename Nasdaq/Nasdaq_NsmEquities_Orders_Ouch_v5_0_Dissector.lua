@@ -130,168 +130,54 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet = ProtoFi
 local show = {}
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Element Dissection Options
-show.account_query_response_message = true
-show.aiq_canceled_message = true
-show.broken_trade_message = true
-show.cancel_order_message = true
-show.cancel_pending_message = true
-show.cancel_reject_message = true
-show.canceled_message = true
-show.debug_packet = true
+show.application_messages = true
+show.session_messages = true
 show.enter_order_appendage = true
-show.enter_order_message = true
-show.login_accepted_packet = true
-show.login_rejected_packet = true
-show.login_request_packet = true
-show.modify_order_message = true
 show.order_accepted_appendage = true
-show.order_accepted_message = true
 show.order_executed_appendage = true
-show.order_executed_message = true
-show.order_modified_message = true
-show.order_priority_update_message = true
 show.order_restated_appendage = true
-show.order_restated_message = true
 show.packet = true
 show.packet_header = true
-show.rejected_order_message = true
 show.replace_order_appendage = true
-show.replace_order_message = true
-show.replaced_message = true
 show.replaced_message_appendage = true
-show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
-show.system_event_message = true
-show.trade_correction_message = true
-show.unsequenced_data_packet = true
 
 -- Register Nasdaq NsmEquities Orders Ouch 5.0 Show Options
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_account_query_response_message = Pref.bool("Show Account Query Response Message", show.account_query_response_message, "Parse and add Account Query Response Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_aiq_canceled_message = Pref.bool("Show Aiq Canceled Message", show.aiq_canceled_message, "Parse and add Aiq Canceled Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_pending_message = Pref.bool("Show Cancel Pending Message", show.cancel_pending_message, "Parse and add Cancel Pending Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_reject_message = Pref.bool("Show Cancel Reject Message", show.cancel_reject_message, "Parse and add Cancel Reject Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_canceled_message = Pref.bool("Show Canceled Message", show.canceled_message, "Parse and add Canceled Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_appendage = Pref.bool("Show Enter Order Appendage", show.enter_order_appendage, "Parse and add Enter Order Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_appendage = Pref.bool("Show Order Accepted Appendage", show.order_accepted_appendage, "Parse and add Order Accepted Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_appendage = Pref.bool("Show Order Executed Appendage", show.order_executed_appendage, "Parse and add Order Executed Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_priority_update_message = Pref.bool("Show Order Priority Update Message", show.order_priority_update_message, "Parse and add Order Priority Update Message to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_appendage = Pref.bool("Show Order Restated Appendage", show.order_restated_appendage, "Parse and add Order Restated Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_message = Pref.bool("Show Order Restated Message", show.order_restated_message, "Parse and add Order Restated Message to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_rejected_order_message = Pref.bool("Show Rejected Order Message", show.rejected_order_message, "Parse and add Rejected Order Message to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage = Pref.bool("Show Replace Order Appendage", show.replace_order_appendage, "Parse and add Replace Order Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message = Pref.bool("Show Replaced Message", show.replaced_message, "Parse and add Replaced Message to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage = Pref.bool("Show Replaced Message Appendage", show.replaced_message_appendage, "Parse and add Replaced Message Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.account_query_response_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_account_query_response_message then
-    show.account_query_response_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_account_query_response_message
-    changed = true
-  end
-  if show.aiq_canceled_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_aiq_canceled_message then
-    show.aiq_canceled_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_aiq_canceled_message
-    changed = true
-  end
-  if show.broken_trade_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_broken_trade_message then
-    show.broken_trade_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_broken_trade_message
-    changed = true
-  end
-  if show.cancel_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_order_message then
-    show.cancel_order_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_order_message
-    changed = true
-  end
-  if show.cancel_pending_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_pending_message then
-    show.cancel_pending_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_pending_message
-    changed = true
-  end
-  if show.cancel_reject_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_reject_message then
-    show.cancel_reject_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_cancel_reject_message
-    changed = true
-  end
-  if show.canceled_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_canceled_message then
-    show.canceled_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_canceled_message
-    changed = true
-  end
-  if show.debug_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_debug_packet then
-    show.debug_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_debug_packet
+  if show.application_messages ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages
     changed = true
   end
   if show.enter_order_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_appendage then
     show.enter_order_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_appendage
     changed = true
   end
-  if show.enter_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_message then
-    show.enter_order_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_message
-    changed = true
-  end
-  if show.login_accepted_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_accepted_packet
-    changed = true
-  end
-  if show.login_rejected_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_rejected_packet
-    changed = true
-  end
-  if show.login_request_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_request_packet then
-    show.login_request_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_login_request_packet
-    changed = true
-  end
-  if show.modify_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_modify_order_message then
-    show.modify_order_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_modify_order_message
-    changed = true
-  end
   if show.order_accepted_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_appendage then
     show.order_accepted_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_appendage
-    changed = true
-  end
-  if show.order_accepted_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_message then
-    show.order_accepted_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_message
     changed = true
   end
   if show.order_executed_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_appendage then
     show.order_executed_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_appendage
     changed = true
   end
-  if show.order_executed_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_message then
-    show.order_executed_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_modified_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_modified_message then
-    show.order_modified_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_modified_message
-    changed = true
-  end
-  if show.order_priority_update_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_priority_update_message then
-    show.order_priority_update_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_priority_update_message
-    changed = true
-  end
   if show.order_restated_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_appendage then
     show.order_restated_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_appendage
-    changed = true
-  end
-  if show.order_restated_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_message then
-    show.order_restated_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_message
     changed = true
   end
   if show.packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet then
@@ -302,44 +188,20 @@ function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
     show.packet_header = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet_header
     changed = true
   end
-  if show.rejected_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_rejected_order_message then
-    show.rejected_order_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_rejected_order_message
-    changed = true
-  end
   if show.replace_order_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage then
     show.replace_order_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage
-    changed = true
-  end
-  if show.replace_order_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_message then
-    show.replace_order_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_message
-    changed = true
-  end
-  if show.replaced_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message then
-    show.replaced_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message
     changed = true
   end
   if show.replaced_message_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage then
     show.replaced_message_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage
     changed = true
   end
-  if show.sequenced_data_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequenced_data_packet
+  if show.session_messages ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages then
+    show.session_messages = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages
     changed = true
   end
   if show.soup_bin_tcp_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet then
     show.soup_bin_tcp_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_system_event_message
-    changed = true
-  end
-  if show.trade_correction_message ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_trade_correction_message then
-    show.trade_correction_message = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_trade_correction_message
-    changed = true
-  end
-  if show.unsequenced_data_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_unsequenced_data_packet
     changed = true
   end
 
@@ -2623,7 +2485,7 @@ end
 
 -- Dissect: Modify Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.fields(buffer, offset, packet, parent)
@@ -2667,7 +2529,7 @@ end
 
 -- Dissect: Cancel Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.fields(buffer, offset, packet, parent)
@@ -2832,7 +2694,7 @@ end
 
 -- Dissect: Replace Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields(buffer, offset, packet, parent)
@@ -2994,7 +2856,7 @@ end
 
 -- Dissect: Enter Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.enter_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields(buffer, offset, packet, parent)
@@ -3076,7 +2938,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.dissect = function(b
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -3128,7 +2990,7 @@ end
 
 -- Dissect: Login Request Packet
 nasdaq_nsmequities_orders_ouch_v5_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_request_packet, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.login_request_packet.fields(buffer, offset, packet, parent)
@@ -3172,7 +3034,7 @@ end
 
 -- Dissect: Account Query Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.account_query_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.fields(buffer, offset, packet, parent)
@@ -3306,7 +3168,7 @@ end
 
 -- Dissect: Order Restated Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_restated_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields(buffer, offset, packet, parent)
@@ -3358,7 +3220,7 @@ end
 
 -- Dissect: Order Modified Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_modified_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.fields(buffer, offset, packet, parent)
@@ -3414,7 +3276,7 @@ end
 
 -- Dissect: Order Priority Update Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_priority_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.fields(buffer, offset, packet, parent)
@@ -3458,7 +3320,7 @@ end
 
 -- Dissect: Cancel Reject Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.fields(buffer, offset, packet, parent)
@@ -3502,7 +3364,7 @@ end
 
 -- Dissect: Cancel Pending Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_pending_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.fields(buffer, offset, packet, parent)
@@ -3554,7 +3416,7 @@ end
 
 -- Dissect: Rejected Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.rejected_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.fields(buffer, offset, packet, parent)
@@ -3622,7 +3484,7 @@ end
 
 -- Dissect: Trade Correction Message
 nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_correction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.fields(buffer, offset, packet, parent)
@@ -3678,7 +3540,7 @@ end
 
 -- Dissect: Broken Trade Message
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.broken_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.fields(buffer, offset, packet, parent)
@@ -3817,7 +3679,7 @@ end
 
 -- Dissect: Order Executed Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields(buffer, offset, packet, parent)
@@ -3881,7 +3743,7 @@ end
 
 -- Dissect: Aiq Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.aiq_canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.fields(buffer, offset, packet, parent)
@@ -3933,7 +3795,7 @@ end
 
 -- Dissect: Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.fields(buffer, offset, packet, parent)
@@ -4127,7 +3989,7 @@ end
 
 -- Dissect: Replaced Message
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields(buffer, offset, packet, parent)
@@ -4346,7 +4208,7 @@ end
 
 -- Dissect: Order Accepted Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_accepted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields(buffer, offset, packet, parent)
@@ -4390,7 +4252,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.fields(buffer, offset, packet, parent)
@@ -4512,7 +4374,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.dissect = function(buf
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -4552,7 +4414,7 @@ end
 
 -- Dissect: Login Rejected Packet
 nasdaq_nsmequities_orders_ouch_v5_0.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_rejected_packet, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.login_rejected_packet.fields(buffer, offset, packet, parent)
@@ -4596,7 +4458,7 @@ end
 
 -- Dissect: Login Accepted Packet
 nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_accepted_packet, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.fields(buffer, offset, packet, parent)
@@ -4636,7 +4498,7 @@ end
 
 -- Dissect: Debug Packet
 nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.dissect = function(buffer, offset, packet, parent)
-  if show.debug_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.debug_packet, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.fields(buffer, offset, packet, parent)

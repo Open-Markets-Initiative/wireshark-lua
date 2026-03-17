@@ -184,140 +184,32 @@ omi_hkex_derivatives_lite_omd_v2_0.fields.message_index = ProtoField.new("Messag
 local show = {}
 
 -- Hkex Derivatives Lite Omd 2.0 Element Dissection Options
-show.add_order = true
-show.aggregate_implied_order = true
-show.aggregate_order_book_update_message = true
+show.application_messages = true
 show.book_entry = true
-show.calculated_opening_price_message = true
-show.class_definition = true
-show.combination_definition = true
-show.commodity_and_class_status = true
-show.commodity_definition = true
-show.disaster_recovery_signal_message = true
-show.instrument_definition = true
-show.instrument_status = true
-show.logon = true
-show.logon_response = true
-show.market_alert_message = true
-show.market_status = true
 show.message = true
 show.msg_header = true
-show.open_interest_message = true
 show.packet = true
 show.packet_header = true
-show.quote_request = true
-show.refresh_complete = true
-show.retransmission_request = true
-show.retransmission_response = true
-show.sequence_reset = true
-show.thm_trigger = true
-show.trade = true
-show.trade_amendment_message = true
-show.trade_statistics_message = true
-show.vcm_end = true
-show.vcm_trigger = true
 
 -- Register Hkex Derivatives Lite Omd 2.0 Show Options
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_add_order = Pref.bool("Show Add Order", show.add_order, "Parse and add Add Order to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_aggregate_implied_order = Pref.bool("Show Aggregate Implied Order", show.aggregate_implied_order, "Parse and add Aggregate Implied Order to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_aggregate_order_book_update_message = Pref.bool("Show Aggregate Order Book Update Message", show.aggregate_order_book_update_message, "Parse and add Aggregate Order Book Update Message to protocol tree")
+omi_hkex_derivatives_lite_omd_v2_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_hkex_derivatives_lite_omd_v2_0.prefs.show_book_entry = Pref.bool("Show Book Entry", show.book_entry, "Parse and add Book Entry to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_calculated_opening_price_message = Pref.bool("Show Calculated Opening Price Message", show.calculated_opening_price_message, "Parse and add Calculated Opening Price Message to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_class_definition = Pref.bool("Show Class Definition", show.class_definition, "Parse and add Class Definition to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_combination_definition = Pref.bool("Show Combination Definition", show.combination_definition, "Parse and add Combination Definition to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_commodity_and_class_status = Pref.bool("Show Commodity And Class Status", show.commodity_and_class_status, "Parse and add Commodity And Class Status to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_commodity_definition = Pref.bool("Show Commodity Definition", show.commodity_definition, "Parse and add Commodity Definition to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_disaster_recovery_signal_message = Pref.bool("Show Disaster Recovery Signal Message", show.disaster_recovery_signal_message, "Parse and add Disaster Recovery Signal Message to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_instrument_definition = Pref.bool("Show Instrument Definition", show.instrument_definition, "Parse and add Instrument Definition to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_instrument_status = Pref.bool("Show Instrument Status", show.instrument_status, "Parse and add Instrument Status to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_logon = Pref.bool("Show Logon", show.logon, "Parse and add Logon to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_logon_response = Pref.bool("Show Logon Response", show.logon_response, "Parse and add Logon Response to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_market_alert_message = Pref.bool("Show Market Alert Message", show.market_alert_message, "Parse and add Market Alert Message to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
 omi_hkex_derivatives_lite_omd_v2_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_hkex_derivatives_lite_omd_v2_0.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
 omi_hkex_derivatives_lite_omd_v2_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_hkex_derivatives_lite_omd_v2_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_refresh_complete = Pref.bool("Show Refresh Complete", show.refresh_complete, "Parse and add Refresh Complete to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_retransmission_response = Pref.bool("Show Retransmission Response", show.retransmission_response, "Parse and add Retransmission Response to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_sequence_reset = Pref.bool("Show Sequence Reset", show.sequence_reset, "Parse and add Sequence Reset to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_thm_trigger = Pref.bool("Show Thm Trigger", show.thm_trigger, "Parse and add Thm Trigger to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade_amendment_message = Pref.bool("Show Trade Amendment Message", show.trade_amendment_message, "Parse and add Trade Amendment Message to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade_statistics_message = Pref.bool("Show Trade Statistics Message", show.trade_statistics_message, "Parse and add Trade Statistics Message to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_vcm_end = Pref.bool("Show Vcm End", show.vcm_end, "Parse and add Vcm End to protocol tree")
-omi_hkex_derivatives_lite_omd_v2_0.prefs.show_vcm_trigger = Pref.bool("Show Vcm Trigger", show.vcm_trigger, "Parse and add Vcm Trigger to protocol tree")
 
 -- Handle changed preferences
 function omi_hkex_derivatives_lite_omd_v2_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_add_order then
-    show.add_order = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_add_order
-    changed = true
-  end
-  if show.aggregate_implied_order ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_aggregate_implied_order then
-    show.aggregate_implied_order = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_aggregate_implied_order
-    changed = true
-  end
-  if show.aggregate_order_book_update_message ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_aggregate_order_book_update_message then
-    show.aggregate_order_book_update_message = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_aggregate_order_book_update_message
+  if show.application_messages ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_application_messages then
+    show.application_messages = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_application_messages
     changed = true
   end
   if show.book_entry ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_book_entry then
     show.book_entry = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_book_entry
-    changed = true
-  end
-  if show.calculated_opening_price_message ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_calculated_opening_price_message then
-    show.calculated_opening_price_message = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_calculated_opening_price_message
-    changed = true
-  end
-  if show.class_definition ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_class_definition then
-    show.class_definition = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_class_definition
-    changed = true
-  end
-  if show.combination_definition ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_combination_definition then
-    show.combination_definition = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_combination_definition
-    changed = true
-  end
-  if show.commodity_and_class_status ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_commodity_and_class_status then
-    show.commodity_and_class_status = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_commodity_and_class_status
-    changed = true
-  end
-  if show.commodity_definition ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_commodity_definition then
-    show.commodity_definition = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_commodity_definition
-    changed = true
-  end
-  if show.disaster_recovery_signal_message ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_disaster_recovery_signal_message then
-    show.disaster_recovery_signal_message = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_disaster_recovery_signal_message
-    changed = true
-  end
-  if show.instrument_definition ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_instrument_definition then
-    show.instrument_definition = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_instrument_definition
-    changed = true
-  end
-  if show.instrument_status ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_instrument_status then
-    show.instrument_status = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_instrument_status
-    changed = true
-  end
-  if show.logon ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_logon then
-    show.logon = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_logon
-    changed = true
-  end
-  if show.logon_response ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_logon_response then
-    show.logon_response = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_logon_response
-    changed = true
-  end
-  if show.market_alert_message ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_market_alert_message then
-    show.market_alert_message = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_market_alert_message
-    changed = true
-  end
-  if show.market_status ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_market_status then
-    show.market_status = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_market_status
     changed = true
   end
   if show.message ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_message then
@@ -328,60 +220,12 @@ function omi_hkex_derivatives_lite_omd_v2_0.prefs_changed()
     show.msg_header = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_msg_header
     changed = true
   end
-  if show.open_interest_message ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_open_interest_message then
-    show.open_interest_message = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_open_interest_message
-    changed = true
-  end
   if show.packet ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_packet then
     show.packet = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_packet_header then
     show.packet_header = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_packet_header
-    changed = true
-  end
-  if show.quote_request ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_quote_request then
-    show.quote_request = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_quote_request
-    changed = true
-  end
-  if show.refresh_complete ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_refresh_complete then
-    show.refresh_complete = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_refresh_complete
-    changed = true
-  end
-  if show.retransmission_request ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_retransmission_request then
-    show.retransmission_request = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_retransmission_request
-    changed = true
-  end
-  if show.retransmission_response ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_retransmission_response then
-    show.retransmission_response = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_retransmission_response
-    changed = true
-  end
-  if show.sequence_reset ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_sequence_reset then
-    show.sequence_reset = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_sequence_reset
-    changed = true
-  end
-  if show.thm_trigger ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_thm_trigger then
-    show.thm_trigger = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_thm_trigger
-    changed = true
-  end
-  if show.trade ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade then
-    show.trade = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade
-    changed = true
-  end
-  if show.trade_amendment_message ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade_amendment_message then
-    show.trade_amendment_message = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade_amendment_message
-    changed = true
-  end
-  if show.trade_statistics_message ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade_statistics_message then
-    show.trade_statistics_message = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_trade_statistics_message
-    changed = true
-  end
-  if show.vcm_end ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_vcm_end then
-    show.vcm_end = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_vcm_end
-    changed = true
-  end
-  if show.vcm_trigger ~= omi_hkex_derivatives_lite_omd_v2_0.prefs.show_vcm_trigger then
-    show.vcm_trigger = omi_hkex_derivatives_lite_omd_v2_0.prefs.show_vcm_trigger
     changed = true
   end
 
@@ -3584,7 +3428,7 @@ end
 
 -- Dissect: Open Interest Message
 hkex_derivatives_lite_omd_v2_0.open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_interest_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.open_interest_message, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.open_interest_message.fields(buffer, offset, packet, parent)
@@ -3663,7 +3507,7 @@ end
 
 -- Dissect: Market Alert Message
 hkex_derivatives_lite_omd_v2_0.market_alert_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_alert_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.market_alert_message, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.market_alert_message.fields(buffer, offset, packet, parent)
@@ -3715,7 +3559,7 @@ end
 
 -- Dissect: Calculated Opening Price Message
 hkex_derivatives_lite_omd_v2_0.calculated_opening_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.calculated_opening_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.calculated_opening_price_message, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.calculated_opening_price_message.fields(buffer, offset, packet, parent)
@@ -3787,7 +3631,7 @@ end
 
 -- Dissect: Trade Statistics Message
 hkex_derivatives_lite_omd_v2_0.trade_statistics_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_statistics_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.trade_statistics_message, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.trade_statistics_message.fields(buffer, offset, packet, parent)
@@ -3851,7 +3695,7 @@ end
 
 -- Dissect: Trade Amendment Message
 hkex_derivatives_lite_omd_v2_0.trade_amendment_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_amendment_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.trade_amendment_message, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.trade_amendment_message.fields(buffer, offset, packet, parent)
@@ -3931,7 +3775,7 @@ end
 
 -- Dissect: Trade
 hkex_derivatives_lite_omd_v2_0.trade.dissect = function(buffer, offset, packet, parent)
-  if show.trade then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.trade, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.trade.fields(buffer, offset, packet, parent)
@@ -3987,7 +3831,7 @@ end
 
 -- Dissect: Aggregate Implied Order
 hkex_derivatives_lite_omd_v2_0.aggregate_implied_order.dissect = function(buffer, offset, packet, parent)
-  if show.aggregate_implied_order then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.aggregate_implied_order, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.aggregate_implied_order.fields(buffer, offset, packet, parent)
@@ -4039,7 +3883,7 @@ end
 
 -- Dissect: Quote Request
 hkex_derivatives_lite_omd_v2_0.quote_request.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.quote_request, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.quote_request.fields(buffer, offset, packet, parent)
@@ -4173,7 +4017,7 @@ end
 
 -- Dissect: Aggregate Order Book Update Message
 hkex_derivatives_lite_omd_v2_0.aggregate_order_book_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.aggregate_order_book_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.aggregate_order_book_update_message, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
@@ -4245,7 +4089,7 @@ end
 
 -- Dissect: Add Order
 hkex_derivatives_lite_omd_v2_0.add_order.dissect = function(buffer, offset, packet, parent)
-  if show.add_order then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.add_order, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.add_order.fields(buffer, offset, packet, parent)
@@ -4289,7 +4133,7 @@ end
 
 -- Dissect: Thm Trigger
 hkex_derivatives_lite_omd_v2_0.thm_trigger.dissect = function(buffer, offset, packet, parent)
-  if show.thm_trigger then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.thm_trigger, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.thm_trigger.fields(buffer, offset, packet, parent)
@@ -4345,7 +4189,7 @@ end
 
 -- Dissect: Vcm End
 hkex_derivatives_lite_omd_v2_0.vcm_end.dissect = function(buffer, offset, packet, parent)
-  if show.vcm_end then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.vcm_end, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.vcm_end.fields(buffer, offset, packet, parent)
@@ -4409,7 +4253,7 @@ end
 
 -- Dissect: Vcm Trigger
 hkex_derivatives_lite_omd_v2_0.vcm_trigger.dissect = function(buffer, offset, packet, parent)
-  if show.vcm_trigger then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.vcm_trigger, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.vcm_trigger.fields(buffer, offset, packet, parent)
@@ -4461,7 +4305,7 @@ end
 
 -- Dissect: Commodity And Class Status
 hkex_derivatives_lite_omd_v2_0.commodity_and_class_status.dissect = function(buffer, offset, packet, parent)
-  if show.commodity_and_class_status then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.commodity_and_class_status, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.commodity_and_class_status.fields(buffer, offset, packet, parent)
@@ -4513,7 +4357,7 @@ end
 
 -- Dissect: Instrument Status
 hkex_derivatives_lite_omd_v2_0.instrument_status.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_status then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.instrument_status, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.instrument_status.fields(buffer, offset, packet, parent)
@@ -4585,7 +4429,7 @@ end
 
 -- Dissect: Market Status
 hkex_derivatives_lite_omd_v2_0.market_status.dissect = function(buffer, offset, packet, parent)
-  if show.market_status then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.market_status, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.market_status.fields(buffer, offset, packet, parent)
@@ -4649,7 +4493,7 @@ end
 
 -- Dissect: Combination Definition
 hkex_derivatives_lite_omd_v2_0.combination_definition.dissect = function(buffer, offset, packet, parent)
-  if show.combination_definition then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.combination_definition, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.combination_definition.fields(buffer, offset, packet, parent)
@@ -4781,7 +4625,7 @@ end
 
 -- Dissect: Instrument Definition
 hkex_derivatives_lite_omd_v2_0.instrument_definition.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_definition then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.instrument_definition, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.instrument_definition.fields(buffer, offset, packet, parent)
@@ -4913,7 +4757,7 @@ end
 
 -- Dissect: Class Definition
 hkex_derivatives_lite_omd_v2_0.class_definition.dissect = function(buffer, offset, packet, parent)
-  if show.class_definition then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.class_definition, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.class_definition.fields(buffer, offset, packet, parent)
@@ -4985,7 +4829,7 @@ end
 
 -- Dissect: Commodity Definition
 hkex_derivatives_lite_omd_v2_0.commodity_definition.dissect = function(buffer, offset, packet, parent)
-  if show.commodity_definition then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.commodity_definition, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.commodity_definition.fields(buffer, offset, packet, parent)
@@ -5025,7 +4869,7 @@ end
 
 -- Dissect: Refresh Complete
 hkex_derivatives_lite_omd_v2_0.refresh_complete.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_complete then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.refresh_complete, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.refresh_complete.fields(buffer, offset, packet, parent)
@@ -5081,7 +4925,7 @@ end
 
 -- Dissect: Retransmission Response
 hkex_derivatives_lite_omd_v2_0.retransmission_response.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.retransmission_response, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.retransmission_response.fields(buffer, offset, packet, parent)
@@ -5133,7 +4977,7 @@ end
 
 -- Dissect: Retransmission Request
 hkex_derivatives_lite_omd_v2_0.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.retransmission_request, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.retransmission_request.fields(buffer, offset, packet, parent)
@@ -5177,7 +5021,7 @@ end
 
 -- Dissect: Logon Response
 hkex_derivatives_lite_omd_v2_0.logon_response.dissect = function(buffer, offset, packet, parent)
-  if show.logon_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.logon_response, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.logon_response.fields(buffer, offset, packet, parent)
@@ -5217,7 +5061,7 @@ end
 
 -- Dissect: Logon
 hkex_derivatives_lite_omd_v2_0.logon.dissect = function(buffer, offset, packet, parent)
-  if show.logon then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.logon, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.logon.fields(buffer, offset, packet, parent)
@@ -5257,7 +5101,7 @@ end
 
 -- Dissect: Disaster Recovery Signal Message
 hkex_derivatives_lite_omd_v2_0.disaster_recovery_signal_message.dissect = function(buffer, offset, packet, parent)
-  if show.disaster_recovery_signal_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.disaster_recovery_signal_message, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.disaster_recovery_signal_message.fields(buffer, offset, packet, parent)
@@ -5297,7 +5141,7 @@ end
 
 -- Dissect: Sequence Reset
 hkex_derivatives_lite_omd_v2_0.sequence_reset.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_reset then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_lite_omd_v2_0.fields.sequence_reset, buffer(offset, 0))
     local index = hkex_derivatives_lite_omd_v2_0.sequence_reset.fields(buffer, offset, packet, parent)

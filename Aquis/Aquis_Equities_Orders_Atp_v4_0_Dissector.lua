@@ -122,76 +122,44 @@ local show = {}
 -- Aquis Equities Orders Atp 4.0 Element Dissection Options
 show.extended_order_flags = true
 show.flags = true
-show.iceberg_order_refresh_message = true
-show.ioi_add_message = true
+show.application_messages = true
 show.ioi_extended_flags = true
-show.ioi_firmup_message = true
-show.ioi_invite_message = true
-show.login_message = true
-show.login_response_message = true
-show.logout_message = true
 show.message = true
 show.message_header = true
-show.order_add_extended_message = true
-show.order_add_message = true
 show.order_add_response_flags = true
-show.order_add_response_message = true
-show.order_cancel_message = true
-show.order_cancel_response_message = true
-show.order_modify_extended_message = true
-show.order_modify_message = true
-show.order_modify_response_message = true
 show.packet = true
 show.status = true
 show.table_select_1 = true
 show.table_select_2 = true
 show.table_select_3 = true
-show.trade_bust_message = true
 show.trade_capture_flags = true
-show.trade_capture_message = true
-show.trade_capture_response_message = true
 show.trade_flags = true
-show.trade_message = true
 
 -- Register Aquis Equities Orders Atp 4.0 Show Options
 omi_aquis_equities_orders_atp_v4_0.prefs.show_extended_order_flags = Pref.bool("Show Extended Order Flags", show.extended_order_flags, "Parse and add Extended Order Flags to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_iceberg_order_refresh_message = Pref.bool("Show Iceberg Order Refresh Message", show.iceberg_order_refresh_message, "Parse and add Iceberg Order Refresh Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_add_message = Pref.bool("Show Ioi Add Message", show.ioi_add_message, "Parse and add Ioi Add Message to protocol tree")
+omi_aquis_equities_orders_atp_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_extended_flags = Pref.bool("Show Ioi Extended Flags", show.ioi_extended_flags, "Parse and add Ioi Extended Flags to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_firmup_message = Pref.bool("Show Ioi Firmup Message", show.ioi_firmup_message, "Parse and add Ioi Firmup Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_invite_message = Pref.bool("Show Ioi Invite Message", show.ioi_invite_message, "Parse and add Ioi Invite Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_login_response_message = Pref.bool("Show Login Response Message", show.login_response_message, "Parse and add Login Response Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_extended_message = Pref.bool("Show Order Add Extended Message", show.order_add_extended_message, "Parse and add Order Add Extended Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_message = Pref.bool("Show Order Add Message", show.order_add_message, "Parse and add Order Add Message to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_response_flags = Pref.bool("Show Order Add Response Flags", show.order_add_response_flags, "Parse and add Order Add Response Flags to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_response_message = Pref.bool("Show Order Add Response Message", show.order_add_response_message, "Parse and add Order Add Response Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_order_cancel_response_message = Pref.bool("Show Order Cancel Response Message", show.order_cancel_response_message, "Parse and add Order Cancel Response Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_extended_message = Pref.bool("Show Order Modify Extended Message", show.order_modify_extended_message, "Parse and add Order Modify Extended Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_response_message = Pref.bool("Show Order Modify Response Message", show.order_modify_response_message, "Parse and add Order Modify Response Message to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_status = Pref.bool("Show Status", show.status, "Parse and add Status to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_1 = Pref.bool("Show Table Select 1", show.table_select_1, "Parse and add Table Select 1 to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_2 = Pref.bool("Show Table Select 2", show.table_select_2, "Parse and add Table Select 2 to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_3 = Pref.bool("Show Table Select 3", show.table_select_3, "Parse and add Table Select 3 to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_flags = Pref.bool("Show Trade Capture Flags", show.trade_capture_flags, "Parse and add Trade Capture Flags to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_message = Pref.bool("Show Trade Capture Message", show.trade_capture_message, "Parse and add Trade Capture Message to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_response_message = Pref.bool("Show Trade Capture Response Message", show.trade_capture_response_message, "Parse and add Trade Capture Response Message to protocol tree")
 omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_equities_orders_atp_v4_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_application_messages then
+    show.application_messages = omi_aquis_equities_orders_atp_v4_0.prefs.show_application_messages
+    changed = true
+  end
   if show.extended_order_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_extended_order_flags then
     show.extended_order_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_extended_order_flags
     changed = true
@@ -200,36 +168,8 @@ function omi_aquis_equities_orders_atp_v4_0.prefs_changed()
     show.flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_flags
     changed = true
   end
-  if show.iceberg_order_refresh_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_iceberg_order_refresh_message then
-    show.iceberg_order_refresh_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_iceberg_order_refresh_message
-    changed = true
-  end
-  if show.ioi_add_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_add_message then
-    show.ioi_add_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_add_message
-    changed = true
-  end
   if show.ioi_extended_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_extended_flags then
     show.ioi_extended_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_extended_flags
-    changed = true
-  end
-  if show.ioi_firmup_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_firmup_message then
-    show.ioi_firmup_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_firmup_message
-    changed = true
-  end
-  if show.ioi_invite_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_invite_message then
-    show.ioi_invite_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_invite_message
-    changed = true
-  end
-  if show.login_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_login_message then
-    show.login_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_login_message
-    changed = true
-  end
-  if show.login_response_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_login_response_message then
-    show.login_response_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_login_response_message
-    changed = true
-  end
-  if show.logout_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_logout_message then
-    show.logout_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_logout_message
     changed = true
   end
   if show.message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_message then
@@ -240,40 +180,8 @@ function omi_aquis_equities_orders_atp_v4_0.prefs_changed()
     show.message_header = omi_aquis_equities_orders_atp_v4_0.prefs.show_message_header
     changed = true
   end
-  if show.order_add_extended_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_extended_message then
-    show.order_add_extended_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_extended_message
-    changed = true
-  end
-  if show.order_add_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_message then
-    show.order_add_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_message
-    changed = true
-  end
   if show.order_add_response_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_response_flags then
     show.order_add_response_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_response_flags
-    changed = true
-  end
-  if show.order_add_response_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_response_message then
-    show.order_add_response_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_response_message
-    changed = true
-  end
-  if show.order_cancel_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_cancel_message then
-    show.order_cancel_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_cancel_message
-    changed = true
-  end
-  if show.order_cancel_response_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_cancel_response_message then
-    show.order_cancel_response_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_cancel_response_message
-    changed = true
-  end
-  if show.order_modify_extended_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_extended_message then
-    show.order_modify_extended_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_extended_message
-    changed = true
-  end
-  if show.order_modify_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_message then
-    show.order_modify_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_message
-    changed = true
-  end
-  if show.order_modify_response_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_response_message then
-    show.order_modify_response_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_modify_response_message
     changed = true
   end
   if show.packet ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_packet then
@@ -296,28 +204,12 @@ function omi_aquis_equities_orders_atp_v4_0.prefs_changed()
     show.table_select_3 = omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_3
     changed = true
   end
-  if show.trade_bust_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_bust_message then
-    show.trade_bust_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_bust_message
-    changed = true
-  end
   if show.trade_capture_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_flags then
     show.trade_capture_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_flags
     changed = true
   end
-  if show.trade_capture_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_message then
-    show.trade_capture_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_message
-    changed = true
-  end
-  if show.trade_capture_response_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_response_message then
-    show.trade_capture_response_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_response_message
-    changed = true
-  end
   if show.trade_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_flags then
     show.trade_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_flags
-    changed = true
-  end
-  if show.trade_message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_message then
-    show.trade_message = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_message
     changed = true
   end
 
@@ -1753,7 +1645,7 @@ end
 
 -- Dissect: Ioi Firmup Message
 aquis_equities_orders_atp_v4_0.ioi_firmup_message.dissect = function(buffer, offset, packet, parent)
-  if show.ioi_firmup_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.ioi_firmup_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.ioi_firmup_message.fields(buffer, offset, packet, parent)
@@ -1813,7 +1705,7 @@ end
 
 -- Dissect: Ioi Invite Message
 aquis_equities_orders_atp_v4_0.ioi_invite_message.dissect = function(buffer, offset, packet, parent)
-  if show.ioi_invite_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.ioi_invite_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.ioi_invite_message.fields(buffer, offset, packet, parent)
@@ -2153,7 +2045,7 @@ end
 
 -- Dissect: Ioi Add Message
 aquis_equities_orders_atp_v4_0.ioi_add_message.dissect = function(buffer, offset, packet, parent)
-  if show.ioi_add_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.ioi_add_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.ioi_add_message.fields(buffer, offset, packet, parent)
@@ -2213,7 +2105,7 @@ end
 
 -- Dissect: Trade Bust Message
 aquis_equities_orders_atp_v4_0.trade_bust_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.trade_bust_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.trade_bust_message.fields(buffer, offset, packet, parent)
@@ -2343,7 +2235,7 @@ end
 
 -- Dissect: Trade Message
 aquis_equities_orders_atp_v4_0.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.trade_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.trade_message.fields(buffer, offset, packet, parent)
@@ -2434,7 +2326,7 @@ end
 
 -- Dissect: Trade Capture Response Message
 aquis_equities_orders_atp_v4_0.trade_capture_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_capture_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.trade_capture_response_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.trade_capture_response_message.fields(buffer, offset, packet, parent)
@@ -2548,7 +2440,7 @@ end
 
 -- Dissect: Trade Capture Message
 aquis_equities_orders_atp_v4_0.trade_capture_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_capture_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.trade_capture_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.trade_capture_message.fields(buffer, offset, packet, parent)
@@ -2600,7 +2492,7 @@ end
 
 -- Dissect: Iceberg Order Refresh Message
 aquis_equities_orders_atp_v4_0.iceberg_order_refresh_message.dissect = function(buffer, offset, packet, parent)
-  if show.iceberg_order_refresh_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.iceberg_order_refresh_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.iceberg_order_refresh_message.fields(buffer, offset, packet, parent)
@@ -2660,7 +2552,7 @@ end
 
 -- Dissect: Order Modify Response Message
 aquis_equities_orders_atp_v4_0.order_modify_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_modify_response_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.order_modify_response_message.fields(buffer, offset, packet, parent)
@@ -2716,7 +2608,7 @@ end
 
 -- Dissect: Order Cancel Response Message
 aquis_equities_orders_atp_v4_0.order_cancel_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_cancel_response_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.order_cancel_response_message.fields(buffer, offset, packet, parent)
@@ -2830,7 +2722,7 @@ end
 
 -- Dissect: Order Add Response Message
 aquis_equities_orders_atp_v4_0.order_add_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_add_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_add_response_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.order_add_response_message.fields(buffer, offset, packet, parent)
@@ -2926,7 +2818,7 @@ end
 
 -- Dissect: Order Modify Extended Message
 aquis_equities_orders_atp_v4_0.order_modify_extended_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify_extended_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_modify_extended_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.order_modify_extended_message.fields(buffer, offset, packet, parent)
@@ -3010,7 +2902,7 @@ end
 
 -- Dissect: Order Modify Message
 aquis_equities_orders_atp_v4_0.order_modify_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_modify_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.order_modify_message.fields(buffer, offset, packet, parent)
@@ -3082,7 +2974,7 @@ end
 
 -- Dissect: Order Cancel Message
 aquis_equities_orders_atp_v4_0.order_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_cancel_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.order_cancel_message.fields(buffer, offset, packet, parent)
@@ -3270,7 +3162,7 @@ end
 
 -- Dissect: Order Add Extended Message
 aquis_equities_orders_atp_v4_0.order_add_extended_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_add_extended_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_add_extended_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.order_add_extended_message.fields(buffer, offset, packet, parent)
@@ -3370,7 +3262,7 @@ end
 
 -- Dissect: Order Add Message
 aquis_equities_orders_atp_v4_0.order_add_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_add_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_add_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.order_add_message.fields(buffer, offset, packet, parent)
@@ -3414,7 +3306,7 @@ end
 
 -- Dissect: Logout Message
 aquis_equities_orders_atp_v4_0.logout_message.dissect = function(buffer, offset, packet, parent)
-  if show.logout_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.logout_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.logout_message.fields(buffer, offset, packet, parent)
@@ -3458,7 +3350,7 @@ end
 
 -- Dissect: Login Response Message
 aquis_equities_orders_atp_v4_0.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.login_response_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.login_response_message.fields(buffer, offset, packet, parent)
@@ -3514,7 +3406,7 @@ end
 
 -- Dissect: Login Message
 aquis_equities_orders_atp_v4_0.login_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_equities_orders_atp_v4_0.fields.login_message, buffer(offset, 0))
     local index = aquis_equities_orders_atp_v4_0.login_message.fields(buffer, offset, packet, parent)

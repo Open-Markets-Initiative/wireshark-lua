@@ -154,122 +154,42 @@ omi_eurex_derivatives_eobi_t7_v9_1.fields.sec_mass_stat_grp_comp_index = ProtoFi
 local show = {}
 
 -- Eurex Derivatives Eobi T7 9.1 Element Dissection Options
-show.add_complex_instrument = true
-show.auction_bbo = true
-show.auction_clearing_price = true
-show.cross_request = true
-show.execution_summary = true
-show.full_order_execution = true
-show.heartbeat = true
+show.application_messages = true
 show.instrmt_leg_grp_comp = true
-show.instrument_state_change = true
-show.instrument_summary = true
-show.mass_instrument_state_change = true
 show.md_instrument_entry_grp_comp = true
 show.md_trade_entry_grp_comp = true
 show.message = true
 show.message_header_comp = true
-show.order_add = true
-show.order_delete = true
 show.order_details_comp = true
-show.order_mass_delete = true
-show.order_modify = true
-show.order_modify_same_prio = true
 show.packet = true
 show.packet_header = true
 show.packet_info = true
-show.partial_order_execution = true
-show.product_state_change = true
-show.product_summary = true
-show.quote_request = true
 show.sec_mass_stat_grp_comp = true
-show.snapshot_order = true
-show.top_of_book = true
-show.trade_report = true
-show.trade_reversal = true
 
 -- Register Eurex Derivatives Eobi T7 9.1 Show Options
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_add_complex_instrument = Pref.bool("Show Add Complex Instrument", show.add_complex_instrument, "Parse and add Add Complex Instrument to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_auction_bbo = Pref.bool("Show Auction Bbo", show.auction_bbo, "Parse and add Auction Bbo to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_auction_clearing_price = Pref.bool("Show Auction Clearing Price", show.auction_clearing_price, "Parse and add Auction Clearing Price to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_cross_request = Pref.bool("Show Cross Request", show.cross_request, "Parse and add Cross Request to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_execution_summary = Pref.bool("Show Execution Summary", show.execution_summary, "Parse and add Execution Summary to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_full_order_execution = Pref.bool("Show Full Order Execution", show.full_order_execution, "Parse and add Full Order Execution to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
+omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrmt_leg_grp_comp = Pref.bool("Show Instrmt Leg Grp Comp", show.instrmt_leg_grp_comp, "Parse and add Instrmt Leg Grp Comp to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrument_state_change = Pref.bool("Show Instrument State Change", show.instrument_state_change, "Parse and add Instrument State Change to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrument_summary = Pref.bool("Show Instrument Summary", show.instrument_summary, "Parse and add Instrument Summary to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_mass_instrument_state_change = Pref.bool("Show Mass Instrument State Change", show.mass_instrument_state_change, "Parse and add Mass Instrument State Change to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_md_instrument_entry_grp_comp = Pref.bool("Show Md Instrument Entry Grp Comp", show.md_instrument_entry_grp_comp, "Parse and add Md Instrument Entry Grp Comp to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_md_trade_entry_grp_comp = Pref.bool("Show Md Trade Entry Grp Comp", show.md_trade_entry_grp_comp, "Parse and add Md Trade Entry Grp Comp to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_message_header_comp = Pref.bool("Show Message Header Comp", show.message_header_comp, "Parse and add Message Header Comp to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_add = Pref.bool("Show Order Add", show.order_add, "Parse and add Order Add to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_delete = Pref.bool("Show Order Delete", show.order_delete, "Parse and add Order Delete to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_details_comp = Pref.bool("Show Order Details Comp", show.order_details_comp, "Parse and add Order Details Comp to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_mass_delete = Pref.bool("Show Order Mass Delete", show.order_mass_delete, "Parse and add Order Mass Delete to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_modify = Pref.bool("Show Order Modify", show.order_modify, "Parse and add Order Modify to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_modify_same_prio = Pref.bool("Show Order Modify Same Prio", show.order_modify_same_prio, "Parse and add Order Modify Same Prio to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_packet_info = Pref.bool("Show Packet Info", show.packet_info, "Parse and add Packet Info to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_partial_order_execution = Pref.bool("Show Partial Order Execution", show.partial_order_execution, "Parse and add Partial Order Execution to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_product_state_change = Pref.bool("Show Product State Change", show.product_state_change, "Parse and add Product State Change to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_product_summary = Pref.bool("Show Product Summary", show.product_summary, "Parse and add Product Summary to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
 omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_sec_mass_stat_grp_comp = Pref.bool("Show Sec Mass Stat Grp Comp", show.sec_mass_stat_grp_comp, "Parse and add Sec Mass Stat Grp Comp to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_snapshot_order = Pref.bool("Show Snapshot Order", show.snapshot_order, "Parse and add Snapshot Order to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_top_of_book = Pref.bool("Show Top Of Book", show.top_of_book, "Parse and add Top Of Book to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_trade_report = Pref.bool("Show Trade Report", show.trade_report, "Parse and add Trade Report to protocol tree")
-omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_trade_reversal = Pref.bool("Show Trade Reversal", show.trade_reversal, "Parse and add Trade Reversal to protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_derivatives_eobi_t7_v9_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_complex_instrument ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_add_complex_instrument then
-    show.add_complex_instrument = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_add_complex_instrument
-    changed = true
-  end
-  if show.auction_bbo ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_auction_bbo then
-    show.auction_bbo = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_auction_bbo
-    changed = true
-  end
-  if show.auction_clearing_price ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_auction_clearing_price then
-    show.auction_clearing_price = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_auction_clearing_price
-    changed = true
-  end
-  if show.cross_request ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_cross_request then
-    show.cross_request = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_cross_request
-    changed = true
-  end
-  if show.execution_summary ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_execution_summary then
-    show.execution_summary = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_execution_summary
-    changed = true
-  end
-  if show.full_order_execution ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_full_order_execution then
-    show.full_order_execution = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_full_order_execution
-    changed = true
-  end
-  if show.heartbeat ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_heartbeat then
-    show.heartbeat = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_heartbeat
+  if show.application_messages ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_application_messages then
+    show.application_messages = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_application_messages
     changed = true
   end
   if show.instrmt_leg_grp_comp ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrmt_leg_grp_comp then
     show.instrmt_leg_grp_comp = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrmt_leg_grp_comp
-    changed = true
-  end
-  if show.instrument_state_change ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrument_state_change then
-    show.instrument_state_change = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrument_state_change
-    changed = true
-  end
-  if show.instrument_summary ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrument_summary then
-    show.instrument_summary = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_instrument_summary
-    changed = true
-  end
-  if show.mass_instrument_state_change ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_mass_instrument_state_change then
-    show.mass_instrument_state_change = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_mass_instrument_state_change
     changed = true
   end
   if show.md_instrument_entry_grp_comp ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_md_instrument_entry_grp_comp then
@@ -288,28 +208,8 @@ function omi_eurex_derivatives_eobi_t7_v9_1.prefs_changed()
     show.message_header_comp = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_message_header_comp
     changed = true
   end
-  if show.order_add ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_add then
-    show.order_add = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_add
-    changed = true
-  end
-  if show.order_delete ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_delete then
-    show.order_delete = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_delete
-    changed = true
-  end
   if show.order_details_comp ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_details_comp then
     show.order_details_comp = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_details_comp
-    changed = true
-  end
-  if show.order_mass_delete ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_mass_delete then
-    show.order_mass_delete = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_mass_delete
-    changed = true
-  end
-  if show.order_modify ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_modify then
-    show.order_modify = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_modify
-    changed = true
-  end
-  if show.order_modify_same_prio ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_modify_same_prio then
-    show.order_modify_same_prio = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_order_modify_same_prio
     changed = true
   end
   if show.packet ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_packet then
@@ -324,40 +224,8 @@ function omi_eurex_derivatives_eobi_t7_v9_1.prefs_changed()
     show.packet_info = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_packet_info
     changed = true
   end
-  if show.partial_order_execution ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_partial_order_execution then
-    show.partial_order_execution = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_partial_order_execution
-    changed = true
-  end
-  if show.product_state_change ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_product_state_change then
-    show.product_state_change = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_product_state_change
-    changed = true
-  end
-  if show.product_summary ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_product_summary then
-    show.product_summary = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_product_summary
-    changed = true
-  end
-  if show.quote_request ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_quote_request then
-    show.quote_request = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_quote_request
-    changed = true
-  end
   if show.sec_mass_stat_grp_comp ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_sec_mass_stat_grp_comp then
     show.sec_mass_stat_grp_comp = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_sec_mass_stat_grp_comp
-    changed = true
-  end
-  if show.snapshot_order ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_snapshot_order then
-    show.snapshot_order = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_snapshot_order
-    changed = true
-  end
-  if show.top_of_book ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_top_of_book then
-    show.top_of_book = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_top_of_book
-    changed = true
-  end
-  if show.trade_report ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_trade_report then
-    show.trade_report = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_trade_report
-    changed = true
-  end
-  if show.trade_reversal ~= omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_trade_reversal then
-    show.trade_reversal = omi_eurex_derivatives_eobi_t7_v9_1.prefs.show_trade_reversal
     changed = true
   end
 
@@ -3711,7 +3579,7 @@ end
 
 -- Dissect: Trade Reversal
 eurex_derivatives_eobi_t7_v9_1.trade_reversal.dissect = function(buffer, offset, packet, parent)
-  if show.trade_reversal then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.trade_reversal, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.trade_reversal.fields(buffer, offset, packet, parent)
@@ -3791,7 +3659,7 @@ end
 
 -- Dissect: Trade Report
 eurex_derivatives_eobi_t7_v9_1.trade_report.dissect = function(buffer, offset, packet, parent)
-  if show.trade_report then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.trade_report, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.trade_report.fields(buffer, offset, packet, parent)
@@ -3863,7 +3731,7 @@ end
 
 -- Dissect: Top Of Book
 eurex_derivatives_eobi_t7_v9_1.top_of_book.dissect = function(buffer, offset, packet, parent)
-  if show.top_of_book then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.top_of_book, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.top_of_book.fields(buffer, offset, packet, parent)
@@ -3963,7 +3831,7 @@ end
 
 -- Dissect: Snapshot Order
 eurex_derivatives_eobi_t7_v9_1.snapshot_order.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_order then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.snapshot_order, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.snapshot_order.fields(buffer, offset, packet, parent)
@@ -4019,7 +3887,7 @@ end
 
 -- Dissect: Quote Request
 eurex_derivatives_eobi_t7_v9_1.quote_request.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.quote_request, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.quote_request.fields(buffer, offset, packet, parent)
@@ -4083,7 +3951,7 @@ end
 
 -- Dissect: Product Summary
 eurex_derivatives_eobi_t7_v9_1.product_summary.dissect = function(buffer, offset, packet, parent)
-  if show.product_summary then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.product_summary, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.product_summary.fields(buffer, offset, packet, parent)
@@ -4147,7 +4015,7 @@ end
 
 -- Dissect: Product State Change
 eurex_derivatives_eobi_t7_v9_1.product_state_change.dissect = function(buffer, offset, packet, parent)
-  if show.product_state_change then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.product_state_change, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.product_state_change.fields(buffer, offset, packet, parent)
@@ -4223,7 +4091,7 @@ end
 
 -- Dissect: Partial Order Execution
 eurex_derivatives_eobi_t7_v9_1.partial_order_execution.dissect = function(buffer, offset, packet, parent)
-  if show.partial_order_execution then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.partial_order_execution, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.partial_order_execution.fields(buffer, offset, packet, parent)
@@ -4279,7 +4147,7 @@ end
 
 -- Dissect: Order Modify Same Prio
 eurex_derivatives_eobi_t7_v9_1.order_modify_same_prio.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify_same_prio then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.order_modify_same_prio, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.order_modify_same_prio.fields(buffer, offset, packet, parent)
@@ -4339,7 +4207,7 @@ end
 
 -- Dissect: Order Modify
 eurex_derivatives_eobi_t7_v9_1.order_modify.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.order_modify, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.order_modify.fields(buffer, offset, packet, parent)
@@ -4383,7 +4251,7 @@ end
 
 -- Dissect: Order Mass Delete
 eurex_derivatives_eobi_t7_v9_1.order_mass_delete.dissect = function(buffer, offset, packet, parent)
-  if show.order_mass_delete then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.order_mass_delete, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.order_mass_delete.fields(buffer, offset, packet, parent)
@@ -4435,7 +4303,7 @@ end
 
 -- Dissect: Order Delete
 eurex_derivatives_eobi_t7_v9_1.order_delete.dissect = function(buffer, offset, packet, parent)
-  if show.order_delete then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.order_delete, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.order_delete.fields(buffer, offset, packet, parent)
@@ -4483,7 +4351,7 @@ end
 
 -- Dissect: Order Add
 eurex_derivatives_eobi_t7_v9_1.order_add.dissect = function(buffer, offset, packet, parent)
-  if show.order_add then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.order_add, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.order_add.fields(buffer, offset, packet, parent)
@@ -4662,7 +4530,7 @@ end
 
 -- Dissect: Mass Instrument State Change
 eurex_derivatives_eobi_t7_v9_1.mass_instrument_state_change.dissect = function(buffer, offset, packet, parent)
-  if show.mass_instrument_state_change then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.mass_instrument_state_change, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.mass_instrument_state_change.fields(buffer, offset, packet, parent)
@@ -4842,7 +4710,7 @@ end
 
 -- Dissect: Instrument Summary
 eurex_derivatives_eobi_t7_v9_1.instrument_summary.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_summary then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.instrument_summary, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.instrument_summary.fields(buffer, offset, packet, parent)
@@ -4914,7 +4782,7 @@ end
 
 -- Dissect: Instrument State Change
 eurex_derivatives_eobi_t7_v9_1.instrument_state_change.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_state_change then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.instrument_state_change, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.instrument_state_change.fields(buffer, offset, packet, parent)
@@ -4958,7 +4826,7 @@ end
 
 -- Dissect: Heartbeat
 eurex_derivatives_eobi_t7_v9_1.heartbeat.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.heartbeat, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.heartbeat.fields(buffer, offset, packet, parent)
@@ -5034,7 +4902,7 @@ end
 
 -- Dissect: Full Order Execution
 eurex_derivatives_eobi_t7_v9_1.full_order_execution.dissect = function(buffer, offset, packet, parent)
-  if show.full_order_execution then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.full_order_execution, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.full_order_execution.fields(buffer, offset, packet, parent)
@@ -5118,7 +4986,7 @@ end
 
 -- Dissect: Execution Summary
 eurex_derivatives_eobi_t7_v9_1.execution_summary.dissect = function(buffer, offset, packet, parent)
-  if show.execution_summary then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.execution_summary, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.execution_summary.fields(buffer, offset, packet, parent)
@@ -5186,7 +5054,7 @@ end
 
 -- Dissect: Cross Request
 eurex_derivatives_eobi_t7_v9_1.cross_request.dissect = function(buffer, offset, packet, parent)
-  if show.cross_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.cross_request, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.cross_request.fields(buffer, offset, packet, parent)
@@ -5254,7 +5122,7 @@ end
 
 -- Dissect: Auction Clearing Price
 eurex_derivatives_eobi_t7_v9_1.auction_clearing_price.dissect = function(buffer, offset, packet, parent)
-  if show.auction_clearing_price then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.auction_clearing_price, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.auction_clearing_price.fields(buffer, offset, packet, parent)
@@ -5330,7 +5198,7 @@ end
 
 -- Dissect: Auction Bbo
 eurex_derivatives_eobi_t7_v9_1.auction_bbo.dissect = function(buffer, offset, packet, parent)
-  if show.auction_bbo then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.auction_bbo, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.auction_bbo.fields(buffer, offset, packet, parent)
@@ -5498,7 +5366,7 @@ end
 
 -- Dissect: Add Complex Instrument
 eurex_derivatives_eobi_t7_v9_1.add_complex_instrument.dissect = function(buffer, offset, packet, parent)
-  if show.add_complex_instrument then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eobi_t7_v9_1.fields.add_complex_instrument, buffer(offset, 0))
     local index = eurex_derivatives_eobi_t7_v9_1.add_complex_instrument.fields(buffer, offset, packet, parent)

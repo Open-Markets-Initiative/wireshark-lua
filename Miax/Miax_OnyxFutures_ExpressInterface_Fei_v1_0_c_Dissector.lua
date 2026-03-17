@@ -141,68 +141,36 @@ local show = {}
 
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Element Dissection Options
 show.additional_order_indicators = true
-show.cancel_order_request_message = true
-show.cancel_order_response = true
-show.cancel_reduce_size_order_notification = true
-show.complex_execution_notification = true
+show.application_messages = true
 show.goodbye_packet = true
 show.login_request = true
 show.login_response = true
 show.logout_request = true
-show.mass_cancel_request = true
-show.mass_cancel_response = true
-show.modify_order_notification = true
-show.modify_order_request_message = true
-show.modify_order_response = true
-show.new_order_notification = true
-show.new_order_request_message = true
-show.new_order_response_message = true
 show.order_instructions = true
-show.order_status_update_notification = true
 show.packet = true
 show.packet_header = true
 show.retransmission_request = true
 show.self_trade_protection = true
 show.sequenced_data_packet = true
 show.sesm_tcp_packet = true
-show.simple_execution_notification = true
-show.strategy_creation_request = true
-show.strategy_creation_response_message = true
 show.strategy_leg = true
-show.system_state_notification_message = true
 show.unsequenced_data_packet = true
 
 -- Register Miax OnyxFutures ExpressInterface Fei 1.0.c Show Options
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators = Pref.bool("Show Additional Order Indicators", show.additional_order_indicators, "Parse and add Additional Order Indicators to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message = Pref.bool("Show Cancel Order Request Message", show.cancel_order_request_message, "Parse and add Cancel Order Request Message to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response = Pref.bool("Show Cancel Order Response", show.cancel_order_response, "Parse and add Cancel Order Response to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification = Pref.bool("Show Cancel Reduce Size Order Notification", show.cancel_reduce_size_order_notification, "Parse and add Cancel Reduce Size Order Notification to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification = Pref.bool("Show Complex Execution Notification", show.complex_execution_notification, "Parse and add Complex Execution Notification to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request = Pref.bool("Show Mass Cancel Request", show.mass_cancel_request, "Parse and add Mass Cancel Request to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response = Pref.bool("Show Mass Cancel Response", show.mass_cancel_response, "Parse and add Mass Cancel Response to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification = Pref.bool("Show Modify Order Notification", show.modify_order_notification, "Parse and add Modify Order Notification to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message = Pref.bool("Show Modify Order Request Message", show.modify_order_request_message, "Parse and add Modify Order Request Message to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response = Pref.bool("Show Modify Order Response", show.modify_order_response, "Parse and add Modify Order Response to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification = Pref.bool("Show New Order Notification", show.new_order_notification, "Parse and add New Order Notification to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message = Pref.bool("Show New Order Request Message", show.new_order_request_message, "Parse and add New Order Request Message to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message = Pref.bool("Show New Order Response Message", show.new_order_response_message, "Parse and add New Order Response Message to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification = Pref.bool("Show Order Status Update Notification", show.order_status_update_notification, "Parse and add Order Status Update Notification to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection = Pref.bool("Show Self Trade Protection", show.self_trade_protection, "Parse and add Self Trade Protection to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet = Pref.bool("Show Sesm Tcp Packet", show.sesm_tcp_packet, "Parse and add Sesm Tcp Packet to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification = Pref.bool("Show Simple Execution Notification", show.simple_execution_notification, "Parse and add Simple Execution Notification to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request = Pref.bool("Show Strategy Creation Request", show.strategy_creation_request, "Parse and add Strategy Creation Request to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message = Pref.bool("Show Strategy Creation Response Message", show.strategy_creation_response_message, "Parse and add Strategy Creation Response Message to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg = Pref.bool("Show Strategy Leg", show.strategy_leg, "Parse and add Strategy Leg to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message = Pref.bool("Show System State Notification Message", show.system_state_notification_message, "Parse and add System State Notification Message to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
 -- Handle changed preferences
@@ -214,20 +182,8 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
     show.additional_order_indicators = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators
     changed = true
   end
-  if show.cancel_order_request_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message then
-    show.cancel_order_request_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_request_message
-    changed = true
-  end
-  if show.cancel_order_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response then
-    show.cancel_order_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_order_response
-    changed = true
-  end
-  if show.cancel_reduce_size_order_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification then
-    show.cancel_reduce_size_order_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_cancel_reduce_size_order_notification
-    changed = true
-  end
-  if show.complex_execution_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification then
-    show.complex_execution_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_complex_execution_notification
+  if show.application_messages ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages then
+    show.application_messages = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages
     changed = true
   end
   if show.goodbye_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet then
@@ -246,44 +202,8 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
     show.logout_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request
     changed = true
   end
-  if show.mass_cancel_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request then
-    show.mass_cancel_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_request
-    changed = true
-  end
-  if show.mass_cancel_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response then
-    show.mass_cancel_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_mass_cancel_response
-    changed = true
-  end
-  if show.modify_order_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification then
-    show.modify_order_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_notification
-    changed = true
-  end
-  if show.modify_order_request_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message then
-    show.modify_order_request_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_request_message
-    changed = true
-  end
-  if show.modify_order_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response then
-    show.modify_order_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_modify_order_response
-    changed = true
-  end
-  if show.new_order_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification then
-    show.new_order_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_notification
-    changed = true
-  end
-  if show.new_order_request_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message then
-    show.new_order_request_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_request_message
-    changed = true
-  end
-  if show.new_order_response_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message then
-    show.new_order_response_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_new_order_response_message
-    changed = true
-  end
   if show.order_instructions ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions then
     show.order_instructions = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions
-    changed = true
-  end
-  if show.order_status_update_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification then
-    show.order_status_update_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_status_update_notification
     changed = true
   end
   if show.packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet then
@@ -310,24 +230,8 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
     show.sesm_tcp_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet
     changed = true
   end
-  if show.simple_execution_notification ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification then
-    show.simple_execution_notification = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_simple_execution_notification
-    changed = true
-  end
-  if show.strategy_creation_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request then
-    show.strategy_creation_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_request
-    changed = true
-  end
-  if show.strategy_creation_response_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message then
-    show.strategy_creation_response_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_creation_response_message
-    changed = true
-  end
   if show.strategy_leg ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg then
     show.strategy_leg = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg
-    changed = true
-  end
-  if show.system_state_notification_message ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message then
-    show.system_state_notification_message = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_system_state_notification_message
     changed = true
   end
   if show.unsequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet then
@@ -2702,7 +2606,7 @@ end
 
 -- Dissect: Strategy Creation Response Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_creation_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.fields(buffer, offset, packet, parent)
@@ -2840,7 +2744,7 @@ end
 
 -- Dissect: Strategy Creation Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_creation_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_request, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.fields(buffer, offset, packet, parent)
@@ -2896,7 +2800,7 @@ end
 
 -- Dissect: Mass Cancel Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_response, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.fields(buffer, offset, packet, parent)
@@ -2980,7 +2884,7 @@ end
 
 -- Dissect: Mass Cancel Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_request, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.fields(buffer, offset, packet, parent)
@@ -3044,7 +2948,7 @@ end
 
 -- Dissect: Cancel Order Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.fields(buffer, offset, packet, parent)
@@ -3116,7 +3020,7 @@ end
 
 -- Dissect: Cancel Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.fields(buffer, offset, packet, parent)
@@ -3188,7 +3092,7 @@ end
 
 -- Dissect: Modify Order Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_response then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_response, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.fields(buffer, offset, packet, parent)
@@ -3345,7 +3249,7 @@ end
 
 -- Dissect: Modify Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_request_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.fields(buffer, offset, packet, parent)
@@ -3409,7 +3313,7 @@ end
 
 -- Dissect: New Order Response Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_response_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.fields(buffer, offset, packet, parent)
@@ -3626,7 +3530,7 @@ end
 
 -- Dissect: New Order Request Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_request_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.fields(buffer, offset, packet, parent)
@@ -3804,7 +3708,7 @@ end
 
 -- Dissect: Complex Execution Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.dissect = function(buffer, offset, packet, parent)
-  if show.complex_execution_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_execution_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.fields(buffer, offset, packet, parent)
@@ -3920,7 +3824,7 @@ end
 
 -- Dissect: Simple Execution Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.dissect = function(buffer, offset, packet, parent)
-  if show.simple_execution_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_execution_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.fields(buffer, offset, packet, parent)
@@ -3976,7 +3880,7 @@ end
 
 -- Dissect: Order Status Update Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.dissect = function(buffer, offset, packet, parent)
-  if show.order_status_update_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status_update_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.fields(buffer, offset, packet, parent)
@@ -4064,7 +3968,7 @@ end
 
 -- Dissect: Cancel Reduce Size Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_reduce_size_order_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification.fields(buffer, offset, packet, parent)
@@ -4176,7 +4080,7 @@ end
 
 -- Dissect: Modify Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.fields(buffer, offset, packet, parent)
@@ -4316,7 +4220,7 @@ end
 
 -- Dissect: New Order Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_notification then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_notification, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.fields(buffer, offset, packet, parent)
@@ -4372,7 +4276,7 @@ end
 
 -- Dissect: System State Notification Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_state_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.fields(buffer, offset, packet, parent)

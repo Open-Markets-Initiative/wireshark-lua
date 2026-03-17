@@ -157,78 +157,36 @@ local show = {}
 
 -- Nasdaq Utdf Output Utp 1.5 Element Dissection Options
 show.administrative = true
-show.auction_collar_message = true
-show.closing_trade_summary_report_message = true
+show.application_messages = true
 show.control = true
 show.corrected_sale_condition = true
-show.cross_sro_trading_action_message = true
-show.end_of_consolidated_last_sale_eligibility = true
-show.end_of_day_message = true
-show.end_of_trade_reporting_message = true
-show.end_of_transmissions_message = true
-show.general_administrative_message = true
-show.issue_symbol_directory_message = true
-show.limit_up_limit_down_price_band_message = true
 show.market_center_closing_price_and_volume_summary = true
-show.market_center_trading_action_message = true
 show.market_center_volume_attachment = true
-show.market_session_close_message = true
-show.market_session_open_message = true
-show.market_wide_circuit_breaker_decline_level_message = true
 show.message = true
 show.message_header = true
 show.message_info = true
 show.original_sale_condition = true
 show.packet = true
 show.packet_header = true
-show.prior_day_as_of_trade_message = true
-show.regulation_sho_short_sale_price_test_restricted_indicator_message = true
 show.sale_condition = true
-show.start_of_day_message = true
-show.total_consolidated_and_market_center_volume_message = true
 show.trade = true
-show.trade_cancel_error_message = true
-show.trade_correction_message = true
-show.trade_report_message_long_form_message = true
-show.trade_report_message_short_form_message = true
 show.volume = true
 
 -- Register Nasdaq Utdf Output Utp 1.5 Show Options
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message = Pref.bool("Show Auction Collar Message", show.auction_collar_message, "Parse and add Auction Collar Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message = Pref.bool("Show Closing Trade Summary Report Message", show.closing_trade_summary_report_message, "Parse and add Closing Trade Summary Report Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_corrected_sale_condition = Pref.bool("Show Corrected Sale Condition", show.corrected_sale_condition, "Parse and add Corrected Sale Condition to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message = Pref.bool("Show Cross Sro Trading Action Message", show.cross_sro_trading_action_message, "Parse and add Cross Sro Trading Action Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility = Pref.bool("Show End Of Consolidated Last Sale Eligibility", show.end_of_consolidated_last_sale_eligibility, "Parse and add End Of Consolidated Last Sale Eligibility to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message = Pref.bool("Show Issue Symbol Directory Message", show.issue_symbol_directory_message, "Parse and add Issue Symbol Directory Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message = Pref.bool("Show Limit Up Limit Down Price Band Message", show.limit_up_limit_down_price_band_message, "Parse and add Limit Up Limit Down Price Band Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary = Pref.bool("Show Market Center Closing Price And Volume Summary", show.market_center_closing_price_and_volume_summary, "Parse and add Market Center Closing Price And Volume Summary to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message = Pref.bool("Show Market Center Trading Action Message", show.market_center_trading_action_message, "Parse and add Market Center Trading Action Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment = Pref.bool("Show Market Center Volume Attachment", show.market_center_volume_attachment, "Parse and add Market Center Volume Attachment to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Message", show.market_wide_circuit_breaker_decline_level_message, "Parse and add Market Wide Circuit Breaker Decline Level Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info = Pref.bool("Show Message Info", show.message_info, "Parse and add Message Info to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_original_sale_condition = Pref.bool("Show Original Sale Condition", show.original_sale_condition, "Parse and add Original Sale Condition to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message = Pref.bool("Show Prior Day As Of Trade Message", show.prior_day_as_of_trade_message, "Parse and add Prior Day As Of Trade Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Regulation Sho Short Sale Price Test Restricted Indicator Message", show.regulation_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Regulation Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition = Pref.bool("Show Sale Condition", show.sale_condition, "Parse and add Sale Condition to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message = Pref.bool("Show Total Consolidated And Market Center Volume Message", show.total_consolidated_and_market_center_volume_message, "Parse and add Total Consolidated And Market Center Volume Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message = Pref.bool("Show Trade Report Message Long Form Message", show.trade_report_message_long_form_message, "Parse and add Trade Report Message Long Form Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message = Pref.bool("Show Trade Report Message Short Form Message", show.trade_report_message_short_form_message, "Parse and add Trade Report Message Short Form Message to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume = Pref.bool("Show Volume", show.volume, "Parse and add Volume to protocol tree")
 
 -- Handle changed preferences
@@ -240,12 +198,8 @@ function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
     show.administrative = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative
     changed = true
   end
-  if show.auction_collar_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message then
-    show.auction_collar_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_auction_collar_message
-    changed = true
-  end
-  if show.closing_trade_summary_report_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message then
-    show.closing_trade_summary_report_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_closing_trade_summary_report_message
+  if show.application_messages ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_application_messages
     changed = true
   end
   if show.control ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control then
@@ -256,60 +210,12 @@ function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
     show.corrected_sale_condition = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_corrected_sale_condition
     changed = true
   end
-  if show.cross_sro_trading_action_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message then
-    show.cross_sro_trading_action_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_cross_sro_trading_action_message
-    changed = true
-  end
-  if show.end_of_consolidated_last_sale_eligibility ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility then
-    show.end_of_consolidated_last_sale_eligibility = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_consolidated_last_sale_eligibility
-    changed = true
-  end
-  if show.end_of_day_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message then
-    show.end_of_day_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_day_message
-    changed = true
-  end
-  if show.end_of_trade_reporting_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message then
-    show.end_of_trade_reporting_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_trade_reporting_message
-    changed = true
-  end
-  if show.end_of_transmissions_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message then
-    show.end_of_transmissions_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_end_of_transmissions_message
-    changed = true
-  end
-  if show.general_administrative_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message then
-    show.general_administrative_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_general_administrative_message
-    changed = true
-  end
-  if show.issue_symbol_directory_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message then
-    show.issue_symbol_directory_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_issue_symbol_directory_message
-    changed = true
-  end
-  if show.limit_up_limit_down_price_band_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message then
-    show.limit_up_limit_down_price_band_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_limit_up_limit_down_price_band_message
-    changed = true
-  end
   if show.market_center_closing_price_and_volume_summary ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary then
     show.market_center_closing_price_and_volume_summary = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary
     changed = true
   end
-  if show.market_center_trading_action_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message then
-    show.market_center_trading_action_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_trading_action_message
-    changed = true
-  end
   if show.market_center_volume_attachment ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment then
     show.market_center_volume_attachment = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment
-    changed = true
-  end
-  if show.market_session_close_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message then
-    show.market_session_close_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_close_message
-    changed = true
-  end
-  if show.market_session_open_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message then
-    show.market_session_open_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_session_open_message
-    changed = true
-  end
-  if show.market_wide_circuit_breaker_decline_level_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message then
-    show.market_wide_circuit_breaker_decline_level_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_wide_circuit_breaker_decline_level_message
     changed = true
   end
   if show.message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message then
@@ -336,44 +242,12 @@ function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
     show.packet_header = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header
     changed = true
   end
-  if show.prior_day_as_of_trade_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message then
-    show.prior_day_as_of_trade_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_prior_day_as_of_trade_message
-    changed = true
-  end
-  if show.regulation_sho_short_sale_price_test_restricted_indicator_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message then
-    show.regulation_sho_short_sale_price_test_restricted_indicator_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_regulation_sho_short_sale_price_test_restricted_indicator_message
-    changed = true
-  end
   if show.sale_condition ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition then
     show.sale_condition = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition
     changed = true
   end
-  if show.start_of_day_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message then
-    show.start_of_day_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_start_of_day_message
-    changed = true
-  end
-  if show.total_consolidated_and_market_center_volume_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message then
-    show.total_consolidated_and_market_center_volume_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_total_consolidated_and_market_center_volume_message
-    changed = true
-  end
   if show.trade ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade then
     show.trade = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade
-    changed = true
-  end
-  if show.trade_cancel_error_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message then
-    show.trade_cancel_error_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_cancel_error_message
-    changed = true
-  end
-  if show.trade_correction_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message then
-    show.trade_correction_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_correction_message
-    changed = true
-  end
-  if show.trade_report_message_long_form_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message then
-    show.trade_report_message_long_form_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_long_form_message
-    changed = true
-  end
-  if show.trade_report_message_short_form_message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message then
-    show.trade_report_message_short_form_message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade_report_message_short_form_message
     changed = true
   end
   if show.volume ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume then
@@ -3151,7 +3025,7 @@ nasdaq_utdf_output_utp_v1_5.end_of_consolidated_last_sale_eligibility.dissect = 
   local index = offset + size_of_end_of_consolidated_last_sale_eligibility
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_consolidated_last_sale_eligibility then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_consolidated_last_sale_eligibility, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.end_of_consolidated_last_sale_eligibility.fields(buffer, offset, packet, parent, size_of_end_of_consolidated_last_sale_eligibility)
     parent:set_len(size_of_end_of_consolidated_last_sale_eligibility)
@@ -3201,7 +3075,7 @@ nasdaq_utdf_output_utp_v1_5.end_of_trade_reporting_message.dissect = function(bu
   local index = offset + size_of_end_of_trade_reporting_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_trade_reporting_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_trade_reporting_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.end_of_trade_reporting_message.fields(buffer, offset, packet, parent, size_of_end_of_trade_reporting_message)
     parent:set_len(size_of_end_of_trade_reporting_message)
@@ -3251,7 +3125,7 @@ nasdaq_utdf_output_utp_v1_5.end_of_transmissions_message.dissect = function(buff
   local index = offset + size_of_end_of_transmissions_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_transmissions_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_transmissions_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.end_of_transmissions_message.fields(buffer, offset, packet, parent, size_of_end_of_transmissions_message)
     parent:set_len(size_of_end_of_transmissions_message)
@@ -3301,7 +3175,7 @@ nasdaq_utdf_output_utp_v1_5.market_session_close_message.dissect = function(buff
   local index = offset + size_of_market_session_close_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_session_close_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_session_close_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.market_session_close_message.fields(buffer, offset, packet, parent, size_of_market_session_close_message)
     parent:set_len(size_of_market_session_close_message)
@@ -3351,7 +3225,7 @@ nasdaq_utdf_output_utp_v1_5.market_session_open_message.dissect = function(buffe
   local index = offset + size_of_market_session_open_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_session_open_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_session_open_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.market_session_open_message.fields(buffer, offset, packet, parent, size_of_market_session_open_message)
     parent:set_len(size_of_market_session_open_message)
@@ -3401,7 +3275,7 @@ nasdaq_utdf_output_utp_v1_5.end_of_day_message.dissect = function(buffer, offset
   local index = offset + size_of_end_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.end_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.end_of_day_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
     parent:set_len(size_of_end_of_day_message)
@@ -3451,7 +3325,7 @@ nasdaq_utdf_output_utp_v1_5.start_of_day_message.dissect = function(buffer, offs
   local index = offset + size_of_start_of_day_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.start_of_day_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.start_of_day_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
     parent:set_len(size_of_start_of_day_message)
@@ -3652,7 +3526,7 @@ nasdaq_utdf_output_utp_v1_5.total_consolidated_and_market_center_volume_message.
   local index = offset + size_of_total_consolidated_and_market_center_volume_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.total_consolidated_and_market_center_volume_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_and_market_center_volume_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.total_consolidated_and_market_center_volume_message.fields(buffer, offset, packet, parent, size_of_total_consolidated_and_market_center_volume_message)
     parent:set_len(size_of_total_consolidated_and_market_center_volume_message)
@@ -3863,7 +3737,7 @@ nasdaq_utdf_output_utp_v1_5.closing_trade_summary_report_message.dissect = funct
   local index = offset + size_of_closing_trade_summary_report_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.closing_trade_summary_report_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.closing_trade_summary_report_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.closing_trade_summary_report_message.fields(buffer, offset, packet, parent, size_of_closing_trade_summary_report_message)
     parent:set_len(size_of_closing_trade_summary_report_message)
@@ -3931,7 +3805,7 @@ nasdaq_utdf_output_utp_v1_5.auction_collar_message.dissect = function(buffer, of
   local index = offset + size_of_auction_collar_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.auction_collar_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.auction_collar_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.auction_collar_message.fields(buffer, offset, packet, parent, size_of_auction_collar_message)
     parent:set_len(size_of_auction_collar_message)
@@ -3990,7 +3864,7 @@ nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.di
   local index = offset + size_of_market_wide_circuit_breaker_decline_level_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_wide_circuit_breaker_decline_level_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_wide_circuit_breaker_decline_level_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_message)
     parent:set_len(size_of_market_wide_circuit_breaker_decline_level_message)
@@ -4055,7 +3929,7 @@ nasdaq_utdf_output_utp_v1_5.limit_up_limit_down_price_band_message.dissect = fun
   local index = offset + size_of_limit_up_limit_down_price_band_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.limit_up_limit_down_price_band_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_up_limit_down_price_band_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.limit_up_limit_down_price_band_message.fields(buffer, offset, packet, parent, size_of_limit_up_limit_down_price_band_message)
     parent:set_len(size_of_limit_up_limit_down_price_band_message)
@@ -4111,7 +3985,7 @@ nasdaq_utdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indi
   local index = offset + size_of_regulation_sho_short_sale_price_test_restricted_indicator_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.regulation_sho_short_sale_price_test_restricted_indicator_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent, size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
     parent:set_len(size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
@@ -4191,7 +4065,7 @@ nasdaq_utdf_output_utp_v1_5.issue_symbol_directory_message.dissect = function(bu
   local index = offset + size_of_issue_symbol_directory_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.issue_symbol_directory_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_symbol_directory_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.issue_symbol_directory_message.fields(buffer, offset, packet, parent, size_of_issue_symbol_directory_message)
     parent:set_len(size_of_issue_symbol_directory_message)
@@ -4253,7 +4127,7 @@ nasdaq_utdf_output_utp_v1_5.market_center_trading_action_message.dissect = funct
   local index = offset + size_of_market_center_trading_action_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_center_trading_action_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_trading_action_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.market_center_trading_action_message.fields(buffer, offset, packet, parent, size_of_market_center_trading_action_message)
     parent:set_len(size_of_market_center_trading_action_message)
@@ -4318,7 +4192,7 @@ nasdaq_utdf_output_utp_v1_5.cross_sro_trading_action_message.dissect = function(
   local index = offset + size_of_cross_sro_trading_action_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_sro_trading_action_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.cross_sro_trading_action_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.cross_sro_trading_action_message.fields(buffer, offset, packet, parent, size_of_cross_sro_trading_action_message)
     parent:set_len(size_of_cross_sro_trading_action_message)
@@ -4374,7 +4248,7 @@ nasdaq_utdf_output_utp_v1_5.general_administrative_message.dissect = function(bu
   local index = offset + size_of_general_administrative_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.general_administrative_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.general_administrative_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.general_administrative_message.fields(buffer, offset, packet, parent, size_of_general_administrative_message)
     parent:set_len(size_of_general_administrative_message)
@@ -4608,7 +4482,7 @@ nasdaq_utdf_output_utp_v1_5.prior_day_as_of_trade_message.dissect = function(buf
   local index = offset + size_of_prior_day_as_of_trade_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.prior_day_as_of_trade_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.prior_day_as_of_trade_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.prior_day_as_of_trade_message.fields(buffer, offset, packet, parent, size_of_prior_day_as_of_trade_message)
     parent:set_len(size_of_prior_day_as_of_trade_message)
@@ -4834,7 +4708,7 @@ nasdaq_utdf_output_utp_v1_5.trade_correction_message.dissect = function(buffer, 
   local index = offset + size_of_trade_correction_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_correction_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_correction_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.trade_correction_message.fields(buffer, offset, packet, parent, size_of_trade_correction_message)
     parent:set_len(size_of_trade_correction_message)
@@ -4941,7 +4815,7 @@ nasdaq_utdf_output_utp_v1_5.trade_cancel_error_message.dissect = function(buffer
   local index = offset + size_of_trade_cancel_error_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_cancel_error_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_cancel_error_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.trade_cancel_error_message.fields(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
     parent:set_len(size_of_trade_cancel_error_message)
@@ -5021,7 +4895,7 @@ nasdaq_utdf_output_utp_v1_5.trade_report_message_long_form_message.dissect = fun
   local index = offset + size_of_trade_report_message_long_form_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_report_message_long_form_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_long_form_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.trade_report_message_long_form_message.fields(buffer, offset, packet, parent, size_of_trade_report_message_long_form_message)
     parent:set_len(size_of_trade_report_message_long_form_message)
@@ -5098,7 +4972,7 @@ nasdaq_utdf_output_utp_v1_5.trade_report_message_short_form_message.dissect = fu
   local index = offset + size_of_trade_report_message_short_form_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_report_message_short_form_message then
+  if show.application_messages then
     parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_short_form_message, buffer(offset, 0))
     local current = nasdaq_utdf_output_utp_v1_5.trade_report_message_short_form_message.fields(buffer, offset, packet, parent, size_of_trade_report_message_short_form_message)
     parent:set_len(size_of_trade_report_message_short_form_message)

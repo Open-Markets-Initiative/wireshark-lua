@@ -278,106 +278,52 @@ omi_b3_equities_binaryumdf_sbe_v2_1.fields.underlyings_group_index = ProtoField.
 local show = {}
 
 -- B3 Equities BinaryUmdf Sbe 2.1 Element Dissection Options
-show.auction_imbalance_19_message = true
-show.channel_reset_11_message = true
-show.closing_price_17_message = true
+show.application_messages = true
 show.contract_settl_month = true
-show.delete_order_mb_o_51_message = true
-show.empty_book_message = true
-show.execution_statistics_56_message = true
-show.execution_summary_55_message = true
-show.forward_trade_54_message = true
 show.framing_header = true
 show.group_size_encoding = true
 show.headline = true
-show.high_price_24_message = true
 show.imbalance_condition = true
 show.instr_attribs_group = true
 show.instr_attribs_groups = true
-show.last_trade_price_27_message = true
 show.legs_group = true
 show.legs_groups = true
-show.low_price_25_message = true
-show.mass_delete_orders_mb_o_52_message = true
 show.match_event_indicator = true
 show.maturity_month_year = true
 show.message = true
 show.message_header = true
-show.news_5_message = true
-show.open_interest_29_message = true
-show.opening_price_15_message = true
-show.order_mb_o_50_message = true
 show.packet = true
 show.packet_header = true
-show.price_band_22_message = true
-show.quantity_band_21_message = true
-show.security_definition_message = true
 show.security_desc = true
-show.security_group_phase_10_message = true
-show.security_status_3_message = true
-show.sequence_message = true
-show.settlement_price_28_message = true
-show.snapshot_full_refresh_header_30_message = true
-show.snapshot_full_refresh_orders_mb_o_71_message = true
 show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = true
 show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = true
 show.text = true
-show.theoretical_opening_price_16_message = true
-show.trade_53_message = true
-show.trade_bust_57_message = true
 show.trade_condition = true
 show.underlyings_group = true
 show.underlyings_groups = true
 show.url_link = true
 
 -- Register B3 Equities BinaryUmdf Sbe 2.1 Show Options
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_auction_imbalance_19_message = Pref.bool("Show Auction Imbalance 19 Message", show.auction_imbalance_19_message, "Parse and add Auction Imbalance 19 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_channel_reset_11_message = Pref.bool("Show Channel Reset 11 Message", show.channel_reset_11_message, "Parse and add Channel Reset 11 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_closing_price_17_message = Pref.bool("Show Closing Price 17 Message", show.closing_price_17_message, "Parse and add Closing Price 17 Message to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_contract_settl_month = Pref.bool("Show Contract Settl Month", show.contract_settl_month, "Parse and add Contract Settl Month to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_delete_order_mb_o_51_message = Pref.bool("Show Delete Order Mb O 51 Message", show.delete_order_mb_o_51_message, "Parse and add Delete Order Mb O 51 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_empty_book_message = Pref.bool("Show Empty Book Message", show.empty_book_message, "Parse and add Empty Book Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_execution_statistics_56_message = Pref.bool("Show Execution Statistics 56 Message", show.execution_statistics_56_message, "Parse and add Execution Statistics 56 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_execution_summary_55_message = Pref.bool("Show Execution Summary 55 Message", show.execution_summary_55_message, "Parse and add Execution Summary 55 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_forward_trade_54_message = Pref.bool("Show Forward Trade 54 Message", show.forward_trade_54_message, "Parse and add Forward Trade 54 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_framing_header = Pref.bool("Show Framing Header", show.framing_header, "Parse and add Framing Header to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_headline = Pref.bool("Show Headline", show.headline, "Parse and add Headline to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_high_price_24_message = Pref.bool("Show High Price 24 Message", show.high_price_24_message, "Parse and add High Price 24 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_imbalance_condition = Pref.bool("Show Imbalance Condition", show.imbalance_condition, "Parse and add Imbalance Condition to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_instr_attribs_group = Pref.bool("Show Instr Attribs Group", show.instr_attribs_group, "Parse and add Instr Attribs Group to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_instr_attribs_groups = Pref.bool("Show Instr Attribs Groups", show.instr_attribs_groups, "Parse and add Instr Attribs Groups to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_last_trade_price_27_message = Pref.bool("Show Last Trade Price 27 Message", show.last_trade_price_27_message, "Parse and add Last Trade Price 27 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_low_price_25_message = Pref.bool("Show Low Price 25 Message", show.low_price_25_message, "Parse and add Low Price 25 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_mass_delete_orders_mb_o_52_message = Pref.bool("Show Mass Delete Orders Mb O 52 Message", show.mass_delete_orders_mb_o_52_message, "Parse and add Mass Delete Orders Mb O 52 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_news_5_message = Pref.bool("Show News 5 Message", show.news_5_message, "Parse and add News 5 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_open_interest_29_message = Pref.bool("Show Open Interest 29 Message", show.open_interest_29_message, "Parse and add Open Interest 29 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_opening_price_15_message = Pref.bool("Show Opening Price 15 Message", show.opening_price_15_message, "Parse and add Opening Price 15 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_order_mb_o_50_message = Pref.bool("Show Order Mb O 50 Message", show.order_mb_o_50_message, "Parse and add Order Mb O 50 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_price_band_22_message = Pref.bool("Show Price Band 22 Message", show.price_band_22_message, "Parse and add Price Band 22 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_quantity_band_21_message = Pref.bool("Show Quantity Band 21 Message", show.quantity_band_21_message, "Parse and add Quantity Band 21 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_definition_message = Pref.bool("Show Security Definition Message", show.security_definition_message, "Parse and add Security Definition Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_desc = Pref.bool("Show Security Desc", show.security_desc, "Parse and add Security Desc to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_group_phase_10_message = Pref.bool("Show Security Group Phase 10 Message", show.security_group_phase_10_message, "Parse and add Security Group Phase 10 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_status_3_message = Pref.bool("Show Security Status 3 Message", show.security_status_3_message, "Parse and add Security Status 3 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_sequence_message = Pref.bool("Show Sequence Message", show.sequence_message, "Parse and add Sequence Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_settlement_price_28_message = Pref.bool("Show Settlement Price 28 Message", show.settlement_price_28_message, "Parse and add Settlement Price 28 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_header_30_message = Pref.bool("Show Snapshot Full Refresh Header 30 Message", show.snapshot_full_refresh_header_30_message, "Parse and add Snapshot Full Refresh Header 30 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_orders_mb_o_71_message = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message", show.snapshot_full_refresh_orders_mb_o_71_message, "Parse and add Snapshot Full Refresh Orders Mb O 71 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group, "Parse and add Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups, "Parse and add Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_text = Pref.bool("Show Text", show.text, "Parse and add Text to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_theoretical_opening_price_16_message = Pref.bool("Show Theoretical Opening Price 16 Message", show.theoretical_opening_price_16_message, "Parse and add Theoretical Opening Price 16 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_trade_53_message = Pref.bool("Show Trade 53 Message", show.trade_53_message, "Parse and add Trade 53 Message to protocol tree")
-omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_trade_bust_57_message = Pref.bool("Show Trade Bust 57 Message", show.trade_bust_57_message, "Parse and add Trade Bust 57 Message to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_underlyings_group = Pref.bool("Show Underlyings Group", show.underlyings_group, "Parse and add Underlyings Group to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_underlyings_groups = Pref.bool("Show Underlyings Groups", show.underlyings_groups, "Parse and add Underlyings Groups to protocol tree")
@@ -388,40 +334,12 @@ function omi_b3_equities_binaryumdf_sbe_v2_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_imbalance_19_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_auction_imbalance_19_message then
-    show.auction_imbalance_19_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_auction_imbalance_19_message
-    changed = true
-  end
-  if show.channel_reset_11_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_channel_reset_11_message then
-    show.channel_reset_11_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_channel_reset_11_message
-    changed = true
-  end
-  if show.closing_price_17_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_closing_price_17_message then
-    show.closing_price_17_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_closing_price_17_message
+  if show.application_messages ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_application_messages then
+    show.application_messages = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_application_messages
     changed = true
   end
   if show.contract_settl_month ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_contract_settl_month then
     show.contract_settl_month = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_contract_settl_month
-    changed = true
-  end
-  if show.delete_order_mb_o_51_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_delete_order_mb_o_51_message then
-    show.delete_order_mb_o_51_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_delete_order_mb_o_51_message
-    changed = true
-  end
-  if show.empty_book_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_empty_book_message then
-    show.empty_book_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_empty_book_message
-    changed = true
-  end
-  if show.execution_statistics_56_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_execution_statistics_56_message then
-    show.execution_statistics_56_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_execution_statistics_56_message
-    changed = true
-  end
-  if show.execution_summary_55_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_execution_summary_55_message then
-    show.execution_summary_55_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_execution_summary_55_message
-    changed = true
-  end
-  if show.forward_trade_54_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_forward_trade_54_message then
-    show.forward_trade_54_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_forward_trade_54_message
     changed = true
   end
   if show.framing_header ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_framing_header then
@@ -436,10 +354,6 @@ function omi_b3_equities_binaryumdf_sbe_v2_1.prefs_changed()
     show.headline = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_headline
     changed = true
   end
-  if show.high_price_24_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_high_price_24_message then
-    show.high_price_24_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_high_price_24_message
-    changed = true
-  end
   if show.imbalance_condition ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_imbalance_condition then
     show.imbalance_condition = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_imbalance_condition
     changed = true
@@ -452,24 +366,12 @@ function omi_b3_equities_binaryumdf_sbe_v2_1.prefs_changed()
     show.instr_attribs_groups = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_instr_attribs_groups
     changed = true
   end
-  if show.last_trade_price_27_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_last_trade_price_27_message then
-    show.last_trade_price_27_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_last_trade_price_27_message
-    changed = true
-  end
   if show.legs_group ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_legs_group then
     show.legs_group = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_legs_group
     changed = true
   end
   if show.legs_groups ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_legs_groups then
     show.legs_groups = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_legs_groups
-    changed = true
-  end
-  if show.low_price_25_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_low_price_25_message then
-    show.low_price_25_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_low_price_25_message
-    changed = true
-  end
-  if show.mass_delete_orders_mb_o_52_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_mass_delete_orders_mb_o_52_message then
-    show.mass_delete_orders_mb_o_52_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_mass_delete_orders_mb_o_52_message
     changed = true
   end
   if show.match_event_indicator ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_match_event_indicator then
@@ -488,22 +390,6 @@ function omi_b3_equities_binaryumdf_sbe_v2_1.prefs_changed()
     show.message_header = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_message_header
     changed = true
   end
-  if show.news_5_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_news_5_message then
-    show.news_5_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_news_5_message
-    changed = true
-  end
-  if show.open_interest_29_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_open_interest_29_message then
-    show.open_interest_29_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_open_interest_29_message
-    changed = true
-  end
-  if show.opening_price_15_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_opening_price_15_message then
-    show.opening_price_15_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_opening_price_15_message
-    changed = true
-  end
-  if show.order_mb_o_50_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_order_mb_o_50_message then
-    show.order_mb_o_50_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_order_mb_o_50_message
-    changed = true
-  end
   if show.packet ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_packet then
     show.packet = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_packet
     changed = true
@@ -512,44 +398,8 @@ function omi_b3_equities_binaryumdf_sbe_v2_1.prefs_changed()
     show.packet_header = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_packet_header
     changed = true
   end
-  if show.price_band_22_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_price_band_22_message then
-    show.price_band_22_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_price_band_22_message
-    changed = true
-  end
-  if show.quantity_band_21_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_quantity_band_21_message then
-    show.quantity_band_21_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_quantity_band_21_message
-    changed = true
-  end
-  if show.security_definition_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_definition_message then
-    show.security_definition_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_definition_message
-    changed = true
-  end
   if show.security_desc ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_desc then
     show.security_desc = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_desc
-    changed = true
-  end
-  if show.security_group_phase_10_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_group_phase_10_message then
-    show.security_group_phase_10_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_group_phase_10_message
-    changed = true
-  end
-  if show.security_status_3_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_status_3_message then
-    show.security_status_3_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_security_status_3_message
-    changed = true
-  end
-  if show.sequence_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_sequence_message then
-    show.sequence_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_sequence_message
-    changed = true
-  end
-  if show.settlement_price_28_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_settlement_price_28_message then
-    show.settlement_price_28_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_settlement_price_28_message
-    changed = true
-  end
-  if show.snapshot_full_refresh_header_30_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_header_30_message then
-    show.snapshot_full_refresh_header_30_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_header_30_message
-    changed = true
-  end
-  if show.snapshot_full_refresh_orders_mb_o_71_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_orders_mb_o_71_message then
-    show.snapshot_full_refresh_orders_mb_o_71_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_orders_mb_o_71_message
     changed = true
   end
   if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group then
@@ -562,18 +412,6 @@ function omi_b3_equities_binaryumdf_sbe_v2_1.prefs_changed()
   end
   if show.text ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_text then
     show.text = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_text
-    changed = true
-  end
-  if show.theoretical_opening_price_16_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_theoretical_opening_price_16_message then
-    show.theoretical_opening_price_16_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_theoretical_opening_price_16_message
-    changed = true
-  end
-  if show.trade_53_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_trade_53_message then
-    show.trade_53_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_trade_53_message
-    changed = true
-  end
-  if show.trade_bust_57_message ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_trade_bust_57_message then
-    show.trade_bust_57_message = omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_trade_bust_57_message
     changed = true
   end
   if show.trade_condition ~= omi_b3_equities_binaryumdf_sbe_v2_1.prefs.show_trade_condition then
@@ -5847,7 +5685,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Orders Mb O 71 Message
 b3_equities_binaryumdf_sbe_v2_1.snapshot_full_refresh_orders_mb_o_71_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_full_refresh_orders_mb_o_71_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.snapshot_full_refresh_orders_mb_o_71_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.snapshot_full_refresh_orders_mb_o_71_message.fields(buffer, offset, packet, parent)
@@ -5927,7 +5765,7 @@ end
 
 -- Dissect: Trade Bust 57 Message
 b3_equities_binaryumdf_sbe_v2_1.trade_bust_57_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_57_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.trade_bust_57_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.trade_bust_57_message.fields(buffer, offset, packet, parent)
@@ -6003,7 +5841,7 @@ end
 
 -- Dissect: Execution Statistics 56 Message
 b3_equities_binaryumdf_sbe_v2_1.execution_statistics_56_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_statistics_56_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.execution_statistics_56_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.execution_statistics_56_message.fields(buffer, offset, packet, parent)
@@ -6083,7 +5921,7 @@ end
 
 -- Dissect: Execution Summary 55 Message
 b3_equities_binaryumdf_sbe_v2_1.execution_summary_55_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_summary_55_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.execution_summary_55_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.execution_summary_55_message.fields(buffer, offset, packet, parent)
@@ -6328,7 +6166,7 @@ end
 
 -- Dissect: Forward Trade 54 Message
 b3_equities_binaryumdf_sbe_v2_1.forward_trade_54_message.dissect = function(buffer, offset, packet, parent)
-  if show.forward_trade_54_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.forward_trade_54_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.forward_trade_54_message.fields(buffer, offset, packet, parent)
@@ -6420,7 +6258,7 @@ end
 
 -- Dissect: Trade 53 Message
 b3_equities_binaryumdf_sbe_v2_1.trade_53_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_53_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.trade_53_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.trade_53_message.fields(buffer, offset, packet, parent)
@@ -6488,7 +6326,7 @@ end
 
 -- Dissect: Mass Delete Orders Mb O 52 Message
 b3_equities_binaryumdf_sbe_v2_1.mass_delete_orders_mb_o_52_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_delete_orders_mb_o_52_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.mass_delete_orders_mb_o_52_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.mass_delete_orders_mb_o_52_message.fields(buffer, offset, packet, parent)
@@ -6568,7 +6406,7 @@ end
 
 -- Dissect: Delete Order Mb O 51 Message
 b3_equities_binaryumdf_sbe_v2_1.delete_order_mb_o_51_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_mb_o_51_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.delete_order_mb_o_51_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.delete_order_mb_o_51_message.fields(buffer, offset, packet, parent)
@@ -6656,7 +6494,7 @@ end
 
 -- Dissect: Order Mb O 50 Message
 b3_equities_binaryumdf_sbe_v2_1.order_mb_o_50_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_mb_o_50_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.order_mb_o_50_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.order_mb_o_50_message.fields(buffer, offset, packet, parent)
@@ -6728,7 +6566,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Header 30 Message
 b3_equities_binaryumdf_sbe_v2_1.snapshot_full_refresh_header_30_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_full_refresh_header_30_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.snapshot_full_refresh_header_30_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.snapshot_full_refresh_header_30_message.fields(buffer, offset, packet, parent)
@@ -6792,7 +6630,7 @@ end
 
 -- Dissect: Open Interest 29 Message
 b3_equities_binaryumdf_sbe_v2_1.open_interest_29_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_interest_29_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.open_interest_29_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.open_interest_29_message.fields(buffer, offset, packet, parent)
@@ -6872,7 +6710,7 @@ end
 
 -- Dissect: Settlement Price 28 Message
 b3_equities_binaryumdf_sbe_v2_1.settlement_price_28_message.dissect = function(buffer, offset, packet, parent)
-  if show.settlement_price_28_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.settlement_price_28_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.settlement_price_28_message.fields(buffer, offset, packet, parent)
@@ -6972,7 +6810,7 @@ end
 
 -- Dissect: Last Trade Price 27 Message
 b3_equities_binaryumdf_sbe_v2_1.last_trade_price_27_message.dissect = function(buffer, offset, packet, parent)
-  if show.last_trade_price_27_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.last_trade_price_27_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.last_trade_price_27_message.fields(buffer, offset, packet, parent)
@@ -7036,7 +6874,7 @@ end
 
 -- Dissect: Low Price 25 Message
 b3_equities_binaryumdf_sbe_v2_1.low_price_25_message.dissect = function(buffer, offset, packet, parent)
-  if show.low_price_25_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.low_price_25_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.low_price_25_message.fields(buffer, offset, packet, parent)
@@ -7100,7 +6938,7 @@ end
 
 -- Dissect: High Price 24 Message
 b3_equities_binaryumdf_sbe_v2_1.high_price_24_message.dissect = function(buffer, offset, packet, parent)
-  if show.high_price_24_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.high_price_24_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.high_price_24_message.fields(buffer, offset, packet, parent)
@@ -7176,7 +7014,7 @@ end
 
 -- Dissect: Price Band 22 Message
 b3_equities_binaryumdf_sbe_v2_1.price_band_22_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_band_22_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.price_band_22_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.price_band_22_message.fields(buffer, offset, packet, parent)
@@ -7240,7 +7078,7 @@ end
 
 -- Dissect: Quantity Band 21 Message
 b3_equities_binaryumdf_sbe_v2_1.quantity_band_21_message.dissect = function(buffer, offset, packet, parent)
-  if show.quantity_band_21_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.quantity_band_21_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.quantity_band_21_message.fields(buffer, offset, packet, parent)
@@ -7410,7 +7248,7 @@ end
 
 -- Dissect: Auction Imbalance 19 Message
 b3_equities_binaryumdf_sbe_v2_1.auction_imbalance_19_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_imbalance_19_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.auction_imbalance_19_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.auction_imbalance_19_message.fields(buffer, offset, packet, parent)
@@ -7482,7 +7320,7 @@ end
 
 -- Dissect: Closing Price 17 Message
 b3_equities_binaryumdf_sbe_v2_1.closing_price_17_message.dissect = function(buffer, offset, packet, parent)
-  if show.closing_price_17_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.closing_price_17_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.closing_price_17_message.fields(buffer, offset, packet, parent)
@@ -7550,7 +7388,7 @@ end
 
 -- Dissect: Theoretical Opening Price 16 Message
 b3_equities_binaryumdf_sbe_v2_1.theoretical_opening_price_16_message.dissect = function(buffer, offset, packet, parent)
-  if show.theoretical_opening_price_16_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.theoretical_opening_price_16_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.theoretical_opening_price_16_message.fields(buffer, offset, packet, parent)
@@ -7630,7 +7468,7 @@ end
 
 -- Dissect: Opening Price 15 Message
 b3_equities_binaryumdf_sbe_v2_1.opening_price_15_message.dissect = function(buffer, offset, packet, parent)
-  if show.opening_price_15_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.opening_price_15_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.opening_price_15_message.fields(buffer, offset, packet, parent)
@@ -7922,7 +7760,7 @@ end
 
 -- Dissect: News 5 Message
 b3_equities_binaryumdf_sbe_v2_1.news_5_message.dissect = function(buffer, offset, packet, parent)
-  if show.news_5_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.news_5_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.news_5_message.fields(buffer, offset, packet, parent)
@@ -8750,7 +8588,7 @@ end
 
 -- Dissect: Security Definition Message
 b3_equities_binaryumdf_sbe_v2_1.security_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.security_definition_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.security_definition_message.fields(buffer, offset, packet, parent)
@@ -8826,7 +8664,7 @@ end
 
 -- Dissect: Security Group Phase 10 Message
 b3_equities_binaryumdf_sbe_v2_1.security_group_phase_10_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_group_phase_10_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.security_group_phase_10_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.security_group_phase_10_message.fields(buffer, offset, packet, parent)
@@ -8902,7 +8740,7 @@ end
 
 -- Dissect: Security Status 3 Message
 b3_equities_binaryumdf_sbe_v2_1.security_status_3_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_status_3_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.security_status_3_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.security_status_3_message.fields(buffer, offset, packet, parent)
@@ -8950,7 +8788,7 @@ end
 
 -- Dissect: Channel Reset 11 Message
 b3_equities_binaryumdf_sbe_v2_1.channel_reset_11_message.dissect = function(buffer, offset, packet, parent)
-  if show.channel_reset_11_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.channel_reset_11_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.channel_reset_11_message.fields(buffer, offset, packet, parent)
@@ -9002,7 +8840,7 @@ end
 
 -- Dissect: Empty Book Message
 b3_equities_binaryumdf_sbe_v2_1.empty_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.empty_book_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.empty_book_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.empty_book_message.fields(buffer, offset, packet, parent)
@@ -9042,7 +8880,7 @@ end
 
 -- Dissect: Sequence Message
 b3_equities_binaryumdf_sbe_v2_1.sequence_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_equities_binaryumdf_sbe_v2_1.fields.sequence_message, buffer(offset, 0))
     local index = b3_equities_binaryumdf_sbe_v2_1.sequence_message.fields(buffer, offset, packet, parent)

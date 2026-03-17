@@ -140,258 +140,42 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.unlock_trading_reject_message
 local show = {}
 
 -- Coinbase Derivatives OrdersApi Sbe 1.5 Element Dissection Options
-show.cancel_order_message = true
-show.cancel_order_reject_message = true
+show.application_messages = true
 show.data = true
-show.event_resend_complete_message = true
-show.event_resend_reject_message = true
-show.event_resend_request_message = true
-show.gap_fill_message = true
-show.heartbeat_message = true
-show.instrument_info_message = true
-show.instrument_info_request_message = true
-show.last_exec_id_message = true
-show.last_exec_id_request_message = true
-show.logged_out_message = true
-show.logon_conf_message = true
-show.logon_message = true
-show.logout_message = true
-show.mass_cancel_order_ack_message = true
-show.mass_cancel_order_message = true
-show.mass_cancel_order_reject_message = true
 show.message_header = true
-show.new_order_message = true
-show.order_canceled_message = true
-show.order_entered_message = true
-show.order_filled_message = true
-show.order_reject_message = true
-show.order_replaced_message = true
 show.packet = true
-show.ping_message = true
-show.pong_message = true
-show.replace_order_message = true
-show.resend_request_message = true
 show.sbe_message = true
-show.set_account_message = true
-show.set_ack_message = true
-show.set_trader_message = true
-show.spread_order_filled_message = true
-show.stream_order_message = true
-show.test_request_message = true
-show.unlock_trading_ack_message = true
-show.unlock_trading_message = true
-show.unlock_trading_reject_message = true
 
 -- Register Coinbase Derivatives OrdersApi Sbe 1.5 Show Options
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
+omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_gap_fill_message = Pref.bool("Show Gap Fill Message", show.gap_fill_message, "Parse and add Gap Fill Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_heartbeat_message = Pref.bool("Show Heartbeat Message", show.heartbeat_message, "Parse and add Heartbeat Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_instrument_info_message = Pref.bool("Show Instrument Info Message", show.instrument_info_message, "Parse and add Instrument Info Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_instrument_info_request_message = Pref.bool("Show Instrument Info Request Message", show.instrument_info_request_message, "Parse and add Instrument Info Request Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_last_exec_id_message = Pref.bool("Show Last Exec Id Message", show.last_exec_id_message, "Parse and add Last Exec Id Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_last_exec_id_request_message = Pref.bool("Show Last Exec Id Request Message", show.last_exec_id_request_message, "Parse and add Last Exec Id Request Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logged_out_message = Pref.bool("Show Logged Out Message", show.logged_out_message, "Parse and add Logged Out Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logon_conf_message = Pref.bool("Show Logon Conf Message", show.logon_conf_message, "Parse and add Logon Conf Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_ack_message = Pref.bool("Show Mass Cancel Order Ack Message", show.mass_cancel_order_ack_message, "Parse and add Mass Cancel Order Ack Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_reject_message = Pref.bool("Show Mass Cancel Order Reject Message", show.mass_cancel_order_reject_message, "Parse and add Mass Cancel Order Reject Message to protocol tree")
 omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_entered_message = Pref.bool("Show Order Entered Message", show.order_entered_message, "Parse and add Order Entered Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_filled_message = Pref.bool("Show Order Filled Message", show.order_filled_message, "Parse and add Order Filled Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_reject_message = Pref.bool("Show Order Reject Message", show.order_reject_message, "Parse and add Order Reject Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
 omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_ping_message = Pref.bool("Show Ping Message", show.ping_message, "Parse and add Ping Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_pong_message = Pref.bool("Show Pong Message", show.pong_message, "Parse and add Pong Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_resend_request_message = Pref.bool("Show Resend Request Message", show.resend_request_message, "Parse and add Resend Request Message to protocol tree")
 omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_account_message = Pref.bool("Show Set Account Message", show.set_account_message, "Parse and add Set Account Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_ack_message = Pref.bool("Show Set Ack Message", show.set_ack_message, "Parse and add Set Ack Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_trader_message = Pref.bool("Show Set Trader Message", show.set_trader_message, "Parse and add Set Trader Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_spread_order_filled_message = Pref.bool("Show Spread Order Filled Message", show.spread_order_filled_message, "Parse and add Spread Order Filled Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_stream_order_message = Pref.bool("Show Stream Order Message", show.stream_order_message, "Parse and add Stream Order Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_test_request_message = Pref.bool("Show Test Request Message", show.test_request_message, "Parse and add Test Request Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
-omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_cancel_order_message then
-    show.cancel_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_cancel_order_message
-    changed = true
-  end
-  if show.cancel_order_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_cancel_order_reject_message then
-    show.cancel_order_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_cancel_order_reject_message
+  if show.application_messages ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_application_messages then
+    show.application_messages = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_application_messages
     changed = true
   end
   if show.data ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_data then
     show.data = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_data
     changed = true
   end
-  if show.event_resend_complete_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_complete_message then
-    show.event_resend_complete_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_complete_message
-    changed = true
-  end
-  if show.event_resend_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_reject_message then
-    show.event_resend_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_reject_message
-    changed = true
-  end
-  if show.event_resend_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_request_message then
-    show.event_resend_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_event_resend_request_message
-    changed = true
-  end
-  if show.gap_fill_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_gap_fill_message then
-    show.gap_fill_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_gap_fill_message
-    changed = true
-  end
-  if show.heartbeat_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_heartbeat_message then
-    show.heartbeat_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_heartbeat_message
-    changed = true
-  end
-  if show.instrument_info_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_instrument_info_message then
-    show.instrument_info_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_instrument_info_message
-    changed = true
-  end
-  if show.instrument_info_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_instrument_info_request_message then
-    show.instrument_info_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_instrument_info_request_message
-    changed = true
-  end
-  if show.last_exec_id_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_last_exec_id_message then
-    show.last_exec_id_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_last_exec_id_message
-    changed = true
-  end
-  if show.last_exec_id_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_last_exec_id_request_message then
-    show.last_exec_id_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_last_exec_id_request_message
-    changed = true
-  end
-  if show.logged_out_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logged_out_message then
-    show.logged_out_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logged_out_message
-    changed = true
-  end
-  if show.logon_conf_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logon_conf_message then
-    show.logon_conf_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logon_conf_message
-    changed = true
-  end
-  if show.logon_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logon_message then
-    show.logon_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logon_message
-    changed = true
-  end
-  if show.logout_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logout_message then
-    show.logout_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_logout_message
-    changed = true
-  end
-  if show.mass_cancel_order_ack_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_ack_message then
-    show.mass_cancel_order_ack_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_ack_message
-    changed = true
-  end
-  if show.mass_cancel_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_message then
-    show.mass_cancel_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_message
-    changed = true
-  end
-  if show.mass_cancel_order_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_reject_message then
-    show.mass_cancel_order_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_mass_cancel_order_reject_message
-    changed = true
-  end
   if show.message_header ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_message_header then
     show.message_header = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_message_header
-    changed = true
-  end
-  if show.new_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_new_order_message then
-    show.new_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_new_order_message
-    changed = true
-  end
-  if show.order_canceled_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_canceled_message then
-    show.order_canceled_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_canceled_message
-    changed = true
-  end
-  if show.order_entered_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_entered_message then
-    show.order_entered_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_entered_message
-    changed = true
-  end
-  if show.order_filled_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_filled_message then
-    show.order_filled_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_filled_message
-    changed = true
-  end
-  if show.order_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_reject_message then
-    show.order_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_reject_message
-    changed = true
-  end
-  if show.order_replaced_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_replaced_message then
-    show.order_replaced_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_order_replaced_message
     changed = true
   end
   if show.packet ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_packet then
     show.packet = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_packet
     changed = true
   end
-  if show.ping_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_ping_message then
-    show.ping_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_ping_message
-    changed = true
-  end
-  if show.pong_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_pong_message then
-    show.pong_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_pong_message
-    changed = true
-  end
-  if show.replace_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_replace_order_message then
-    show.replace_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_replace_order_message
-    changed = true
-  end
-  if show.resend_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_resend_request_message then
-    show.resend_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_resend_request_message
-    changed = true
-  end
   if show.sbe_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_sbe_message then
     show.sbe_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_sbe_message
-    changed = true
-  end
-  if show.set_account_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_account_message then
-    show.set_account_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_account_message
-    changed = true
-  end
-  if show.set_ack_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_ack_message then
-    show.set_ack_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_ack_message
-    changed = true
-  end
-  if show.set_trader_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_trader_message then
-    show.set_trader_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_set_trader_message
-    changed = true
-  end
-  if show.spread_order_filled_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_spread_order_filled_message then
-    show.spread_order_filled_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_spread_order_filled_message
-    changed = true
-  end
-  if show.stream_order_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_stream_order_message then
-    show.stream_order_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_stream_order_message
-    changed = true
-  end
-  if show.test_request_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_test_request_message then
-    show.test_request_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_test_request_message
-    changed = true
-  end
-  if show.unlock_trading_ack_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_ack_message then
-    show.unlock_trading_ack_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_ack_message
-    changed = true
-  end
-  if show.unlock_trading_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_message then
-    show.unlock_trading_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_message
-    changed = true
-  end
-  if show.unlock_trading_reject_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_reject_message then
-    show.unlock_trading_reject_message = omi_coinbase_derivatives_ordersapi_sbe_v1_5.prefs.show_unlock_trading_reject_message
     changed = true
   end
 
@@ -2660,7 +2444,7 @@ end
 
 -- Dissect: Event Resend Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_5.event_resend_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.event_resend_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.event_resend_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.event_resend_reject_message.fields(buffer, offset, packet, parent)
@@ -2704,7 +2488,7 @@ end
 
 -- Dissect: Event Resend Complete Message
 coinbase_derivatives_ordersapi_sbe_v1_5.event_resend_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.event_resend_complete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.event_resend_complete_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.event_resend_complete_message.fields(buffer, offset, packet, parent)
@@ -2752,7 +2536,7 @@ end
 
 -- Dissect: Event Resend Request Message
 coinbase_derivatives_ordersapi_sbe_v1_5.event_resend_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.event_resend_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.event_resend_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.event_resend_request_message.fields(buffer, offset, packet, parent)
@@ -2800,7 +2584,7 @@ end
 
 -- Dissect: Last Exec Id Message
 coinbase_derivatives_ordersapi_sbe_v1_5.last_exec_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.last_exec_id_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.last_exec_id_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.last_exec_id_message.fields(buffer, offset, packet, parent)
@@ -2840,7 +2624,7 @@ end
 
 -- Dissect: Last Exec Id Request Message
 coinbase_derivatives_ordersapi_sbe_v1_5.last_exec_id_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.last_exec_id_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.last_exec_id_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.last_exec_id_request_message.fields(buffer, offset, packet, parent)
@@ -2936,7 +2720,7 @@ end
 
 -- Dissect: Spread Order Filled Message
 coinbase_derivatives_ordersapi_sbe_v1_5.spread_order_filled_message.dissect = function(buffer, offset, packet, parent)
-  if show.spread_order_filled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.spread_order_filled_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.spread_order_filled_message.fields(buffer, offset, packet, parent)
@@ -3024,7 +2808,7 @@ end
 
 -- Dissect: Order Filled Message
 coinbase_derivatives_ordersapi_sbe_v1_5.order_filled_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_filled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.order_filled_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.order_filled_message.fields(buffer, offset, packet, parent)
@@ -3072,7 +2856,7 @@ end
 
 -- Dissect: Unlock Trading Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_5.unlock_trading_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.unlock_trading_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.unlock_trading_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.unlock_trading_reject_message.fields(buffer, offset, packet, parent)
@@ -3120,7 +2904,7 @@ end
 
 -- Dissect: Unlock Trading Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_5.unlock_trading_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.unlock_trading_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.unlock_trading_ack_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.unlock_trading_ack_message.fields(buffer, offset, packet, parent)
@@ -3164,7 +2948,7 @@ end
 
 -- Dissect: Unlock Trading Message
 coinbase_derivatives_ordersapi_sbe_v1_5.unlock_trading_message.dissect = function(buffer, offset, packet, parent)
-  if show.unlock_trading_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.unlock_trading_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.unlock_trading_message.fields(buffer, offset, packet, parent)
@@ -3212,7 +2996,7 @@ end
 
 -- Dissect: Mass Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_5.mass_cancel_order_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_order_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.mass_cancel_order_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.mass_cancel_order_reject_message.fields(buffer, offset, packet, parent)
@@ -3272,7 +3056,7 @@ end
 
 -- Dissect: Mass Cancel Order Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_5.mass_cancel_order_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_order_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.mass_cancel_order_ack_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.mass_cancel_order_ack_message.fields(buffer, offset, packet, parent)
@@ -3332,7 +3116,7 @@ end
 
 -- Dissect: Mass Cancel Order Message
 coinbase_derivatives_ordersapi_sbe_v1_5.mass_cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.mass_cancel_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.mass_cancel_order_message.fields(buffer, offset, packet, parent)
@@ -3392,7 +3176,7 @@ end
 
 -- Dissect: Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_5.cancel_order_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.cancel_order_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.cancel_order_reject_message.fields(buffer, offset, packet, parent)
@@ -3464,7 +3248,7 @@ end
 
 -- Dissect: Order Canceled Message
 coinbase_derivatives_ordersapi_sbe_v1_5.order_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.order_canceled_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.order_canceled_message.fields(buffer, offset, packet, parent)
@@ -3512,7 +3296,7 @@ end
 
 -- Dissect: Cancel Order Message
 coinbase_derivatives_ordersapi_sbe_v1_5.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.cancel_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.cancel_order_message.fields(buffer, offset, packet, parent)
@@ -3584,7 +3368,7 @@ end
 
 -- Dissect: Order Replaced Message
 coinbase_derivatives_ordersapi_sbe_v1_5.order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.order_replaced_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.order_replaced_message.fields(buffer, offset, packet, parent)
@@ -3644,7 +3428,7 @@ end
 
 -- Dissect: Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_5.order_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.order_reject_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.order_reject_message.fields(buffer, offset, packet, parent)
@@ -3708,7 +3492,7 @@ end
 
 -- Dissect: Stream Order Message
 coinbase_derivatives_ordersapi_sbe_v1_5.stream_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.stream_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.stream_order_message.fields(buffer, offset, packet, parent)
@@ -3764,7 +3548,7 @@ end
 
 -- Dissect: Replace Order Message
 coinbase_derivatives_ordersapi_sbe_v1_5.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.replace_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.replace_order_message.fields(buffer, offset, packet, parent)
@@ -3824,7 +3608,7 @@ end
 
 -- Dissect: Order Entered Message
 coinbase_derivatives_ordersapi_sbe_v1_5.order_entered_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_entered_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.order_entered_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.order_entered_message.fields(buffer, offset, packet, parent)
@@ -3884,7 +3668,7 @@ end
 
 -- Dissect: New Order Message
 coinbase_derivatives_ordersapi_sbe_v1_5.new_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.new_order_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.new_order_message.fields(buffer, offset, packet, parent)
@@ -3924,7 +3708,7 @@ end
 
 -- Dissect: Set Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_5.set_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.set_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.set_ack_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.set_ack_message.fields(buffer, offset, packet, parent)
@@ -3968,7 +3752,7 @@ end
 
 -- Dissect: Set Trader Message
 coinbase_derivatives_ordersapi_sbe_v1_5.set_trader_message.dissect = function(buffer, offset, packet, parent)
-  if show.set_trader_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.set_trader_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.set_trader_message.fields(buffer, offset, packet, parent)
@@ -4012,7 +3796,7 @@ end
 
 -- Dissect: Set Account Message
 coinbase_derivatives_ordersapi_sbe_v1_5.set_account_message.dissect = function(buffer, offset, packet, parent)
-  if show.set_account_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.set_account_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.set_account_message.fields(buffer, offset, packet, parent)
@@ -4076,7 +3860,7 @@ end
 
 -- Dissect: Instrument Info Message
 coinbase_derivatives_ordersapi_sbe_v1_5.instrument_info_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_info_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.instrument_info_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.instrument_info_message.fields(buffer, offset, packet, parent)
@@ -4116,7 +3900,7 @@ end
 
 -- Dissect: Instrument Info Request Message
 coinbase_derivatives_ordersapi_sbe_v1_5.instrument_info_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_info_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.instrument_info_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.instrument_info_request_message.fields(buffer, offset, packet, parent)
@@ -4245,7 +4029,7 @@ end
 
 -- Dissect: Pong Message
 coinbase_derivatives_ordersapi_sbe_v1_5.pong_message.dissect = function(buffer, offset, packet, parent)
-  if show.pong_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.pong_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.pong_message.fields(buffer, offset, packet, parent)
@@ -4300,7 +4084,7 @@ end
 
 -- Dissect: Ping Message
 coinbase_derivatives_ordersapi_sbe_v1_5.ping_message.dissect = function(buffer, offset, packet, parent)
-  if show.ping_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.ping_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.ping_message.fields(buffer, offset, packet, parent)
@@ -4344,7 +4128,7 @@ end
 
 -- Dissect: Gap Fill Message
 coinbase_derivatives_ordersapi_sbe_v1_5.gap_fill_message.dissect = function(buffer, offset, packet, parent)
-  if show.gap_fill_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.gap_fill_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.gap_fill_message.fields(buffer, offset, packet, parent)
@@ -4388,7 +4172,7 @@ end
 
 -- Dissect: Resend Request Message
 coinbase_derivatives_ordersapi_sbe_v1_5.resend_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.resend_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.resend_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.resend_request_message.fields(buffer, offset, packet, parent)
@@ -4428,7 +4212,7 @@ end
 
 -- Dissect: Test Request Message
 coinbase_derivatives_ordersapi_sbe_v1_5.test_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.test_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.test_request_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.test_request_message.fields(buffer, offset, packet, parent)
@@ -4468,7 +4252,7 @@ end
 
 -- Dissect: Heartbeat Message
 coinbase_derivatives_ordersapi_sbe_v1_5.heartbeat_message.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.heartbeat_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.heartbeat_message.fields(buffer, offset, packet, parent)
@@ -4508,7 +4292,7 @@ end
 
 -- Dissect: Logged Out Message
 coinbase_derivatives_ordersapi_sbe_v1_5.logged_out_message.dissect = function(buffer, offset, packet, parent)
-  if show.logged_out_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.logged_out_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.logged_out_message.fields(buffer, offset, packet, parent)
@@ -4548,7 +4332,7 @@ end
 
 -- Dissect: Logout Message
 coinbase_derivatives_ordersapi_sbe_v1_5.logout_message.dissect = function(buffer, offset, packet, parent)
-  if show.logout_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.logout_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.logout_message.fields(buffer, offset, packet, parent)
@@ -4588,7 +4372,7 @@ end
 
 -- Dissect: Logon Conf Message
 coinbase_derivatives_ordersapi_sbe_v1_5.logon_conf_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_conf_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.logon_conf_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.logon_conf_message.fields(buffer, offset, packet, parent)
@@ -4636,7 +4420,7 @@ end
 
 -- Dissect: Logon Message
 coinbase_derivatives_ordersapi_sbe_v1_5.logon_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_derivatives_ordersapi_sbe_v1_5.fields.logon_message, buffer(offset, 0))
     local index = coinbase_derivatives_ordersapi_sbe_v1_5.logon_message.fields(buffer, offset, packet, parent)

@@ -156,57 +156,33 @@ omi_otc_markets_multicast_ats_v4_5.fields.message_index = ProtoField.new("Messag
 local show = {}
 
 -- Otc Markets Multicast Ats 4.5 Element Dissection Options
-show.end_of_spin_message = true
+show.application_messages = true
 show.extended_quote_flags = true
 show.extended_security_flags = true
-show.extended_security_message = true
-show.extended_security_no_cusip_message = true
-show.inside_update_message = true
 show.issuer = true
-show.market_close_message = true
-show.market_open_message = true
 show.message = true
 show.message_header = true
 show.packet = true
 show.packet_flag = true
 show.packet_header = true
 show.quote_flags = true
-show.quote_message = true
-show.quote_update_message = true
-show.reference_price_message = true
-show.reference_price_update_message = true
 show.security_detail = true
 show.security_flags = true
-show.security_message = true
-show.start_of_spin_message = true
-show.trade_message = true
 show.trade_status = true
 
 -- Register Otc Markets Multicast Ats 4.5 Show Options
-omi_otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message = Pref.bool("Show End Of Spin Message", show.end_of_spin_message, "Parse and add End Of Spin Message to protocol tree")
+omi_otc_markets_multicast_ats_v4_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_quote_flags = Pref.bool("Show Extended Quote Flags", show.extended_quote_flags, "Parse and add Extended Quote Flags to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags = Pref.bool("Show Extended Security Flags", show.extended_security_flags, "Parse and add Extended Security Flags to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message = Pref.bool("Show Extended Security Message", show.extended_security_message, "Parse and add Extended Security Message to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message = Pref.bool("Show Extended Security No Cusip Message", show.extended_security_no_cusip_message, "Parse and add Extended Security No Cusip Message to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message = Pref.bool("Show Inside Update Message", show.inside_update_message, "Parse and add Inside Update Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_issuer = Pref.bool("Show Issuer", show.issuer, "Parse and add Issuer to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_market_close_message = Pref.bool("Show Market Close Message", show.market_close_message, "Parse and add Market Close Message to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_market_open_message = Pref.bool("Show Market Open Message", show.market_open_message, "Parse and add Market Open Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_packet_flag = Pref.bool("Show Packet Flag", show.packet_flag, "Parse and add Packet Flag to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_flags = Pref.bool("Show Quote Flags", show.quote_flags, "Parse and add Quote Flags to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message = Pref.bool("Show Reference Price Message", show.reference_price_message, "Parse and add Reference Price Message to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message = Pref.bool("Show Reference Price Update Message", show.reference_price_update_message, "Parse and add Reference Price Update Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_security_detail = Pref.bool("Show Security Detail", show.security_detail, "Parse and add Security Detail to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_security_message = Pref.bool("Show Security Message", show.security_message, "Parse and add Security Message to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message = Pref.bool("Show Start Of Spin Message", show.start_of_spin_message, "Parse and add Start Of Spin Message to protocol tree")
-omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_status = Pref.bool("Show Trade Status", show.trade_status, "Parse and add Trade Status to protocol tree")
 
 -- Handle changed preferences
@@ -214,8 +190,8 @@ function omi_otc_markets_multicast_ats_v4_5.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.end_of_spin_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message then
-    show.end_of_spin_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_end_of_spin_message
+  if show.application_messages ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_application_messages then
+    show.application_messages = omi_otc_markets_multicast_ats_v4_5.prefs.show_application_messages
     changed = true
   end
   if show.extended_quote_flags ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_quote_flags then
@@ -226,28 +202,8 @@ function omi_otc_markets_multicast_ats_v4_5.prefs_changed()
     show.extended_security_flags = omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_flags
     changed = true
   end
-  if show.extended_security_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message then
-    show.extended_security_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_message
-    changed = true
-  end
-  if show.extended_security_no_cusip_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message then
-    show.extended_security_no_cusip_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_extended_security_no_cusip_message
-    changed = true
-  end
-  if show.inside_update_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message then
-    show.inside_update_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_inside_update_message
-    changed = true
-  end
   if show.issuer ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_issuer then
     show.issuer = omi_otc_markets_multicast_ats_v4_5.prefs.show_issuer
-    changed = true
-  end
-  if show.market_close_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_market_close_message then
-    show.market_close_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_market_close_message
-    changed = true
-  end
-  if show.market_open_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_market_open_message then
-    show.market_open_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_market_open_message
     changed = true
   end
   if show.message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_message then
@@ -274,40 +230,12 @@ function omi_otc_markets_multicast_ats_v4_5.prefs_changed()
     show.quote_flags = omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_flags
     changed = true
   end
-  if show.quote_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_message then
-    show.quote_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_message
-    changed = true
-  end
-  if show.quote_update_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message then
-    show.quote_update_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_quote_update_message
-    changed = true
-  end
-  if show.reference_price_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message then
-    show.reference_price_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_message
-    changed = true
-  end
-  if show.reference_price_update_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message then
-    show.reference_price_update_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_reference_price_update_message
-    changed = true
-  end
   if show.security_detail ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_security_detail then
     show.security_detail = omi_otc_markets_multicast_ats_v4_5.prefs.show_security_detail
     changed = true
   end
   if show.security_flags ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_security_flags then
     show.security_flags = omi_otc_markets_multicast_ats_v4_5.prefs.show_security_flags
-    changed = true
-  end
-  if show.security_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_security_message then
-    show.security_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_security_message
-    changed = true
-  end
-  if show.start_of_spin_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message then
-    show.start_of_spin_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_start_of_spin_message
-    changed = true
-  end
-  if show.trade_message ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_message then
-    show.trade_message = omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_message
     changed = true
   end
   if show.trade_status ~= omi_otc_markets_multicast_ats_v4_5.prefs.show_trade_status then
@@ -2232,7 +2160,7 @@ end
 
 -- Dissect: Trade Message
 otc_markets_multicast_ats_v4_5.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.trade_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.trade_message.fields(buffer, offset, packet, parent)
@@ -2633,7 +2561,7 @@ end
 
 -- Dissect: Extended Security No Cusip Message
 otc_markets_multicast_ats_v4_5.extended_security_no_cusip_message.dissect = function(buffer, offset, packet, parent)
-  if show.extended_security_no_cusip_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_security_no_cusip_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.extended_security_no_cusip_message.fields(buffer, offset, packet, parent)
@@ -2798,7 +2726,7 @@ end
 
 -- Dissect: Extended Security Message
 otc_markets_multicast_ats_v4_5.extended_security_message.dissect = function(buffer, offset, packet, parent)
-  if show.extended_security_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.extended_security_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.extended_security_message.fields(buffer, offset, packet, parent)
@@ -2947,7 +2875,7 @@ end
 
 -- Dissect: Reference Price Update Message
 otc_markets_multicast_ats_v4_5.reference_price_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.reference_price_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reference_price_update_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.reference_price_update_message.fields(buffer, offset, packet, parent)
@@ -3027,7 +2955,7 @@ end
 
 -- Dissect: Reference Price Message
 otc_markets_multicast_ats_v4_5.reference_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.reference_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.reference_price_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.reference_price_message.fields(buffer, offset, packet, parent)
@@ -3091,7 +3019,7 @@ end
 
 -- Dissect: Inside Update Message
 otc_markets_multicast_ats_v4_5.inside_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.inside_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.inside_update_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.inside_update_message.fields(buffer, offset, packet, parent)
@@ -3139,7 +3067,7 @@ end
 
 -- Dissect: Market Open Message
 otc_markets_multicast_ats_v4_5.market_open_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_open_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.market_open_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.market_open_message.fields(buffer, offset, packet, parent)
@@ -3275,7 +3203,7 @@ end
 
 -- Dissect: Quote Update Message
 otc_markets_multicast_ats_v4_5.quote_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_update_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.quote_update_message.fields(buffer, offset, packet, parent)
@@ -3375,7 +3303,7 @@ end
 
 -- Dissect: Quote Message
 otc_markets_multicast_ats_v4_5.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.quote_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.quote_message.fields(buffer, offset, packet, parent)
@@ -3540,7 +3468,7 @@ end
 
 -- Dissect: Security Message
 otc_markets_multicast_ats_v4_5.security_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.security_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.security_message.fields(buffer, offset, packet, parent)
@@ -3588,7 +3516,7 @@ end
 
 -- Dissect: Market Close Message
 otc_markets_multicast_ats_v4_5.market_close_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_close_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.market_close_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.market_close_message.fields(buffer, offset, packet, parent)
@@ -3644,7 +3572,7 @@ end
 
 -- Dissect: End Of Spin Message
 otc_markets_multicast_ats_v4_5.end_of_spin_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_spin_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.end_of_spin_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.end_of_spin_message.fields(buffer, offset, packet, parent)
@@ -3696,7 +3624,7 @@ end
 
 -- Dissect: Start Of Spin Message
 otc_markets_multicast_ats_v4_5.start_of_spin_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_spin_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_multicast_ats_v4_5.fields.start_of_spin_message, buffer(offset, 0))
     local index = otc_markets_multicast_ats_v4_5.start_of_spin_message.fields(buffer, offset, packet, parent)

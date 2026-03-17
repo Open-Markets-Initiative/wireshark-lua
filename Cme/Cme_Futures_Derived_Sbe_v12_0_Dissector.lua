@@ -72,16 +72,12 @@ local show = {}
 
 -- Cme Futures Derived Sbe 12.0 Element Dissection Options
 show.binary_packet_header = true
-show.global_day_roll = true
+show.application_messages = true
 show.group_size = true
 show.incremental_refresh_spectrum_group = true
 show.incremental_refresh_spectrum_groups = true
 show.incremental_refresh_ticker_group = true
 show.incremental_refresh_ticker_groups = true
-show.md_incremental_refresh_spectrum = true
-show.md_incremental_refresh_ticker = true
-show.md_snapshot_refresh_spectrum = true
-show.md_snapshot_refresh_ticker = true
 show.message = true
 show.message_header = true
 show.packet = true
@@ -92,16 +88,12 @@ show.snapshot_refresh_ticker_groups = true
 
 -- Register Cme Futures Derived Sbe 12.0 Show Options
 omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
-omi_cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll = Pref.bool("Show Global Day Roll", show.global_day_roll, "Parse and add Global Day Roll to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group = Pref.bool("Show Incremental Refresh Spectrum Group", show.incremental_refresh_spectrum_group, "Parse and add Incremental Refresh Spectrum Group to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_groups = Pref.bool("Show Incremental Refresh Spectrum Groups", show.incremental_refresh_spectrum_groups, "Parse and add Incremental Refresh Spectrum Groups to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_group = Pref.bool("Show Incremental Refresh Ticker Group", show.incremental_refresh_ticker_group, "Parse and add Incremental Refresh Ticker Group to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_groups = Pref.bool("Show Incremental Refresh Ticker Groups", show.incremental_refresh_ticker_groups, "Parse and add Incremental Refresh Ticker Groups to protocol tree")
-omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum = Pref.bool("Show Md Incremental Refresh Spectrum", show.md_incremental_refresh_spectrum, "Parse and add Md Incremental Refresh Spectrum to protocol tree")
-omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker = Pref.bool("Show Md Incremental Refresh Ticker", show.md_incremental_refresh_ticker, "Parse and add Md Incremental Refresh Ticker to protocol tree")
-omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum = Pref.bool("Show Md Snapshot Refresh Spectrum", show.md_snapshot_refresh_spectrum, "Parse and add Md Snapshot Refresh Spectrum to protocol tree")
-omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker = Pref.bool("Show Md Snapshot Refresh Ticker", show.md_snapshot_refresh_ticker, "Parse and add Md Snapshot Refresh Ticker to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -115,12 +107,12 @@ function omi_cme_futures_derived_sbe_v12_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.binary_packet_header ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header then
-    show.binary_packet_header = omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header
+  if show.application_messages ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_application_messages then
+    show.application_messages = omi_cme_futures_derived_sbe_v12_0.prefs.show_application_messages
     changed = true
   end
-  if show.global_day_roll ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll then
-    show.global_day_roll = omi_cme_futures_derived_sbe_v12_0.prefs.show_global_day_roll
+  if show.binary_packet_header ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header then
+    show.binary_packet_header = omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header
     changed = true
   end
   if show.group_size ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_group_size then
@@ -141,22 +133,6 @@ function omi_cme_futures_derived_sbe_v12_0.prefs_changed()
   end
   if show.incremental_refresh_ticker_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_groups then
     show.incremental_refresh_ticker_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_groups
-    changed = true
-  end
-  if show.md_incremental_refresh_spectrum ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum then
-    show.md_incremental_refresh_spectrum = omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_spectrum
-    changed = true
-  end
-  if show.md_incremental_refresh_ticker ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker then
-    show.md_incremental_refresh_ticker = omi_cme_futures_derived_sbe_v12_0.prefs.show_md_incremental_refresh_ticker
-    changed = true
-  end
-  if show.md_snapshot_refresh_spectrum ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum then
-    show.md_snapshot_refresh_spectrum = omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_spectrum
-    changed = true
-  end
-  if show.md_snapshot_refresh_ticker ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker then
-    show.md_snapshot_refresh_ticker = omi_cme_futures_derived_sbe_v12_0.prefs.show_md_snapshot_refresh_ticker
     changed = true
   end
   if show.message ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_message then
@@ -933,7 +909,7 @@ end
 
 -- Dissect: Global Day Roll
 cme_futures_derived_sbe_v12_0.global_day_roll.dissect = function(buffer, offset, packet, parent)
-  if show.global_day_roll then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.global_day_roll, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0.global_day_roll.fields(buffer, offset, packet, parent)
@@ -1179,7 +1155,7 @@ end
 
 -- Dissect: Md Snapshot Refresh Ticker
 cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.dissect = function(buffer, offset, packet, parent)
-  if show.md_snapshot_refresh_ticker then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_ticker, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.fields(buffer, offset, packet, parent)
@@ -1369,7 +1345,7 @@ end
 
 -- Dissect: Md Snapshot Refresh Spectrum
 cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.dissect = function(buffer, offset, packet, parent)
-  if show.md_snapshot_refresh_spectrum then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_spectrum, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.fields(buffer, offset, packet, parent)
@@ -1567,7 +1543,7 @@ end
 
 -- Dissect: Md Incremental Refresh Ticker
 cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_ticker then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.fields(buffer, offset, packet, parent)
@@ -1753,7 +1729,7 @@ end
 
 -- Dissect: Md Incremental Refresh Spectrum
 cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.dissect = function(buffer, offset, packet, parent)
-  if show.md_incremental_refresh_spectrum then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum, buffer(offset, 0))
     local index = cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.fields(buffer, offset, packet, parent)

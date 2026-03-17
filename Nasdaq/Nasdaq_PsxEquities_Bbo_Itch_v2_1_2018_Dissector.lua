@@ -81,38 +81,26 @@ local show = {}
 -- Nasdaq PsxEquities Bbo Itch 2.1.2018 Element Dissection Options
 show.message = true
 show.message_header = true
-show.mwcb_decline_level_message = true
-show.mwcb_status_message = true
-show.next_shares_quotation_message = true
-show.operational_halt_message = true
+show.application_messages = true
 show.packet = true
 show.packet_header = true
-show.quotation_message = true
-show.reg_sho_short_sale_price_test_restricted_indicator_message = true
-show.stock_directory_message = true
-show.stock_trading_action_message = true
-show.system_event_message = true
 
 -- Register Nasdaq PsxEquities Bbo Itch 2.1.2018 Show Options
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_mwcb_status_message = Pref.bool("Show Mwcb Status Message", show.mwcb_status_message, "Parse and add Mwcb Status Message to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_next_shares_quotation_message = Pref.bool("Show Next Shares Quotation Message", show.next_shares_quotation_message, "Parse and add Next Shares Quotation Message to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_operational_halt_message = Pref.bool("Show Operational Halt Message", show.operational_halt_message, "Parse and add Operational Halt Message to protocol tree")
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_quotation_message = Pref.bool("Show Quotation Message", show.quotation_message, "Parse and add Quotation Message to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_application_messages
+    changed = true
+  end
   if show.message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_message then
     show.message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_message
     changed = true
@@ -121,48 +109,12 @@ function omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs_changed()
     show.message_header = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_message_header
     changed = true
   end
-  if show.mwcb_decline_level_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_mwcb_decline_level_message then
-    show.mwcb_decline_level_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_mwcb_decline_level_message
-    changed = true
-  end
-  if show.mwcb_status_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_mwcb_status_message then
-    show.mwcb_status_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_mwcb_status_message
-    changed = true
-  end
-  if show.next_shares_quotation_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_next_shares_quotation_message then
-    show.next_shares_quotation_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_next_shares_quotation_message
-    changed = true
-  end
-  if show.operational_halt_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_operational_halt_message then
-    show.operational_halt_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_operational_halt_message
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_packet then
     show.packet = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_packet_header
-    changed = true
-  end
-  if show.quotation_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_quotation_message then
-    show.quotation_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_quotation_message
-    changed = true
-  end
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
-    show.reg_sho_short_sale_price_test_restricted_indicator_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
-    changed = true
-  end
-  if show.stock_directory_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_stock_directory_message then
-    show.stock_directory_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_stock_directory_message
-    changed = true
-  end
-  if show.stock_trading_action_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_stock_trading_action_message then
-    show.stock_trading_action_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_stock_trading_action_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.prefs.show_system_event_message
     changed = true
   end
 
@@ -1408,7 +1360,7 @@ end
 
 -- Dissect: Next Shares Quotation Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.next_shares_quotation_message.dissect = function(buffer, offset, packet, parent)
-  if show.next_shares_quotation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.next_shares_quotation_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.next_shares_quotation_message.fields(buffer, offset, packet, parent)
@@ -1476,7 +1428,7 @@ end
 
 -- Dissect: Quotation Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.quotation_message.dissect = function(buffer, offset, packet, parent)
-  if show.quotation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.quotation_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.quotation_message.fields(buffer, offset, packet, parent)
@@ -1532,7 +1484,7 @@ end
 
 -- Dissect: Operational Halt Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.operational_halt_message.dissect = function(buffer, offset, packet, parent)
-  if show.operational_halt_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.operational_halt_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.operational_halt_message.fields(buffer, offset, packet, parent)
@@ -1580,7 +1532,7 @@ end
 
 -- Dissect: Mwcb Status Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.mwcb_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.mwcb_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.mwcb_status_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.mwcb_status_message.fields(buffer, offset, packet, parent)
@@ -1636,7 +1588,7 @@ end
 
 -- Dissect: Mwcb Decline Level Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.mwcb_decline_level_message.dissect = function(buffer, offset, packet, parent)
-  if show.mwcb_decline_level_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.mwcb_decline_level_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.mwcb_decline_level_message.fields(buffer, offset, packet, parent)
@@ -1688,7 +1640,7 @@ end
 
 -- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.reg_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
@@ -1748,7 +1700,7 @@ end
 
 -- Dissect: Stock Trading Action Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.stock_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.stock_trading_action_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.stock_trading_action_message.fields(buffer, offset, packet, parent)
@@ -1848,7 +1800,7 @@ end
 
 -- Dissect: Stock Directory Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.stock_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.stock_directory_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.stock_directory_message.fields(buffer, offset, packet, parent)
@@ -1896,7 +1848,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_psxequities_bbo_itch_v2_1_2018.system_event_message.fields(buffer, offset, packet, parent)

@@ -87,32 +87,28 @@ show.body = true
 show.body_header = true
 show.body_message = true
 show.business_header = true
-show.equity_quote_message = true
+show.application_messages = true
 show.frame_header = true
 show.packet = true
-show.stock_status_message = true
-show.symbol_status_message = true
-show.trade_cancelled_message = true
-show.trade_message = true
 
 -- Register Tmx QuantumFeed AlphaLevel1 Xmt 2.2 Show Options
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_body_header = Pref.bool("Show Body Header", show.body_header, "Parse and add Body Header to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_body_message = Pref.bool("Show Body Message", show.body_message, "Parse and add Body Message to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_business_header = Pref.bool("Show Business Header", show.business_header, "Parse and add Business Header to protocol tree")
-omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_equity_quote_message = Pref.bool("Show Equity Quote Message", show.equity_quote_message, "Parse and add Equity Quote Message to protocol tree")
+omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_stock_status_message = Pref.bool("Show Stock Status Message", show.stock_status_message, "Parse and add Stock Status Message to protocol tree")
-omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_symbol_status_message = Pref.bool("Show Symbol Status Message", show.symbol_status_message, "Parse and add Symbol Status Message to protocol tree")
-omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_trade_cancelled_message = Pref.bool("Show Trade Cancelled Message", show.trade_cancelled_message, "Parse and add Trade Cancelled Message to protocol tree")
-omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 
 -- Handle changed preferences
 function omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_application_messages then
+    show.application_messages = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_application_messages
+    changed = true
+  end
   if show.body ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_body then
     show.body = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_body
     changed = true
@@ -129,32 +125,12 @@ function omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs_changed()
     show.business_header = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_business_header
     changed = true
   end
-  if show.equity_quote_message ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_equity_quote_message then
-    show.equity_quote_message = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_equity_quote_message
-    changed = true
-  end
   if show.frame_header ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_frame_header then
     show.frame_header = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_frame_header
     changed = true
   end
   if show.packet ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_packet then
     show.packet = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_packet
-    changed = true
-  end
-  if show.stock_status_message ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_stock_status_message then
-    show.stock_status_message = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_stock_status_message
-    changed = true
-  end
-  if show.symbol_status_message ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_symbol_status_message then
-    show.symbol_status_message = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_symbol_status_message
-    changed = true
-  end
-  if show.trade_cancelled_message ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_trade_cancelled_message then
-    show.trade_cancelled_message = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_trade_cancelled_message
-    changed = true
-  end
-  if show.trade_message ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_trade_message then
-    show.trade_message = omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.prefs.show_trade_message
     changed = true
   end
 
@@ -1412,7 +1388,7 @@ end
 
 -- Dissect: Equity Quote Message
 tmx_quantumfeed_alphalevel1_xmt_v2_2.equity_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.equity_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.equity_quote_message, buffer(offset, 0))
     local index = tmx_quantumfeed_alphalevel1_xmt_v2_2.equity_quote_message.fields(buffer, offset, packet, parent)
@@ -1468,7 +1444,7 @@ end
 
 -- Dissect: Stock Status Message
 tmx_quantumfeed_alphalevel1_xmt_v2_2.stock_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.stock_status_message, buffer(offset, 0))
     local index = tmx_quantumfeed_alphalevel1_xmt_v2_2.stock_status_message.fields(buffer, offset, packet, parent)
@@ -1540,7 +1516,7 @@ end
 
 -- Dissect: Trade Cancelled Message
 tmx_quantumfeed_alphalevel1_xmt_v2_2.trade_cancelled_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancelled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trade_cancelled_message, buffer(offset, 0))
     local index = tmx_quantumfeed_alphalevel1_xmt_v2_2.trade_cancelled_message.fields(buffer, offset, packet, parent)
@@ -1632,7 +1608,7 @@ end
 
 -- Dissect: Trade Message
 tmx_quantumfeed_alphalevel1_xmt_v2_2.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trade_message, buffer(offset, 0))
     local index = tmx_quantumfeed_alphalevel1_xmt_v2_2.trade_message.fields(buffer, offset, packet, parent)
@@ -1716,7 +1692,7 @@ end
 
 -- Dissect: Symbol Status Message
 tmx_quantumfeed_alphalevel1_xmt_v2_2.symbol_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.symbol_status_message, buffer(offset, 0))
     local index = tmx_quantumfeed_alphalevel1_xmt_v2_2.symbol_status_message.fields(buffer, offset, packet, parent)

@@ -142,29 +142,11 @@ local show = {}
 -- Memx Equities Memo Sbe 1.2 Element Dissection Options
 show.common_header = true
 show.exec_inst = true
-show.execution_report_canceled_message = true
-show.execution_report_new_message = true
-show.execution_report_pending_cancel_message = true
-show.execution_report_pending_new_message = true
-show.execution_report_pending_replace_message = true
-show.execution_report_rejected_message = true
-show.execution_report_replaced_message = true
-show.execution_report_restatement_message = true
-show.execution_report_trade_break_message = true
-show.execution_report_trade_correction_message = true
-show.execution_report_trade_message = true
+show.application_messages = true
 show.login_accepted_message = true
 show.login_rejected_message = true
 show.login_request_message = true
-show.mass_cancel_done_message = true
-show.mass_cancel_reject_message = true
-show.mass_cancel_request_message = true
-show.new_order_single_message = true
-show.order_cancel_reject_message = true
-show.order_cancel_replace_request_message = true
-show.order_cancel_request_message = true
 show.packet = true
-show.pending_mass_cancel_message = true
 show.replay_all_request_message = true
 show.replay_begin_message = true
 show.replay_complete_message = true
@@ -183,29 +165,11 @@ show.unsequenced_message = true
 -- Register Memx Equities Memo Sbe 1.2 Show Options
 omi_memx_equities_memo_sbe_v1_2.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
 omi_memx_equities_memo_sbe_v1_2.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_canceled_message = Pref.bool("Show Execution Report Canceled Message", show.execution_report_canceled_message, "Parse and add Execution Report Canceled Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_new_message = Pref.bool("Show Execution Report New Message", show.execution_report_new_message, "Parse and add Execution Report New Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_cancel_message = Pref.bool("Show Execution Report Pending Cancel Message", show.execution_report_pending_cancel_message, "Parse and add Execution Report Pending Cancel Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_new_message = Pref.bool("Show Execution Report Pending New Message", show.execution_report_pending_new_message, "Parse and add Execution Report Pending New Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_replace_message = Pref.bool("Show Execution Report Pending Replace Message", show.execution_report_pending_replace_message, "Parse and add Execution Report Pending Replace Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_rejected_message = Pref.bool("Show Execution Report Rejected Message", show.execution_report_rejected_message, "Parse and add Execution Report Rejected Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_replaced_message = Pref.bool("Show Execution Report Replaced Message", show.execution_report_replaced_message, "Parse and add Execution Report Replaced Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_restatement_message = Pref.bool("Show Execution Report Restatement Message", show.execution_report_restatement_message, "Parse and add Execution Report Restatement Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_break_message = Pref.bool("Show Execution Report Trade Break Message", show.execution_report_trade_break_message, "Parse and add Execution Report Trade Break Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_correction_message = Pref.bool("Show Execution Report Trade Correction Message", show.execution_report_trade_correction_message, "Parse and add Execution Report Trade Correction Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_message = Pref.bool("Show Execution Report Trade Message", show.execution_report_trade_message, "Parse and add Execution Report Trade Message to protocol tree")
+omi_memx_equities_memo_sbe_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_equities_memo_sbe_v1_2.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
 omi_memx_equities_memo_sbe_v1_2.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
 omi_memx_equities_memo_sbe_v1_2.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_done_message = Pref.bool("Show Mass Cancel Done Message", show.mass_cancel_done_message, "Parse and add Mass Cancel Done Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_reject_message = Pref.bool("Show Mass Cancel Reject Message", show.mass_cancel_reject_message, "Parse and add Mass Cancel Reject Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_request_message = Pref.bool("Show Mass Cancel Request Message", show.mass_cancel_request_message, "Parse and add Mass Cancel Request Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_new_order_single_message = Pref.bool("Show New Order Single Message", show.new_order_single_message, "Parse and add New Order Single Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_reject_message = Pref.bool("Show Order Cancel Reject Message", show.order_cancel_reject_message, "Parse and add Order Cancel Reject Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_replace_request_message = Pref.bool("Show Order Cancel Replace Request Message", show.order_cancel_replace_request_message, "Parse and add Order Cancel Replace Request Message to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
 omi_memx_equities_memo_sbe_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_memx_equities_memo_sbe_v1_2.prefs.show_pending_mass_cancel_message = Pref.bool("Show Pending Mass Cancel Message", show.pending_mass_cancel_message, "Parse and add Pending Mass Cancel Message to protocol tree")
 omi_memx_equities_memo_sbe_v1_2.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
 omi_memx_equities_memo_sbe_v1_2.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
 omi_memx_equities_memo_sbe_v1_2.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
@@ -226,56 +190,16 @@ function omi_memx_equities_memo_sbe_v1_2.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_application_messages then
+    show.application_messages = omi_memx_equities_memo_sbe_v1_2.prefs.show_application_messages
+    changed = true
+  end
   if show.common_header ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_common_header then
     show.common_header = omi_memx_equities_memo_sbe_v1_2.prefs.show_common_header
     changed = true
   end
   if show.exec_inst ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_exec_inst then
     show.exec_inst = omi_memx_equities_memo_sbe_v1_2.prefs.show_exec_inst
-    changed = true
-  end
-  if show.execution_report_canceled_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_canceled_message then
-    show.execution_report_canceled_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_canceled_message
-    changed = true
-  end
-  if show.execution_report_new_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_new_message then
-    show.execution_report_new_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_new_message
-    changed = true
-  end
-  if show.execution_report_pending_cancel_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_cancel_message then
-    show.execution_report_pending_cancel_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_cancel_message
-    changed = true
-  end
-  if show.execution_report_pending_new_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_new_message then
-    show.execution_report_pending_new_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_new_message
-    changed = true
-  end
-  if show.execution_report_pending_replace_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_replace_message then
-    show.execution_report_pending_replace_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_pending_replace_message
-    changed = true
-  end
-  if show.execution_report_rejected_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_rejected_message then
-    show.execution_report_rejected_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_rejected_message
-    changed = true
-  end
-  if show.execution_report_replaced_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_replaced_message then
-    show.execution_report_replaced_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_replaced_message
-    changed = true
-  end
-  if show.execution_report_restatement_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_restatement_message then
-    show.execution_report_restatement_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_restatement_message
-    changed = true
-  end
-  if show.execution_report_trade_break_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_break_message then
-    show.execution_report_trade_break_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_break_message
-    changed = true
-  end
-  if show.execution_report_trade_correction_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_correction_message then
-    show.execution_report_trade_correction_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_correction_message
-    changed = true
-  end
-  if show.execution_report_trade_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_message then
-    show.execution_report_trade_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_execution_report_trade_message
     changed = true
   end
   if show.login_accepted_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_login_accepted_message then
@@ -290,40 +214,8 @@ function omi_memx_equities_memo_sbe_v1_2.prefs_changed()
     show.login_request_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_login_request_message
     changed = true
   end
-  if show.mass_cancel_done_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_done_message then
-    show.mass_cancel_done_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_done_message
-    changed = true
-  end
-  if show.mass_cancel_reject_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_reject_message then
-    show.mass_cancel_reject_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_reject_message
-    changed = true
-  end
-  if show.mass_cancel_request_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_request_message then
-    show.mass_cancel_request_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_mass_cancel_request_message
-    changed = true
-  end
-  if show.new_order_single_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_new_order_single_message then
-    show.new_order_single_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_new_order_single_message
-    changed = true
-  end
-  if show.order_cancel_reject_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_reject_message then
-    show.order_cancel_reject_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_reject_message
-    changed = true
-  end
-  if show.order_cancel_replace_request_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_replace_request_message then
-    show.order_cancel_replace_request_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_replace_request_message
-    changed = true
-  end
-  if show.order_cancel_request_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_request_message then
-    show.order_cancel_request_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_order_cancel_request_message
-    changed = true
-  end
   if show.packet ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_packet then
     show.packet = omi_memx_equities_memo_sbe_v1_2.prefs.show_packet
-    changed = true
-  end
-  if show.pending_mass_cancel_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_pending_mass_cancel_message then
-    show.pending_mass_cancel_message = omi_memx_equities_memo_sbe_v1_2.prefs.show_pending_mass_cancel_message
     changed = true
   end
   if show.replay_all_request_message ~= omi_memx_equities_memo_sbe_v1_2.prefs.show_replay_all_request_message then
@@ -3202,7 +3094,7 @@ end
 
 -- Dissect: Mass Cancel Reject Message
 memx_equities_memo_sbe_v1_2.mass_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.mass_cancel_reject_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
@@ -3254,7 +3146,7 @@ end
 
 -- Dissect: Order Cancel Reject Message
 memx_equities_memo_sbe_v1_2.order_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.order_cancel_reject_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.order_cancel_reject_message.fields(buffer, offset, packet, parent)
@@ -3334,7 +3226,7 @@ end
 
 -- Dissect: Execution Report Restatement Message
 memx_equities_memo_sbe_v1_2.execution_report_restatement_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_restatement_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_restatement_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_restatement_message.fields(buffer, offset, packet, parent)
@@ -3406,7 +3298,7 @@ end
 
 -- Dissect: Execution Report Trade Break Message
 memx_equities_memo_sbe_v1_2.execution_report_trade_break_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_break_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_trade_break_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
@@ -3486,7 +3378,7 @@ end
 
 -- Dissect: Execution Report Trade Correction Message
 memx_equities_memo_sbe_v1_2.execution_report_trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_correction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_trade_correction_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
@@ -3590,7 +3482,7 @@ end
 
 -- Dissect: Execution Report Replaced Message
 memx_equities_memo_sbe_v1_2.execution_report_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_replaced_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_replaced_message.fields(buffer, offset, packet, parent)
@@ -3690,7 +3582,7 @@ end
 
 -- Dissect: Execution Report Pending Replace Message
 memx_equities_memo_sbe_v1_2.execution_report_pending_replace_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_replace_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_pending_replace_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
@@ -3734,7 +3626,7 @@ end
 
 -- Dissect: Mass Cancel Done Message
 memx_equities_memo_sbe_v1_2.mass_cancel_done_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_done_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.mass_cancel_done_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.mass_cancel_done_message.fields(buffer, offset, packet, parent)
@@ -3810,7 +3702,7 @@ end
 
 -- Dissect: Execution Report Canceled Message
 memx_equities_memo_sbe_v1_2.execution_report_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_canceled_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_canceled_message.fields(buffer, offset, packet, parent)
@@ -3878,7 +3770,7 @@ end
 
 -- Dissect: Pending Mass Cancel Message
 memx_equities_memo_sbe_v1_2.pending_mass_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.pending_mass_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.pending_mass_cancel_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.pending_mass_cancel_message.fields(buffer, offset, packet, parent)
@@ -3954,7 +3846,7 @@ end
 
 -- Dissect: Execution Report Pending Cancel Message
 memx_equities_memo_sbe_v1_2.execution_report_pending_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_pending_cancel_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
@@ -4042,7 +3934,7 @@ end
 
 -- Dissect: Execution Report Trade Message
 memx_equities_memo_sbe_v1_2.execution_report_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_trade_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_trade_message.fields(buffer, offset, packet, parent)
@@ -4114,7 +4006,7 @@ end
 
 -- Dissect: Execution Report Rejected Message
 memx_equities_memo_sbe_v1_2.execution_report_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_rejected_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_rejected_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_rejected_message.fields(buffer, offset, packet, parent)
@@ -4343,7 +4235,7 @@ end
 
 -- Dissect: Execution Report New Message
 memx_equities_memo_sbe_v1_2.execution_report_new_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_new_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_new_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_new_message.fields(buffer, offset, packet, parent)
@@ -4511,7 +4403,7 @@ end
 
 -- Dissect: Execution Report Pending New Message
 memx_equities_memo_sbe_v1_2.execution_report_pending_new_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_new_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.execution_report_pending_new_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.execution_report_pending_new_message.fields(buffer, offset, packet, parent)
@@ -4575,7 +4467,7 @@ end
 
 -- Dissect: Mass Cancel Request Message
 memx_equities_memo_sbe_v1_2.mass_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.mass_cancel_request_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.mass_cancel_request_message.fields(buffer, offset, packet, parent)
@@ -4631,7 +4523,7 @@ end
 
 -- Dissect: Order Cancel Request Message
 memx_equities_memo_sbe_v1_2.order_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.order_cancel_request_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.order_cancel_request_message.fields(buffer, offset, packet, parent)
@@ -4707,7 +4599,7 @@ end
 
 -- Dissect: Order Cancel Replace Request Message
 memx_equities_memo_sbe_v1_2.order_cancel_replace_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_replace_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.order_cancel_replace_request_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
@@ -4851,7 +4743,7 @@ end
 
 -- Dissect: New Order Single Message
 memx_equities_memo_sbe_v1_2.new_order_single_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_single_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memo_sbe_v1_2.fields.new_order_single_message, buffer(offset, 0))
     local index = memx_equities_memo_sbe_v1_2.new_order_single_message.fields(buffer, offset, packet, parent)

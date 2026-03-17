@@ -487,60 +487,37 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.wholesale_legs_group_index
 local show = {}
 
 -- Euronext Optiq OrderEntryGateway Sbe 5.31 Element Dissection Options
-show.ack_message = true
+show.application_messages = true
 show.ack_qualifiers = true
 show.ack_qualifiers_optional = true
 show.additional_infos_group = true
 show.additional_infos_groups = true
-show.ask_for_quote_message = true
 show.cancel_replace_clearing_fields_group = true
 show.cancel_replace_clearing_fields_groups = true
-show.cancel_replace_message = true
 show.cancel_replace_optional_field_group = true
 show.cancel_replace_optional_field_groups = true
-show.cancel_request_message = true
-show.clear_book_message = true
 show.clearing_dataset_group = true
 show.clearing_dataset_groups = true
-show.collar_breach_confirmation_message = true
 show.collar_fields_group = true
 show.collar_fields_groups = true
 show.cross_clearing_fields_group = true
 show.cross_clearing_fields_groups = true
-show.cross_order_message = true
 show.cross_strategy_fields_group = true
 show.cross_strategy_fields_groups = true
 show.dark_execution_instruction = true
 show.dark_execution_instruction_optional = true
-show.declaration_cancel_and_refusal_message = true
-show.declaration_entry_ack_message = true
-show.declaration_entry_message = true
-show.declaration_entry_reject_message = true
-show.declaration_notice_message = true
 show.execution_instruction = true
 show.execution_instruction_optional = true
 show.fill_derivatives_field_group = true
 show.fill_derivatives_field_groups = true
-show.fill_message = true
 show.fill_optional_field_group = true
 show.fill_optional_field_groups = true
 show.fill_strategy_field_group = true
 show.fill_strategy_field_groups = true
 show.free_text_groups = true
-show.fund_price_input_ack_message = true
-show.fund_price_input_message = true
 show.group_size_encoding = true
 show.instrument_synchronization_group = true
 show.instrument_synchronization_groups = true
-show.instrument_synchronization_list_message = true
-show.kill_message = true
-show.liquidity_provider_command_message = true
-show.logon_ack_message = true
-show.logon_message = true
-show.logon_reject_message = true
-show.logout_message = true
-show.mass_cancel_ack_message = true
-show.mass_cancel_message = true
 show.message = true
 show.message_header = true
 show.mifid_fields_group = true
@@ -549,60 +526,32 @@ show.mifid_indicators = true
 show.mifid_indicators_optional = true
 show.mifid_short_codes_group = true
 show.mifid_short_codes_groups = true
-show.mm_protection_ack_message = true
-show.mm_protection_request_message = true
-show.mm_sign_in_ack_message = true
-show.mm_sign_in_message = true
 show.mmp_ack_group = true
 show.mmp_ack_groups = true
 show.mmp_execution_type = true
 show.mmp_request_group = true
 show.mmp_request_groups = true
-show.new_order_message = true
 show.new_order_message_free_text_section_group = true
-show.new_wholesale_order_message = true
 show.not_used_groups = true
 show.open_close = true
-show.open_order_request_message = true
 show.order_clearing_fields_group = true
 show.order_clearing_fields_groups = true
 show.order_optional_fields_group = true
 show.order_optional_fields_groups = true
 show.other_not_used_groups = true
-show.ownership_request_ack_message = true
-show.ownership_request_message = true
 show.packet = true
-show.price_input_message = true
-show.quote_ack_message = true
 show.quote_acks_group = true
 show.quote_acks_groups = true
-show.quote_request_message = true
-show.quotes_message = true
 show.quotes_rep_group = true
 show.quotes_rep_groups = true
-show.reject_message = true
-show.request_for_execution_message = true
-show.request_for_implied_execution_message = true
-show.rfq_audit_message = true
 show.rfq_counterparts_group = true
 show.rfq_counterparts_groups = true
-show.rfq_matching_status_message = true
-show.rfq_notification_message = true
-show.rfqlp_matching_status_message = true
-show.security_definition_ack_message = true
-show.security_definition_request_message = true
 show.strategy_legs_group = true
 show.strategy_legs_groups = true
-show.synchronization_time_message = true
 show.target_counterparties = true
-show.technical_reject_message = true
-show.trade_bust_notification_message = true
 show.trade_qualifier = true
 show.trading_session = true
-show.user_notification_message = true
 show.waiver_indicator = true
-show.wave_for_liquidity_message = true
-show.wave_for_liquidity_notification_message = true
 show.wholesale_ack_clearing_group = true
 show.wholesale_ack_clearing_groups = true
 show.wholesale_ack_legs_group = true
@@ -611,63 +560,39 @@ show.wholesale_client_group = true
 show.wholesale_client_groups = true
 show.wholesale_legs_group = true
 show.wholesale_legs_groups = true
-show.wholesale_order_ack_message = true
 
 -- Register Euronext Optiq OrderEntryGateway Sbe 5.31 Show Options
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ack_message = Pref.bool("Show Ack Message", show.ack_message, "Parse and add Ack Message to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ack_qualifiers = Pref.bool("Show Ack Qualifiers", show.ack_qualifiers, "Parse and add Ack Qualifiers to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ack_qualifiers_optional = Pref.bool("Show Ack Qualifiers Optional", show.ack_qualifiers_optional, "Parse and add Ack Qualifiers Optional to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_additional_infos_group = Pref.bool("Show Additional Infos Group", show.additional_infos_group, "Parse and add Additional Infos Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_additional_infos_groups = Pref.bool("Show Additional Infos Groups", show.additional_infos_groups, "Parse and add Additional Infos Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ask_for_quote_message = Pref.bool("Show Ask For Quote Message", show.ask_for_quote_message, "Parse and add Ask For Quote Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_clearing_fields_group = Pref.bool("Show Cancel Replace Clearing Fields Group", show.cancel_replace_clearing_fields_group, "Parse and add Cancel Replace Clearing Fields Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_clearing_fields_groups = Pref.bool("Show Cancel Replace Clearing Fields Groups", show.cancel_replace_clearing_fields_groups, "Parse and add Cancel Replace Clearing Fields Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_message = Pref.bool("Show Cancel Replace Message", show.cancel_replace_message, "Parse and add Cancel Replace Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_optional_field_group = Pref.bool("Show Cancel Replace Optional Field Group", show.cancel_replace_optional_field_group, "Parse and add Cancel Replace Optional Field Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_optional_field_groups = Pref.bool("Show Cancel Replace Optional Field Groups", show.cancel_replace_optional_field_groups, "Parse and add Cancel Replace Optional Field Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_request_message = Pref.bool("Show Cancel Request Message", show.cancel_request_message, "Parse and add Cancel Request Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clearing_dataset_group = Pref.bool("Show Clearing Dataset Group", show.clearing_dataset_group, "Parse and add Clearing Dataset Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clearing_dataset_groups = Pref.bool("Show Clearing Dataset Groups", show.clearing_dataset_groups, "Parse and add Clearing Dataset Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_collar_breach_confirmation_message = Pref.bool("Show Collar Breach Confirmation Message", show.collar_breach_confirmation_message, "Parse and add Collar Breach Confirmation Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_collar_fields_group = Pref.bool("Show Collar Fields Group", show.collar_fields_group, "Parse and add Collar Fields Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_collar_fields_groups = Pref.bool("Show Collar Fields Groups", show.collar_fields_groups, "Parse and add Collar Fields Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_clearing_fields_group = Pref.bool("Show Cross Clearing Fields Group", show.cross_clearing_fields_group, "Parse and add Cross Clearing Fields Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_clearing_fields_groups = Pref.bool("Show Cross Clearing Fields Groups", show.cross_clearing_fields_groups, "Parse and add Cross Clearing Fields Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_order_message = Pref.bool("Show Cross Order Message", show.cross_order_message, "Parse and add Cross Order Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_strategy_fields_group = Pref.bool("Show Cross Strategy Fields Group", show.cross_strategy_fields_group, "Parse and add Cross Strategy Fields Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_strategy_fields_groups = Pref.bool("Show Cross Strategy Fields Groups", show.cross_strategy_fields_groups, "Parse and add Cross Strategy Fields Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_dark_execution_instruction = Pref.bool("Show Dark Execution Instruction", show.dark_execution_instruction, "Parse and add Dark Execution Instruction to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_dark_execution_instruction_optional = Pref.bool("Show Dark Execution Instruction Optional", show.dark_execution_instruction_optional, "Parse and add Dark Execution Instruction Optional to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_cancel_and_refusal_message = Pref.bool("Show Declaration Cancel And Refusal Message", show.declaration_cancel_and_refusal_message, "Parse and add Declaration Cancel And Refusal Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_ack_message = Pref.bool("Show Declaration Entry Ack Message", show.declaration_entry_ack_message, "Parse and add Declaration Entry Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_message = Pref.bool("Show Declaration Entry Message", show.declaration_entry_message, "Parse and add Declaration Entry Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_reject_message = Pref.bool("Show Declaration Entry Reject Message", show.declaration_entry_reject_message, "Parse and add Declaration Entry Reject Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_notice_message = Pref.bool("Show Declaration Notice Message", show.declaration_notice_message, "Parse and add Declaration Notice Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_execution_instruction = Pref.bool("Show Execution Instruction", show.execution_instruction, "Parse and add Execution Instruction to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_execution_instruction_optional = Pref.bool("Show Execution Instruction Optional", show.execution_instruction_optional, "Parse and add Execution Instruction Optional to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_derivatives_field_group = Pref.bool("Show Fill Derivatives Field Group", show.fill_derivatives_field_group, "Parse and add Fill Derivatives Field Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_derivatives_field_groups = Pref.bool("Show Fill Derivatives Field Groups", show.fill_derivatives_field_groups, "Parse and add Fill Derivatives Field Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_message = Pref.bool("Show Fill Message", show.fill_message, "Parse and add Fill Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_optional_field_group = Pref.bool("Show Fill Optional Field Group", show.fill_optional_field_group, "Parse and add Fill Optional Field Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_optional_field_groups = Pref.bool("Show Fill Optional Field Groups", show.fill_optional_field_groups, "Parse and add Fill Optional Field Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_strategy_field_group = Pref.bool("Show Fill Strategy Field Group", show.fill_strategy_field_group, "Parse and add Fill Strategy Field Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_strategy_field_groups = Pref.bool("Show Fill Strategy Field Groups", show.fill_strategy_field_groups, "Parse and add Fill Strategy Field Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_free_text_groups = Pref.bool("Show Free Text Groups", show.free_text_groups, "Parse and add Free Text Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fund_price_input_ack_message = Pref.bool("Show Fund Price Input Ack Message", show.fund_price_input_ack_message, "Parse and add Fund Price Input Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fund_price_input_message = Pref.bool("Show Fund Price Input Message", show.fund_price_input_message, "Parse and add Fund Price Input Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_instrument_synchronization_group = Pref.bool("Show Instrument Synchronization Group", show.instrument_synchronization_group, "Parse and add Instrument Synchronization Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_instrument_synchronization_groups = Pref.bool("Show Instrument Synchronization Groups", show.instrument_synchronization_groups, "Parse and add Instrument Synchronization Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_instrument_synchronization_list_message = Pref.bool("Show Instrument Synchronization List Message", show.instrument_synchronization_list_message, "Parse and add Instrument Synchronization List Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_kill_message = Pref.bool("Show Kill Message", show.kill_message, "Parse and add Kill Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_liquidity_provider_command_message = Pref.bool("Show Liquidity Provider Command Message", show.liquidity_provider_command_message, "Parse and add Liquidity Provider Command Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_ack_message = Pref.bool("Show Logon Ack Message", show.logon_ack_message, "Parse and add Logon Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_reject_message = Pref.bool("Show Logon Reject Message", show.logon_reject_message, "Parse and add Logon Reject Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mass_cancel_ack_message = Pref.bool("Show Mass Cancel Ack Message", show.mass_cancel_ack_message, "Parse and add Mass Cancel Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mass_cancel_message = Pref.bool("Show Mass Cancel Message", show.mass_cancel_message, "Parse and add Mass Cancel Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mifid_fields_group = Pref.bool("Show Mifid Fields Group", show.mifid_fields_group, "Parse and add Mifid Fields Group to protocol tree")
@@ -676,60 +601,32 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mifid_indicators = Pre
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mifid_indicators_optional = Pref.bool("Show Mifid Indicators Optional", show.mifid_indicators_optional, "Parse and add Mifid Indicators Optional to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mifid_short_codes_group = Pref.bool("Show Mifid Short Codes Group", show.mifid_short_codes_group, "Parse and add Mifid Short Codes Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mifid_short_codes_groups = Pref.bool("Show Mifid Short Codes Groups", show.mifid_short_codes_groups, "Parse and add Mifid Short Codes Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_protection_ack_message = Pref.bool("Show Mm Protection Ack Message", show.mm_protection_ack_message, "Parse and add Mm Protection Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_protection_request_message = Pref.bool("Show Mm Protection Request Message", show.mm_protection_request_message, "Parse and add Mm Protection Request Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_sign_in_ack_message = Pref.bool("Show Mm Sign In Ack Message", show.mm_sign_in_ack_message, "Parse and add Mm Sign In Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_sign_in_message = Pref.bool("Show Mm Sign In Message", show.mm_sign_in_message, "Parse and add Mm Sign In Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mmp_ack_group = Pref.bool("Show Mmp Ack Group", show.mmp_ack_group, "Parse and add Mmp Ack Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mmp_ack_groups = Pref.bool("Show Mmp Ack Groups", show.mmp_ack_groups, "Parse and add Mmp Ack Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mmp_execution_type = Pref.bool("Show Mmp Execution Type", show.mmp_execution_type, "Parse and add Mmp Execution Type to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mmp_request_group = Pref.bool("Show Mmp Request Group", show.mmp_request_group, "Parse and add Mmp Request Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mmp_request_groups = Pref.bool("Show Mmp Request Groups", show.mmp_request_groups, "Parse and add Mmp Request Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_order_message_free_text_section_group = Pref.bool("Show New Order Message Free Text Section Group", show.new_order_message_free_text_section_group, "Parse and add New Order Message Free Text Section Group to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_wholesale_order_message = Pref.bool("Show New Wholesale Order Message", show.new_wholesale_order_message, "Parse and add New Wholesale Order Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_not_used_groups = Pref.bool("Show Not Used Groups", show.not_used_groups, "Parse and add Not Used Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_open_close = Pref.bool("Show Open Close", show.open_close, "Parse and add Open Close to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_open_order_request_message = Pref.bool("Show Open Order Request Message", show.open_order_request_message, "Parse and add Open Order Request Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_order_clearing_fields_group = Pref.bool("Show Order Clearing Fields Group", show.order_clearing_fields_group, "Parse and add Order Clearing Fields Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_order_clearing_fields_groups = Pref.bool("Show Order Clearing Fields Groups", show.order_clearing_fields_groups, "Parse and add Order Clearing Fields Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_order_optional_fields_group = Pref.bool("Show Order Optional Fields Group", show.order_optional_fields_group, "Parse and add Order Optional Fields Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_order_optional_fields_groups = Pref.bool("Show Order Optional Fields Groups", show.order_optional_fields_groups, "Parse and add Order Optional Fields Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_other_not_used_groups = Pref.bool("Show Other Not Used Groups", show.other_not_used_groups, "Parse and add Other Not Used Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ownership_request_ack_message = Pref.bool("Show Ownership Request Ack Message", show.ownership_request_ack_message, "Parse and add Ownership Request Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ownership_request_message = Pref.bool("Show Ownership Request Message", show.ownership_request_message, "Parse and add Ownership Request Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_price_input_message = Pref.bool("Show Price Input Message", show.price_input_message, "Parse and add Price Input Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_ack_message = Pref.bool("Show Quote Ack Message", show.quote_ack_message, "Parse and add Quote Ack Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_acks_group = Pref.bool("Show Quote Acks Group", show.quote_acks_group, "Parse and add Quote Acks Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_acks_groups = Pref.bool("Show Quote Acks Groups", show.quote_acks_groups, "Parse and add Quote Acks Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_request_message = Pref.bool("Show Quote Request Message", show.quote_request_message, "Parse and add Quote Request Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_message = Pref.bool("Show Quotes Message", show.quotes_message, "Parse and add Quotes Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_rep_group = Pref.bool("Show Quotes Rep Group", show.quotes_rep_group, "Parse and add Quotes Rep Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_rep_groups = Pref.bool("Show Quotes Rep Groups", show.quotes_rep_groups, "Parse and add Quotes Rep Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_reject_message = Pref.bool("Show Reject Message", show.reject_message, "Parse and add Reject Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_request_for_execution_message = Pref.bool("Show Request For Execution Message", show.request_for_execution_message, "Parse and add Request For Execution Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_request_for_implied_execution_message = Pref.bool("Show Request For Implied Execution Message", show.request_for_implied_execution_message, "Parse and add Request For Implied Execution Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_audit_message = Pref.bool("Show Rfq Audit Message", show.rfq_audit_message, "Parse and add Rfq Audit Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_counterparts_group = Pref.bool("Show Rfq Counterparts Group", show.rfq_counterparts_group, "Parse and add Rfq Counterparts Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_counterparts_groups = Pref.bool("Show Rfq Counterparts Groups", show.rfq_counterparts_groups, "Parse and add Rfq Counterparts Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_matching_status_message = Pref.bool("Show Rfq Matching Status Message", show.rfq_matching_status_message, "Parse and add Rfq Matching Status Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_notification_message = Pref.bool("Show Rfq Notification Message", show.rfq_notification_message, "Parse and add Rfq Notification Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfqlp_matching_status_message = Pref.bool("Show Rfqlp Matching Status Message", show.rfqlp_matching_status_message, "Parse and add Rfqlp Matching Status Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_security_definition_ack_message = Pref.bool("Show Security Definition Ack Message", show.security_definition_ack_message, "Parse and add Security Definition Ack Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_security_definition_request_message = Pref.bool("Show Security Definition Request Message", show.security_definition_request_message, "Parse and add Security Definition Request Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_strategy_legs_group = Pref.bool("Show Strategy Legs Group", show.strategy_legs_group, "Parse and add Strategy Legs Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_strategy_legs_groups = Pref.bool("Show Strategy Legs Groups", show.strategy_legs_groups, "Parse and add Strategy Legs Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_synchronization_time_message = Pref.bool("Show Synchronization Time Message", show.synchronization_time_message, "Parse and add Synchronization Time Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_target_counterparties = Pref.bool("Show Target Counterparties", show.target_counterparties, "Parse and add Target Counterparties to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_technical_reject_message = Pref.bool("Show Technical Reject Message", show.technical_reject_message, "Parse and add Technical Reject Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_trade_bust_notification_message = Pref.bool("Show Trade Bust Notification Message", show.trade_bust_notification_message, "Parse and add Trade Bust Notification Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_trade_qualifier = Pref.bool("Show Trade Qualifier", show.trade_qualifier, "Parse and add Trade Qualifier to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_trading_session = Pref.bool("Show Trading Session", show.trading_session, "Parse and add Trading Session to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_user_notification_message = Pref.bool("Show User Notification Message", show.user_notification_message, "Parse and add User Notification Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_waiver_indicator = Pref.bool("Show Waiver Indicator", show.waiver_indicator, "Parse and add Waiver Indicator to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wave_for_liquidity_message = Pref.bool("Show Wave For Liquidity Message", show.wave_for_liquidity_message, "Parse and add Wave For Liquidity Message to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wave_for_liquidity_notification_message = Pref.bool("Show Wave For Liquidity Notification Message", show.wave_for_liquidity_notification_message, "Parse and add Wave For Liquidity Notification Message to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_ack_clearing_group = Pref.bool("Show Wholesale Ack Clearing Group", show.wholesale_ack_clearing_group, "Parse and add Wholesale Ack Clearing Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_ack_clearing_groups = Pref.bool("Show Wholesale Ack Clearing Groups", show.wholesale_ack_clearing_groups, "Parse and add Wholesale Ack Clearing Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_ack_legs_group = Pref.bool("Show Wholesale Ack Legs Group", show.wholesale_ack_legs_group, "Parse and add Wholesale Ack Legs Group to protocol tree")
@@ -738,17 +635,12 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_client_group
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_client_groups = Pref.bool("Show Wholesale Client Groups", show.wholesale_client_groups, "Parse and add Wholesale Client Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_legs_group = Pref.bool("Show Wholesale Legs Group", show.wholesale_legs_group, "Parse and add Wholesale Legs Group to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_legs_groups = Pref.bool("Show Wholesale Legs Groups", show.wholesale_legs_groups, "Parse and add Wholesale Legs Groups to protocol tree")
-omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_order_ack_message = Pref.bool("Show Wholesale Order Ack Message", show.wholesale_order_ack_message, "Parse and add Wholesale Order Ack Message to protocol tree")
 
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ack_message then
-    show.ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ack_message
-    changed = true
-  end
   if show.ack_qualifiers ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ack_qualifiers then
     show.ack_qualifiers = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ack_qualifiers
     changed = true
@@ -765,8 +657,8 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.additional_infos_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_additional_infos_groups
     changed = true
   end
-  if show.ask_for_quote_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ask_for_quote_message then
-    show.ask_for_quote_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ask_for_quote_message
+  if show.application_messages ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_application_messages then
+    show.application_messages = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_application_messages
     changed = true
   end
   if show.cancel_replace_clearing_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_clearing_fields_group then
@@ -777,10 +669,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.cancel_replace_clearing_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_clearing_fields_groups
     changed = true
   end
-  if show.cancel_replace_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_message then
-    show.cancel_replace_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_message
-    changed = true
-  end
   if show.cancel_replace_optional_field_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_optional_field_group then
     show.cancel_replace_optional_field_group = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_optional_field_group
     changed = true
@@ -789,24 +677,12 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.cancel_replace_optional_field_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_replace_optional_field_groups
     changed = true
   end
-  if show.cancel_request_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_request_message then
-    show.cancel_request_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cancel_request_message
-    changed = true
-  end
-  if show.clear_book_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clear_book_message then
-    show.clear_book_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clear_book_message
-    changed = true
-  end
   if show.clearing_dataset_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clearing_dataset_group then
     show.clearing_dataset_group = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clearing_dataset_group
     changed = true
   end
   if show.clearing_dataset_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clearing_dataset_groups then
     show.clearing_dataset_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_clearing_dataset_groups
-    changed = true
-  end
-  if show.collar_breach_confirmation_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_collar_breach_confirmation_message then
-    show.collar_breach_confirmation_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_collar_breach_confirmation_message
     changed = true
   end
   if show.collar_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_collar_fields_group then
@@ -825,10 +701,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.cross_clearing_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_clearing_fields_groups
     changed = true
   end
-  if show.cross_order_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_order_message then
-    show.cross_order_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_order_message
-    changed = true
-  end
   if show.cross_strategy_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_strategy_fields_group then
     show.cross_strategy_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_cross_strategy_fields_group
     changed = true
@@ -845,26 +717,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.dark_execution_instruction_optional = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_dark_execution_instruction_optional
     changed = true
   end
-  if show.declaration_cancel_and_refusal_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_cancel_and_refusal_message then
-    show.declaration_cancel_and_refusal_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_cancel_and_refusal_message
-    changed = true
-  end
-  if show.declaration_entry_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_ack_message then
-    show.declaration_entry_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_ack_message
-    changed = true
-  end
-  if show.declaration_entry_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_message then
-    show.declaration_entry_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_message
-    changed = true
-  end
-  if show.declaration_entry_reject_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_reject_message then
-    show.declaration_entry_reject_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_entry_reject_message
-    changed = true
-  end
-  if show.declaration_notice_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_notice_message then
-    show.declaration_notice_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_declaration_notice_message
-    changed = true
-  end
   if show.execution_instruction ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_execution_instruction then
     show.execution_instruction = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_execution_instruction
     changed = true
@@ -879,10 +731,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
   end
   if show.fill_derivatives_field_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_derivatives_field_groups then
     show.fill_derivatives_field_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_derivatives_field_groups
-    changed = true
-  end
-  if show.fill_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_message then
-    show.fill_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_message
     changed = true
   end
   if show.fill_optional_field_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fill_optional_field_group then
@@ -905,14 +753,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.free_text_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_free_text_groups
     changed = true
   end
-  if show.fund_price_input_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fund_price_input_ack_message then
-    show.fund_price_input_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fund_price_input_ack_message
-    changed = true
-  end
-  if show.fund_price_input_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fund_price_input_message then
-    show.fund_price_input_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_fund_price_input_message
-    changed = true
-  end
   if show.group_size_encoding ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_group_size_encoding then
     show.group_size_encoding = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_group_size_encoding
     changed = true
@@ -923,42 +763,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
   end
   if show.instrument_synchronization_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_instrument_synchronization_groups then
     show.instrument_synchronization_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_instrument_synchronization_groups
-    changed = true
-  end
-  if show.instrument_synchronization_list_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_instrument_synchronization_list_message then
-    show.instrument_synchronization_list_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_instrument_synchronization_list_message
-    changed = true
-  end
-  if show.kill_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_kill_message then
-    show.kill_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_kill_message
-    changed = true
-  end
-  if show.liquidity_provider_command_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_liquidity_provider_command_message then
-    show.liquidity_provider_command_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_liquidity_provider_command_message
-    changed = true
-  end
-  if show.logon_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_ack_message then
-    show.logon_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_ack_message
-    changed = true
-  end
-  if show.logon_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_message then
-    show.logon_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_message
-    changed = true
-  end
-  if show.logon_reject_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_reject_message then
-    show.logon_reject_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logon_reject_message
-    changed = true
-  end
-  if show.logout_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logout_message then
-    show.logout_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_logout_message
-    changed = true
-  end
-  if show.mass_cancel_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mass_cancel_ack_message then
-    show.mass_cancel_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mass_cancel_ack_message
-    changed = true
-  end
-  if show.mass_cancel_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mass_cancel_message then
-    show.mass_cancel_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mass_cancel_message
     changed = true
   end
   if show.message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_message then
@@ -993,22 +797,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.mifid_short_codes_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mifid_short_codes_groups
     changed = true
   end
-  if show.mm_protection_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_protection_ack_message then
-    show.mm_protection_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_protection_ack_message
-    changed = true
-  end
-  if show.mm_protection_request_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_protection_request_message then
-    show.mm_protection_request_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_protection_request_message
-    changed = true
-  end
-  if show.mm_sign_in_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_sign_in_ack_message then
-    show.mm_sign_in_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_sign_in_ack_message
-    changed = true
-  end
-  if show.mm_sign_in_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_sign_in_message then
-    show.mm_sign_in_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mm_sign_in_message
-    changed = true
-  end
   if show.mmp_ack_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mmp_ack_group then
     show.mmp_ack_group = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mmp_ack_group
     changed = true
@@ -1029,16 +817,8 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.mmp_request_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_mmp_request_groups
     changed = true
   end
-  if show.new_order_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_order_message then
-    show.new_order_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_order_message
-    changed = true
-  end
   if show.new_order_message_free_text_section_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_order_message_free_text_section_group then
     show.new_order_message_free_text_section_group = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_order_message_free_text_section_group
-    changed = true
-  end
-  if show.new_wholesale_order_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_wholesale_order_message then
-    show.new_wholesale_order_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_new_wholesale_order_message
     changed = true
   end
   if show.not_used_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_not_used_groups then
@@ -1047,10 +827,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
   end
   if show.open_close ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_open_close then
     show.open_close = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_open_close
-    changed = true
-  end
-  if show.open_order_request_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_open_order_request_message then
-    show.open_order_request_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_open_order_request_message
     changed = true
   end
   if show.order_clearing_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_order_clearing_fields_group then
@@ -1073,24 +849,8 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.other_not_used_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_other_not_used_groups
     changed = true
   end
-  if show.ownership_request_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ownership_request_ack_message then
-    show.ownership_request_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ownership_request_ack_message
-    changed = true
-  end
-  if show.ownership_request_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ownership_request_message then
-    show.ownership_request_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_ownership_request_message
-    changed = true
-  end
   if show.packet ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_packet then
     show.packet = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_packet
-    changed = true
-  end
-  if show.price_input_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_price_input_message then
-    show.price_input_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_price_input_message
-    changed = true
-  end
-  if show.quote_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_ack_message then
-    show.quote_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_ack_message
     changed = true
   end
   if show.quote_acks_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_acks_group then
@@ -1101,36 +861,12 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.quote_acks_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_acks_groups
     changed = true
   end
-  if show.quote_request_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_request_message then
-    show.quote_request_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quote_request_message
-    changed = true
-  end
-  if show.quotes_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_message then
-    show.quotes_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_message
-    changed = true
-  end
   if show.quotes_rep_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_rep_group then
     show.quotes_rep_group = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_rep_group
     changed = true
   end
   if show.quotes_rep_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_rep_groups then
     show.quotes_rep_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_quotes_rep_groups
-    changed = true
-  end
-  if show.reject_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_reject_message then
-    show.reject_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_reject_message
-    changed = true
-  end
-  if show.request_for_execution_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_request_for_execution_message then
-    show.request_for_execution_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_request_for_execution_message
-    changed = true
-  end
-  if show.request_for_implied_execution_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_request_for_implied_execution_message then
-    show.request_for_implied_execution_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_request_for_implied_execution_message
-    changed = true
-  end
-  if show.rfq_audit_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_audit_message then
-    show.rfq_audit_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_audit_message
     changed = true
   end
   if show.rfq_counterparts_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_counterparts_group then
@@ -1141,26 +877,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.rfq_counterparts_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_counterparts_groups
     changed = true
   end
-  if show.rfq_matching_status_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_matching_status_message then
-    show.rfq_matching_status_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_matching_status_message
-    changed = true
-  end
-  if show.rfq_notification_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_notification_message then
-    show.rfq_notification_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfq_notification_message
-    changed = true
-  end
-  if show.rfqlp_matching_status_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfqlp_matching_status_message then
-    show.rfqlp_matching_status_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_rfqlp_matching_status_message
-    changed = true
-  end
-  if show.security_definition_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_security_definition_ack_message then
-    show.security_definition_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_security_definition_ack_message
-    changed = true
-  end
-  if show.security_definition_request_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_security_definition_request_message then
-    show.security_definition_request_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_security_definition_request_message
-    changed = true
-  end
   if show.strategy_legs_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_strategy_legs_group then
     show.strategy_legs_group = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_strategy_legs_group
     changed = true
@@ -1169,20 +885,8 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.strategy_legs_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_strategy_legs_groups
     changed = true
   end
-  if show.synchronization_time_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_synchronization_time_message then
-    show.synchronization_time_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_synchronization_time_message
-    changed = true
-  end
   if show.target_counterparties ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_target_counterparties then
     show.target_counterparties = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_target_counterparties
-    changed = true
-  end
-  if show.technical_reject_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_technical_reject_message then
-    show.technical_reject_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_technical_reject_message
-    changed = true
-  end
-  if show.trade_bust_notification_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_trade_bust_notification_message then
-    show.trade_bust_notification_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_trade_bust_notification_message
     changed = true
   end
   if show.trade_qualifier ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_trade_qualifier then
@@ -1193,20 +897,8 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
     show.trading_session = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_trading_session
     changed = true
   end
-  if show.user_notification_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_user_notification_message then
-    show.user_notification_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_user_notification_message
-    changed = true
-  end
   if show.waiver_indicator ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_waiver_indicator then
     show.waiver_indicator = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_waiver_indicator
-    changed = true
-  end
-  if show.wave_for_liquidity_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wave_for_liquidity_message then
-    show.wave_for_liquidity_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wave_for_liquidity_message
-    changed = true
-  end
-  if show.wave_for_liquidity_notification_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wave_for_liquidity_notification_message then
-    show.wave_for_liquidity_notification_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wave_for_liquidity_notification_message
     changed = true
   end
   if show.wholesale_ack_clearing_group ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_ack_clearing_group then
@@ -1239,10 +931,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs_changed()
   end
   if show.wholesale_legs_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_legs_groups then
     show.wholesale_legs_groups = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_legs_groups
-    changed = true
-  end
-  if show.wholesale_order_ack_message ~= omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_order_ack_message then
-    show.wholesale_order_ack_message = omi_euronext_optiq_orderentrygateway_sbe_v5_31.prefs.show_wholesale_order_ack_message
     changed = true
   end
 
@@ -9526,7 +9214,7 @@ end
 
 -- Dissect: Declaration Entry Reject Message
 euronext_optiq_orderentrygateway_sbe_v5_31.declaration_entry_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.declaration_entry_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.declaration_entry_reject_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.declaration_entry_reject_message.fields(buffer, offset, packet, parent)
@@ -9590,7 +9278,7 @@ end
 
 -- Dissect: Fund Price Input Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.fund_price_input_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.fund_price_input_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.fund_price_input_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.fund_price_input_ack_message.fields(buffer, offset, packet, parent)
@@ -9658,7 +9346,7 @@ end
 
 -- Dissect: Fund Price Input Message
 euronext_optiq_orderentrygateway_sbe_v5_31.fund_price_input_message.dissect = function(buffer, offset, packet, parent)
-  if show.fund_price_input_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.fund_price_input_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.fund_price_input_message.fields(buffer, offset, packet, parent)
@@ -9730,7 +9418,7 @@ end
 
 -- Dissect: Declaration Cancel And Refusal Message
 euronext_optiq_orderentrygateway_sbe_v5_31.declaration_cancel_and_refusal_message.dissect = function(buffer, offset, packet, parent)
-  if show.declaration_cancel_and_refusal_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.declaration_cancel_and_refusal_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.declaration_cancel_and_refusal_message.fields(buffer, offset, packet, parent)
@@ -10121,7 +9809,7 @@ end
 
 -- Dissect: Declaration Notice Message
 euronext_optiq_orderentrygateway_sbe_v5_31.declaration_notice_message.dissect = function(buffer, offset, packet, parent)
-  if show.declaration_notice_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.declaration_notice_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.declaration_notice_message.fields(buffer, offset, packet, parent)
@@ -10216,7 +9904,7 @@ end
 
 -- Dissect: Declaration Entry Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.declaration_entry_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.declaration_entry_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.declaration_entry_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.declaration_entry_ack_message.fields(buffer, offset, packet, parent)
@@ -10519,7 +10207,7 @@ end
 
 -- Dissect: Declaration Entry Message
 euronext_optiq_orderentrygateway_sbe_v5_31.declaration_entry_message.dissect = function(buffer, offset, packet, parent)
-  if show.declaration_entry_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.declaration_entry_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.declaration_entry_message.fields(buffer, offset, packet, parent)
@@ -10575,7 +10263,7 @@ end
 
 -- Dissect: Technical Reject Message
 euronext_optiq_orderentrygateway_sbe_v5_31.technical_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.technical_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.technical_reject_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.technical_reject_message.fields(buffer, offset, packet, parent)
@@ -10615,7 +10303,7 @@ end
 
 -- Dissect: Logout Message
 euronext_optiq_orderentrygateway_sbe_v5_31.logout_message.dissect = function(buffer, offset, packet, parent)
-  if show.logout_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.logout_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.logout_message.fields(buffer, offset, packet, parent)
@@ -10667,7 +10355,7 @@ end
 
 -- Dissect: Logon Reject Message
 euronext_optiq_orderentrygateway_sbe_v5_31.logon_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.logon_reject_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.logon_reject_message.fields(buffer, offset, packet, parent)
@@ -10711,7 +10399,7 @@ end
 
 -- Dissect: Logon Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.logon_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.logon_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.logon_ack_message.fields(buffer, offset, packet, parent)
@@ -10767,7 +10455,7 @@ end
 
 -- Dissect: Logon Message
 euronext_optiq_orderentrygateway_sbe_v5_31.logon_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.logon_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.logon_message.fields(buffer, offset, packet, parent)
@@ -10819,7 +10507,7 @@ end
 
 -- Dissect: Clear Book Message
 euronext_optiq_orderentrygateway_sbe_v5_31.clear_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.clear_book_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.clear_book_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.clear_book_message.fields(buffer, offset, packet, parent)
@@ -10935,7 +10623,7 @@ end
 
 -- Dissect: Wave For Liquidity Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_31.wave_for_liquidity_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.wave_for_liquidity_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.wave_for_liquidity_notification_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.wave_for_liquidity_notification_message.fields(buffer, offset, packet, parent)
@@ -11129,7 +10817,7 @@ end
 
 -- Dissect: Wave For Liquidity Message
 euronext_optiq_orderentrygateway_sbe_v5_31.wave_for_liquidity_message.dissect = function(buffer, offset, packet, parent)
-  if show.wave_for_liquidity_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.wave_for_liquidity_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.wave_for_liquidity_message.fields(buffer, offset, packet, parent)
@@ -11409,7 +11097,7 @@ end
 
 -- Dissect: Rfq Audit Message
 euronext_optiq_orderentrygateway_sbe_v5_31.rfq_audit_message.dissect = function(buffer, offset, packet, parent)
-  if show.rfq_audit_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.rfq_audit_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.rfq_audit_message.fields(buffer, offset, packet, parent)
@@ -12111,7 +11799,7 @@ end
 
 -- Dissect: Cross Order Message
 euronext_optiq_orderentrygateway_sbe_v5_31.cross_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.cross_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.cross_order_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.cross_order_message.fields(buffer, offset, packet, parent)
@@ -12187,7 +11875,7 @@ end
 
 -- Dissect: Request For Implied Execution Message
 euronext_optiq_orderentrygateway_sbe_v5_31.request_for_implied_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.request_for_implied_execution_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.request_for_implied_execution_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.request_for_implied_execution_message.fields(buffer, offset, packet, parent)
@@ -12683,7 +12371,7 @@ end
 
 -- Dissect: Wholesale Order Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.wholesale_order_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.wholesale_order_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.wholesale_order_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.wholesale_order_ack_message.fields(buffer, offset, packet, parent)
@@ -13106,7 +12794,7 @@ end
 
 -- Dissect: New Wholesale Order Message
 euronext_optiq_orderentrygateway_sbe_v5_31.new_wholesale_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_wholesale_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.new_wholesale_order_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.new_wholesale_order_message.fields(buffer, offset, packet, parent)
@@ -13397,7 +13085,7 @@ end
 
 -- Dissect: Mm Protection Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.mm_protection_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.mm_protection_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.mm_protection_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.mm_protection_ack_message.fields(buffer, offset, packet, parent)
@@ -13593,7 +13281,7 @@ end
 
 -- Dissect: Mm Protection Request Message
 euronext_optiq_orderentrygateway_sbe_v5_31.mm_protection_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.mm_protection_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.mm_protection_request_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.mm_protection_request_message.fields(buffer, offset, packet, parent)
@@ -13673,7 +13361,7 @@ end
 
 -- Dissect: Security Definition Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.security_definition_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.security_definition_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.security_definition_ack_message.fields(buffer, offset, packet, parent)
@@ -13879,7 +13567,7 @@ end
 
 -- Dissect: Security Definition Request Message
 euronext_optiq_orderentrygateway_sbe_v5_31.security_definition_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.security_definition_request_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.security_definition_request_message.fields(buffer, offset, packet, parent)
@@ -13931,7 +13619,7 @@ end
 
 -- Dissect: Synchronization Time Message
 euronext_optiq_orderentrygateway_sbe_v5_31.synchronization_time_message.dissect = function(buffer, offset, packet, parent)
-  if show.synchronization_time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.synchronization_time_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.synchronization_time_message.fields(buffer, offset, packet, parent)
@@ -14098,7 +13786,7 @@ end
 
 -- Dissect: Instrument Synchronization List Message
 euronext_optiq_orderentrygateway_sbe_v5_31.instrument_synchronization_list_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_synchronization_list_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.instrument_synchronization_list_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.instrument_synchronization_list_message.fields(buffer, offset, packet, parent)
@@ -14222,7 +13910,7 @@ end
 
 -- Dissect: Mm Sign In Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.mm_sign_in_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.mm_sign_in_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.mm_sign_in_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.mm_sign_in_ack_message.fields(buffer, offset, packet, parent)
@@ -14322,7 +14010,7 @@ end
 
 -- Dissect: Mm Sign In Message
 euronext_optiq_orderentrygateway_sbe_v5_31.mm_sign_in_message.dissect = function(buffer, offset, packet, parent)
-  if show.mm_sign_in_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.mm_sign_in_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.mm_sign_in_message.fields(buffer, offset, packet, parent)
@@ -14511,7 +14199,7 @@ end
 
 -- Dissect: User Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_31.user_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.user_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.user_notification_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.user_notification_message.fields(buffer, offset, packet, parent)
@@ -14591,7 +14279,7 @@ end
 
 -- Dissect: Rfqlp Matching Status Message
 euronext_optiq_orderentrygateway_sbe_v5_31.rfqlp_matching_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.rfqlp_matching_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.rfqlp_matching_status_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.rfqlp_matching_status_message.fields(buffer, offset, packet, parent)
@@ -14683,7 +14371,7 @@ end
 
 -- Dissect: Rfq Matching Status Message
 euronext_optiq_orderentrygateway_sbe_v5_31.rfq_matching_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.rfq_matching_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.rfq_matching_status_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.rfq_matching_status_message.fields(buffer, offset, packet, parent)
@@ -14858,7 +14546,7 @@ end
 
 -- Dissect: Rfq Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_31.rfq_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.rfq_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.rfq_notification_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.rfq_notification_message.fields(buffer, offset, packet, parent)
@@ -14910,7 +14598,7 @@ end
 
 -- Dissect: Request For Execution Message
 euronext_optiq_orderentrygateway_sbe_v5_31.request_for_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.request_for_execution_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.request_for_execution_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.request_for_execution_message.fields(buffer, offset, packet, parent)
@@ -14966,7 +14654,7 @@ end
 
 -- Dissect: Ask For Quote Message
 euronext_optiq_orderentrygateway_sbe_v5_31.ask_for_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.ask_for_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.ask_for_quote_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.ask_for_quote_message.fields(buffer, offset, packet, parent)
@@ -15038,7 +14726,7 @@ end
 
 -- Dissect: Liquidity Provider Command Message
 euronext_optiq_orderentrygateway_sbe_v5_31.liquidity_provider_command_message.dissect = function(buffer, offset, packet, parent)
-  if show.liquidity_provider_command_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.liquidity_provider_command_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.liquidity_provider_command_message.fields(buffer, offset, packet, parent)
@@ -15114,7 +14802,7 @@ end
 
 -- Dissect: Price Input Message
 euronext_optiq_orderentrygateway_sbe_v5_31.price_input_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_input_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.price_input_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.price_input_message.fields(buffer, offset, packet, parent)
@@ -15190,7 +14878,7 @@ end
 
 -- Dissect: Collar Breach Confirmation Message
 euronext_optiq_orderentrygateway_sbe_v5_31.collar_breach_confirmation_message.dissect = function(buffer, offset, packet, parent)
-  if show.collar_breach_confirmation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.collar_breach_confirmation_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.collar_breach_confirmation_message.fields(buffer, offset, packet, parent)
@@ -15290,7 +14978,7 @@ end
 
 -- Dissect: Trade Bust Notification Message
 euronext_optiq_orderentrygateway_sbe_v5_31.trade_bust_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.trade_bust_notification_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.trade_bust_notification_message.fields(buffer, offset, packet, parent)
@@ -15378,7 +15066,7 @@ end
 
 -- Dissect: Ownership Request Message
 euronext_optiq_orderentrygateway_sbe_v5_31.ownership_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.ownership_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.ownership_request_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.ownership_request_message.fields(buffer, offset, packet, parent)
@@ -15450,7 +15138,7 @@ end
 
 -- Dissect: Ownership Request Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.ownership_request_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.ownership_request_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.ownership_request_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.ownership_request_ack_message.fields(buffer, offset, packet, parent)
@@ -15530,7 +15218,7 @@ end
 
 -- Dissect: Open Order Request Message
 euronext_optiq_orderentrygateway_sbe_v5_31.open_order_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.open_order_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.open_order_request_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.open_order_request_message.fields(buffer, offset, packet, parent)
@@ -15973,7 +15661,7 @@ end
 
 -- Dissect: Mass Cancel Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.mass_cancel_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.mass_cancel_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.mass_cancel_ack_message.fields(buffer, offset, packet, parent)
@@ -16113,7 +15801,7 @@ end
 
 -- Dissect: Mass Cancel Message
 euronext_optiq_orderentrygateway_sbe_v5_31.mass_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.mass_cancel_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.mass_cancel_message.fields(buffer, offset, packet, parent)
@@ -16228,7 +15916,7 @@ end
 
 -- Dissect: Cancel Request Message
 euronext_optiq_orderentrygateway_sbe_v5_31.cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.cancel_request_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.cancel_request_message.fields(buffer, offset, packet, parent)
@@ -16324,7 +16012,7 @@ end
 
 -- Dissect: Quote Request Message
 euronext_optiq_orderentrygateway_sbe_v5_31.quote_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.quote_request_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.quote_request_message.fields(buffer, offset, packet, parent)
@@ -16570,7 +16258,7 @@ end
 
 -- Dissect: Quote Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.quote_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.quote_ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.quote_ack_message.fields(buffer, offset, packet, parent)
@@ -16935,7 +16623,7 @@ end
 
 -- Dissect: Quotes Message
 euronext_optiq_orderentrygateway_sbe_v5_31.quotes_message.dissect = function(buffer, offset, packet, parent)
-  if show.quotes_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.quotes_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.quotes_message.fields(buffer, offset, packet, parent)
@@ -17177,7 +16865,7 @@ end
 
 -- Dissect: Reject Message
 euronext_optiq_orderentrygateway_sbe_v5_31.reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.reject_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.reject_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.reject_message.fields(buffer, offset, packet, parent)
@@ -17873,7 +17561,7 @@ end
 
 -- Dissect: Cancel Replace Message
 euronext_optiq_orderentrygateway_sbe_v5_31.cancel_replace_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_replace_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.cancel_replace_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.cancel_replace_message.fields(buffer, offset, packet, parent)
@@ -17998,7 +17686,7 @@ end
 
 -- Dissect: Kill Message
 euronext_optiq_orderentrygateway_sbe_v5_31.kill_message.dissect = function(buffer, offset, packet, parent)
-  if show.kill_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.kill_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.kill_message.fields(buffer, offset, packet, parent)
@@ -18605,7 +18293,7 @@ end
 
 -- Dissect: Fill Message
 euronext_optiq_orderentrygateway_sbe_v5_31.fill_message.dissect = function(buffer, offset, packet, parent)
-  if show.fill_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.fill_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.fill_message.fields(buffer, offset, packet, parent)
@@ -18760,7 +18448,7 @@ end
 
 -- Dissect: Ack Message
 euronext_optiq_orderentrygateway_sbe_v5_31.ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.ack_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.ack_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.ack_message.fields(buffer, offset, packet, parent)
@@ -19214,7 +18902,7 @@ end
 
 -- Dissect: New Order Message
 euronext_optiq_orderentrygateway_sbe_v5_31.new_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_31.fields.new_order_message, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v5_31.new_order_message.fields(buffer, offset, packet, parent)

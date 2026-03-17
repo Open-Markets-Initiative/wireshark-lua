@@ -256,279 +256,59 @@ local show = {}
 
 -- Tmx Mx Sola Multicast Hsvf 1.14 Element Dissection Options
 show.associated_product = true
-show.beginning_of_future_options_summary_message = true
-show.beginning_of_futures_summary_message = true
-show.beginning_of_options_summary_message = true
-show.beginning_of_strategy_summary_message = true
+show.application_messages = true
 show.bond_definition = true
-show.bulletins_message = true
-show.circuit_assurance_message = true
-show.end_of_sales_message = true
-show.end_of_transmission_message = true
-show.future_deliverables_message = true
 show.future_option_symbol = true
-show.future_options_instrument_keys_message = true
-show.future_options_market_depth_message = true
-show.future_options_quote_message = true
-show.future_options_request_for_quote_message = true
-show.future_options_summary_message = true
-show.future_options_trade_cancellation_message = true
-show.future_options_trade_message = true
 show.future_product = true
-show.future_request_for_quote_message = true
-show.future_trade_cancellation_message = true
-show.futures_instrument_keys_message = true
-show.futures_market_depth_message = true
-show.futures_quote_message = true
-show.futures_summary_message = true
-show.futures_trade_correction_message = true
-show.futures_trade_message = true
-show.group_status_message = true
-show.group_status_strategies_message = true
-show.instrument_schedule_notice_future_message = true
-show.instrument_schedule_notice_futures_option_message = true
-show.instrument_schedule_notice_option_message = true
-show.instrument_schedule_notice_strategy_message = true
 show.market_depth_level = true
 show.message_header = true
-show.option_auction_beginning_message = true
-show.option_auction_ending_message = true
-show.option_initial_and_improvement_order_message = true
-show.option_instrument_keys_message = true
-show.option_market_depth_message = true
-show.option_quote_message = true
-show.option_request_for_quote_message = true
-show.option_summary_message = true
 show.option_symbol = true
-show.option_trade_cancellation_message = true
-show.option_trade_message = true
 show.packet = true
 show.regular_text_bulletin = true
 show.special_text_bulletin = true
-show.start_of_day_message = true
-show.strategy_auction_beginning_message = true
-show.strategy_auction_ending_message = true
-show.strategy_initial_and_improvement_order_message = true
-show.strategy_instrument_keys_message = true
 show.strategy_instrument_leg = true
 show.strategy_market_depth_level = true
-show.strategy_market_depth_message = true
-show.strategy_quote_message = true
-show.strategy_request_for_quote_message = true
-show.strategy_summary_message = true
-show.strategy_trade_cancellation_message = true
-show.strategy_trade_message = true
 show.tick_entry = true
-show.tick_table_message = true
-show.underlying_instrument_keys_message = true
 
 -- Register Tmx Mx Sola Multicast Hsvf 1.14 Show Options
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product = Pref.bool("Show Associated Product", show.associated_product, "Parse and add Associated Product to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_future_options_summary_message = Pref.bool("Show Beginning Of Future Options Summary Message", show.beginning_of_future_options_summary_message, "Parse and add Beginning Of Future Options Summary Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_futures_summary_message = Pref.bool("Show Beginning Of Futures Summary Message", show.beginning_of_futures_summary_message, "Parse and add Beginning Of Futures Summary Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_options_summary_message = Pref.bool("Show Beginning Of Options Summary Message", show.beginning_of_options_summary_message, "Parse and add Beginning Of Options Summary Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_strategy_summary_message = Pref.bool("Show Beginning Of Strategy Summary Message", show.beginning_of_strategy_summary_message, "Parse and add Beginning Of Strategy Summary Message to protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition = Pref.bool("Show Bond Definition", show.bond_definition, "Parse and add Bond Definition to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bulletins_message = Pref.bool("Show Bulletins Message", show.bulletins_message, "Parse and add Bulletins Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_circuit_assurance_message = Pref.bool("Show Circuit Assurance Message", show.circuit_assurance_message, "Parse and add Circuit Assurance Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_end_of_sales_message = Pref.bool("Show End Of Sales Message", show.end_of_sales_message, "Parse and add End Of Sales Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_end_of_transmission_message = Pref.bool("Show End Of Transmission Message", show.end_of_transmission_message, "Parse and add End Of Transmission Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_deliverables_message = Pref.bool("Show Future Deliverables Message", show.future_deliverables_message, "Parse and add Future Deliverables Message to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_option_symbol = Pref.bool("Show Future Option Symbol", show.future_option_symbol, "Parse and add Future Option Symbol to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_instrument_keys_message = Pref.bool("Show Future Options Instrument Keys Message", show.future_options_instrument_keys_message, "Parse and add Future Options Instrument Keys Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_market_depth_message = Pref.bool("Show Future Options Market Depth Message", show.future_options_market_depth_message, "Parse and add Future Options Market Depth Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_quote_message = Pref.bool("Show Future Options Quote Message", show.future_options_quote_message, "Parse and add Future Options Quote Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_request_for_quote_message = Pref.bool("Show Future Options Request For Quote Message", show.future_options_request_for_quote_message, "Parse and add Future Options Request For Quote Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_summary_message = Pref.bool("Show Future Options Summary Message", show.future_options_summary_message, "Parse and add Future Options Summary Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_trade_cancellation_message = Pref.bool("Show Future Options Trade Cancellation Message", show.future_options_trade_cancellation_message, "Parse and add Future Options Trade Cancellation Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_trade_message = Pref.bool("Show Future Options Trade Message", show.future_options_trade_message, "Parse and add Future Options Trade Message to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_product = Pref.bool("Show Future Product", show.future_product, "Parse and add Future Product to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_request_for_quote_message = Pref.bool("Show Future Request For Quote Message", show.future_request_for_quote_message, "Parse and add Future Request For Quote Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_trade_cancellation_message = Pref.bool("Show Future Trade Cancellation Message", show.future_trade_cancellation_message, "Parse and add Future Trade Cancellation Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_instrument_keys_message = Pref.bool("Show Futures Instrument Keys Message", show.futures_instrument_keys_message, "Parse and add Futures Instrument Keys Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_market_depth_message = Pref.bool("Show Futures Market Depth Message", show.futures_market_depth_message, "Parse and add Futures Market Depth Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_quote_message = Pref.bool("Show Futures Quote Message", show.futures_quote_message, "Parse and add Futures Quote Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_summary_message = Pref.bool("Show Futures Summary Message", show.futures_summary_message, "Parse and add Futures Summary Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_trade_correction_message = Pref.bool("Show Futures Trade Correction Message", show.futures_trade_correction_message, "Parse and add Futures Trade Correction Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_trade_message = Pref.bool("Show Futures Trade Message", show.futures_trade_message, "Parse and add Futures Trade Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_group_status_message = Pref.bool("Show Group Status Message", show.group_status_message, "Parse and add Group Status Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_group_status_strategies_message = Pref.bool("Show Group Status Strategies Message", show.group_status_strategies_message, "Parse and add Group Status Strategies Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_future_message = Pref.bool("Show Instrument Schedule Notice Future Message", show.instrument_schedule_notice_future_message, "Parse and add Instrument Schedule Notice Future Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_futures_option_message = Pref.bool("Show Instrument Schedule Notice Futures Option Message", show.instrument_schedule_notice_futures_option_message, "Parse and add Instrument Schedule Notice Futures Option Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_option_message = Pref.bool("Show Instrument Schedule Notice Option Message", show.instrument_schedule_notice_option_message, "Parse and add Instrument Schedule Notice Option Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_strategy_message = Pref.bool("Show Instrument Schedule Notice Strategy Message", show.instrument_schedule_notice_strategy_message, "Parse and add Instrument Schedule Notice Strategy Message to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level = Pref.bool("Show Market Depth Level", show.market_depth_level, "Parse and add Market Depth Level to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_auction_beginning_message = Pref.bool("Show Option Auction Beginning Message", show.option_auction_beginning_message, "Parse and add Option Auction Beginning Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_auction_ending_message = Pref.bool("Show Option Auction Ending Message", show.option_auction_ending_message, "Parse and add Option Auction Ending Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_initial_and_improvement_order_message = Pref.bool("Show Option Initial And Improvement Order Message", show.option_initial_and_improvement_order_message, "Parse and add Option Initial And Improvement Order Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_instrument_keys_message = Pref.bool("Show Option Instrument Keys Message", show.option_instrument_keys_message, "Parse and add Option Instrument Keys Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_market_depth_message = Pref.bool("Show Option Market Depth Message", show.option_market_depth_message, "Parse and add Option Market Depth Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_quote_message = Pref.bool("Show Option Quote Message", show.option_quote_message, "Parse and add Option Quote Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_request_for_quote_message = Pref.bool("Show Option Request For Quote Message", show.option_request_for_quote_message, "Parse and add Option Request For Quote Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_summary_message = Pref.bool("Show Option Summary Message", show.option_summary_message, "Parse and add Option Summary Message to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_symbol = Pref.bool("Show Option Symbol", show.option_symbol, "Parse and add Option Symbol to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_trade_cancellation_message = Pref.bool("Show Option Trade Cancellation Message", show.option_trade_cancellation_message, "Parse and add Option Trade Cancellation Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_trade_message = Pref.bool("Show Option Trade Message", show.option_trade_message, "Parse and add Option Trade Message to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_regular_text_bulletin = Pref.bool("Show Regular Text Bulletin", show.regular_text_bulletin, "Parse and add Regular Text Bulletin to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_special_text_bulletin = Pref.bool("Show Special Text Bulletin", show.special_text_bulletin, "Parse and add Special Text Bulletin to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_auction_beginning_message = Pref.bool("Show Strategy Auction Beginning Message", show.strategy_auction_beginning_message, "Parse and add Strategy Auction Beginning Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_auction_ending_message = Pref.bool("Show Strategy Auction Ending Message", show.strategy_auction_ending_message, "Parse and add Strategy Auction Ending Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_initial_and_improvement_order_message = Pref.bool("Show Strategy Initial And Improvement Order Message", show.strategy_initial_and_improvement_order_message, "Parse and add Strategy Initial And Improvement Order Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_keys_message = Pref.bool("Show Strategy Instrument Keys Message", show.strategy_instrument_keys_message, "Parse and add Strategy Instrument Keys Message to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg = Pref.bool("Show Strategy Instrument Leg", show.strategy_instrument_leg, "Parse and add Strategy Instrument Leg to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level = Pref.bool("Show Strategy Market Depth Level", show.strategy_market_depth_level, "Parse and add Strategy Market Depth Level to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_message = Pref.bool("Show Strategy Market Depth Message", show.strategy_market_depth_message, "Parse and add Strategy Market Depth Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_quote_message = Pref.bool("Show Strategy Quote Message", show.strategy_quote_message, "Parse and add Strategy Quote Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_request_for_quote_message = Pref.bool("Show Strategy Request For Quote Message", show.strategy_request_for_quote_message, "Parse and add Strategy Request For Quote Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_summary_message = Pref.bool("Show Strategy Summary Message", show.strategy_summary_message, "Parse and add Strategy Summary Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_trade_cancellation_message = Pref.bool("Show Strategy Trade Cancellation Message", show.strategy_trade_cancellation_message, "Parse and add Strategy Trade Cancellation Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_trade_message = Pref.bool("Show Strategy Trade Message", show.strategy_trade_message, "Parse and add Strategy Trade Message to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry = Pref.bool("Show Tick Entry", show.tick_entry, "Parse and add Tick Entry to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_table_message = Pref.bool("Show Tick Table Message", show.tick_table_message, "Parse and add Tick Table Message to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_underlying_instrument_keys_message = Pref.bool("Show Underlying Instrument Keys Message", show.underlying_instrument_keys_message, "Parse and add Underlying Instrument Keys Message to protocol tree")
 
 -- Handle changed preferences
 function omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages then
+    show.application_messages = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages
+    changed = true
+  end
   if show.associated_product ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product then
     show.associated_product = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product
-    changed = true
-  end
-  if show.beginning_of_future_options_summary_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_future_options_summary_message then
-    show.beginning_of_future_options_summary_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_future_options_summary_message
-    changed = true
-  end
-  if show.beginning_of_futures_summary_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_futures_summary_message then
-    show.beginning_of_futures_summary_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_futures_summary_message
-    changed = true
-  end
-  if show.beginning_of_options_summary_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_options_summary_message then
-    show.beginning_of_options_summary_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_options_summary_message
-    changed = true
-  end
-  if show.beginning_of_strategy_summary_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_strategy_summary_message then
-    show.beginning_of_strategy_summary_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_beginning_of_strategy_summary_message
     changed = true
   end
   if show.bond_definition ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition then
     show.bond_definition = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition
     changed = true
   end
-  if show.bulletins_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bulletins_message then
-    show.bulletins_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bulletins_message
-    changed = true
-  end
-  if show.circuit_assurance_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_circuit_assurance_message then
-    show.circuit_assurance_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_circuit_assurance_message
-    changed = true
-  end
-  if show.end_of_sales_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_end_of_sales_message then
-    show.end_of_sales_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_end_of_sales_message
-    changed = true
-  end
-  if show.end_of_transmission_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_end_of_transmission_message then
-    show.end_of_transmission_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_end_of_transmission_message
-    changed = true
-  end
-  if show.future_deliverables_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_deliverables_message then
-    show.future_deliverables_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_deliverables_message
-    changed = true
-  end
   if show.future_option_symbol ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_option_symbol then
     show.future_option_symbol = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_option_symbol
     changed = true
   end
-  if show.future_options_instrument_keys_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_instrument_keys_message then
-    show.future_options_instrument_keys_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_instrument_keys_message
-    changed = true
-  end
-  if show.future_options_market_depth_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_market_depth_message then
-    show.future_options_market_depth_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_market_depth_message
-    changed = true
-  end
-  if show.future_options_quote_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_quote_message then
-    show.future_options_quote_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_quote_message
-    changed = true
-  end
-  if show.future_options_request_for_quote_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_request_for_quote_message then
-    show.future_options_request_for_quote_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_request_for_quote_message
-    changed = true
-  end
-  if show.future_options_summary_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_summary_message then
-    show.future_options_summary_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_summary_message
-    changed = true
-  end
-  if show.future_options_trade_cancellation_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_trade_cancellation_message then
-    show.future_options_trade_cancellation_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_trade_cancellation_message
-    changed = true
-  end
-  if show.future_options_trade_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_trade_message then
-    show.future_options_trade_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_options_trade_message
-    changed = true
-  end
   if show.future_product ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_product then
     show.future_product = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_product
-    changed = true
-  end
-  if show.future_request_for_quote_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_request_for_quote_message then
-    show.future_request_for_quote_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_request_for_quote_message
-    changed = true
-  end
-  if show.future_trade_cancellation_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_trade_cancellation_message then
-    show.future_trade_cancellation_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_trade_cancellation_message
-    changed = true
-  end
-  if show.futures_instrument_keys_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_instrument_keys_message then
-    show.futures_instrument_keys_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_instrument_keys_message
-    changed = true
-  end
-  if show.futures_market_depth_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_market_depth_message then
-    show.futures_market_depth_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_market_depth_message
-    changed = true
-  end
-  if show.futures_quote_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_quote_message then
-    show.futures_quote_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_quote_message
-    changed = true
-  end
-  if show.futures_summary_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_summary_message then
-    show.futures_summary_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_summary_message
-    changed = true
-  end
-  if show.futures_trade_correction_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_trade_correction_message then
-    show.futures_trade_correction_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_trade_correction_message
-    changed = true
-  end
-  if show.futures_trade_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_trade_message then
-    show.futures_trade_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_futures_trade_message
-    changed = true
-  end
-  if show.group_status_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_group_status_message then
-    show.group_status_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_group_status_message
-    changed = true
-  end
-  if show.group_status_strategies_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_group_status_strategies_message then
-    show.group_status_strategies_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_group_status_strategies_message
-    changed = true
-  end
-  if show.instrument_schedule_notice_future_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_future_message then
-    show.instrument_schedule_notice_future_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_future_message
-    changed = true
-  end
-  if show.instrument_schedule_notice_futures_option_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_futures_option_message then
-    show.instrument_schedule_notice_futures_option_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_futures_option_message
-    changed = true
-  end
-  if show.instrument_schedule_notice_option_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_option_message then
-    show.instrument_schedule_notice_option_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_option_message
-    changed = true
-  end
-  if show.instrument_schedule_notice_strategy_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_strategy_message then
-    show.instrument_schedule_notice_strategy_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_instrument_schedule_notice_strategy_message
     changed = true
   end
   if show.market_depth_level ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level then
@@ -539,48 +319,8 @@ function omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs_changed()
     show.message_header = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_message_header
     changed = true
   end
-  if show.option_auction_beginning_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_auction_beginning_message then
-    show.option_auction_beginning_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_auction_beginning_message
-    changed = true
-  end
-  if show.option_auction_ending_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_auction_ending_message then
-    show.option_auction_ending_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_auction_ending_message
-    changed = true
-  end
-  if show.option_initial_and_improvement_order_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_initial_and_improvement_order_message then
-    show.option_initial_and_improvement_order_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_initial_and_improvement_order_message
-    changed = true
-  end
-  if show.option_instrument_keys_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_instrument_keys_message then
-    show.option_instrument_keys_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_instrument_keys_message
-    changed = true
-  end
-  if show.option_market_depth_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_market_depth_message then
-    show.option_market_depth_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_market_depth_message
-    changed = true
-  end
-  if show.option_quote_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_quote_message then
-    show.option_quote_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_quote_message
-    changed = true
-  end
-  if show.option_request_for_quote_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_request_for_quote_message then
-    show.option_request_for_quote_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_request_for_quote_message
-    changed = true
-  end
-  if show.option_summary_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_summary_message then
-    show.option_summary_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_summary_message
-    changed = true
-  end
   if show.option_symbol ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_symbol then
     show.option_symbol = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_symbol
-    changed = true
-  end
-  if show.option_trade_cancellation_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_trade_cancellation_message then
-    show.option_trade_cancellation_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_trade_cancellation_message
-    changed = true
-  end
-  if show.option_trade_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_trade_message then
-    show.option_trade_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_trade_message
     changed = true
   end
   if show.packet ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_packet then
@@ -595,26 +335,6 @@ function omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs_changed()
     show.special_text_bulletin = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_special_text_bulletin
     changed = true
   end
-  if show.start_of_day_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_start_of_day_message then
-    show.start_of_day_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_start_of_day_message
-    changed = true
-  end
-  if show.strategy_auction_beginning_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_auction_beginning_message then
-    show.strategy_auction_beginning_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_auction_beginning_message
-    changed = true
-  end
-  if show.strategy_auction_ending_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_auction_ending_message then
-    show.strategy_auction_ending_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_auction_ending_message
-    changed = true
-  end
-  if show.strategy_initial_and_improvement_order_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_initial_and_improvement_order_message then
-    show.strategy_initial_and_improvement_order_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_initial_and_improvement_order_message
-    changed = true
-  end
-  if show.strategy_instrument_keys_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_keys_message then
-    show.strategy_instrument_keys_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_keys_message
-    changed = true
-  end
   if show.strategy_instrument_leg ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg then
     show.strategy_instrument_leg = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg
     changed = true
@@ -623,40 +343,8 @@ function omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs_changed()
     show.strategy_market_depth_level = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level
     changed = true
   end
-  if show.strategy_market_depth_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_message then
-    show.strategy_market_depth_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_message
-    changed = true
-  end
-  if show.strategy_quote_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_quote_message then
-    show.strategy_quote_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_quote_message
-    changed = true
-  end
-  if show.strategy_request_for_quote_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_request_for_quote_message then
-    show.strategy_request_for_quote_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_request_for_quote_message
-    changed = true
-  end
-  if show.strategy_summary_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_summary_message then
-    show.strategy_summary_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_summary_message
-    changed = true
-  end
-  if show.strategy_trade_cancellation_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_trade_cancellation_message then
-    show.strategy_trade_cancellation_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_trade_cancellation_message
-    changed = true
-  end
-  if show.strategy_trade_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_trade_message then
-    show.strategy_trade_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_trade_message
-    changed = true
-  end
   if show.tick_entry ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry then
     show.tick_entry = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry
-    changed = true
-  end
-  if show.tick_table_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_table_message then
-    show.tick_table_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_table_message
-    changed = true
-  end
-  if show.underlying_instrument_keys_message ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_underlying_instrument_keys_message then
-    show.underlying_instrument_keys_message = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_underlying_instrument_keys_message
     changed = true
   end
 
@@ -4985,7 +4673,7 @@ end
 
 -- Dissect: Start Of Day Message
 tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_day_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.start_of_day_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.fields(buffer, offset, packet, parent)
@@ -5025,7 +4713,7 @@ end
 
 -- Dissect: Circuit Assurance Message
 tmx_mx_sola_multicast_hsvf_v1_14.circuit_assurance_message.dissect = function(buffer, offset, packet, parent)
-  if show.circuit_assurance_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.circuit_assurance_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.circuit_assurance_message.fields(buffer, offset, packet, parent)
@@ -5069,7 +4757,7 @@ end
 
 -- Dissect: End Of Transmission Message
 tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_transmission_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.end_of_transmission_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message.fields(buffer, offset, packet, parent)
@@ -5196,7 +4884,7 @@ end
 
 -- Dissect: Tick Table Message
 tmx_mx_sola_multicast_hsvf_v1_14.tick_table_message.dissect = function(buffer, offset, packet, parent)
-  if show.tick_table_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_table_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_message.fields(buffer, offset, packet, parent)
@@ -5240,7 +4928,7 @@ end
 
 -- Dissect: End Of Sales Message
 tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_sales_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.end_of_sales_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.fields(buffer, offset, packet, parent)
@@ -5407,7 +5095,7 @@ end
 
 -- Dissect: Bulletins Message
 tmx_mx_sola_multicast_hsvf_v1_14.bulletins_message.dissect = function(buffer, offset, packet, parent)
-  if show.bulletins_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bulletins_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.bulletins_message.fields(buffer, offset, packet, parent)
@@ -5589,7 +5277,7 @@ end
 
 -- Dissect: Future Deliverables Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_deliverables_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_deliverables_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_deliverables_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_deliverables_message.fields(buffer, offset, packet, parent)
@@ -5637,7 +5325,7 @@ end
 
 -- Dissect: Group Status Strategies Message
 tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message.dissect = function(buffer, offset, packet, parent)
-  if show.group_status_strategies_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.group_status_strategies_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message.fields(buffer, offset, packet, parent)
@@ -5685,7 +5373,7 @@ end
 
 -- Dissect: Group Status Message
 tmx_mx_sola_multicast_hsvf_v1_14.group_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.group_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.group_status_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.group_status_message.fields(buffer, offset, packet, parent)
@@ -5761,7 +5449,7 @@ end
 
 -- Dissect: Futures Trade Correction Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.futures_trade_correction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.futures_trade_correction_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.fields(buffer, offset, packet, parent)
@@ -5809,7 +5497,7 @@ end
 
 -- Dissect: Strategy Auction Ending Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_auction_ending_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_auction_ending_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.fields(buffer, offset, packet, parent)
@@ -5917,7 +5605,7 @@ end
 
 -- Dissect: Option Auction Ending Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_auction_ending_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_auction_ending_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_auction_ending_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_auction_ending_message.fields(buffer, offset, packet, parent)
@@ -5957,7 +5645,7 @@ end
 
 -- Dissect: Beginning Of Strategy Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_strategy_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.beginning_of_strategy_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_strategy_summary_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_strategy_summary_message.fields(buffer, offset, packet, parent)
@@ -5997,7 +5685,7 @@ end
 
 -- Dissect: Beginning Of Futures Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_futures_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.beginning_of_futures_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_futures_summary_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_futures_summary_message.fields(buffer, offset, packet, parent)
@@ -6037,7 +5725,7 @@ end
 
 -- Dissect: Beginning Of Future Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_future_options_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.beginning_of_future_options_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_future_options_summary_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_future_options_summary_message.fields(buffer, offset, packet, parent)
@@ -6077,7 +5765,7 @@ end
 
 -- Dissect: Beginning Of Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.beginning_of_options_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_options_summary_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message.fields(buffer, offset, packet, parent)
@@ -6153,7 +5841,7 @@ end
 
 -- Dissect: Strategy Initial And Improvement Order Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_initial_and_improvement_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_initial_and_improvement_order_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message.fields(buffer, offset, packet, parent)
@@ -6229,7 +5917,7 @@ end
 
 -- Dissect: Option Initial And Improvement Order Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_initial_and_improvement_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_initial_and_improvement_order_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message.fields(buffer, offset, packet, parent)
@@ -6373,7 +6061,7 @@ end
 
 -- Dissect: Strategy Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_summary_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.fields(buffer, offset, packet, parent)
@@ -6525,7 +6213,7 @@ end
 
 -- Dissect: Futures Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.futures_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.futures_summary_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.fields(buffer, offset, packet, parent)
@@ -6737,7 +6425,7 @@ end
 
 -- Dissect: Future Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_options_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_options_summary_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.fields(buffer, offset, packet, parent)
@@ -6889,7 +6577,7 @@ end
 
 -- Dissect: Option Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_summary_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.fields(buffer, offset, packet, parent)
@@ -6965,7 +6653,7 @@ end
 
 -- Dissect: Strategy Auction Beginning Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_auction_beginning_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_auction_beginning_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message.fields(buffer, offset, packet, parent)
@@ -7041,7 +6729,7 @@ end
 
 -- Dissect: Option Auction Beginning Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_auction_beginning_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_auction_beginning_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message.fields(buffer, offset, packet, parent)
@@ -7271,7 +6959,7 @@ end
 
 -- Dissect: Strategy Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_keys_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_instrument_keys_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_instrument_keys_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_keys_message.fields(buffer, offset, packet, parent)
@@ -7451,7 +7139,7 @@ end
 
 -- Dissect: Futures Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.dissect = function(buffer, offset, packet, parent)
-  if show.futures_instrument_keys_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.futures_instrument_keys_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.fields(buffer, offset, packet, parent)
@@ -7507,7 +7195,7 @@ end
 
 -- Dissect: Underlying Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_instrument_keys_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_instrument_keys_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.fields(buffer, offset, packet, parent)
@@ -7643,7 +7331,7 @@ end
 
 -- Dissect: Future Options Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_options_instrument_keys_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_options_instrument_keys_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.fields(buffer, offset, packet, parent)
@@ -7775,7 +7463,7 @@ end
 
 -- Dissect: Option Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_instrument_keys_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_instrument_keys_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.fields(buffer, offset, packet, parent)
@@ -7843,7 +7531,7 @@ end
 
 -- Dissect: Strategy Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_trade_cancellation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_trade_cancellation_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message.fields(buffer, offset, packet, parent)
@@ -7911,7 +7599,7 @@ end
 
 -- Dissect: Future Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_trade_cancellation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_trade_cancellation_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.fields(buffer, offset, packet, parent)
@@ -7979,7 +7667,7 @@ end
 
 -- Dissect: Future Options Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_options_trade_cancellation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_options_trade_cancellation_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.fields(buffer, offset, packet, parent)
@@ -8047,7 +7735,7 @@ end
 
 -- Dissect: Option Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_trade_cancellation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_trade_cancellation_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.fields(buffer, offset, packet, parent)
@@ -8202,7 +7890,7 @@ end
 
 -- Dissect: Strategy Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_market_depth_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_market_depth_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_message.fields(buffer, offset, packet, parent)
@@ -8349,7 +8037,7 @@ end
 
 -- Dissect: Futures Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  if show.futures_market_depth_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.futures_market_depth_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.futures_market_depth_message.fields(buffer, offset, packet, parent)
@@ -8418,7 +8106,7 @@ end
 
 -- Dissect: Future Options Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_options_market_depth_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_options_market_depth_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_options_market_depth_message.fields(buffer, offset, packet, parent)
@@ -8487,7 +8175,7 @@ end
 
 -- Dissect: Option Market Depth Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_market_depth_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_market_depth_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_market_depth_message.fields(buffer, offset, packet, parent)
@@ -8567,7 +8255,7 @@ end
 
 -- Dissect: Strategy Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_quote_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message.fields(buffer, offset, packet, parent)
@@ -8639,7 +8327,7 @@ end
 
 -- Dissect: Futures Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.futures_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.futures_quote_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.futures_quote_message.fields(buffer, offset, packet, parent)
@@ -8711,7 +8399,7 @@ end
 
 -- Dissect: Future Options Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_options_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_options_quote_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_options_quote_message.fields(buffer, offset, packet, parent)
@@ -8783,7 +8471,7 @@ end
 
 -- Dissect: Option Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_quote_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message.fields(buffer, offset, packet, parent)
@@ -8835,7 +8523,7 @@ end
 
 -- Dissect: Instrument Schedule Notice Strategy Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_schedule_notice_strategy_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_schedule_notice_strategy_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message.fields(buffer, offset, packet, parent)
@@ -8887,7 +8575,7 @@ end
 
 -- Dissect: Instrument Schedule Notice Future Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_future_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_schedule_notice_future_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_schedule_notice_future_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_future_message.fields(buffer, offset, packet, parent)
@@ -8939,7 +8627,7 @@ end
 
 -- Dissect: Instrument Schedule Notice Futures Option Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_futures_option_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_schedule_notice_futures_option_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_schedule_notice_futures_option_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_futures_option_message.fields(buffer, offset, packet, parent)
@@ -8991,7 +8679,7 @@ end
 
 -- Dissect: Instrument Schedule Notice Option Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_schedule_notice_option_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_schedule_notice_option_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.fields(buffer, offset, packet, parent)
@@ -9043,7 +8731,7 @@ end
 
 -- Dissect: Strategy Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_request_for_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_request_for_quote_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message.fields(buffer, offset, packet, parent)
@@ -9095,7 +8783,7 @@ end
 
 -- Dissect: Future Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_request_for_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_request_for_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_request_for_quote_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_request_for_quote_message.fields(buffer, offset, packet, parent)
@@ -9147,7 +8835,7 @@ end
 
 -- Dissect: Future Options Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_request_for_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_options_request_for_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_options_request_for_quote_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_options_request_for_quote_message.fields(buffer, offset, packet, parent)
@@ -9199,7 +8887,7 @@ end
 
 -- Dissect: Option Request For Quote Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_request_for_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_request_for_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_request_for_quote_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_request_for_quote_message.fields(buffer, offset, packet, parent)
@@ -9283,7 +8971,7 @@ end
 
 -- Dissect: Strategy Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_trade_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.fields(buffer, offset, packet, parent)
@@ -9363,7 +9051,7 @@ end
 
 -- Dissect: Futures Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.futures_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.futures_trade_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.fields(buffer, offset, packet, parent)
@@ -9443,7 +9131,7 @@ end
 
 -- Dissect: Future Options Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.future_options_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_options_trade_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.fields(buffer, offset, packet, parent)
@@ -9523,7 +9211,7 @@ end
 
 -- Dissect: Option Trade Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_trade_message, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.fields(buffer, offset, packet, parent)

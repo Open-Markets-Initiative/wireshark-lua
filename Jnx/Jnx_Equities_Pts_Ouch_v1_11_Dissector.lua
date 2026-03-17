@@ -87,98 +87,26 @@ omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet = ProtoField.new(
 local show = {}
 
 -- Jnx Equities Pts Ouch 1.11 Element Dissection Options
-show.cancel_order_message = true
-show.debug_packet = true
-show.enter_order_message = true
-show.login_accepted_packet = true
-show.login_rejected_packet = true
-show.login_request_packet = true
-show.order_accepted_message = true
-show.order_aiq_canceled_message = true
-show.order_canceled_message = true
-show.order_executed_message = true
-show.order_rejected_message = true
-show.order_replaced_message = true
+show.application_messages = true
+show.session_messages = true
 show.packet = true
 show.packet_header = true
-show.replace_order_message = true
-show.sequenced_data_packet = true
 show.soup_bin_tcp_packet = true
-show.system_event_message = true
-show.unsequenced_data_packet = true
 
 -- Register Jnx Equities Pts Ouch 1.11 Show Options
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message = Pref.bool("Show Enter Order Message", show.enter_order_message, "Parse and add Enter Order Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message = Pref.bool("Show Order Accepted Message", show.order_accepted_message, "Parse and add Order Accepted Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message = Pref.bool("Show Order Aiq Canceled Message", show.order_aiq_canceled_message, "Parse and add Order Aiq Canceled Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_jnx_equities_pts_ouch_v1_11.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
 -- Handle changed preferences
 function omi_jnx_equities_pts_ouch_v1_11.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message then
-    show.cancel_order_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_cancel_order_message
-    changed = true
-  end
-  if show.debug_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet then
-    show.debug_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_debug_packet
-    changed = true
-  end
-  if show.enter_order_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message then
-    show.enter_order_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_enter_order_message
-    changed = true
-  end
-  if show.login_accepted_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_accepted_packet
-    changed = true
-  end
-  if show.login_rejected_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_rejected_packet
-    changed = true
-  end
-  if show.login_request_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet then
-    show.login_request_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_login_request_packet
-    changed = true
-  end
-  if show.order_accepted_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message then
-    show.order_accepted_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_accepted_message
-    changed = true
-  end
-  if show.order_aiq_canceled_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message then
-    show.order_aiq_canceled_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_aiq_canceled_message
-    changed = true
-  end
-  if show.order_canceled_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message then
-    show.order_canceled_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_canceled_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message then
-    show.order_executed_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_rejected_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message then
-    show.order_rejected_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_rejected_message
-    changed = true
-  end
-  if show.order_replaced_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message then
-    show.order_replaced_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_order_replaced_message
+  if show.application_messages ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_application_messages then
+    show.application_messages = omi_jnx_equities_pts_ouch_v1_11.prefs.show_application_messages
     changed = true
   end
   if show.packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet then
@@ -189,24 +117,12 @@ function omi_jnx_equities_pts_ouch_v1_11.prefs_changed()
     show.packet_header = omi_jnx_equities_pts_ouch_v1_11.prefs.show_packet_header
     changed = true
   end
-  if show.replace_order_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message then
-    show.replace_order_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_replace_order_message
-    changed = true
-  end
-  if show.sequenced_data_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_sequenced_data_packet
+  if show.session_messages ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_session_messages then
+    show.session_messages = omi_jnx_equities_pts_ouch_v1_11.prefs.show_session_messages
     changed = true
   end
   if show.soup_bin_tcp_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet then
     show.soup_bin_tcp_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_soup_bin_tcp_packet
-    changed = true
-  end
-  if show.system_event_message ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message then
-    show.system_event_message = omi_jnx_equities_pts_ouch_v1_11.prefs.show_system_event_message
-    changed = true
-  end
-  if show.unsequenced_data_packet ~= omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_jnx_equities_pts_ouch_v1_11.prefs.show_unsequenced_data_packet
     changed = true
   end
 
@@ -1485,7 +1401,7 @@ end
 
 -- Dissect: Cancel Order Message
 jnx_equities_pts_ouch_v1_11.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.cancel_order_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.cancel_order_message.fields(buffer, offset, packet, parent)
@@ -1549,7 +1465,7 @@ end
 
 -- Dissect: Replace Order Message
 jnx_equities_pts_ouch_v1_11.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.replace_order_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.replace_order_message.fields(buffer, offset, packet, parent)
@@ -1641,7 +1557,7 @@ end
 
 -- Dissect: Enter Order Message
 jnx_equities_pts_ouch_v1_11.enter_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.enter_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.enter_order_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.enter_order_message.fields(buffer, offset, packet, parent)
@@ -1715,7 +1631,7 @@ jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.dissect = function(buffer, o
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = jnx_equities_pts_ouch_v1_11.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -1767,7 +1683,7 @@ end
 
 -- Dissect: Login Request Packet
 jnx_equities_pts_ouch_v1_11.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.login_request_packet, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.login_request_packet.fields(buffer, offset, packet, parent)
@@ -1815,7 +1731,7 @@ end
 
 -- Dissect: Order Rejected Message
 jnx_equities_pts_ouch_v1_11.order_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_rejected_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_rejected_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.order_rejected_message.fields(buffer, offset, packet, parent)
@@ -1875,7 +1791,7 @@ end
 
 -- Dissect: Order Executed Message
 jnx_equities_pts_ouch_v1_11.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_executed_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.order_executed_message.fields(buffer, offset, packet, parent)
@@ -1939,7 +1855,7 @@ end
 
 -- Dissect: Order Aiq Canceled Message
 jnx_equities_pts_ouch_v1_11.order_aiq_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_aiq_canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_aiq_canceled_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.order_aiq_canceled_message.fields(buffer, offset, packet, parent)
@@ -1991,7 +1907,7 @@ end
 
 -- Dissect: Order Canceled Message
 jnx_equities_pts_ouch_v1_11.order_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_canceled_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_canceled_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.order_canceled_message.fields(buffer, offset, packet, parent)
@@ -2079,7 +1995,7 @@ end
 
 -- Dissect: Order Replaced Message
 jnx_equities_pts_ouch_v1_11.order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_replaced_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.order_replaced_message.fields(buffer, offset, packet, parent)
@@ -2183,7 +2099,7 @@ end
 
 -- Dissect: Order Accepted Message
 jnx_equities_pts_ouch_v1_11.order_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_accepted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.order_accepted_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.order_accepted_message.fields(buffer, offset, packet, parent)
@@ -2227,7 +2143,7 @@ end
 
 -- Dissect: System Event Message
 jnx_equities_pts_ouch_v1_11.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.system_event_message, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.system_event_message.fields(buffer, offset, packet, parent)
@@ -2317,7 +2233,7 @@ jnx_equities_pts_ouch_v1_11.sequenced_data_packet.dissect = function(buffer, off
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.session_messages then
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.sequenced_data_packet, buffer(offset, 0))
     local current = jnx_equities_pts_ouch_v1_11.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -2357,7 +2273,7 @@ end
 
 -- Dissect: Login Rejected Packet
 jnx_equities_pts_ouch_v1_11.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.login_rejected_packet, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.login_rejected_packet.fields(buffer, offset, packet, parent)
@@ -2401,7 +2317,7 @@ end
 
 -- Dissect: Login Accepted Packet
 jnx_equities_pts_ouch_v1_11.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.login_accepted_packet, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.login_accepted_packet.fields(buffer, offset, packet, parent)
@@ -2441,7 +2357,7 @@ end
 
 -- Dissect: Debug Packet
 jnx_equities_pts_ouch_v1_11.debug_packet.dissect = function(buffer, offset, packet, parent)
-  if show.debug_packet then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_ouch_v1_11.fields.debug_packet, buffer(offset, 0))
     local index = jnx_equities_pts_ouch_v1_11.debug_packet.fields(buffer, offset, packet, parent)

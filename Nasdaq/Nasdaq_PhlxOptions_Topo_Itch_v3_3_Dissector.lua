@@ -88,62 +88,26 @@ omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_index = ProtoField.new("Mes
 local show = {}
 
 -- Nasdaq PhlxOptions Topo Itch 3.3 Element Dissection Options
-show.broken_trade_report_message = true
-show.long_best_ask_update_message = true
-show.long_best_bid_and_ask_update_message = true
-show.long_best_bid_update_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
-show.options_directory_message = true
 show.packet = true
 show.packet_header = true
-show.security_open_closed_message = true
-show.short_best_ask_update_message = true
-show.short_best_bid_and_ask_update_message = true
-show.short_best_bid_update_message = true
-show.system_event_message = true
-show.timestamp_message = true
-show.trade_report_message = true
-show.trading_action_message = true
 
 -- Register Nasdaq PhlxOptions Topo Itch 3.3 Show Options
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message = Pref.bool("Show Broken Trade Report Message", show.broken_trade_report_message, "Parse and add Broken Trade Report Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message = Pref.bool("Show Long Best Ask Update Message", show.long_best_ask_update_message, "Parse and add Long Best Ask Update Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message = Pref.bool("Show Long Best Bid And Ask Update Message", show.long_best_bid_and_ask_update_message, "Parse and add Long Best Bid And Ask Update Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message = Pref.bool("Show Long Best Bid Update Message", show.long_best_bid_update_message, "Parse and add Long Best Bid Update Message to protocol tree")
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
 omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message = Pref.bool("Show Security Open Closed Message", show.security_open_closed_message, "Parse and add Security Open Closed Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message = Pref.bool("Show Short Best Ask Update Message", show.short_best_ask_update_message, "Parse and add Short Best Ask Update Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message = Pref.bool("Show Short Best Bid And Ask Update Message", show.short_best_bid_and_ask_update_message, "Parse and add Short Best Bid And Ask Update Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message = Pref.bool("Show Short Best Bid Update Message", show.short_best_bid_update_message, "Parse and add Short Best Bid Update Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message = Pref.bool("Show Timestamp Message", show.timestamp_message, "Parse and add Timestamp Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
-omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.broken_trade_report_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message then
-    show.broken_trade_report_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_broken_trade_report_message
-    changed = true
-  end
-  if show.long_best_ask_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message then
-    show.long_best_ask_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_ask_update_message
-    changed = true
-  end
-  if show.long_best_bid_and_ask_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message then
-    show.long_best_bid_and_ask_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_and_ask_update_message
-    changed = true
-  end
-  if show.long_best_bid_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message then
-    show.long_best_bid_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_long_best_bid_update_message
+  if show.application_messages ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message then
@@ -154,48 +118,12 @@ function omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs_changed()
     show.message_header = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_header
     changed = true
   end
-  if show.options_directory_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message then
-    show.options_directory_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_options_directory_message
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet then
     show.packet = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header
-    changed = true
-  end
-  if show.security_open_closed_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message then
-    show.security_open_closed_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_security_open_closed_message
-    changed = true
-  end
-  if show.short_best_ask_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message then
-    show.short_best_ask_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_ask_update_message
-    changed = true
-  end
-  if show.short_best_bid_and_ask_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message then
-    show.short_best_bid_and_ask_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_and_ask_update_message
-    changed = true
-  end
-  if show.short_best_bid_update_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message then
-    show.short_best_bid_update_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_short_best_bid_update_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_system_event_message
-    changed = true
-  end
-  if show.timestamp_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message then
-    show.timestamp_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_timestamp_message
-    changed = true
-  end
-  if show.trade_report_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message then
-    show.trade_report_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trade_report_message
-    changed = true
-  end
-  if show.trading_action_message ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message then
-    show.trading_action_message = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_trading_action_message
     changed = true
   end
 
@@ -1455,7 +1383,7 @@ end
 
 -- Dissect: Broken Trade Report Message
 nasdaq_phlxoptions_topo_itch_v3_3.broken_trade_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.broken_trade_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.broken_trade_report_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.broken_trade_report_message.fields(buffer, offset, packet, parent)
@@ -1515,7 +1443,7 @@ end
 
 -- Dissect: Trade Report Message
 nasdaq_phlxoptions_topo_itch_v3_3.trade_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_report_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.trade_report_message.fields(buffer, offset, packet, parent)
@@ -1571,7 +1499,7 @@ end
 
 -- Dissect: Long Best Bid Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.long_best_bid_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_update_message.fields(buffer, offset, packet, parent)
@@ -1627,7 +1555,7 @@ end
 
 -- Dissect: Long Best Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_ask_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.long_best_ask_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_ask_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.long_best_ask_update_message.fields(buffer, offset, packet, parent)
@@ -1683,7 +1611,7 @@ end
 
 -- Dissect: Short Best Bid Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_best_bid_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_update_message.fields(buffer, offset, packet, parent)
@@ -1739,7 +1667,7 @@ end
 
 -- Dissect: Short Best Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_ask_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_best_ask_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_ask_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.short_best_ask_update_message.fields(buffer, offset, packet, parent)
@@ -1803,7 +1731,7 @@ end
 
 -- Dissect: Long Best Bid And Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_and_ask_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.long_best_bid_and_ask_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_and_ask_update_message.fields(buffer, offset, packet, parent)
@@ -1867,7 +1795,7 @@ end
 
 -- Dissect: Short Best Bid And Ask Update Message
 nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_and_ask_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_best_bid_and_ask_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_and_ask_update_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_and_ask_update_message.fields(buffer, offset, packet, parent)
@@ -1915,7 +1843,7 @@ end
 
 -- Dissect: Security Open Closed Message
 nasdaq_phlxoptions_topo_itch_v3_3.security_open_closed_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_open_closed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.security_open_closed_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.security_open_closed_message.fields(buffer, offset, packet, parent)
@@ -1963,7 +1891,7 @@ end
 
 -- Dissect: Trading Action Message
 nasdaq_phlxoptions_topo_itch_v3_3.trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trading_action_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.trading_action_message.fields(buffer, offset, packet, parent)
@@ -2051,7 +1979,7 @@ end
 
 -- Dissect: Options Directory Message
 nasdaq_phlxoptions_topo_itch_v3_3.options_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.options_directory_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.options_directory_message.fields(buffer, offset, packet, parent)
@@ -2103,7 +2031,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_phlxoptions_topo_itch_v3_3.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.system_event_message.fields(buffer, offset, packet, parent)
@@ -2143,7 +2071,7 @@ end
 
 -- Dissect: Timestamp Message
 nasdaq_phlxoptions_topo_itch_v3_3.timestamp_message.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp_message, buffer(offset, 0))
     local index = nasdaq_phlxoptions_topo_itch_v3_3.timestamp_message.fields(buffer, offset, packet, parent)

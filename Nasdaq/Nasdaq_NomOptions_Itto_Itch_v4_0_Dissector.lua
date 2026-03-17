@@ -115,84 +115,26 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_index = ProtoField.new("Mess
 local show = {}
 
 -- Nasdaq NomOptions Itto Itch 4.0 Element Dissection Options
-show.add_order_message_long_form_message = true
-show.add_order_message_short_message_form = true
-show.add_quote_message_long_form_message = true
-show.add_quote_message_short_form_message = true
-show.broken_trade_order_executed_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
-show.noii_message = true
-show.options_cross_trade_message = true
-show.options_directory_message = true
-show.options_trade_messages_non_auction = true
-show.order_cancel_message = true
 show.packet = true
 show.packet_header = true
-show.quote_delete_message = true
-show.quote_replace_message_long_form = true
-show.quote_replace_message_short_form = true
-show.security_open_message = true
-show.single_side_change_message = true
-show.single_side_delete_message = true
-show.single_side_executed_message = true
-show.single_side_executed_with_price_message = true
-show.single_side_replace_message_long_form = true
-show.single_side_replace_message_short_form = true
-show.system_event_message = true
-show.trading_action_message = true
 
 -- Register Nasdaq NomOptions Itto Itch 4.0 Show Options
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message = Pref.bool("Show Add Order Message Long Form Message", show.add_order_message_long_form_message, "Parse and add Add Order Message Long Form Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form = Pref.bool("Show Add Order Message Short Message Form", show.add_order_message_short_message_form, "Parse and add Add Order Message Short Message Form to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message = Pref.bool("Show Add Quote Message Long Form Message", show.add_quote_message_long_form_message, "Parse and add Add Quote Message Long Form Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message = Pref.bool("Show Add Quote Message Short Form Message", show.add_quote_message_short_form_message, "Parse and add Add Quote Message Short Form Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message = Pref.bool("Show Broken Trade Order Executed Message", show.broken_trade_order_executed_message, "Parse and add Broken Trade Order Executed Message to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message = Pref.bool("Show Noii Message", show.noii_message, "Parse and add Noii Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message = Pref.bool("Show Options Directory Message", show.options_directory_message, "Parse and add Options Directory Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction = Pref.bool("Show Options Trade Messages Non Auction", show.options_trade_messages_non_auction, "Parse and add Options Trade Messages Non Auction to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message = Pref.bool("Show Quote Delete Message", show.quote_delete_message, "Parse and add Quote Delete Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form = Pref.bool("Show Quote Replace Message Long Form", show.quote_replace_message_long_form, "Parse and add Quote Replace Message Long Form to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form = Pref.bool("Show Quote Replace Message Short Form", show.quote_replace_message_short_form, "Parse and add Quote Replace Message Short Form to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message = Pref.bool("Show Security Open Message", show.security_open_message, "Parse and add Security Open Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message = Pref.bool("Show Single Side Change Message", show.single_side_change_message, "Parse and add Single Side Change Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message = Pref.bool("Show Single Side Delete Message", show.single_side_delete_message, "Parse and add Single Side Delete Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message = Pref.bool("Show Single Side Executed Message", show.single_side_executed_message, "Parse and add Single Side Executed Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message = Pref.bool("Show Single Side Executed With Price Message", show.single_side_executed_with_price_message, "Parse and add Single Side Executed With Price Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form = Pref.bool("Show Single Side Replace Message Long Form", show.single_side_replace_message_long_form, "Parse and add Single Side Replace Message Long Form to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form = Pref.bool("Show Single Side Replace Message Short Form", show.single_side_replace_message_short_form, "Parse and add Single Side Replace Message Short Form to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_nomoptions_itto_itch_v4_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message_long_form_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message then
-    show.add_order_message_long_form_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_long_form_message
-    changed = true
-  end
-  if show.add_order_message_short_message_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form then
-    show.add_order_message_short_message_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_order_message_short_message_form
-    changed = true
-  end
-  if show.add_quote_message_long_form_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message then
-    show.add_quote_message_long_form_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_long_form_message
-    changed = true
-  end
-  if show.add_quote_message_short_form_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message then
-    show.add_quote_message_short_form_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_add_quote_message_short_form_message
-    changed = true
-  end
-  if show.broken_trade_order_executed_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message then
-    show.broken_trade_order_executed_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_broken_trade_order_executed_message
+  if show.application_messages ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message then
@@ -203,80 +145,12 @@ function omi_nasdaq_nomoptions_itto_itch_v4_0.prefs_changed()
     show.message_header = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_message_header
     changed = true
   end
-  if show.noii_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message then
-    show.noii_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_noii_message
-    changed = true
-  end
-  if show.options_cross_trade_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message then
-    show.options_cross_trade_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_cross_trade_message
-    changed = true
-  end
-  if show.options_directory_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message then
-    show.options_directory_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_directory_message
-    changed = true
-  end
-  if show.options_trade_messages_non_auction ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction then
-    show.options_trade_messages_non_auction = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_options_trade_messages_non_auction
-    changed = true
-  end
-  if show.order_cancel_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message then
-    show.order_cancel_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_order_cancel_message
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet then
     show.packet = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_packet_header
-    changed = true
-  end
-  if show.quote_delete_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message then
-    show.quote_delete_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_delete_message
-    changed = true
-  end
-  if show.quote_replace_message_long_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form then
-    show.quote_replace_message_long_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_long_form
-    changed = true
-  end
-  if show.quote_replace_message_short_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form then
-    show.quote_replace_message_short_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_quote_replace_message_short_form
-    changed = true
-  end
-  if show.security_open_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message then
-    show.security_open_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_security_open_message
-    changed = true
-  end
-  if show.single_side_change_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message then
-    show.single_side_change_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_change_message
-    changed = true
-  end
-  if show.single_side_delete_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message then
-    show.single_side_delete_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_delete_message
-    changed = true
-  end
-  if show.single_side_executed_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message then
-    show.single_side_executed_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_message
-    changed = true
-  end
-  if show.single_side_executed_with_price_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message then
-    show.single_side_executed_with_price_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_executed_with_price_message
-    changed = true
-  end
-  if show.single_side_replace_message_long_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form then
-    show.single_side_replace_message_long_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_long_form
-    changed = true
-  end
-  if show.single_side_replace_message_short_form ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form then
-    show.single_side_replace_message_short_form = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_single_side_replace_message_short_form
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_system_event_message
-    changed = true
-  end
-  if show.trading_action_message ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message then
-    show.trading_action_message = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_trading_action_message
     changed = true
   end
 
@@ -2059,7 +1933,7 @@ end
 
 -- Dissect: Noii Message
 nasdaq_nomoptions_itto_itch_v4_0.noii_message.dissect = function(buffer, offset, packet, parent)
-  if show.noii_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.noii_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.noii_message.fields(buffer, offset, packet, parent)
@@ -2111,7 +1985,7 @@ end
 
 -- Dissect: Broken Trade Order Executed Message
 nasdaq_nomoptions_itto_itch_v4_0.broken_trade_order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.broken_trade_order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.broken_trade_order_executed_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.broken_trade_order_executed_message.fields(buffer, offset, packet, parent)
@@ -2179,7 +2053,7 @@ end
 
 -- Dissect: Options Cross Trade Message
 nasdaq_nomoptions_itto_itch_v4_0.options_cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_cross_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_cross_trade_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.options_cross_trade_message.fields(buffer, offset, packet, parent)
@@ -2247,7 +2121,7 @@ end
 
 -- Dissect: Options Trade Messages Non Auction
 nasdaq_nomoptions_itto_itch_v4_0.options_trade_messages_non_auction.dissect = function(buffer, offset, packet, parent)
-  if show.options_trade_messages_non_auction then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_trade_messages_non_auction, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.options_trade_messages_non_auction.fields(buffer, offset, packet, parent)
@@ -2299,7 +2173,7 @@ end
 
 -- Dissect: Quote Delete Message
 nasdaq_nomoptions_itto_itch_v4_0.quote_delete_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_delete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_delete_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.quote_delete_message.fields(buffer, offset, packet, parent)
@@ -2375,7 +2249,7 @@ end
 
 -- Dissect: Quote Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.dissect = function(buffer, offset, packet, parent)
-  if show.quote_replace_message_long_form then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_long_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.fields(buffer, offset, packet, parent)
@@ -2451,7 +2325,7 @@ end
 
 -- Dissect: Quote Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.dissect = function(buffer, offset, packet, parent)
-  if show.quote_replace_message_short_form then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_short_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.fields(buffer, offset, packet, parent)
@@ -2511,7 +2385,7 @@ end
 
 -- Dissect: Single Side Change Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_change_message.dissect = function(buffer, offset, packet, parent)
-  if show.single_side_change_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_change_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.single_side_change_message.fields(buffer, offset, packet, parent)
@@ -2559,7 +2433,7 @@ end
 
 -- Dissect: Single Side Delete Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_delete_message.dissect = function(buffer, offset, packet, parent)
-  if show.single_side_delete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_delete_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.single_side_delete_message.fields(buffer, offset, packet, parent)
@@ -2619,7 +2493,7 @@ end
 
 -- Dissect: Single Side Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_long_form.dissect = function(buffer, offset, packet, parent)
-  if show.single_side_replace_message_long_form then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_long_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_long_form.fields(buffer, offset, packet, parent)
@@ -2679,7 +2553,7 @@ end
 
 -- Dissect: Single Side Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_short_form.dissect = function(buffer, offset, packet, parent)
-  if show.single_side_replace_message_short_form then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_short_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.single_side_replace_message_short_form.fields(buffer, offset, packet, parent)
@@ -2731,7 +2605,7 @@ end
 
 -- Dissect: Order Cancel Message
 nasdaq_nomoptions_itto_itch_v4_0.order_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.order_cancel_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.order_cancel_message.fields(buffer, offset, packet, parent)
@@ -2799,7 +2673,7 @@ end
 
 -- Dissect: Single Side Executed With Price Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_with_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.single_side_executed_with_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_with_price_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_with_price_message.fields(buffer, offset, packet, parent)
@@ -2859,7 +2733,7 @@ end
 
 -- Dissect: Single Side Executed Message
 nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.single_side_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.single_side_executed_message.fields(buffer, offset, packet, parent)
@@ -2931,7 +2805,7 @@ end
 
 -- Dissect: Add Quote Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_quote_message_long_form_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.fields(buffer, offset, packet, parent)
@@ -3003,7 +2877,7 @@ end
 
 -- Dissect: Add Quote Message Short Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_quote_message_short_form_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_short_form_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.fields(buffer, offset, packet, parent)
@@ -3067,7 +2941,7 @@ end
 
 -- Dissect: Add Order Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_order_message_long_form_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_message_long_form_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.add_order_message_long_form_message.fields(buffer, offset, packet, parent)
@@ -3131,7 +3005,7 @@ end
 
 -- Dissect: Add Order Message Short Message Form
 nasdaq_nomoptions_itto_itch_v4_0.add_order_message_short_message_form.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_message_short_message_form then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.add_order_message_short_message_form.fields(buffer, offset, packet, parent)
@@ -3183,7 +3057,7 @@ end
 
 -- Dissect: Security Open Message
 nasdaq_nomoptions_itto_itch_v4_0.security_open_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_open_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_open_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.security_open_message.fields(buffer, offset, packet, parent)
@@ -3235,7 +3109,7 @@ end
 
 -- Dissect: Trading Action Message
 nasdaq_nomoptions_itto_itch_v4_0.trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.trading_action_message.fields(buffer, offset, packet, parent)
@@ -3327,7 +3201,7 @@ end
 
 -- Dissect: Options Directory Message
 nasdaq_nomoptions_itto_itch_v4_0.options_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.options_directory_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.options_directory_message.fields(buffer, offset, packet, parent)
@@ -3375,7 +3249,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_nomoptions_itto_itch_v4_0.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.system_event_message.fields(buffer, offset, packet, parent)

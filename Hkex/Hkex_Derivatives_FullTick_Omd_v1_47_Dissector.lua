@@ -176,118 +176,40 @@ omi_hkex_derivatives_fulltick_omd_v1_47.fields.message_index = ProtoField.new("M
 local show = {}
 
 -- Hkex Derivatives FullTick Omd 1.47 Element Dissection Options
-show.add_order_message = true
-show.calculated_opening_price_message = true
-show.class_definition_message = true
-show.combination_definition_message = true
-show.commodity_definition_message = true
-show.commodity_status_message = true
+show.application_messages = true
 show.deal_type = true
-show.delete_order_message = true
-show.disaster_recovery_signal_message = true
-show.market_alert_message = true
-show.market_status_message = true
 show.message = true
-show.modify_order_message = true
 show.msg_header = true
 show.order_type = true
-show.orderbook_clear_message = true
 show.packet = true
 show.packet_header = true
-show.quote_request = true
-show.refresh_complete = true
-show.sequence_reset = true
-show.series_definition_base_message = true
-show.series_definition_extended_message = true
-show.series_status_message = true
-show.trade_amendment_message = true
 show.trade_condition = true
-show.trade_message = true
 
 -- Register Hkex Derivatives FullTick Omd 1.47 Show Options
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_calculated_opening_price_message = Pref.bool("Show Calculated Opening Price Message", show.calculated_opening_price_message, "Parse and add Calculated Opening Price Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_class_definition_message = Pref.bool("Show Class Definition Message", show.class_definition_message, "Parse and add Class Definition Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_combination_definition_message = Pref.bool("Show Combination Definition Message", show.combination_definition_message, "Parse and add Combination Definition Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_definition_message = Pref.bool("Show Commodity Definition Message", show.commodity_definition_message, "Parse and add Commodity Definition Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_status_message = Pref.bool("Show Commodity Status Message", show.commodity_status_message, "Parse and add Commodity Status Message to protocol tree")
+omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_deal_type = Pref.bool("Show Deal Type", show.deal_type, "Parse and add Deal Type to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_disaster_recovery_signal_message = Pref.bool("Show Disaster Recovery Signal Message", show.disaster_recovery_signal_message, "Parse and add Disaster Recovery Signal Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_alert_message = Pref.bool("Show Market Alert Message", show.market_alert_message, "Parse and add Market Alert Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_status_message = Pref.bool("Show Market Status Message", show.market_status_message, "Parse and add Market Status Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_order_type = Pref.bool("Show Order Type", show.order_type, "Parse and add Order Type to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_orderbook_clear_message = Pref.bool("Show Orderbook Clear Message", show.orderbook_clear_message, "Parse and add Orderbook Clear Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_quote_request = Pref.bool("Show Quote Request", show.quote_request, "Parse and add Quote Request to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_refresh_complete = Pref.bool("Show Refresh Complete", show.refresh_complete, "Parse and add Refresh Complete to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_sequence_reset = Pref.bool("Show Sequence Reset", show.sequence_reset, "Parse and add Sequence Reset to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_definition_base_message = Pref.bool("Show Series Definition Base Message", show.series_definition_base_message, "Parse and add Series Definition Base Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_definition_extended_message = Pref.bool("Show Series Definition Extended Message", show.series_definition_extended_message, "Parse and add Series Definition Extended Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_status_message = Pref.bool("Show Series Status Message", show.series_status_message, "Parse and add Series Status Message to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_amendment_message = Pref.bool("Show Trade Amendment Message", show.trade_amendment_message, "Parse and add Trade Amendment Message to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
-omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 
 -- Handle changed preferences
 function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_add_order_message then
-    show.add_order_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_add_order_message
-    changed = true
-  end
-  if show.calculated_opening_price_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_calculated_opening_price_message then
-    show.calculated_opening_price_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_calculated_opening_price_message
-    changed = true
-  end
-  if show.class_definition_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_class_definition_message then
-    show.class_definition_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_class_definition_message
-    changed = true
-  end
-  if show.combination_definition_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_combination_definition_message then
-    show.combination_definition_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_combination_definition_message
-    changed = true
-  end
-  if show.commodity_definition_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_definition_message then
-    show.commodity_definition_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_definition_message
-    changed = true
-  end
-  if show.commodity_status_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_status_message then
-    show.commodity_status_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_commodity_status_message
+  if show.application_messages ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_application_messages then
+    show.application_messages = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_application_messages
     changed = true
   end
   if show.deal_type ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_deal_type then
     show.deal_type = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_deal_type
     changed = true
   end
-  if show.delete_order_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_delete_order_message then
-    show.delete_order_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_delete_order_message
-    changed = true
-  end
-  if show.disaster_recovery_signal_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_disaster_recovery_signal_message then
-    show.disaster_recovery_signal_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_disaster_recovery_signal_message
-    changed = true
-  end
-  if show.market_alert_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_alert_message then
-    show.market_alert_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_alert_message
-    changed = true
-  end
-  if show.market_status_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_status_message then
-    show.market_status_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_market_status_message
-    changed = true
-  end
   if show.message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message then
     show.message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message
-    changed = true
-  end
-  if show.modify_order_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_modify_order_message then
-    show.modify_order_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_modify_order_message
     changed = true
   end
   if show.msg_header ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_msg_header then
@@ -298,10 +220,6 @@ function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
     show.order_type = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_order_type
     changed = true
   end
-  if show.orderbook_clear_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_orderbook_clear_message then
-    show.orderbook_clear_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_orderbook_clear_message
-    changed = true
-  end
   if show.packet ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet then
     show.packet = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet
     changed = true
@@ -310,40 +228,8 @@ function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
     show.packet_header = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet_header
     changed = true
   end
-  if show.quote_request ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_quote_request then
-    show.quote_request = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_quote_request
-    changed = true
-  end
-  if show.refresh_complete ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_refresh_complete then
-    show.refresh_complete = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_refresh_complete
-    changed = true
-  end
-  if show.sequence_reset ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_sequence_reset then
-    show.sequence_reset = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_sequence_reset
-    changed = true
-  end
-  if show.series_definition_base_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_definition_base_message then
-    show.series_definition_base_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_definition_base_message
-    changed = true
-  end
-  if show.series_definition_extended_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_definition_extended_message then
-    show.series_definition_extended_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_definition_extended_message
-    changed = true
-  end
-  if show.series_status_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_status_message then
-    show.series_status_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_series_status_message
-    changed = true
-  end
-  if show.trade_amendment_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_amendment_message then
-    show.trade_amendment_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_amendment_message
-    changed = true
-  end
   if show.trade_condition ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition then
     show.trade_condition = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition
-    changed = true
-  end
-  if show.trade_message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_message then
-    show.trade_message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_message
     changed = true
   end
 
@@ -3392,7 +3278,7 @@ end
 
 -- Dissect: Market Alert Message
 hkex_derivatives_fulltick_omd_v1_47.market_alert_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_alert_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_alert_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
@@ -3444,7 +3330,7 @@ end
 
 -- Dissect: Calculated Opening Price Message
 hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.calculated_opening_price_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.calculated_opening_price_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.calculated_opening_price_message.fields(buffer, offset, packet, parent)
@@ -3508,7 +3394,7 @@ end
 
 -- Dissect: Trade Amendment Message
 hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_amendment_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_amendment_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.trade_amendment_message.fields(buffer, offset, packet, parent)
@@ -3713,7 +3599,7 @@ end
 
 -- Dissect: Trade Message
 hkex_derivatives_fulltick_omd_v1_47.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.trade_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.trade_message.fields(buffer, offset, packet, parent)
@@ -3765,7 +3651,7 @@ end
 
 -- Dissect: Quote Request
 hkex_derivatives_fulltick_omd_v1_47.quote_request.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.quote_request, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.quote_request.fields(buffer, offset, packet, parent)
@@ -3805,7 +3691,7 @@ end
 
 -- Dissect: Orderbook Clear Message
 hkex_derivatives_fulltick_omd_v1_47.orderbook_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.orderbook_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.orderbook_clear_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.orderbook_clear_message.fields(buffer, offset, packet, parent)
@@ -3857,7 +3743,7 @@ end
 
 -- Dissect: Delete Order Message
 hkex_derivatives_fulltick_omd_v1_47.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.delete_order_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.delete_order_message.fields(buffer, offset, packet, parent)
@@ -4066,7 +3952,7 @@ end
 
 -- Dissect: Modify Order Message
 hkex_derivatives_fulltick_omd_v1_47.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.modify_order_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.modify_order_message.fields(buffer, offset, packet, parent)
@@ -4134,7 +4020,7 @@ end
 
 -- Dissect: Add Order Message
 hkex_derivatives_fulltick_omd_v1_47.add_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.add_order_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.add_order_message.fields(buffer, offset, packet, parent)
@@ -4182,7 +4068,7 @@ end
 
 -- Dissect: Commodity Status Message
 hkex_derivatives_fulltick_omd_v1_47.commodity_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.commodity_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.commodity_status_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.commodity_status_message.fields(buffer, offset, packet, parent)
@@ -4234,7 +4120,7 @@ end
 
 -- Dissect: Series Status Message
 hkex_derivatives_fulltick_omd_v1_47.series_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.series_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.series_status_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.series_status_message.fields(buffer, offset, packet, parent)
@@ -4326,7 +4212,7 @@ end
 
 -- Dissect: Market Status Message
 hkex_derivatives_fulltick_omd_v1_47.market_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.market_status_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.market_status_message.fields(buffer, offset, packet, parent)
@@ -4382,7 +4268,7 @@ end
 
 -- Dissect: Combination Definition Message
 hkex_derivatives_fulltick_omd_v1_47.combination_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.combination_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.combination_definition_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.combination_definition_message.fields(buffer, offset, packet, parent)
@@ -4494,7 +4380,7 @@ end
 
 -- Dissect: Series Definition Extended Message
 hkex_derivatives_fulltick_omd_v1_47.series_definition_extended_message.dissect = function(buffer, offset, packet, parent)
-  if show.series_definition_extended_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.series_definition_extended_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.series_definition_extended_message.fields(buffer, offset, packet, parent)
@@ -4570,7 +4456,7 @@ end
 
 -- Dissect: Series Definition Base Message
 hkex_derivatives_fulltick_omd_v1_47.series_definition_base_message.dissect = function(buffer, offset, packet, parent)
-  if show.series_definition_base_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.series_definition_base_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.series_definition_base_message.fields(buffer, offset, packet, parent)
@@ -4694,7 +4580,7 @@ end
 
 -- Dissect: Class Definition Message
 hkex_derivatives_fulltick_omd_v1_47.class_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.class_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.class_definition_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.class_definition_message.fields(buffer, offset, packet, parent)
@@ -4774,7 +4660,7 @@ end
 
 -- Dissect: Commodity Definition Message
 hkex_derivatives_fulltick_omd_v1_47.commodity_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.commodity_definition_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.commodity_definition_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.commodity_definition_message.fields(buffer, offset, packet, parent)
@@ -4814,7 +4700,7 @@ end
 
 -- Dissect: Refresh Complete
 hkex_derivatives_fulltick_omd_v1_47.refresh_complete.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_complete then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.refresh_complete, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.refresh_complete.fields(buffer, offset, packet, parent)
@@ -4854,7 +4740,7 @@ end
 
 -- Dissect: Disaster Recovery Signal Message
 hkex_derivatives_fulltick_omd_v1_47.disaster_recovery_signal_message.dissect = function(buffer, offset, packet, parent)
-  if show.disaster_recovery_signal_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.disaster_recovery_signal_message, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.disaster_recovery_signal_message.fields(buffer, offset, packet, parent)
@@ -4894,7 +4780,7 @@ end
 
 -- Dissect: Sequence Reset
 hkex_derivatives_fulltick_omd_v1_47.sequence_reset.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_reset then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.sequence_reset, buffer(offset, 0))
     local index = hkex_derivatives_fulltick_omd_v1_47.sequence_reset.fields(buffer, offset, packet, parent)

@@ -72,78 +72,34 @@ omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message
 local show = {}
 
 -- Memx Equities MemoirTopOfBook Sbe 1.3 Element Dissection Options
-show.best_bid_message = true
-show.best_bid_offer_message = true
-show.best_bid_short_message = true
-show.best_offer_message = true
-show.best_offer_short_message = true
-show.clear_book_message = true
+show.application_messages = true
 show.common_header = true
-show.instrument_directory_message = true
 show.message = true
 show.packet = true
-show.reg_sho_restriction_message = true
 show.sbe_header = true
 show.sbe_message = true
-show.security_trading_status_message = true
 show.sequenced_message = true
-show.snapshot_complete_message = true
-show.trading_session_status_message = true
 
 -- Register Memx Equities MemoirTopOfBook Sbe 1.3 Show Options
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message = Pref.bool("Show Best Bid Message", show.best_bid_message, "Parse and add Best Bid Message to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message = Pref.bool("Show Best Bid Offer Message", show.best_bid_offer_message, "Parse and add Best Bid Offer Message to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message = Pref.bool("Show Best Bid Short Message", show.best_bid_short_message, "Parse and add Best Bid Short Message to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message = Pref.bool("Show Best Offer Message", show.best_offer_message, "Parse and add Best Offer Message to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message = Pref.bool("Show Best Offer Short Message", show.best_offer_short_message, "Parse and add Best Offer Short Message to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
+omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
 omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message = Pref.bool("Show Reg Sho Restriction Message", show.reg_sho_restriction_message, "Parse and add Reg Sho Restriction Message to protocol tree")
 omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
 omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
 omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message = Pref.bool("Show Snapshot Complete Message", show.snapshot_complete_message, "Parse and add Snapshot Complete Message to protocol tree")
-omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message = Pref.bool("Show Trading Session Status Message", show.trading_session_status_message, "Parse and add Trading Session Status Message to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.best_bid_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message then
-    show.best_bid_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_message
-    changed = true
-  end
-  if show.best_bid_offer_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message then
-    show.best_bid_offer_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_offer_message
-    changed = true
-  end
-  if show.best_bid_short_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message then
-    show.best_bid_short_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_bid_short_message
-    changed = true
-  end
-  if show.best_offer_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message then
-    show.best_offer_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_message
-    changed = true
-  end
-  if show.best_offer_short_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message then
-    show.best_offer_short_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_best_offer_short_message
-    changed = true
-  end
-  if show.clear_book_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message then
-    show.clear_book_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_clear_book_message
+  if show.application_messages ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_application_messages then
+    show.application_messages = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_application_messages
     changed = true
   end
   if show.common_header ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header then
     show.common_header = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_common_header
-    changed = true
-  end
-  if show.instrument_directory_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_instrument_directory_message
     changed = true
   end
   if show.message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_message then
@@ -154,10 +110,6 @@ function omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
     show.packet = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_packet
     changed = true
   end
-  if show.reg_sho_restriction_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message then
-    show.reg_sho_restriction_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_reg_sho_restriction_message
-    changed = true
-  end
   if show.sbe_header ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header then
     show.sbe_header = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_header
     changed = true
@@ -166,20 +118,8 @@ function omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs_changed()
     show.sbe_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message
     changed = true
   end
-  if show.security_trading_status_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message then
-    show.security_trading_status_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_security_trading_status_message
-    changed = true
-  end
   if show.sequenced_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message then
     show.sequenced_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message
-    changed = true
-  end
-  if show.snapshot_complete_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message then
-    show.snapshot_complete_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_snapshot_complete_message
-    changed = true
-  end
-  if show.trading_session_status_message ~= omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message then
-    show.trading_session_status_message = omi_memx_equities_memoirtopofbook_sbe_v1_3.prefs.show_trading_session_status_message
     changed = true
   end
 
@@ -1124,7 +1064,7 @@ end
 
 -- Dissect: Clear Book Message
 memx_equities_memoirtopofbook_sbe_v1_3.clear_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.clear_book_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
@@ -1176,7 +1116,7 @@ end
 
 -- Dissect: Best Offer Short Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_offer_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_short_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.fields(buffer, offset, packet, parent)
@@ -1228,7 +1168,7 @@ end
 
 -- Dissect: Best Bid Short Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_short_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.fields(buffer, offset, packet, parent)
@@ -1280,7 +1220,7 @@ end
 
 -- Dissect: Best Offer Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.best_offer_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.best_offer_message.fields(buffer, offset, packet, parent)
@@ -1332,7 +1272,7 @@ end
 
 -- Dissect: Best Bid Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.best_bid_message.fields(buffer, offset, packet, parent)
@@ -1392,7 +1332,7 @@ end
 
 -- Dissect: Best Bid Offer Message
 memx_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_offer_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.fields(buffer, offset, packet, parent)
@@ -1436,7 +1376,7 @@ end
 
 -- Dissect: Trading Session Status Message
 memx_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_session_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
@@ -1480,7 +1420,7 @@ end
 
 -- Dissect: Snapshot Complete Message
 memx_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_complete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
@@ -1532,7 +1472,7 @@ end
 
 -- Dissect: Security Trading Status Message
 memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_trading_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.fields(buffer, offset, packet, parent)
@@ -1580,7 +1520,7 @@ end
 
 -- Dissect: Reg Sho Restriction Message
 memx_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.dissect = function(buffer, offset, packet, parent)
-  if show.reg_sho_restriction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
@@ -1644,7 +1584,7 @@ end
 
 -- Dissect: Instrument Directory Message
 memx_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
     local index = memx_equities_memoirtopofbook_sbe_v1_3.instrument_directory_message.fields(buffer, offset, packet, parent)

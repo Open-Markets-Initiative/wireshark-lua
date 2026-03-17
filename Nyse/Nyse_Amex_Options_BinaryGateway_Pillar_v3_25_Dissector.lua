@@ -247,196 +247,66 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_group_index = ProtoF
 local show = {}
 
 -- Nyse Amex Options BinaryGateway Pillar 3.25 Element Dissection Options
-show.application_layer_reject_message = true
+show.application_messages = true
 show.bitfield_flow_indicator = true
-show.bulk_cancel_request_type_223_message = true
-show.bulk_cancel_request_type_224_message = true
-show.bulk_quote_acknowledgment_message = true
-show.bulk_quote_acknowledgment_type_294_message = true
-show.close = true
-show.close_response = true
+show.session_messages = true
 show.complex_series_leg_group = true
-show.complex_series_request_acknowledgement_message = true
 show.covered = true
-show.execution_report_message = true
 show.exposed = true
-show.heartbeat = true
 show.leg_group = true
-show.login_message = true
-show.login_response = true
-show.minimum_price_variant_class_reference_data_message = true
-show.minimum_price_variant_level_reference_data_message = true
-show.mpid_configuration_message = true
 show.mpv_level_definition = true
 show.msg_header = true
-show.new_bulk_quote_type_243_message = true
-show.new_bulk_quote_type_259_message = true
-show.new_complex_series_request_message = true
-show.new_order_cross_message = true
-show.new_order_message = true
-show.open = true
-show.open_response = true
 show.optional_order_add_on = true
-show.options_market_maker_symbol_appointment_reference_data_message = true
-show.order_and_cancel_replace_acknowledgement_message = true
-show.order_cancel_request_message = true
-show.order_modify_request_message = true
-show.order_priority_update_acknowledgment_message = true
-show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = true
 show.ref_seq_msg_id = true
-show.risk_action_request_message = true
-show.risk_control_acknowledgement_message = true
-show.risk_control_alert_message = true
-show.risk_limit_update_request_message = true
-show.seq_msg = true
 show.seq_msg_header = true
 show.seq_msg_id = true
-show.series_reference_data_message = true
-show.session_configuration_acknowledgement_message = true
-show.session_configuration_request_message = true
-show.stream_avail = true
 show.stream_id = true
 show.sub_msg_header = true
-show.trade_bust_correct_message = true
-show.underlying_symbol_reference_data_message = true
 
 -- Register Nyse Amex Options BinaryGateway Pillar 3.25 Show Options
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_layer_reject_message = Pref.bool("Show Application Layer Reject Message", show.application_layer_reject_message, "Parse and add Application Layer Reject Message to protocol tree")
+omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_flow_indicator = Pref.bool("Show Bitfield Flow Indicator", show.bitfield_flow_indicator, "Parse and add Bitfield Flow Indicator to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_223_message = Pref.bool("Show Bulk Cancel Request Type 223 Message", show.bulk_cancel_request_type_223_message, "Parse and add Bulk Cancel Request Type 223 Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_224_message = Pref.bool("Show Bulk Cancel Request Type 224 Message", show.bulk_cancel_request_type_224_message, "Parse and add Bulk Cancel Request Type 224 Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_message = Pref.bool("Show Bulk Quote Acknowledgment Message", show.bulk_quote_acknowledgment_message, "Parse and add Bulk Quote Acknowledgment Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_type_294_message = Pref.bool("Show Bulk Quote Acknowledgment Type 294 Message", show.bulk_quote_acknowledgment_type_294_message, "Parse and add Bulk Quote Acknowledgment Type 294 Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close_response = Pref.bool("Show Close Response", show.close_response, "Parse and add Close Response to protocol tree")
+omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_leg_group = Pref.bool("Show Complex Series Leg Group", show.complex_series_leg_group, "Parse and add Complex Series Leg Group to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_request_acknowledgement_message = Pref.bool("Show Complex Series Request Acknowledgement Message", show.complex_series_request_acknowledgement_message, "Parse and add Complex Series Request Acknowledgement Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_covered = Pref.bool("Show Covered", show.covered, "Parse and add Covered to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_execution_report_message = Pref.bool("Show Execution Report Message", show.execution_report_message, "Parse and add Execution Report Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_exposed = Pref.bool("Show Exposed", show.exposed, "Parse and add Exposed to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_leg_group = Pref.bool("Show Leg Group", show.leg_group, "Parse and add Leg Group to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_login_message = Pref.bool("Show Login Message", show.login_message, "Parse and add Login Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_minimum_price_variant_class_reference_data_message = Pref.bool("Show Minimum Price Variant Class Reference Data Message", show.minimum_price_variant_class_reference_data_message, "Parse and add Minimum Price Variant Class Reference Data Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_minimum_price_variant_level_reference_data_message = Pref.bool("Show Minimum Price Variant Level Reference Data Message", show.minimum_price_variant_level_reference_data_message, "Parse and add Minimum Price Variant Level Reference Data Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_mpid_configuration_message = Pref.bool("Show Mpid Configuration Message", show.mpid_configuration_message, "Parse and add Mpid Configuration Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_bulk_quote_type_243_message = Pref.bool("Show New Bulk Quote Type 243 Message", show.new_bulk_quote_type_243_message, "Parse and add New Bulk Quote Type 243 Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_bulk_quote_type_259_message = Pref.bool("Show New Bulk Quote Type 259 Message", show.new_bulk_quote_type_259_message, "Parse and add New Bulk Quote Type 259 Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_complex_series_request_message = Pref.bool("Show New Complex Series Request Message", show.new_complex_series_request_message, "Parse and add New Complex Series Request Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_order_cross_message = Pref.bool("Show New Order Cross Message", show.new_order_cross_message, "Parse and add New Order Cross Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_open = Pref.bool("Show Open", show.open, "Parse and add Open to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_open_response = Pref.bool("Show Open Response", show.open_response, "Parse and add Open Response to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_options_market_maker_symbol_appointment_reference_data_message = Pref.bool("Show Options Market Maker Symbol Appointment Reference Data Message", show.options_market_maker_symbol_appointment_reference_data_message, "Parse and add Options Market Maker Symbol Appointment Reference Data Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_and_cancel_replace_acknowledgement_message = Pref.bool("Show Order And Cancel Replace Acknowledgement Message", show.order_and_cancel_replace_acknowledgement_message, "Parse and add Order And Cancel Replace Acknowledgement Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_cancel_request_message = Pref.bool("Show Order Cancel Request Message", show.order_cancel_request_message, "Parse and add Order Cancel Request Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_modify_request_message = Pref.bool("Show Order Modify Request Message", show.order_modify_request_message, "Parse and add Order Modify Request Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_priority_update_acknowledgment_message = Pref.bool("Show Order Priority Update Acknowledgment Message", show.order_priority_update_acknowledgment_message, "Parse and add Order Priority Update Acknowledgment Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = Pref.bool("Show Order Single Complex Modify Cancel Request Acknowledgment And Urout Message", show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message, "Parse and add Order Single Complex Modify Cancel Request Acknowledgment And Urout Message to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_action_request_message = Pref.bool("Show Risk Action Request Message", show.risk_action_request_message, "Parse and add Risk Action Request Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_acknowledgement_message = Pref.bool("Show Risk Control Acknowledgement Message", show.risk_control_acknowledgement_message, "Parse and add Risk Control Acknowledgement Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_alert_message = Pref.bool("Show Risk Control Alert Message", show.risk_control_alert_message, "Parse and add Risk Control Alert Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_limit_update_request_message = Pref.bool("Show Risk Limit Update Request Message", show.risk_limit_update_request_message, "Parse and add Risk Limit Update Request Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg = Pref.bool("Show Seq Msg", show.seq_msg, "Parse and add Seq Msg to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_series_reference_data_message = Pref.bool("Show Series Reference Data Message", show.series_reference_data_message, "Parse and add Series Reference Data Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_configuration_acknowledgement_message = Pref.bool("Show Session Configuration Acknowledgement Message", show.session_configuration_acknowledgement_message, "Parse and add Session Configuration Acknowledgement Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_configuration_request_message = Pref.bool("Show Session Configuration Request Message", show.session_configuration_request_message, "Parse and add Session Configuration Request Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_trade_bust_correct_message = Pref.bool("Show Trade Bust Correct Message", show.trade_bust_correct_message, "Parse and add Trade Bust Correct Message to protocol tree")
-omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_underlying_symbol_reference_data_message = Pref.bool("Show Underlying Symbol Reference Data Message", show.underlying_symbol_reference_data_message, "Parse and add Underlying Symbol Reference Data Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.application_layer_reject_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_layer_reject_message then
-    show.application_layer_reject_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_layer_reject_message
+  if show.application_messages ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_messages then
+    show.application_messages = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_messages
     changed = true
   end
   if show.bitfield_flow_indicator ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_flow_indicator then
     show.bitfield_flow_indicator = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_flow_indicator
     changed = true
   end
-  if show.bulk_cancel_request_type_223_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_223_message then
-    show.bulk_cancel_request_type_223_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_223_message
-    changed = true
-  end
-  if show.bulk_cancel_request_type_224_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_224_message then
-    show.bulk_cancel_request_type_224_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_cancel_request_type_224_message
-    changed = true
-  end
-  if show.bulk_quote_acknowledgment_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_message then
-    show.bulk_quote_acknowledgment_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_message
-    changed = true
-  end
-  if show.bulk_quote_acknowledgment_type_294_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_type_294_message then
-    show.bulk_quote_acknowledgment_type_294_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bulk_quote_acknowledgment_type_294_message
-    changed = true
-  end
-  if show.close ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close then
-    show.close = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close
-    changed = true
-  end
-  if show.close_response ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close_response then
-    show.close_response = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_close_response
-    changed = true
-  end
   if show.complex_series_leg_group ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_leg_group then
     show.complex_series_leg_group = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_leg_group
-    changed = true
-  end
-  if show.complex_series_request_acknowledgement_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_request_acknowledgement_message then
-    show.complex_series_request_acknowledgement_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_request_acknowledgement_message
     changed = true
   end
   if show.covered ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_covered then
     show.covered = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_covered
     changed = true
   end
-  if show.execution_report_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_execution_report_message then
-    show.execution_report_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_execution_report_message
-    changed = true
-  end
   if show.exposed ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_exposed then
     show.exposed = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_exposed
     changed = true
   end
-  if show.heartbeat ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_heartbeat then
-    show.heartbeat = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_heartbeat
-    changed = true
-  end
   if show.leg_group ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_leg_group then
     show.leg_group = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_leg_group
-    changed = true
-  end
-  if show.login_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_login_message then
-    show.login_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_login_message
-    changed = true
-  end
-  if show.login_response ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_login_response then
-    show.login_response = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_login_response
-    changed = true
-  end
-  if show.minimum_price_variant_class_reference_data_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_minimum_price_variant_class_reference_data_message then
-    show.minimum_price_variant_class_reference_data_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_minimum_price_variant_class_reference_data_message
-    changed = true
-  end
-  if show.minimum_price_variant_level_reference_data_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_minimum_price_variant_level_reference_data_message then
-    show.minimum_price_variant_level_reference_data_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_minimum_price_variant_level_reference_data_message
-    changed = true
-  end
-  if show.mpid_configuration_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_mpid_configuration_message then
-    show.mpid_configuration_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_mpid_configuration_message
     changed = true
   end
   if show.mpv_level_definition ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_mpv_level_definition then
@@ -447,84 +317,12 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
     show.msg_header = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_msg_header
     changed = true
   end
-  if show.new_bulk_quote_type_243_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_bulk_quote_type_243_message then
-    show.new_bulk_quote_type_243_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_bulk_quote_type_243_message
-    changed = true
-  end
-  if show.new_bulk_quote_type_259_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_bulk_quote_type_259_message then
-    show.new_bulk_quote_type_259_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_bulk_quote_type_259_message
-    changed = true
-  end
-  if show.new_complex_series_request_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_complex_series_request_message then
-    show.new_complex_series_request_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_complex_series_request_message
-    changed = true
-  end
-  if show.new_order_cross_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_order_cross_message then
-    show.new_order_cross_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_order_cross_message
-    changed = true
-  end
-  if show.new_order_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_order_message then
-    show.new_order_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_new_order_message
-    changed = true
-  end
-  if show.open ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_open then
-    show.open = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_open
-    changed = true
-  end
-  if show.open_response ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_open_response then
-    show.open_response = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_open_response
-    changed = true
-  end
   if show.optional_order_add_on ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_optional_order_add_on then
     show.optional_order_add_on = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_optional_order_add_on
     changed = true
   end
-  if show.options_market_maker_symbol_appointment_reference_data_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_options_market_maker_symbol_appointment_reference_data_message then
-    show.options_market_maker_symbol_appointment_reference_data_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_options_market_maker_symbol_appointment_reference_data_message
-    changed = true
-  end
-  if show.order_and_cancel_replace_acknowledgement_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_and_cancel_replace_acknowledgement_message then
-    show.order_and_cancel_replace_acknowledgement_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_and_cancel_replace_acknowledgement_message
-    changed = true
-  end
-  if show.order_cancel_request_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_cancel_request_message then
-    show.order_cancel_request_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_cancel_request_message
-    changed = true
-  end
-  if show.order_modify_request_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_modify_request_message then
-    show.order_modify_request_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_modify_request_message
-    changed = true
-  end
-  if show.order_priority_update_acknowledgment_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_priority_update_acknowledgment_message then
-    show.order_priority_update_acknowledgment_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_priority_update_acknowledgment_message
-    changed = true
-  end
-  if show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message then
-    show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message
-    changed = true
-  end
   if show.ref_seq_msg_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id then
     show.ref_seq_msg_id = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id
-    changed = true
-  end
-  if show.risk_action_request_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_action_request_message then
-    show.risk_action_request_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_action_request_message
-    changed = true
-  end
-  if show.risk_control_acknowledgement_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_acknowledgement_message then
-    show.risk_control_acknowledgement_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_acknowledgement_message
-    changed = true
-  end
-  if show.risk_control_alert_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_alert_message then
-    show.risk_control_alert_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_control_alert_message
-    changed = true
-  end
-  if show.risk_limit_update_request_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_limit_update_request_message then
-    show.risk_limit_update_request_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_risk_limit_update_request_message
-    changed = true
-  end
-  if show.seq_msg ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg then
-    show.seq_msg = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg
     changed = true
   end
   if show.seq_msg_header ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_header then
@@ -535,20 +333,8 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
     show.seq_msg_id = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_id
     changed = true
   end
-  if show.series_reference_data_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_series_reference_data_message then
-    show.series_reference_data_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_series_reference_data_message
-    changed = true
-  end
-  if show.session_configuration_acknowledgement_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_configuration_acknowledgement_message then
-    show.session_configuration_acknowledgement_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_configuration_acknowledgement_message
-    changed = true
-  end
-  if show.session_configuration_request_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_configuration_request_message then
-    show.session_configuration_request_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_configuration_request_message
-    changed = true
-  end
-  if show.stream_avail ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_avail then
-    show.stream_avail = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_avail
+  if show.session_messages ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_messages then
+    show.session_messages = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_messages
     changed = true
   end
   if show.stream_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_id then
@@ -557,14 +343,6 @@ function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
   end
   if show.sub_msg_header ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sub_msg_header then
     show.sub_msg_header = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sub_msg_header
-    changed = true
-  end
-  if show.trade_bust_correct_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_trade_bust_correct_message then
-    show.trade_bust_correct_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_trade_bust_correct_message
-    changed = true
-  end
-  if show.underlying_symbol_reference_data_message ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_underlying_symbol_reference_data_message then
-    show.underlying_symbol_reference_data_message = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_underlying_symbol_reference_data_message
     changed = true
   end
 
@@ -6647,7 +6425,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgem
   local index = offset + size_of_complex_series_request_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.complex_series_request_acknowledgement_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.complex_series_request_acknowledgement_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
     parent:set_len(size_of_complex_series_request_acknowledgement_message)
@@ -6772,7 +6550,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.dissect 
   local index = offset + size_of_risk_control_alert_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.risk_control_alert_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_alert_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.fields(buffer, offset, packet, parent, size_of_risk_control_alert_message)
     parent:set_len(size_of_risk_control_alert_message)
@@ -6915,7 +6693,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_messag
   local index = offset + size_of_risk_control_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.risk_control_acknowledgement_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_acknowledgement_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_risk_control_acknowledgement_message)
     parent:set_len(size_of_risk_control_acknowledgement_message)
@@ -6986,7 +6764,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.di
   local index = offset + size_of_application_layer_reject_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.application_layer_reject_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.application_layer_reject_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.fields(buffer, offset, packet, parent, size_of_application_layer_reject_message)
     parent:set_len(size_of_application_layer_reject_message)
@@ -7157,7 +6935,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.dissect 
   local index = offset + size_of_trade_bust_correct_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_bust_correct_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.trade_bust_correct_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.fields(buffer, offset, packet, parent, size_of_trade_bust_correct_message)
     parent:set_len(size_of_trade_bust_correct_message)
@@ -7417,7 +7195,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.dissect = 
   local index = offset + size_of_execution_report_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.execution_report_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.execution_report_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.fields(buffer, offset, packet, parent, size_of_execution_report_message)
     parent:set_len(size_of_execution_report_message)
@@ -7497,7 +7275,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgmen
   local index = offset + size_of_order_priority_update_acknowledgment_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_priority_update_acknowledgment_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_priority_update_acknowledgment_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_order_priority_update_acknowledgment_message)
     parent:set_len(size_of_order_priority_update_acknowledgment_message)
@@ -7650,7 +7428,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_
   local index = offset + size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.fields(buffer, offset, packet, parent, size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
     parent:set_len(size_of_order_single_complex_modify_cancel_request_acknowledgment_and_urout_message)
@@ -7727,7 +7505,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.d
   local index = offset + size_of_bulk_quote_acknowledgment_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.bulk_quote_acknowledgment_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_quote_acknowledgment_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_message)
     parent:set_len(size_of_bulk_quote_acknowledgment_message)
@@ -7804,7 +7582,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_
   local index = offset + size_of_bulk_quote_acknowledgment_type_294_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.bulk_quote_acknowledgment_type_294_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_quote_acknowledgment_type_294_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_type_294_message)
     parent:set_len(size_of_bulk_quote_acknowledgment_type_294_message)
@@ -7929,7 +7707,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledg
   local index = offset + size_of_order_and_cancel_replace_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_and_cancel_replace_acknowledgement_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_and_cancel_replace_acknowledgement_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_order_and_cancel_replace_acknowledgement_message)
     parent:set_len(size_of_order_and_cancel_replace_acknowledgement_message)
@@ -8024,7 +7802,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgeme
   local index = offset + size_of_session_configuration_acknowledgement_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.session_configuration_acknowledgement_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.session_configuration_acknowledgement_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_session_configuration_acknowledgement_message)
     parent:set_len(size_of_session_configuration_acknowledgement_message)
@@ -8095,7 +7873,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appoint
   local index = offset + size_of_options_market_maker_symbol_appointment_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.options_market_maker_symbol_appointment_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.options_market_maker_symbol_appointment_reference_data_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message.fields(buffer, offset, packet, parent, size_of_options_market_maker_symbol_appointment_reference_data_message)
     parent:set_len(size_of_options_market_maker_symbol_appointment_reference_data_message)
@@ -8157,7 +7935,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.dissect 
   local index = offset + size_of_mpid_configuration_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.mpid_configuration_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpid_configuration_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.fields(buffer, offset, packet, parent, size_of_mpid_configuration_message)
     parent:set_len(size_of_mpid_configuration_message)
@@ -8271,7 +8049,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_referen
   local index = offset + size_of_minimum_price_variant_level_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.minimum_price_variant_level_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.minimum_price_variant_level_reference_data_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_level_reference_data_message)
     parent:set_len(size_of_minimum_price_variant_level_reference_data_message)
@@ -8327,7 +8105,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_referen
   local index = offset + size_of_minimum_price_variant_class_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.minimum_price_variant_class_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.minimum_price_variant_class_reference_data_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message.fields(buffer, offset, packet, parent, size_of_minimum_price_variant_class_reference_data_message)
     parent:set_len(size_of_minimum_price_variant_class_reference_data_message)
@@ -8404,7 +8182,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.disse
   local index = offset + size_of_series_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.series_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_reference_data_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.fields(buffer, offset, packet, parent, size_of_series_reference_data_message)
     parent:set_len(size_of_series_reference_data_message)
@@ -8481,7 +8259,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_me
   local index = offset + size_of_underlying_symbol_reference_data_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.underlying_symbol_reference_data_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.underlying_symbol_reference_data_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.underlying_symbol_reference_data_message.fields(buffer, offset, packet, parent, size_of_underlying_symbol_reference_data_message)
     parent:set_len(size_of_underlying_symbol_reference_data_message)
@@ -8590,7 +8368,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.
   local index = offset + size_of_new_complex_series_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_complex_series_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_complex_series_request_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.fields(buffer, offset, packet, parent, size_of_new_complex_series_request_message)
     parent:set_len(size_of_new_complex_series_request_message)
@@ -8676,7 +8454,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.dissect
   local index = offset + size_of_risk_action_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.risk_action_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_action_request_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.fields(buffer, offset, packet, parent, size_of_risk_action_request_message)
     parent:set_len(size_of_risk_action_request_message)
@@ -8786,7 +8564,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.d
   local index = offset + size_of_risk_limit_update_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.risk_limit_update_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_limit_update_request_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.fields(buffer, offset, packet, parent, size_of_risk_limit_update_request_message)
     parent:set_len(size_of_risk_limit_update_request_message)
@@ -8860,7 +8638,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_messag
   local index = offset + size_of_bulk_cancel_request_type_224_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.bulk_cancel_request_type_224_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_cancel_request_type_224_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_224_message)
     parent:set_len(size_of_bulk_cancel_request_type_224_message)
@@ -8940,7 +8718,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_messag
   local index = offset + size_of_bulk_cancel_request_type_223_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.bulk_cancel_request_type_223_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_cancel_request_type_223_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_223_message.fields(buffer, offset, packet, parent, size_of_bulk_cancel_request_type_223_message)
     parent:set_len(size_of_bulk_cancel_request_type_223_message)
@@ -9278,7 +9056,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.dissect = f
   local index = offset + size_of_new_order_cross_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_cross_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_order_cross_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.new_order_cross_message.fields(buffer, offset, packet, parent, size_of_new_order_cross_message)
     parent:set_len(size_of_new_order_cross_message)
@@ -9349,7 +9127,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.dis
   local index = offset + size_of_new_bulk_quote_type_259_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_bulk_quote_type_259_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_bulk_quote_type_259_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_259_message.fields(buffer, offset, packet, parent, size_of_new_bulk_quote_type_259_message)
     parent:set_len(size_of_new_bulk_quote_type_259_message)
@@ -9420,7 +9198,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.dis
   local index = offset + size_of_new_bulk_quote_type_243_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_bulk_quote_type_243_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_bulk_quote_type_243_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.new_bulk_quote_type_243_message.fields(buffer, offset, packet, parent, size_of_new_bulk_quote_type_243_message)
     parent:set_len(size_of_new_bulk_quote_type_243_message)
@@ -9488,7 +9266,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.dissec
   local index = offset + size_of_order_modify_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_modify_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_modify_request_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.order_modify_request_message.fields(buffer, offset, packet, parent, size_of_order_modify_request_message)
     parent:set_len(size_of_order_modify_request_message)
@@ -9547,7 +9325,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.dissec
   local index = offset + size_of_order_cancel_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_cancel_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_cancel_request_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.order_cancel_request_message.fields(buffer, offset, packet, parent, size_of_order_cancel_request_message)
     parent:set_len(size_of_order_cancel_request_message)
@@ -9645,7 +9423,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.dissect = functio
   local index = offset + size_of_new_order_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.new_order_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.new_order_message.fields(buffer, offset, packet, parent, size_of_new_order_message)
     parent:set_len(size_of_new_order_message)
@@ -9713,7 +9491,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_messa
   local index = offset + size_of_session_configuration_request_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.session_configuration_request_message then
+  if show.application_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.session_configuration_request_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_request_message.fields(buffer, offset, packet, parent, size_of_session_configuration_request_message)
     parent:set_len(size_of_session_configuration_request_message)
@@ -10046,7 +9824,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.dissect = function(buffer, 
   local index = offset + size_of_seq_msg
 
   -- Optionally add group/struct element to protocol tree
-  if show.seq_msg then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
     parent:set_len(size_of_seq_msg)
@@ -10102,7 +9880,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.close_response.dissect = function(b
   local index = offset + size_of_close_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.close_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.close_response, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
     parent:set_len(size_of_close_response)
@@ -10155,7 +9933,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.close.dissect = function(buffer, of
   local index = offset + size_of_close
 
   -- Optionally add group/struct element to protocol tree
-  if show.close then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.close, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.close.fields(buffer, offset, packet, parent, size_of_close)
     parent:set_len(size_of_close)
@@ -10214,7 +9992,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.open_response.dissect = function(bu
   local index = offset + size_of_open_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.open_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.open_response, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
     parent:set_len(size_of_open_response)
@@ -10279,7 +10057,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.open.dissect = function(buffer, off
   local index = offset + size_of_open
 
   -- Optionally add group/struct element to protocol tree
-  if show.open then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.open, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.open.fields(buffer, offset, packet, parent, size_of_open)
     parent:set_len(size_of_open)
@@ -10329,7 +10107,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.dissect = function(buffer
   local index = offset + size_of_heartbeat
 
   -- Optionally add group/struct element to protocol tree
-  if show.heartbeat then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.heartbeat, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
     parent:set_len(size_of_heartbeat)
@@ -10388,7 +10166,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.dissect = function(buf
   local index = offset + size_of_stream_avail
 
   -- Optionally add group/struct element to protocol tree
-  if show.stream_avail then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.stream_avail, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
     parent:set_len(size_of_stream_avail)
@@ -10444,7 +10222,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.login_response.dissect = function(b
   local index = offset + size_of_login_response
 
   -- Optionally add group/struct element to protocol tree
-  if show.login_response then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.login_response, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
     parent:set_len(size_of_login_response)
@@ -10506,7 +10284,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.login_message.dissect = function(bu
   local index = offset + size_of_login_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.login_message then
+  if show.session_messages then
     parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.login_message, buffer(offset, 0))
     local current = nyse_amex_options_binarygateway_pillar_v3_25.login_message.fields(buffer, offset, packet, parent, size_of_login_message)
     parent:set_len(size_of_login_message)

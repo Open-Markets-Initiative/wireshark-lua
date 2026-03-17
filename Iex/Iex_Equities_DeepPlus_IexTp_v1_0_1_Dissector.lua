@@ -93,62 +93,32 @@ omi_iex_equities_deepplus_iextp_v1_0_1.fields.message_index = ProtoField.new("Me
 local show = {}
 
 -- Iex Equities DeepPlus IexTp 1.0.1 Element Dissection Options
-show.add_order_message = true
-show.clear_book_message = true
+show.application_messages = true
 show.iextp_header = true
 show.message = true
 show.message_header = true
 show.modify_flags = true
-show.operational_halt_status_message = true
-show.order_delete_message = true
-show.order_executed_message = true
-show.order_modify_message = true
 show.packet = true
-show.retail_liquidity_indicator_message = true
 show.sale_condition_flags = true
 show.security_directory_flags = true
-show.security_directory_message = true
-show.security_event_message = true
-show.short_sale_price_test_status_message = true
-show.system_event_message = true
-show.trade_break_message = true
-show.trade_message = true
-show.trading_status_message = true
 
 -- Register Iex Equities DeepPlus IexTp 1.0.1 Show Options
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message = Pref.bool("Show Clear Book Message", show.clear_book_message, "Parse and add Clear Book Message to protocol tree")
+omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_iextp_header = Pref.bool("Show Iextp Header", show.iextp_header, "Parse and add Iextp Header to protocol tree")
 omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message = Pref.bool("Show Operational Halt Status Message", show.operational_halt_status_message, "Parse and add Operational Halt Status Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message = Pref.bool("Show Order Modify Message", show.order_modify_message, "Parse and add Order Modify Message to protocol tree")
 omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message = Pref.bool("Show Retail Liquidity Indicator Message", show.retail_liquidity_indicator_message, "Parse and add Retail Liquidity Indicator Message to protocol tree")
 omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_sale_condition_flags = Pref.bool("Show Sale Condition Flags", show.sale_condition_flags, "Parse and add Sale Condition Flags to protocol tree")
 omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message = Pref.bool("Show Security Directory Message", show.security_directory_message, "Parse and add Security Directory Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message = Pref.bool("Show Security Event Message", show.security_event_message, "Parse and add Security Event Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message = Pref.bool("Show Short Sale Price Test Status Message", show.short_sale_price_test_status_message, "Parse and add Short Sale Price Test Status Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
 
 -- Handle changed preferences
 function omi_iex_equities_deepplus_iextp_v1_0_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message then
-    show.add_order_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_add_order_message
-    changed = true
-  end
-  if show.clear_book_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message then
-    show.clear_book_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_clear_book_message
+  if show.application_messages ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_application_messages then
+    show.application_messages = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_application_messages
     changed = true
   end
   if show.iextp_header ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_iextp_header then
@@ -167,28 +137,8 @@ function omi_iex_equities_deepplus_iextp_v1_0_1.prefs_changed()
     show.modify_flags = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_modify_flags
     changed = true
   end
-  if show.operational_halt_status_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message then
-    show.operational_halt_status_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_operational_halt_status_message
-    changed = true
-  end
-  if show.order_delete_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message then
-    show.order_delete_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_delete_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message then
-    show.order_executed_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_modify_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message then
-    show.order_modify_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_order_modify_message
-    changed = true
-  end
   if show.packet ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet then
     show.packet = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_packet
-    changed = true
-  end
-  if show.retail_liquidity_indicator_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message then
-    show.retail_liquidity_indicator_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_retail_liquidity_indicator_message
     changed = true
   end
   if show.sale_condition_flags ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_sale_condition_flags then
@@ -197,34 +147,6 @@ function omi_iex_equities_deepplus_iextp_v1_0_1.prefs_changed()
   end
   if show.security_directory_flags ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags then
     show.security_directory_flags = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_flags
-    changed = true
-  end
-  if show.security_directory_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message then
-    show.security_directory_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_directory_message
-    changed = true
-  end
-  if show.security_event_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message then
-    show.security_event_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_security_event_message
-    changed = true
-  end
-  if show.short_sale_price_test_status_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message then
-    show.short_sale_price_test_status_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_short_sale_price_test_status_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message then
-    show.system_event_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_system_event_message
-    changed = true
-  end
-  if show.trade_break_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message then
-    show.trade_break_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_break_message
-    changed = true
-  end
-  if show.trade_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message then
-    show.trade_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trade_message
-    changed = true
-  end
-  if show.trading_status_message ~= omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message then
-    show.trading_status_message = omi_iex_equities_deepplus_iextp_v1_0_1.prefs.show_trading_status_message
     changed = true
   end
 
@@ -1191,7 +1113,7 @@ end
 
 -- Dissect: Clear Book Message
 iex_equities_deepplus_iextp_v1_0_1.clear_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.clear_book_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.clear_book_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.clear_book_message.fields(buffer, offset, packet, parent)
@@ -1322,7 +1244,7 @@ end
 
 -- Dissect: Trade Break Message
 iex_equities_deepplus_iextp_v1_0_1.trade_break_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_break_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_break_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.trade_break_message.fields(buffer, offset, packet, parent)
@@ -1382,7 +1304,7 @@ end
 
 -- Dissect: Trade Message
 iex_equities_deepplus_iextp_v1_0_1.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trade_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.trade_message.fields(buffer, offset, packet, parent)
@@ -1446,7 +1368,7 @@ end
 
 -- Dissect: Order Executed Message
 iex_equities_deepplus_iextp_v1_0_1.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_executed_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.order_executed_message.fields(buffer, offset, packet, parent)
@@ -1498,7 +1420,7 @@ end
 
 -- Dissect: Order Delete Message
 iex_equities_deepplus_iextp_v1_0_1.order_delete_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_delete_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_delete_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.order_delete_message.fields(buffer, offset, packet, parent)
@@ -1601,7 +1523,7 @@ end
 
 -- Dissect: Order Modify Message
 iex_equities_deepplus_iextp_v1_0_1.order_modify_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_modify_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.order_modify_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.order_modify_message.fields(buffer, offset, packet, parent)
@@ -1661,7 +1583,7 @@ end
 
 -- Dissect: Add Order Message
 iex_equities_deepplus_iextp_v1_0_1.add_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.add_order_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.add_order_message.fields(buffer, offset, packet, parent)
@@ -1709,7 +1631,7 @@ end
 
 -- Dissect: Security Event Message
 iex_equities_deepplus_iextp_v1_0_1.security_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_event_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.security_event_message.fields(buffer, offset, packet, parent)
@@ -1761,7 +1683,7 @@ end
 
 -- Dissect: Short Sale Price Test Status Message
 iex_equities_deepplus_iextp_v1_0_1.short_sale_price_test_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_sale_price_test_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.short_sale_price_test_status_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.short_sale_price_test_status_message.fields(buffer, offset, packet, parent)
@@ -1809,7 +1731,7 @@ end
 
 -- Dissect: Operational Halt Status Message
 iex_equities_deepplus_iextp_v1_0_1.operational_halt_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.operational_halt_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.operational_halt_status_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.operational_halt_status_message.fields(buffer, offset, packet, parent)
@@ -1857,7 +1779,7 @@ end
 
 -- Dissect: Retail Liquidity Indicator Message
 iex_equities_deepplus_iextp_v1_0_1.retail_liquidity_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.retail_liquidity_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.retail_liquidity_indicator_message.fields(buffer, offset, packet, parent)
@@ -1909,7 +1831,7 @@ end
 
 -- Dissect: Trading Status Message
 iex_equities_deepplus_iextp_v1_0_1.trading_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.trading_status_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.trading_status_message.fields(buffer, offset, packet, parent)
@@ -2026,7 +1948,7 @@ end
 
 -- Dissect: Security Directory Message
 iex_equities_deepplus_iextp_v1_0_1.security_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.security_directory_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.security_directory_message.fields(buffer, offset, packet, parent)
@@ -2070,7 +1992,7 @@ end
 
 -- Dissect: System Event Message
 iex_equities_deepplus_iextp_v1_0_1.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_deepplus_iextp_v1_0_1.fields.system_event_message, buffer(offset, 0))
     local index = iex_equities_deepplus_iextp_v1_0_1.system_event_message.fields(buffer, offset, packet, parent)

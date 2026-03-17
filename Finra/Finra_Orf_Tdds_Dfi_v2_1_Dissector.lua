@@ -118,20 +118,11 @@ local show = {}
 -- Finra Orf Tdds Dfi 2.1 Element Dissection Options
 show.action_datetime = true
 show.administrative = true
-show.closing_trade_summary_report_message = true
+show.application_messages = true
 show.control = true
 show.corrected_trade_information = true
 show.datetime = true
-show.end_of_day_message = true
-show.end_of_retransmission_requests_message = true
-show.end_of_trade_reporting_message = true
-show.end_of_transmissions_message = true
 show.execution_datetime = true
-show.general_administrative_message = true
-show.line_integrity_message = true
-show.market_session_close_message = true
-show.market_session_open_message = true
-show.market_wide_circuit_breaker_event_message = true
 show.message = true
 show.message_header = true
 show.mold_udp64 = true
@@ -139,34 +130,18 @@ show.original_dissemination_date = true
 show.original_trade_information = true
 show.packet = true
 show.packet_header = true
-show.sequence_number_reset_message = true
-show.start_of_day_message = true
 show.trade = true
-show.trade_cancel_error_message = true
-show.trade_correction_message = true
 show.trade_information = true
-show.trade_report_long_form_message = true
-show.trade_report_short_form_message = true
 show.trade_summary_information = true
-show.trading_action_message = true
 
 -- Register Finra Orf Tdds Dfi 2.1 Show Options
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message = Pref.bool("Show Closing Trade Summary Report Message", show.closing_trade_summary_report_message, "Parse and add Closing Trade Summary Report Message to protocol tree")
+omi_finra_orf_tdds_dfi_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_corrected_trade_information = Pref.bool("Show Corrected Trade Information", show.corrected_trade_information, "Parse and add Corrected Trade Information to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_datetime = Pref.bool("Show Datetime", show.datetime, "Parse and add Datetime to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message = Pref.bool("Show End Of Day Message", show.end_of_day_message, "Parse and add End Of Day Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message = Pref.bool("Show End Of Retransmission Requests Message", show.end_of_retransmission_requests_message, "Parse and add End Of Retransmission Requests Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message = Pref.bool("Show End Of Trade Reporting Message", show.end_of_trade_reporting_message, "Parse and add End Of Trade Reporting Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message = Pref.bool("Show End Of Transmissions Message", show.end_of_transmissions_message, "Parse and add End Of Transmissions Message to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime = Pref.bool("Show Execution Datetime", show.execution_datetime, "Parse and add Execution Datetime to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message = Pref.bool("Show General Administrative Message", show.general_administrative_message, "Parse and add General Administrative Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message = Pref.bool("Show Market Session Close Message", show.market_session_close_message, "Parse and add Market Session Close Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message = Pref.bool("Show Market Session Open Message", show.market_session_open_message, "Parse and add Market Session Open Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message = Pref.bool("Show Market Wide Circuit Breaker Event Message", show.market_wide_circuit_breaker_event_message, "Parse and add Market Wide Circuit Breaker Event Message to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_mold_udp64 = Pref.bool("Show Mold Udp64", show.mold_udp64, "Parse and add Mold Udp64 to protocol tree")
@@ -174,16 +149,9 @@ omi_finra_orf_tdds_dfi_v2_1.prefs.show_original_dissemination_date = Pref.bool("
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_original_trade_information = Pref.bool("Show Original Trade Information", show.original_trade_information, "Parse and add Original Trade Information to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message = Pref.bool("Show Start Of Day Message", show.start_of_day_message, "Parse and add Start Of Day Message to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message = Pref.bool("Show Trade Cancel Error Message", show.trade_cancel_error_message, "Parse and add Trade Cancel Error Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_information = Pref.bool("Show Trade Information", show.trade_information, "Parse and add Trade Information to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message = Pref.bool("Show Trade Report Long Form Message", show.trade_report_long_form_message, "Parse and add Trade Report Long Form Message to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message = Pref.bool("Show Trade Report Short Form Message", show.trade_report_short_form_message, "Parse and add Trade Report Short Form Message to protocol tree")
 omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information = Pref.bool("Show Trade Summary Information", show.trade_summary_information, "Parse and add Trade Summary Information to protocol tree")
-omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message = Pref.bool("Show Trading Action Message", show.trading_action_message, "Parse and add Trading Action Message to protocol tree")
 
 -- Handle changed preferences
 function omi_finra_orf_tdds_dfi_v2_1.prefs_changed()
@@ -198,8 +166,8 @@ function omi_finra_orf_tdds_dfi_v2_1.prefs_changed()
     show.administrative = omi_finra_orf_tdds_dfi_v2_1.prefs.show_administrative
     changed = true
   end
-  if show.closing_trade_summary_report_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message then
-    show.closing_trade_summary_report_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_closing_trade_summary_report_message
+  if show.application_messages ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_application_messages then
+    show.application_messages = omi_finra_orf_tdds_dfi_v2_1.prefs.show_application_messages
     changed = true
   end
   if show.control ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_control then
@@ -214,44 +182,8 @@ function omi_finra_orf_tdds_dfi_v2_1.prefs_changed()
     show.datetime = omi_finra_orf_tdds_dfi_v2_1.prefs.show_datetime
     changed = true
   end
-  if show.end_of_day_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message then
-    show.end_of_day_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_day_message
-    changed = true
-  end
-  if show.end_of_retransmission_requests_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message then
-    show.end_of_retransmission_requests_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_retransmission_requests_message
-    changed = true
-  end
-  if show.end_of_trade_reporting_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message then
-    show.end_of_trade_reporting_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_trade_reporting_message
-    changed = true
-  end
-  if show.end_of_transmissions_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message then
-    show.end_of_transmissions_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_end_of_transmissions_message
-    changed = true
-  end
   if show.execution_datetime ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime then
     show.execution_datetime = omi_finra_orf_tdds_dfi_v2_1.prefs.show_execution_datetime
-    changed = true
-  end
-  if show.general_administrative_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message then
-    show.general_administrative_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_general_administrative_message
-    changed = true
-  end
-  if show.line_integrity_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message then
-    show.line_integrity_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_line_integrity_message
-    changed = true
-  end
-  if show.market_session_close_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message then
-    show.market_session_close_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_close_message
-    changed = true
-  end
-  if show.market_session_open_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message then
-    show.market_session_open_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_session_open_message
-    changed = true
-  end
-  if show.market_wide_circuit_breaker_event_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message then
-    show.market_wide_circuit_breaker_event_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_market_wide_circuit_breaker_event_message
     changed = true
   end
   if show.message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_message then
@@ -282,44 +214,16 @@ function omi_finra_orf_tdds_dfi_v2_1.prefs_changed()
     show.packet_header = omi_finra_orf_tdds_dfi_v2_1.prefs.show_packet_header
     changed = true
   end
-  if show.sequence_number_reset_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_sequence_number_reset_message
-    changed = true
-  end
-  if show.start_of_day_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message then
-    show.start_of_day_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_start_of_day_message
-    changed = true
-  end
   if show.trade ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade then
     show.trade = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade
-    changed = true
-  end
-  if show.trade_cancel_error_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message then
-    show.trade_cancel_error_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_cancel_error_message
-    changed = true
-  end
-  if show.trade_correction_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message then
-    show.trade_correction_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_correction_message
     changed = true
   end
   if show.trade_information ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_information then
     show.trade_information = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_information
     changed = true
   end
-  if show.trade_report_long_form_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message then
-    show.trade_report_long_form_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_long_form_message
-    changed = true
-  end
-  if show.trade_report_short_form_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message then
-    show.trade_report_short_form_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_report_short_form_message
-    changed = true
-  end
   if show.trade_summary_information ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information then
     show.trade_summary_information = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trade_summary_information
-    changed = true
-  end
-  if show.trading_action_message ~= omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message then
-    show.trading_action_message = omi_finra_orf_tdds_dfi_v2_1.prefs.show_trading_action_message
     changed = true
   end
 
@@ -2027,7 +1931,7 @@ end
 
 -- Dissect: End Of Trade Reporting Message
 finra_orf_tdds_dfi_v2_1.end_of_trade_reporting_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_trade_reporting_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.end_of_trade_reporting_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.end_of_trade_reporting_message.fields(buffer, offset, packet, parent)
@@ -2067,7 +1971,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 finra_orf_tdds_dfi_v2_1.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -2107,7 +2011,7 @@ end
 
 -- Dissect: Line Integrity Message
 finra_orf_tdds_dfi_v2_1.line_integrity_message.dissect = function(buffer, offset, packet, parent)
-  if show.line_integrity_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.line_integrity_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.line_integrity_message.fields(buffer, offset, packet, parent)
@@ -2147,7 +2051,7 @@ end
 
 -- Dissect: End Of Transmissions Message
 finra_orf_tdds_dfi_v2_1.end_of_transmissions_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_transmissions_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.end_of_transmissions_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.end_of_transmissions_message.fields(buffer, offset, packet, parent)
@@ -2187,7 +2091,7 @@ end
 
 -- Dissect: End Of Retransmission Requests Message
 finra_orf_tdds_dfi_v2_1.end_of_retransmission_requests_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_retransmission_requests_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.end_of_retransmission_requests_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.end_of_retransmission_requests_message.fields(buffer, offset, packet, parent)
@@ -2227,7 +2131,7 @@ end
 
 -- Dissect: Market Session Close Message
 finra_orf_tdds_dfi_v2_1.market_session_close_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_session_close_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.market_session_close_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.market_session_close_message.fields(buffer, offset, packet, parent)
@@ -2267,7 +2171,7 @@ end
 
 -- Dissect: Market Session Open Message
 finra_orf_tdds_dfi_v2_1.market_session_open_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_session_open_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.market_session_open_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.market_session_open_message.fields(buffer, offset, packet, parent)
@@ -2307,7 +2211,7 @@ end
 
 -- Dissect: End Of Day Message
 finra_orf_tdds_dfi_v2_1.end_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_day_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.end_of_day_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.end_of_day_message.fields(buffer, offset, packet, parent)
@@ -2347,7 +2251,7 @@ end
 
 -- Dissect: Start Of Day Message
 finra_orf_tdds_dfi_v2_1.start_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_day_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.start_of_day_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.start_of_day_message.fields(buffer, offset, packet, parent)
@@ -2561,7 +2465,7 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Event Message
 finra_orf_tdds_dfi_v2_1.market_wide_circuit_breaker_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_wide_circuit_breaker_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.market_wide_circuit_breaker_event_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.market_wide_circuit_breaker_event_message.fields(buffer, offset, packet, parent)
@@ -2617,7 +2521,7 @@ end
 
 -- Dissect: Trading Action Message
 finra_orf_tdds_dfi_v2_1.trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trading_action_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.trading_action_message.fields(buffer, offset, packet, parent)
@@ -2713,7 +2617,7 @@ end
 
 -- Dissect: Closing Trade Summary Report Message
 finra_orf_tdds_dfi_v2_1.closing_trade_summary_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.closing_trade_summary_report_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.closing_trade_summary_report_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.closing_trade_summary_report_message.fields(buffer, offset, packet, parent)
@@ -2757,7 +2661,7 @@ end
 
 -- Dissect: General Administrative Message
 finra_orf_tdds_dfi_v2_1.general_administrative_message.dissect = function(buffer, offset, packet, parent)
-  if show.general_administrative_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.general_administrative_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.general_administrative_message.fields(buffer, offset, packet, parent)
@@ -3243,7 +3147,7 @@ end
 
 -- Dissect: Trade Correction Message
 finra_orf_tdds_dfi_v2_1.trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_correction_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_correction_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.trade_correction_message.fields(buffer, offset, packet, parent)
@@ -3303,7 +3207,7 @@ end
 
 -- Dissect: Trade Cancel Error Message
 finra_orf_tdds_dfi_v2_1.trade_cancel_error_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_error_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_cancel_error_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.trade_cancel_error_message.fields(buffer, offset, packet, parent)
@@ -3439,7 +3343,7 @@ end
 
 -- Dissect: Trade Report Long Form Message
 finra_orf_tdds_dfi_v2_1.trade_report_long_form_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_report_long_form_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_report_long_form_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.trade_report_long_form_message.fields(buffer, offset, packet, parent)
@@ -3503,7 +3407,7 @@ end
 
 -- Dissect: Trade Report Short Form Message
 finra_orf_tdds_dfi_v2_1.trade_report_short_form_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_report_short_form_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_orf_tdds_dfi_v2_1.fields.trade_report_short_form_message, buffer(offset, 0))
     local index = finra_orf_tdds_dfi_v2_1.trade_report_short_form_message.fields(buffer, offset, packet, parent)

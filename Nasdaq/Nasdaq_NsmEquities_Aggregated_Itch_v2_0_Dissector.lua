@@ -108,64 +108,26 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_index = ProtoField.ne
 local show = {}
 
 -- Nasdaq NsmEquities Aggregated Itch 2.0 Element Dissection Options
-show.direct_listing_with_capital_raise_price_discovery_message = true
-show.ipo_quoting_period_update_message = true
-show.luld_auction_collar_message = true
-show.market_participant_position_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
-show.mwcb_decline_level_message = true
-show.mwcb_status_message = true
-show.net_order_imbalance_indicator_message = true
-show.operational_halt_message = true
 show.packet = true
 show.packet_header = true
-show.price_level_update_message = true
-show.reg_sho_short_sale_price_test_restricted_indicator_message = true
-show.retail_price_improvement_indicator_message = true
-show.stock_directory_message = true
-show.stock_trading_action_message = true
-show.system_event_message = true
 
 -- Register Nasdaq NsmEquities Aggregated Itch 2.0 Show Options
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_direct_listing_with_capital_raise_price_discovery_message = Pref.bool("Show Direct Listing With Capital Raise Price Discovery Message", show.direct_listing_with_capital_raise_price_discovery_message, "Parse and add Direct Listing With Capital Raise Price Discovery Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_ipo_quoting_period_update_message = Pref.bool("Show Ipo Quoting Period Update Message", show.ipo_quoting_period_update_message, "Parse and add Ipo Quoting Period Update Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_luld_auction_collar_message = Pref.bool("Show Luld Auction Collar Message", show.luld_auction_collar_message, "Parse and add Luld Auction Collar Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_mwcb_status_message = Pref.bool("Show Mwcb Status Message", show.mwcb_status_message, "Parse and add Mwcb Status Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_operational_halt_message = Pref.bool("Show Operational Halt Message", show.operational_halt_message, "Parse and add Operational Halt Message to protocol tree")
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_price_level_update_message = Pref.bool("Show Price Level Update Message", show.price_level_update_message, "Parse and add Price Level Update Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator Message", show.reg_sho_short_sale_price_test_restricted_indicator_message, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_retail_price_improvement_indicator_message = Pref.bool("Show Retail Price Improvement Indicator Message", show.retail_price_improvement_indicator_message, "Parse and add Retail Price Improvement Indicator Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.direct_listing_with_capital_raise_price_discovery_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_direct_listing_with_capital_raise_price_discovery_message then
-    show.direct_listing_with_capital_raise_price_discovery_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_direct_listing_with_capital_raise_price_discovery_message
-    changed = true
-  end
-  if show.ipo_quoting_period_update_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_ipo_quoting_period_update_message then
-    show.ipo_quoting_period_update_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_ipo_quoting_period_update_message
-    changed = true
-  end
-  if show.luld_auction_collar_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_luld_auction_collar_message then
-    show.luld_auction_collar_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_luld_auction_collar_message
-    changed = true
-  end
-  if show.market_participant_position_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_market_participant_position_message then
-    show.market_participant_position_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_market_participant_position_message
+  if show.application_messages ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_message then
@@ -176,52 +138,12 @@ function omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs_changed()
     show.message_header = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_message_header
     changed = true
   end
-  if show.mwcb_decline_level_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_mwcb_decline_level_message then
-    show.mwcb_decline_level_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_mwcb_decline_level_message
-    changed = true
-  end
-  if show.mwcb_status_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_mwcb_status_message then
-    show.mwcb_status_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_mwcb_status_message
-    changed = true
-  end
-  if show.net_order_imbalance_indicator_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_net_order_imbalance_indicator_message then
-    show.net_order_imbalance_indicator_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_net_order_imbalance_indicator_message
-    changed = true
-  end
-  if show.operational_halt_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_operational_halt_message then
-    show.operational_halt_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_operational_halt_message
-    changed = true
-  end
   if show.packet ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_packet then
     show.packet = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_packet_header
-    changed = true
-  end
-  if show.price_level_update_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_price_level_update_message then
-    show.price_level_update_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_price_level_update_message
-    changed = true
-  end
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message then
-    show.reg_sho_short_sale_price_test_restricted_indicator_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator_message
-    changed = true
-  end
-  if show.retail_price_improvement_indicator_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_retail_price_improvement_indicator_message then
-    show.retail_price_improvement_indicator_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_retail_price_improvement_indicator_message
-    changed = true
-  end
-  if show.stock_directory_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_stock_directory_message then
-    show.stock_directory_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_stock_directory_message
-    changed = true
-  end
-  if show.stock_trading_action_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_stock_trading_action_message then
-    show.stock_trading_action_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_stock_trading_action_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_system_event_message then
-    show.system_event_message = omi_nasdaq_nsmequities_aggregated_itch_v2_0.prefs.show_system_event_message
     changed = true
   end
 
@@ -2573,7 +2495,7 @@ end
 
 -- Dissect: Direct Listing With Capital Raise Price Discovery Message
 nasdaq_nsmequities_aggregated_itch_v2_0.direct_listing_with_capital_raise_price_discovery_message.dissect = function(buffer, offset, packet, parent)
-  if show.direct_listing_with_capital_raise_price_discovery_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.direct_listing_with_capital_raise_price_discovery_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.direct_listing_with_capital_raise_price_discovery_message.fields(buffer, offset, packet, parent)
@@ -2625,7 +2547,7 @@ end
 
 -- Dissect: Retail Price Improvement Indicator Message
 nasdaq_nsmequities_aggregated_itch_v2_0.retail_price_improvement_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.retail_price_improvement_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.retail_price_improvement_indicator_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.retail_price_improvement_indicator_message.fields(buffer, offset, packet, parent)
@@ -2705,7 +2627,7 @@ end
 
 -- Dissect: Net Order Imbalance Indicator Message
 nasdaq_nsmequities_aggregated_itch_v2_0.net_order_imbalance_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.net_order_imbalance_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
@@ -2773,7 +2695,7 @@ end
 
 -- Dissect: Price Level Update Message
 nasdaq_nsmequities_aggregated_itch_v2_0.price_level_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_level_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.price_level_update_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.price_level_update_message.fields(buffer, offset, packet, parent)
@@ -2829,7 +2751,7 @@ end
 
 -- Dissect: Operational Halt Message
 nasdaq_nsmequities_aggregated_itch_v2_0.operational_halt_message.dissect = function(buffer, offset, packet, parent)
-  if show.operational_halt_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.operational_halt_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.operational_halt_message.fields(buffer, offset, packet, parent)
@@ -2893,7 +2815,7 @@ end
 
 -- Dissect: Luld Auction Collar Message
 nasdaq_nsmequities_aggregated_itch_v2_0.luld_auction_collar_message.dissect = function(buffer, offset, packet, parent)
-  if show.luld_auction_collar_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.luld_auction_collar_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.luld_auction_collar_message.fields(buffer, offset, packet, parent)
@@ -2953,7 +2875,7 @@ end
 
 -- Dissect: Ipo Quoting Period Update Message
 nasdaq_nsmequities_aggregated_itch_v2_0.ipo_quoting_period_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.ipo_quoting_period_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.ipo_quoting_period_update_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.ipo_quoting_period_update_message.fields(buffer, offset, packet, parent)
@@ -3001,7 +2923,7 @@ end
 
 -- Dissect: Mwcb Status Message
 nasdaq_nsmequities_aggregated_itch_v2_0.mwcb_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.mwcb_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.mwcb_status_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.mwcb_status_message.fields(buffer, offset, packet, parent)
@@ -3057,7 +2979,7 @@ end
 
 -- Dissect: Mwcb Decline Level Message
 nasdaq_nsmequities_aggregated_itch_v2_0.mwcb_decline_level_message.dissect = function(buffer, offset, packet, parent)
-  if show.mwcb_decline_level_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.mwcb_decline_level_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.mwcb_decline_level_message.fields(buffer, offset, packet, parent)
@@ -3121,7 +3043,7 @@ end
 
 -- Dissect: Market Participant Position Message
 nasdaq_nsmequities_aggregated_itch_v2_0.market_participant_position_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_participant_position_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.market_participant_position_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.market_participant_position_message.fields(buffer, offset, packet, parent)
@@ -3173,7 +3095,7 @@ end
 
 -- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_nsmequities_aggregated_itch_v2_0.reg_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
@@ -3229,7 +3151,7 @@ end
 
 -- Dissect: Stock Trading Action Message
 nasdaq_nsmequities_aggregated_itch_v2_0.stock_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_trading_action_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.stock_trading_action_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.stock_trading_action_message.fields(buffer, offset, packet, parent)
@@ -3329,7 +3251,7 @@ end
 
 -- Dissect: Stock Directory Message
 nasdaq_nsmequities_aggregated_itch_v2_0.stock_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.stock_directory_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.stock_directory_message.fields(buffer, offset, packet, parent)
@@ -3377,7 +3299,7 @@ end
 
 -- Dissect: System Event Message
 nasdaq_nsmequities_aggregated_itch_v2_0.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.system_event_message, buffer(offset, 0))
     local index = nasdaq_nsmequities_aggregated_itch_v2_0.system_event_message.fields(buffer, offset, packet, parent)

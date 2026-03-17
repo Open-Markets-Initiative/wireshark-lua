@@ -202,178 +202,38 @@ omi_box_options_sola_unicast_hsvf_v4_5_1.fields.market_depth_level_index = Proto
 local show = {}
 
 -- Box Options Sola Unicast Hsvf 4.5.1 Element Dissection Options
-show.beginning_of_complex_order_summary_message = true
-show.beginning_of_options_summary_message = true
-show.bulletins_message = true
-show.circuit_assurance_message = true
+show.application_messages = true
 show.complex_market_depth_level = true
-show.complex_order_group_status_message = true
-show.complex_order_improvement_process_beginning_message_message = true
-show.complex_order_initial_and_improvement_order_message = true
-show.complex_order_instrument_keys_message = true
-show.complex_order_instrument_trade_message = true
-show.complex_order_market_depth_message = true
-show.complex_order_market_sheet_initial_and_improvement_order_message = true
-show.complex_order_quote_message = true
-show.complex_order_summary_message = true
-show.complex_order_trade_cancellation_message = true
-show.connection_message = true
-show.end_of_sales_message = true
-show.end_of_transmission_message = true
-show.gap_sequence_message = true
-show.group_opening_time_message = true
-show.group_status_message = true
-show.initial_and_improvement_order_message = true
 show.instrument_description = true
 show.instrument_leg = true
 show.market_depth_level = true
 show.market_flow_indicator = true
-show.market_sheet_initial_and_improvement_order_message = true
 show.message_header = true
-show.option_improvement_process_beginning_message = true
-show.option_instrument_keys_message = true
 show.option_marker = true
-show.option_market_depth_message = true
-show.option_quote_message = true
-show.option_request_for_quote_message = true
-show.option_summary_message = true
-show.option_trade_cancellation_message = true
-show.option_trade_message = true
 show.packet = true
-show.system_timestamp_message = true
 
 -- Register Box Options Sola Unicast Hsvf 4.5.1 Show Options
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message = Pref.bool("Show Beginning Of Complex Order Summary Message", show.beginning_of_complex_order_summary_message, "Parse and add Beginning Of Complex Order Summary Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message = Pref.bool("Show Beginning Of Options Summary Message", show.beginning_of_options_summary_message, "Parse and add Beginning Of Options Summary Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_bulletins_message = Pref.bool("Show Bulletins Message", show.bulletins_message, "Parse and add Bulletins Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message = Pref.bool("Show Circuit Assurance Message", show.circuit_assurance_message, "Parse and add Circuit Assurance Message to protocol tree")
+omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level = Pref.bool("Show Complex Market Depth Level", show.complex_market_depth_level, "Parse and add Complex Market Depth Level to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message = Pref.bool("Show Complex Order Group Status Message", show.complex_order_group_status_message, "Parse and add Complex Order Group Status Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message = Pref.bool("Show Complex Order Improvement Process Beginning Message Message", show.complex_order_improvement_process_beginning_message_message, "Parse and add Complex Order Improvement Process Beginning Message Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message = Pref.bool("Show Complex Order Initial And Improvement Order Message", show.complex_order_initial_and_improvement_order_message, "Parse and add Complex Order Initial And Improvement Order Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message = Pref.bool("Show Complex Order Instrument Keys Message", show.complex_order_instrument_keys_message, "Parse and add Complex Order Instrument Keys Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message = Pref.bool("Show Complex Order Instrument Trade Message", show.complex_order_instrument_trade_message, "Parse and add Complex Order Instrument Trade Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message = Pref.bool("Show Complex Order Market Depth Message", show.complex_order_market_depth_message, "Parse and add Complex Order Market Depth Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message = Pref.bool("Show Complex Order Market Sheet Initial And Improvement Order Message", show.complex_order_market_sheet_initial_and_improvement_order_message, "Parse and add Complex Order Market Sheet Initial And Improvement Order Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message = Pref.bool("Show Complex Order Quote Message", show.complex_order_quote_message, "Parse and add Complex Order Quote Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message = Pref.bool("Show Complex Order Summary Message", show.complex_order_summary_message, "Parse and add Complex Order Summary Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message = Pref.bool("Show Complex Order Trade Cancellation Message", show.complex_order_trade_cancellation_message, "Parse and add Complex Order Trade Cancellation Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_connection_message = Pref.bool("Show Connection Message", show.connection_message, "Parse and add Connection Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message = Pref.bool("Show End Of Sales Message", show.end_of_sales_message, "Parse and add End Of Sales Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message = Pref.bool("Show End Of Transmission Message", show.end_of_transmission_message, "Parse and add End Of Transmission Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message = Pref.bool("Show Gap Sequence Message", show.gap_sequence_message, "Parse and add Gap Sequence Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message = Pref.bool("Show Group Opening Time Message", show.group_opening_time_message, "Parse and add Group Opening Time Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_status_message = Pref.bool("Show Group Status Message", show.group_status_message, "Parse and add Group Status Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message = Pref.bool("Show Initial And Improvement Order Message", show.initial_and_improvement_order_message, "Parse and add Initial And Improvement Order Message to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description = Pref.bool("Show Instrument Description", show.instrument_description, "Parse and add Instrument Description to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level = Pref.bool("Show Market Depth Level", show.market_depth_level, "Parse and add Market Depth Level to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator = Pref.bool("Show Market Flow Indicator", show.market_flow_indicator, "Parse and add Market Flow Indicator to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message = Pref.bool("Show Market Sheet Initial And Improvement Order Message", show.market_sheet_initial_and_improvement_order_message, "Parse and add Market Sheet Initial And Improvement Order Message to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message = Pref.bool("Show Option Improvement Process Beginning Message", show.option_improvement_process_beginning_message, "Parse and add Option Improvement Process Beginning Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message = Pref.bool("Show Option Instrument Keys Message", show.option_instrument_keys_message, "Parse and add Option Instrument Keys Message to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker = Pref.bool("Show Option Marker", show.option_marker, "Parse and add Option Marker to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message = Pref.bool("Show Option Market Depth Message", show.option_market_depth_message, "Parse and add Option Market Depth Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_quote_message = Pref.bool("Show Option Quote Message", show.option_quote_message, "Parse and add Option Quote Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message = Pref.bool("Show Option Request For Quote Message", show.option_request_for_quote_message, "Parse and add Option Request For Quote Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_summary_message = Pref.bool("Show Option Summary Message", show.option_summary_message, "Parse and add Option Summary Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message = Pref.bool("Show Option Trade Cancellation Message", show.option_trade_cancellation_message, "Parse and add Option Trade Cancellation Message to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_message = Pref.bool("Show Option Trade Message", show.option_trade_message, "Parse and add Option Trade Message to protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message = Pref.bool("Show System Timestamp Message", show.system_timestamp_message, "Parse and add System Timestamp Message to protocol tree")
 
 -- Handle changed preferences
 function omi_box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.beginning_of_complex_order_summary_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message then
-    show.beginning_of_complex_order_summary_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message
-    changed = true
-  end
-  if show.beginning_of_options_summary_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message then
-    show.beginning_of_options_summary_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message
-    changed = true
-  end
-  if show.bulletins_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_bulletins_message then
-    show.bulletins_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_bulletins_message
-    changed = true
-  end
-  if show.circuit_assurance_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message then
-    show.circuit_assurance_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message
+  if show.application_messages ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_application_messages then
+    show.application_messages = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_application_messages
     changed = true
   end
   if show.complex_market_depth_level ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level then
     show.complex_market_depth_level = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level
-    changed = true
-  end
-  if show.complex_order_group_status_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message then
-    show.complex_order_group_status_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message
-    changed = true
-  end
-  if show.complex_order_improvement_process_beginning_message_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message then
-    show.complex_order_improvement_process_beginning_message_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message
-    changed = true
-  end
-  if show.complex_order_initial_and_improvement_order_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message then
-    show.complex_order_initial_and_improvement_order_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message
-    changed = true
-  end
-  if show.complex_order_instrument_keys_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message then
-    show.complex_order_instrument_keys_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message
-    changed = true
-  end
-  if show.complex_order_instrument_trade_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message then
-    show.complex_order_instrument_trade_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message
-    changed = true
-  end
-  if show.complex_order_market_depth_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message then
-    show.complex_order_market_depth_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message
-    changed = true
-  end
-  if show.complex_order_market_sheet_initial_and_improvement_order_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message then
-    show.complex_order_market_sheet_initial_and_improvement_order_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message
-    changed = true
-  end
-  if show.complex_order_quote_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message then
-    show.complex_order_quote_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message
-    changed = true
-  end
-  if show.complex_order_summary_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message then
-    show.complex_order_summary_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message
-    changed = true
-  end
-  if show.complex_order_trade_cancellation_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message then
-    show.complex_order_trade_cancellation_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message
-    changed = true
-  end
-  if show.connection_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_connection_message then
-    show.connection_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_connection_message
-    changed = true
-  end
-  if show.end_of_sales_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message then
-    show.end_of_sales_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message
-    changed = true
-  end
-  if show.end_of_transmission_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message then
-    show.end_of_transmission_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message
-    changed = true
-  end
-  if show.gap_sequence_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message then
-    show.gap_sequence_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message
-    changed = true
-  end
-  if show.group_opening_time_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message then
-    show.group_opening_time_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message
-    changed = true
-  end
-  if show.group_status_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_status_message then
-    show.group_status_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_status_message
-    changed = true
-  end
-  if show.initial_and_improvement_order_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message then
-    show.initial_and_improvement_order_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message
     changed = true
   end
   if show.instrument_description ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description then
@@ -392,56 +252,16 @@ function omi_box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
     show.market_flow_indicator = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator
     changed = true
   end
-  if show.market_sheet_initial_and_improvement_order_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message then
-    show.market_sheet_initial_and_improvement_order_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message
-    changed = true
-  end
   if show.message_header ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header then
     show.message_header = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header
-    changed = true
-  end
-  if show.option_improvement_process_beginning_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message then
-    show.option_improvement_process_beginning_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message
-    changed = true
-  end
-  if show.option_instrument_keys_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message then
-    show.option_instrument_keys_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message
     changed = true
   end
   if show.option_marker ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker then
     show.option_marker = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker
     changed = true
   end
-  if show.option_market_depth_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message then
-    show.option_market_depth_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message
-    changed = true
-  end
-  if show.option_quote_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_quote_message then
-    show.option_quote_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_quote_message
-    changed = true
-  end
-  if show.option_request_for_quote_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message then
-    show.option_request_for_quote_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message
-    changed = true
-  end
-  if show.option_summary_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_summary_message then
-    show.option_summary_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_summary_message
-    changed = true
-  end
-  if show.option_trade_cancellation_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message then
-    show.option_trade_cancellation_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message
-    changed = true
-  end
-  if show.option_trade_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_message then
-    show.option_trade_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_message
-    changed = true
-  end
   if show.packet ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet then
     show.packet = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet
-    changed = true
-  end
-  if show.system_timestamp_message ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message then
-    show.system_timestamp_message = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message
     changed = true
   end
 
@@ -4354,7 +4174,7 @@ end
 
 -- Dissect: Complex Order Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_initial_and_improvement_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_initial_and_improvement_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_initial_and_improvement_order_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_initial_and_improvement_order_message.fields(buffer, offset, packet, parent)
@@ -4482,7 +4302,7 @@ end
 
 -- Dissect: Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.initial_and_improvement_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.initial_and_improvement_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.initial_and_improvement_order_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.initial_and_improvement_order_message.fields(buffer, offset, packet, parent)
@@ -4582,7 +4402,7 @@ end
 
 -- Dissect: Complex Order Market Sheet Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_improvement_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_market_sheet_initial_and_improvement_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_market_sheet_initial_and_improvement_order_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_improvement_order_message.fields(buffer, offset, packet, parent)
@@ -4678,7 +4498,7 @@ end
 
 -- Dissect: Market Sheet Initial And Improvement Order Message
 box_options_sola_unicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_sheet_initial_and_improvement_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.market_sheet_initial_and_improvement_order_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_order_message.fields(buffer, offset, packet, parent)
@@ -4766,7 +4586,7 @@ end
 
 -- Dissect: Complex Order Improvement Process Beginning Message Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_improvement_process_beginning_message_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_improvement_process_beginning_message_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_improvement_process_beginning_message_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_improvement_process_beginning_message_message.fields(buffer, offset, packet, parent)
@@ -4854,7 +4674,7 @@ end
 
 -- Dissect: Option Improvement Process Beginning Message
 box_options_sola_unicast_hsvf_v4_5_1.option_improvement_process_beginning_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_improvement_process_beginning_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_improvement_process_beginning_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_improvement_process_beginning_message.fields(buffer, offset, packet, parent)
@@ -4898,7 +4718,7 @@ end
 
 -- Dissect: End Of Sales Message
 box_options_sola_unicast_hsvf_v4_5_1.end_of_sales_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_sales_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_sales_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.end_of_sales_message.fields(buffer, offset, packet, parent)
@@ -4950,7 +4770,7 @@ end
 
 -- Dissect: Bulletins Message
 box_options_sola_unicast_hsvf_v4_5_1.bulletins_message.dissect = function(buffer, offset, packet, parent)
-  if show.bulletins_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.bulletins_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.bulletins_message.fields(buffer, offset, packet, parent)
@@ -4998,7 +4818,7 @@ end
 
 -- Dissect: Complex Order Group Status Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_group_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_group_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_group_status_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_group_status_message.fields(buffer, offset, packet, parent)
@@ -5046,7 +4866,7 @@ end
 
 -- Dissect: Group Status Message
 box_options_sola_unicast_hsvf_v4_5_1.group_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.group_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.group_status_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.group_status_message.fields(buffer, offset, packet, parent)
@@ -5098,7 +4918,7 @@ end
 
 -- Dissect: Group Opening Time Message
 box_options_sola_unicast_hsvf_v4_5_1.group_opening_time_message.dissect = function(buffer, offset, packet, parent)
-  if show.group_opening_time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.group_opening_time_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.group_opening_time_message.fields(buffer, offset, packet, parent)
@@ -5138,7 +4958,7 @@ end
 
 -- Dissect: Beginning Of Complex Order Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.beginning_of_complex_order_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.beginning_of_complex_order_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_complex_order_summary_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.beginning_of_complex_order_summary_message.fields(buffer, offset, packet, parent)
@@ -5178,7 +4998,7 @@ end
 
 -- Dissect: Beginning Of Options Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.beginning_of_options_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.beginning_of_options_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_options_summary_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.beginning_of_options_summary_message.fields(buffer, offset, packet, parent)
@@ -5318,7 +5138,7 @@ end
 
 -- Dissect: Complex Order Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_summary_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_summary_message.fields(buffer, offset, packet, parent)
@@ -5502,7 +5322,7 @@ end
 
 -- Dissect: Option Summary Message
 box_options_sola_unicast_hsvf_v4_5_1.option_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_summary_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_summary_message.fields(buffer, offset, packet, parent)
@@ -5710,7 +5530,7 @@ end
 
 -- Dissect: Complex Order Instrument Keys Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_keys_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_instrument_keys_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_keys_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_keys_message.fields(buffer, offset, packet, parent)
@@ -5862,7 +5682,7 @@ end
 
 -- Dissect: Option Instrument Keys Message
 box_options_sola_unicast_hsvf_v4_5_1.option_instrument_keys_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_instrument_keys_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_instrument_keys_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_instrument_keys_message.fields(buffer, offset, packet, parent)
@@ -5934,7 +5754,7 @@ end
 
 -- Dissect: Complex Order Trade Cancellation Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_trade_cancellation_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_trade_cancellation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_trade_cancellation_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_trade_cancellation_message.fields(buffer, offset, packet, parent)
@@ -6010,7 +5830,7 @@ end
 
 -- Dissect: Option Trade Cancellation Message
 box_options_sola_unicast_hsvf_v4_5_1.option_trade_cancellation_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_trade_cancellation_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_trade_cancellation_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_trade_cancellation_message.fields(buffer, offset, packet, parent)
@@ -6165,7 +5985,7 @@ end
 
 -- Dissect: Complex Order Market Depth Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_market_depth_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_market_depth_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_depth_message.fields(buffer, offset, packet, parent)
@@ -6312,7 +6132,7 @@ end
 
 -- Dissect: Option Market Depth Message
 box_options_sola_unicast_hsvf_v4_5_1.option_market_depth_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_market_depth_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_market_depth_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_market_depth_message.fields(buffer, offset, packet, parent)
@@ -6400,7 +6220,7 @@ end
 
 -- Dissect: Complex Order Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_quote_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_quote_message.fields(buffer, offset, packet, parent)
@@ -6484,7 +6304,7 @@ end
 
 -- Dissect: Option Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.option_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_quote_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_quote_message.fields(buffer, offset, packet, parent)
@@ -6532,7 +6352,7 @@ end
 
 -- Dissect: Option Request For Quote Message
 box_options_sola_unicast_hsvf_v4_5_1.option_request_for_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_request_for_quote_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_request_for_quote_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_request_for_quote_message.fields(buffer, offset, packet, parent)
@@ -6616,7 +6436,7 @@ end
 
 -- Dissect: Complex Order Instrument Trade Message
 box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_order_instrument_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_trade_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_order_instrument_trade_message.fields(buffer, offset, packet, parent)
@@ -6704,7 +6524,7 @@ end
 
 -- Dissect: Option Trade Message
 box_options_sola_unicast_hsvf_v4_5_1.option_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_trade_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_trade_message.fields(buffer, offset, packet, parent)
@@ -6744,7 +6564,7 @@ end
 
 -- Dissect: System Timestamp Message
 box_options_sola_unicast_hsvf_v4_5_1.system_timestamp_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_timestamp_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.system_timestamp_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.system_timestamp_message.fields(buffer, offset, packet, parent)
@@ -6784,7 +6604,7 @@ end
 
 -- Dissect: Gap Sequence Message
 box_options_sola_unicast_hsvf_v4_5_1.gap_sequence_message.dissect = function(buffer, offset, packet, parent)
-  if show.gap_sequence_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.gap_sequence_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.gap_sequence_message.fields(buffer, offset, packet, parent)
@@ -6824,7 +6644,7 @@ end
 
 -- Dissect: Circuit Assurance Message
 box_options_sola_unicast_hsvf_v4_5_1.circuit_assurance_message.dissect = function(buffer, offset, packet, parent)
-  if show.circuit_assurance_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.circuit_assurance_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.circuit_assurance_message.fields(buffer, offset, packet, parent)
@@ -6868,7 +6688,7 @@ end
 
 -- Dissect: End Of Transmission Message
 box_options_sola_unicast_hsvf_v4_5_1.end_of_transmission_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_transmission_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_transmission_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.end_of_transmission_message.fields(buffer, offset, packet, parent)
@@ -6944,7 +6764,7 @@ end
 
 -- Dissect: Connection Message
 box_options_sola_unicast_hsvf_v4_5_1.connection_message.dissect = function(buffer, offset, packet, parent)
-  if show.connection_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.connection_message, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.connection_message.fields(buffer, offset, packet, parent)

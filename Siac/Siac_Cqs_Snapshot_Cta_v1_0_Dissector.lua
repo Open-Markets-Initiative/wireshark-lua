@@ -101,27 +101,19 @@ local show = {}
 
 -- Siac Cqs Snapshot Cta 1.0 Element Dissection Options
 show.block_header = true
-show.consolidated_snapshot_message = true
-show.finra_snapshot_message = true
-show.line_integrity_message = true
-show.market_wide_circuit_breaker_decline_level_status_snapshot_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
 show.packet = true
-show.participant_snapshot_message = true
 show.sip_block_timestamp = true
 show.snapshot = true
 
 -- Register Siac Cqs Snapshot Cta 1.0 Show Options
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message = Pref.bool("Show Consolidated Snapshot Message", show.consolidated_snapshot_message, "Parse and add Consolidated Snapshot Message to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message = Pref.bool("Show Finra Snapshot Message", show.finra_snapshot_message, "Parse and add Finra Snapshot Message to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message = Pref.bool("Show Line Integrity Message", show.line_integrity_message, "Parse and add Line Integrity Message to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message = Pref.bool("Show Market Wide Circuit Breaker Decline Level Status Snapshot Message", show.market_wide_circuit_breaker_decline_level_status_snapshot_message, "Parse and add Market Wide Circuit Breaker Decline Level Status Snapshot Message to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message = Pref.bool("Show Participant Snapshot Message", show.participant_snapshot_message, "Parse and add Participant Snapshot Message to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot = Pref.bool("Show Snapshot", show.snapshot, "Parse and add Snapshot to protocol tree")
 
@@ -130,24 +122,12 @@ function omi_siac_cqs_snapshot_cta_v1_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages then
+    show.application_messages = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages
+    changed = true
+  end
   if show.block_header ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header then
     show.block_header = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header
-    changed = true
-  end
-  if show.consolidated_snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message then
-    show.consolidated_snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_consolidated_snapshot_message
-    changed = true
-  end
-  if show.finra_snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message then
-    show.finra_snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_finra_snapshot_message
-    changed = true
-  end
-  if show.line_integrity_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message then
-    show.line_integrity_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_line_integrity_message
-    changed = true
-  end
-  if show.market_wide_circuit_breaker_decline_level_status_snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message then
-    show.market_wide_circuit_breaker_decline_level_status_snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_market_wide_circuit_breaker_decline_level_status_snapshot_message
     changed = true
   end
   if show.message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message then
@@ -160,10 +140,6 @@ function omi_siac_cqs_snapshot_cta_v1_0.prefs_changed()
   end
   if show.packet ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet then
     show.packet = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet
-    changed = true
-  end
-  if show.participant_snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message then
-    show.participant_snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_participant_snapshot_message
     changed = true
   end
   if show.sip_block_timestamp ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp then
@@ -2452,7 +2428,7 @@ siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.dissect = function(buffer, off
   local index = offset + size_of_finra_snapshot_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.finra_snapshot_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message, buffer(offset, 0))
     local current = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.fields(buffer, offset, packet, parent, size_of_finra_snapshot_message)
     parent:set_len(size_of_finra_snapshot_message)
@@ -2541,7 +2517,7 @@ siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.dissect = function(buffe
   local index = offset + size_of_participant_snapshot_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.participant_snapshot_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message, buffer(offset, 0))
     local current = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.fields(buffer, offset, packet, parent, size_of_participant_snapshot_message)
     parent:set_len(size_of_participant_snapshot_message)
@@ -2663,7 +2639,7 @@ siac_cqs_snapshot_cta_v1_0.consolidated_snapshot_message.dissect = function(buff
   local index = offset + size_of_consolidated_snapshot_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.consolidated_snapshot_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.consolidated_snapshot_message, buffer(offset, 0))
     local current = siac_cqs_snapshot_cta_v1_0.consolidated_snapshot_message.fields(buffer, offset, packet, parent, size_of_consolidated_snapshot_message)
     parent:set_len(size_of_consolidated_snapshot_message)
@@ -2725,7 +2701,7 @@ siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snap
   local index = offset + size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.market_wide_circuit_breaker_decline_level_status_snapshot_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message, buffer(offset, 0))
     local current = siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snapshot_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message)
     parent:set_len(size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message)
@@ -2775,7 +2751,7 @@ siac_cqs_snapshot_cta_v1_0.line_integrity_message.dissect = function(buffer, off
   local index = offset + size_of_line_integrity_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.line_integrity_message then
+  if show.application_messages then
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.line_integrity_message, buffer(offset, 0))
     local current = siac_cqs_snapshot_cta_v1_0.line_integrity_message.fields(buffer, offset, packet, parent, size_of_line_integrity_message)
     parent:set_len(size_of_line_integrity_message)

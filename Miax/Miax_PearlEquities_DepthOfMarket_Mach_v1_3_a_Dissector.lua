@@ -72,58 +72,34 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_message = ProtoFie
 local show = {}
 
 -- Miax PearlEquities DepthOfMarket Mach 1.3.a Element Dissection Options
-show.add_order_message = true
+show.application_messages = true
 show.application_message = true
-show.delete_order_message = true
 show.message = true
 show.modify_order_flags = true
-show.modify_order_message = true
 show.order_execution_flags = true
-show.order_execution_message = true
 show.packet = true
-show.security_trading_status_notification_message = true
-show.symbol_clear_message = true
-show.symbol_update_message = true
-show.system_state_message = true
-show.system_time_message = true
-show.trade_cancel_message = true
 show.trade_flags = true
-show.trade_message = true
 
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.a Show Options
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_flags = Pref.bool("Show Modify Order Flags", show.modify_order_flags, "Parse and add Modify Order Flags to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_flags = Pref.bool("Show Order Execution Flags", show.order_execution_flags, "Parse and add Order Execution Flags to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_security_trading_status_notification_message = Pref.bool("Show Security Trading Status Notification Message", show.security_trading_status_notification_message, "Parse and add Security Trading Status Notification Message to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_symbol_update_message = Pref.bool("Show Symbol Update Message", show.symbol_update_message, "Parse and add Symbol Update Message to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_system_state_message = Pref.bool("Show System State Message", show.system_state_message, "Parse and add System State Message to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_system_time_message = Pref.bool("Show System Time Message", show.system_time_message, "Parse and add System Time Message to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_add_order_message then
-    show.add_order_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_add_order_message
-    changed = true
-  end
   if show.application_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_message then
     show.application_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_message
     changed = true
   end
-  if show.delete_order_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_delete_order_message then
-    show.delete_order_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_delete_order_message
+  if show.application_messages ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_messages then
+    show.application_messages = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_message then
@@ -134,52 +110,16 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs_changed()
     show.modify_order_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_flags
     changed = true
   end
-  if show.modify_order_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_message then
-    show.modify_order_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_message
-    changed = true
-  end
   if show.order_execution_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_flags then
     show.order_execution_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_flags
-    changed = true
-  end
-  if show.order_execution_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_message then
-    show.order_execution_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_message
     changed = true
   end
   if show.packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_packet then
     show.packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_packet
     changed = true
   end
-  if show.security_trading_status_notification_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_security_trading_status_notification_message then
-    show.security_trading_status_notification_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_security_trading_status_notification_message
-    changed = true
-  end
-  if show.symbol_clear_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_symbol_clear_message
-    changed = true
-  end
-  if show.symbol_update_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_symbol_update_message then
-    show.symbol_update_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_symbol_update_message
-    changed = true
-  end
-  if show.system_state_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_system_state_message then
-    show.system_state_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_system_state_message
-    changed = true
-  end
-  if show.system_time_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_system_time_message then
-    show.system_time_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_system_time_message
-    changed = true
-  end
-  if show.trade_cancel_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_cancel_message
-    changed = true
-  end
   if show.trade_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags then
     show.trade_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags
-    changed = true
-  end
-  if show.trade_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_message then
-    show.trade_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_message
     changed = true
   end
 
@@ -1053,7 +993,7 @@ end
 
 -- Dissect: Trade Cancel Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_cancel_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -1160,7 +1100,7 @@ end
 
 -- Dissect: Trade Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.fields(buffer, offset, packet, parent)
@@ -1267,7 +1207,7 @@ end
 
 -- Dissect: Order Execution Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_execution_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_execution_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.fields(buffer, offset, packet, parent)
@@ -1315,7 +1255,7 @@ end
 
 -- Dissect: Delete Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.delete_order_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.fields(buffer, offset, packet, parent)
@@ -1418,7 +1358,7 @@ end
 
 -- Dissect: Modify Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.modify_order_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.fields(buffer, offset, packet, parent)
@@ -1482,7 +1422,7 @@ end
 
 -- Dissect: Add Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.add_order_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.fields(buffer, offset, packet, parent)
@@ -1526,7 +1466,7 @@ end
 
 -- Dissect: Symbol Clear Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.symbol_clear_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.fields(buffer, offset, packet, parent)
@@ -1582,7 +1522,7 @@ end
 
 -- Dissect: Security Trading Status Notification Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_trading_status_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.security_trading_status_notification_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.fields(buffer, offset, packet, parent)
@@ -1634,7 +1574,7 @@ end
 
 -- Dissect: System State Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_state_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.fields(buffer, offset, packet, parent)
@@ -1710,7 +1650,7 @@ end
 
 -- Dissect: Symbol Update Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.symbol_update_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.fields(buffer, offset, packet, parent)
@@ -1750,7 +1690,7 @@ end
 
 -- Dissect: System Time Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_time_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.fields(buffer, offset, packet, parent)

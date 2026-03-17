@@ -75,42 +75,26 @@ local show = {}
 -- Jnx Equities Pts Itch 1.7 Element Dissection Options
 show.message = true
 show.message_header = true
-show.order_added_with_attributes_message = true
-show.order_added_without_attributes_message = true
-show.order_deleted_message = true
-show.order_executed_message = true
-show.order_replaced_message = true
-show.orderbook_directory_message = true
+show.application_messages = true
 show.packet = true
 show.packet_header = true
-show.price_tick_size_message = true
-show.short_selling_price_restriction_state_message = true
-show.system_event_message = true
-show.timestamp_seconds_message = true
-show.trading_state_message = true
 
 -- Register Jnx Equities Pts Itch 1.7 Show Options
 omi_jnx_equities_pts_itch_v1_7.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_jnx_equities_pts_itch_v1_7.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_order_added_with_attributes_message = Pref.bool("Show Order Added With Attributes Message", show.order_added_with_attributes_message, "Parse and add Order Added With Attributes Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_order_added_without_attributes_message = Pref.bool("Show Order Added Without Attributes Message", show.order_added_without_attributes_message, "Parse and add Order Added Without Attributes Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_order_deleted_message = Pref.bool("Show Order Deleted Message", show.order_deleted_message, "Parse and add Order Deleted Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_orderbook_directory_message = Pref.bool("Show Orderbook Directory Message", show.orderbook_directory_message, "Parse and add Orderbook Directory Message to protocol tree")
+omi_jnx_equities_pts_itch_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_equities_pts_itch_v1_7.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_jnx_equities_pts_itch_v1_7.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_price_tick_size_message = Pref.bool("Show Price Tick Size Message", show.price_tick_size_message, "Parse and add Price Tick Size Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_short_selling_price_restriction_state_message = Pref.bool("Show Short Selling Price Restriction State Message", show.short_selling_price_restriction_state_message, "Parse and add Short Selling Price Restriction State Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_timestamp_seconds_message = Pref.bool("Show Timestamp Seconds Message", show.timestamp_seconds_message, "Parse and add Timestamp Seconds Message to protocol tree")
-omi_jnx_equities_pts_itch_v1_7.prefs.show_trading_state_message = Pref.bool("Show Trading State Message", show.trading_state_message, "Parse and add Trading State Message to protocol tree")
 
 -- Handle changed preferences
 function omi_jnx_equities_pts_itch_v1_7.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_application_messages then
+    show.application_messages = omi_jnx_equities_pts_itch_v1_7.prefs.show_application_messages
+    changed = true
+  end
   if show.message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_message then
     show.message = omi_jnx_equities_pts_itch_v1_7.prefs.show_message
     changed = true
@@ -119,56 +103,12 @@ function omi_jnx_equities_pts_itch_v1_7.prefs_changed()
     show.message_header = omi_jnx_equities_pts_itch_v1_7.prefs.show_message_header
     changed = true
   end
-  if show.order_added_with_attributes_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_order_added_with_attributes_message then
-    show.order_added_with_attributes_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_order_added_with_attributes_message
-    changed = true
-  end
-  if show.order_added_without_attributes_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_order_added_without_attributes_message then
-    show.order_added_without_attributes_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_order_added_without_attributes_message
-    changed = true
-  end
-  if show.order_deleted_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_order_deleted_message then
-    show.order_deleted_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_order_deleted_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_order_executed_message then
-    show.order_executed_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_order_executed_message
-    changed = true
-  end
-  if show.order_replaced_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_order_replaced_message then
-    show.order_replaced_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_order_replaced_message
-    changed = true
-  end
-  if show.orderbook_directory_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_orderbook_directory_message then
-    show.orderbook_directory_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_orderbook_directory_message
-    changed = true
-  end
   if show.packet ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_packet then
     show.packet = omi_jnx_equities_pts_itch_v1_7.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_packet_header then
     show.packet_header = omi_jnx_equities_pts_itch_v1_7.prefs.show_packet_header
-    changed = true
-  end
-  if show.price_tick_size_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_price_tick_size_message then
-    show.price_tick_size_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_price_tick_size_message
-    changed = true
-  end
-  if show.short_selling_price_restriction_state_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_short_selling_price_restriction_state_message then
-    show.short_selling_price_restriction_state_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_short_selling_price_restriction_state_message
-    changed = true
-  end
-  if show.system_event_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_system_event_message then
-    show.system_event_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_system_event_message
-    changed = true
-  end
-  if show.timestamp_seconds_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_timestamp_seconds_message then
-    show.timestamp_seconds_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_timestamp_seconds_message
-    changed = true
-  end
-  if show.trading_state_message ~= omi_jnx_equities_pts_itch_v1_7.prefs.show_trading_state_message then
-    show.trading_state_message = omi_jnx_equities_pts_itch_v1_7.prefs.show_trading_state_message
     changed = true
   end
 
@@ -1066,7 +1006,7 @@ end
 
 -- Dissect: Order Replaced Message
 jnx_equities_pts_itch_v1_7.order_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_replaced_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_replaced_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.order_replaced_message.fields(buffer, offset, packet, parent)
@@ -1110,7 +1050,7 @@ end
 
 -- Dissect: Order Deleted Message
 jnx_equities_pts_itch_v1_7.order_deleted_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_deleted_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_deleted_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.order_deleted_message.fields(buffer, offset, packet, parent)
@@ -1162,7 +1102,7 @@ end
 
 -- Dissect: Order Executed Message
 jnx_equities_pts_itch_v1_7.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_executed_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.order_executed_message.fields(buffer, offset, packet, parent)
@@ -1234,7 +1174,7 @@ end
 
 -- Dissect: Order Added With Attributes Message
 jnx_equities_pts_itch_v1_7.order_added_with_attributes_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_added_with_attributes_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_added_with_attributes_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.order_added_with_attributes_message.fields(buffer, offset, packet, parent)
@@ -1298,7 +1238,7 @@ end
 
 -- Dissect: Order Added Without Attributes Message
 jnx_equities_pts_itch_v1_7.order_added_without_attributes_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_added_without_attributes_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_added_without_attributes_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.order_added_without_attributes_message.fields(buffer, offset, packet, parent)
@@ -1350,7 +1290,7 @@ end
 
 -- Dissect: Short Selling Price Restriction State Message
 jnx_equities_pts_itch_v1_7.short_selling_price_restriction_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.short_selling_price_restriction_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.short_selling_price_restriction_state_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.short_selling_price_restriction_state_message.fields(buffer, offset, packet, parent)
@@ -1402,7 +1342,7 @@ end
 
 -- Dissect: Trading State Message
 jnx_equities_pts_itch_v1_7.trading_state_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_state_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.trading_state_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.trading_state_message.fields(buffer, offset, packet, parent)
@@ -1474,7 +1414,7 @@ end
 
 -- Dissect: Orderbook Directory Message
 jnx_equities_pts_itch_v1_7.orderbook_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.orderbook_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.orderbook_directory_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.orderbook_directory_message.fields(buffer, offset, packet, parent)
@@ -1526,7 +1466,7 @@ end
 
 -- Dissect: Price Tick Size Message
 jnx_equities_pts_itch_v1_7.price_tick_size_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_tick_size_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_tick_size_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.price_tick_size_message.fields(buffer, offset, packet, parent)
@@ -1574,7 +1514,7 @@ end
 
 -- Dissect: System Event Message
 jnx_equities_pts_itch_v1_7.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.system_event_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.system_event_message.fields(buffer, offset, packet, parent)
@@ -1614,7 +1554,7 @@ end
 
 -- Dissect: Timestamp Seconds Message
 jnx_equities_pts_itch_v1_7.timestamp_seconds_message.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_seconds_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_equities_pts_itch_v1_7.fields.timestamp_seconds_message, buffer(offset, 0))
     local index = jnx_equities_pts_itch_v1_7.timestamp_seconds_message.fields(buffer, offset, packet, parent)

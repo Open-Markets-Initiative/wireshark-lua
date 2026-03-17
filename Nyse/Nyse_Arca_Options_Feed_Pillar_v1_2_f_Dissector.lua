@@ -158,76 +158,28 @@ omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_index = ProtoField.new("
 local show = {}
 
 -- Nyse Arca Options Feed Pillar 1.2.f Element Dissection Options
-show.heartbeat_response_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
-show.message_unavailable_message = true
-show.options_add_order_message = true
-show.options_add_order_refresh_message = true
-show.options_cross_trade_message = true
-show.options_delete_order_message_message = true
-show.options_imbalance_message_message = true
-show.options_modify_order_message = true
-show.options_non_displayed_trade_message = true
-show.options_order_execution_message_message = true
-show.options_outright_series_summary_message = true
-show.options_replace_order_message_message = true
-show.options_series_rfq_message = true
-show.options_trade_cancel_message = true
-show.outright_series_index_mapping = true
 show.packet = true
 show.packet_header = true
-show.refresh_header_message = true
-show.refresh_request_message = true
-show.request_response_message = true
-show.retransmission_request_message = true
-show.security_status_message = true
 show.send_time = true
-show.sequence_number_reset_message = true
-show.symbol_clear_message = true
-show.symbol_index_mapping_message = true
-show.symbol_index_mapping_request_message = true
-show.time_reference_message = true
 
 -- Register Nyse Arca Options Feed Pillar 1.2.f Show Options
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
+omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message = Pref.bool("Show Options Add Order Message", show.options_add_order_message, "Parse and add Options Add Order Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message = Pref.bool("Show Options Add Order Refresh Message", show.options_add_order_refresh_message, "Parse and add Options Add Order Refresh Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message = Pref.bool("Show Options Cross Trade Message", show.options_cross_trade_message, "Parse and add Options Cross Trade Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message = Pref.bool("Show Options Delete Order Message Message", show.options_delete_order_message_message, "Parse and add Options Delete Order Message Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message = Pref.bool("Show Options Imbalance Message Message", show.options_imbalance_message_message, "Parse and add Options Imbalance Message Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message = Pref.bool("Show Options Modify Order Message", show.options_modify_order_message, "Parse and add Options Modify Order Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message = Pref.bool("Show Options Non Displayed Trade Message", show.options_non_displayed_trade_message, "Parse and add Options Non Displayed Trade Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message = Pref.bool("Show Options Order Execution Message Message", show.options_order_execution_message_message, "Parse and add Options Order Execution Message Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message = Pref.bool("Show Options Outright Series Summary Message", show.options_outright_series_summary_message, "Parse and add Options Outright Series Summary Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message = Pref.bool("Show Options Replace Order Message Message", show.options_replace_order_message_message, "Parse and add Options Replace Order Message Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message = Pref.bool("Show Options Series Rfq Message", show.options_series_rfq_message, "Parse and add Options Series Rfq Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message = Pref.bool("Show Options Trade Cancel Message", show.options_trade_cancel_message, "Parse and add Options Trade Cancel Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping = Pref.bool("Show Outright Series Index Mapping", show.outright_series_index_mapping, "Parse and add Outright Series Index Mapping to protocol tree")
 omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
 omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message = Pref.bool("Show Time Reference Message", show.time_reference_message, "Parse and add Time Reference Message to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_arca_options_feed_pillar_v1_2_f.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.heartbeat_response_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_heartbeat_response_message
+  if show.application_messages ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_application_messages then
+    show.application_messages = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message then
@@ -238,62 +190,6 @@ function omi_nyse_arca_options_feed_pillar_v1_2_f.prefs_changed()
     show.message_header = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_header
     changed = true
   end
-  if show.message_unavailable_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_message_unavailable_message
-    changed = true
-  end
-  if show.options_add_order_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message then
-    show.options_add_order_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_message
-    changed = true
-  end
-  if show.options_add_order_refresh_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message then
-    show.options_add_order_refresh_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_add_order_refresh_message
-    changed = true
-  end
-  if show.options_cross_trade_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message then
-    show.options_cross_trade_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_cross_trade_message
-    changed = true
-  end
-  if show.options_delete_order_message_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message then
-    show.options_delete_order_message_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_delete_order_message_message
-    changed = true
-  end
-  if show.options_imbalance_message_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message then
-    show.options_imbalance_message_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_imbalance_message_message
-    changed = true
-  end
-  if show.options_modify_order_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message then
-    show.options_modify_order_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_modify_order_message
-    changed = true
-  end
-  if show.options_non_displayed_trade_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message then
-    show.options_non_displayed_trade_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_non_displayed_trade_message
-    changed = true
-  end
-  if show.options_order_execution_message_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message then
-    show.options_order_execution_message_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_order_execution_message_message
-    changed = true
-  end
-  if show.options_outright_series_summary_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message then
-    show.options_outright_series_summary_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_outright_series_summary_message
-    changed = true
-  end
-  if show.options_replace_order_message_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message then
-    show.options_replace_order_message_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_replace_order_message_message
-    changed = true
-  end
-  if show.options_series_rfq_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message then
-    show.options_series_rfq_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_series_rfq_message
-    changed = true
-  end
-  if show.options_trade_cancel_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message then
-    show.options_trade_cancel_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_options_trade_cancel_message
-    changed = true
-  end
-  if show.outright_series_index_mapping ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping then
-    show.outright_series_index_mapping = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_outright_series_index_mapping
-    changed = true
-  end
   if show.packet ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet then
     show.packet = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet
     changed = true
@@ -302,48 +198,8 @@ function omi_nyse_arca_options_feed_pillar_v1_2_f.prefs_changed()
     show.packet_header = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_packet_header
     changed = true
   end
-  if show.refresh_header_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message then
-    show.refresh_header_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_header_message
-    changed = true
-  end
-  if show.refresh_request_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message then
-    show.refresh_request_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_refresh_request_message
-    changed = true
-  end
-  if show.request_response_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message then
-    show.request_response_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_request_response_message
-    changed = true
-  end
-  if show.retransmission_request_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_retransmission_request_message
-    changed = true
-  end
-  if show.security_status_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message then
-    show.security_status_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_security_status_message
-    changed = true
-  end
   if show.send_time ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_send_time then
     show.send_time = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_send_time
-    changed = true
-  end
-  if show.sequence_number_reset_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_sequence_number_reset_message
-    changed = true
-  end
-  if show.symbol_clear_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_clear_message
-    changed = true
-  end
-  if show.symbol_index_mapping_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_message
-    changed = true
-  end
-  if show.symbol_index_mapping_request_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_symbol_index_mapping_request_message
-    changed = true
-  end
-  if show.time_reference_message ~= omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message then
-    show.time_reference_message = omi_nyse_arca_options_feed_pillar_v1_2_f.prefs.show_time_reference_message
     changed = true
   end
 
@@ -3266,7 +3122,7 @@ end
 
 -- Dissect: Options Outright Series Summary Message
 nyse_arca_options_feed_pillar_v1_2_f.options_outright_series_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_outright_series_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_outright_series_summary_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_outright_series_summary_message.fields(buffer, offset, packet, parent)
@@ -3318,7 +3174,7 @@ end
 
 -- Dissect: Options Trade Cancel Message
 nyse_arca_options_feed_pillar_v1_2_f.options_trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_trade_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_trade_cancel_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -3382,7 +3238,7 @@ end
 
 -- Dissect: Options Cross Trade Message
 nyse_arca_options_feed_pillar_v1_2_f.options_cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_cross_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_cross_trade_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_cross_trade_message.fields(buffer, offset, packet, parent)
@@ -3458,7 +3314,7 @@ end
 
 -- Dissect: Options Non Displayed Trade Message
 nyse_arca_options_feed_pillar_v1_2_f.options_non_displayed_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_non_displayed_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_non_displayed_trade_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_non_displayed_trade_message.fields(buffer, offset, packet, parent)
@@ -3538,7 +3394,7 @@ end
 
 -- Dissect: Options Series Rfq Message
 nyse_arca_options_feed_pillar_v1_2_f.options_series_rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_series_rfq_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_series_rfq_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_series_rfq_message.fields(buffer, offset, packet, parent)
@@ -3614,7 +3470,7 @@ end
 
 -- Dissect: Options Add Order Refresh Message
 nyse_arca_options_feed_pillar_v1_2_f.options_add_order_refresh_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_add_order_refresh_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_refresh_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_add_order_refresh_message.fields(buffer, offset, packet, parent)
@@ -3718,7 +3574,7 @@ end
 
 -- Dissect: Options Imbalance Message Message
 nyse_arca_options_feed_pillar_v1_2_f.options_imbalance_message_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_imbalance_message_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_imbalance_message_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_imbalance_message_message.fields(buffer, offset, packet, parent)
@@ -3794,7 +3650,7 @@ end
 
 -- Dissect: Options Replace Order Message Message
 nyse_arca_options_feed_pillar_v1_2_f.options_replace_order_message_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_replace_order_message_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_replace_order_message_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_replace_order_message_message.fields(buffer, offset, packet, parent)
@@ -3846,7 +3702,7 @@ end
 
 -- Dissect: Options Order Execution Message Message
 nyse_arca_options_feed_pillar_v1_2_f.options_order_execution_message_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_order_execution_message_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_order_execution_message_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_order_execution_message_message.fields(buffer, offset, packet, parent)
@@ -3902,7 +3758,7 @@ end
 
 -- Dissect: Options Delete Order Message Message
 nyse_arca_options_feed_pillar_v1_2_f.options_delete_order_message_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_delete_order_message_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_delete_order_message_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_delete_order_message_message.fields(buffer, offset, packet, parent)
@@ -3974,7 +3830,7 @@ end
 
 -- Dissect: Options Modify Order Message
 nyse_arca_options_feed_pillar_v1_2_f.options_modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_modify_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_modify_order_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_modify_order_message.fields(buffer, offset, packet, parent)
@@ -4050,7 +3906,7 @@ end
 
 -- Dissect: Options Add Order Message
 nyse_arca_options_feed_pillar_v1_2_f.options_add_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_add_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.options_add_order_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.options_add_order_message.fields(buffer, offset, packet, parent)
@@ -4142,7 +3998,7 @@ end
 
 -- Dissect: Outright Series Index Mapping
 nyse_arca_options_feed_pillar_v1_2_f.outright_series_index_mapping.dissect = function(buffer, offset, packet, parent)
-  if show.outright_series_index_mapping then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.outright_series_index_mapping, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.outright_series_index_mapping.fields(buffer, offset, packet, parent)
@@ -4194,7 +4050,7 @@ end
 
 -- Dissect: Refresh Header Message
 nyse_arca_options_feed_pillar_v1_2_f.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_header_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.refresh_header_message.fields(buffer, offset, packet, parent)
@@ -4290,7 +4146,7 @@ end
 
 -- Dissect: Security Status Message
 nyse_arca_options_feed_pillar_v1_2_f.security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_status_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_status_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.security_status_message.fields(buffer, offset, packet, parent)
@@ -4342,7 +4198,7 @@ end
 
 -- Dissect: Symbol Clear Message
 nyse_arca_options_feed_pillar_v1_2_f.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.symbol_clear_message.fields(buffer, offset, packet, parent)
@@ -4394,7 +4250,7 @@ end
 
 -- Dissect: Message Unavailable Message
 nyse_arca_options_feed_pillar_v1_2_f.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.message_unavailable_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.message_unavailable_message.fields(buffer, offset, packet, parent)
@@ -4446,7 +4302,7 @@ end
 
 -- Dissect: Refresh Request Message
 nyse_arca_options_feed_pillar_v1_2_f.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.refresh_request_message.fields(buffer, offset, packet, parent)
@@ -4502,7 +4358,7 @@ end
 
 -- Dissect: Symbol Index Mapping Request Message
 nyse_arca_options_feed_pillar_v1_2_f.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
@@ -4542,7 +4398,7 @@ end
 
 -- Dissect: Heartbeat Response Message
 nyse_arca_options_feed_pillar_v1_2_f.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.heartbeat_response_message.fields(buffer, offset, packet, parent)
@@ -4606,7 +4462,7 @@ end
 
 -- Dissect: Request Response Message
 nyse_arca_options_feed_pillar_v1_2_f.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.request_response_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.request_response_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.request_response_message.fields(buffer, offset, packet, parent)
@@ -4662,7 +4518,7 @@ end
 
 -- Dissect: Retransmission Request Message
 nyse_arca_options_feed_pillar_v1_2_f.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.retransmission_request_message.fields(buffer, offset, packet, parent)
@@ -4754,7 +4610,7 @@ end
 
 -- Dissect: Symbol Index Mapping Message
 nyse_arca_options_feed_pillar_v1_2_f.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -4802,7 +4658,7 @@ end
 
 -- Dissect: Time Reference Message
 nyse_arca_options_feed_pillar_v1_2_f.time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.time_reference_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.time_reference_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.time_reference_message.fields(buffer, offset, packet, parent)
@@ -4854,7 +4710,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_arca_options_feed_pillar_v1_2_f.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_arca_options_feed_pillar_v1_2_f.sequence_number_reset_message.fields(buffer, offset, packet, parent)

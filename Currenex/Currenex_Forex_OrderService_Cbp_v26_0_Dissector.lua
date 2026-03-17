@@ -86,132 +86,30 @@ omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_pending = ProtoField.new(
 local show = {}
 
 -- Currenex Forex OrderService Cbp 26.0 Element Dissection Options
-show.gap_fill = true
-show.heartbeat = true
-show.instrument_info = true
-show.instrument_info_request = true
-show.logon = true
-show.logout = true
+show.application_messages = true
 show.message_header = true
-show.new_order_ack = true
-show.new_order_request = true
-show.order_cancel_reject = true
-show.order_cancel_request = true
-show.order_canceled_or_expired = true
-show.order_replace_or_cancel_ack = true
-show.order_replace_or_cancel_request = true
 show.packet = true
-show.pending_fill = true
-show.pending_fill_cancel = true
-show.resend_request = true
-show.trade = true
-show.trade_pending = true
 
 -- Register Currenex Forex OrderService Cbp 26.0 Show Options
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_gap_fill = Pref.bool("Show Gap Fill", show.gap_fill, "Parse and add Gap Fill to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_heartbeat = Pref.bool("Show Heartbeat", show.heartbeat, "Parse and add Heartbeat to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_instrument_info = Pref.bool("Show Instrument Info", show.instrument_info, "Parse and add Instrument Info to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_instrument_info_request = Pref.bool("Show Instrument Info Request", show.instrument_info_request, "Parse and add Instrument Info Request to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_logon = Pref.bool("Show Logon", show.logon, "Parse and add Logon to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_logout = Pref.bool("Show Logout", show.logout, "Parse and add Logout to protocol tree")
+omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_new_order_ack = Pref.bool("Show New Order Ack", show.new_order_ack, "Parse and add New Order Ack to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_new_order_request = Pref.bool("Show New Order Request", show.new_order_request, "Parse and add New Order Request to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_cancel_reject = Pref.bool("Show Order Cancel Reject", show.order_cancel_reject, "Parse and add Order Cancel Reject to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_cancel_request = Pref.bool("Show Order Cancel Request", show.order_cancel_request, "Parse and add Order Cancel Request to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_canceled_or_expired = Pref.bool("Show Order Canceled Or Expired", show.order_canceled_or_expired, "Parse and add Order Canceled Or Expired to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_replace_or_cancel_ack = Pref.bool("Show Order Replace Or Cancel Ack", show.order_replace_or_cancel_ack, "Parse and add Order Replace Or Cancel Ack to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_replace_or_cancel_request = Pref.bool("Show Order Replace Or Cancel Request", show.order_replace_or_cancel_request, "Parse and add Order Replace Or Cancel Request to protocol tree")
 omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_pending_fill = Pref.bool("Show Pending Fill", show.pending_fill, "Parse and add Pending Fill to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_pending_fill_cancel = Pref.bool("Show Pending Fill Cancel", show.pending_fill_cancel, "Parse and add Pending Fill Cancel to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_resend_request = Pref.bool("Show Resend Request", show.resend_request, "Parse and add Resend Request to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade_pending = Pref.bool("Show Trade Pending", show.trade_pending, "Parse and add Trade Pending to protocol tree")
 
 -- Handle changed preferences
 function omi_currenex_forex_orderservice_cbp_v26_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.gap_fill ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_gap_fill then
-    show.gap_fill = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_gap_fill
-    changed = true
-  end
-  if show.heartbeat ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_heartbeat then
-    show.heartbeat = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_heartbeat
-    changed = true
-  end
-  if show.instrument_info ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_instrument_info then
-    show.instrument_info = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_instrument_info
-    changed = true
-  end
-  if show.instrument_info_request ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_instrument_info_request then
-    show.instrument_info_request = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_instrument_info_request
-    changed = true
-  end
-  if show.logon ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_logon then
-    show.logon = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_logon
-    changed = true
-  end
-  if show.logout ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_logout then
-    show.logout = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_logout
+  if show.application_messages ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_application_messages then
+    show.application_messages = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_application_messages
     changed = true
   end
   if show.message_header ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_message_header then
     show.message_header = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_message_header
     changed = true
   end
-  if show.new_order_ack ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_new_order_ack then
-    show.new_order_ack = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_new_order_ack
-    changed = true
-  end
-  if show.new_order_request ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_new_order_request then
-    show.new_order_request = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_new_order_request
-    changed = true
-  end
-  if show.order_cancel_reject ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_cancel_reject then
-    show.order_cancel_reject = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_cancel_reject
-    changed = true
-  end
-  if show.order_cancel_request ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_cancel_request then
-    show.order_cancel_request = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_cancel_request
-    changed = true
-  end
-  if show.order_canceled_or_expired ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_canceled_or_expired then
-    show.order_canceled_or_expired = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_canceled_or_expired
-    changed = true
-  end
-  if show.order_replace_or_cancel_ack ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_replace_or_cancel_ack then
-    show.order_replace_or_cancel_ack = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_replace_or_cancel_ack
-    changed = true
-  end
-  if show.order_replace_or_cancel_request ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_replace_or_cancel_request then
-    show.order_replace_or_cancel_request = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_order_replace_or_cancel_request
-    changed = true
-  end
   if show.packet ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_packet then
     show.packet = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_packet
-    changed = true
-  end
-  if show.pending_fill ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_pending_fill then
-    show.pending_fill = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_pending_fill
-    changed = true
-  end
-  if show.pending_fill_cancel ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_pending_fill_cancel then
-    show.pending_fill_cancel = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_pending_fill_cancel
-    changed = true
-  end
-  if show.resend_request ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_resend_request then
-    show.resend_request = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_resend_request
-    changed = true
-  end
-  if show.trade ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade then
-    show.trade = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade
-    changed = true
-  end
-  if show.trade_pending ~= omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade_pending then
-    show.trade_pending = omi_currenex_forex_orderservice_cbp_v26_0.prefs.show_trade_pending
     changed = true
   end
 
@@ -1458,7 +1356,7 @@ end
 
 -- Dissect: Gap Fill
 currenex_forex_orderservice_cbp_v26_0.gap_fill.dissect = function(buffer, offset, packet, parent)
-  if show.gap_fill then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.gap_fill, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.gap_fill.fields(buffer, offset, packet, parent)
@@ -1498,7 +1396,7 @@ end
 
 -- Dissect: Resend Request
 currenex_forex_orderservice_cbp_v26_0.resend_request.dissect = function(buffer, offset, packet, parent)
-  if show.resend_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.resend_request, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.resend_request.fields(buffer, offset, packet, parent)
@@ -1558,7 +1456,7 @@ end
 
 -- Dissect: Trade Pending
 currenex_forex_orderservice_cbp_v26_0.trade_pending.dissect = function(buffer, offset, packet, parent)
-  if show.trade_pending then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_pending, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.trade_pending.fields(buffer, offset, packet, parent)
@@ -1606,7 +1504,7 @@ end
 
 -- Dissect: Pending Fill Cancel
 currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel.dissect = function(buffer, offset, packet, parent)
-  if show.pending_fill_cancel then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.pending_fill_cancel, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel.fields(buffer, offset, packet, parent)
@@ -1670,7 +1568,7 @@ end
 
 -- Dissect: Pending Fill
 currenex_forex_orderservice_cbp_v26_0.pending_fill.dissect = function(buffer, offset, packet, parent)
-  if show.pending_fill then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.pending_fill, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.pending_fill.fields(buffer, offset, packet, parent)
@@ -1762,7 +1660,7 @@ end
 
 -- Dissect: Trade
 currenex_forex_orderservice_cbp_v26_0.trade.dissect = function(buffer, offset, packet, parent)
-  if show.trade then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.trade, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.trade.fields(buffer, offset, packet, parent)
@@ -1814,7 +1712,7 @@ end
 
 -- Dissect: Order Canceled Or Expired
 currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired.dissect = function(buffer, offset, packet, parent)
-  if show.order_canceled_or_expired then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_canceled_or_expired, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired.fields(buffer, offset, packet, parent)
@@ -1866,7 +1764,7 @@ end
 
 -- Dissect: Order Replace Or Cancel Ack
 currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack.dissect = function(buffer, offset, packet, parent)
-  if show.order_replace_or_cancel_ack then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_replace_or_cancel_ack, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack.fields(buffer, offset, packet, parent)
@@ -1922,7 +1820,7 @@ end
 
 -- Dissect: Order Replace Or Cancel Request
 currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_replace_or_cancel_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_replace_or_cancel_request, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_request.fields(buffer, offset, packet, parent)
@@ -1970,7 +1868,7 @@ end
 
 -- Dissect: Order Cancel Reject
 currenex_forex_orderservice_cbp_v26_0.order_cancel_reject.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_reject then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_cancel_reject, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.order_cancel_reject.fields(buffer, offset, packet, parent)
@@ -2018,7 +1916,7 @@ end
 
 -- Dissect: Order Cancel Request
 currenex_forex_orderservice_cbp_v26_0.order_cancel_request.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_cancel_request, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.order_cancel_request.fields(buffer, offset, packet, parent)
@@ -2070,7 +1968,7 @@ end
 
 -- Dissect: New Order Ack
 currenex_forex_orderservice_cbp_v26_0.new_order_ack.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_ack then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.new_order_ack, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.new_order_ack.fields(buffer, offset, packet, parent)
@@ -2142,7 +2040,7 @@ end
 
 -- Dissect: New Order Request
 currenex_forex_orderservice_cbp_v26_0.new_order_request.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.new_order_request, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.new_order_request.fields(buffer, offset, packet, parent)
@@ -2198,7 +2096,7 @@ end
 
 -- Dissect: Instrument Info
 currenex_forex_orderservice_cbp_v26_0.instrument_info.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_info then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_info, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.instrument_info.fields(buffer, offset, packet, parent)
@@ -2238,7 +2136,7 @@ end
 
 -- Dissect: Instrument Info Request
 currenex_forex_orderservice_cbp_v26_0.instrument_info_request.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_info_request then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_info_request, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.instrument_info_request.fields(buffer, offset, packet, parent)
@@ -2278,7 +2176,7 @@ end
 
 -- Dissect: Heartbeat
 currenex_forex_orderservice_cbp_v26_0.heartbeat.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.heartbeat, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.heartbeat.fields(buffer, offset, packet, parent)
@@ -2326,7 +2224,7 @@ end
 
 -- Dissect: Logout
 currenex_forex_orderservice_cbp_v26_0.logout.dissect = function(buffer, offset, packet, parent)
-  if show.logout then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.logout, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.logout.fields(buffer, offset, packet, parent)
@@ -2374,7 +2272,7 @@ end
 
 -- Dissect: Logon
 currenex_forex_orderservice_cbp_v26_0.logon.dissect = function(buffer, offset, packet, parent)
-  if show.logon then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.logon, buffer(offset, 0))
     local index = currenex_forex_orderservice_cbp_v26_0.logon.fields(buffer, offset, packet, parent)
