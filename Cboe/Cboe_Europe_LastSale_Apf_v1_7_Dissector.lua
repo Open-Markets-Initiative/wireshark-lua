@@ -44,7 +44,6 @@ omi_cboe_europe_lastsale_apf_v1_7.fields.off_book_automated = ProtoField.new("Of
 omi_cboe_europe_lastsale_apf_v1_7.fields.packet = ProtoField.new("Packet", "cboe.europe.lastsale.apf.v1.7.packet", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.packet_type = ProtoField.new("Packet Type", "cboe.europe.lastsale.apf.v1.7.packettype", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.password = ProtoField.new("Password", "cboe.europe.lastsale.apf.v1.7.password", ftypes.STRING)
-omi_cboe_europe_lastsale_apf_v1_7.fields.payload = ProtoField.new("Payload", "cboe.europe.lastsale.apf.v1.7.payload", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.portfolio_flag = ProtoField.new("Portfolio Flag", "cboe.europe.lastsale.apf.v1.7.portfolioflag", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "cboe.europe.lastsale.apf.v1.7.posttradedeferralreason", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.pre_trade_transparency_waiver = ProtoField.new("Pre Trade Transparency Waiver", "cboe.europe.lastsale.apf.v1.7.pretradetransparencywaiver", ftypes.STRING)
@@ -58,7 +57,6 @@ omi_cboe_europe_lastsale_apf_v1_7.fields.requested_sequence_number = ProtoField.
 omi_cboe_europe_lastsale_apf_v1_7.fields.requested_session = ProtoField.new("Requested Session", "cboe.europe.lastsale.apf.v1.7.requestedsession", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.europe.lastsale.apf.v1.7.sequencenumber", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "cboe.europe.lastsale.apf.v1.7.sequenceddatapacket", ftypes.STRING)
-omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_message = ProtoField.new("Sequenced Message", "cboe.europe.lastsale.apf.v1.7.sequencedmessage", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.europe.lastsale.apf.v1.7.sequencedmessageheader", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.europe.lastsale.apf.v1.7.sequencedmessagetype", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.session = ProtoField.new("Session", "cboe.europe.lastsale.apf.v1.7.session", ftypes.STRING)
@@ -75,7 +73,7 @@ omi_cboe_europe_lastsale_apf_v1_7.fields.transaction_category = ProtoField.new("
 omi_cboe_europe_lastsale_apf_v1_7.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.europe.lastsale.apf.v1.7.unsequenceddatapacket", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.username = ProtoField.new("Username", "cboe.europe.lastsale.apf.v1.7.username", ftypes.STRING)
 
--- Cboe Europe LastSale Apf 1.7 messages
+-- Cboe Europe Apf LastSale 1.7 Application Messages
 omi_cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.europe.lastsale.apf.v1.7.lastsaleeuropemessage", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message_new = ProtoField.new("Last Sale Europe Message New", "cboe.europe.lastsale.apf.v1.7.lastsaleeuropemessagenew", ftypes.STRING)
 
@@ -87,8 +85,7 @@ local show = {}
 
 -- Cboe Europe LastSale Apf 1.7 Element Dissection Options
 show.debug_packet = true
-show.last_sale_europe_message = true
-show.last_sale_europe_message_new = true
+show.application_messages = true
 show.login_accepted_packet = true
 show.login_rejected_packet = true
 show.login_request_packet = true
@@ -96,13 +93,10 @@ show.packet = true
 show.sequenced_data_packet = true
 show.sequenced_message_header = true
 show.unsequenced_data_packet = true
-show.payload = false
-show.sequenced_message = false
 
 -- Register Cboe Europe LastSale Apf 1.7 Show Options
 omi_cboe_europe_lastsale_apf_v1_7.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-omi_cboe_europe_lastsale_apf_v1_7.prefs.show_last_sale_europe_message = Pref.bool("Show Last Sale Europe Message", show.last_sale_europe_message, "Parse and add Last Sale Europe Message to protocol tree")
-omi_cboe_europe_lastsale_apf_v1_7.prefs.show_last_sale_europe_message_new = Pref.bool("Show Last Sale Europe Message New", show.last_sale_europe_message_new, "Parse and add Last Sale Europe Message New to protocol tree")
+omi_cboe_europe_lastsale_apf_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_europe_lastsale_apf_v1_7.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
 omi_cboe_europe_lastsale_apf_v1_7.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
 omi_cboe_europe_lastsale_apf_v1_7.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
@@ -110,24 +104,18 @@ omi_cboe_europe_lastsale_apf_v1_7.prefs.show_packet = Pref.bool("Show Packet", s
 omi_cboe_europe_lastsale_apf_v1_7.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_cboe_europe_lastsale_apf_v1_7.prefs.show_sequenced_message_header = Pref.bool("Show Sequenced Message Header", show.sequenced_message_header, "Parse and add Sequenced Message Header to protocol tree")
 omi_cboe_europe_lastsale_apf_v1_7.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_cboe_europe_lastsale_apf_v1_7.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
-omi_cboe_europe_lastsale_apf_v1_7.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_europe_lastsale_apf_v1_7.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.application_messages ~= omi_cboe_europe_lastsale_apf_v1_7.prefs.show_application_messages then
+    show.application_messages = omi_cboe_europe_lastsale_apf_v1_7.prefs.show_application_messages
+    changed = true
+  end
   if show.debug_packet ~= omi_cboe_europe_lastsale_apf_v1_7.prefs.show_debug_packet then
     show.debug_packet = omi_cboe_europe_lastsale_apf_v1_7.prefs.show_debug_packet
-    changed = true
-  end
-  if show.last_sale_europe_message ~= omi_cboe_europe_lastsale_apf_v1_7.prefs.show_last_sale_europe_message then
-    show.last_sale_europe_message = omi_cboe_europe_lastsale_apf_v1_7.prefs.show_last_sale_europe_message
-    changed = true
-  end
-  if show.last_sale_europe_message_new ~= omi_cboe_europe_lastsale_apf_v1_7.prefs.show_last_sale_europe_message_new then
-    show.last_sale_europe_message_new = omi_cboe_europe_lastsale_apf_v1_7.prefs.show_last_sale_europe_message_new
     changed = true
   end
   if show.login_accepted_packet ~= omi_cboe_europe_lastsale_apf_v1_7.prefs.show_login_accepted_packet then
@@ -158,14 +146,6 @@ function omi_cboe_europe_lastsale_apf_v1_7.prefs_changed()
     show.unsequenced_data_packet = omi_cboe_europe_lastsale_apf_v1_7.prefs.show_unsequenced_data_packet
     changed = true
   end
-  if show.payload ~= omi_cboe_europe_lastsale_apf_v1_7.prefs.show_payload then
-    show.payload = omi_cboe_europe_lastsale_apf_v1_7.prefs.show_payload
-    changed = true
-  end
-  if show.sequenced_message ~= omi_cboe_europe_lastsale_apf_v1_7.prefs.show_sequenced_message then
-    show.sequenced_message = omi_cboe_europe_lastsale_apf_v1_7.prefs.show_sequenced_message
-    changed = true
-  end
 
   -- Reload on changed preference
   if changed then
@@ -193,354 +173,135 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cboe Europe LastSale Apf 1.7
+-- Cboe Europe LastSale Apf 1.7 Fields
 -----------------------------------------------------------------------
 
--- Soup Lf
-cboe_europe_lastsale_apf_v1_7.soup_lf = {}
+-- Agency Cross Trade
+cboe_europe_lastsale_apf_v1_7.agency_cross_trade = {}
 
--- Size: Soup Lf
-cboe_europe_lastsale_apf_v1_7.soup_lf.size = 1
+-- Size: Agency Cross Trade
+cboe_europe_lastsale_apf_v1_7.agency_cross_trade.size = 4
 
--- Display: Soup Lf
-cboe_europe_lastsale_apf_v1_7.soup_lf.display = function(value)
-  if value == 10 then
-    return "Soup Lf: Line Feed"
+-- Display: Agency Cross Trade
+cboe_europe_lastsale_apf_v1_7.agency_cross_trade.display = function(value)
+  if value == "ACTX" then
+    return "Agency Cross Trade: Agency Cross Trade (ACTX)"
   end
 
-  return "Soup Lf: Unknown("..value..")"
+  return "Agency Cross Trade: Unknown("..value..")"
 end
 
--- Dissect: Soup Lf
-cboe_europe_lastsale_apf_v1_7.soup_lf.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.soup_lf.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = cboe_europe_lastsale_apf_v1_7.soup_lf.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.soup_lf, range, value, display)
-
-  return offset + length, value
-end
-
--- Unsequenced Data Packet
-cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet = {}
-
--- Size: Unsequenced Data Packet
-cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.size =
-  cboe_europe_lastsale_apf_v1_7.unsequenced_message.size
-
--- Display: Unsequenced Data Packet
-cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Unsequenced Message
-  index, unsequenced_message = cboe_europe_lastsale_apf_v1_7.unsequenced_message.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  if show.unsequenced_data_packet then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.unsequenced_data_packet, buffer(offset, 0))
-    local index = cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Requested Sequence Number
-cboe_europe_lastsale_apf_v1_7.requested_sequence_number = {}
-
--- Size: Requested Sequence Number
-cboe_europe_lastsale_apf_v1_7.requested_sequence_number.size = 10
-
--- Display: Requested Sequence Number
-cboe_europe_lastsale_apf_v1_7.requested_sequence_number.display = function(value)
-  return "Requested Sequence Number: "..value
-end
-
--- Dissect: Requested Sequence Number
-cboe_europe_lastsale_apf_v1_7.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.requested_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.requested_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.requested_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Requested Session
-cboe_europe_lastsale_apf_v1_7.requested_session = {}
-
--- Size: Requested Session
-cboe_europe_lastsale_apf_v1_7.requested_session.size = 10
-
--- Display: Requested Session
-cboe_europe_lastsale_apf_v1_7.requested_session.display = function(value)
-  return "Requested Session: "..value
-end
-
--- Dissect: Requested Session
-cboe_europe_lastsale_apf_v1_7.requested_session.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.requested_session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.requested_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.requested_session, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-cboe_europe_lastsale_apf_v1_7.password = {}
-
--- Size: Password
-cboe_europe_lastsale_apf_v1_7.password.size = 10
-
--- Display: Password
-cboe_europe_lastsale_apf_v1_7.password.display = function(value)
-  return "Password: "..value
-end
-
--- Dissect: Password
-cboe_europe_lastsale_apf_v1_7.password.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.password.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.password, range, value, display)
-
-  return offset + length, value
-end
-
--- Username
-cboe_europe_lastsale_apf_v1_7.username = {}
-
--- Size: Username
-cboe_europe_lastsale_apf_v1_7.username.size = 6
-
--- Display: Username
-cboe_europe_lastsale_apf_v1_7.username.display = function(value)
-  return "Username: "..value
-end
-
--- Dissect: Username
-cboe_europe_lastsale_apf_v1_7.username.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.username.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.username, range, value, display)
-
-  return offset + length, value
-end
-
--- Login Request Packet
-cboe_europe_lastsale_apf_v1_7.login_request_packet = {}
-
--- Size: Login Request Packet
-cboe_europe_lastsale_apf_v1_7.login_request_packet.size =
-  cboe_europe_lastsale_apf_v1_7.username.size + 
-  cboe_europe_lastsale_apf_v1_7.password.size + 
-  cboe_europe_lastsale_apf_v1_7.requested_session.size + 
-  cboe_europe_lastsale_apf_v1_7.requested_sequence_number.size
-
--- Display: Login Request Packet
-cboe_europe_lastsale_apf_v1_7.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-cboe_europe_lastsale_apf_v1_7.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = cboe_europe_lastsale_apf_v1_7.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = cboe_europe_lastsale_apf_v1_7.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = cboe_europe_lastsale_apf_v1_7.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 10 Byte Ascii String
-  index, requested_sequence_number = cboe_europe_lastsale_apf_v1_7.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-cboe_europe_lastsale_apf_v1_7.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_packet then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.login_request_packet, buffer(offset, 0))
-    local index = cboe_europe_lastsale_apf_v1_7.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_lastsale_apf_v1_7.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_lastsale_apf_v1_7.login_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Jurisdiction
-cboe_europe_lastsale_apf_v1_7.jurisdiction = {}
-
--- Size: Jurisdiction
-cboe_europe_lastsale_apf_v1_7.jurisdiction.size = 2
-
--- Display: Jurisdiction
-cboe_europe_lastsale_apf_v1_7.jurisdiction.display = function(value)
-  if value == "EU" then
-    return "Jurisdiction: Trade Executed On An Eu Regulated Venue Or Apa (EU)"
-  end
-  if value == "UK" then
-    return "Jurisdiction: Trade Executed On A Non Eu Regulated Venue Or Apa (UK)"
-  end
-
-  return "Jurisdiction: Unknown("..value..")"
-end
-
--- Dissect: Jurisdiction
-cboe_europe_lastsale_apf_v1_7.jurisdiction.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.jurisdiction.size
+-- Dissect: Agency Cross Trade
+cboe_europe_lastsale_apf_v1_7.agency_cross_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.agency_cross_trade.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.jurisdiction.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.agency_cross_trade.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.jurisdiction, range, value, display)
-
-  return offset + length, value
-end
-
--- Intra Group Indicator
-cboe_europe_lastsale_apf_v1_7.intra_group_indicator = {}
-
--- Size: Intra Group Indicator
-cboe_europe_lastsale_apf_v1_7.intra_group_indicator.size = 4
-
--- Display: Intra Group Indicator
-cboe_europe_lastsale_apf_v1_7.intra_group_indicator.display = function(value)
-  if value == "IGRP" then
-    return "Intra Group Indicator: Intra Group Trade (IGRP)"
-  end
-
-  return "Intra Group Indicator: Unknown("..value..")"
-end
-
--- Dissect: Intra Group Indicator
-cboe_europe_lastsale_apf_v1_7.intra_group_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.intra_group_indicator.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.intra_group_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.intra_group_indicator, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.agency_cross_trade, range, value, display)
 
   return offset + length, value
 end
 
--- Duplicative Across Jurisdiction
-cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction = {}
+-- Algorithmic Indicator
+cboe_europe_lastsale_apf_v1_7.algorithmic_indicator = {}
 
--- Size: Duplicative Across Jurisdiction
-cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.size = 4
+-- Size: Algorithmic Indicator
+cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.size = 4
 
--- Display: Duplicative Across Jurisdiction
-cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.display = function(value)
-  if value == "XBDT" then
-    return "Duplicative Across Jurisdiction: Cross Border Duplicative Trade Report (XBDT)"
+-- Display: Algorithmic Indicator
+cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.display = function(value)
+  if value == "ALGO" then
+    return "Algorithmic Indicator: Algorithmic Trade (ALGO)"
   end
 
-  return "Duplicative Across Jurisdiction: Unknown("..value..")"
+  return "Algorithmic Indicator: Unknown("..value..")"
 end
 
--- Dissect: Duplicative Across Jurisdiction
-cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.size
+-- Dissect: Algorithmic Indicator
+cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.duplicative_across_jurisdiction, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.algorithmic_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Duplicative Within Jurisdiction
-cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction = {}
+-- Benchmark Indicator
+cboe_europe_lastsale_apf_v1_7.benchmark_indicator = {}
 
--- Size: Duplicative Within Jurisdiction
-cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.size = 4
+-- Size: Benchmark Indicator
+cboe_europe_lastsale_apf_v1_7.benchmark_indicator.size = 4
 
--- Display: Duplicative Within Jurisdiction
-cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.display = function(value)
-  if value == "DUPL" then
-    return "Duplicative Within Jurisdiction: Duplicative Trade Report (DUPL)"
-  end
-
-  return "Duplicative Within Jurisdiction: Unknown("..value..")"
+-- Display: Benchmark Indicator
+cboe_europe_lastsale_apf_v1_7.benchmark_indicator.display = function(value)
+  return "Benchmark Indicator: "..value
 end
 
--- Dissect: Duplicative Within Jurisdiction
-cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.size
+-- Dissect: Benchmark Indicator
+cboe_europe_lastsale_apf_v1_7.benchmark_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.benchmark_indicator.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.benchmark_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.duplicative_within_jurisdiction, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.benchmark_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Deferral Size Specific
-cboe_europe_lastsale_apf_v1_7.deferral_size_specific = {}
+-- Benchmark Reference Indicator
+cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator = {}
 
--- Size: Deferral Size Specific
-cboe_europe_lastsale_apf_v1_7.deferral_size_specific.size = 4
+-- Size: Benchmark Reference Indicator
+cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.size = 4
 
--- Display: Deferral Size Specific
-cboe_europe_lastsale_apf_v1_7.deferral_size_specific.display = function(value)
-  if value == "SIZE" then
-    return "Deferral Size Specific: Deferral For Size Specific (SIZE)"
+-- Display: Benchmark Reference Indicator
+cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.display = function(value)
+  if value == "BENC" then
+    return "Benchmark Reference Indicator: Benchmark Trade (BENC)"
+  end
+  if value == "RFPT" then
+    return "Benchmark Reference Indicator: Reference Price Trade (RFPT)"
   end
 
-  return "Deferral Size Specific: Unknown("..value..")"
+  return "Benchmark Reference Indicator: Unknown("..value..")"
 end
 
--- Dissect: Deferral Size Specific
-cboe_europe_lastsale_apf_v1_7.deferral_size_specific.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.deferral_size_specific.size
+-- Dissect: Benchmark Reference Indicator
+cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.deferral_size_specific.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.deferral_size_specific, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.benchmark_reference_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contingent Flag
+cboe_europe_lastsale_apf_v1_7.contingent_flag = {}
+
+-- Size: Contingent Flag
+cboe_europe_lastsale_apf_v1_7.contingent_flag.size = 4
+
+-- Display: Contingent Flag
+cboe_europe_lastsale_apf_v1_7.contingent_flag.display = function(value)
+  return "Contingent Flag: "..value
+end
+
+-- Dissect: Contingent Flag
+cboe_europe_lastsale_apf_v1_7.contingent_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.contingent_flag.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.contingent_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.contingent_flag, range, value, display)
 
   return offset + length, value
 end
@@ -629,38 +390,161 @@ cboe_europe_lastsale_apf_v1_7.deferral_or_enrichment_type.dissect = function(buf
   return offset + length, value
 end
 
--- Post Trade Deferral Reason
-cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason = {}
+-- Deferral Size Specific
+cboe_europe_lastsale_apf_v1_7.deferral_size_specific = {}
 
--- Size: Post Trade Deferral Reason
-cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.size = 4
+-- Size: Deferral Size Specific
+cboe_europe_lastsale_apf_v1_7.deferral_size_specific.size = 4
 
--- Display: Post Trade Deferral Reason
-cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.display = function(value)
-  if value == "NI" then
-    return "Post Trade Deferral Reason: Non Immediate Publication (NI)"
-  end
-  if value == "LRGS" then
-    return "Post Trade Deferral Reason: Deferral For Large In Scale (LRGS)"
-  end
-  if value == "ILQD" then
-    return "Post Trade Deferral Reason: Deferral For Illiquid Instrument (ILQD)"
-  end
+-- Display: Deferral Size Specific
+cboe_europe_lastsale_apf_v1_7.deferral_size_specific.display = function(value)
   if value == "SIZE" then
-    return "Post Trade Deferral Reason: Deferral For Size Specific (SIZE)"
+    return "Deferral Size Specific: Deferral For Size Specific (SIZE)"
   end
 
-  return "Post Trade Deferral Reason: Unknown("..value..")"
+  return "Deferral Size Specific: Unknown("..value..")"
 end
 
--- Dissect: Post Trade Deferral Reason
-cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.size
+-- Dissect: Deferral Size Specific
+cboe_europe_lastsale_apf_v1_7.deferral_size_specific.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.deferral_size_specific.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.deferral_size_specific.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.post_trade_deferral_reason, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.deferral_size_specific, range, value, display)
+
+  return offset + length, value
+end
+
+-- Duplicative Across Jurisdiction
+cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction = {}
+
+-- Size: Duplicative Across Jurisdiction
+cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.size = 4
+
+-- Display: Duplicative Across Jurisdiction
+cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.display = function(value)
+  if value == "XBDT" then
+    return "Duplicative Across Jurisdiction: Cross Border Duplicative Trade Report (XBDT)"
+  end
+
+  return "Duplicative Across Jurisdiction: Unknown("..value..")"
+end
+
+-- Dissect: Duplicative Across Jurisdiction
+cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.duplicative_across_jurisdiction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.duplicative_across_jurisdiction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Duplicative Indicator
+cboe_europe_lastsale_apf_v1_7.duplicative_indicator = {}
+
+-- Size: Duplicative Indicator
+cboe_europe_lastsale_apf_v1_7.duplicative_indicator.size = 4
+
+-- Display: Duplicative Indicator
+cboe_europe_lastsale_apf_v1_7.duplicative_indicator.display = function(value)
+  if value == "DUPL" then
+    return "Duplicative Indicator: Duplicative Trade Report (DUPL)"
+  end
+
+  return "Duplicative Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Duplicative Indicator
+cboe_europe_lastsale_apf_v1_7.duplicative_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.duplicative_indicator.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.duplicative_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.duplicative_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Duplicative Within Jurisdiction
+cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction = {}
+
+-- Size: Duplicative Within Jurisdiction
+cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.size = 4
+
+-- Display: Duplicative Within Jurisdiction
+cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.display = function(value)
+  if value == "DUPL" then
+    return "Duplicative Within Jurisdiction: Duplicative Trade Report (DUPL)"
+  end
+
+  return "Duplicative Within Jurisdiction: Unknown("..value..")"
+end
+
+-- Dissect: Duplicative Within Jurisdiction
+cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.duplicative_within_jurisdiction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.duplicative_within_jurisdiction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Shares
+cboe_europe_lastsale_apf_v1_7.executed_shares = {}
+
+-- Size: Executed Shares
+cboe_europe_lastsale_apf_v1_7.executed_shares.size = 12
+
+-- Display: Executed Shares
+cboe_europe_lastsale_apf_v1_7.executed_shares.display = function(value)
+  return "Executed Shares: "..value
+end
+
+-- Dissect: Executed Shares
+cboe_europe_lastsale_apf_v1_7.executed_shares.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.executed_shares.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_europe_lastsale_apf_v1_7.executed_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.executed_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Venue
+cboe_europe_lastsale_apf_v1_7.execution_venue = {}
+
+-- Size: Execution Venue
+cboe_europe_lastsale_apf_v1_7.execution_venue.size = 4
+
+-- Display: Execution Venue
+cboe_europe_lastsale_apf_v1_7.execution_venue.display = function(value)
+  return "Execution Venue: "..value
+end
+
+-- Dissect: Execution Venue
+cboe_europe_lastsale_apf_v1_7.execution_venue.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.execution_venue.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.execution_venue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.execution_venue, range, value, display)
 
   return offset + length, value
 end
@@ -692,228 +576,110 @@ cboe_europe_lastsale_apf_v1_7.giveup_flag.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Contingent Flag
-cboe_europe_lastsale_apf_v1_7.contingent_flag = {}
+-- Intra Group Indicator
+cboe_europe_lastsale_apf_v1_7.intra_group_indicator = {}
 
--- Size: Contingent Flag
-cboe_europe_lastsale_apf_v1_7.contingent_flag.size = 4
+-- Size: Intra Group Indicator
+cboe_europe_lastsale_apf_v1_7.intra_group_indicator.size = 4
 
--- Display: Contingent Flag
-cboe_europe_lastsale_apf_v1_7.contingent_flag.display = function(value)
-  return "Contingent Flag: "..value
+-- Display: Intra Group Indicator
+cboe_europe_lastsale_apf_v1_7.intra_group_indicator.display = function(value)
+  if value == "IGRP" then
+    return "Intra Group Indicator: Intra Group Trade (IGRP)"
+  end
+
+  return "Intra Group Indicator: Unknown("..value..")"
 end
 
--- Dissect: Contingent Flag
-cboe_europe_lastsale_apf_v1_7.contingent_flag.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.contingent_flag.size
+-- Dissect: Intra Group Indicator
+cboe_europe_lastsale_apf_v1_7.intra_group_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.intra_group_indicator.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.contingent_flag.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.intra_group_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.contingent_flag, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.intra_group_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Portfolio Flag
-cboe_europe_lastsale_apf_v1_7.portfolio_flag = {}
+-- Jurisdiction
+cboe_europe_lastsale_apf_v1_7.jurisdiction = {}
 
--- Size: Portfolio Flag
-cboe_europe_lastsale_apf_v1_7.portfolio_flag.size = 4
+-- Size: Jurisdiction
+cboe_europe_lastsale_apf_v1_7.jurisdiction.size = 2
 
--- Display: Portfolio Flag
-cboe_europe_lastsale_apf_v1_7.portfolio_flag.display = function(value)
-  if value == "PORT" then
-    return "Portfolio Flag: Portfolio Trade (PORT)"
+-- Display: Jurisdiction
+cboe_europe_lastsale_apf_v1_7.jurisdiction.display = function(value)
+  if value == "EU" then
+    return "Jurisdiction: Trade Executed On An Eu Regulated Venue Or Apa (EU)"
   end
-  if value == "CONT" then
-    return "Portfolio Flag: Contingent Trade (CONT)"
+  if value == "UK" then
+    return "Jurisdiction: Trade Executed On A Non Eu Regulated Venue Or Apa (UK)"
   end
 
-  return "Portfolio Flag: Unknown("..value..")"
+  return "Jurisdiction: Unknown("..value..")"
 end
 
--- Dissect: Portfolio Flag
-cboe_europe_lastsale_apf_v1_7.portfolio_flag.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.portfolio_flag.size
+-- Dissect: Jurisdiction
+cboe_europe_lastsale_apf_v1_7.jurisdiction.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.jurisdiction.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.portfolio_flag.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.jurisdiction.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.portfolio_flag, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.jurisdiction, range, value, display)
 
   return offset + length, value
 end
 
--- Pre Trade Transparency Waiver
-cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver = {}
+-- Market Mechanism
+cboe_europe_lastsale_apf_v1_7.market_mechanism = {}
 
--- Size: Pre Trade Transparency Waiver
-cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.size = 4
+-- Size: Market Mechanism
+cboe_europe_lastsale_apf_v1_7.market_mechanism.size = 4
 
--- Display: Pre Trade Transparency Waiver
-cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.display = function(value)
-  if value == "SIZE" then
-    return "Pre Trade Transparency Waiver: Pre Trade Transparency Waiver For Above Standard Market Size On An Si (SIZE)"
+-- Display: Market Mechanism
+cboe_europe_lastsale_apf_v1_7.market_mechanism.display = function(value)
+  if value == "LB" then
+    return "Market Mechanism: Central Limit Order Book (LB)"
   end
-  if value == "NTLS" then
-    return "Pre Trade Transparency Waiver: Negotiated Trade Larger Than Lis Brought Onto A Venue (NTLS)"
+  if value == "QB" then
+    return "Market Mechanism: Quote Driven Market (QB)"
+  end
+  if value == "DB" then
+    return "Market Mechanism: Dark Order Book (DB)"
+  end
+  if value == "OB" then
+    return "Market Mechanism: Oﬀ Book (OB)"
+  end
+  if value == "PA" then
+    return "Market Mechanism: Periodic Auction (PA)"
+  end
+  if value == "RQ" then
+    return "Market Mechanism: Request For Quotes (RQ)"
+  end
+  if value == "AH" then
+    return "Market Mechanism: Any Other (AH)"
+  end
+  if value == "HS" then
+    return "Market Mechanism: Hybrid System (HS)"
+  end
+  if value == "AO" then
+    return "Market Mechanism: Any Other (AO)"
   end
 
-  return "Pre Trade Transparency Waiver: Unknown("..value..")"
+  return "Market Mechanism: Unknown("..value..")"
 end
 
--- Dissect: Pre Trade Transparency Waiver
-cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.size
+-- Dissect: Market Mechanism
+cboe_europe_lastsale_apf_v1_7.market_mechanism.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.market_mechanism.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.market_mechanism.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.pre_trade_transparency_waiver, range, value, display)
-
-  return offset + length, value
-end
-
--- Algorithmic Indicator
-cboe_europe_lastsale_apf_v1_7.algorithmic_indicator = {}
-
--- Size: Algorithmic Indicator
-cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.size = 4
-
--- Display: Algorithmic Indicator
-cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.display = function(value)
-  if value == "ALGO" then
-    return "Algorithmic Indicator: Algorithmic Trade (ALGO)"
-  end
-
-  return "Algorithmic Indicator: Unknown("..value..")"
-end
-
--- Dissect: Algorithmic Indicator
-cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.algorithmic_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.algorithmic_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Discovery Process
-cboe_europe_lastsale_apf_v1_7.price_discovery_process = {}
-
--- Size: Price Discovery Process
-cboe_europe_lastsale_apf_v1_7.price_discovery_process.size = 4
-
--- Display: Price Discovery Process
-cboe_europe_lastsale_apf_v1_7.price_discovery_process.display = function(value)
-  if value == "NPFT" then
-    return "Price Discovery Process: Non Price Forming Trade (NPFT)"
-  end
-  if value == "TNCP" then
-    return "Price Discovery Process: Trade Not Contributing To The Price Discovery Process (TNCP)"
-  end
-  if value == "PNDG" then
-    return "Price Discovery Process: Price Is Pending (PNDG)"
-  end
-  if value == NOAP then
-    return "Price Discovery Process: No Value"
-  end
-
-  return "Price Discovery Process: Unknown("..value..")"
-end
-
--- Dissect: Price Discovery Process
-cboe_europe_lastsale_apf_v1_7.price_discovery_process.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.price_discovery_process.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.price_discovery_process.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.price_discovery_process, range, value, display)
-
-  return offset + length, value
-end
-
--- Off Book Automated
-cboe_europe_lastsale_apf_v1_7.off_book_automated = {}
-
--- Size: Off Book Automated
-cboe_europe_lastsale_apf_v1_7.off_book_automated.size = 4
-
--- Display: Off Book Automated
-cboe_europe_lastsale_apf_v1_7.off_book_automated.display = function(value)
-  if value == "M" then
-    return "Off Book Automated: Off Book Non Automated (M)"
-  end
-  if value == "Q" then
-    return "Off Book Automated: Off Book Automated (Q)"
-  end
-
-  return "Off Book Automated: Unknown("..value..")"
-end
-
--- Dissect: Off Book Automated
-cboe_europe_lastsale_apf_v1_7.off_book_automated.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.off_book_automated.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.off_book_automated.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.off_book_automated, range, value, display)
-
-  return offset + length, value
-end
-
--- Special Dividend
-cboe_europe_lastsale_apf_v1_7.special_dividend = {}
-
--- Size: Special Dividend
-cboe_europe_lastsale_apf_v1_7.special_dividend.size = 4
-
--- Display: Special Dividend
-cboe_europe_lastsale_apf_v1_7.special_dividend.display = function(value)
-  if value == "SDIV" then
-    return "Special Dividend: Special Dividend Trade (SDIV)"
-  end
-
-  return "Special Dividend: Unknown("..value..")"
-end
-
--- Dissect: Special Dividend
-cboe_europe_lastsale_apf_v1_7.special_dividend.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.special_dividend.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.special_dividend.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.special_dividend, range, value, display)
-
-  return offset + length, value
-end
-
--- Benchmark Indicator
-cboe_europe_lastsale_apf_v1_7.benchmark_indicator = {}
-
--- Size: Benchmark Indicator
-cboe_europe_lastsale_apf_v1_7.benchmark_indicator.size = 4
-
--- Display: Benchmark Indicator
-cboe_europe_lastsale_apf_v1_7.benchmark_indicator.display = function(value)
-  return "Benchmark Indicator: "..value
-end
-
--- Dissect: Benchmark Indicator
-cboe_europe_lastsale_apf_v1_7.benchmark_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.benchmark_indicator.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.benchmark_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.benchmark_indicator, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.market_mechanism, range, value, display)
 
   return offset + length, value
 end
@@ -944,33 +710,6 @@ cboe_europe_lastsale_apf_v1_7.modification_indicator.dissect = function(buffer, 
   local display = cboe_europe_lastsale_apf_v1_7.modification_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.modification_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Agency Cross Trade
-cboe_europe_lastsale_apf_v1_7.agency_cross_trade = {}
-
--- Size: Agency Cross Trade
-cboe_europe_lastsale_apf_v1_7.agency_cross_trade.size = 4
-
--- Display: Agency Cross Trade
-cboe_europe_lastsale_apf_v1_7.agency_cross_trade.display = function(value)
-  if value == "ACTX" then
-    return "Agency Cross Trade: Agency Cross Trade (ACTX)"
-  end
-
-  return "Agency Cross Trade: Unknown("..value..")"
-end
-
--- Dissect: Agency Cross Trade
-cboe_europe_lastsale_apf_v1_7.agency_cross_trade.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.agency_cross_trade.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.agency_cross_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.agency_cross_trade, range, value, display)
 
   return offset + length, value
 end
@@ -1014,38 +753,741 @@ cboe_europe_lastsale_apf_v1_7.negotiation_flag.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Transaction Category
-cboe_europe_lastsale_apf_v1_7.transaction_category = {}
+-- Notional Amount
+cboe_europe_lastsale_apf_v1_7.notional_amount = {}
 
--- Size: Transaction Category
-cboe_europe_lastsale_apf_v1_7.transaction_category.size = 4
+-- Size: Notional Amount
+cboe_europe_lastsale_apf_v1_7.notional_amount.size = 18
 
--- Display: Transaction Category
-cboe_europe_lastsale_apf_v1_7.transaction_category.display = function(value)
-  if value == "D" then
-    return "Transaction Category: Dark Trade (D)"
-  end
-  if value == "RPRI" then
-    return "Transaction Category: Trade That Has Received Price Improvement (RPRI)"
-  end
-  if value == "TPAC" then
-    return "Transaction Category: Package Trade (TPAC)"
-  end
-  if value == "XFPH" then
-    return "Transaction Category: Exchange For Physical Trade (XFPH)"
-  end
-
-  return "Transaction Category: Unknown("..value..")"
+-- Display: Notional Amount
+cboe_europe_lastsale_apf_v1_7.notional_amount.display = function(value)
+  return "Notional Amount: "..value
 end
 
--- Dissect: Transaction Category
-cboe_europe_lastsale_apf_v1_7.transaction_category.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.transaction_category.size
+-- Dissect: Notional Amount
+cboe_europe_lastsale_apf_v1_7.notional_amount.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.notional_amount.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_europe_lastsale_apf_v1_7.notional_amount.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.notional_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Notional Currency
+cboe_europe_lastsale_apf_v1_7.notional_currency = {}
+
+-- Size: Notional Currency
+cboe_europe_lastsale_apf_v1_7.notional_currency.size = 3
+
+-- Display: Notional Currency
+cboe_europe_lastsale_apf_v1_7.notional_currency.display = function(value)
+  return "Notional Currency: "..value
+end
+
+-- Dissect: Notional Currency
+cboe_europe_lastsale_apf_v1_7.notional_currency.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.notional_currency.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.transaction_category.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.notional_currency.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.transaction_category, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.notional_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Book Automated
+cboe_europe_lastsale_apf_v1_7.off_book_automated = {}
+
+-- Size: Off Book Automated
+cboe_europe_lastsale_apf_v1_7.off_book_automated.size = 4
+
+-- Display: Off Book Automated
+cboe_europe_lastsale_apf_v1_7.off_book_automated.display = function(value)
+  if value == "M" then
+    return "Off Book Automated: Off Book Non Automated (M)"
+  end
+  if value == "Q" then
+    return "Off Book Automated: Off Book Automated (Q)"
+  end
+
+  return "Off Book Automated: Unknown("..value..")"
+end
+
+-- Dissect: Off Book Automated
+cboe_europe_lastsale_apf_v1_7.off_book_automated.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.off_book_automated.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.off_book_automated.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.off_book_automated, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+cboe_europe_lastsale_apf_v1_7.packet_type = {}
+
+-- Size: Packet Type
+cboe_europe_lastsale_apf_v1_7.packet_type.size = 1
+
+-- Display: Packet Type
+cboe_europe_lastsale_apf_v1_7.packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+cboe_europe_lastsale_apf_v1_7.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+cboe_europe_lastsale_apf_v1_7.password = {}
+
+-- Size: Password
+cboe_europe_lastsale_apf_v1_7.password.size = 10
+
+-- Display: Password
+cboe_europe_lastsale_apf_v1_7.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+cboe_europe_lastsale_apf_v1_7.password.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.password.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Portfolio Flag
+cboe_europe_lastsale_apf_v1_7.portfolio_flag = {}
+
+-- Size: Portfolio Flag
+cboe_europe_lastsale_apf_v1_7.portfolio_flag.size = 4
+
+-- Display: Portfolio Flag
+cboe_europe_lastsale_apf_v1_7.portfolio_flag.display = function(value)
+  if value == "PORT" then
+    return "Portfolio Flag: Portfolio Trade (PORT)"
+  end
+  if value == "CONT" then
+    return "Portfolio Flag: Contingent Trade (CONT)"
+  end
+
+  return "Portfolio Flag: Unknown("..value..")"
+end
+
+-- Dissect: Portfolio Flag
+cboe_europe_lastsale_apf_v1_7.portfolio_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.portfolio_flag.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.portfolio_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.portfolio_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Post Trade Deferral Reason
+cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason = {}
+
+-- Size: Post Trade Deferral Reason
+cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.size = 4
+
+-- Display: Post Trade Deferral Reason
+cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.display = function(value)
+  if value == "NI" then
+    return "Post Trade Deferral Reason: Non Immediate Publication (NI)"
+  end
+  if value == "LRGS" then
+    return "Post Trade Deferral Reason: Deferral For Large In Scale (LRGS)"
+  end
+  if value == "ILQD" then
+    return "Post Trade Deferral Reason: Deferral For Illiquid Instrument (ILQD)"
+  end
+  if value == "SIZE" then
+    return "Post Trade Deferral Reason: Deferral For Size Specific (SIZE)"
+  end
+
+  return "Post Trade Deferral Reason: Unknown("..value..")"
+end
+
+-- Dissect: Post Trade Deferral Reason
+cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.post_trade_deferral_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.post_trade_deferral_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pre Trade Transparency Waiver
+cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver = {}
+
+-- Size: Pre Trade Transparency Waiver
+cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.size = 4
+
+-- Display: Pre Trade Transparency Waiver
+cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.display = function(value)
+  if value == "SIZE" then
+    return "Pre Trade Transparency Waiver: Pre Trade Transparency Waiver For Above Standard Market Size On An Si (SIZE)"
+  end
+  if value == "NTLS" then
+    return "Pre Trade Transparency Waiver: Negotiated Trade Larger Than Lis Brought Onto A Venue (NTLS)"
+  end
+
+  return "Pre Trade Transparency Waiver: Unknown("..value..")"
+end
+
+-- Dissect: Pre Trade Transparency Waiver
+cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.pre_trade_transparency_waiver.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.pre_trade_transparency_waiver, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+cboe_europe_lastsale_apf_v1_7.price = {}
+
+-- Size: Price
+cboe_europe_lastsale_apf_v1_7.price.size = 18
+
+-- Display: Price
+cboe_europe_lastsale_apf_v1_7.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+cboe_europe_lastsale_apf_v1_7.price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_europe_lastsale_apf_v1_7.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Currency
+cboe_europe_lastsale_apf_v1_7.price_currency = {}
+
+-- Size: Price Currency
+cboe_europe_lastsale_apf_v1_7.price_currency.size = 3
+
+-- Display: Price Currency
+cboe_europe_lastsale_apf_v1_7.price_currency.display = function(value)
+  return "Price Currency: "..value
+end
+
+-- Dissect: Price Currency
+cboe_europe_lastsale_apf_v1_7.price_currency.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.price_currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.price_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.price_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Discovery Process
+cboe_europe_lastsale_apf_v1_7.price_discovery_process = {}
+
+-- Size: Price Discovery Process
+cboe_europe_lastsale_apf_v1_7.price_discovery_process.size = 4
+
+-- Display: Price Discovery Process
+cboe_europe_lastsale_apf_v1_7.price_discovery_process.display = function(value)
+  if value == "NPFT" then
+    return "Price Discovery Process: Non Price Forming Trade (NPFT)"
+  end
+  if value == "TNCP" then
+    return "Price Discovery Process: Trade Not Contributing To The Price Discovery Process (TNCP)"
+  end
+  if value == "PNDG" then
+    return "Price Discovery Process: Price Is Pending (PNDG)"
+  end
+  if value == NOAP then
+    return "Price Discovery Process: No Value"
+  end
+
+  return "Price Discovery Process: Unknown("..value..")"
+end
+
+-- Dissect: Price Discovery Process
+cboe_europe_lastsale_apf_v1_7.price_discovery_process.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.price_discovery_process.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.price_discovery_process.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.price_discovery_process, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Notation
+cboe_europe_lastsale_apf_v1_7.price_notation = {}
+
+-- Size: Price Notation
+cboe_europe_lastsale_apf_v1_7.price_notation.size = 4
+
+-- Display: Price Notation
+cboe_europe_lastsale_apf_v1_7.price_notation.display = function(value)
+  if value == "MONE" then
+    return "Price Notation: Monetary Value In The Case Of Equity And Equitylike Financial Instruments (MONE)"
+  end
+  if value == "PERC" then
+    return "Price Notation: Percentage In The Case Of Certificates And Other Equitylike Financial Instruments (PERC)"
+  end
+  if value == "YIEL" then
+    return "Price Notation: Yield In The Case Of Certificates And Other Equitylike Financial Instruments (YIEL)"
+  end
+  if value == "BAPO" then
+    return "Price Notation: Basis Points In The Case Of Certificates And Other Equitylike Financial Instruments (BAPO)"
+  end
+
+  return "Price Notation: Unknown("..value..")"
+end
+
+-- Dissect: Price Notation
+cboe_europe_lastsale_apf_v1_7.price_notation.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.price_notation.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.price_notation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.price_notation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Publication Date Time
+cboe_europe_lastsale_apf_v1_7.publication_date_time = {}
+
+-- Size: Publication Date Time
+cboe_europe_lastsale_apf_v1_7.publication_date_time.size = 27
+
+-- Display: Publication Date Time
+cboe_europe_lastsale_apf_v1_7.publication_date_time.display = function(value)
+  return "Publication Date Time: "..value
+end
+
+-- Dissect: Publication Date Time
+cboe_europe_lastsale_apf_v1_7.publication_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.publication_date_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.publication_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.publication_date_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason Code
+cboe_europe_lastsale_apf_v1_7.reject_reason_code = {}
+
+-- Size: Reject Reason Code
+cboe_europe_lastsale_apf_v1_7.reject_reason_code.size = 1
+
+-- Display: Reject Reason Code
+cboe_europe_lastsale_apf_v1_7.reject_reason_code.display = function(value)
+  return "Reject Reason Code: "..value
+end
+
+-- Dissect: Reject Reason Code
+cboe_europe_lastsale_apf_v1_7.reject_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.reject_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.reject_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+cboe_europe_lastsale_apf_v1_7.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+cboe_europe_lastsale_apf_v1_7.requested_sequence_number.size = 10
+
+-- Display: Requested Sequence Number
+cboe_europe_lastsale_apf_v1_7.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+cboe_europe_lastsale_apf_v1_7.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Session
+cboe_europe_lastsale_apf_v1_7.requested_session = {}
+
+-- Size: Requested Session
+cboe_europe_lastsale_apf_v1_7.requested_session.size = 10
+
+-- Display: Requested Session
+cboe_europe_lastsale_apf_v1_7.requested_session.display = function(value)
+  return "Requested Session: "..value
+end
+
+-- Dissect: Requested Session
+cboe_europe_lastsale_apf_v1_7.requested_session.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.requested_session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.requested_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.requested_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+cboe_europe_lastsale_apf_v1_7.sequence_number = {}
+
+-- Size: Sequence Number
+cboe_europe_lastsale_apf_v1_7.sequence_number.size = 10
+
+-- Display: Sequence Number
+cboe_europe_lastsale_apf_v1_7.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+cboe_europe_lastsale_apf_v1_7.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequenced Message Type
+cboe_europe_lastsale_apf_v1_7.sequenced_message_type = {}
+
+-- Size: Sequenced Message Type
+cboe_europe_lastsale_apf_v1_7.sequenced_message_type.size = 1
+
+-- Display: Sequenced Message Type
+cboe_europe_lastsale_apf_v1_7.sequenced_message_type.display = function(value)
+  if value == "u" then
+    return "Sequenced Message Type: Last Sale Europe Message (u)"
+  end
+  if value == "7" then
+    return "Sequenced Message Type: Last Sale Europe Message New (7)"
+  end
+
+  return "Sequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Sequenced Message Type
+cboe_europe_lastsale_apf_v1_7.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.sequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.sequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+cboe_europe_lastsale_apf_v1_7.session = {}
+
+-- Size: Session
+cboe_europe_lastsale_apf_v1_7.session.size = 10
+
+-- Display: Session
+cboe_europe_lastsale_apf_v1_7.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+cboe_europe_lastsale_apf_v1_7.session.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Soup Lf
+cboe_europe_lastsale_apf_v1_7.soup_lf = {}
+
+-- Size: Soup Lf
+cboe_europe_lastsale_apf_v1_7.soup_lf.size = 1
+
+-- Display: Soup Lf
+cboe_europe_lastsale_apf_v1_7.soup_lf.display = function(value)
+  if value == 10 then
+    return "Soup Lf: Line Feed"
+  end
+
+  return "Soup Lf: Unknown("..value..")"
+end
+
+-- Dissect: Soup Lf
+cboe_europe_lastsale_apf_v1_7.soup_lf.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.soup_lf.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = cboe_europe_lastsale_apf_v1_7.soup_lf.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.soup_lf, range, value, display)
+
+  return offset + length, value
+end
+
+-- Special Dividend
+cboe_europe_lastsale_apf_v1_7.special_dividend = {}
+
+-- Size: Special Dividend
+cboe_europe_lastsale_apf_v1_7.special_dividend.size = 4
+
+-- Display: Special Dividend
+cboe_europe_lastsale_apf_v1_7.special_dividend.display = function(value)
+  if value == "SDIV" then
+    return "Special Dividend: Special Dividend Trade (SDIV)"
+  end
+
+  return "Special Dividend: Unknown("..value..")"
+end
+
+-- Dissect: Special Dividend
+cboe_europe_lastsale_apf_v1_7.special_dividend.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.special_dividend.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.special_dividend.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.special_dividend, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cboe_europe_lastsale_apf_v1_7.symbol = {}
+
+-- Size: Symbol
+cboe_europe_lastsale_apf_v1_7.symbol.size = 12
+
+-- Display: Symbol
+cboe_europe_lastsale_apf_v1_7.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cboe_europe_lastsale_apf_v1_7.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+cboe_europe_lastsale_apf_v1_7.text = {}
+
+-- Size: Text
+cboe_europe_lastsale_apf_v1_7.text.size = 1
+
+-- Display: Text
+cboe_europe_lastsale_apf_v1_7.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+cboe_europe_lastsale_apf_v1_7.text.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Country Trading Venue
+cboe_europe_lastsale_apf_v1_7.third_country_trading_venue = {}
+
+-- Size: Third Country Trading Venue
+cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.size = 4
+
+-- Display: Third Country Trading Venue
+cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.display = function(value)
+  return "Third Country Trading Venue: "..value
+end
+
+-- Dissect: Third Country Trading Venue
+cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.third_country_trading_venue, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+cboe_europe_lastsale_apf_v1_7.timestamp = {}
+
+-- Size: Timestamp
+cboe_europe_lastsale_apf_v1_7.timestamp.size = 8
+
+-- Display: Timestamp
+cboe_europe_lastsale_apf_v1_7.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+cboe_europe_lastsale_apf_v1_7.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.timestamp.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_europe_lastsale_apf_v1_7.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+cboe_europe_lastsale_apf_v1_7.trade_id = {}
+
+-- Size: Trade Id
+cboe_europe_lastsale_apf_v1_7.trade_id.size = 12
+
+-- Display: Trade Id
+cboe_europe_lastsale_apf_v1_7.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+cboe_europe_lastsale_apf_v1_7.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.trade_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Date Time
+cboe_europe_lastsale_apf_v1_7.trading_date_time = {}
+
+-- Size: Trading Date Time
+cboe_europe_lastsale_apf_v1_7.trading_date_time.size = 27
+
+-- Display: Trading Date Time
+cboe_europe_lastsale_apf_v1_7.trading_date_time.display = function(value)
+  return "Trading Date Time: "..value
+end
+
+-- Dissect: Trading Date Time
+cboe_europe_lastsale_apf_v1_7.trading_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.trading_date_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_europe_lastsale_apf_v1_7.trading_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.trading_date_time, range, value, display)
 
   return offset + length, value
 end
@@ -1110,359 +1552,160 @@ cboe_europe_lastsale_apf_v1_7.trading_mode.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Market Mechanism
-cboe_europe_lastsale_apf_v1_7.market_mechanism = {}
+-- Transaction Category
+cboe_europe_lastsale_apf_v1_7.transaction_category = {}
 
--- Size: Market Mechanism
-cboe_europe_lastsale_apf_v1_7.market_mechanism.size = 4
+-- Size: Transaction Category
+cboe_europe_lastsale_apf_v1_7.transaction_category.size = 4
 
--- Display: Market Mechanism
-cboe_europe_lastsale_apf_v1_7.market_mechanism.display = function(value)
-  if value == "LB" then
-    return "Market Mechanism: Central Limit Order Book (LB)"
+-- Display: Transaction Category
+cboe_europe_lastsale_apf_v1_7.transaction_category.display = function(value)
+  if value == "D" then
+    return "Transaction Category: Dark Trade (D)"
   end
-  if value == "QB" then
-    return "Market Mechanism: Quote Driven Market (QB)"
+  if value == "RPRI" then
+    return "Transaction Category: Trade That Has Received Price Improvement (RPRI)"
   end
-  if value == "DB" then
-    return "Market Mechanism: Dark Order Book (DB)"
+  if value == "TPAC" then
+    return "Transaction Category: Package Trade (TPAC)"
   end
-  if value == "OB" then
-    return "Market Mechanism: Oﬀ Book (OB)"
-  end
-  if value == "PA" then
-    return "Market Mechanism: Periodic Auction (PA)"
-  end
-  if value == "RQ" then
-    return "Market Mechanism: Request For Quotes (RQ)"
-  end
-  if value == "AH" then
-    return "Market Mechanism: Any Other (AH)"
-  end
-  if value == "HS" then
-    return "Market Mechanism: Hybrid System (HS)"
-  end
-  if value == "AO" then
-    return "Market Mechanism: Any Other (AO)"
+  if value == "XFPH" then
+    return "Transaction Category: Exchange For Physical Trade (XFPH)"
   end
 
-  return "Market Mechanism: Unknown("..value..")"
+  return "Transaction Category: Unknown("..value..")"
 end
 
--- Dissect: Market Mechanism
-cboe_europe_lastsale_apf_v1_7.market_mechanism.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.market_mechanism.size
+-- Dissect: Transaction Category
+cboe_europe_lastsale_apf_v1_7.transaction_category.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.transaction_category.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.market_mechanism.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7.transaction_category.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.market_mechanism, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id
-cboe_europe_lastsale_apf_v1_7.trade_id = {}
-
--- Size: Trade Id
-cboe_europe_lastsale_apf_v1_7.trade_id.size = 12
-
--- Display: Trade Id
-cboe_europe_lastsale_apf_v1_7.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-cboe_europe_lastsale_apf_v1_7.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.trade_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.trade_id, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.transaction_category, range, value, display)
 
   return offset + length, value
 end
 
--- Publication Date Time
-cboe_europe_lastsale_apf_v1_7.publication_date_time = {}
+-- Username
+cboe_europe_lastsale_apf_v1_7.username = {}
 
--- Size: Publication Date Time
-cboe_europe_lastsale_apf_v1_7.publication_date_time.size = 27
+-- Size: Username
+cboe_europe_lastsale_apf_v1_7.username.size = 6
 
--- Display: Publication Date Time
-cboe_europe_lastsale_apf_v1_7.publication_date_time.display = function(value)
-  return "Publication Date Time: "..value
+-- Display: Username
+cboe_europe_lastsale_apf_v1_7.username.display = function(value)
+  return "Username: "..value
 end
 
--- Dissect: Publication Date Time
-cboe_europe_lastsale_apf_v1_7.publication_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.publication_date_time.size
+-- Dissect: Username
+cboe_europe_lastsale_apf_v1_7.username.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.username.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.publication_date_time.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = cboe_europe_lastsale_apf_v1_7.username.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.publication_date_time, range, value, display)
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.username, range, value, display)
 
   return offset + length, value
 end
 
--- Third Country Trading Venue
-cboe_europe_lastsale_apf_v1_7.third_country_trading_venue = {}
 
--- Size: Third Country Trading Venue
-cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.size = 4
+-----------------------------------------------------------------------
+-- Dissect Cboe Europe LastSale Apf 1.7
+-----------------------------------------------------------------------
 
--- Display: Third Country Trading Venue
-cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.display = function(value)
-  return "Third Country Trading Venue: "..value
+-- Unsequenced Data Packet
+cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet = {}
+
+-- Size: Unsequenced Data Packet
+cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.size =
+  cboe_europe_lastsale_apf_v1_7.unsequenced_message.size
+
+-- Display: Unsequenced Data Packet
+cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect: Third Country Trading Venue
-cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.third_country_trading_venue.display(value, buffer, offset, packet, parent)
+-- Dissect Fields: Unsequenced Data Packet
+cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
 
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.third_country_trading_venue, range, value, display)
+  -- Unsequenced Message
+  index, unsequenced_message = cboe_europe_lastsale_apf_v1_7.unsequenced_message.dissect(buffer, index, packet, parent)
 
-  return offset + length, value
+  return index
 end
 
--- Execution Venue
-cboe_europe_lastsale_apf_v1_7.execution_venue = {}
+-- Dissect: Unsequenced Data Packet
+cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
+  if show.unsequenced_data_packet then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.unsequenced_data_packet, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.display(packet, parent, length)
+    parent:append_text(display)
 
--- Size: Execution Venue
-cboe_europe_lastsale_apf_v1_7.execution_venue.size = 4
-
--- Display: Execution Venue
-cboe_europe_lastsale_apf_v1_7.execution_venue.display = function(value)
-  return "Execution Venue: "..value
-end
-
--- Dissect: Execution Venue
-cboe_europe_lastsale_apf_v1_7.execution_venue.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.execution_venue.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.execution_venue.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.execution_venue, range, value, display)
-
-  return offset + length, value
-end
-
--- Notional Currency
-cboe_europe_lastsale_apf_v1_7.notional_currency = {}
-
--- Size: Notional Currency
-cboe_europe_lastsale_apf_v1_7.notional_currency.size = 3
-
--- Display: Notional Currency
-cboe_europe_lastsale_apf_v1_7.notional_currency.display = function(value)
-  return "Notional Currency: "..value
-end
-
--- Dissect: Notional Currency
-cboe_europe_lastsale_apf_v1_7.notional_currency.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.notional_currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.notional_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.notional_currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Notional Amount
-cboe_europe_lastsale_apf_v1_7.notional_amount = {}
-
--- Size: Notional Amount
-cboe_europe_lastsale_apf_v1_7.notional_amount.size = 18
-
--- Display: Notional Amount
-cboe_europe_lastsale_apf_v1_7.notional_amount.display = function(value)
-  return "Notional Amount: "..value
-end
-
--- Dissect: Notional Amount
-cboe_europe_lastsale_apf_v1_7.notional_amount.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.notional_amount.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.fields(buffer, offset, packet, parent)
   end
-
-  local display = cboe_europe_lastsale_apf_v1_7.notional_amount.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.notional_amount, range, value, display)
-
-  return offset + length, value
 end
 
--- Executed Shares
-cboe_europe_lastsale_apf_v1_7.executed_shares = {}
+-- Login Request Packet
+cboe_europe_lastsale_apf_v1_7.login_request_packet = {}
 
--- Size: Executed Shares
-cboe_europe_lastsale_apf_v1_7.executed_shares.size = 12
+-- Size: Login Request Packet
+cboe_europe_lastsale_apf_v1_7.login_request_packet.size =
+  cboe_europe_lastsale_apf_v1_7.username.size + 
+  cboe_europe_lastsale_apf_v1_7.password.size + 
+  cboe_europe_lastsale_apf_v1_7.requested_session.size + 
+  cboe_europe_lastsale_apf_v1_7.requested_sequence_number.size
 
--- Display: Executed Shares
-cboe_europe_lastsale_apf_v1_7.executed_shares.display = function(value)
-  return "Executed Shares: "..value
+-- Display: Login Request Packet
+cboe_europe_lastsale_apf_v1_7.login_request_packet.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect: Executed Shares
-cboe_europe_lastsale_apf_v1_7.executed_shares.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.executed_shares.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
+-- Dissect Fields: Login Request Packet
+cboe_europe_lastsale_apf_v1_7.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
 
-  if value == nil then
-    value =  "Not Applicable"
+  -- Username: 6 Byte Ascii String
+  index, username = cboe_europe_lastsale_apf_v1_7.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = cboe_europe_lastsale_apf_v1_7.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = cboe_europe_lastsale_apf_v1_7.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 10 Byte Ascii String
+  index, requested_sequence_number = cboe_europe_lastsale_apf_v1_7.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+cboe_europe_lastsale_apf_v1_7.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.login_request_packet then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.login_request_packet, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7.login_request_packet.fields(buffer, offset, packet, parent)
   end
-
-  local display = cboe_europe_lastsale_apf_v1_7.executed_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.executed_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Currency
-cboe_europe_lastsale_apf_v1_7.price_currency = {}
-
--- Size: Price Currency
-cboe_europe_lastsale_apf_v1_7.price_currency.size = 3
-
--- Display: Price Currency
-cboe_europe_lastsale_apf_v1_7.price_currency.display = function(value)
-  return "Price Currency: "..value
-end
-
--- Dissect: Price Currency
-cboe_europe_lastsale_apf_v1_7.price_currency.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.price_currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.price_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.price_currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Notation
-cboe_europe_lastsale_apf_v1_7.price_notation = {}
-
--- Size: Price Notation
-cboe_europe_lastsale_apf_v1_7.price_notation.size = 4
-
--- Display: Price Notation
-cboe_europe_lastsale_apf_v1_7.price_notation.display = function(value)
-  if value == "MONE" then
-    return "Price Notation: Monetary Value In The Case Of Equity And Equitylike Financial Instruments (MONE)"
-  end
-  if value == "PERC" then
-    return "Price Notation: Percentage In The Case Of Certificates And Other Equitylike Financial Instruments (PERC)"
-  end
-  if value == "YIEL" then
-    return "Price Notation: Yield In The Case Of Certificates And Other Equitylike Financial Instruments (YIEL)"
-  end
-  if value == "BAPO" then
-    return "Price Notation: Basis Points In The Case Of Certificates And Other Equitylike Financial Instruments (BAPO)"
-  end
-
-  return "Price Notation: Unknown("..value..")"
-end
-
--- Dissect: Price Notation
-cboe_europe_lastsale_apf_v1_7.price_notation.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.price_notation.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.price_notation.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.price_notation, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-cboe_europe_lastsale_apf_v1_7.price = {}
-
--- Size: Price
-cboe_europe_lastsale_apf_v1_7.price.size = 18
-
--- Display: Price
-cboe_europe_lastsale_apf_v1_7.price.display = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-cboe_europe_lastsale_apf_v1_7.price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = cboe_europe_lastsale_apf_v1_7.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-cboe_europe_lastsale_apf_v1_7.symbol = {}
-
--- Size: Symbol
-cboe_europe_lastsale_apf_v1_7.symbol.size = 12
-
--- Display: Symbol
-cboe_europe_lastsale_apf_v1_7.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-cboe_europe_lastsale_apf_v1_7.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Date Time
-cboe_europe_lastsale_apf_v1_7.trading_date_time = {}
-
--- Size: Trading Date Time
-cboe_europe_lastsale_apf_v1_7.trading_date_time.size = 27
-
--- Display: Trading Date Time
-cboe_europe_lastsale_apf_v1_7.trading_date_time.display = function(value)
-  return "Trading Date Time: "..value
-end
-
--- Dissect: Trading Date Time
-cboe_europe_lastsale_apf_v1_7.trading_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.trading_date_time.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.trading_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.trading_date_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Last Sale Europe Message New
@@ -1625,7 +1868,7 @@ end
 
 -- Dissect: Last Sale Europe Message New
 cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new.dissect = function(buffer, offset, packet, parent)
-  if show.last_sale_europe_message_new then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message_new, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new.fields(buffer, offset, packet, parent)
@@ -1639,63 +1882,6 @@ cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new.dissect = function(bu
     -- Skip element, add fields directly
     return cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new.fields(buffer, offset, packet, parent)
   end
-end
-
--- Duplicative Indicator
-cboe_europe_lastsale_apf_v1_7.duplicative_indicator = {}
-
--- Size: Duplicative Indicator
-cboe_europe_lastsale_apf_v1_7.duplicative_indicator.size = 4
-
--- Display: Duplicative Indicator
-cboe_europe_lastsale_apf_v1_7.duplicative_indicator.display = function(value)
-  if value == "DUPL" then
-    return "Duplicative Indicator: Duplicative Trade Report (DUPL)"
-  end
-
-  return "Duplicative Indicator: Unknown("..value..")"
-end
-
--- Dissect: Duplicative Indicator
-cboe_europe_lastsale_apf_v1_7.duplicative_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.duplicative_indicator.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.duplicative_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.duplicative_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Benchmark Reference Indicator
-cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator = {}
-
--- Size: Benchmark Reference Indicator
-cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.size = 4
-
--- Display: Benchmark Reference Indicator
-cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.display = function(value)
-  if value == "BENC" then
-    return "Benchmark Reference Indicator: Benchmark Trade (BENC)"
-  end
-  if value == "RFPT" then
-    return "Benchmark Reference Indicator: Reference Price Trade (RFPT)"
-  end
-
-  return "Benchmark Reference Indicator: Unknown("..value..")"
-end
-
--- Dissect: Benchmark Reference Indicator
-cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7.benchmark_reference_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.benchmark_reference_indicator, range, value, display)
-
-  return offset + length, value
 end
 
 -- Last Sale Europe Message
@@ -1794,7 +1980,7 @@ end
 
 -- Dissect: Last Sale Europe Message
 cboe_europe_lastsale_apf_v1_7.last_sale_europe_message.dissect = function(buffer, offset, packet, parent)
-  if show.last_sale_europe_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message, buffer(offset, 0))
     local index = cboe_europe_lastsale_apf_v1_7.last_sale_europe_message.fields(buffer, offset, packet, parent)
@@ -1813,27 +1999,8 @@ end
 -- Sequenced Message
 cboe_europe_lastsale_apf_v1_7.sequenced_message = {}
 
--- Size: Sequenced Message
-cboe_europe_lastsale_apf_v1_7.sequenced_message.size = function(buffer, offset, sequenced_message_type)
-  -- Size of Last Sale Europe Message
-  if sequenced_message_type == "u" then
-    return cboe_europe_lastsale_apf_v1_7.last_sale_europe_message.size
-  end
-  -- Size of Last Sale Europe Message New
-  if sequenced_message_type == "7" then
-    return cboe_europe_lastsale_apf_v1_7.last_sale_europe_message_new.size
-  end
-
-  return 0
-end
-
--- Display: Sequenced Message
-cboe_europe_lastsale_apf_v1_7.sequenced_message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Sequenced Message
-cboe_europe_lastsale_apf_v1_7.sequenced_message.branches = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+cboe_europe_lastsale_apf_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Last Sale Europe Message
   if sequenced_message_type == "u" then
     return cboe_europe_lastsale_apf_v1_7.last_sale_europe_message.dissect(buffer, offset, packet, parent)
@@ -1844,84 +2011,6 @@ cboe_europe_lastsale_apf_v1_7.sequenced_message.branches = function(buffer, offs
   end
 
   return offset
-end
-
--- Dissect: Sequenced Message
-cboe_europe_lastsale_apf_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  if not show.sequenced_message then
-    return cboe_europe_lastsale_apf_v1_7.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = cboe_europe_lastsale_apf_v1_7.sequenced_message.size(buffer, offset, sequenced_message_type)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cboe_europe_lastsale_apf_v1_7.sequenced_message.display(buffer, packet, parent)
-  local element = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_message, range, display)
-
-  return cboe_europe_lastsale_apf_v1_7.sequenced_message.branches(buffer, offset, packet, parent, sequenced_message_type)
-end
-
--- Sequenced Message Type
-cboe_europe_lastsale_apf_v1_7.sequenced_message_type = {}
-
--- Size: Sequenced Message Type
-cboe_europe_lastsale_apf_v1_7.sequenced_message_type.size = 1
-
--- Display: Sequenced Message Type
-cboe_europe_lastsale_apf_v1_7.sequenced_message_type.display = function(value)
-  if value == "u" then
-    return "Sequenced Message Type: Last Sale Europe Message (u)"
-  end
-  if value == "7" then
-    return "Sequenced Message Type: Last Sale Europe Message New (7)"
-  end
-
-  return "Sequenced Message Type: Unknown("..value..")"
-end
-
--- Dissect: Sequenced Message Type
-cboe_europe_lastsale_apf_v1_7.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.sequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.sequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-cboe_europe_lastsale_apf_v1_7.timestamp = {}
-
--- Size: Timestamp
-cboe_europe_lastsale_apf_v1_7.timestamp.size = 8
-
--- Display: Timestamp
-cboe_europe_lastsale_apf_v1_7.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-cboe_europe_lastsale_apf_v1_7.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.timestamp.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = cboe_europe_lastsale_apf_v1_7.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.timestamp, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sequenced Message Header
@@ -2008,38 +2097,20 @@ end
 
 -- Dissect: Sequenced Data Packet
 cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.sequenced_data_packet then
-    local length = cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.display(buffer, packet, parent)
-    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_data_packet, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.sequenced_data_packet, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.fields(buffer, offset, packet, parent)
   end
-
-  return cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.fields(buffer, offset, packet, parent)
-end
-
--- Reject Reason Code
-cboe_europe_lastsale_apf_v1_7.reject_reason_code = {}
-
--- Size: Reject Reason Code
-cboe_europe_lastsale_apf_v1_7.reject_reason_code.size = 1
-
--- Display: Reject Reason Code
-cboe_europe_lastsale_apf_v1_7.reject_reason_code.display = function(value)
-  return "Reject Reason Code: "..value
-end
-
--- Dissect: Reject Reason Code
-cboe_europe_lastsale_apf_v1_7.reject_reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.reject_reason_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.reject_reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.reject_reason_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Rejected Packet
@@ -2080,52 +2151,6 @@ cboe_europe_lastsale_apf_v1_7.login_rejected_packet.dissect = function(buffer, o
     -- Skip element, add fields directly
     return cboe_europe_lastsale_apf_v1_7.login_rejected_packet.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequence Number
-cboe_europe_lastsale_apf_v1_7.sequence_number = {}
-
--- Size: Sequence Number
-cboe_europe_lastsale_apf_v1_7.sequence_number.size = 10
-
--- Display: Sequence Number
-cboe_europe_lastsale_apf_v1_7.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-cboe_europe_lastsale_apf_v1_7.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-cboe_europe_lastsale_apf_v1_7.session = {}
-
--- Size: Session
-cboe_europe_lastsale_apf_v1_7.session.size = 10
-
--- Display: Session
-cboe_europe_lastsale_apf_v1_7.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-cboe_europe_lastsale_apf_v1_7.session.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Accepted Packet
@@ -2172,29 +2197,6 @@ cboe_europe_lastsale_apf_v1_7.login_accepted_packet.dissect = function(buffer, o
   end
 end
 
--- Text
-cboe_europe_lastsale_apf_v1_7.text = {}
-
--- Size: Text
-cboe_europe_lastsale_apf_v1_7.text.size = 1
-
--- Display: Text
-cboe_europe_lastsale_apf_v1_7.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-cboe_europe_lastsale_apf_v1_7.text.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Debug Packet
 cboe_europe_lastsale_apf_v1_7.debug_packet = {}
 
@@ -2238,43 +2240,8 @@ end
 -- Payload
 cboe_europe_lastsale_apf_v1_7.payload = {}
 
--- Size: Payload
-cboe_europe_lastsale_apf_v1_7.payload.size = function(buffer, offset, packet_type)
-  -- Size of Debug Packet
-  if packet_type == "+" then
-    return cboe_europe_lastsale_apf_v1_7.debug_packet.size
-  end
-  -- Size of Login Accepted Packet
-  if packet_type == "A" then
-    return cboe_europe_lastsale_apf_v1_7.login_accepted_packet.size
-  end
-  -- Size of Login Rejected Packet
-  if packet_type == "J" then
-    return cboe_europe_lastsale_apf_v1_7.login_rejected_packet.size
-  end
-  -- Size of Sequenced Data Packet
-  if packet_type == "S" then
-    return cboe_europe_lastsale_apf_v1_7.sequenced_data_packet.size(buffer, offset)
-  end
-  -- Size of Login Request Packet
-  if packet_type == "L" then
-    return cboe_europe_lastsale_apf_v1_7.login_request_packet.size
-  end
-  -- Size of Unsequenced Data Packet
-  if packet_type == "U" then
-    return cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.size
-  end
-
-  return 0
-end
-
--- Display: Payload
-cboe_europe_lastsale_apf_v1_7.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Payload
-cboe_europe_lastsale_apf_v1_7.payload.branches = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Payload
+cboe_europe_lastsale_apf_v1_7.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
     return cboe_europe_lastsale_apf_v1_7.debug_packet.dissect(buffer, offset, packet, parent)
@@ -2301,77 +2268,6 @@ cboe_europe_lastsale_apf_v1_7.payload.branches = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Dissect: Payload
-cboe_europe_lastsale_apf_v1_7.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  if not show.payload then
-    return cboe_europe_lastsale_apf_v1_7.payload.branches(buffer, offset, packet, parent, packet_type)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = cboe_europe_lastsale_apf_v1_7.payload.size(buffer, offset, packet_type)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cboe_europe_lastsale_apf_v1_7.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.payload, range, display)
-
-  return cboe_europe_lastsale_apf_v1_7.payload.branches(buffer, offset, packet, parent, packet_type)
-end
-
--- Packet Type
-cboe_europe_lastsale_apf_v1_7.packet_type = {}
-
--- Size: Packet Type
-cboe_europe_lastsale_apf_v1_7.packet_type.size = 1
-
--- Display: Packet Type
-cboe_europe_lastsale_apf_v1_7.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-cboe_europe_lastsale_apf_v1_7.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_lastsale_apf_v1_7.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.packet_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet

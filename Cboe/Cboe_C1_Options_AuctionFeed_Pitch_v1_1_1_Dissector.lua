@@ -77,64 +77,26 @@ omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.message_index = ProtoField.n
 local show = {}
 
 -- Cboe C1 Options AuctionFeed Pitch 1.1.1 Element Dissection Options
-show.auction_cancel_message = true
-show.auction_notification_message = true
-show.auction_summary_message = true
-show.auction_trade_message = true
-show.auction_update_message = true
-show.end_of_session_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
-show.symbol_mapping_message = true
-show.time_message = true
-show.unit_clear_message = true
-show.width_update_message = true
 
 -- Register Cboe C1 Options AuctionFeed Pitch 1.1.1 Show Options
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_cancel_message = Pref.bool("Show Auction Cancel Message", show.auction_cancel_message, "Parse and add Auction Cancel Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_summary_message = Pref.bool("Show Auction Summary Message", show.auction_summary_message, "Parse and add Auction Summary Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_update_message = Pref.bool("Show Auction Update Message", show.auction_update_message, "Parse and add Auction Update Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_end_of_session_message = Pref.bool("Show End Of Session Message", show.end_of_session_message, "Parse and add End Of Session Message to protocol tree")
+omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_symbol_mapping_message = Pref.bool("Show Symbol Mapping Message", show.symbol_mapping_message, "Parse and add Symbol Mapping Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
-omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_width_update_message = Pref.bool("Show Width Update Message", show.width_update_message, "Parse and add Width Update Message to protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.auction_cancel_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_cancel_message then
-    show.auction_cancel_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_cancel_message
-    changed = true
-  end
-  if show.auction_notification_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_notification_message then
-    show.auction_notification_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_notification_message
-    changed = true
-  end
-  if show.auction_summary_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_summary_message then
-    show.auction_summary_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_summary_message
-    changed = true
-  end
-  if show.auction_trade_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_trade_message then
-    show.auction_trade_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_trade_message
-    changed = true
-  end
-  if show.auction_update_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_update_message then
-    show.auction_update_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_auction_update_message
-    changed = true
-  end
-  if show.end_of_session_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_end_of_session_message then
-    show.end_of_session_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_end_of_session_message
+  if show.application_messages ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_application_messages then
+    show.application_messages = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_message then
@@ -153,22 +115,6 @@ function omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs_changed()
     show.packet_header = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_packet_header
     changed = true
   end
-  if show.symbol_mapping_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_symbol_mapping_message then
-    show.symbol_mapping_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_symbol_mapping_message
-    changed = true
-  end
-  if show.time_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_time_message then
-    show.time_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_time_message
-    changed = true
-  end
-  if show.unit_clear_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_unit_clear_message then
-    show.unit_clear_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_unit_clear_message
-    changed = true
-  end
-  if show.width_update_message ~= omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_width_update_message then
-    show.width_update_message = omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.prefs.show_width_update_message
-    changed = true
-  end
 
   -- Reload on changed preference
   if changed then
@@ -178,144 +124,261 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cboe C1 Options AuctionFeed Pitch 1.1.1
+-- Cboe C1 Options AuctionFeed Pitch 1.1.1 Fields
 -----------------------------------------------------------------------
 
--- Timestamp
-cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp = {}
+-- Auction End Offset
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset = {}
 
--- Size: Timestamp
-cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.size = 4
+-- Size: Auction End Offset
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.size = 4
 
--- Display: Timestamp
-cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.display = function(value)
-  return "Timestamp: "..value
+-- Display: Auction End Offset
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.display = function(value)
+  return "Auction End Offset: "..value
 end
 
--- Dissect: Timestamp
-cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.size
+-- Dissect: Auction End Offset
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.timestamp, range, value, display)
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_end_offset, range, value, display)
 
   return offset + length, value
 end
 
--- End Of Session Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message = {}
+-- Auction Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id = {}
 
--- Size: End Of Session Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.size =
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.size
+-- Size: Auction Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.size = 8
 
--- Display: End Of Session Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.display = function(packet, parent, length)
-  return ""
+-- Display: Auction Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.display = function(value)
+  return "Auction Id: "..value
 end
 
--- Dissect Fields: End Of Session Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect: Auction Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.display(value, buffer, offset, packet, parent)
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_id, range, value, display)
 
-  return index
+  return offset + length, value
 end
 
--- Dissect: End Of Session Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_session_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message, buffer(offset, 0))
-    local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.display(packet, parent, length)
-    parent:append_text(display)
+-- Auction Only Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price = {}
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.fields(buffer, offset, packet, parent)
+-- Size: Auction Only Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.size = 8
+
+-- Display: Auction Only Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.display = function(value)
+  return "Auction Only Price: "..value
+end
+
+-- Translate: Auction Only Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Auction Only Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.translate(raw)
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_only_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type = {}
+
+-- Size: Auction Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.size = 1
+
+-- Display: Auction Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.display = function(value)
+  if value == "B" then
+    return "Auction Type: Auction Instruction Mechanism (B)"
   end
+  if value == "S" then
+    return "Auction Type: Solicitation Auction Mechanism (S)"
+  end
+  if value == "T" then
+    return "Auction Type: Step Up Mechanism (T)"
+  end
+  if value == "A" then
+    return "Auction Type: All Or None (A)"
+  end
+
+  return "Auction Type: Unknown("..value..")"
 end
 
--- Underlying
-cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying = {}
-
--- Size: Underlying
-cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size = 8
-
--- Display: Underlying
-cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.display = function(value)
-  return "Underlying: "..value
-end
-
--- Dissect: Underlying
-cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size
+-- Dissect: Auction Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.underlying, range, value, display)
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Condition
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition = {}
+-- Buy Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts = {}
 
--- Size: Symbol Condition
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.size = 1
+-- Size: Buy Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.size = 4
 
--- Display: Symbol Condition
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.display = function(value)
+-- Display: Buy Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.display = function(value)
+  return "Buy Contracts: "..value
+end
+
+-- Dissect: Buy Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.buy_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id = {}
+
+-- Size: Client Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.size = 4
+
+-- Display: Client Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.display = function(value)
+  return "Client Id: "..value
+end
+
+-- Dissect: Client Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.client_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts = {}
+
+-- Size: Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.size = 4
+
+-- Display: Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.display = function(value)
+  return "Contracts: "..value
+end
+
+-- Dissect: Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+cboe_c1_options_auctionfeed_pitch_v1_1_1.count = {}
+
+-- Size: Count
+cboe_c1_options_auctionfeed_pitch_v1_1_1.count.size = 1
+
+-- Display: Count
+cboe_c1_options_auctionfeed_pitch_v1_1_1.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+cboe_c1_options_auctionfeed_pitch_v1_1_1.count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Customer Indicator
+cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator = {}
+
+-- Size: Customer Indicator
+cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.size = 1
+
+-- Display: Customer Indicator
+cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.display = function(value)
   if value == "N" then
-    return "Symbol Condition: Normal (N)"
+    return "Customer Indicator: Non Customer (N)"
   end
   if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
+    return "Customer Indicator: Customer (C)"
   end
 
-  return "Symbol Condition: Unknown("..value..")"
+  return "Customer Indicator: Unknown("..value..")"
 end
 
--- Dissect: Symbol Condition
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.size
+-- Dissect: Customer Indicator
+cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_condition, range, value, display)
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.customer_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Osi Symbol
-cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol = {}
+-- Execution Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id = {}
 
--- Size: Osi Symbol
-cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.size = 21
+-- Size: Execution Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.size = 8
 
--- Display: Osi Symbol
-cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.display = function(value)
-  return "Osi Symbol: "..value
+-- Display: Execution Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.display = function(value)
+  return "Execution Id: "..value
 end
 
--- Dissect: Osi Symbol
-cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.size
+-- Dissect: Execution Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.osi_symbol, range, value, display)
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.execution_id, range, value, display)
 
   return offset + length, value
 end
@@ -343,56 +406,133 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.feed_symbol.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Symbol Mapping Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message = {}
+-- Indicative Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price = {}
 
--- Size: Symbol Mapping Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.size =
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.feed_symbol.size + 
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.size + 
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.size + 
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size
+-- Size: Indicative Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.size = 8
 
--- Display: Symbol Mapping Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.display = function(packet, parent, length)
-  return ""
+-- Display: Indicative Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.display = function(value)
+  return "Indicative Price: "..value
 end
 
--- Dissect Fields: Symbol Mapping Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Feed Symbol: 6 Byte Ascii String
-  index, feed_symbol = cboe_c1_options_auctionfeed_pitch_v1_1_1.feed_symbol.dissect(buffer, index, packet, parent)
-
-  -- Osi Symbol: 21 Byte Ascii String
-  index, osi_symbol = cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.dissect(buffer, index, packet, parent)
-
-  -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
-  index, symbol_condition = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.dissect(buffer, index, packet, parent)
-
-  -- Underlying: 8 Byte Ascii String
-  index, underlying = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.dissect(buffer, index, packet, parent)
-
-  return index
+-- Translate: Indicative Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.translate = function(raw)
+  return raw:tonumber()/10000
 end
 
--- Dissect: Symbol Mapping Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_mapping_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message, buffer(offset, 0))
-    local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.display(packet, parent, length)
-    parent:append_text(display)
+-- Dissect: Indicative Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.translate(raw)
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.display(value, buffer, offset, packet, parent)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.fields(buffer, offset, packet, parent)
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.indicative_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+cboe_c1_options_auctionfeed_pitch_v1_1_1.length = {}
+
+-- Size: Length
+cboe_c1_options_auctionfeed_pitch_v1_1_1.length.size = 2
+
+-- Display: Length
+cboe_c1_options_auctionfeed_pitch_v1_1_1.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+cboe_c1_options_auctionfeed_pitch_v1_1_1.length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length = {}
+
+-- Size: Message Length
+cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.size = 1
+
+-- Display: Message Length
+cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type = {}
+
+-- Size: Message Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.size = 1
+
+-- Display: Message Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.display = function(value)
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
   end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0xAD then
+    return "Message Type: Auction Notification Message (0xAD)"
+  end
+  if value == 0xAE then
+    return "Message Type: Auction Cancel Message (0xAE)"
+  end
+  if value == 0xAF then
+    return "Message Type: Auction Trade Message (0xAF)"
+  end
+  if value == 0xD1 then
+    return "Message Type: Auction Update Message (0xD1)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+  if value == 0xD2 then
+    return "Message Type: Width Update Message (0xD2)"
+  end
+  if value == 0x2E then
+    return "Message Type: Symbol Mapping Message (0x2E)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.message_type, range, value, display)
+
+  return offset + length, value
 end
 
 -- Multiplier
@@ -424,159 +564,25 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Width Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type = {}
+-- Opening Condition
+cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition = {}
 
--- Size: Width Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.size = 1
+-- Size: Opening Condition
+cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.size = 1
 
--- Display: Width Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.display = function(value)
-  if value == "R" then
-    return "Width Type: Regular (R)"
-  end
-  if value == "V" then
-    return "Width Type: Volatility (V)"
-  end
-
-  return "Width Type: Unknown("..value..")"
+-- Display: Opening Condition
+cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.display = function(value)
+  return "Opening Condition: "..value
 end
 
--- Dissect: Width Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.size
+-- Dissect: Opening Condition
+cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.width_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Time Offset
-cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset = {}
-
--- Size: Time Offset
-cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.size = 4
-
--- Display: Time Offset
-cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.display = function(value)
-  return "Time Offset: "..value
-end
-
--- Dissect: Time Offset
-cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- Width Update Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message = {}
-
--- Size: Width Update Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.size =
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.size + 
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size + 
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.size + 
-  cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.size
-
--- Display: Width Update Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Width Update Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Underlying: 8 Byte Ascii String
-  index, underlying = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.dissect(buffer, index, packet, parent)
-
-  -- Width Type: 1 Byte Ascii String Enum with 2 values
-  index, width_type = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.dissect(buffer, index, packet, parent)
-
-  -- Multiplier: 4 Byte Unsigned Fixed Width Integer
-  index, multiplier = cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Width Update Message
-cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.width_update_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.width_update_message, buffer(offset, 0))
-    local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quantity
-cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity = {}
-
--- Size: Quantity
-cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.size = 4
-
--- Display: Quantity
-cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.price = {}
-
--- Size: Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.price.size = 8
-
--- Display: Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.translate(raw)
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.price, range, value, display)
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.opening_condition, range, value, display)
 
   return offset + length, value
 end
@@ -617,6 +623,262 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_type.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Osi Symbol
+cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol = {}
+
+-- Size: Osi Symbol
+cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.size = 21
+
+-- Display: Osi Symbol
+cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.display = function(value)
+  return "Osi Symbol: "..value
+end
+
+-- Dissect: Osi Symbol
+cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.osi_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id = {}
+
+-- Size: Participant Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.size = 4
+
+-- Display: Participant Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.display = function(value)
+  return "Participant Id: "..value
+end
+
+-- Dissect: Participant Id
+cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.price = {}
+
+-- Size: Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.price.size = 8
+
+-- Display: Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.translate(raw)
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity = {}
+
+-- Size: Quantity
+cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.size = 4
+
+-- Display: Quantity
+cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price = {}
+
+-- Size: Reference Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.size = 8
+
+-- Display: Reference Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.display = function(value)
+  return "Reference Price: "..value
+end
+
+-- Translate: Reference Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Reference Price
+cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.translate(raw)
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts = {}
+
+-- Size: Sell Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.size = 4
+
+-- Display: Sell Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.display = function(value)
+  return "Sell Contracts: "..value
+end
+
+-- Dissect: Sell Contracts
+cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.sell_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence = {}
+
+-- Size: Sequence
+cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.size = 4
+
+-- Display: Sequence
+cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+cboe_c1_options_auctionfeed_pitch_v1_1_1.side = {}
+
+-- Size: Side
+cboe_c1_options_auctionfeed_pitch_v1_1_1.side.size = 1
+
+-- Display: Side
+cboe_c1_options_auctionfeed_pitch_v1_1_1.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+cboe_c1_options_auctionfeed_pitch_v1_1_1.side.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol = {}
+
+-- Size: Symbol
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.size = 6
+
+-- Display: Symbol
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Condition
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition = {}
+
+-- Size: Symbol Condition
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.size = 1
+
+-- Display: Symbol Condition
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.display = function(value)
+  if value == "N" then
+    return "Symbol Condition: Normal (N)"
+  end
+  if value == "C" then
+    return "Symbol Condition: Closing Only (C)"
+  end
+
+  return "Symbol Condition: Unknown("..value..")"
+end
+
+-- Dissect: Symbol Condition
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_condition, range, value, display)
+
+  return offset + length, value
+end
+
 -- Symbol Extended
 cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_extended = {}
 
@@ -638,6 +900,300 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_extended.dissect = function(buff
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_extended, range, value, display)
 
   return offset + length, value
+end
+
+-- Time
+cboe_c1_options_auctionfeed_pitch_v1_1_1.time = {}
+
+-- Size: Time
+cboe_c1_options_auctionfeed_pitch_v1_1_1.time.size = 4
+
+-- Display: Time
+cboe_c1_options_auctionfeed_pitch_v1_1_1.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+cboe_c1_options_auctionfeed_pitch_v1_1_1.time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time Offset
+cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset = {}
+
+-- Size: Time Offset
+cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.size = 4
+
+-- Display: Time Offset
+cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.display = function(value)
+  return "Time Offset: "..value
+end
+
+-- Dissect: Time Offset
+cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp = {}
+
+-- Size: Timestamp
+cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.size = 4
+
+-- Display: Timestamp
+cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying
+cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying = {}
+
+-- Size: Underlying
+cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size = 8
+
+-- Display: Underlying
+cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.display = function(value)
+  return "Underlying: "..value
+end
+
+-- Dissect: Underlying
+cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.underlying, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit
+cboe_c1_options_auctionfeed_pitch_v1_1_1.unit = {}
+
+-- Size: Unit
+cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.size = 1
+
+-- Display: Unit
+cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.display = function(value)
+  return "Unit: "..value
+end
+
+-- Dissect: Unit
+cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Width Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type = {}
+
+-- Size: Width Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.size = 1
+
+-- Display: Width Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.display = function(value)
+  if value == "R" then
+    return "Width Type: Regular (R)"
+  end
+  if value == "V" then
+    return "Width Type: Volatility (V)"
+  end
+
+  return "Width Type: Unknown("..value..")"
+end
+
+-- Dissect: Width Type
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.width_type, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cboe C1 Options AuctionFeed Pitch 1.1.1
+-----------------------------------------------------------------------
+
+-- End Of Session Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message = {}
+
+-- Size: End Of Session Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.size =
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.size
+
+-- Display: End Of Session Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Session Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1_options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Session Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message, buffer(offset, 0))
+    local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_auctionfeed_pitch_v1_1_1.end_of_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Symbol Mapping Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message = {}
+
+-- Size: Symbol Mapping Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.size =
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.feed_symbol.size + 
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.size + 
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.size + 
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size
+
+-- Display: Symbol Mapping Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Mapping Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Feed Symbol: 6 Byte Ascii String
+  index, feed_symbol = cboe_c1_options_auctionfeed_pitch_v1_1_1.feed_symbol.dissect(buffer, index, packet, parent)
+
+  -- Osi Symbol: 21 Byte Ascii String
+  index, osi_symbol = cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.dissect(buffer, index, packet, parent)
+
+  -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
+  index, symbol_condition = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_condition.dissect(buffer, index, packet, parent)
+
+  -- Underlying: 8 Byte Ascii String
+  index, underlying = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Symbol Mapping Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message, buffer(offset, 0))
+    local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Width Update Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message = {}
+
+-- Size: Width Update Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.size =
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.size + 
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size + 
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.size + 
+  cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.size
+
+-- Display: Width Update Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Width Update Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_c1_options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Underlying: 8 Byte Ascii String
+  index, underlying = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.dissect(buffer, index, packet, parent)
+
+  -- Width Type: 1 Byte Ascii String Enum with 2 values
+  index, width_type = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_type.dissect(buffer, index, packet, parent)
+
+  -- Multiplier: 4 Byte Unsigned Fixed Width Integer
+  index, multiplier = cboe_c1_options_auctionfeed_pitch_v1_1_1.multiplier.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Width Update Message
+cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.width_update_message, buffer(offset, 0))
+    local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_auctionfeed_pitch_v1_1_1.width_update_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Auction Summary Message
@@ -680,7 +1236,7 @@ end
 
 -- Dissect: Auction Summary Message
 cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_summary_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_summary_message, buffer(offset, 0))
     local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_summary_message.fields(buffer, offset, packet, parent)
@@ -694,162 +1250,6 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_summary_message.dissect = funct
     -- Skip element, add fields directly
     return cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_summary_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Opening Condition
-cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition = {}
-
--- Size: Opening Condition
-cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.size = 1
-
--- Display: Opening Condition
-cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.display = function(value)
-  return "Opening Condition: "..value
-end
-
--- Dissect: Opening Condition
-cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.opening_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.opening_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Only Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price = {}
-
--- Size: Auction Only Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.size = 8
-
--- Display: Auction Only Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.display = function(value)
-  return "Auction Only Price: "..value
-end
-
--- Translate: Auction Only Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Auction Only Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.translate(raw)
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_only_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_only_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Indicative Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price = {}
-
--- Size: Indicative Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.size = 8
-
--- Display: Indicative Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.display = function(value)
-  return "Indicative Price: "..value
-end
-
--- Translate: Indicative Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Indicative Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.translate(raw)
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.indicative_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.indicative_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts = {}
-
--- Size: Sell Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.size = 4
-
--- Display: Sell Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.display = function(value)
-  return "Sell Contracts: "..value
-end
-
--- Dissect: Sell Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.sell_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.sell_contracts, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts = {}
-
--- Size: Buy Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.size = 4
-
--- Display: Buy Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.display = function(value)
-  return "Buy Contracts: "..value
-end
-
--- Dissect: Buy Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.buy_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.buy_contracts, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price = {}
-
--- Size: Reference Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.size = 8
-
--- Display: Reference Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.display = function(value)
-  return "Reference Price: "..value
-end
-
--- Translate: Reference Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Reference Price
-cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.translate(raw)
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.reference_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Auction Update Message
@@ -908,7 +1308,7 @@ end
 
 -- Dissect: Auction Update Message
 cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_update_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_update_message, buffer(offset, 0))
     local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_update_message.fields(buffer, offset, packet, parent)
@@ -922,75 +1322,6 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_update_message.dissect = functi
     -- Skip element, add fields directly
     return cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_update_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts = {}
-
--- Size: Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.size = 4
-
--- Display: Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.display = function(value)
-  return "Contracts: "..value
-end
-
--- Dissect: Contracts
-cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.contracts, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id = {}
-
--- Size: Execution Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.size = 8
-
--- Display: Execution Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.display = function(value)
-  return "Execution Id: "..value
-end
-
--- Dissect: Execution Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.execution_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.execution_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id = {}
-
--- Size: Auction Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.size = 8
-
--- Display: Auction Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.display = function(value)
-  return "Auction Id: "..value
-end
-
--- Dissect: Auction Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Auction Trade Message
@@ -1033,7 +1364,7 @@ end
 
 -- Dissect: Auction Trade Message
 cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_trade_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message, buffer(offset, 0))
     local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_trade_message.fields(buffer, offset, packet, parent)
@@ -1077,7 +1408,7 @@ end
 
 -- Dissect: Auction Cancel Message
 cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_cancel_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message, buffer(offset, 0))
     local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_cancel_message.fields(buffer, offset, packet, parent)
@@ -1091,194 +1422,6 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_cancel_message.dissect = functi
     -- Skip element, add fields directly
     return cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_cancel_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Client Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id = {}
-
--- Size: Client Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.size = 4
-
--- Display: Client Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.display = function(value)
-  return "Client Id: "..value
-end
-
--- Dissect: Client Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.client_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction End Offset
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset = {}
-
--- Size: Auction End Offset
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.size = 4
-
--- Display: Auction End Offset
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.display = function(value)
-  return "Auction End Offset: "..value
-end
-
--- Dissect: Auction End Offset
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_end_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_end_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id = {}
-
--- Size: Participant Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.size = 4
-
--- Display: Participant Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.display = function(value)
-  return "Participant Id: "..value
-end
-
--- Dissect: Participant Id
-cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Customer Indicator
-cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator = {}
-
--- Size: Customer Indicator
-cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.size = 1
-
--- Display: Customer Indicator
-cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.display = function(value)
-  if value == "N" then
-    return "Customer Indicator: Non Customer (N)"
-  end
-  if value == "C" then
-    return "Customer Indicator: Customer (C)"
-  end
-
-  return "Customer Indicator: Unknown("..value..")"
-end
-
--- Dissect: Customer Indicator
-cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.customer_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.customer_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-cboe_c1_options_auctionfeed_pitch_v1_1_1.side = {}
-
--- Size: Side
-cboe_c1_options_auctionfeed_pitch_v1_1_1.side.size = 1
-
--- Display: Side
-cboe_c1_options_auctionfeed_pitch_v1_1_1.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-cboe_c1_options_auctionfeed_pitch_v1_1_1.side.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type = {}
-
--- Size: Auction Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.size = 1
-
--- Display: Auction Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.display = function(value)
-  if value == "B" then
-    return "Auction Type: Auction Instruction Mechanism (B)"
-  end
-  if value == "S" then
-    return "Auction Type: Solicitation Auction Mechanism (S)"
-  end
-  if value == "T" then
-    return "Auction Type: Step Up Mechanism (T)"
-  end
-  if value == "A" then
-    return "Auction Type: All Or None (A)"
-  end
-
-  return "Auction Type: Unknown("..value..")"
-end
-
--- Dissect: Auction Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol = {}
-
--- Size: Symbol
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.size = 6
-
--- Display: Symbol
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Auction Notification Message
@@ -1345,7 +1488,7 @@ end
 
 -- Dissect: Auction Notification Message
 cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_notification_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message, buffer(offset, 0))
     local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.auction_notification_message.fields(buffer, offset, packet, parent)
@@ -1385,7 +1528,7 @@ end
 
 -- Dissect: Unit Clear Message
 cboe_c1_options_auctionfeed_pitch_v1_1_1.unit_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.unit_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message, buffer(offset, 0))
     local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.unit_clear_message.fields(buffer, offset, packet, parent)
@@ -1399,29 +1542,6 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.unit_clear_message.dissect = function(b
     -- Skip element, add fields directly
     return cboe_c1_options_auctionfeed_pitch_v1_1_1.unit_clear_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Time
-cboe_c1_options_auctionfeed_pitch_v1_1_1.time = {}
-
--- Size: Time
-cboe_c1_options_auctionfeed_pitch_v1_1_1.time.size = 4
-
--- Display: Time
-cboe_c1_options_auctionfeed_pitch_v1_1_1.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-cboe_c1_options_auctionfeed_pitch_v1_1_1.time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Time Message
@@ -1448,7 +1568,7 @@ end
 
 -- Dissect: Time Message
 cboe_c1_options_auctionfeed_pitch_v1_1_1.time_message.dissect = function(buffer, offset, packet, parent)
-  if show.time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time_message, buffer(offset, 0))
     local index = cboe_c1_options_auctionfeed_pitch_v1_1_1.time_message.fields(buffer, offset, packet, parent)
@@ -1511,83 +1631,6 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.payload.dissect = function(buffer, offs
   end
 
   return offset
-end
-
--- Message Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type = {}
-
--- Size: Message Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.size = 1
-
--- Display: Message Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0xAD then
-    return "Message Type: Auction Notification Message (0xAD)"
-  end
-  if value == 0xAE then
-    return "Message Type: Auction Cancel Message (0xAE)"
-  end
-  if value == 0xAF then
-    return "Message Type: Auction Trade Message (0xAF)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Auction Update Message (0xD1)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0xD2 then
-    return "Message Type: Width Update Message (0xD2)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length = {}
-
--- Size: Message Length
-cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.size = 1
-
--- Display: Message Length
-cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -1683,98 +1726,6 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.message.dissect = function(buffer, offs
 
     return index
   end
-end
-
--- Sequence
-cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence = {}
-
--- Size: Sequence
-cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.size = 4
-
--- Display: Sequence
-cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.display = function(value)
-  return "Sequence: "..value
-end
-
--- Dissect: Sequence
-cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.sequence, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit
-cboe_c1_options_auctionfeed_pitch_v1_1_1.unit = {}
-
--- Size: Unit
-cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.size = 1
-
--- Display: Unit
-cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.display = function(value)
-  return "Unit: "..value
-end
-
--- Dissect: Unit
-cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Count
-cboe_c1_options_auctionfeed_pitch_v1_1_1.count = {}
-
--- Size: Count
-cboe_c1_options_auctionfeed_pitch_v1_1_1.count.size = 1
-
--- Display: Count
-cboe_c1_options_auctionfeed_pitch_v1_1_1.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_c1_options_auctionfeed_pitch_v1_1_1.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
--- Length
-cboe_c1_options_auctionfeed_pitch_v1_1_1.length = {}
-
--- Size: Length
-cboe_c1_options_auctionfeed_pitch_v1_1_1.length.size = 2
-
--- Display: Length
-cboe_c1_options_auctionfeed_pitch_v1_1_1.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-cboe_c1_options_auctionfeed_pitch_v1_1_1.length.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

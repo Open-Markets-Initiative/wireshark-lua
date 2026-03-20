@@ -50,15 +50,15 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_id = ProtoField.new("
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.europe.cedxmulticast.pitch.v1.11.executionvenue", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.europe.cedxmulticast.pitch.v1.11.expirationdate", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.extended_trade_flags = ProtoField.new("Extended Trade Flags", "cboe.europe.cedxmulticast.pitch.v1.11.extendedtradeflags", ftypes.STRING)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.high_price_1 = ProtoField.new("High Price 1", "cboe.europe.cedxmulticast.pitch.v1.11.highprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.high_price_binary_price_8 = ProtoField.new("High Price Binary Price 8", "cboe.europe.cedxmulticast.pitch.v1.11.highpricebinaryprice8", ftypes.UINT64)
-omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.high_price_bit_1 = ProtoField.new("High Price Bit 1", "cboe.europe.cedxmulticast.pitch.v1.11.highpricebit1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.europe.cedxmulticast.pitch.v1.11.indicativeprice", ftypes.DOUBLE)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.is_fast = ProtoField.new("Is Fast", "cboe.europe.cedxmulticast.pitch.v1.11.isfast", ftypes.UINT8)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.issue = ProtoField.new("Issue", "cboe.europe.cedxmulticast.pitch.v1.11.issue", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.length = ProtoField.new("Length", "cboe.europe.cedxmulticast.pitch.v1.11.length", ftypes.UINT16)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.listing_state = ProtoField.new("Listing State", "cboe.europe.cedxmulticast.pitch.v1.11.listingstate", ftypes.STRING)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.low_price_1 = ProtoField.new("Low Price 1", "cboe.europe.cedxmulticast.pitch.v1.11.lowprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.low_price_binary_price_8 = ProtoField.new("Low Price Binary Price 8", "cboe.europe.cedxmulticast.pitch.v1.11.lowpricebinaryprice8", ftypes.UINT64)
-omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.low_price_bit_1 = ProtoField.new("Low Price Bit 1", "cboe.europe.cedxmulticast.pitch.v1.11.lowpricebit1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.market_mechanism = ProtoField.new("Market Mechanism", "cboe.europe.cedxmulticast.pitch.v1.11.marketmechanism", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message = ProtoField.new("Message", "cboe.europe.cedxmulticast.pitch.v1.11.message", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_header = ProtoField.new("Message Header", "cboe.europe.cedxmulticast.pitch.v1.11.messageheader", ftypes.STRING)
@@ -68,7 +68,7 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.modification_indicator = ProtoF
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.multiplier = ProtoField.new("Multiplier", "cboe.europe.cedxmulticast.pitch.v1.11.multiplier", ftypes.DOUBLE)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.negotiated_trade = ProtoField.new("Negotiated Trade", "cboe.europe.cedxmulticast.pitch.v1.11.negotiatedtrade", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "cboe.europe.cedxmulticast.pitch.v1.11.offbookautomatedindicator", ftypes.STRING)
-omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_and_close_price = ProtoField.new("Open And Close Price", "cboe.europe.cedxmulticast.pitch.v1.11.openandcloseprice", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_and_close_price = ProtoField.new("Open And Close Price", "cboe.europe.cedxmulticast.pitch.v1.11.openandcloseprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_interest = ProtoField.new("Open Interest", "cboe.europe.cedxmulticast.pitch.v1.11.openinterest", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_price = ProtoField.new("Open Price", "cboe.europe.cedxmulticast.pitch.v1.11.openprice", ftypes.UINT64)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.europe.cedxmulticast.pitch.v1.11.openingcondition", ftypes.STRING)
@@ -76,7 +76,6 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.order_id = ProtoField.new("Orde
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.packet = ProtoField.new("Packet", "cboe.europe.cedxmulticast.pitch.v1.11.packet", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.packet_header = ProtoField.new("Packet Header", "cboe.europe.cedxmulticast.pitch.v1.11.packetheader", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.participant_id = ProtoField.new("Participant Id", "cboe.europe.cedxmulticast.pitch.v1.11.participantid", ftypes.STRING)
-omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.payload = ProtoField.new("Payload", "cboe.europe.cedxmulticast.pitch.v1.11.payload", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price = ProtoField.new("Price", "cboe.europe.cedxmulticast.pitch.v1.11.price", ftypes.DOUBLE)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "cboe.europe.cedxmulticast.pitch.v1.11.priceformationdiscoveryprocess", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_increment = ProtoField.new("Price Increment", "cboe.europe.cedxmulticast.pitch.v1.11.priceincrement", ftypes.DOUBLE)
@@ -92,7 +91,7 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.quantity_short = ProtoField.new
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reference_price = ProtoField.new("Reference Price", "cboe.europe.cedxmulticast.pitch.v1.11.referenceprice", ftypes.DOUBLE)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.europe.cedxmulticast.pitch.v1.11.remainingquantity", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reserved = ProtoField.new("Reserved", "cboe.europe.cedxmulticast.pitch.v1.11.reserved", ftypes.STRING)
-omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.europe.cedxmulticast.pitch.v1.11.reservedflags", ftypes.UINT8, nil, base.DEC, 0xE0)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.europe.cedxmulticast.pitch.v1.11.reservedflags", ftypes.UINT8, nil, base.DEC, 0x38)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.europe.cedxmulticast.pitch.v1.11.sellcontracts", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.sequence = ProtoField.new("Sequence", "cboe.europe.cedxmulticast.pitch.v1.11.sequence", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.europe.cedxmulticast.pitch.v1.11.settlementprice", ftypes.UINT64)
@@ -116,12 +115,12 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_timestamp = ProtoField.ne
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trading_mode = ProtoField.new("Trading Mode", "cboe.europe.cedxmulticast.pitch.v1.11.tradingmode", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.europe.cedxmulticast.pitch.v1.11.transactioncategory", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unit = ProtoField.new("Unit", "cboe.europe.cedxmulticast.pitch.v1.11.unit", ftypes.UINT8)
-omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unused_1 = ProtoField.new("Unused 1", "cboe.europe.cedxmulticast.pitch.v1.11.unused1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unused_3 = ProtoField.new("Unused 3", "cboe.europe.cedxmulticast.pitch.v1.11.unused3", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unused_1 = ProtoField.new("Unused 1", "cboe.europe.cedxmulticast.pitch.v1.11.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unused_3 = ProtoField.new("Unused 3", "cboe.europe.cedxmulticast.pitch.v1.11.unused3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.volume = ProtoField.new("Volume", "cboe.europe.cedxmulticast.pitch.v1.11.volume", ftypes.UINT32)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.width_type = ProtoField.new("Width Type", "cboe.europe.cedxmulticast.pitch.v1.11.widthtype", ftypes.UINT8)
 
--- Cboe Europe CedxMulticast Pitch 1.11 messages
+-- Cboe Europe Pitch CedxMulticast 1.11 Application Messages
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.europe.cedxmulticast.pitch.v1.11.addorderlongmessage", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.europe.cedxmulticast.pitch.v1.11.addordershortmessage", ftypes.STRING)
 omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.europe.cedxmulticast.pitch.v1.11.auctioncancelmessage", ftypes.STRING)
@@ -164,132 +163,36 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index = Proto
 local show = {}
 
 -- Cboe Europe CedxMulticast Pitch 1.11 Element Dissection Options
-show.add_order_long_message = true
-show.add_order_short_message = true
-show.auction_cancel_message = true
-show.auction_liquidity_message = true
-show.auction_notification_message = true
-show.auction_summary_message = true
-show.auction_trade_message = true
-show.delete_order_message = true
-show.end_of_day_summary_message = true
-show.end_of_session = true
+show.application_messages = true
 show.execution_flags = true
 show.extended_trade_flags = true
-show.fast_status_message = true
-show.futures_instrument_definition_message = true
 show.message = true
 show.message_header = true
-show.modify_order_long_message = true
-show.modify_order_short_message = true
-show.opening_auction_update_message = true
-show.options_instrument_definition_message = true
-show.order_executed_at_price_size_message = true
-show.order_executed_message = true
 show.packet = true
 show.packet_header = true
 show.price_level_group = true
-show.reduce_size_long_message = true
-show.reduce_size_short_message = true
-show.settlement_message = true
 show.summary_flags = true
-show.time_message = true
-show.trade_break_message = true
-show.trade_extended_message = true
 show.trade_flags = true
-show.trade_long_message = true
-show.trade_short_message = true
-show.trading_status_message = true
-show.transaction_begin_message = true
-show.unit_clear_message = true
-show.width_update_message = true
-show.payload = false
 
 -- Register Cboe Europe CedxMulticast Pitch 1.11 Show Options
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_add_order_long_message = Pref.bool("Show Add Order Long Message", show.add_order_long_message, "Parse and add Add Order Long Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_add_order_short_message = Pref.bool("Show Add Order Short Message", show.add_order_short_message, "Parse and add Add Order Short Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_cancel_message = Pref.bool("Show Auction Cancel Message", show.auction_cancel_message, "Parse and add Auction Cancel Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_liquidity_message = Pref.bool("Show Auction Liquidity Message", show.auction_liquidity_message, "Parse and add Auction Liquidity Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_summary_message = Pref.bool("Show Auction Summary Message", show.auction_summary_message, "Parse and add Auction Summary Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_end_of_day_summary_message = Pref.bool("Show End Of Day Summary Message", show.end_of_day_summary_message, "Parse and add End Of Day Summary Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_end_of_session = Pref.bool("Show End Of Session", show.end_of_session, "Parse and add End Of Session to protocol tree")
+omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_execution_flags = Pref.bool("Show Execution Flags", show.execution_flags, "Parse and add Execution Flags to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_extended_trade_flags = Pref.bool("Show Extended Trade Flags", show.extended_trade_flags, "Parse and add Extended Trade Flags to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_fast_status_message = Pref.bool("Show Fast Status Message", show.fast_status_message, "Parse and add Fast Status Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_futures_instrument_definition_message = Pref.bool("Show Futures Instrument Definition Message", show.futures_instrument_definition_message, "Parse and add Futures Instrument Definition Message to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_modify_order_short_message = Pref.bool("Show Modify Order Short Message", show.modify_order_short_message, "Parse and add Modify Order Short Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_opening_auction_update_message = Pref.bool("Show Opening Auction Update Message", show.opening_auction_update_message, "Parse and add Opening Auction Update Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_options_instrument_definition_message = Pref.bool("Show Options Instrument Definition Message", show.options_instrument_definition_message, "Parse and add Options Instrument Definition Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_order_executed_at_price_size_message = Pref.bool("Show Order Executed At Price Size Message", show.order_executed_at_price_size_message, "Parse and add Order Executed At Price Size Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_price_level_group = Pref.bool("Show Price Level Group", show.price_level_group, "Parse and add Price Level Group to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_reduce_size_long_message = Pref.bool("Show Reduce Size Long Message", show.reduce_size_long_message, "Parse and add Reduce Size Long Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_reduce_size_short_message = Pref.bool("Show Reduce Size Short Message", show.reduce_size_short_message, "Parse and add Reduce Size Short Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_settlement_message = Pref.bool("Show Settlement Message", show.settlement_message, "Parse and add Settlement Message to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_summary_flags = Pref.bool("Show Summary Flags", show.summary_flags, "Parse and add Summary Flags to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_break_message = Pref.bool("Show Trade Break Message", show.trade_break_message, "Parse and add Trade Break Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_extended_message = Pref.bool("Show Trade Extended Message", show.trade_extended_message, "Parse and add Trade Extended Message to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_long_message = Pref.bool("Show Trade Long Message", show.trade_long_message, "Parse and add Trade Long Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_short_message = Pref.bool("Show Trade Short Message", show.trade_short_message, "Parse and add Trade Short Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_transaction_begin_message = Pref.bool("Show Transaction Begin Message", show.transaction_begin_message, "Parse and add Transaction Begin Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_width_update_message = Pref.bool("Show Width Update Message", show.width_update_message, "Parse and add Width Update Message to protocol tree")
-omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_long_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_add_order_long_message then
-    show.add_order_long_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_add_order_long_message
-    changed = true
-  end
-  if show.add_order_short_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_add_order_short_message then
-    show.add_order_short_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_add_order_short_message
-    changed = true
-  end
-  if show.auction_cancel_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_cancel_message then
-    show.auction_cancel_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_cancel_message
-    changed = true
-  end
-  if show.auction_liquidity_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_liquidity_message then
-    show.auction_liquidity_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_liquidity_message
-    changed = true
-  end
-  if show.auction_notification_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_notification_message then
-    show.auction_notification_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_notification_message
-    changed = true
-  end
-  if show.auction_summary_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_summary_message then
-    show.auction_summary_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_summary_message
-    changed = true
-  end
-  if show.auction_trade_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_trade_message then
-    show.auction_trade_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_auction_trade_message
-    changed = true
-  end
-  if show.delete_order_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_delete_order_message then
-    show.delete_order_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_delete_order_message
-    changed = true
-  end
-  if show.end_of_day_summary_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_end_of_day_summary_message then
-    show.end_of_day_summary_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_end_of_day_summary_message
-    changed = true
-  end
-  if show.end_of_session ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_end_of_session then
-    show.end_of_session = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_end_of_session
+  if show.application_messages ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_application_messages then
+    show.application_messages = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_application_messages
     changed = true
   end
   if show.execution_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_execution_flags then
@@ -300,44 +203,12 @@ function omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs_changed()
     show.extended_trade_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_extended_trade_flags
     changed = true
   end
-  if show.fast_status_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_fast_status_message then
-    show.fast_status_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_fast_status_message
-    changed = true
-  end
-  if show.futures_instrument_definition_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_futures_instrument_definition_message then
-    show.futures_instrument_definition_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_futures_instrument_definition_message
-    changed = true
-  end
   if show.message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message then
     show.message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message
     changed = true
   end
   if show.message_header ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message_header then
     show.message_header = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message_header
-    changed = true
-  end
-  if show.modify_order_long_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_modify_order_long_message then
-    show.modify_order_long_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_modify_order_long_message
-    changed = true
-  end
-  if show.modify_order_short_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_modify_order_short_message then
-    show.modify_order_short_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_modify_order_short_message
-    changed = true
-  end
-  if show.opening_auction_update_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_opening_auction_update_message then
-    show.opening_auction_update_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_opening_auction_update_message
-    changed = true
-  end
-  if show.options_instrument_definition_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_options_instrument_definition_message then
-    show.options_instrument_definition_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_options_instrument_definition_message
-    changed = true
-  end
-  if show.order_executed_at_price_size_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_order_executed_at_price_size_message then
-    show.order_executed_at_price_size_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_order_executed_at_price_size_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_order_executed_message then
-    show.order_executed_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_order_executed_message
     changed = true
   end
   if show.packet ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_packet then
@@ -352,64 +223,12 @@ function omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs_changed()
     show.price_level_group = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_price_level_group
     changed = true
   end
-  if show.reduce_size_long_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_reduce_size_long_message then
-    show.reduce_size_long_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_reduce_size_long_message
-    changed = true
-  end
-  if show.reduce_size_short_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_reduce_size_short_message then
-    show.reduce_size_short_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_reduce_size_short_message
-    changed = true
-  end
-  if show.settlement_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_settlement_message then
-    show.settlement_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_settlement_message
-    changed = true
-  end
   if show.summary_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_summary_flags then
     show.summary_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_summary_flags
     changed = true
   end
-  if show.time_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_time_message then
-    show.time_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_time_message
-    changed = true
-  end
-  if show.trade_break_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_break_message then
-    show.trade_break_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_break_message
-    changed = true
-  end
-  if show.trade_extended_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_extended_message then
-    show.trade_extended_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_extended_message
-    changed = true
-  end
   if show.trade_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_flags then
     show.trade_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_flags
-    changed = true
-  end
-  if show.trade_long_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_long_message then
-    show.trade_long_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_long_message
-    changed = true
-  end
-  if show.trade_short_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_short_message then
-    show.trade_short_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_short_message
-    changed = true
-  end
-  if show.trading_status_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trading_status_message then
-    show.trading_status_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trading_status_message
-    changed = true
-  end
-  if show.transaction_begin_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_transaction_begin_message then
-    show.transaction_begin_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_transaction_begin_message
-    changed = true
-  end
-  if show.unit_clear_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_unit_clear_message then
-    show.unit_clear_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_unit_clear_message
-    changed = true
-  end
-  if show.width_update_message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_width_update_message then
-    show.width_update_message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_width_update_message
-    changed = true
-  end
-  if show.payload ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_payload then
-    show.payload = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_payload
     changed = true
   end
 
@@ -421,98 +240,212 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cboe Europe CedxMulticast Pitch 1.11
+-- Cboe Europe CedxMulticast Pitch 1.11 Fields
 -----------------------------------------------------------------------
 
--- Summary Flags
-cboe_europe_cedxmulticast_pitch_v1_11.summary_flags = {}
+-- Algorithmic Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator = {}
 
--- Size: Summary Flags
-cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.size = 1
+-- Size: Algorithmic Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size = 1
 
--- Display: Summary Flags
-cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.display = function(buffer, packet, parent)
-  local display = ""
-
-  -- Is Open And Close Price flag set?
-  if buffer:bitfield(3) > 0 then
-    display = display.."Open And Close Price|"
-  end
-  -- Is Unused 3 flag set?
-  if buffer:bitfield(4) > 0 then
-    display = display.."Unused 3|"
-  end
-  -- Is Low Price Bit 1 flag set?
-  if buffer:bitfield(5) > 0 then
-    display = display.."Low Price Bit 1|"
-  end
-  -- Is Unused 1 flag set?
-  if buffer:bitfield(6) > 0 then
-    display = display.."Unused 1|"
-  end
-  -- Is High Price Bit 1 flag set?
-  if buffer:bitfield(7) > 0 then
-    display = display.."High Price Bit 1|"
-  end
-
-  return display:sub(1, -2)
+-- Display: Algorithmic Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.display = function(value)
+  return "Algorithmic Indicator: "..value
 end
 
--- Dissect Bit Fields: Summary Flags
-cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.bits = function(buffer, offset, packet, parent)
+-- Dissect: Algorithmic Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.display(value, buffer, offset, packet, parent)
 
-  -- Reserved Flags: 3 Bit
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reserved_flags, buffer(offset, 1))
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.algorithmic_indicator, range, value, display)
 
-  -- Open And Close Price: 1 Bit
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_and_close_price, buffer(offset, 1))
-
-  -- Unused 3: 1 Bit
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unused_3, buffer(offset, 1))
-
-  -- Low Price Bit 1: 1 Bit
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.low_price_bit_1, buffer(offset, 1))
-
-  -- Unused 1: 1 Bit
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unused_1, buffer(offset, 1))
-
-  -- High Price Bit 1: 1 Bit
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.high_price_bit_1, buffer(offset, 1))
+  return offset + length, value
 end
 
--- Dissect: Summary Flags
-cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.dissect = function(buffer, offset, packet, parent)
-  local size = 1
-  local range = buffer(offset, size)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.display(range, packet, parent)
-  local element = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.summary_flags, range, display)
+-- Algorithmic Trade
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade = {}
 
-  if show.summary_flags then
-    cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.bits(buffer, offset, packet, element)
+-- Size: Algorithmic Trade
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size = 1
+
+-- Display: Algorithmic Trade
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.display = function(value)
+  if value == "H" then
+    return "Algorithmic Trade: Algorithmic Trade (H)"
+  end
+  if value == "-" then
+    return "Algorithmic Trade: Nonalgorithmic Trade (-)"
   end
 
-  return offset + 1, range
+  return "Algorithmic Trade: Unknown("..value..")"
 end
 
--- Ecrp Volume
-cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume = {}
+-- Dissect: Algorithmic Trade
+cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.display(value, buffer, offset, packet, parent)
 
--- Size: Ecrp Volume
-cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.size = 4
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.algorithmic_trade, range, value, display)
 
--- Display: Ecrp Volume
-cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.display = function(value)
-  return "Ecrp Volume: "..value
+  return offset + length, value
 end
 
--- Dissect: Ecrp Volume
-cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.size
+-- Auction End Offset
+cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset = {}
+
+-- Size: Auction End Offset
+cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.size = 4
+
+-- Display: Auction End Offset
+cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.display = function(value)
+  return "Auction End Offset: "..value
+end
+
+-- Dissect: Auction End Offset
+cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.ecrp_volume, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_end_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Id
+cboe_europe_cedxmulticast_pitch_v1_11.auction_id = {}
+
+-- Size: Auction Id
+cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size = 8
+
+-- Display: Auction Id
+cboe_europe_cedxmulticast_pitch_v1_11.auction_id.display = function(value)
+  return "Auction Id: "..value
+end
+
+-- Dissect: Auction Id
+cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Only Price
+cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price = {}
+
+-- Size: Auction Only Price
+cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size = 8
+
+-- Display: Auction Only Price
+cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.display = function(value)
+  return "Auction Only Price: "..value
+end
+
+-- Translate: Auction Only Price
+cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Auction Only Price
+cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_only_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Opening Type
+cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type = {}
+
+-- Size: Auction Opening Type
+cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.size = 1
+
+-- Display: Auction Opening Type
+cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.display = function(value)
+  return "Auction Opening Type: "..value
+end
+
+-- Dissect: Auction Opening Type
+cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_opening_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Type
+cboe_europe_cedxmulticast_pitch_v1_11.auction_type = {}
+
+-- Size: Auction Type
+cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size = 1
+
+-- Display: Auction Type
+cboe_europe_cedxmulticast_pitch_v1_11.auction_type.display = function(value)
+  if value == "O" then
+    return "Auction Type: Opening Auction (O)"
+  end
+  if value == "B" then
+    return "Auction Type: Aim (B)"
+  end
+  if value == "C" then
+    return "Auction Type: Crfq (C)"
+  end
+
+  return "Auction Type: Unknown("..value..")"
+end
+
+-- Dissect: Auction Type
+cboe_europe_cedxmulticast_pitch_v1_11.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Benchmark Reference Price Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator = {}
+
+-- Size: Benchmark Reference Price Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size = 1
+
+-- Display: Benchmark Reference Price Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.display = function(value)
+  return "Benchmark Reference Price Indicator: "..value
+end
+
+-- Dissect: Benchmark Reference Price Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.benchmark_reference_price_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -540,25 +473,124 @@ cboe_europe_cedxmulticast_pitch_v1_11.block_volume.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Total Volume
-cboe_europe_cedxmulticast_pitch_v1_11.total_volume = {}
+-- Buy Contracts
+cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts = {}
 
--- Size: Total Volume
-cboe_europe_cedxmulticast_pitch_v1_11.total_volume.size = 4
+-- Size: Buy Contracts
+cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.size = 4
 
--- Display: Total Volume
-cboe_europe_cedxmulticast_pitch_v1_11.total_volume.display = function(value)
-  return "Total Volume: "..value
+-- Display: Buy Contracts
+cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.display = function(value)
+  return "Buy Contracts: "..value
 end
 
--- Dissect: Total Volume
-cboe_europe_cedxmulticast_pitch_v1_11.total_volume.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.total_volume.size
+-- Dissect: Buy Contracts
+cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.total_volume.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.total_volume, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.buy_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Call Put
+cboe_europe_cedxmulticast_pitch_v1_11.call_put = {}
+
+-- Size: Call Put
+cboe_europe_cedxmulticast_pitch_v1_11.call_put.size = 1
+
+-- Display: Call Put
+cboe_europe_cedxmulticast_pitch_v1_11.call_put.display = function(value)
+  if value == "P" then
+    return "Call Put: Put (P)"
+  end
+  if value == "C" then
+    return "Call Put: Call (C)"
+  end
+
+  return "Call Put: Unknown("..value..")"
+end
+
+-- Dissect: Call Put
+cboe_europe_cedxmulticast_pitch_v1_11.call_put.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.call_put.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.call_put.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.call_put, range, value, display)
+
+  return offset + length, value
+end
+
+-- Canceled Contracts Binary 2
+cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2 = {}
+
+-- Size: Canceled Contracts Binary 2
+cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.size = 2
+
+-- Display: Canceled Contracts Binary 2
+cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.display = function(value)
+  return "Canceled Contracts Binary 2: "..value
+end
+
+-- Dissect: Canceled Contracts Binary 2
+cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.canceled_contracts_binary_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Canceled Contracts Binary 4
+cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4 = {}
+
+-- Size: Canceled Contracts Binary 4
+cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.size = 4
+
+-- Display: Canceled Contracts Binary 4
+cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.display = function(value)
+  return "Canceled Contracts Binary 4: "..value
+end
+
+-- Dissect: Canceled Contracts Binary 4
+cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.canceled_contracts_binary_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cboe Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags = {}
+
+-- Size: Cboe Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.size = 1
+
+-- Display: Cboe Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.display = function(value)
+  return "Cboe Trade Flags: "..value
+end
+
+-- Dissect: Cboe Trade Flags
+cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.cboe_trade_flags, range, value, display)
 
   return offset + length, value
 end
@@ -586,48 +618,442 @@ cboe_europe_cedxmulticast_pitch_v1_11.close_price.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Open Price
-cboe_europe_cedxmulticast_pitch_v1_11.open_price = {}
+-- Composite Market Bid Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price = {}
 
--- Size: Open Price
-cboe_europe_cedxmulticast_pitch_v1_11.open_price.size = 8
+-- Size: Composite Market Bid Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size = 8
 
--- Display: Open Price
-cboe_europe_cedxmulticast_pitch_v1_11.open_price.display = function(value)
-  return "Open Price: "..value
+-- Display: Composite Market Bid Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.display = function(value)
+  return "Composite Market Bid Price: "..value
 end
 
--- Dissect: Open Price
-cboe_europe_cedxmulticast_pitch_v1_11.open_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.open_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.open_price.display(value, buffer, offset, packet, parent)
+-- Translate: Composite Market Bid Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_price, range, value, display)
+-- Dissect: Composite Market Bid Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.composite_market_bid_price, range, value, display)
 
   return offset + length, value
 end
 
--- Low Price Binary Price 8
-cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8 = {}
+-- Composite Market Offer Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price = {}
 
--- Size: Low Price Binary Price 8
-cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.size = 8
+-- Size: Composite Market Offer Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size = 8
 
--- Display: Low Price Binary Price 8
-cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.display = function(value)
-  return "Low Price Binary Price 8: "..value
+-- Display: Composite Market Offer Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.display = function(value)
+  return "Composite Market Offer Price: "..value
 end
 
--- Dissect: Low Price Binary Price 8
-cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.size
+-- Translate: Composite Market Offer Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Composite Market Offer Price
+cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.composite_market_offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Size
+cboe_europe_cedxmulticast_pitch_v1_11.contract_size = {}
+
+-- Size: Contract Size
+cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size = 2
+
+-- Display: Contract Size
+cboe_europe_cedxmulticast_pitch_v1_11.contract_size.display = function(value)
+  return "Contract Size: "..value
+end
+
+-- Dissect: Contract Size
+cboe_europe_cedxmulticast_pitch_v1_11.contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.contract_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contract_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contracts Binary 4
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4 = {}
+
+-- Size: Contracts Binary 4
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size = 4
+
+-- Display: Contracts Binary 4
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.display = function(value)
+  return "Contracts Binary 4: "..value
+end
+
+-- Dissect: Contracts Binary 4
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_binary_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contracts Binary 8
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8 = {}
+
+-- Size: Contracts Binary 8
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.size = 8
+
+-- Display: Contracts Binary 8
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.display = function(value)
+  return "Contracts Binary 8: "..value
+end
+
+-- Dissect: Contracts Binary 8
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.low_price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_binary_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contracts Short
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_short = {}
+
+-- Size: Contracts Short
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.size = 2
+
+-- Display: Contracts Short
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.display = function(value)
+  return "Contracts Short: "..value
+end
+
+-- Dissect: Contracts Short
+cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+cboe_europe_cedxmulticast_pitch_v1_11.count = {}
+
+-- Size: Count
+cboe_europe_cedxmulticast_pitch_v1_11.count.size = 1
+
+-- Display: Count
+cboe_europe_cedxmulticast_pitch_v1_11.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+cboe_europe_cedxmulticast_pitch_v1_11.count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Crossing Trade
+cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade = {}
+
+-- Size: Crossing Trade
+cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size = 1
+
+-- Display: Crossing Trade
+cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.display = function(value)
+  if value == "X" then
+    return "Crossing Trade: Crossing Trade (X)"
+  end
+  if value == "-" then
+    return "Crossing Trade: Not Specified (-)"
+  end
+
+  return "Crossing Trade: Unknown("..value..")"
+end
+
+-- Dissect: Crossing Trade
+cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.crossing_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+cboe_europe_cedxmulticast_pitch_v1_11.currency = {}
+
+-- Size: Currency
+cboe_europe_cedxmulticast_pitch_v1_11.currency.size = 3
+
+-- Display: Currency
+cboe_europe_cedxmulticast_pitch_v1_11.currency.display = function(value)
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+cboe_europe_cedxmulticast_pitch_v1_11.currency.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.currency.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Customer Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator = {}
+
+-- Size: Customer Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.size = 1
+
+-- Display: Customer Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.display = function(value)
+  return "Customer Indicator: "..value
+end
+
+-- Dissect: Customer Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.customer_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Deferral Or Enrichment Type
+cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type = {}
+
+-- Size: Deferral Or Enrichment Type
+cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size = 1
+
+-- Display: Deferral Or Enrichment Type
+cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.display = function(value)
+  return "Deferral Or Enrichment Type: "..value
+end
+
+-- Dissect: Deferral Or Enrichment Type
+cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.deferral_or_enrichment_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Duplicative Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator = {}
+
+-- Size: Duplicative Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size = 1
+
+-- Display: Duplicative Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.display = function(value)
+  return "Duplicative Indicator: "..value
+end
+
+-- Dissect: Duplicative Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.duplicative_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ecrp Volume
+cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume = {}
+
+-- Size: Ecrp Volume
+cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.size = 4
+
+-- Display: Ecrp Volume
+cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.display = function(value)
+  return "Ecrp Volume: "..value
+end
+
+-- Dissect: Ecrp Volume
+cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.ecrp_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ex Cum Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend = {}
+
+-- Size: Ex Cum Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.size = 1
+
+-- Display: Ex Cum Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.display = function(value)
+  if value == "E" then
+    return "Ex Cum Dividend: Ex Cum Special Dividend If Optionally Set By Reporting Party (E)"
+  end
+  if value == "-" then
+    return "Ex Cum Dividend: Not Specified (-)"
+  end
+
+  return "Ex Cum Dividend: Unknown("..value..")"
+end
+
+-- Dissect: Ex Cum Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.ex_cum_dividend, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity = {}
+
+-- Size: Executed Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.size = 4
+
+-- Display: Executed Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Id
+cboe_europe_cedxmulticast_pitch_v1_11.execution_id = {}
+
+-- Size: Execution Id
+cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size = 8
+
+-- Display: Execution Id
+cboe_europe_cedxmulticast_pitch_v1_11.execution_id.display = function(value)
+  return "Execution Id: "..value
+end
+
+-- Dissect: Execution Id
+cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Venue
+cboe_europe_cedxmulticast_pitch_v1_11.execution_venue = {}
+
+-- Size: Execution Venue
+cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.size = 4
+
+-- Display: Execution Venue
+cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.display = function(value)
+  return "Execution Venue: "..value
+end
+
+-- Dissect: Execution Venue
+cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_venue, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Date
+cboe_europe_cedxmulticast_pitch_v1_11.expiration_date = {}
+
+-- Size: Expiration Date
+cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size = 4
+
+-- Display: Expiration Date
+cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.display = function(value)
+  return "Expiration Date: "..value
+end
+
+-- Dissect: Expiration Date
+cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.expiration_date, range, value, display)
 
   return offset + length, value
 end
@@ -655,180 +1081,56 @@ cboe_europe_cedxmulticast_pitch_v1_11.high_price_binary_price_8.dissect = functi
   return offset + length, value
 end
 
--- Open Interest
-cboe_europe_cedxmulticast_pitch_v1_11.open_interest = {}
+-- Indicative Price
+cboe_europe_cedxmulticast_pitch_v1_11.indicative_price = {}
 
--- Size: Open Interest
-cboe_europe_cedxmulticast_pitch_v1_11.open_interest.size = 4
+-- Size: Indicative Price
+cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size = 8
 
--- Display: Open Interest
-cboe_europe_cedxmulticast_pitch_v1_11.open_interest.display = function(value)
-  return "Open Interest: "..value
+-- Display: Indicative Price
+cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.display = function(value)
+  return "Indicative Price: "..value
 end
 
--- Dissect: Open Interest
-cboe_europe_cedxmulticast_pitch_v1_11.open_interest.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.open_interest.size
+-- Translate: Indicative Price
+cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Indicative Price
+cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.indicative_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Fast
+cboe_europe_cedxmulticast_pitch_v1_11.is_fast = {}
+
+-- Size: Is Fast
+cboe_europe_cedxmulticast_pitch_v1_11.is_fast.size = 1
+
+-- Display: Is Fast
+cboe_europe_cedxmulticast_pitch_v1_11.is_fast.display = function(value)
+  return "Is Fast: "..value
+end
+
+-- Dissect: Is Fast
+cboe_europe_cedxmulticast_pitch_v1_11.is_fast.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.is_fast.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.open_interest.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.is_fast.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_interest, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date
-cboe_europe_cedxmulticast_pitch_v1_11.trade_date = {}
-
--- Size: Trade Date
-cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size = 4
-
--- Display: Trade Date
-cboe_europe_cedxmulticast_pitch_v1_11.trade_date.display = function(value)
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-cboe_europe_cedxmulticast_pitch_v1_11.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_date, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.is_fast, range, value, display)
 
   return offset + length, value
-end
-
--- Symbol Printable Ascii 6
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6 = {}
-
--- Size: Symbol Printable Ascii 6
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size = 6
-
--- Display: Symbol Printable Ascii 6
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.display = function(value)
-  return "Symbol Printable Ascii 6: "..value
-end
-
--- Dissect: Symbol Printable Ascii 6
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_printable_ascii_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Time Offset
-cboe_europe_cedxmulticast_pitch_v1_11.time_offset = {}
-
--- Size: Time Offset
-cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size = 4
-
--- Display: Time Offset
-cboe_europe_cedxmulticast_pitch_v1_11.time_offset.display = function(value)
-  return "Time Offset: "..value
-end
-
--- Dissect: Time Offset
-cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.time_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- End Of Day Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message = {}
-
--- Size: End Of Day Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.open_interest.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.high_price_binary_price_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.open_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.close_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.total_volume.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.block_volume.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.size
-
--- Display: End Of Day Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: End Of Day Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Symbol Printable Ascii 6: 6 Byte Ascii String
-  index, symbol_printable_ascii_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.dissect(buffer, index, packet, parent)
-
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = cboe_europe_cedxmulticast_pitch_v1_11.trade_date.dissect(buffer, index, packet, parent)
-
-  -- Open Interest: 4 Byte Unsigned Fixed Width Integer
-  index, open_interest = cboe_europe_cedxmulticast_pitch_v1_11.open_interest.dissect(buffer, index, packet, parent)
-
-  -- High Price Binary Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, high_price_binary_price_8 = cboe_europe_cedxmulticast_pitch_v1_11.high_price_binary_price_8.dissect(buffer, index, packet, parent)
-
-  -- Low Price Binary Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, low_price_binary_price_8 = cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.dissect(buffer, index, packet, parent)
-
-  -- Open Price: 8 Byte Unsigned Fixed Width Integer
-  index, open_price = cboe_europe_cedxmulticast_pitch_v1_11.open_price.dissect(buffer, index, packet, parent)
-
-  -- Close Price: 8 Byte Unsigned Fixed Width Integer
-  index, close_price = cboe_europe_cedxmulticast_pitch_v1_11.close_price.dissect(buffer, index, packet, parent)
-
-  -- Total Volume: 4 Byte Unsigned Fixed Width Integer
-  index, total_volume = cboe_europe_cedxmulticast_pitch_v1_11.total_volume.dissect(buffer, index, packet, parent)
-
-  -- Block Volume: 4 Byte Unsigned Fixed Width Integer
-  index, block_volume = cboe_europe_cedxmulticast_pitch_v1_11.block_volume.dissect(buffer, index, packet, parent)
-
-  -- Ecrp Volume: 4 Byte Unsigned Fixed Width Integer
-  index, ecrp_volume = cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.dissect(buffer, index, packet, parent)
-
-  -- Summary Flags: Struct of 6 fields
-  index, summary_flags = cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: End Of Day Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_day_summary_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.end_of_day_summary_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Issue
@@ -861,308 +1163,25 @@ cboe_europe_cedxmulticast_pitch_v1_11.issue.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Settlement Price
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_price = {}
+-- Length
+cboe_europe_cedxmulticast_pitch_v1_11.length = {}
 
--- Size: Settlement Price
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.size = 8
+-- Size: Length
+cboe_europe_cedxmulticast_pitch_v1_11.length.size = 2
 
--- Display: Settlement Price
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.display = function(value)
-  return "Settlement Price: "..value
+-- Display: Length
+cboe_europe_cedxmulticast_pitch_v1_11.length.display = function(value)
+  return "Length: "..value
 end
 
--- Dissect: Settlement Price
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.settlement_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Message
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_message = {}
-
--- Size: Settlement Message
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.issue.size
-
--- Display: Settlement Message
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Settlement Message
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Symbol Printable Ascii 6: 6 Byte Ascii String
-  index, symbol_printable_ascii_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.dissect(buffer, index, packet, parent)
-
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = cboe_europe_cedxmulticast_pitch_v1_11.trade_date.dissect(buffer, index, packet, parent)
-
-  -- Settlement Price: 8 Byte Unsigned Fixed Width Integer
-  index, settlement_price = cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.dissect(buffer, index, packet, parent)
-
-  -- Issue: 1 Byte Ascii String Enum with 2 values
-  index, issue = cboe_europe_cedxmulticast_pitch_v1_11.issue.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Settlement Message
-cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.dissect = function(buffer, offset, packet, parent)
-  if show.settlement_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.settlement_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Execution Id
-cboe_europe_cedxmulticast_pitch_v1_11.execution_id = {}
-
--- Size: Execution Id
-cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size = 8
-
--- Display: Execution Id
-cboe_europe_cedxmulticast_pitch_v1_11.execution_id.display = function(value)
-  return "Execution Id: "..value
-end
-
--- Dissect: Execution Id
-cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Break Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message = {}
-
--- Size: Trade Break Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
-
--- Display: Trade Break Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Break Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Break Message
-cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_break_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_break_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Multiplier
-cboe_europe_cedxmulticast_pitch_v1_11.multiplier = {}
-
--- Size: Multiplier
-cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size = 4
-
--- Display: Multiplier
-cboe_europe_cedxmulticast_pitch_v1_11.multiplier.display = function(value)
-  return "Multiplier: "..value
-end
-
--- Translate: Multiplier
-cboe_europe_cedxmulticast_pitch_v1_11.multiplier.translate = function(raw)
-  return raw/10
-end
-
--- Dissect: Multiplier
-cboe_europe_cedxmulticast_pitch_v1_11.multiplier.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.multiplier, range, value, display)
-
-  return offset + length, value
-end
-
--- Width Type
-cboe_europe_cedxmulticast_pitch_v1_11.width_type = {}
-
--- Size: Width Type
-cboe_europe_cedxmulticast_pitch_v1_11.width_type.size = 1
-
--- Display: Width Type
-cboe_europe_cedxmulticast_pitch_v1_11.width_type.display = function(value)
-  if value == R then
-    return "Width Type: Regular (R)"
-  end
-
-  return "Width Type: Unknown("..value..")"
-end
-
--- Dissect: Width Type
-cboe_europe_cedxmulticast_pitch_v1_11.width_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.width_type.size
+-- Dissect: Length
+cboe_europe_cedxmulticast_pitch_v1_11.length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.width_type.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.width_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Code Alphanumeric 8
-cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8 = {}
-
--- Size: Product Code Alphanumeric 8
-cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size = 8
-
--- Display: Product Code Alphanumeric 8
-cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.display = function(value)
-  return "Product Code Alphanumeric 8: "..value
-end
-
--- Dissect: Product Code Alphanumeric 8
-cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.product_code_alphanumeric_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Width Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.width_update_message = {}
-
--- Size: Width Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.width_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size
-
--- Display: Width Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Width Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Product Code Alphanumeric 8: 8 Byte Ascii String
-  index, product_code_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect(buffer, index, packet, parent)
-
-  -- Width Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index, width_type = cboe_europe_cedxmulticast_pitch_v1_11.width_type.dissect(buffer, index, packet, parent)
-
-  -- Multiplier: 4 Byte Unsigned Fixed Width Integer
-  index, multiplier = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Width Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.width_update_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.width_update_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Price Increment
-cboe_europe_cedxmulticast_pitch_v1_11.price_increment = {}
-
--- Size: Price Increment
-cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size = 8
-
--- Display: Price Increment
-cboe_europe_cedxmulticast_pitch_v1_11.price_increment.display = function(value)
-  return "Price Increment: "..value
-end
-
--- Translate: Price Increment
-cboe_europe_cedxmulticast_pitch_v1_11.price_increment.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price Increment
-cboe_europe_cedxmulticast_pitch_v1_11.price_increment.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_increment, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -1200,289 +1219,527 @@ cboe_europe_cedxmulticast_pitch_v1_11.listing_state.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Contract Size
-cboe_europe_cedxmulticast_pitch_v1_11.contract_size = {}
+-- Low Price Binary Price 8
+cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8 = {}
 
--- Size: Contract Size
-cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size = 2
+-- Size: Low Price Binary Price 8
+cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.size = 8
 
--- Display: Contract Size
-cboe_europe_cedxmulticast_pitch_v1_11.contract_size.display = function(value)
-  return "Contract Size: "..value
+-- Display: Low Price Binary Price 8
+cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.display = function(value)
+  return "Low Price Binary Price 8: "..value
 end
 
--- Dissect: Contract Size
-cboe_europe_cedxmulticast_pitch_v1_11.contract_size.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size
+-- Dissect: Low Price Binary Price 8
+cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.contract_size.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contract_size, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.low_price_binary_price_8, range, value, display)
 
   return offset + length, value
 end
 
--- Strike Price
-cboe_europe_cedxmulticast_pitch_v1_11.strike_price = {}
+-- Market Mechanism
+cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism = {}
 
--- Size: Strike Price
-cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size = 8
+-- Size: Market Mechanism
+cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size = 1
 
--- Display: Strike Price
-cboe_europe_cedxmulticast_pitch_v1_11.strike_price.display = function(value)
-  return "Strike Price: "..value
+-- Display: Market Mechanism
+cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.display = function(value)
+  if value == "1" then
+    return "Market Mechanism: Central Limit Order Book (1)"
+  end
+  if value == "2" then
+    return "Market Mechanism: Quote Driven Market (2)"
+  end
+  if value == "3" then
+    return "Market Mechanism: Dark Order Book (3)"
+  end
+  if value == "4" then
+    return "Market Mechanism: Off Book (4)"
+  end
+  if value == "5" then
+    return "Market Mechanism: Periodic Auction (5)"
+  end
+  if value == "6" then
+    return "Market Mechanism: Request For Quotes (6)"
+  end
+  if value == "7" then
+    return "Market Mechanism: Any Other Including Hybrid (7)"
+  end
+
+  return "Market Mechanism: Unknown("..value..")"
 end
 
--- Translate: Strike Price
-cboe_europe_cedxmulticast_pitch_v1_11.strike_price.translate = function(raw)
+-- Dissect: Market Mechanism
+cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.market_mechanism, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cboe_europe_cedxmulticast_pitch_v1_11.message_length = {}
+
+-- Size: Message Length
+cboe_europe_cedxmulticast_pitch_v1_11.message_length.size = 1
+
+-- Display: Message Length
+cboe_europe_cedxmulticast_pitch_v1_11.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cboe_europe_cedxmulticast_pitch_v1_11.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+cboe_europe_cedxmulticast_pitch_v1_11.message_type = {}
+
+-- Size: Message Type
+cboe_europe_cedxmulticast_pitch_v1_11.message_type.size = 1
+
+-- Display: Message Type
+cboe_europe_cedxmulticast_pitch_v1_11.message_type.display = function(value)
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0x40 then
+    return "Message Type: Add Order Long Message (0x40)"
+  end
+  if value == 0x22 then
+    return "Message Type: Add Order Short Message (0x22)"
+  end
+  if value == 0x23 then
+    return "Message Type: Order Executed Message (0x23)"
+  end
+  if value == 0x24 then
+    return "Message Type: Order Executed At Price Size Message (0x24)"
+  end
+  if value == 0x25 then
+    return "Message Type: Reduce Size Long Message (0x25)"
+  end
+  if value == 0x26 then
+    return "Message Type: Reduce Size Short Message (0x26)"
+  end
+  if value == 0x27 then
+    return "Message Type: Modify Order Long Message (0x27)"
+  end
+  if value == 0x28 then
+    return "Message Type: Modify Order Short Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: Delete Order Message (0x29)"
+  end
+  if value == 0x41 then
+    return "Message Type: Trade Long Message (0x41)"
+  end
+  if value == 0x2B then
+    return "Message Type: Trade Short Message (0x2B)"
+  end
+  if value == 0x32 then
+    return "Message Type: Trade Extended Message (0x32)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session (0x2D)"
+  end
+  if value == 0xBC then
+    return "Message Type: Transaction Begin Message (0xBC)"
+  end
+  if value == 0xBD then
+    return "Message Type: Transaction Begin Message (0xBD)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0xE2 then
+    return "Message Type: Fast Status Message (0xE2)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+  if value == 0xD1 then
+    return "Message Type: Opening Auction Update Message (0xD1)"
+  end
+  if value == 0xAD then
+    return "Message Type: Auction Notification Message (0xAD)"
+  end
+  if value == 0xAE then
+    return "Message Type: Auction Cancel Message (0xAE)"
+  end
+  if value == 0xDF then
+    return "Message Type: Auction Trade Message (0xDF)"
+  end
+  if value == 0xDE then
+    return "Message Type: Auction Liquidity Message (0xDE)"
+  end
+  if value == 0xD2 then
+    return "Message Type: Width Update Message (0xD2)"
+  end
+  if value == 0xDA then
+    return "Message Type: Futures Instrument Definition Message (0xDA)"
+  end
+  if value == 0xDB then
+    return "Message Type: Options Instrument Definition Message (0xDB)"
+  end
+  if value == 0xDC then
+    return "Message Type: Width Update Message (0xDC)"
+  end
+  if value == 0x2C then
+    return "Message Type: Trade Break Message (0x2C)"
+  end
+  if value == 0xB9 then
+    return "Message Type: Settlement Message (0xB9)"
+  end
+  if value == 0xBA then
+    return "Message Type: End Of Day Summary Message (0xBA)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+cboe_europe_cedxmulticast_pitch_v1_11.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Modification Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator = {}
+
+-- Size: Modification Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size = 1
+
+-- Display: Modification Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.display = function(value)
+  if value == "A" then
+    return "Modification Indicator: Indicates A Modification Of A Previously Reported Trade (A)"
+  end
+  if value == "C" then
+    return "Modification Indicator: Indicates A Cancellation Of A Previously Reported Trade (C)"
+  end
+  if value == "-" then
+    return "Modification Indicator: Not Specified (-)"
+  end
+
+  return "Modification Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Modification Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.modification_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Multiplier
+cboe_europe_cedxmulticast_pitch_v1_11.multiplier = {}
+
+-- Size: Multiplier
+cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size = 4
+
+-- Display: Multiplier
+cboe_europe_cedxmulticast_pitch_v1_11.multiplier.display = function(value)
+  return "Multiplier: "..value
+end
+
+-- Translate: Multiplier
+cboe_europe_cedxmulticast_pitch_v1_11.multiplier.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Multiplier
+cboe_europe_cedxmulticast_pitch_v1_11.multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.multiplier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Negotiated Trade
+cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade = {}
+
+-- Size: Negotiated Trade
+cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size = 1
+
+-- Display: Negotiated Trade
+cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.display = function(value)
+  return "Negotiated Trade: "..value
+end
+
+-- Dissect: Negotiated Trade
+cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.negotiated_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Book Automated Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator = {}
+
+-- Size: Off Book Automated Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size = 1
+
+-- Display: Off Book Automated Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.display = function(value)
+  if value == "Q" then
+    return "Off Book Automated Indicator: Automated (Q)"
+  end
+  if value == "M" then
+    return "Off Book Automated Indicator: Manual (M)"
+  end
+  if value == "-" then
+    return "Off Book Automated Indicator: Not Specified (-)"
+  end
+
+  return "Off Book Automated Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Off Book Automated Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.off_book_automated_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest
+cboe_europe_cedxmulticast_pitch_v1_11.open_interest = {}
+
+-- Size: Open Interest
+cboe_europe_cedxmulticast_pitch_v1_11.open_interest.size = 4
+
+-- Display: Open Interest
+cboe_europe_cedxmulticast_pitch_v1_11.open_interest.display = function(value)
+  return "Open Interest: "..value
+end
+
+-- Dissect: Open Interest
+cboe_europe_cedxmulticast_pitch_v1_11.open_interest.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.open_interest.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.open_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_interest, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price
+cboe_europe_cedxmulticast_pitch_v1_11.open_price = {}
+
+-- Size: Open Price
+cboe_europe_cedxmulticast_pitch_v1_11.open_price.size = 8
+
+-- Display: Open Price
+cboe_europe_cedxmulticast_pitch_v1_11.open_price.display = function(value)
+  return "Open Price: "..value
+end
+
+-- Dissect: Open Price
+cboe_europe_cedxmulticast_pitch_v1_11.open_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.open_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Condition
+cboe_europe_cedxmulticast_pitch_v1_11.opening_condition = {}
+
+-- Size: Opening Condition
+cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.size = 1
+
+-- Display: Opening Condition
+cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.display = function(value)
+  return "Opening Condition: "..value
+end
+
+-- Dissect: Opening Condition
+cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.opening_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+cboe_europe_cedxmulticast_pitch_v1_11.order_id = {}
+
+-- Size: Order Id
+cboe_europe_cedxmulticast_pitch_v1_11.order_id.size = 8
+
+-- Display: Order Id
+cboe_europe_cedxmulticast_pitch_v1_11.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id
+cboe_europe_cedxmulticast_pitch_v1_11.participant_id = {}
+
+-- Size: Participant Id
+cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size = 4
+
+-- Display: Participant Id
+cboe_europe_cedxmulticast_pitch_v1_11.participant_id.display = function(value)
+  return "Participant Id: "..value
+end
+
+-- Dissect: Participant Id
+cboe_europe_cedxmulticast_pitch_v1_11.participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+cboe_europe_cedxmulticast_pitch_v1_11.price = {}
+
+-- Size: Price
+cboe_europe_cedxmulticast_pitch_v1_11.price.size = 8
+
+-- Display: Price
+cboe_europe_cedxmulticast_pitch_v1_11.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+cboe_europe_cedxmulticast_pitch_v1_11.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Strike Price
-cboe_europe_cedxmulticast_pitch_v1_11.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size
+-- Dissect: Price
+cboe_europe_cedxmulticast_pitch_v1_11.price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.display(value, buffer, offset, packet, parent)
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.price.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Date
-cboe_europe_cedxmulticast_pitch_v1_11.expiration_date = {}
-
--- Size: Expiration Date
-cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size = 4
-
--- Display: Expiration Date
-cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.display = function(value)
-  return "Expiration Date: "..value
-end
-
--- Dissect: Expiration Date
-cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.expiration_date, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price, range, value, display)
 
   return offset + length, value
 end
 
--- Call Put
-cboe_europe_cedxmulticast_pitch_v1_11.call_put = {}
+-- Price Formation Discovery Process
+cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process = {}
 
--- Size: Call Put
-cboe_europe_cedxmulticast_pitch_v1_11.call_put.size = 1
+-- Size: Price Formation Discovery Process
+cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size = 1
 
--- Display: Call Put
-cboe_europe_cedxmulticast_pitch_v1_11.call_put.display = function(value)
-  if value == "P" then
-    return "Call Put: Put (P)"
-  end
-  if value == "C" then
-    return "Call Put: Call (C)"
-  end
-
-  return "Call Put: Unknown("..value..")"
+-- Display: Price Formation Discovery Process
+cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.display = function(value)
+  return "Price Formation Discovery Process: "..value
 end
 
--- Dissect: Call Put
-cboe_europe_cedxmulticast_pitch_v1_11.call_put.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.call_put.size
+-- Dissect: Price Formation Discovery Process
+cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.call_put.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.call_put, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Alphanumeric 6
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6 = {}
-
--- Size: Symbol Alphanumeric 6
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size = 6
-
--- Display: Symbol Alphanumeric 6
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.display = function(value)
-  return "Symbol Alphanumeric 6: "..value
-end
-
--- Dissect: Symbol Alphanumeric 6
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_alphanumeric_6, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_formation_discovery_process, range, value, display)
 
   return offset + length, value
 end
 
--- Options Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message = {}
+-- Price Increment
+cboe_europe_cedxmulticast_pitch_v1_11.price_increment = {}
 
--- Size: Options Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.call_put.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.listing_state.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
+-- Size: Price Increment
+cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size = 8
 
--- Display: Options Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.display = function(packet, parent, length)
-  return ""
+-- Display: Price Increment
+cboe_europe_cedxmulticast_pitch_v1_11.price_increment.display = function(value)
+  return "Price Increment: "..value
 end
 
--- Dissect Fields: Options Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Symbol Alphanumeric 6: 6 Byte Ascii String
-  index, symbol_alphanumeric_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
-
-  -- Product Code Alphanumeric 8: 8 Byte Ascii String
-  index, product_code_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect(buffer, index, packet, parent)
-
-  -- Call Put: 1 Byte Ascii String Enum with 2 values
-  index, call_put = cboe_europe_cedxmulticast_pitch_v1_11.call_put.dissect(buffer, index, packet, parent)
-
-  -- Expiration Date: 4 Byte Unsigned Fixed Width Integer
-  index, expiration_date = cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.dissect(buffer, index, packet, parent)
-
-  -- Strike Price: 8 Byte Unsigned Fixed Width Integer
-  index, strike_price = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.dissect(buffer, index, packet, parent)
-
-  -- Contract Size: 2 Byte Unsigned Fixed Width Integer
-  index, contract_size = cboe_europe_cedxmulticast_pitch_v1_11.contract_size.dissect(buffer, index, packet, parent)
-
-  -- Listing State: 1 Byte Ascii String Enum with 3 values
-  index, listing_state = cboe_europe_cedxmulticast_pitch_v1_11.listing_state.dissect(buffer, index, packet, parent)
-
-  -- Price Increment: 8 Byte Unsigned Fixed Width Integer
-  index, price_increment = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.dissect(buffer, index, packet, parent)
-
-  return index
+-- Translate: Price Increment
+cboe_europe_cedxmulticast_pitch_v1_11.price_increment.translate = function(raw)
+  return raw:tonumber()/10000
 end
 
--- Dissect: Options Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.options_instrument_definition_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.options_instrument_definition_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Futures Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message = {}
-
--- Size: Futures Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.listing_state.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
-
--- Display: Futures Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Futures Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Symbol Alphanumeric 6: 6 Byte Ascii String
-  index, symbol_alphanumeric_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
-
-  -- Product Code Alphanumeric 8: 8 Byte Ascii String
-  index, product_code_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect(buffer, index, packet, parent)
-
-  -- Expiration Date: 4 Byte Unsigned Fixed Width Integer
-  index, expiration_date = cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.dissect(buffer, index, packet, parent)
-
-  -- Contract Size: 2 Byte Unsigned Fixed Width Integer
-  index, contract_size = cboe_europe_cedxmulticast_pitch_v1_11.contract_size.dissect(buffer, index, packet, parent)
-
-  -- Listing State: 1 Byte Ascii String Enum with 3 values
-  index, listing_state = cboe_europe_cedxmulticast_pitch_v1_11.listing_state.dissect(buffer, index, packet, parent)
-
-  -- Price Increment: 8 Byte Unsigned Fixed Width Integer
-  index, price_increment = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Futures Instrument Definition Message
-cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.futures_instrument_definition_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.futures_instrument_definition_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Volume
-cboe_europe_cedxmulticast_pitch_v1_11.volume = {}
-
--- Size: Volume
-cboe_europe_cedxmulticast_pitch_v1_11.volume.size = 4
-
--- Display: Volume
-cboe_europe_cedxmulticast_pitch_v1_11.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-cboe_europe_cedxmulticast_pitch_v1_11.volume.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.volume.size
+-- Dissect: Price Increment
+cboe_europe_cedxmulticast_pitch_v1_11.price_increment.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.volume.display(value, buffer, offset, packet, parent)
+  local raw = range:le_uint64()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.volume, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_increment, range, value, display)
 
   return offset + length, value
 end
@@ -1516,56 +1773,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_level.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Price Level Group
-cboe_europe_cedxmulticast_pitch_v1_11.price_level_group = {}
-
--- Size: Price Level Group
-cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.price_level.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.volume.size
-
--- Display: Price Level Group
-cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Price Level Group
-cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.fields = function(buffer, offset, packet, parent, price_level_group_index)
-  local index = offset
-
-  -- Implicit Price Level Group Index
-  if price_level_group_index ~= nil then
-    local iteration = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index, price_level_group_index)
-    iteration:set_generated()
-  end
-
-  -- Price Level: 8 Byte Unsigned Fixed Width Integer
-  index, price_level = cboe_europe_cedxmulticast_pitch_v1_11.price_level.dissect(buffer, index, packet, parent)
-
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = cboe_europe_cedxmulticast_pitch_v1_11.volume.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Price Level Group
-cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.dissect = function(buffer, offset, packet, parent, price_level_group_index)
-  if show.price_level_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.fields(buffer, offset, packet, parent, price_level_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.fields(buffer, offset, packet, parent, price_level_group_index)
-  end
-end
-
 -- Price Level Count
 cboe_europe_cedxmulticast_pitch_v1_11.price_level_count = {}
 
@@ -1589,144 +1796,667 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_level_count.dissect = function(buffe
   return offset + length, value
 end
 
--- Auction Id
-cboe_europe_cedxmulticast_pitch_v1_11.auction_id = {}
+-- Price Short
+cboe_europe_cedxmulticast_pitch_v1_11.price_short = {}
 
--- Size: Auction Id
-cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size = 8
+-- Size: Price Short
+cboe_europe_cedxmulticast_pitch_v1_11.price_short.size = 2
 
--- Display: Auction Id
-cboe_europe_cedxmulticast_pitch_v1_11.auction_id.display = function(value)
-  return "Auction Id: "..value
+-- Display: Price Short
+cboe_europe_cedxmulticast_pitch_v1_11.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Dissect: Auction Id
-cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
+-- Translate: Price Short
+cboe_europe_cedxmulticast_pitch_v1_11.price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price Short
+cboe_europe_cedxmulticast_pitch_v1_11.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.price_short.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Code Alphanumeric 6
+cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6 = {}
+
+-- Size: Product Code Alphanumeric 6
+cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size = 6
+
+-- Display: Product Code Alphanumeric 6
+cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.display = function(value)
+  return "Product Code Alphanumeric 6: "..value
+end
+
+-- Dissect: Product Code Alphanumeric 6
+cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.product_code_alphanumeric_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Code Alphanumeric 8
+cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8 = {}
+
+-- Size: Product Code Alphanumeric 8
+cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size = 8
+
+-- Display: Product Code Alphanumeric 8
+cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.display = function(value)
+  return "Product Code Alphanumeric 8: "..value
+end
+
+-- Dissect: Product Code Alphanumeric 8
+cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.product_code_alphanumeric_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Publication Mode Deferral Reason
+cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason = {}
+
+-- Size: Publication Mode Deferral Reason
+cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size = 1
+
+-- Display: Publication Mode Deferral Reason
+cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.display = function(value)
+  return "Publication Mode Deferral Reason: "..value
+end
+
+-- Dissect: Publication Mode Deferral Reason
+cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.publication_mode_deferral_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.quantity = {}
+
+-- Size: Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.quantity.size = 4
+
+-- Display: Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+cboe_europe_cedxmulticast_pitch_v1_11.quantity_short = {}
+
+-- Size: Quantity Short
+cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.size = 2
+
+-- Display: Quantity Short
+cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price
+cboe_europe_cedxmulticast_pitch_v1_11.reference_price = {}
+
+-- Size: Reference Price
+cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size = 8
+
+-- Display: Reference Price
+cboe_europe_cedxmulticast_pitch_v1_11.reference_price.display = function(value)
+  return "Reference Price: "..value
+end
+
+-- Translate: Reference Price
+cboe_europe_cedxmulticast_pitch_v1_11.reference_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Reference Price
+cboe_europe_cedxmulticast_pitch_v1_11.reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Remaining Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity = {}
+
+-- Size: Remaining Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.size = 4
+
+-- Display: Remaining Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.display = function(value)
+  return "Remaining Quantity: "..value
+end
+
+-- Dissect: Remaining Quantity
+cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.remaining_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+cboe_europe_cedxmulticast_pitch_v1_11.reserved = {}
+
+-- Size: Reserved
+cboe_europe_cedxmulticast_pitch_v1_11.reserved.size = 3
+
+-- Display: Reserved
+cboe_europe_cedxmulticast_pitch_v1_11.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+cboe_europe_cedxmulticast_pitch_v1_11.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.reserved.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Contracts
+cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts = {}
+
+-- Size: Sell Contracts
+cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.size = 4
+
+-- Display: Sell Contracts
+cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.display = function(value)
+  return "Sell Contracts: "..value
+end
+
+-- Dissect: Sell Contracts
+cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.sell_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+cboe_europe_cedxmulticast_pitch_v1_11.sequence = {}
+
+-- Size: Sequence
+cboe_europe_cedxmulticast_pitch_v1_11.sequence.size = 4
+
+-- Display: Sequence
+cboe_europe_cedxmulticast_pitch_v1_11.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+cboe_europe_cedxmulticast_pitch_v1_11.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_price = {}
+
+-- Size: Settlement Price
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.size = 8
+
+-- Display: Settlement Price
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.display = function(value)
+  return "Settlement Price: "..value
+end
+
+-- Dissect: Settlement Price
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_id, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.settlement_price, range, value, display)
 
   return offset + length, value
 end
 
--- Auction Liquidity Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message = {}
+-- Side
+cboe_europe_cedxmulticast_pitch_v1_11.side = {}
 
--- Calculate size of: Auction Liquidity Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.size = function(buffer, offset)
-  local index = 0
+-- Size: Side
+cboe_europe_cedxmulticast_pitch_v1_11.side.size = 1
 
-  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
-
-  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
-
-  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_level_count.size
-
-  -- Calculate field size from count
-  local price_level_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + price_level_group_count * 12
-
-  return index
+-- Display: Side
+cboe_europe_cedxmulticast_pitch_v1_11.side.display = function(value)
+  return "Side: "..value
 end
 
--- Display: Auction Liquidity Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.display = function(packet, parent, length)
-  return ""
+-- Dissect: Side
+cboe_europe_cedxmulticast_pitch_v1_11.side.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.side, range, value, display)
+
+  return offset + length, value
 end
 
--- Dissect Fields: Auction Liquidity Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Side Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.side_indicator = {}
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+-- Size: Side Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size = 1
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect(buffer, index, packet, parent)
-
-  -- Price Level Count: 1 Byte Unsigned Fixed Width Integer
-  index, price_level_count = cboe_europe_cedxmulticast_pitch_v1_11.price_level_count.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Price Level Group
-  for price_level_group_index = 1, price_level_count do
-    index, price_level_group = cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.dissect(buffer, index, packet, parent, price_level_group_index)
+-- Display: Side Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.display = function(value)
+  if value == "B" then
+    return "Side Indicator: Buy Order (B)"
+  end
+  if value == "S" then
+    return "Side Indicator: Sell Order (S)"
   end
 
-  return index
+  return "Side Indicator: Unknown("..value..")"
 end
 
--- Dissect: Auction Liquidity Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
-  if show.auction_liquidity_message then
-    local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.display(buffer, packet, parent)
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_liquidity_message, range, display)
+-- Dissect: Side Indicator
+cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.side_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Special Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.special_dividend = {}
+
+-- Size: Special Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size = 1
+
+-- Display: Special Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.display = function(value)
+  return "Special Dividend: "..value
+end
+
+-- Dissect: Special Dividend
+cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.special_dividend, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+cboe_europe_cedxmulticast_pitch_v1_11.status = {}
+
+-- Size: Status
+cboe_europe_cedxmulticast_pitch_v1_11.status.size = 1
+
+-- Display: Status
+cboe_europe_cedxmulticast_pitch_v1_11.status.display = function(value)
+  if value == "C" then
+    return "Status: Closed (C)"
   end
-
-  return cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.fields(buffer, offset, packet, parent)
-end
-
--- Algorithmic Trade
-cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade = {}
-
--- Size: Algorithmic Trade
-cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size = 1
-
--- Display: Algorithmic Trade
-cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.display = function(value)
+  if value == "Q" then
+    return "Status: Queuing (Q)"
+  end
+  if value == "O" then
+    return "Status: Opening Auction (O)"
+  end
+  if value == "T" then
+    return "Status: Trading (T)"
+  end
+  if value == "S" then
+    return "Status: Suspension (S)"
+  end
   if value == "H" then
-    return "Algorithmic Trade: Algorithmic Trade (H)"
-  end
-  if value == "-" then
-    return "Algorithmic Trade: Nonalgorithmic Trade (-)"
+    return "Status: Halted (H)"
   end
 
-  return "Algorithmic Trade: Unknown("..value..")"
+  return "Status: Unknown("..value..")"
 end
 
--- Dissect: Algorithmic Trade
-cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size
+-- Dissect: Status
+cboe_europe_cedxmulticast_pitch_v1_11.status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.algorithmic_trade, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.status, range, value, display)
 
   return offset + length, value
 end
 
--- Ex Cum Dividend
-cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend = {}
+-- Strike Price
+cboe_europe_cedxmulticast_pitch_v1_11.strike_price = {}
 
--- Size: Ex Cum Dividend
-cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.size = 1
+-- Size: Strike Price
+cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size = 8
 
--- Display: Ex Cum Dividend
-cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.display = function(value)
-  if value == "E" then
-    return "Ex Cum Dividend: Ex Cum Special Dividend If Optionally Set By Reporting Party (E)"
-  end
-  if value == "-" then
-    return "Ex Cum Dividend: Not Specified (-)"
-  end
-
-  return "Ex Cum Dividend: Unknown("..value..")"
+-- Display: Strike Price
+cboe_europe_cedxmulticast_pitch_v1_11.strike_price.display = function(value)
+  return "Strike Price: "..value
 end
 
--- Dissect: Ex Cum Dividend
-cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.size
+-- Translate: Strike Price
+cboe_europe_cedxmulticast_pitch_v1_11.strike_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Strike Price
+cboe_europe_cedxmulticast_pitch_v1_11.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.translate(raw)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Alphanumeric 6
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6 = {}
+
+-- Size: Symbol Alphanumeric 6
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size = 6
+
+-- Display: Symbol Alphanumeric 6
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.display = function(value)
+  return "Symbol Alphanumeric 6: "..value
+end
+
+-- Dissect: Symbol Alphanumeric 6
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.display(value, buffer, offset, packet, parent)
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.ex_cum_dividend, range, value, display)
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_alphanumeric_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Alphanumeric 8
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8 = {}
+
+-- Size: Symbol Alphanumeric 8
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size = 8
+
+-- Display: Symbol Alphanumeric 8
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.display = function(value)
+  return "Symbol Alphanumeric 8: "..value
+end
+
+-- Dissect: Symbol Alphanumeric 8
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_alphanumeric_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Printable Ascii 6
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6 = {}
+
+-- Size: Symbol Printable Ascii 6
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size = 6
+
+-- Display: Symbol Printable Ascii 6
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.display = function(value)
+  return "Symbol Printable Ascii 6: "..value
+end
+
+-- Dissect: Symbol Printable Ascii 6
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_printable_ascii_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Short
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_short = {}
+
+-- Size: Symbol Short
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.size = 6
+
+-- Display: Symbol Short
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.display = function(value)
+  return "Symbol Short: "..value
+end
+
+-- Dissect: Symbol Short
+cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+cboe_europe_cedxmulticast_pitch_v1_11.time = {}
+
+-- Size: Time
+cboe_europe_cedxmulticast_pitch_v1_11.time.size = 4
+
+-- Display: Time
+cboe_europe_cedxmulticast_pitch_v1_11.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+cboe_europe_cedxmulticast_pitch_v1_11.time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time Offset
+cboe_europe_cedxmulticast_pitch_v1_11.time_offset = {}
+
+-- Size: Time Offset
+cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size = 4
+
+-- Display: Time Offset
+cboe_europe_cedxmulticast_pitch_v1_11.time_offset.display = function(value)
+  return "Time Offset: "..value
+end
+
+-- Dissect: Time Offset
+cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.time_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Volume
+cboe_europe_cedxmulticast_pitch_v1_11.total_volume = {}
+
+-- Size: Total Volume
+cboe_europe_cedxmulticast_pitch_v1_11.total_volume.size = 4
+
+-- Display: Total Volume
+cboe_europe_cedxmulticast_pitch_v1_11.total_volume.display = function(value)
+  return "Total Volume: "..value
+end
+
+-- Dissect: Total Volume
+cboe_europe_cedxmulticast_pitch_v1_11.total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.total_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.total_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.total_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+cboe_europe_cedxmulticast_pitch_v1_11.trade_date = {}
+
+-- Size: Trade Date
+cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size = 4
+
+-- Display: Trade Date
+cboe_europe_cedxmulticast_pitch_v1_11.trade_date.display = function(value)
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+cboe_europe_cedxmulticast_pitch_v1_11.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+cboe_europe_cedxmulticast_pitch_v1_11.trade_id = {}
+
+-- Size: Trade Id
+cboe_europe_cedxmulticast_pitch_v1_11.trade_id.size = 8
+
+-- Display: Trade Id
+cboe_europe_cedxmulticast_pitch_v1_11.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+cboe_europe_cedxmulticast_pitch_v1_11.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Timestamp
+cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp = {}
+
+-- Size: Trade Timestamp
+cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.size = 8
+
+-- Display: Trade Timestamp
+cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.display = function(value)
+  return "Trade Timestamp: "..value
+end
+
+-- Dissect: Trade Timestamp
+cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1784,1427 +2514,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.dissect = function(buffer, of
   local display = cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trading_mode, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Mechanism
-cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism = {}
-
--- Size: Market Mechanism
-cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size = 1
-
--- Display: Market Mechanism
-cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.display = function(value)
-  if value == "1" then
-    return "Market Mechanism: Central Limit Order Book (1)"
-  end
-  if value == "2" then
-    return "Market Mechanism: Quote Driven Market (2)"
-  end
-  if value == "3" then
-    return "Market Mechanism: Dark Order Book (3)"
-  end
-  if value == "4" then
-    return "Market Mechanism: Off Book (4)"
-  end
-  if value == "5" then
-    return "Market Mechanism: Periodic Auction (5)"
-  end
-  if value == "6" then
-    return "Market Mechanism: Request For Quotes (6)"
-  end
-  if value == "7" then
-    return "Market Mechanism: Any Other Including Hybrid (7)"
-  end
-
-  return "Market Mechanism: Unknown("..value..")"
-end
-
--- Dissect: Market Mechanism
-cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.market_mechanism, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Flags
-cboe_europe_cedxmulticast_pitch_v1_11.execution_flags = {}
-
--- Size: Execution Flags
-cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size
-
--- Display: Execution Flags
-cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Flags
-cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Market Mechanism: 1 Byte Ascii String Enum with 7 values
-  index, market_mechanism = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.dissect(buffer, index, packet, parent)
-
-  -- Trading Mode: 1 Byte Ascii String Enum with 11 values
-  index, trading_mode = cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.dissect(buffer, index, packet, parent)
-
-  -- Ex Cum Dividend: 1 Byte Ascii String Enum with 2 values
-  index, ex_cum_dividend = cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.dissect(buffer, index, packet, parent)
-
-  -- Algorithmic Trade: 1 Byte Ascii String Enum with 2 values
-  index, algorithmic_trade = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Flags
-cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.dissect = function(buffer, offset, packet, parent)
-  if show.execution_flags then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_flags, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Contracts Binary 4
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4 = {}
-
--- Size: Contracts Binary 4
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size = 4
-
--- Display: Contracts Binary 4
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.display = function(value)
-  return "Contracts Binary 4: "..value
-end
-
--- Dissect: Contracts Binary 4
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_binary_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-cboe_europe_cedxmulticast_pitch_v1_11.price = {}
-
--- Size: Price
-cboe_europe_cedxmulticast_pitch_v1_11.price.size = 8
-
--- Display: Price
-cboe_europe_cedxmulticast_pitch_v1_11.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-cboe_europe_cedxmulticast_pitch_v1_11.price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price
-cboe_europe_cedxmulticast_pitch_v1_11.price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.price.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Trade Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message = {}
-
--- Size: Auction Trade Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size
-
--- Display: Auction Trade Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Trade Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect(buffer, index, packet, parent)
-
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
-
-  -- Contracts Binary 4: 4 Byte Unsigned Fixed Width Integer
-  index, contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect(buffer, index, packet, parent)
-
-  -- Execution Flags: Struct of 4 fields
-  index, execution_flags = cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Trade Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_trade_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_trade_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Auction Cancel Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message = {}
-
--- Size: Auction Cancel Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
-
--- Display: Auction Cancel Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Cancel Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Cancel Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_cancel_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_cancel_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Auction End Offset
-cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset = {}
-
--- Size: Auction End Offset
-cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.size = 4
-
--- Display: Auction End Offset
-cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.display = function(value)
-  return "Auction End Offset: "..value
-end
-
--- Dissect: Auction End Offset
-cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_end_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant Id
-cboe_europe_cedxmulticast_pitch_v1_11.participant_id = {}
-
--- Size: Participant Id
-cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size = 4
-
--- Display: Participant Id
-cboe_europe_cedxmulticast_pitch_v1_11.participant_id.display = function(value)
-  return "Participant Id: "..value
-end
-
--- Dissect: Participant Id
-cboe_europe_cedxmulticast_pitch_v1_11.participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Customer Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator = {}
-
--- Size: Customer Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.size = 1
-
--- Display: Customer Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.display = function(value)
-  return "Customer Indicator: "..value
-end
-
--- Dissect: Customer Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.customer_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-cboe_europe_cedxmulticast_pitch_v1_11.side = {}
-
--- Size: Side
-cboe_europe_cedxmulticast_pitch_v1_11.side.size = 1
-
--- Display: Side
-cboe_europe_cedxmulticast_pitch_v1_11.side.display = function(value)
-  return "Side: "..value
-end
-
--- Dissect: Side
-cboe_europe_cedxmulticast_pitch_v1_11.side.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Type
-cboe_europe_cedxmulticast_pitch_v1_11.auction_type = {}
-
--- Size: Auction Type
-cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size = 1
-
--- Display: Auction Type
-cboe_europe_cedxmulticast_pitch_v1_11.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "B" then
-    return "Auction Type: Aim (B)"
-  end
-  if value == "C" then
-    return "Auction Type: Crfq (C)"
-  end
-
-  return "Auction Type: Unknown("..value..")"
-end
-
--- Dissect: Auction Type
-cboe_europe_cedxmulticast_pitch_v1_11.auction_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Notification Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message = {}
-
--- Size: Auction Notification Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.side.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.size
-
--- Display: Auction Notification Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Notification Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Symbol Alphanumeric 6: 6 Byte Ascii String
-  index, symbol_alphanumeric_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
-
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect(buffer, index, packet, parent)
-
-  -- Auction Type: 1 Byte Ascii String Enum with 3 values
-  index, auction_type = cboe_europe_cedxmulticast_pitch_v1_11.auction_type.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Ascii String
-  index, side = cboe_europe_cedxmulticast_pitch_v1_11.side.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
-
-  -- Contracts Binary 4: 4 Byte Unsigned Fixed Width Integer
-  index, contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect(buffer, index, packet, parent)
-
-  -- Customer Indicator: 1 Byte Ascii String
-  index, customer_indicator = cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.dissect(buffer, index, packet, parent)
-
-  -- Participant Id: 4 Byte Ascii String
-  index, participant_id = cboe_europe_cedxmulticast_pitch_v1_11.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Auction End Offset: 4 Byte Unsigned Fixed Width Integer
-  index, auction_end_offset = cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Notification Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_notification_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_notification_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Composite Market Offer Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price = {}
-
--- Size: Composite Market Offer Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size = 8
-
--- Display: Composite Market Offer Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.display = function(value)
-  return "Composite Market Offer Price: "..value
-end
-
--- Translate: Composite Market Offer Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Composite Market Offer Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.composite_market_offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Composite Market Bid Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price = {}
-
--- Size: Composite Market Bid Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size = 8
-
--- Display: Composite Market Bid Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.display = function(value)
-  return "Composite Market Bid Price: "..value
-end
-
--- Translate: Composite Market Bid Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Composite Market Bid Price
-cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.composite_market_bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Condition
-cboe_europe_cedxmulticast_pitch_v1_11.opening_condition = {}
-
--- Size: Opening Condition
-cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.size = 1
-
--- Display: Opening Condition
-cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.display = function(value)
-  return "Opening Condition: "..value
-end
-
--- Dissect: Opening Condition
-cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.opening_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Only Price
-cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price = {}
-
--- Size: Auction Only Price
-cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size = 8
-
--- Display: Auction Only Price
-cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.display = function(value)
-  return "Auction Only Price: "..value
-end
-
--- Translate: Auction Only Price
-cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Auction Only Price
-cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_only_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Indicative Price
-cboe_europe_cedxmulticast_pitch_v1_11.indicative_price = {}
-
--- Size: Indicative Price
-cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size = 8
-
--- Display: Indicative Price
-cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.display = function(value)
-  return "Indicative Price: "..value
-end
-
--- Translate: Indicative Price
-cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Indicative Price
-cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.indicative_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Contracts
-cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts = {}
-
--- Size: Sell Contracts
-cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.size = 4
-
--- Display: Sell Contracts
-cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.display = function(value)
-  return "Sell Contracts: "..value
-end
-
--- Dissect: Sell Contracts
-cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.sell_contracts, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Contracts
-cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts = {}
-
--- Size: Buy Contracts
-cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.size = 4
-
--- Display: Buy Contracts
-cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.display = function(value)
-  return "Buy Contracts: "..value
-end
-
--- Dissect: Buy Contracts
-cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.buy_contracts, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Price
-cboe_europe_cedxmulticast_pitch_v1_11.reference_price = {}
-
--- Size: Reference Price
-cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size = 8
-
--- Display: Reference Price
-cboe_europe_cedxmulticast_pitch_v1_11.reference_price.display = function(value)
-  return "Reference Price: "..value
-end
-
--- Translate: Reference Price
-cboe_europe_cedxmulticast_pitch_v1_11.reference_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Reference Price
-cboe_europe_cedxmulticast_pitch_v1_11.reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reference_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Alphanumeric 8
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8 = {}
-
--- Size: Symbol Alphanumeric 8
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size = 8
-
--- Display: Symbol Alphanumeric 8
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.display = function(value)
-  return "Symbol Alphanumeric 8: "..value
-end
-
--- Dissect: Symbol Alphanumeric 8
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_alphanumeric_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Auction Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message = {}
-
--- Size: Opening Auction Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size
-
--- Display: Opening Auction Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Opening Auction Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
-
-  -- Auction Type: 1 Byte Ascii String Enum with 3 values
-  index, auction_type = cboe_europe_cedxmulticast_pitch_v1_11.auction_type.dissect(buffer, index, packet, parent)
-
-  -- Reference Price: 8 Byte Unsigned Fixed Width Integer
-  index, reference_price = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.dissect(buffer, index, packet, parent)
-
-  -- Buy Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, buy_contracts = cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.dissect(buffer, index, packet, parent)
-
-  -- Sell Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, sell_contracts = cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.dissect(buffer, index, packet, parent)
-
-  -- Indicative Price: 8 Byte Unsigned Fixed Width Integer
-  index, indicative_price = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.dissect(buffer, index, packet, parent)
-
-  -- Auction Only Price: 8 Byte Unsigned Fixed Width Integer
-  index, auction_only_price = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.dissect(buffer, index, packet, parent)
-
-  -- Opening Condition: 1 Byte Ascii String
-  index, opening_condition = cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.dissect(buffer, index, packet, parent)
-
-  -- Composite Market Bid Price: 8 Byte Unsigned Fixed Width Integer
-  index, composite_market_bid_price = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Composite Market Offer Price: 8 Byte Unsigned Fixed Width Integer
-  index, composite_market_offer_price = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Opening Auction Update Message
-cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.opening_auction_update_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.opening_auction_update_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Auction Opening Type
-cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type = {}
-
--- Size: Auction Opening Type
-cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.size = 1
-
--- Display: Auction Opening Type
-cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.display = function(value)
-  return "Auction Opening Type: "..value
-end
-
--- Dissect: Auction Opening Type
-cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_opening_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message = {}
-
--- Size: Auction Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
-
--- Display: Auction Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
-
-  -- Auction Opening Type: 1 Byte Ascii String
-  index, auction_opening_type = cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
-
-  -- Contracts Binary 4: 4 Byte Unsigned Fixed Width Integer
-  index, contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Summary Message
-cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_summary_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_summary_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Is Fast
-cboe_europe_cedxmulticast_pitch_v1_11.is_fast = {}
-
--- Size: Is Fast
-cboe_europe_cedxmulticast_pitch_v1_11.is_fast.size = 1
-
--- Display: Is Fast
-cboe_europe_cedxmulticast_pitch_v1_11.is_fast.display = function(value)
-  return "Is Fast: "..value
-end
-
--- Dissect: Is Fast
-cboe_europe_cedxmulticast_pitch_v1_11.is_fast.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.is_fast.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.is_fast.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.is_fast, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Code Alphanumeric 6
-cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6 = {}
-
--- Size: Product Code Alphanumeric 6
-cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size = 6
-
--- Display: Product Code Alphanumeric 6
-cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.display = function(value)
-  return "Product Code Alphanumeric 6: "..value
-end
-
--- Dissect: Product Code Alphanumeric 6
-cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.product_code_alphanumeric_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Fast Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message = {}
-
--- Size: Fast Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.is_fast.size
-
--- Display: Fast Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Fast Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Product Code Alphanumeric 6: 6 Byte Ascii String
-  index, product_code_alphanumeric_6 = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.dissect(buffer, index, packet, parent)
-
-  -- Is Fast: 1 Byte Unsigned Fixed Width Integer
-  index, is_fast = cboe_europe_cedxmulticast_pitch_v1_11.is_fast.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Fast Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.fast_status_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.fast_status_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reserved
-cboe_europe_cedxmulticast_pitch_v1_11.reserved = {}
-
--- Size: Reserved
-cboe_europe_cedxmulticast_pitch_v1_11.reserved.size = 3
-
--- Display: Reserved
-cboe_europe_cedxmulticast_pitch_v1_11.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-cboe_europe_cedxmulticast_pitch_v1_11.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.reserved.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Status
-cboe_europe_cedxmulticast_pitch_v1_11.status = {}
-
--- Size: Status
-cboe_europe_cedxmulticast_pitch_v1_11.status.size = 1
-
--- Display: Status
-cboe_europe_cedxmulticast_pitch_v1_11.status.display = function(value)
-  if value == "C" then
-    return "Status: Closed (C)"
-  end
-  if value == "Q" then
-    return "Status: Queuing (Q)"
-  end
-  if value == "O" then
-    return "Status: Opening Auction (O)"
-  end
-  if value == "T" then
-    return "Status: Trading (T)"
-  end
-  if value == "S" then
-    return "Status: Suspension (S)"
-  end
-  if value == "H" then
-    return "Status: Halted (H)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-cboe_europe_cedxmulticast_pitch_v1_11.status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message = {}
-
--- Size: Trading Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.status.size + 
-  cboe_europe_cedxmulticast_pitch_v1_11.reserved.size
-
--- Display: Trading Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trading Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Ascii String Enum with 6 values
-  index, status = cboe_europe_cedxmulticast_pitch_v1_11.status.dissect(buffer, index, packet, parent)
-
-  -- Reserved: 3 Byte Ascii String
-  index, reserved = cboe_europe_cedxmulticast_pitch_v1_11.reserved.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trading Status Message
-cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_status_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trading_status_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Transaction Begin Message
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message = {}
-
--- Size: Transaction Begin Message
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
-
--- Display: Transaction Begin Message
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Transaction Begin Message
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Transaction Begin Message
-cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.transaction_begin_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.transaction_begin_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- End Of Session
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_session = {}
-
--- Size: End Of Session
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.size =
-  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
-
--- Display: End Of Session
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: End Of Session
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: End Of Session
-cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_session then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.end_of_session, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Duplicative Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator = {}
-
--- Size: Duplicative Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size = 1
-
--- Display: Duplicative Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.display = function(value)
-  return "Duplicative Indicator: "..value
-end
-
--- Dissect: Duplicative Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.duplicative_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Deferral Or Enrichment Type
-cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type = {}
-
--- Size: Deferral Or Enrichment Type
-cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size = 1
-
--- Display: Deferral Or Enrichment Type
-cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.display = function(value)
-  return "Deferral Or Enrichment Type: "..value
-end
-
--- Dissect: Deferral Or Enrichment Type
-cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.deferral_or_enrichment_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Publication Mode Deferral Reason
-cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason = {}
-
--- Size: Publication Mode Deferral Reason
-cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size = 1
-
--- Display: Publication Mode Deferral Reason
-cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.display = function(value)
-  return "Publication Mode Deferral Reason: "..value
-end
-
--- Dissect: Publication Mode Deferral Reason
-cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.publication_mode_deferral_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Algorithmic Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator = {}
-
--- Size: Algorithmic Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size = 1
-
--- Display: Algorithmic Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.display = function(value)
-  return "Algorithmic Indicator: "..value
-end
-
--- Dissect: Algorithmic Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.algorithmic_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Formation Discovery Process
-cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process = {}
-
--- Size: Price Formation Discovery Process
-cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size = 1
-
--- Display: Price Formation Discovery Process
-cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.display = function(value)
-  return "Price Formation Discovery Process: "..value
-end
-
--- Dissect: Price Formation Discovery Process
-cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_formation_discovery_process, range, value, display)
-
-  return offset + length, value
-end
-
--- Off Book Automated Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator = {}
-
--- Size: Off Book Automated Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size = 1
-
--- Display: Off Book Automated Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.display = function(value)
-  if value == "Q" then
-    return "Off Book Automated Indicator: Automated (Q)"
-  end
-  if value == "M" then
-    return "Off Book Automated Indicator: Manual (M)"
-  end
-  if value == "-" then
-    return "Off Book Automated Indicator: Not Specified (-)"
-  end
-
-  return "Off Book Automated Indicator: Unknown("..value..")"
-end
-
--- Dissect: Off Book Automated Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.off_book_automated_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Special Dividend
-cboe_europe_cedxmulticast_pitch_v1_11.special_dividend = {}
-
--- Size: Special Dividend
-cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size = 1
-
--- Display: Special Dividend
-cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.display = function(value)
-  return "Special Dividend: "..value
-end
-
--- Dissect: Special Dividend
-cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.special_dividend, range, value, display)
-
-  return offset + length, value
-end
-
--- Benchmark Reference Price Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator = {}
-
--- Size: Benchmark Reference Price Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size = 1
-
--- Display: Benchmark Reference Price Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.display = function(value)
-  return "Benchmark Reference Price Indicator: "..value
-end
-
--- Dissect: Benchmark Reference Price Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.benchmark_reference_price_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Modification Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator = {}
-
--- Size: Modification Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size = 1
-
--- Display: Modification Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.display = function(value)
-  if value == "A" then
-    return "Modification Indicator: Indicates A Modification Of A Previously Reported Trade (A)"
-  end
-  if value == "C" then
-    return "Modification Indicator: Indicates A Cancellation Of A Previously Reported Trade (C)"
-  end
-  if value == "-" then
-    return "Modification Indicator: Not Specified (-)"
-  end
-
-  return "Modification Indicator: Unknown("..value..")"
-end
-
--- Dissect: Modification Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.modification_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Crossing Trade
-cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade = {}
-
--- Size: Crossing Trade
-cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size = 1
-
--- Display: Crossing Trade
-cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.display = function(value)
-  if value == "X" then
-    return "Crossing Trade: Crossing Trade (X)"
-  end
-  if value == "-" then
-    return "Crossing Trade: Not Specified (-)"
-  end
-
-  return "Crossing Trade: Unknown("..value..")"
-end
-
--- Dissect: Crossing Trade
-cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.crossing_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- Negotiated Trade
-cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade = {}
-
--- Size: Negotiated Trade
-cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size = 1
-
--- Display: Negotiated Trade
-cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.display = function(value)
-  return "Negotiated Trade: "..value
-end
-
--- Dissect: Negotiated Trade
-cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.negotiated_trade, range, value, display)
 
   return offset + length, value
 end
@@ -3272,6 +2581,1189 @@ cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.dissect = function(bu
   return offset + length, value
 end
 
+-- Unit
+cboe_europe_cedxmulticast_pitch_v1_11.unit = {}
+
+-- Size: Unit
+cboe_europe_cedxmulticast_pitch_v1_11.unit.size = 1
+
+-- Display: Unit
+cboe_europe_cedxmulticast_pitch_v1_11.unit.display = function(value)
+  return "Unit: "..value
+end
+
+-- Dissect: Unit
+cboe_europe_cedxmulticast_pitch_v1_11.unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+cboe_europe_cedxmulticast_pitch_v1_11.volume = {}
+
+-- Size: Volume
+cboe_europe_cedxmulticast_pitch_v1_11.volume.size = 4
+
+-- Display: Volume
+cboe_europe_cedxmulticast_pitch_v1_11.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+cboe_europe_cedxmulticast_pitch_v1_11.volume.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Width Type
+cboe_europe_cedxmulticast_pitch_v1_11.width_type = {}
+
+-- Size: Width Type
+cboe_europe_cedxmulticast_pitch_v1_11.width_type.size = 1
+
+-- Display: Width Type
+cboe_europe_cedxmulticast_pitch_v1_11.width_type.display = function(value)
+  if value == R then
+    return "Width Type: Regular (R)"
+  end
+
+  return "Width Type: Unknown("..value..")"
+end
+
+-- Dissect: Width Type
+cboe_europe_cedxmulticast_pitch_v1_11.width_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_cedxmulticast_pitch_v1_11.width_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.width_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.width_type, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cboe Europe CedxMulticast Pitch 1.11
+-----------------------------------------------------------------------
+
+-- Summary Flags
+cboe_europe_cedxmulticast_pitch_v1_11.summary_flags = {}
+
+-- Size: Summary Flags
+cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.size = 1
+
+-- Display: Summary Flags
+cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Open And Close Price flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Open And Close Price"
+  end
+  -- Is Low Price 1 flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Low Price 1"
+  end
+  -- Is High Price 1 flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "High Price 1"
+  end
+  -- Is Unused 3 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Unused 3"
+  end
+  -- Is Unused 1 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Unused 1"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Summary Flags
+cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.bits = function(range, value, packet, parent)
+
+  -- Open And Close Price: 1 Bit
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.open_and_close_price, range, value)
+
+  -- Low Price 1: 1 Bit
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.low_price_1, range, value)
+
+  -- High Price 1: 1 Bit
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.high_price_1, range, value)
+
+  -- Reserved Flags: 3 Bit
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reserved_flags, range, value)
+
+  -- Unused 3: 1 Bit
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unused_3, range, value)
+
+  -- Unused 1: 1 Bit
+  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unused_1, range, value)
+end
+
+-- Dissect: Summary Flags
+cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.summary_flags, range, display)
+
+  if show.summary_flags then
+    cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- End Of Day Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message = {}
+
+-- Size: End Of Day Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.open_interest.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.high_price_binary_price_8.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.open_price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.close_price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.total_volume.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.block_volume.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.size
+
+-- Display: End Of Day Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Day Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Symbol Printable Ascii 6: Printable ASCII
+  index, symbol_printable_ascii_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: Binary Date
+  index, trade_date = cboe_europe_cedxmulticast_pitch_v1_11.trade_date.dissect(buffer, index, packet, parent)
+
+  -- Open Interest: Binary
+  index, open_interest = cboe_europe_cedxmulticast_pitch_v1_11.open_interest.dissect(buffer, index, packet, parent)
+
+  -- High Price Binary Price 8: Binary Price
+  index, high_price_binary_price_8 = cboe_europe_cedxmulticast_pitch_v1_11.high_price_binary_price_8.dissect(buffer, index, packet, parent)
+
+  -- Low Price Binary Price 8: Binary Price
+  index, low_price_binary_price_8 = cboe_europe_cedxmulticast_pitch_v1_11.low_price_binary_price_8.dissect(buffer, index, packet, parent)
+
+  -- Open Price: Binary Price
+  index, open_price = cboe_europe_cedxmulticast_pitch_v1_11.open_price.dissect(buffer, index, packet, parent)
+
+  -- Close Price: Binary Price
+  index, close_price = cboe_europe_cedxmulticast_pitch_v1_11.close_price.dissect(buffer, index, packet, parent)
+
+  -- Total Volume: Binary
+  index, total_volume = cboe_europe_cedxmulticast_pitch_v1_11.total_volume.dissect(buffer, index, packet, parent)
+
+  -- Block Volume: Binary
+  index, block_volume = cboe_europe_cedxmulticast_pitch_v1_11.block_volume.dissect(buffer, index, packet, parent)
+
+  -- Ecrp Volume: Binary
+  index, ecrp_volume = cboe_europe_cedxmulticast_pitch_v1_11.ecrp_volume.dissect(buffer, index, packet, parent)
+
+  -- Summary Flags: Struct of 6 fields
+  index, summary_flags = cboe_europe_cedxmulticast_pitch_v1_11.summary_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Day Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.end_of_day_summary_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Settlement Message
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_message = {}
+
+-- Size: Settlement Message
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.trade_date.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.issue.size
+
+-- Display: Settlement Message
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Settlement Message
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Symbol Printable Ascii 6: Printable ASCII
+  index, symbol_printable_ascii_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_printable_ascii_6.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: Binary Date
+  index, trade_date = cboe_europe_cedxmulticast_pitch_v1_11.trade_date.dissect(buffer, index, packet, parent)
+
+  -- Settlement Price: Binary Price
+  index, settlement_price = cboe_europe_cedxmulticast_pitch_v1_11.settlement_price.dissect(buffer, index, packet, parent)
+
+  -- Issue: Alphanumeric
+  index, issue = cboe_europe_cedxmulticast_pitch_v1_11.issue.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Settlement Message
+cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.settlement_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Break Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message = {}
+
+-- Size: Trade Break Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size
+
+-- Display: Trade Break Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Break Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Break Message
+cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_break_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Width Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.width_update_message = {}
+
+-- Size: Width Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.width_type.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.multiplier.size
+
+-- Display: Width Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Width Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Product Code Alphanumeric 8: Alphanumeric
+  index, product_code_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect(buffer, index, packet, parent)
+
+  -- Width Type: Binary
+  index, width_type = cboe_europe_cedxmulticast_pitch_v1_11.width_type.dissect(buffer, index, packet, parent)
+
+  -- Multiplier: Multiplier
+  index, multiplier = cboe_europe_cedxmulticast_pitch_v1_11.multiplier.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Width Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.width_update_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Options Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message = {}
+
+-- Size: Options Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.call_put.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.strike_price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.listing_state.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
+
+-- Display: Options Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Options Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Symbol Alphanumeric 6: Alphanumeric
+  index, symbol_alphanumeric_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+
+  -- Product Code Alphanumeric 8: Alphanumeric
+  index, product_code_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect(buffer, index, packet, parent)
+
+  -- Call Put: Alphanumeric
+  index, call_put = cboe_europe_cedxmulticast_pitch_v1_11.call_put.dissect(buffer, index, packet, parent)
+
+  -- Expiration Date: Binary Date
+  index, expiration_date = cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.dissect(buffer, index, packet, parent)
+
+  -- Strike Price: Binary Long Price
+  index, strike_price = cboe_europe_cedxmulticast_pitch_v1_11.strike_price.dissect(buffer, index, packet, parent)
+
+  -- Contract Size: Binary
+  index, contract_size = cboe_europe_cedxmulticast_pitch_v1_11.contract_size.dissect(buffer, index, packet, parent)
+
+  -- Listing State: Alphanumeric
+  index, listing_state = cboe_europe_cedxmulticast_pitch_v1_11.listing_state.dissect(buffer, index, packet, parent)
+
+  -- Price Increment: Binary Long Price
+  index, price_increment = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Options Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.options_instrument_definition_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Futures Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message = {}
+
+-- Size: Futures Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.contract_size.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.listing_state.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.price_increment.size
+
+-- Display: Futures Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Futures Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Symbol Alphanumeric 6: Alphanumeric
+  index, symbol_alphanumeric_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+
+  -- Product Code Alphanumeric 8: Alphanumeric
+  index, product_code_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect(buffer, index, packet, parent)
+
+  -- Expiration Date: Binary Date
+  index, expiration_date = cboe_europe_cedxmulticast_pitch_v1_11.expiration_date.dissect(buffer, index, packet, parent)
+
+  -- Contract Size: Binary
+  index, contract_size = cboe_europe_cedxmulticast_pitch_v1_11.contract_size.dissect(buffer, index, packet, parent)
+
+  -- Listing State: Alphanumeric
+  index, listing_state = cboe_europe_cedxmulticast_pitch_v1_11.listing_state.dissect(buffer, index, packet, parent)
+
+  -- Price Increment: Binary Long Price
+  index, price_increment = cboe_europe_cedxmulticast_pitch_v1_11.price_increment.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Futures Instrument Definition Message
+cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.futures_instrument_definition_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Price Level Group
+cboe_europe_cedxmulticast_pitch_v1_11.price_level_group = {}
+
+-- Size: Price Level Group
+cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.price_level.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.volume.size
+
+-- Display: Price Level Group
+cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Price Level Group
+cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.fields = function(buffer, offset, packet, parent, price_level_group_index)
+  local index = offset
+
+  -- Implicit Price Level Group Index
+  if price_level_group_index ~= nil then
+    local iteration = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index, price_level_group_index)
+    iteration:set_generated()
+  end
+
+  -- Price Level: Binary Long Price
+  index, price_level = cboe_europe_cedxmulticast_pitch_v1_11.price_level.dissect(buffer, index, packet, parent)
+
+  -- Volume: Binary
+  index, volume = cboe_europe_cedxmulticast_pitch_v1_11.volume.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Price Level Group
+cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.dissect = function(buffer, offset, packet, parent, price_level_group_index)
+  if show.price_level_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.fields(buffer, offset, packet, parent, price_level_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.fields(buffer, offset, packet, parent, price_level_group_index)
+  end
+end
+
+-- Auction Liquidity Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message = {}
+
+-- Calculate size of: Auction Liquidity Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
+
+  index = index + cboe_europe_cedxmulticast_pitch_v1_11.price_level_count.size
+
+  -- Calculate field size from count
+  local price_level_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + price_level_group_count * 12
+
+  return index
+end
+
+-- Display: Auction Liquidity Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Liquidity Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Binary
+  index, auction_id = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Price Level Count: Binary
+  index, price_level_count = cboe_europe_cedxmulticast_pitch_v1_11.price_level_count.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Price Level Group
+  for price_level_group_index = 1, price_level_count do
+    index, price_level_group = cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.dissect(buffer, index, packet, parent, price_level_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Auction Liquidity Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_liquidity_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Flags
+cboe_europe_cedxmulticast_pitch_v1_11.execution_flags = {}
+
+-- Size: Execution Flags
+cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.size
+
+-- Display: Execution Flags
+cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Flags
+cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Mechanism: Alphanumeric
+  index, market_mechanism = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.dissect(buffer, index, packet, parent)
+
+  -- Trading Mode: Alphanumeric
+  index, trading_mode = cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.dissect(buffer, index, packet, parent)
+
+  -- Ex Cum Dividend: Alphanumeric
+  index, ex_cum_dividend = cboe_europe_cedxmulticast_pitch_v1_11.ex_cum_dividend.dissect(buffer, index, packet, parent)
+
+  -- Algorithmic Trade: Alphanumeric
+  index, algorithmic_trade = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Flags
+cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.dissect = function(buffer, offset, packet, parent)
+  if show.execution_flags then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_flags, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Trade Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message = {}
+
+-- Size: Auction Trade Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.execution_id.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.size
+
+-- Display: Auction Trade Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Trade Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Binary
+  index, auction_id = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary Long Price
+  index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
+
+  -- Contracts Binary 4: Binary
+  index, contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect(buffer, index, packet, parent)
+
+  -- Execution Flags: Struct of 4 fields
+  index, execution_flags = cboe_europe_cedxmulticast_pitch_v1_11.execution_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Trade Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_trade_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Cancel Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message = {}
+
+-- Size: Auction Cancel Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size
+
+-- Display: Auction Cancel Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Cancel Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Binary
+  index, auction_id = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Cancel Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_cancel_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Notification Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message = {}
+
+-- Size: Auction Notification Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.auction_id.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.side.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.size
+
+-- Display: Auction Notification Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Notification Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Symbol Alphanumeric 6: Alphanumeric
+  index, symbol_alphanumeric_6 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Binary
+  index, auction_id = cboe_europe_cedxmulticast_pitch_v1_11.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alphanumeric
+  index, auction_type = cboe_europe_cedxmulticast_pitch_v1_11.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Side: Alphanumeric
+  index, side = cboe_europe_cedxmulticast_pitch_v1_11.side.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary Long Price
+  index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
+
+  -- Contracts Binary 4: Binary
+  index, contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect(buffer, index, packet, parent)
+
+  -- Customer Indicator: Alphanumeric
+  index, customer_indicator = cboe_europe_cedxmulticast_pitch_v1_11.customer_indicator.dissect(buffer, index, packet, parent)
+
+  -- Participant Id: Alphanumeric
+  index, participant_id = cboe_europe_cedxmulticast_pitch_v1_11.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Auction End Offset: Binary
+  index, auction_end_offset = cboe_europe_cedxmulticast_pitch_v1_11.auction_end_offset.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Notification Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_notification_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Opening Auction Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message = {}
+
+-- Size: Opening Auction Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.auction_type.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.reference_price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.size
+
+-- Display: Opening Auction Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Opening Auction Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Symbol Alphanumeric 8: Alphanumeric
+  index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alphanumeric
+  index, auction_type = cboe_europe_cedxmulticast_pitch_v1_11.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Reference Price: Binary Long Price
+  index, reference_price = cboe_europe_cedxmulticast_pitch_v1_11.reference_price.dissect(buffer, index, packet, parent)
+
+  -- Buy Contracts: Binary
+  index, buy_contracts = cboe_europe_cedxmulticast_pitch_v1_11.buy_contracts.dissect(buffer, index, packet, parent)
+
+  -- Sell Contracts: Binary
+  index, sell_contracts = cboe_europe_cedxmulticast_pitch_v1_11.sell_contracts.dissect(buffer, index, packet, parent)
+
+  -- Indicative Price: Binary Long Price
+  index, indicative_price = cboe_europe_cedxmulticast_pitch_v1_11.indicative_price.dissect(buffer, index, packet, parent)
+
+  -- Auction Only Price: Binary Long Price
+  index, auction_only_price = cboe_europe_cedxmulticast_pitch_v1_11.auction_only_price.dissect(buffer, index, packet, parent)
+
+  -- Opening Condition: Alphanumeric
+  index, opening_condition = cboe_europe_cedxmulticast_pitch_v1_11.opening_condition.dissect(buffer, index, packet, parent)
+
+  -- Composite Market Bid Price: Binary Long Price
+  index, composite_market_bid_price = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_bid_price.dissect(buffer, index, packet, parent)
+
+  -- Composite Market Offer Price: Binary Long Price
+  index, composite_market_offer_price = cboe_europe_cedxmulticast_pitch_v1_11.composite_market_offer_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Opening Auction Update Message
+cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.opening_auction_update_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message = {}
+
+-- Size: Auction Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.price.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.size
+
+-- Display: Auction Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Symbol Alphanumeric 8: Alphanumeric
+  index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+
+  -- Auction Opening Type: Alphanumeric
+  index, auction_opening_type = cboe_europe_cedxmulticast_pitch_v1_11.auction_opening_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary Long Price
+  index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
+
+  -- Contracts Binary 4: Binary
+  index, contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Summary Message
+cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_summary_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Fast Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message = {}
+
+-- Size: Fast Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.is_fast.size
+
+-- Display: Fast Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Fast Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Product Code Alphanumeric 6: Alphanumeric
+  index, product_code_alphanumeric_6 = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.dissect(buffer, index, packet, parent)
+
+  -- Is Fast: Binary
+  index, is_fast = cboe_europe_cedxmulticast_pitch_v1_11.is_fast.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fast Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.fast_status_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trading Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message = {}
+
+-- Size: Trading Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.status.size + 
+  cboe_europe_cedxmulticast_pitch_v1_11.reserved.size
+
+-- Display: Trading Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Symbol Alphanumeric 8: Alphanumeric
+  index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+
+  -- Status: Alpha
+  index, status = cboe_europe_cedxmulticast_pitch_v1_11.status.dissect(buffer, index, packet, parent)
+
+  -- Reserved: Alpha
+  index, reserved = cboe_europe_cedxmulticast_pitch_v1_11.reserved.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading Status Message
+cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Transaction Begin Message
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message = {}
+
+-- Size: Transaction Begin Message
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+-- Display: Transaction Begin Message
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Transaction Begin Message
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Transaction Begin Message
+cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.transaction_begin_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- End Of Session
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_session = {}
+
+-- Size: End Of Session
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.size =
+  cboe_europe_cedxmulticast_pitch_v1_11.time_offset.size
+
+-- Display: End Of Session
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Session
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Session
+cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.end_of_session, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Extended Trade Flags
 cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags = {}
 
@@ -3301,46 +3793,46 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Mechanism: 1 Byte Ascii String Enum with 7 values
+  -- Market Mechanism: Alphanumeric
   index, market_mechanism = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.dissect(buffer, index, packet, parent)
 
-  -- Trading Mode: 1 Byte Ascii String Enum with 11 values
+  -- Trading Mode: Alphanumeric
   index, trading_mode = cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.dissect(buffer, index, packet, parent)
 
-  -- Transaction Category: 1 Byte Ascii String Enum with 13 values
+  -- Transaction Category: Alphanumeric
   index, transaction_category = cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.dissect(buffer, index, packet, parent)
 
-  -- Negotiated Trade: 1 Byte Ascii String
+  -- Negotiated Trade: Alphanumeric
   index, negotiated_trade = cboe_europe_cedxmulticast_pitch_v1_11.negotiated_trade.dissect(buffer, index, packet, parent)
 
-  -- Crossing Trade: 1 Byte Ascii String Enum with 2 values
+  -- Crossing Trade: Alphanumeric
   index, crossing_trade = cboe_europe_cedxmulticast_pitch_v1_11.crossing_trade.dissect(buffer, index, packet, parent)
 
-  -- Modification Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Modification Indicator: Alphanumeric
   index, modification_indicator = cboe_europe_cedxmulticast_pitch_v1_11.modification_indicator.dissect(buffer, index, packet, parent)
 
-  -- Benchmark Reference Price Indicator: 1 Byte Ascii String
+  -- Benchmark Reference Price Indicator: Alphanumeric
   index, benchmark_reference_price_indicator = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.dissect(buffer, index, packet, parent)
 
-  -- Special Dividend: 1 Byte Ascii String
+  -- Special Dividend: Alphanumeric
   index, special_dividend = cboe_europe_cedxmulticast_pitch_v1_11.special_dividend.dissect(buffer, index, packet, parent)
 
-  -- Off Book Automated Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Off Book Automated Indicator: Alphanumeric
   index, off_book_automated_indicator = cboe_europe_cedxmulticast_pitch_v1_11.off_book_automated_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Formation Discovery Process: 1 Byte Ascii String
+  -- Price Formation Discovery Process: Alphanumeric
   index, price_formation_discovery_process = cboe_europe_cedxmulticast_pitch_v1_11.price_formation_discovery_process.dissect(buffer, index, packet, parent)
 
-  -- Algorithmic Indicator: 1 Byte Ascii String
+  -- Algorithmic Indicator: Alphanumeric
   index, algorithmic_indicator = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_indicator.dissect(buffer, index, packet, parent)
 
-  -- Publication Mode Deferral Reason: 1 Byte Ascii String
+  -- Publication Mode Deferral Reason: Alphanumeric
   index, publication_mode_deferral_reason = cboe_europe_cedxmulticast_pitch_v1_11.publication_mode_deferral_reason.dissect(buffer, index, packet, parent)
 
-  -- Deferral Or Enrichment Type: 1 Byte Ascii String
+  -- Deferral Or Enrichment Type: Alphanumeric
   index, deferral_or_enrichment_type = cboe_europe_cedxmulticast_pitch_v1_11.deferral_or_enrichment_type.dissect(buffer, index, packet, parent)
 
-  -- Duplicative Indicator: 1 Byte Ascii String
+  -- Duplicative Indicator: Alphanumeric
   index, duplicative_indicator = cboe_europe_cedxmulticast_pitch_v1_11.duplicative_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -3362,144 +3854,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.dissect = function(bu
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.extended_trade_flags.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cboe Trade Flags
-cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags = {}
-
--- Size: Cboe Trade Flags
-cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.size = 1
-
--- Display: Cboe Trade Flags
-cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.display = function(value)
-  return "Cboe Trade Flags: "..value
-end
-
--- Dissect: Cboe Trade Flags
-cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.cboe_trade_flags, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-cboe_europe_cedxmulticast_pitch_v1_11.currency = {}
-
--- Size: Currency
-cboe_europe_cedxmulticast_pitch_v1_11.currency.size = 3
-
--- Display: Currency
-cboe_europe_cedxmulticast_pitch_v1_11.currency.display = function(value)
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-cboe_europe_cedxmulticast_pitch_v1_11.currency.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.currency.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Venue
-cboe_europe_cedxmulticast_pitch_v1_11.execution_venue = {}
-
--- Size: Execution Venue
-cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.size = 4
-
--- Display: Execution Venue
-cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.display = function(value)
-  return "Execution Venue: "..value
-end
-
--- Dissect: Execution Venue
-cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_venue, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Timestamp
-cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp = {}
-
--- Size: Trade Timestamp
-cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.size = 8
-
--- Display: Trade Timestamp
-cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.display = function(value)
-  return "Trade Timestamp: "..value
-end
-
--- Dissect: Trade Timestamp
-cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id
-cboe_europe_cedxmulticast_pitch_v1_11.trade_id = {}
-
--- Size: Trade Id
-cboe_europe_cedxmulticast_pitch_v1_11.trade_id.size = 8
-
--- Display: Trade Id
-cboe_europe_cedxmulticast_pitch_v1_11.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-cboe_europe_cedxmulticast_pitch_v1_11.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Contracts Binary 8
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8 = {}
-
--- Size: Contracts Binary 8
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.size = 8
-
--- Display: Contracts Binary 8
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.display = function(value)
-  return "Contracts Binary 8: "..value
-end
-
--- Dissect: Contracts Binary 8
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_binary_8, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Extended Message
@@ -3527,31 +3881,31 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Contracts Binary 8: 8 Byte Unsigned Fixed Width Integer
+  -- Contracts Binary 8: Binary
   index, contracts_binary_8 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_8.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: 8 Byte Ascii String
+  -- Symbol Alphanumeric 8: Alphanumeric
   index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = cboe_europe_cedxmulticast_pitch_v1_11.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Timestamp: Binary
   index, trade_timestamp = cboe_europe_cedxmulticast_pitch_v1_11.trade_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Execution Venue: 4 Byte Ascii String
+  -- Execution Venue: Alphanumeric
   index, execution_venue = cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alphanumeric
   index, currency = cboe_europe_cedxmulticast_pitch_v1_11.currency.dissect(buffer, index, packet, parent)
 
-  -- Cboe Trade Flags: 1 Byte Ascii String
+  -- Cboe Trade Flags: Alphanumeric
   index, cboe_trade_flags = cboe_europe_cedxmulticast_pitch_v1_11.cboe_trade_flags.dissect(buffer, index, packet, parent)
 
   -- Extended Trade Flags: Struct of 14 fields
@@ -3562,7 +3916,7 @@ end
 
 -- Dissect: Trade Extended Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_extended_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_extended_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.fields(buffer, offset, packet, parent)
@@ -3598,19 +3952,19 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Mechanism: 1 Byte Ascii String Enum with 7 values
+  -- Market Mechanism: Alphanumeric
   index, market_mechanism = cboe_europe_cedxmulticast_pitch_v1_11.market_mechanism.dissect(buffer, index, packet, parent)
 
-  -- Trading Mode: 1 Byte Ascii String Enum with 11 values
+  -- Trading Mode: Alphanumeric
   index, trading_mode = cboe_europe_cedxmulticast_pitch_v1_11.trading_mode.dissect(buffer, index, packet, parent)
 
-  -- Transaction Category: 1 Byte Ascii String Enum with 13 values
+  -- Transaction Category: Alphanumeric
   index, transaction_category = cboe_europe_cedxmulticast_pitch_v1_11.transaction_category.dissect(buffer, index, packet, parent)
 
-  -- Benchmark Reference Price Indicator: 1 Byte Ascii String
+  -- Benchmark Reference Price Indicator: Alphanumeric
   index, benchmark_reference_price_indicator = cboe_europe_cedxmulticast_pitch_v1_11.benchmark_reference_price_indicator.dissect(buffer, index, packet, parent)
 
-  -- Algorithmic Trade: 1 Byte Ascii String Enum with 2 values
+  -- Algorithmic Trade: Alphanumeric
   index, algorithmic_trade = cboe_europe_cedxmulticast_pitch_v1_11.algorithmic_trade.dissect(buffer, index, packet, parent)
 
   return index
@@ -3632,111 +3986,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.dissect = function(buffer, off
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.trade_flags.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price Short
-cboe_europe_cedxmulticast_pitch_v1_11.price_short = {}
-
--- Size: Price Short
-cboe_europe_cedxmulticast_pitch_v1_11.price_short.size = 2
-
--- Display: Price Short
-cboe_europe_cedxmulticast_pitch_v1_11.price_short.display = function(value)
-  return "Price Short: "..value
-end
-
--- Translate: Price Short
-cboe_europe_cedxmulticast_pitch_v1_11.price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price Short
-cboe_europe_cedxmulticast_pitch_v1_11.price_short.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.price_short.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = cboe_europe_cedxmulticast_pitch_v1_11.price_short.translate(raw)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Contracts Short
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_short = {}
-
--- Size: Contracts Short
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.size = 2
-
--- Display: Contracts Short
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.display = function(value)
-  return "Contracts Short: "..value
-end
-
--- Dissect: Contracts Short
-cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.contracts_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.side_indicator = {}
-
--- Size: Side Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size = 1
-
--- Display: Side Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
-
-  return "Side Indicator: Unknown("..value..")"
-end
-
--- Dissect: Side Indicator
-cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.side_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-cboe_europe_cedxmulticast_pitch_v1_11.order_id = {}
-
--- Size: Order Id
-cboe_europe_cedxmulticast_pitch_v1_11.order_id.size = 8
-
--- Display: Order Id
-cboe_europe_cedxmulticast_pitch_v1_11.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Short Message
@@ -3762,25 +4011,25 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.trade_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Contracts Short: 2 Byte Unsigned Fixed Width Integer
+  -- Contracts Short: Binary
   index, contracts_short = cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: 8 Byte Ascii String
+  -- Symbol Alphanumeric 8: Alphanumeric
   index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Price Short: Binary Short Price
   index, price_short = cboe_europe_cedxmulticast_pitch_v1_11.price_short.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
   -- Trade Flags: Struct of 5 fields
@@ -3791,7 +4040,7 @@ end
 
 -- Dissect: Trade Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_short_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.trade_short_message.fields(buffer, offset, packet, parent)
@@ -3830,25 +4079,25 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.trade_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Contracts Binary 4: 4 Byte Unsigned Fixed Width Integer
+  -- Contracts Binary 4: Binary
   index, contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: 8 Byte Ascii String
+  -- Symbol Alphanumeric 8: Alphanumeric
   index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
   -- Trade Flags: Struct of 5 fields
@@ -3859,7 +4108,7 @@ end
 
 -- Dissect: Trade Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.trade_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_long_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.trade_long_message.fields(buffer, offset, packet, parent)
@@ -3892,10 +4141,10 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3903,7 +4152,7 @@ end
 
 -- Dissect: Delete Order Message
 cboe_europe_cedxmulticast_pitch_v1_11.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.delete_order_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.delete_order_message.fields(buffer, offset, packet, parent)
@@ -3938,16 +4187,16 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.modify_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Contracts Short: 2 Byte Unsigned Fixed Width Integer
+  -- Contracts Short: Binary
   index, contracts_short = cboe_europe_cedxmulticast_pitch_v1_11.contracts_short.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Price Short: Binary Short Price
   index, price_short = cboe_europe_cedxmulticast_pitch_v1_11.price_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -3955,7 +4204,7 @@ end
 
 -- Dissect: Modify Order Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.modify_order_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.modify_order_short_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.modify_order_short_message.fields(buffer, offset, packet, parent)
@@ -3990,16 +4239,16 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Contracts Binary 4: 4 Byte Unsigned Fixed Width Integer
+  -- Contracts Binary 4: Binary
   index, contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.contracts_binary_4.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -4007,7 +4256,7 @@ end
 
 -- Dissect: Modify Order Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.modify_order_long_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.fields(buffer, offset, packet, parent)
@@ -4021,29 +4270,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.dissect = functi
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Canceled Contracts Binary 2
-cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2 = {}
-
--- Size: Canceled Contracts Binary 2
-cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.size = 2
-
--- Display: Canceled Contracts Binary 2
-cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.display = function(value)
-  return "Canceled Contracts Binary 2: "..value
-end
-
--- Dissect: Canceled Contracts Binary 2
-cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.canceled_contracts_binary_2, range, value, display)
-
-  return offset + length, value
 end
 
 -- Reduce Size Short Message
@@ -4064,13 +4290,13 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Canceled Contracts Binary 2: 2 Byte Unsigned Fixed Width Integer
+  -- Canceled Contracts Binary 2: Binary
   index, canceled_contracts_binary_2 = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -4078,7 +4304,7 @@ end
 
 -- Dissect: Reduce Size Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.reduce_size_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reduce_size_short_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.fields(buffer, offset, packet, parent)
@@ -4092,29 +4318,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.dissect = functi
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Canceled Contracts Binary 4
-cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4 = {}
-
--- Size: Canceled Contracts Binary 4
-cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.size = 4
-
--- Display: Canceled Contracts Binary 4
-cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.display = function(value)
-  return "Canceled Contracts Binary 4: "..value
-end
-
--- Dissect: Canceled Contracts Binary 4
-cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.canceled_contracts_binary_4, range, value, display)
-
-  return offset + length, value
 end
 
 -- Reduce Size Long Message
@@ -4135,13 +4338,13 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Canceled Contracts Binary 4: 4 Byte Unsigned Fixed Width Integer
+  -- Canceled Contracts Binary 4: Binary
   index, canceled_contracts_binary_4 = cboe_europe_cedxmulticast_pitch_v1_11.canceled_contracts_binary_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -4149,7 +4352,7 @@ end
 
 -- Dissect: Reduce Size Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.reduce_size_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reduce_size_long_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.fields(buffer, offset, packet, parent)
@@ -4163,52 +4366,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.dissect = functio
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Remaining Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity = {}
-
--- Size: Remaining Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.size = 4
-
--- Display: Remaining Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.display = function(value)
-  return "Remaining Quantity: "..value
-end
-
--- Dissect: Remaining Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.remaining_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Executed Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity = {}
-
--- Size: Executed Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.size = 4
-
--- Display: Executed Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.display = function(value)
-  return "Executed Quantity: "..value
-end
-
--- Dissect: Executed Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.executed_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Executed At Price Size Message
@@ -4233,22 +4390,22 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.order_executed_at_price_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Binary
   index, executed_quantity = cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Remaining Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Remaining Quantity: Binary
   index, remaining_quantity = cboe_europe_cedxmulticast_pitch_v1_11.remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
 
   -- Execution Flags: Struct of 4 fields
@@ -4259,7 +4416,7 @@ end
 
 -- Dissect: Order Executed At Price Size Message
 cboe_europe_cedxmulticast_pitch_v1_11.order_executed_at_price_size_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_at_price_size_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.order_executed_at_price_size_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.order_executed_at_price_size_message.fields(buffer, offset, packet, parent)
@@ -4295,16 +4452,16 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Binary
   index, executed_quantity = cboe_europe_cedxmulticast_pitch_v1_11.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_europe_cedxmulticast_pitch_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
   -- Execution Flags: Struct of 4 fields
@@ -4315,7 +4472,7 @@ end
 
 -- Dissect: Order Executed Message
 cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.order_executed_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.fields(buffer, offset, packet, parent)
@@ -4329,52 +4486,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.dissect = function(
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Symbol Short
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_short = {}
-
--- Size: Symbol Short
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.size = 6
-
--- Display: Symbol Short
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.display = function(value)
-  return "Symbol Short: "..value
-end
-
--- Dissect: Symbol Short
-cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity Short
-cboe_europe_cedxmulticast_pitch_v1_11.quantity_short = {}
-
--- Size: Quantity Short
-cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.size = 2
-
--- Display: Quantity Short
-cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.display = function(value)
-  return "Quantity Short: "..value
-end
-
--- Dissect: Quantity Short
-cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.quantity_short, range, value, display)
-
-  return offset + length, value
 end
 
 -- Add Order Short Message
@@ -4398,22 +4509,22 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Short: Binary
   index, quantity_short = cboe_europe_cedxmulticast_pitch_v1_11.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: 6 Byte Ascii String
+  -- Symbol Short: Alphanumeric
   index, symbol_short = cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Price Short: Binary Short Price
   index, price_short = cboe_europe_cedxmulticast_pitch_v1_11.price_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -4421,7 +4532,7 @@ end
 
 -- Dissect: Add Order Short Message
 cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.add_order_short_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.fields(buffer, offset, packet, parent)
@@ -4435,29 +4546,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.dissect = function
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.quantity = {}
-
--- Size: Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.quantity.size = 4
-
--- Display: Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-cboe_europe_cedxmulticast_pitch_v1_11.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Add Order Long Message
@@ -4481,22 +4569,22 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.add_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_europe_cedxmulticast_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_europe_cedxmulticast_pitch_v1_11.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_europe_cedxmulticast_pitch_v1_11.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: 8 Byte Ascii String
+  -- Symbol Alphanumeric 8: Alphanumeric
   index, symbol_alphanumeric_8 = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_europe_cedxmulticast_pitch_v1_11.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -4504,7 +4592,7 @@ end
 
 -- Dissect: Add Order Long Message
 cboe_europe_cedxmulticast_pitch_v1_11.add_order_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.add_order_long_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.add_order_long_message.fields(buffer, offset, packet, parent)
@@ -4536,7 +4624,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_europe_cedxmulticast_pitch_v1_11.time_offset.dissect(buffer, index, packet, parent)
 
   return index
@@ -4544,7 +4632,7 @@ end
 
 -- Dissect: Unit Clear Message
 cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.unit_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unit_clear_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.fields(buffer, offset, packet, parent)
@@ -4558,29 +4646,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.dissect = function(buff
     -- Skip element, add fields directly
     return cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Time
-cboe_europe_cedxmulticast_pitch_v1_11.time = {}
-
--- Size: Time
-cboe_europe_cedxmulticast_pitch_v1_11.time.size = 4
-
--- Display: Time
-cboe_europe_cedxmulticast_pitch_v1_11.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-cboe_europe_cedxmulticast_pitch_v1_11.time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Time Message
@@ -4599,7 +4664,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer
+  -- Time: Binary
   index, time = cboe_europe_cedxmulticast_pitch_v1_11.time.dissect(buffer, index, packet, parent)
 
   return index
@@ -4607,7 +4672,7 @@ end
 
 -- Dissect: Time Message
 cboe_europe_cedxmulticast_pitch_v1_11.time_message.dissect = function(buffer, offset, packet, parent)
-  if show.time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.time_message, buffer(offset, 0))
     local index = cboe_europe_cedxmulticast_pitch_v1_11.time_message.fields(buffer, offset, packet, parent)
@@ -4626,147 +4691,8 @@ end
 -- Payload
 cboe_europe_cedxmulticast_pitch_v1_11.payload = {}
 
--- Size: Payload
-cboe_europe_cedxmulticast_pitch_v1_11.payload.size = function(buffer, offset, message_type)
-  -- Size of Time Message
-  if message_type == 0x20 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.time_message.size
-  end
-  -- Size of Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.unit_clear_message.size
-  end
-  -- Size of Add Order Long Message
-  if message_type == 0x40 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.add_order_long_message.size
-  end
-  -- Size of Add Order Short Message
-  if message_type == 0x22 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.add_order_short_message.size
-  end
-  -- Size of Order Executed Message
-  if message_type == 0x23 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.order_executed_message.size
-  end
-  -- Size of Order Executed At Price Size Message
-  if message_type == 0x24 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.order_executed_at_price_size_message.size
-  end
-  -- Size of Reduce Size Long Message
-  if message_type == 0x25 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_long_message.size
-  end
-  -- Size of Reduce Size Short Message
-  if message_type == 0x26 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.reduce_size_short_message.size
-  end
-  -- Size of Modify Order Long Message
-  if message_type == 0x27 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.modify_order_long_message.size
-  end
-  -- Size of Modify Order Short Message
-  if message_type == 0x28 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.modify_order_short_message.size
-  end
-  -- Size of Delete Order Message
-  if message_type == 0x29 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.delete_order_message.size
-  end
-  -- Size of Trade Long Message
-  if message_type == 0x41 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.trade_long_message.size
-  end
-  -- Size of Trade Short Message
-  if message_type == 0x2B then
-    return cboe_europe_cedxmulticast_pitch_v1_11.trade_short_message.size
-  end
-  -- Size of Trade Extended Message
-  if message_type == 0x32 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.trade_extended_message.size
-  end
-  -- Size of End Of Session
-  if message_type == 0x2D then
-    return cboe_europe_cedxmulticast_pitch_v1_11.end_of_session.size
-  end
-  -- Size of Transaction Begin Message
-  if message_type == 0xBC then
-    return cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.size
-  end
-  -- Size of Transaction Begin Message
-  if message_type == 0xBD then
-    return cboe_europe_cedxmulticast_pitch_v1_11.transaction_begin_message.size
-  end
-  -- Size of Trading Status Message
-  if message_type == 0x31 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.trading_status_message.size
-  end
-  -- Size of Fast Status Message
-  if message_type == 0xE2 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.fast_status_message.size
-  end
-  -- Size of Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_summary_message.size
-  end
-  -- Size of Opening Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.opening_auction_update_message.size
-  end
-  -- Size of Auction Notification Message
-  if message_type == 0xAD then
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_notification_message.size
-  end
-  -- Size of Auction Cancel Message
-  if message_type == 0xAE then
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_cancel_message.size
-  end
-  -- Size of Auction Trade Message
-  if message_type == 0xDF then
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_trade_message.size
-  end
-  -- Size of Auction Liquidity Message
-  if message_type == 0xDE then
-    return cboe_europe_cedxmulticast_pitch_v1_11.auction_liquidity_message.size(buffer, offset)
-  end
-  -- Size of Width Update Message
-  if message_type == 0xD2 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.size
-  end
-  -- Size of Futures Instrument Definition Message
-  if message_type == 0xDA then
-    return cboe_europe_cedxmulticast_pitch_v1_11.futures_instrument_definition_message.size
-  end
-  -- Size of Options Instrument Definition Message
-  if message_type == 0xDB then
-    return cboe_europe_cedxmulticast_pitch_v1_11.options_instrument_definition_message.size
-  end
-  -- Size of Width Update Message
-  if message_type == 0xDC then
-    return cboe_europe_cedxmulticast_pitch_v1_11.width_update_message.size
-  end
-  -- Size of Trade Break Message
-  if message_type == 0x2C then
-    return cboe_europe_cedxmulticast_pitch_v1_11.trade_break_message.size
-  end
-  -- Size of Settlement Message
-  if message_type == 0xB9 then
-    return cboe_europe_cedxmulticast_pitch_v1_11.settlement_message.size
-  end
-  -- Size of End Of Day Summary Message
-  if message_type == 0xBA then
-    return cboe_europe_cedxmulticast_pitch_v1_11.end_of_day_summary_message.size
-  end
-
-  return 0
-end
-
--- Display: Payload
-cboe_europe_cedxmulticast_pitch_v1_11.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Payload
-cboe_europe_cedxmulticast_pitch_v1_11.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+cboe_europe_cedxmulticast_pitch_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
   if message_type == 0x20 then
     return cboe_europe_cedxmulticast_pitch_v1_11.time_message.dissect(buffer, offset, packet, parent)
@@ -4899,169 +4825,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.payload.branches = function(buffer, offset
   return offset
 end
 
--- Dissect: Payload
-cboe_europe_cedxmulticast_pitch_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return cboe_europe_cedxmulticast_pitch_v1_11.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = cboe_europe_cedxmulticast_pitch_v1_11.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.payload, range, display)
-
-  return cboe_europe_cedxmulticast_pitch_v1_11.payload.branches(buffer, offset, packet, parent, message_type)
-end
-
--- Message Type
-cboe_europe_cedxmulticast_pitch_v1_11.message_type = {}
-
--- Size: Message Type
-cboe_europe_cedxmulticast_pitch_v1_11.message_type.size = 1
-
--- Display: Message Type
-cboe_europe_cedxmulticast_pitch_v1_11.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x40 then
-    return "Message Type: Add Order Long Message (0x40)"
-  end
-  if value == 0x22 then
-    return "Message Type: Add Order Short Message (0x22)"
-  end
-  if value == 0x23 then
-    return "Message Type: Order Executed Message (0x23)"
-  end
-  if value == 0x24 then
-    return "Message Type: Order Executed At Price Size Message (0x24)"
-  end
-  if value == 0x25 then
-    return "Message Type: Reduce Size Long Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Reduce Size Short Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Modify Order Long Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Modify Order Short Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: Delete Order Message (0x29)"
-  end
-  if value == 0x41 then
-    return "Message Type: Trade Long Message (0x41)"
-  end
-  if value == 0x2B then
-    return "Message Type: Trade Short Message (0x2B)"
-  end
-  if value == 0x32 then
-    return "Message Type: Trade Extended Message (0x32)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session (0x2D)"
-  end
-  if value == 0xBC then
-    return "Message Type: Transaction Begin Message (0xBC)"
-  end
-  if value == 0xBD then
-    return "Message Type: Transaction Begin Message (0xBD)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0xE2 then
-    return "Message Type: Fast Status Message (0xE2)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Opening Auction Update Message (0xD1)"
-  end
-  if value == 0xAD then
-    return "Message Type: Auction Notification Message (0xAD)"
-  end
-  if value == 0xAE then
-    return "Message Type: Auction Cancel Message (0xAE)"
-  end
-  if value == 0xDF then
-    return "Message Type: Auction Trade Message (0xDF)"
-  end
-  if value == 0xDE then
-    return "Message Type: Auction Liquidity Message (0xDE)"
-  end
-  if value == 0xD2 then
-    return "Message Type: Width Update Message (0xD2)"
-  end
-  if value == 0xDA then
-    return "Message Type: Futures Instrument Definition Message (0xDA)"
-  end
-  if value == 0xDB then
-    return "Message Type: Options Instrument Definition Message (0xDB)"
-  end
-  if value == 0xDC then
-    return "Message Type: Width Update Message (0xDC)"
-  end
-  if value == 0x2C then
-    return "Message Type: Trade Break Message (0x2C)"
-  end
-  if value == 0xB9 then
-    return "Message Type: Settlement Message (0xB9)"
-  end
-  if value == 0xBA then
-    return "Message Type: End Of Day Summary Message (0xBA)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-cboe_europe_cedxmulticast_pitch_v1_11.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-cboe_europe_cedxmulticast_pitch_v1_11.message_length = {}
-
--- Size: Message Length
-cboe_europe_cedxmulticast_pitch_v1_11.message_length.size = 1
-
--- Display: Message Length
-cboe_europe_cedxmulticast_pitch_v1_11.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-cboe_europe_cedxmulticast_pitch_v1_11.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 cboe_europe_cedxmulticast_pitch_v1_11.message_header = {}
 
@@ -5155,98 +4918,6 @@ cboe_europe_cedxmulticast_pitch_v1_11.message.dissect = function(buffer, offset,
 
     return index
   end
-end
-
--- Sequence
-cboe_europe_cedxmulticast_pitch_v1_11.sequence = {}
-
--- Size: Sequence
-cboe_europe_cedxmulticast_pitch_v1_11.sequence.size = 4
-
--- Display: Sequence
-cboe_europe_cedxmulticast_pitch_v1_11.sequence.display = function(value)
-  return "Sequence: "..value
-end
-
--- Dissect: Sequence
-cboe_europe_cedxmulticast_pitch_v1_11.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.sequence.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.sequence, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit
-cboe_europe_cedxmulticast_pitch_v1_11.unit = {}
-
--- Size: Unit
-cboe_europe_cedxmulticast_pitch_v1_11.unit.size = 1
-
--- Display: Unit
-cboe_europe_cedxmulticast_pitch_v1_11.unit.display = function(value)
-  return "Unit: "..value
-end
-
--- Dissect: Unit
-cboe_europe_cedxmulticast_pitch_v1_11.unit.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Count
-cboe_europe_cedxmulticast_pitch_v1_11.count = {}
-
--- Size: Count
-cboe_europe_cedxmulticast_pitch_v1_11.count.size = 1
-
--- Display: Count
-cboe_europe_cedxmulticast_pitch_v1_11.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_europe_cedxmulticast_pitch_v1_11.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
--- Length
-cboe_europe_cedxmulticast_pitch_v1_11.length = {}
-
--- Size: Length
-cboe_europe_cedxmulticast_pitch_v1_11.length.size = 2
-
--- Display: Length
-cboe_europe_cedxmulticast_pitch_v1_11.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-cboe_europe_cedxmulticast_pitch_v1_11.length.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_europe_cedxmulticast_pitch_v1_11.length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_europe_cedxmulticast_pitch_v1_11.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

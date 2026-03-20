@@ -118,112 +118,30 @@ omi_cboe_c1_options_complex_pitch_v2_1_37.fields.message_index = ProtoField.new(
 local show = {}
 
 -- Cboe C1 Options Complex Pitch 2.1.37 Element Dissection Options
-show.add_order_expanded_message = true
-show.add_order_long_message = true
-show.add_order_short_message = true
-show.auction_cancel_message = true
-show.auction_notification_message = true
-show.auction_summary_message = true
-show.auction_trade_message = true
-show.auction_update_message = true
-show.complex_instrument_definition_expanded_message = true
+show.application_messages = true
 show.complex_instrument_leg = true
 show.complex_instrument_type = true
-show.delete_order_message = true
-show.end_of_session_message = true
 show.message = true
 show.message_header = true
-show.modify_order_long_message = true
-show.modify_order_short_message = true
-show.order_executed_at_price_size_message = true
-show.order_executed_message = true
 show.packet = true
 show.packet_header = true
-show.reduce_size_long_message = true
-show.reduce_size_short_message = true
-show.symbol_mapping_message = true
-show.time_message = true
-show.time_reference_message = true
-show.trade_long_message = true
-show.trade_short_message = true
-show.trading_status_message = true
-show.transaction_begin = true
-show.transaction_end_message = true
-show.unit_clear_message = true
 
 -- Register Cboe C1 Options Complex Pitch 2.1.37 Show Options
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_expanded_message = Pref.bool("Show Add Order Expanded Message", show.add_order_expanded_message, "Parse and add Add Order Expanded Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_long_message = Pref.bool("Show Add Order Long Message", show.add_order_long_message, "Parse and add Add Order Long Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_short_message = Pref.bool("Show Add Order Short Message", show.add_order_short_message, "Parse and add Add Order Short Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_cancel_message = Pref.bool("Show Auction Cancel Message", show.auction_cancel_message, "Parse and add Auction Cancel Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_summary_message = Pref.bool("Show Auction Summary Message", show.auction_summary_message, "Parse and add Auction Summary Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_update_message = Pref.bool("Show Auction Update Message", show.auction_update_message, "Parse and add Auction Update Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_definition_expanded_message = Pref.bool("Show Complex Instrument Definition Expanded Message", show.complex_instrument_definition_expanded_message, "Parse and add Complex Instrument Definition Expanded Message to protocol tree")
+omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg = Pref.bool("Show Complex Instrument Leg", show.complex_instrument_leg, "Parse and add Complex Instrument Leg to protocol tree")
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_type = Pref.bool("Show Complex Instrument Type", show.complex_instrument_type, "Parse and add Complex Instrument Type to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_end_of_session_message = Pref.bool("Show End Of Session Message", show.end_of_session_message, "Parse and add End Of Session Message to protocol tree")
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_modify_order_short_message = Pref.bool("Show Modify Order Short Message", show.modify_order_short_message, "Parse and add Modify Order Short Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_order_executed_at_price_size_message = Pref.bool("Show Order Executed At Price Size Message", show.order_executed_at_price_size_message, "Parse and add Order Executed At Price Size Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_reduce_size_long_message = Pref.bool("Show Reduce Size Long Message", show.reduce_size_long_message, "Parse and add Reduce Size Long Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_reduce_size_short_message = Pref.bool("Show Reduce Size Short Message", show.reduce_size_short_message, "Parse and add Reduce Size Short Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_symbol_mapping_message = Pref.bool("Show Symbol Mapping Message", show.symbol_mapping_message, "Parse and add Symbol Mapping Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_time_reference_message = Pref.bool("Show Time Reference Message", show.time_reference_message, "Parse and add Time Reference Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trade_long_message = Pref.bool("Show Trade Long Message", show.trade_long_message, "Parse and add Trade Long Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trade_short_message = Pref.bool("Show Trade Short Message", show.trade_short_message, "Parse and add Trade Short Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_transaction_begin = Pref.bool("Show Transaction Begin", show.transaction_begin, "Parse and add Transaction Begin to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_transaction_end_message = Pref.bool("Show Transaction End Message", show.transaction_end_message, "Parse and add Transaction End Message to protocol tree")
-omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_c1_options_complex_pitch_v2_1_37.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_expanded_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_expanded_message then
-    show.add_order_expanded_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_expanded_message
-    changed = true
-  end
-  if show.add_order_long_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_long_message then
-    show.add_order_long_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_long_message
-    changed = true
-  end
-  if show.add_order_short_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_short_message then
-    show.add_order_short_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_add_order_short_message
-    changed = true
-  end
-  if show.auction_cancel_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_cancel_message then
-    show.auction_cancel_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_cancel_message
-    changed = true
-  end
-  if show.auction_notification_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_notification_message then
-    show.auction_notification_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_notification_message
-    changed = true
-  end
-  if show.auction_summary_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_summary_message then
-    show.auction_summary_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_summary_message
-    changed = true
-  end
-  if show.auction_trade_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_trade_message then
-    show.auction_trade_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_trade_message
-    changed = true
-  end
-  if show.auction_update_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_update_message then
-    show.auction_update_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_auction_update_message
-    changed = true
-  end
-  if show.complex_instrument_definition_expanded_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_definition_expanded_message then
-    show.complex_instrument_definition_expanded_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_definition_expanded_message
+  if show.application_messages ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_application_messages then
+    show.application_messages = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_application_messages
     changed = true
   end
   if show.complex_instrument_leg ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg then
@@ -234,14 +152,6 @@ function omi_cboe_c1_options_complex_pitch_v2_1_37.prefs_changed()
     show.complex_instrument_type = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_type
     changed = true
   end
-  if show.delete_order_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_delete_order_message then
-    show.delete_order_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_delete_order_message
-    changed = true
-  end
-  if show.end_of_session_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_end_of_session_message then
-    show.end_of_session_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_end_of_session_message
-    changed = true
-  end
   if show.message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_message then
     show.message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_message
     changed = true
@@ -250,72 +160,12 @@ function omi_cboe_c1_options_complex_pitch_v2_1_37.prefs_changed()
     show.message_header = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_message_header
     changed = true
   end
-  if show.modify_order_long_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_modify_order_long_message then
-    show.modify_order_long_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_modify_order_long_message
-    changed = true
-  end
-  if show.modify_order_short_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_modify_order_short_message then
-    show.modify_order_short_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_modify_order_short_message
-    changed = true
-  end
-  if show.order_executed_at_price_size_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_order_executed_at_price_size_message then
-    show.order_executed_at_price_size_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_order_executed_at_price_size_message
-    changed = true
-  end
-  if show.order_executed_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_order_executed_message then
-    show.order_executed_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_order_executed_message
-    changed = true
-  end
   if show.packet ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_packet then
     show.packet = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_packet
     changed = true
   end
   if show.packet_header ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_packet_header then
     show.packet_header = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_packet_header
-    changed = true
-  end
-  if show.reduce_size_long_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_reduce_size_long_message then
-    show.reduce_size_long_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_reduce_size_long_message
-    changed = true
-  end
-  if show.reduce_size_short_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_reduce_size_short_message then
-    show.reduce_size_short_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_reduce_size_short_message
-    changed = true
-  end
-  if show.symbol_mapping_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_symbol_mapping_message then
-    show.symbol_mapping_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_symbol_mapping_message
-    changed = true
-  end
-  if show.time_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_time_message then
-    show.time_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_time_message
-    changed = true
-  end
-  if show.time_reference_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_time_reference_message then
-    show.time_reference_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_time_reference_message
-    changed = true
-  end
-  if show.trade_long_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trade_long_message then
-    show.trade_long_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trade_long_message
-    changed = true
-  end
-  if show.trade_short_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trade_short_message then
-    show.trade_short_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trade_short_message
-    changed = true
-  end
-  if show.trading_status_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trading_status_message then
-    show.trading_status_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_trading_status_message
-    changed = true
-  end
-  if show.transaction_begin ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_transaction_begin then
-    show.transaction_begin = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_transaction_begin
-    changed = true
-  end
-  if show.transaction_end_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_transaction_end_message then
-    show.transaction_end_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_transaction_end_message
-    changed = true
-  end
-  if show.unit_clear_message ~= omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message then
-    show.unit_clear_message = omi_cboe_c1_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message
     changed = true
   end
 
@@ -327,313 +177,51 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cboe C1 Options Complex Pitch 2.1.37
+-- Cboe C1 Options Complex Pitch 2.1.37 Fields
 -----------------------------------------------------------------------
 
--- Time Offset
-cboe_c1_options_complex_pitch_v2_1_37.time_offset = {}
+-- Auction End Offset
+cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset = {}
 
--- Size: Time Offset
-cboe_c1_options_complex_pitch_v2_1_37.time_offset.size = 4
+-- Size: Auction End Offset
+cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size = 4
 
--- Display: Time Offset
-cboe_c1_options_complex_pitch_v2_1_37.time_offset.display = function(value)
-  return "Time Offset: "..value
+-- Display: Auction End Offset
+cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.display = function(value)
+  return "Auction End Offset: "..value
 end
 
--- Dissect: Time Offset
-cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+-- Dissect: Auction End Offset
+cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.time_offset.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.time_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- End Of Session Message
-cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message = {}
-
--- Size: End Of Session Message
-cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
-
--- Display: End Of Session Message
-cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: End Of Session Message
-cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: End Of Session Message
-cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.end_of_session_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.end_of_session_message, buffer(offset, 0))
-    local index = cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quantity
-cboe_c1_options_complex_pitch_v2_1_37.quantity = {}
-
--- Size: Quantity
-cboe_c1_options_complex_pitch_v2_1_37.quantity.size = 4
-
--- Display: Quantity
-cboe_c1_options_complex_pitch_v2_1_37.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-cboe_c1_options_complex_pitch_v2_1_37.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.quantity, range, value, display)
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_end_offset, range, value, display)
 
   return offset + length, value
 end
 
--- Price
-cboe_c1_options_complex_pitch_v2_1_37.price = {}
+-- Auction Id
+cboe_c1_options_complex_pitch_v2_1_37.auction_id = {}
 
--- Size: Price
-cboe_c1_options_complex_pitch_v2_1_37.price.size = 8
+-- Size: Auction Id
+cboe_c1_options_complex_pitch_v2_1_37.auction_id.size = 8
 
--- Display: Price
-cboe_c1_options_complex_pitch_v2_1_37.price.display = function(value)
-  return "Price: "..value
+-- Display: Auction Id
+cboe_c1_options_complex_pitch_v2_1_37.auction_id.display = function(value)
+  return "Auction Id: "..value
 end
 
--- Translate: Price
-cboe_c1_options_complex_pitch_v2_1_37.price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price
-cboe_c1_options_complex_pitch_v2_1_37.price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.price.size
+-- Dissect: Auction Id
+cboe_c1_options_complex_pitch_v2_1_37.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.auction_id.size
   local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_c1_options_complex_pitch_v2_1_37.price.translate(raw)
-  local display = cboe_c1_options_complex_pitch_v2_1_37.price.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.auction_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Opening Type
-cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type = {}
-
--- Size: Auction Opening Type
-cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size = 1
-
--- Display: Auction Opening Type
-cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.display = function(value)
-  if value == "G" then
-    return "Auction Opening Type: Gth (G)"
-  end
-  if value == "O" then
-    return "Auction Opening Type: Rth (O)"
-  end
-  if value == "H" then
-    return "Auction Opening Type: Halt Reopening (H)"
-  end
-
-  return "Auction Opening Type: Unknown("..value..")"
-end
-
--- Dissect: Auction Opening Type
-cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_opening_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Complex Instrument Id 8
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8 = {}
-
--- Size: Complex Instrument Id 8
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size = 8
-
--- Display: Complex Instrument Id 8
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.display = function(value)
-  return "Complex Instrument Id 8: "..value
-end
-
--- Dissect: Complex Instrument Id 8
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_id_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Summary Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message = {}
-
--- Size: Auction Summary Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size
-
--- Display: Auction Summary Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Summary Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Complex Instrument Id 8: 8 Byte Ascii String
-  index, complex_instrument_id_8 = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect(buffer, index, packet, parent)
-
-  -- Auction Opening Type: 1 Byte Ascii String Enum with 3 values
-  index, auction_opening_type = cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = cboe_c1_options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
-
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, quantity = cboe_c1_options_complex_pitch_v2_1_37.quantity.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Summary Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_summary_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_summary_message, buffer(offset, 0))
-    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Composite Market Offer Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price = {}
-
--- Size: Composite Market Offer Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size = 8
-
--- Display: Composite Market Offer Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.display = function(value)
-  return "Composite Market Offer Price: "..value
-end
-
--- Translate: Composite Market Offer Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Composite Market Offer Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.translate(raw)
-  local display = cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.composite_market_offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Composite Market Bid Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price = {}
-
--- Size: Composite Market Bid Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size = 8
-
--- Display: Composite Market Bid Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.display = function(value)
-  return "Composite Market Bid Price: "..value
-end
-
--- Translate: Composite Market Bid Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Composite Market Bid Price
-cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.translate(raw)
-  local display = cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.composite_market_bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Condition
-cboe_c1_options_complex_pitch_v2_1_37.opening_condition = {}
-
--- Size: Opening Condition
-cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size = 1
-
--- Display: Opening Condition
-cboe_c1_options_complex_pitch_v2_1_37.opening_condition.display = function(value)
-  return "Opening Condition: "..value
-end
-
--- Dissect: Opening Condition
-cboe_c1_options_complex_pitch_v2_1_37.opening_condition.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.opening_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.opening_condition, range, value, display)
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -667,686 +255,35 @@ cboe_c1_options_complex_pitch_v2_1_37.auction_only_price.dissect = function(buff
   return offset + length, value
 end
 
--- Indicative Price
-cboe_c1_options_complex_pitch_v2_1_37.indicative_price = {}
+-- Auction Opening Type
+cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type = {}
 
--- Size: Indicative Price
-cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size = 8
+-- Size: Auction Opening Type
+cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size = 1
 
--- Display: Indicative Price
-cboe_c1_options_complex_pitch_v2_1_37.indicative_price.display = function(value)
-  return "Indicative Price: "..value
-end
-
--- Translate: Indicative Price
-cboe_c1_options_complex_pitch_v2_1_37.indicative_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Indicative Price
-cboe_c1_options_complex_pitch_v2_1_37.indicative_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_c1_options_complex_pitch_v2_1_37.indicative_price.translate(raw)
-  local display = cboe_c1_options_complex_pitch_v2_1_37.indicative_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.indicative_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Contracts
-cboe_c1_options_complex_pitch_v2_1_37.sell_contracts = {}
-
--- Size: Sell Contracts
-cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size = 4
-
--- Display: Sell Contracts
-cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.display = function(value)
-  return "Sell Contracts: "..value
-end
-
--- Dissect: Sell Contracts
-cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.sell_contracts, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Contracts
-cboe_c1_options_complex_pitch_v2_1_37.buy_contracts = {}
-
--- Size: Buy Contracts
-cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size = 4
-
--- Display: Buy Contracts
-cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.display = function(value)
-  return "Buy Contracts: "..value
-end
-
--- Dissect: Buy Contracts
-cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.buy_contracts, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Price
-cboe_c1_options_complex_pitch_v2_1_37.reference_price = {}
-
--- Size: Reference Price
-cboe_c1_options_complex_pitch_v2_1_37.reference_price.size = 8
-
--- Display: Reference Price
-cboe_c1_options_complex_pitch_v2_1_37.reference_price.display = function(value)
-  return "Reference Price: "..value
-end
-
--- Translate: Reference Price
-cboe_c1_options_complex_pitch_v2_1_37.reference_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Reference Price
-cboe_c1_options_complex_pitch_v2_1_37.reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_c1_options_complex_pitch_v2_1_37.reference_price.translate(raw)
-  local display = cboe_c1_options_complex_pitch_v2_1_37.reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.reference_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Update Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_update_message = {}
-
--- Size: Auction Update Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.reference_price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_only_price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size
-
--- Display: Auction Update Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Update Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Complex Instrument Id 8: 8 Byte Ascii String
-  index, complex_instrument_id_8 = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect(buffer, index, packet, parent)
-
-  -- Auction Opening Type: 1 Byte Ascii String Enum with 3 values
-  index, auction_opening_type = cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.dissect(buffer, index, packet, parent)
-
-  -- Reference Price: 8 Byte Signed Fixed Width Integer
-  index, reference_price = cboe_c1_options_complex_pitch_v2_1_37.reference_price.dissect(buffer, index, packet, parent)
-
-  -- Buy Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, buy_contracts = cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.dissect(buffer, index, packet, parent)
-
-  -- Sell Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, sell_contracts = cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.dissect(buffer, index, packet, parent)
-
-  -- Indicative Price: 8 Byte Signed Fixed Width Integer
-  index, indicative_price = cboe_c1_options_complex_pitch_v2_1_37.indicative_price.dissect(buffer, index, packet, parent)
-
-  -- Auction Only Price: 8 Byte Signed Fixed Width Integer
-  index, auction_only_price = cboe_c1_options_complex_pitch_v2_1_37.auction_only_price.dissect(buffer, index, packet, parent)
-
-  -- Opening Condition: 1 Byte Ascii String
-  index, opening_condition = cboe_c1_options_complex_pitch_v2_1_37.opening_condition.dissect(buffer, index, packet, parent)
-
-  -- Composite Market Bid Price: 8 Byte Signed Fixed Width Integer
-  index, composite_market_bid_price = cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Composite Market Offer Price: 8 Byte Signed Fixed Width Integer
-  index, composite_market_offer_price = cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Update Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_update_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_update_message, buffer(offset, 0))
-    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.fields(buffer, offset, packet, parent)
+-- Display: Auction Opening Type
+cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.display = function(value)
+  if value == "G" then
+    return "Auction Opening Type: Gth (G)"
   end
-end
-
--- Padding
-cboe_c1_options_complex_pitch_v2_1_37.padding = {}
-
--- Size: Padding
-cboe_c1_options_complex_pitch_v2_1_37.padding.size = 1
-
--- Display: Padding
-cboe_c1_options_complex_pitch_v2_1_37.padding.display = function(value)
-  return "Padding: "..value
-end
-
--- Dissect: Padding
-cboe_c1_options_complex_pitch_v2_1_37.padding.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.padding.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cboe_c1_options_complex_pitch_v2_1_37.padding.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.padding, range, value, display)
-
-  return offset + length, value
-end
-
--- Gth Trading Status
-cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status = {}
-
--- Size: Gth Trading Status
-cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size = 1
-
--- Display: Gth Trading Status
-cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.display = function(value)
+  if value == "O" then
+    return "Auction Opening Type: Rth (O)"
+  end
   if value == "H" then
-    return "Gth Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Gth Trading Status: Quote Only (Q)"
-  end
-  if value == "T" then
-    return "Gth Trading Status: Trading (T)"
+    return "Auction Opening Type: Halt Reopening (H)"
   end
 
-  return "Gth Trading Status: Unknown("..value..")"
+  return "Auction Opening Type: Unknown("..value..")"
 end
 
--- Dissect: Gth Trading Status
-cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size
+-- Dissect: Auction Opening Type
+cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.gth_trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-cboe_c1_options_complex_pitch_v2_1_37.reserved = {}
-
--- Size: Reserved
-cboe_c1_options_complex_pitch_v2_1_37.reserved.size = 1
-
--- Display: Reserved
-cboe_c1_options_complex_pitch_v2_1_37.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-cboe_c1_options_complex_pitch_v2_1_37.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.reserved.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cboe_c1_options_complex_pitch_v2_1_37.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Status
-cboe_c1_options_complex_pitch_v2_1_37.trading_status = {}
-
--- Size: Trading Status
-cboe_c1_options_complex_pitch_v2_1_37.trading_status.size = 1
-
--- Display: Trading Status
-cboe_c1_options_complex_pitch_v2_1_37.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "L" then
-    return "Trading Status: Curb Trading (L)"
-  end
-  if value == "Q" then
-    return "Trading Status: Quote Only (Q)"
-  end
-  if value == "T" then
-    return "Trading Status: Rth Trading (T)"
-  end
-
-  return "Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Trading Status
-cboe_c1_options_complex_pitch_v2_1_37.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.trading_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Unused
-cboe_c1_options_complex_pitch_v2_1_37.unused = {}
-
--- Size: Unused
-cboe_c1_options_complex_pitch_v2_1_37.unused.size = 2
-
--- Display: Unused
-cboe_c1_options_complex_pitch_v2_1_37.unused.display = function(value)
-  return "Unused: "..value
-end
-
--- Dissect: Unused
-cboe_c1_options_complex_pitch_v2_1_37.unused.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.unused.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cboe_c1_options_complex_pitch_v2_1_37.unused.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.unused, range, value, display)
-
-  return offset + length, value
-end
-
--- Complex Symbol Id
-cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id = {}
-
--- Size: Complex Symbol Id
-cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size = 6
-
--- Display: Complex Symbol Id
-cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.display = function(value)
-  return "Complex Symbol Id: "..value
-end
-
--- Dissect: Complex Symbol Id
-cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_symbol_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Status Message
-cboe_c1_options_complex_pitch_v2_1_37.trading_status_message = {}
-
--- Size: Trading Status Message
-cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.unused.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.trading_status.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.reserved.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.padding.size
-
--- Display: Trading Status Message
-cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trading Status Message
-cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Complex Symbol Id: 6 Byte Ascii String
-  index, complex_symbol_id = cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.dissect(buffer, index, packet, parent)
-
-  -- Unused: 2 Byte
-  index, unused = cboe_c1_options_complex_pitch_v2_1_37.unused.dissect(buffer, index, packet, parent)
-
-  -- Trading Status: 1 Byte Ascii String Enum with 4 values
-  index, trading_status = cboe_c1_options_complex_pitch_v2_1_37.trading_status.dissect(buffer, index, packet, parent)
-
-  -- Reserved: 1 Byte
-  index, reserved = cboe_c1_options_complex_pitch_v2_1_37.reserved.dissect(buffer, index, packet, parent)
-
-  -- Gth Trading Status: 1 Byte Ascii String Enum with 3 values
-  index, gth_trading_status = cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.dissect(buffer, index, packet, parent)
-
-  -- Padding: 1 Byte
-  index, padding = cboe_c1_options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trading Status Message
-cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.trading_status_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.trading_status_message, buffer(offset, 0))
-    local index = cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Execution Id
-cboe_c1_options_complex_pitch_v2_1_37.execution_id = {}
-
--- Size: Execution Id
-cboe_c1_options_complex_pitch_v2_1_37.execution_id.size = 8
-
--- Display: Execution Id
-cboe_c1_options_complex_pitch_v2_1_37.execution_id.display = function(value)
-  return "Execution Id: "..value
-end
-
--- Dissect: Execution Id
-cboe_c1_options_complex_pitch_v2_1_37.execution_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.execution_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.execution_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.execution_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Id
-cboe_c1_options_complex_pitch_v2_1_37.auction_id = {}
-
--- Size: Auction Id
-cboe_c1_options_complex_pitch_v2_1_37.auction_id.size = 8
-
--- Display: Auction Id
-cboe_c1_options_complex_pitch_v2_1_37.auction_id.display = function(value)
-  return "Auction Id: "..value
-end
-
--- Dissect: Auction Id
-cboe_c1_options_complex_pitch_v2_1_37.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.auction_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.auction_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Trade Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message = {}
-
--- Size: Auction Trade Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.execution_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size
-
--- Display: Auction Trade Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Trade Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = cboe_c1_options_complex_pitch_v2_1_37.auction_id.dissect(buffer, index, packet, parent)
-
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = cboe_c1_options_complex_pitch_v2_1_37.execution_id.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = cboe_c1_options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
-
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, quantity = cboe_c1_options_complex_pitch_v2_1_37.quantity.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Trade Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_trade_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_trade_message, buffer(offset, 0))
-    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Auction Cancel Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message = {}
-
--- Size: Auction Cancel Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size
-
--- Display: Auction Cancel Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Cancel Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
-
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = cboe_c1_options_complex_pitch_v2_1_37.auction_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Cancel Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_cancel_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_cancel_message, buffer(offset, 0))
-    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Client Id
-cboe_c1_options_complex_pitch_v2_1_37.client_id = {}
-
--- Size: Client Id
-cboe_c1_options_complex_pitch_v2_1_37.client_id.size = 4
-
--- Display: Client Id
-cboe_c1_options_complex_pitch_v2_1_37.client_id.display = function(value)
-  return "Client Id: "..value
-end
-
--- Dissect: Client Id
-cboe_c1_options_complex_pitch_v2_1_37.client_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.client_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.client_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.client_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction End Offset
-cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset = {}
-
--- Size: Auction End Offset
-cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size = 4
-
--- Display: Auction End Offset
-cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.display = function(value)
-  return "Auction End Offset: "..value
-end
-
--- Dissect: Auction End Offset
-cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_end_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant Id
-cboe_c1_options_complex_pitch_v2_1_37.participant_id = {}
-
--- Size: Participant Id
-cboe_c1_options_complex_pitch_v2_1_37.participant_id.size = 4
-
--- Display: Participant Id
-cboe_c1_options_complex_pitch_v2_1_37.participant_id.display = function(value)
-  return "Participant Id: "..value
-end
-
--- Dissect: Participant Id
-cboe_c1_options_complex_pitch_v2_1_37.participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.participant_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Customer Indicator
-cboe_c1_options_complex_pitch_v2_1_37.customer_indicator = {}
-
--- Size: Customer Indicator
-cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size = 1
-
--- Display: Customer Indicator
-cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.display = function(value)
-  if value == "N" then
-    return "Customer Indicator: Non Customer (N)"
-  end
-  if value == "C" then
-    return "Customer Indicator: Customer (C)"
-  end
-
-  return "Customer Indicator: Unknown("..value..")"
-end
-
--- Dissect: Customer Indicator
-cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.customer_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Indicator
-cboe_c1_options_complex_pitch_v2_1_37.side_indicator = {}
-
--- Size: Side Indicator
-cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size = 1
-
--- Display: Side Indicator
-cboe_c1_options_complex_pitch_v2_1_37.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
-
-  return "Side Indicator: Unknown("..value..")"
-end
-
--- Dissect: Side Indicator
-cboe_c1_options_complex_pitch_v2_1_37.side_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.side_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.side_indicator, range, value, display)
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_opening_type, range, value, display)
 
   return offset + length, value
 end
@@ -1387,6 +324,144 @@ cboe_c1_options_complex_pitch_v2_1_37.auction_type.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Buy Contracts
+cboe_c1_options_complex_pitch_v2_1_37.buy_contracts = {}
+
+-- Size: Buy Contracts
+cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size = 4
+
+-- Display: Buy Contracts
+cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.display = function(value)
+  return "Buy Contracts: "..value
+end
+
+-- Dissect: Buy Contracts
+cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.buy_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Canceled Quantity
+cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity = {}
+
+-- Size: Canceled Quantity
+cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.size = 4
+
+-- Display: Canceled Quantity
+cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.display = function(value)
+  return "Canceled Quantity: "..value
+end
+
+-- Dissect: Canceled Quantity
+cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.canceled_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Canceled Quantity Short
+cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short = {}
+
+-- Size: Canceled Quantity Short
+cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.size = 2
+
+-- Display: Canceled Quantity Short
+cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.display = function(value)
+  return "Canceled Quantity Short: "..value
+end
+
+-- Dissect: Canceled Quantity Short
+cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.canceled_quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Id
+cboe_c1_options_complex_pitch_v2_1_37.client_id = {}
+
+-- Size: Client Id
+cboe_c1_options_complex_pitch_v2_1_37.client_id.size = 4
+
+-- Display: Client Id
+cboe_c1_options_complex_pitch_v2_1_37.client_id.display = function(value)
+  return "Client Id: "..value
+end
+
+-- Dissect: Client Id
+cboe_c1_options_complex_pitch_v2_1_37.client_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.client_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.client_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.client_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Complex Auction Reserved Bytes
+cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes = {}
+
+-- Size: Complex Auction Reserved Bytes
+cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.size = 3
+
+-- Display: Complex Auction Reserved Bytes
+cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.display = function(value)
+  return "Complex Auction Reserved Bytes: "..value
+end
+
+-- Dissect: Complex Auction Reserved Bytes
+cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_auction_reserved_bytes, range, value, display)
+
+  return offset + length, value
+end
+
+-- Complex Auction Type
+cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type = {}
+
+-- Size: Complex Auction Type
+cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.size = 1
+
+-- Display: Complex Auction Type
+cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.display = function(value)
+  return "Complex Auction Type: "..value
+end
+
+-- Dissect: Complex Auction Type
+cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_auction_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Complex Instrument Id
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id = {}
 
@@ -1410,84 +485,1054 @@ cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.dissect = function(b
   return offset + length, value
 end
 
--- Auction Notification Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message = {}
+-- Complex Instrument Id 8
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8 = {}
 
--- Size: Auction Notification Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.size =
-  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_type.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.quantity.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.participant_id.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size + 
-  cboe_c1_options_complex_pitch_v2_1_37.client_id.size
+-- Size: Complex Instrument Id 8
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size = 8
 
--- Display: Auction Notification Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.display = function(packet, parent, length)
-  return ""
+-- Display: Complex Instrument Id 8
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.display = function(value)
+  return "Complex Instrument Id 8: "..value
 end
 
--- Dissect Fields: Auction Notification Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect: Complex Instrument Id 8
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.display(value, buffer, offset, packet, parent)
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_id_8, range, value, display)
 
-  -- Complex Instrument Id: 6 Byte Ascii String
-  index, complex_instrument_id = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.dissect(buffer, index, packet, parent)
-
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = cboe_c1_options_complex_pitch_v2_1_37.auction_id.dissect(buffer, index, packet, parent)
-
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
-  index, auction_type = cboe_c1_options_complex_pitch_v2_1_37.auction_type.dissect(buffer, index, packet, parent)
-
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = cboe_c1_options_complex_pitch_v2_1_37.side_indicator.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = cboe_c1_options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
-
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, quantity = cboe_c1_options_complex_pitch_v2_1_37.quantity.dissect(buffer, index, packet, parent)
-
-  -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
-  index, customer_indicator = cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.dissect(buffer, index, packet, parent)
-
-  -- Participant Id: 4 Byte Ascii String
-  index, participant_id = cboe_c1_options_complex_pitch_v2_1_37.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Auction End Offset: 4 Byte Unsigned Fixed Width Integer
-  index, auction_end_offset = cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.dissect(buffer, index, packet, parent)
-
-  -- Client Id: 4 Byte Ascii String
-  index, client_id = cboe_c1_options_complex_pitch_v2_1_37.client_id.dissect(buffer, index, packet, parent)
-
-  return index
+  return offset + length, value
 end
 
--- Dissect: Auction Notification Message
-cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.auction_notification_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_notification_message, buffer(offset, 0))
-    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.display(packet, parent, length)
-    parent:append_text(display)
+-- Complex Instrument Underlying
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying = {}
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.fields(buffer, offset, packet, parent)
+-- Size: Complex Instrument Underlying
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.size = 8
+
+-- Display: Complex Instrument Underlying
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.display = function(value)
+  return "Complex Instrument Underlying: "..value
+end
+
+-- Dissect: Complex Instrument Underlying
+cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_underlying, range, value, display)
+
+  return offset + length, value
+end
+
+-- Complex Symbol Id
+cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id = {}
+
+-- Size: Complex Symbol Id
+cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size = 6
+
+-- Display: Complex Symbol Id
+cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.display = function(value)
+  return "Complex Symbol Id: "..value
+end
+
+-- Dissect: Complex Symbol Id
+cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_symbol_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Composite Market Bid Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price = {}
+
+-- Size: Composite Market Bid Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size = 8
+
+-- Display: Composite Market Bid Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.display = function(value)
+  return "Composite Market Bid Price: "..value
+end
+
+-- Translate: Composite Market Bid Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Composite Market Bid Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.translate(raw)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.composite_market_bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Composite Market Offer Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price = {}
+
+-- Size: Composite Market Offer Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size = 8
+
+-- Display: Composite Market Offer Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.display = function(value)
+  return "Composite Market Offer Price: "..value
+end
+
+-- Translate: Composite Market Offer Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Composite Market Offer Price
+cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.translate(raw)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.composite_market_offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+cboe_c1_options_complex_pitch_v2_1_37.count = {}
+
+-- Size: Count
+cboe_c1_options_complex_pitch_v2_1_37.count.size = 1
+
+-- Display: Count
+cboe_c1_options_complex_pitch_v2_1_37.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+cboe_c1_options_complex_pitch_v2_1_37.count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Customer Indicator
+cboe_c1_options_complex_pitch_v2_1_37.customer_indicator = {}
+
+-- Size: Customer Indicator
+cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size = 1
+
+-- Display: Customer Indicator
+cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.display = function(value)
+  if value == "N" then
+    return "Customer Indicator: Non Customer (N)"
   end
+  if value == "C" then
+    return "Customer Indicator: Customer (C)"
+  end
+
+  return "Customer Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Customer Indicator
+cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.customer_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Epoch Time
+cboe_c1_options_complex_pitch_v2_1_37.epoch_time = {}
+
+-- Size: Epoch Time
+cboe_c1_options_complex_pitch_v2_1_37.epoch_time.size = 4
+
+-- Display: Epoch Time
+cboe_c1_options_complex_pitch_v2_1_37.epoch_time.display = function(value)
+  return "Epoch Time: "..value
+end
+
+-- Dissect: Epoch Time
+cboe_c1_options_complex_pitch_v2_1_37.epoch_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.epoch_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.epoch_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.epoch_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+cboe_c1_options_complex_pitch_v2_1_37.executed_quantity = {}
+
+-- Size: Executed Quantity
+cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size = 4
+
+-- Display: Executed Quantity
+cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Id
+cboe_c1_options_complex_pitch_v2_1_37.execution_id = {}
+
+-- Size: Execution Id
+cboe_c1_options_complex_pitch_v2_1_37.execution_id.size = 8
+
+-- Display: Execution Id
+cboe_c1_options_complex_pitch_v2_1_37.execution_id.display = function(value)
+  return "Execution Id: "..value
+end
+
+-- Dissect: Execution Id
+cboe_c1_options_complex_pitch_v2_1_37.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.execution_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Feed Symbol
+cboe_c1_options_complex_pitch_v2_1_37.feed_symbol = {}
+
+-- Size: Feed Symbol
+cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.size = 6
+
+-- Display: Feed Symbol
+cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.display = function(value)
+  return "Feed Symbol: "..value
+end
+
+-- Dissect: Feed Symbol
+cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.feed_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gth Trading Status
+cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status = {}
+
+-- Size: Gth Trading Status
+cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size = 1
+
+-- Display: Gth Trading Status
+cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.display = function(value)
+  if value == "H" then
+    return "Gth Trading Status: Halted (H)"
+  end
+  if value == "Q" then
+    return "Gth Trading Status: Quote Only (Q)"
+  end
+  if value == "T" then
+    return "Gth Trading Status: Trading (T)"
+  end
+
+  return "Gth Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Gth Trading Status
+cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.gth_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indicative Price
+cboe_c1_options_complex_pitch_v2_1_37.indicative_price = {}
+
+-- Size: Indicative Price
+cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size = 8
+
+-- Display: Indicative Price
+cboe_c1_options_complex_pitch_v2_1_37.indicative_price.display = function(value)
+  return "Indicative Price: "..value
+end
+
+-- Translate: Indicative Price
+cboe_c1_options_complex_pitch_v2_1_37.indicative_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Indicative Price
+cboe_c1_options_complex_pitch_v2_1_37.indicative_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c1_options_complex_pitch_v2_1_37.indicative_price.translate(raw)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.indicative_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.indicative_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Count
+cboe_c1_options_complex_pitch_v2_1_37.leg_count = {}
+
+-- Size: Leg Count
+cboe_c1_options_complex_pitch_v2_1_37.leg_count.size = 1
+
+-- Display: Leg Count
+cboe_c1_options_complex_pitch_v2_1_37.leg_count.display = function(value)
+  return "Leg Count: "..value
+end
+
+-- Dissect: Leg Count
+cboe_c1_options_complex_pitch_v2_1_37.leg_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.leg_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.leg_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+cboe_c1_options_complex_pitch_v2_1_37.leg_ratio = {}
+
+-- Size: Leg Ratio
+cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Type
+cboe_c1_options_complex_pitch_v2_1_37.leg_security_type = {}
+
+-- Size: Leg Security Type
+cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.size = 1
+
+-- Display: Leg Security Type
+cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.display = function(value)
+  if value == "O" then
+    return "Leg Security Type: Option (O)"
+  end
+  if value == "E" then
+    return "Leg Security Type: Equity (E)"
+  end
+
+  return "Leg Security Type: Unknown("..value..")"
+end
+
+-- Dissect: Leg Security Type
+cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol
+cboe_c1_options_complex_pitch_v2_1_37.leg_symbol = {}
+
+-- Size: Leg Symbol
+cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.size = 8
+
+-- Display: Leg Symbol
+cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.display = function(value)
+  return "Leg Symbol: "..value
+end
+
+-- Dissect: Leg Symbol
+cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+cboe_c1_options_complex_pitch_v2_1_37.length = {}
+
+-- Size: Length
+cboe_c1_options_complex_pitch_v2_1_37.length.size = 2
+
+-- Display: Length
+cboe_c1_options_complex_pitch_v2_1_37.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+cboe_c1_options_complex_pitch_v2_1_37.length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cboe_c1_options_complex_pitch_v2_1_37.message_length = {}
+
+-- Size: Message Length
+cboe_c1_options_complex_pitch_v2_1_37.message_length.size = 1
+
+-- Display: Message Length
+cboe_c1_options_complex_pitch_v2_1_37.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cboe_c1_options_complex_pitch_v2_1_37.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+cboe_c1_options_complex_pitch_v2_1_37.message_type = {}
+
+-- Size: Message Type
+cboe_c1_options_complex_pitch_v2_1_37.message_type.size = 1
+
+-- Display: Message Type
+cboe_c1_options_complex_pitch_v2_1_37.message_type.display = function(value)
+  if value == 0xB1 then
+    return "Message Type: Time Reference Message (0xB1)"
+  end
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0xBC then
+    return "Message Type: Transaction Begin (0xBC)"
+  end
+  if value == 0xBD then
+    return "Message Type: Transaction End Message (0xBD)"
+  end
+  if value == 0x9A then
+    return "Message Type: Complex Instrument Definition Expanded Message (0x9A)"
+  end
+  if value == 0x2E then
+    return "Message Type: Symbol Mapping Message (0x2E)"
+  end
+  if value == 0x21 then
+    return "Message Type: Add Order Long Message (0x21)"
+  end
+  if value == 0x22 then
+    return "Message Type: Add Order Short Message (0x22)"
+  end
+  if value == 0x2F then
+    return "Message Type: Add Order Expanded Message (0x2F)"
+  end
+  if value == 0x23 then
+    return "Message Type: Order Executed Message (0x23)"
+  end
+  if value == 0x24 then
+    return "Message Type: Order Executed At Price Size Message (0x24)"
+  end
+  if value == 0x25 then
+    return "Message Type: Reduce Size Long Message (0x25)"
+  end
+  if value == 0x26 then
+    return "Message Type: Reduce Size Short Message (0x26)"
+  end
+  if value == 0x27 then
+    return "Message Type: Modify Order Long Message (0x27)"
+  end
+  if value == 0x28 then
+    return "Message Type: Modify Order Short Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: Delete Order Message (0x29)"
+  end
+  if value == 0x2A then
+    return "Message Type: Trade Long Message (0x2A)"
+  end
+  if value == 0x2B then
+    return "Message Type: Trade Short Message (0x2B)"
+  end
+  if value == 0xAD then
+    return "Message Type: Auction Notification Message (0xAD)"
+  end
+  if value == 0xAE then
+    return "Message Type: Auction Cancel Message (0xAE)"
+  end
+  if value == 0xAF then
+    return "Message Type: Auction Trade Message (0xAF)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0xD1 then
+    return "Message Type: Auction Update Message (0xD1)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+cboe_c1_options_complex_pitch_v2_1_37.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Midnight Reference
+cboe_c1_options_complex_pitch_v2_1_37.midnight_reference = {}
+
+-- Size: Midnight Reference
+cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.size = 4
+
+-- Display: Midnight Reference
+cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.display = function(value)
+  return "Midnight Reference: "..value
+end
+
+-- Dissect: Midnight Reference
+cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.midnight_reference, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Condition
+cboe_c1_options_complex_pitch_v2_1_37.opening_condition = {}
+
+-- Size: Opening Condition
+cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size = 1
+
+-- Display: Opening Condition
+cboe_c1_options_complex_pitch_v2_1_37.opening_condition.display = function(value)
+  return "Opening Condition: "..value
+end
+
+-- Dissect: Opening Condition
+cboe_c1_options_complex_pitch_v2_1_37.opening_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.opening_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.opening_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+cboe_c1_options_complex_pitch_v2_1_37.order_id = {}
+
+-- Size: Order Id
+cboe_c1_options_complex_pitch_v2_1_37.order_id.size = 8
+
+-- Display: Order Id
+cboe_c1_options_complex_pitch_v2_1_37.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+cboe_c1_options_complex_pitch_v2_1_37.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Osi Symbol
+cboe_c1_options_complex_pitch_v2_1_37.osi_symbol = {}
+
+-- Size: Osi Symbol
+cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.size = 21
+
+-- Display: Osi Symbol
+cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.display = function(value)
+  return "Osi Symbol: "..value
+end
+
+-- Dissect: Osi Symbol
+cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.osi_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Padding
+cboe_c1_options_complex_pitch_v2_1_37.padding = {}
+
+-- Size: Padding
+cboe_c1_options_complex_pitch_v2_1_37.padding.size = 1
+
+-- Display: Padding
+cboe_c1_options_complex_pitch_v2_1_37.padding.display = function(value)
+  return "Padding: "..value
+end
+
+-- Dissect: Padding
+cboe_c1_options_complex_pitch_v2_1_37.padding.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.padding.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c1_options_complex_pitch_v2_1_37.padding.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.padding, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id
+cboe_c1_options_complex_pitch_v2_1_37.participant_id = {}
+
+-- Size: Participant Id
+cboe_c1_options_complex_pitch_v2_1_37.participant_id.size = 4
+
+-- Display: Participant Id
+cboe_c1_options_complex_pitch_v2_1_37.participant_id.display = function(value)
+  return "Participant Id: "..value
+end
+
+-- Dissect: Participant Id
+cboe_c1_options_complex_pitch_v2_1_37.participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.participant_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+cboe_c1_options_complex_pitch_v2_1_37.price = {}
+
+-- Size: Price
+cboe_c1_options_complex_pitch_v2_1_37.price.size = 8
+
+-- Display: Price
+cboe_c1_options_complex_pitch_v2_1_37.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+cboe_c1_options_complex_pitch_v2_1_37.price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price
+cboe_c1_options_complex_pitch_v2_1_37.price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c1_options_complex_pitch_v2_1_37.price.translate(raw)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Short
+cboe_c1_options_complex_pitch_v2_1_37.price_short = {}
+
+-- Size: Price Short
+cboe_c1_options_complex_pitch_v2_1_37.price_short.size = 2
+
+-- Display: Price Short
+cboe_c1_options_complex_pitch_v2_1_37.price_short.display = function(value)
+  return "Price Short: "..value
+end
+
+-- Translate: Price Short
+cboe_c1_options_complex_pitch_v2_1_37.price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price Short
+cboe_c1_options_complex_pitch_v2_1_37.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = cboe_c1_options_complex_pitch_v2_1_37.price_short.translate(raw)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+cboe_c1_options_complex_pitch_v2_1_37.quantity = {}
+
+-- Size: Quantity
+cboe_c1_options_complex_pitch_v2_1_37.quantity.size = 4
+
+-- Display: Quantity
+cboe_c1_options_complex_pitch_v2_1_37.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+cboe_c1_options_complex_pitch_v2_1_37.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+cboe_c1_options_complex_pitch_v2_1_37.quantity_short = {}
+
+-- Size: Quantity Short
+cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size = 2
+
+-- Display: Quantity Short
+cboe_c1_options_complex_pitch_v2_1_37.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+cboe_c1_options_complex_pitch_v2_1_37.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price
+cboe_c1_options_complex_pitch_v2_1_37.reference_price = {}
+
+-- Size: Reference Price
+cboe_c1_options_complex_pitch_v2_1_37.reference_price.size = 8
+
+-- Display: Reference Price
+cboe_c1_options_complex_pitch_v2_1_37.reference_price.display = function(value)
+  return "Reference Price: "..value
+end
+
+-- Translate: Reference Price
+cboe_c1_options_complex_pitch_v2_1_37.reference_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Reference Price
+cboe_c1_options_complex_pitch_v2_1_37.reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c1_options_complex_pitch_v2_1_37.reference_price.translate(raw)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Remaining Quantity
+cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity = {}
+
+-- Size: Remaining Quantity
+cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.size = 4
+
+-- Display: Remaining Quantity
+cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.display = function(value)
+  return "Remaining Quantity: "..value
+end
+
+-- Dissect: Remaining Quantity
+cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.remaining_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+cboe_c1_options_complex_pitch_v2_1_37.reserved = {}
+
+-- Size: Reserved
+cboe_c1_options_complex_pitch_v2_1_37.reserved.size = 1
+
+-- Display: Reserved
+cboe_c1_options_complex_pitch_v2_1_37.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+cboe_c1_options_complex_pitch_v2_1_37.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.reserved.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c1_options_complex_pitch_v2_1_37.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Contracts
+cboe_c1_options_complex_pitch_v2_1_37.sell_contracts = {}
+
+-- Size: Sell Contracts
+cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size = 4
+
+-- Display: Sell Contracts
+cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.display = function(value)
+  return "Sell Contracts: "..value
+end
+
+-- Dissect: Sell Contracts
+cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.sell_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+cboe_c1_options_complex_pitch_v2_1_37.sequence = {}
+
+-- Size: Sequence
+cboe_c1_options_complex_pitch_v2_1_37.sequence.size = 4
+
+-- Display: Sequence
+cboe_c1_options_complex_pitch_v2_1_37.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+cboe_c1_options_complex_pitch_v2_1_37.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Indicator
+cboe_c1_options_complex_pitch_v2_1_37.side_indicator = {}
+
+-- Size: Side Indicator
+cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size = 1
+
+-- Display: Side Indicator
+cboe_c1_options_complex_pitch_v2_1_37.side_indicator.display = function(value)
+  if value == "B" then
+    return "Side Indicator: Buy Order (B)"
+  end
+  if value == "S" then
+    return "Side Indicator: Sell Order (S)"
+  end
+
+  return "Side Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Side Indicator
+cboe_c1_options_complex_pitch_v2_1_37.side_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.side_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.side_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Condition
+cboe_c1_options_complex_pitch_v2_1_37.symbol_condition = {}
+
+-- Size: Symbol Condition
+cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.size = 1
+
+-- Display: Symbol Condition
+cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.display = function(value)
+  if value == "N" then
+    return "Symbol Condition: Normal (N)"
+  end
+  if value == "C" then
+    return "Symbol Condition: Closing Only (C)"
+  end
+
+  return "Symbol Condition: Unknown("..value..")"
+end
+
+-- Dissect: Symbol Condition
+cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.symbol_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+cboe_c1_options_complex_pitch_v2_1_37.time = {}
+
+-- Size: Time
+cboe_c1_options_complex_pitch_v2_1_37.time.size = 4
+
+-- Display: Time
+cboe_c1_options_complex_pitch_v2_1_37.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+cboe_c1_options_complex_pitch_v2_1_37.time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time Offset
+cboe_c1_options_complex_pitch_v2_1_37.time_offset = {}
+
+-- Size: Time Offset
+cboe_c1_options_complex_pitch_v2_1_37.time_offset.size = 4
+
+-- Display: Time Offset
+cboe_c1_options_complex_pitch_v2_1_37.time_offset.display = function(value)
+  return "Time Offset: "..value
+end
+
+-- Dissect: Time Offset
+cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.time_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.time_offset, range, value, display)
+
+  return offset + length, value
 end
 
 -- Trade Condition
@@ -1556,79 +1601,557 @@ cboe_c1_options_complex_pitch_v2_1_37.trade_condition.dissect = function(buffer,
   return offset + length, value
 end
 
--- Price Short
-cboe_c1_options_complex_pitch_v2_1_37.price_short = {}
+-- Trade Date
+cboe_c1_options_complex_pitch_v2_1_37.trade_date = {}
 
--- Size: Price Short
-cboe_c1_options_complex_pitch_v2_1_37.price_short.size = 2
+-- Size: Trade Date
+cboe_c1_options_complex_pitch_v2_1_37.trade_date.size = 4
 
--- Display: Price Short
-cboe_c1_options_complex_pitch_v2_1_37.price_short.display = function(value)
-  return "Price Short: "..value
+-- Display: Trade Date
+cboe_c1_options_complex_pitch_v2_1_37.trade_date.display = function(value)
+  return "Trade Date: "..value
 end
 
--- Translate: Price Short
-cboe_c1_options_complex_pitch_v2_1_37.price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price Short
-cboe_c1_options_complex_pitch_v2_1_37.price_short.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.price_short.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = cboe_c1_options_complex_pitch_v2_1_37.price_short.translate(raw)
-  local display = cboe_c1_options_complex_pitch_v2_1_37.price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity Short
-cboe_c1_options_complex_pitch_v2_1_37.quantity_short = {}
-
--- Size: Quantity Short
-cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size = 2
-
--- Display: Quantity Short
-cboe_c1_options_complex_pitch_v2_1_37.quantity_short.display = function(value)
-  return "Quantity Short: "..value
-end
-
--- Dissect: Quantity Short
-cboe_c1_options_complex_pitch_v2_1_37.quantity_short.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.quantity_short.size
+-- Dissect: Trade Date
+cboe_c1_options_complex_pitch_v2_1_37.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.trade_date.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.quantity_short.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1_options_complex_pitch_v2_1_37.trade_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.quantity_short, range, value, display)
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
 
--- Order Id
-cboe_c1_options_complex_pitch_v2_1_37.order_id = {}
+-- Trading Status
+cboe_c1_options_complex_pitch_v2_1_37.trading_status = {}
 
--- Size: Order Id
-cboe_c1_options_complex_pitch_v2_1_37.order_id.size = 8
+-- Size: Trading Status
+cboe_c1_options_complex_pitch_v2_1_37.trading_status.size = 1
 
--- Display: Order Id
-cboe_c1_options_complex_pitch_v2_1_37.order_id.display = function(value)
-  return "Order Id: "..value
+-- Display: Trading Status
+cboe_c1_options_complex_pitch_v2_1_37.trading_status.display = function(value)
+  if value == "H" then
+    return "Trading Status: Halted (H)"
+  end
+  if value == "L" then
+    return "Trading Status: Curb Trading (L)"
+  end
+  if value == "Q" then
+    return "Trading Status: Quote Only (Q)"
+  end
+  if value == "T" then
+    return "Trading Status: Rth Trading (T)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
 end
 
--- Dissect: Order Id
-cboe_c1_options_complex_pitch_v2_1_37.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.order_id.size
+-- Dissect: Trading Status
+cboe_c1_options_complex_pitch_v2_1_37.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.order_id.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.trading_status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.order_id, range, value, display)
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.trading_status, range, value, display)
 
   return offset + length, value
+end
+
+-- Underlying
+cboe_c1_options_complex_pitch_v2_1_37.underlying = {}
+
+-- Size: Underlying
+cboe_c1_options_complex_pitch_v2_1_37.underlying.size = 8
+
+-- Display: Underlying
+cboe_c1_options_complex_pitch_v2_1_37.underlying.display = function(value)
+  return "Underlying: "..value
+end
+
+-- Dissect: Underlying
+cboe_c1_options_complex_pitch_v2_1_37.underlying.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.underlying.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.underlying.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.underlying, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit
+cboe_c1_options_complex_pitch_v2_1_37.unit = {}
+
+-- Size: Unit
+cboe_c1_options_complex_pitch_v2_1_37.unit.size = 1
+
+-- Display: Unit
+cboe_c1_options_complex_pitch_v2_1_37.unit.display = function(value)
+  return "Unit: "..value
+end
+
+-- Dissect: Unit
+cboe_c1_options_complex_pitch_v2_1_37.unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1_options_complex_pitch_v2_1_37.unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unused
+cboe_c1_options_complex_pitch_v2_1_37.unused = {}
+
+-- Size: Unused
+cboe_c1_options_complex_pitch_v2_1_37.unused.size = 2
+
+-- Display: Unused
+cboe_c1_options_complex_pitch_v2_1_37.unused.display = function(value)
+  return "Unused: "..value
+end
+
+-- Dissect: Unused
+cboe_c1_options_complex_pitch_v2_1_37.unused.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1_options_complex_pitch_v2_1_37.unused.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c1_options_complex_pitch_v2_1_37.unused.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.unused, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cboe C1 Options Complex Pitch 2.1.37
+-----------------------------------------------------------------------
+
+-- End Of Session Message
+cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message = {}
+
+-- Size: End Of Session Message
+cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.size =
+  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size
+
+-- Display: End Of Session Message
+cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Session Message
+cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Session Message
+cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.end_of_session_message, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.end_of_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Summary Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message = {}
+
+-- Size: Auction Summary Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.size =
+  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+-- Display: Auction Summary Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Summary Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Complex Instrument Id 8: 8 Byte Ascii String
+  index, complex_instrument_id_8 = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect(buffer, index, packet, parent)
+
+  -- Auction Opening Type: 1 Byte Ascii String Enum with 3 values
+  index, auction_opening_type = cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Signed Fixed Width Integer
+  index, price = cboe_c1_options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = cboe_c1_options_complex_pitch_v2_1_37.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Summary Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_summary_message, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.auction_summary_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Update Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_update_message = {}
+
+-- Size: Auction Update Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.size =
+  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.reference_price.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.indicative_price.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.auction_only_price.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.opening_condition.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.size
+
+-- Display: Auction Update Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Update Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Complex Instrument Id 8: 8 Byte Ascii String
+  index, complex_instrument_id_8 = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect(buffer, index, packet, parent)
+
+  -- Auction Opening Type: 1 Byte Ascii String Enum with 3 values
+  index, auction_opening_type = cboe_c1_options_complex_pitch_v2_1_37.auction_opening_type.dissect(buffer, index, packet, parent)
+
+  -- Reference Price: 8 Byte Signed Fixed Width Integer
+  index, reference_price = cboe_c1_options_complex_pitch_v2_1_37.reference_price.dissect(buffer, index, packet, parent)
+
+  -- Buy Contracts: 4 Byte Unsigned Fixed Width Integer
+  index, buy_contracts = cboe_c1_options_complex_pitch_v2_1_37.buy_contracts.dissect(buffer, index, packet, parent)
+
+  -- Sell Contracts: 4 Byte Unsigned Fixed Width Integer
+  index, sell_contracts = cboe_c1_options_complex_pitch_v2_1_37.sell_contracts.dissect(buffer, index, packet, parent)
+
+  -- Indicative Price: 8 Byte Signed Fixed Width Integer
+  index, indicative_price = cboe_c1_options_complex_pitch_v2_1_37.indicative_price.dissect(buffer, index, packet, parent)
+
+  -- Auction Only Price: 8 Byte Signed Fixed Width Integer
+  index, auction_only_price = cboe_c1_options_complex_pitch_v2_1_37.auction_only_price.dissect(buffer, index, packet, parent)
+
+  -- Opening Condition: 1 Byte Ascii String
+  index, opening_condition = cboe_c1_options_complex_pitch_v2_1_37.opening_condition.dissect(buffer, index, packet, parent)
+
+  -- Composite Market Bid Price: 8 Byte Signed Fixed Width Integer
+  index, composite_market_bid_price = cboe_c1_options_complex_pitch_v2_1_37.composite_market_bid_price.dissect(buffer, index, packet, parent)
+
+  -- Composite Market Offer Price: 8 Byte Signed Fixed Width Integer
+  index, composite_market_offer_price = cboe_c1_options_complex_pitch_v2_1_37.composite_market_offer_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Update Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_update_message, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.auction_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trading Status Message
+cboe_c1_options_complex_pitch_v2_1_37.trading_status_message = {}
+
+-- Size: Trading Status Message
+cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.size =
+  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.unused.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.trading_status.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.reserved.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.padding.size
+
+-- Display: Trading Status Message
+cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading Status Message
+cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Complex Symbol Id: 6 Byte Ascii String
+  index, complex_symbol_id = cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Unused: 2 Byte
+  index, unused = cboe_c1_options_complex_pitch_v2_1_37.unused.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: 1 Byte Ascii String Enum with 4 values
+  index, trading_status = cboe_c1_options_complex_pitch_v2_1_37.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved: 1 Byte
+  index, reserved = cboe_c1_options_complex_pitch_v2_1_37.reserved.dissect(buffer, index, packet, parent)
+
+  -- Gth Trading Status: 1 Byte Ascii String Enum with 3 values
+  index, gth_trading_status = cboe_c1_options_complex_pitch_v2_1_37.gth_trading_status.dissect(buffer, index, packet, parent)
+
+  -- Padding: 1 Byte
+  index, padding = cboe_c1_options_complex_pitch_v2_1_37.padding.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading Status Message
+cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.trading_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Trade Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message = {}
+
+-- Size: Auction Trade Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.size =
+  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.execution_id.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.quantity.size
+
+-- Display: Auction Trade Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Trade Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  index, auction_id = cboe_c1_options_complex_pitch_v2_1_37.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  index, execution_id = cboe_c1_options_complex_pitch_v2_1_37.execution_id.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Signed Fixed Width Integer
+  index, price = cboe_c1_options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = cboe_c1_options_complex_pitch_v2_1_37.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Trade Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_trade_message, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.auction_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Cancel Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message = {}
+
+-- Size: Auction Cancel Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.size =
+  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size
+
+-- Display: Auction Cancel Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Cancel Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  index, auction_id = cboe_c1_options_complex_pitch_v2_1_37.auction_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Cancel Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_cancel_message, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.auction_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Notification Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message = {}
+
+-- Size: Auction Notification Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.size =
+  cboe_c1_options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.auction_id.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.auction_type.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.side_indicator.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.price.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.quantity.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.participant_id.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.size + 
+  cboe_c1_options_complex_pitch_v2_1_37.client_id.size
+
+-- Display: Auction Notification Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Notification Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_c1_options_complex_pitch_v2_1_37.time_offset.dissect(buffer, index, packet, parent)
+
+  -- Complex Instrument Id: 6 Byte Ascii String
+  index, complex_instrument_id = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  index, auction_id = cboe_c1_options_complex_pitch_v2_1_37.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  index, auction_type = cboe_c1_options_complex_pitch_v2_1_37.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  index, side_indicator = cboe_c1_options_complex_pitch_v2_1_37.side_indicator.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Signed Fixed Width Integer
+  index, price = cboe_c1_options_complex_pitch_v2_1_37.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = cboe_c1_options_complex_pitch_v2_1_37.quantity.dissect(buffer, index, packet, parent)
+
+  -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
+  index, customer_indicator = cboe_c1_options_complex_pitch_v2_1_37.customer_indicator.dissect(buffer, index, packet, parent)
+
+  -- Participant Id: 4 Byte Ascii String
+  index, participant_id = cboe_c1_options_complex_pitch_v2_1_37.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Auction End Offset: 4 Byte Unsigned Fixed Width Integer
+  index, auction_end_offset = cboe_c1_options_complex_pitch_v2_1_37.auction_end_offset.dissect(buffer, index, packet, parent)
+
+  -- Client Id: 4 Byte Ascii String
+  index, client_id = cboe_c1_options_complex_pitch_v2_1_37.client_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Notification Message
+cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.auction_notification_message, buffer(offset, 0))
+    local index = cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1_options_complex_pitch_v2_1_37.auction_notification_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trade Short Message
@@ -1683,7 +2206,7 @@ end
 
 -- Dissect: Trade Short Message
 cboe_c1_options_complex_pitch_v2_1_37.trade_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.trade_short_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.trade_short_message.fields(buffer, offset, packet, parent)
@@ -1751,7 +2274,7 @@ end
 
 -- Dissect: Trade Long Message
 cboe_c1_options_complex_pitch_v2_1_37.trade_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.trade_long_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.trade_long_message.fields(buffer, offset, packet, parent)
@@ -1795,7 +2318,7 @@ end
 
 -- Dissect: Delete Order Message
 cboe_c1_options_complex_pitch_v2_1_37.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.delete_order_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.delete_order_message.fields(buffer, offset, packet, parent)
@@ -1851,7 +2374,7 @@ end
 
 -- Dissect: Modify Order Short Message
 cboe_c1_options_complex_pitch_v2_1_37.modify_order_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.modify_order_short_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.modify_order_short_message.fields(buffer, offset, packet, parent)
@@ -1907,7 +2430,7 @@ end
 
 -- Dissect: Modify Order Long Message
 cboe_c1_options_complex_pitch_v2_1_37.modify_order_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.modify_order_long_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.modify_order_long_message.fields(buffer, offset, packet, parent)
@@ -1921,29 +2444,6 @@ cboe_c1_options_complex_pitch_v2_1_37.modify_order_long_message.dissect = functi
     -- Skip element, add fields directly
     return cboe_c1_options_complex_pitch_v2_1_37.modify_order_long_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Canceled Quantity Short
-cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short = {}
-
--- Size: Canceled Quantity Short
-cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.size = 2
-
--- Display: Canceled Quantity Short
-cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.display = function(value)
-  return "Canceled Quantity Short: "..value
-end
-
--- Dissect: Canceled Quantity Short
-cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.canceled_quantity_short, range, value, display)
-
-  return offset + length, value
 end
 
 -- Reduce Size Short Message
@@ -1978,7 +2478,7 @@ end
 
 -- Dissect: Reduce Size Short Message
 cboe_c1_options_complex_pitch_v2_1_37.reduce_size_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.reduce_size_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.reduce_size_short_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.reduce_size_short_message.fields(buffer, offset, packet, parent)
@@ -1992,29 +2492,6 @@ cboe_c1_options_complex_pitch_v2_1_37.reduce_size_short_message.dissect = functi
     -- Skip element, add fields directly
     return cboe_c1_options_complex_pitch_v2_1_37.reduce_size_short_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Canceled Quantity
-cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity = {}
-
--- Size: Canceled Quantity
-cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.size = 4
-
--- Display: Canceled Quantity
-cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.display = function(value)
-  return "Canceled Quantity: "..value
-end
-
--- Dissect: Canceled Quantity
-cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.canceled_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.canceled_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Reduce Size Long Message
@@ -2049,7 +2526,7 @@ end
 
 -- Dissect: Reduce Size Long Message
 cboe_c1_options_complex_pitch_v2_1_37.reduce_size_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.reduce_size_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.reduce_size_long_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.reduce_size_long_message.fields(buffer, offset, packet, parent)
@@ -2063,52 +2540,6 @@ cboe_c1_options_complex_pitch_v2_1_37.reduce_size_long_message.dissect = functio
     -- Skip element, add fields directly
     return cboe_c1_options_complex_pitch_v2_1_37.reduce_size_long_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Remaining Quantity
-cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity = {}
-
--- Size: Remaining Quantity
-cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.size = 4
-
--- Display: Remaining Quantity
-cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.display = function(value)
-  return "Remaining Quantity: "..value
-end
-
--- Dissect: Remaining Quantity
-cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.remaining_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.remaining_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Executed Quantity
-cboe_c1_options_complex_pitch_v2_1_37.executed_quantity = {}
-
--- Size: Executed Quantity
-cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size = 4
-
--- Display: Executed Quantity
-cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.display = function(value)
-  return "Executed Quantity: "..value
-end
-
--- Dissect: Executed Quantity
-cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.executed_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.executed_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Executed At Price Size Message
@@ -2159,7 +2590,7 @@ end
 
 -- Dissect: Order Executed At Price Size Message
 cboe_c1_options_complex_pitch_v2_1_37.order_executed_at_price_size_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_at_price_size_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.order_executed_at_price_size_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.order_executed_at_price_size_message.fields(buffer, offset, packet, parent)
@@ -2215,7 +2646,7 @@ end
 
 -- Dissect: Order Executed Message
 cboe_c1_options_complex_pitch_v2_1_37.order_executed_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_executed_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.order_executed_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.order_executed_message.fields(buffer, offset, packet, parent)
@@ -2291,7 +2722,7 @@ end
 
 -- Dissect: Add Order Expanded Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_expanded_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_expanded_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.add_order_expanded_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.add_order_expanded_message.fields(buffer, offset, packet, parent)
@@ -2355,7 +2786,7 @@ end
 
 -- Dissect: Add Order Short Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_short_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.add_order_short_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.add_order_short_message.fields(buffer, offset, packet, parent)
@@ -2419,7 +2850,7 @@ end
 
 -- Dissect: Add Order Long Message
 cboe_c1_options_complex_pitch_v2_1_37.add_order_long_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_long_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.add_order_long_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.add_order_long_message.fields(buffer, offset, packet, parent)
@@ -2433,105 +2864,6 @@ cboe_c1_options_complex_pitch_v2_1_37.add_order_long_message.dissect = function(
     -- Skip element, add fields directly
     return cboe_c1_options_complex_pitch_v2_1_37.add_order_long_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Underlying
-cboe_c1_options_complex_pitch_v2_1_37.underlying = {}
-
--- Size: Underlying
-cboe_c1_options_complex_pitch_v2_1_37.underlying.size = 8
-
--- Display: Underlying
-cboe_c1_options_complex_pitch_v2_1_37.underlying.display = function(value)
-  return "Underlying: "..value
-end
-
--- Dissect: Underlying
-cboe_c1_options_complex_pitch_v2_1_37.underlying.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.underlying.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.underlying.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.underlying, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Condition
-cboe_c1_options_complex_pitch_v2_1_37.symbol_condition = {}
-
--- Size: Symbol Condition
-cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.size = 1
-
--- Display: Symbol Condition
-cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
-
-  return "Symbol Condition: Unknown("..value..")"
-end
-
--- Dissect: Symbol Condition
-cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.symbol_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.symbol_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Osi Symbol
-cboe_c1_options_complex_pitch_v2_1_37.osi_symbol = {}
-
--- Size: Osi Symbol
-cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.size = 21
-
--- Display: Osi Symbol
-cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.display = function(value)
-  return "Osi Symbol: "..value
-end
-
--- Dissect: Osi Symbol
-cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.osi_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Feed Symbol
-cboe_c1_options_complex_pitch_v2_1_37.feed_symbol = {}
-
--- Size: Feed Symbol
-cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.size = 6
-
--- Display: Feed Symbol
-cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.display = function(value)
-  return "Feed Symbol: "..value
-end
-
--- Dissect: Feed Symbol
-cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.feed_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Symbol Mapping Message
@@ -2570,7 +2902,7 @@ end
 
 -- Dissect: Symbol Mapping Message
 cboe_c1_options_complex_pitch_v2_1_37.symbol_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_mapping_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.symbol_mapping_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.symbol_mapping_message.fields(buffer, offset, packet, parent)
@@ -2584,82 +2916,6 @@ cboe_c1_options_complex_pitch_v2_1_37.symbol_mapping_message.dissect = function(
     -- Skip element, add fields directly
     return cboe_c1_options_complex_pitch_v2_1_37.symbol_mapping_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Leg Security Type
-cboe_c1_options_complex_pitch_v2_1_37.leg_security_type = {}
-
--- Size: Leg Security Type
-cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.size = 1
-
--- Display: Leg Security Type
-cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.display = function(value)
-  if value == "O" then
-    return "Leg Security Type: Option (O)"
-  end
-  if value == "E" then
-    return "Leg Security Type: Equity (E)"
-  end
-
-  return "Leg Security Type: Unknown("..value..")"
-end
-
--- Dissect: Leg Security Type
-cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.leg_security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio
-cboe_c1_options_complex_pitch_v2_1_37.leg_ratio = {}
-
--- Size: Leg Ratio
-cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.size = 4
-
--- Display: Leg Ratio
-cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.display = function(value)
-  return "Leg Ratio: "..value
-end
-
--- Dissect: Leg Ratio
-cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.leg_ratio.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_ratio, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Symbol
-cboe_c1_options_complex_pitch_v2_1_37.leg_symbol = {}
-
--- Size: Leg Symbol
-cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.size = 8
-
--- Display: Leg Symbol
-cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.display = function(value)
-  return "Leg Symbol: "..value
-end
-
--- Dissect: Leg Symbol
-cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Complex Instrument Leg
@@ -2716,75 +2972,6 @@ cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_leg.dissect = function(
   end
 end
 
--- Leg Count
-cboe_c1_options_complex_pitch_v2_1_37.leg_count = {}
-
--- Size: Leg Count
-cboe_c1_options_complex_pitch_v2_1_37.leg_count.size = 1
-
--- Display: Leg Count
-cboe_c1_options_complex_pitch_v2_1_37.leg_count.display = function(value)
-  return "Leg Count: "..value
-end
-
--- Dissect: Leg Count
-cboe_c1_options_complex_pitch_v2_1_37.leg_count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.leg_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.leg_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Complex Auction Reserved Bytes
-cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes = {}
-
--- Size: Complex Auction Reserved Bytes
-cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.size = 3
-
--- Display: Complex Auction Reserved Bytes
-cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.display = function(value)
-  return "Complex Auction Reserved Bytes: "..value
-end
-
--- Dissect: Complex Auction Reserved Bytes
-cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_auction_reserved_bytes.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_auction_reserved_bytes, range, value, display)
-
-  return offset + length, value
-end
-
--- Complex Auction Type
-cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type = {}
-
--- Size: Complex Auction Type
-cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.size = 1
-
--- Display: Complex Auction Type
-cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.display = function(value)
-  return "Complex Auction Type: "..value
-end
-
--- Dissect: Complex Auction Type
-cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_auction_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_auction_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Complex Instrument Type
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type = {}
 
@@ -2827,29 +3014,6 @@ cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.dissect = function
     -- Skip element, add fields directly
     return cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_type.fields(buffer, offset, packet, parent)
   end
-end
-
--- Complex Instrument Underlying
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying = {}
-
--- Size: Complex Instrument Underlying
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.size = 8
-
--- Display: Complex Instrument Underlying
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.display = function(value)
-  return "Complex Instrument Underlying: "..value
-end
-
--- Dissect: Complex Instrument Underlying
-cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_underlying, range, value, display)
-
-  return offset + length, value
 end
 
 -- Complex Instrument Definition Expanded Message
@@ -2910,7 +3074,7 @@ end
 
 -- Dissect: Complex Instrument Definition Expanded Message
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_instrument_definition_expanded_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_definition_expanded_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.fields(buffer, offset, packet, parent)
@@ -2950,7 +3114,7 @@ end
 
 -- Dissect: Transaction End Message
 cboe_c1_options_complex_pitch_v2_1_37.transaction_end_message.dissect = function(buffer, offset, packet, parent)
-  if show.transaction_end_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.transaction_end_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.transaction_end_message.fields(buffer, offset, packet, parent)
@@ -2990,7 +3154,7 @@ end
 
 -- Dissect: Transaction Begin
 cboe_c1_options_complex_pitch_v2_1_37.transaction_begin.dissect = function(buffer, offset, packet, parent)
-  if show.transaction_begin then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.transaction_begin, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.transaction_begin.fields(buffer, offset, packet, parent)
@@ -3030,7 +3194,7 @@ end
 
 -- Dissect: Unit Clear Message
 cboe_c1_options_complex_pitch_v2_1_37.unit_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.unit_clear_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.unit_clear_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.unit_clear_message.fields(buffer, offset, packet, parent)
@@ -3044,52 +3208,6 @@ cboe_c1_options_complex_pitch_v2_1_37.unit_clear_message.dissect = function(buff
     -- Skip element, add fields directly
     return cboe_c1_options_complex_pitch_v2_1_37.unit_clear_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Epoch Time
-cboe_c1_options_complex_pitch_v2_1_37.epoch_time = {}
-
--- Size: Epoch Time
-cboe_c1_options_complex_pitch_v2_1_37.epoch_time.size = 4
-
--- Display: Epoch Time
-cboe_c1_options_complex_pitch_v2_1_37.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
--- Dissect: Epoch Time
-cboe_c1_options_complex_pitch_v2_1_37.epoch_time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.epoch_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.epoch_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.epoch_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Time
-cboe_c1_options_complex_pitch_v2_1_37.time = {}
-
--- Size: Time
-cboe_c1_options_complex_pitch_v2_1_37.time.size = 4
-
--- Display: Time
-cboe_c1_options_complex_pitch_v2_1_37.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-cboe_c1_options_complex_pitch_v2_1_37.time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Time Message
@@ -3120,7 +3238,7 @@ end
 
 -- Dissect: Time Message
 cboe_c1_options_complex_pitch_v2_1_37.time_message.dissect = function(buffer, offset, packet, parent)
-  if show.time_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.time_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.time_message.fields(buffer, offset, packet, parent)
@@ -3134,52 +3252,6 @@ cboe_c1_options_complex_pitch_v2_1_37.time_message.dissect = function(buffer, of
     -- Skip element, add fields directly
     return cboe_c1_options_complex_pitch_v2_1_37.time_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trade Date
-cboe_c1_options_complex_pitch_v2_1_37.trade_date = {}
-
--- Size: Trade Date
-cboe_c1_options_complex_pitch_v2_1_37.trade_date.size = 4
-
--- Display: Trade Date
-cboe_c1_options_complex_pitch_v2_1_37.trade_date.display = function(value)
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-cboe_c1_options_complex_pitch_v2_1_37.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Midnight Reference
-cboe_c1_options_complex_pitch_v2_1_37.midnight_reference = {}
-
--- Size: Midnight Reference
-cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.size = 4
-
--- Display: Midnight Reference
-cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.display = function(value)
-  return "Midnight Reference: "..value
-end
-
--- Dissect: Midnight Reference
-cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.midnight_reference.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.midnight_reference, range, value, display)
-
-  return offset + length, value
 end
 
 -- Time Reference Message
@@ -3218,7 +3290,7 @@ end
 
 -- Dissect: Time Reference Message
 cboe_c1_options_complex_pitch_v2_1_37.time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.time_reference_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.time_reference_message, buffer(offset, 0))
     local index = cboe_c1_options_complex_pitch_v2_1_37.time_reference_message.fields(buffer, offset, packet, parent)
@@ -3347,131 +3419,6 @@ cboe_c1_options_complex_pitch_v2_1_37.payload.dissect = function(buffer, offset,
   return offset
 end
 
--- Message Type
-cboe_c1_options_complex_pitch_v2_1_37.message_type = {}
-
--- Size: Message Type
-cboe_c1_options_complex_pitch_v2_1_37.message_type.size = 1
-
--- Display: Message Type
-cboe_c1_options_complex_pitch_v2_1_37.message_type.display = function(value)
-  if value == 0xB1 then
-    return "Message Type: Time Reference Message (0xB1)"
-  end
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0xBC then
-    return "Message Type: Transaction Begin (0xBC)"
-  end
-  if value == 0xBD then
-    return "Message Type: Transaction End Message (0xBD)"
-  end
-  if value == 0x9A then
-    return "Message Type: Complex Instrument Definition Expanded Message (0x9A)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0x21 then
-    return "Message Type: Add Order Long Message (0x21)"
-  end
-  if value == 0x22 then
-    return "Message Type: Add Order Short Message (0x22)"
-  end
-  if value == 0x2F then
-    return "Message Type: Add Order Expanded Message (0x2F)"
-  end
-  if value == 0x23 then
-    return "Message Type: Order Executed Message (0x23)"
-  end
-  if value == 0x24 then
-    return "Message Type: Order Executed At Price Size Message (0x24)"
-  end
-  if value == 0x25 then
-    return "Message Type: Reduce Size Long Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Reduce Size Short Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Modify Order Long Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Modify Order Short Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: Delete Order Message (0x29)"
-  end
-  if value == 0x2A then
-    return "Message Type: Trade Long Message (0x2A)"
-  end
-  if value == 0x2B then
-    return "Message Type: Trade Short Message (0x2B)"
-  end
-  if value == 0xAD then
-    return "Message Type: Auction Notification Message (0xAD)"
-  end
-  if value == 0xAE then
-    return "Message Type: Auction Cancel Message (0xAE)"
-  end
-  if value == 0xAF then
-    return "Message Type: Auction Trade Message (0xAF)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Auction Update Message (0xD1)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-cboe_c1_options_complex_pitch_v2_1_37.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-cboe_c1_options_complex_pitch_v2_1_37.message_length = {}
-
--- Size: Message Length
-cboe_c1_options_complex_pitch_v2_1_37.message_length.size = 1
-
--- Display: Message Length
-cboe_c1_options_complex_pitch_v2_1_37.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-cboe_c1_options_complex_pitch_v2_1_37.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 cboe_c1_options_complex_pitch_v2_1_37.message_header = {}
 
@@ -3565,98 +3512,6 @@ cboe_c1_options_complex_pitch_v2_1_37.message.dissect = function(buffer, offset,
 
     return index
   end
-end
-
--- Sequence
-cboe_c1_options_complex_pitch_v2_1_37.sequence = {}
-
--- Size: Sequence
-cboe_c1_options_complex_pitch_v2_1_37.sequence.size = 4
-
--- Display: Sequence
-cboe_c1_options_complex_pitch_v2_1_37.sequence.display = function(value)
-  return "Sequence: "..value
-end
-
--- Dissect: Sequence
-cboe_c1_options_complex_pitch_v2_1_37.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.sequence.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.sequence, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit
-cboe_c1_options_complex_pitch_v2_1_37.unit = {}
-
--- Size: Unit
-cboe_c1_options_complex_pitch_v2_1_37.unit.size = 1
-
--- Display: Unit
-cboe_c1_options_complex_pitch_v2_1_37.unit.display = function(value)
-  return "Unit: "..value
-end
-
--- Dissect: Unit
-cboe_c1_options_complex_pitch_v2_1_37.unit.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Count
-cboe_c1_options_complex_pitch_v2_1_37.count = {}
-
--- Size: Count
-cboe_c1_options_complex_pitch_v2_1_37.count.size = 1
-
--- Display: Count
-cboe_c1_options_complex_pitch_v2_1_37.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_c1_options_complex_pitch_v2_1_37.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
--- Length
-cboe_c1_options_complex_pitch_v2_1_37.length = {}
-
--- Size: Length
-cboe_c1_options_complex_pitch_v2_1_37.length.size = 2
-
--- Display: Length
-cboe_c1_options_complex_pitch_v2_1_37.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-cboe_c1_options_complex_pitch_v2_1_37.length.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1_options_complex_pitch_v2_1_37.length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1_options_complex_pitch_v2_1_37.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

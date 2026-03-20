@@ -18,9 +18,11 @@ local cboe_futures_orderentry_boe3_v1_0 = {}
 omi_cboe_futures_orderentry_boe3_v1_0.fields.account = ProtoField.new("Account", "cboe.futures.orderentry.boe3.v1.0.account", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.acknowledgement_style = ProtoField.new("Acknowledgement Style", "cboe.futures.orderentry.boe3.v1.0.acknowledgementstyle", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.base_liquidity_indicator = ProtoField.new("Base Liquidity Indicator", "cboe.futures.orderentry.boe3.v1.0.baseliquidityindicator", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.futures.orderentry.boe3.v1.0.cancelordermessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_orig_on_reject = ProtoField.new("Cancel Orig On Reject", "cboe.futures.orderentry.boe3.v1.0.cancelorigonreject", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "cboe.futures.orderentry.boe3.v1.0.cancelreason", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_reject_reason = ProtoField.new("Cancel Reject Reason", "cboe.futures.orderentry.boe3.v1.0.cancelrejectreason", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.futures.orderentry.boe3.v1.0.cancelrejectedmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.cancelled_order_count = ProtoField.new("Cancelled Order Count", "cboe.futures.orderentry.boe3.v1.0.cancelledordercount", ftypes.UINT32)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.capacity = ProtoField.new("Capacity", "cboe.futures.orderentry.boe3.v1.0.capacity", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cboe.futures.orderentry.boe3.v1.0.clordid", ftypes.STRING)
@@ -58,26 +60,36 @@ omi_cboe_futures_orderentry_boe3_v1_0.fields.logout_reason = ProtoField.new("Log
 omi_cboe_futures_orderentry_boe3_v1_0.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.futures.orderentry.boe3.v1.0.logoutreasontext", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.futures.orderentry.boe3.v1.0.logoutresponsemessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "cboe.futures.orderentry.boe3.v1.0.manualorderindicator", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_acknowledgement_message = ProtoField.new("Mass Cancel Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.masscancelacknowledgementmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.futures.orderentry.boe3.v1.0.masscancelid", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.futures.orderentry.boe3.v1.0.masscancelinst", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "cboe.futures.orderentry.boe3.v1.0.masscancelordermessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "cboe.futures.orderentry.boe3.v1.0.masscancelrejectreason", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_rejected_message = ProtoField.new("Mass Cancel Rejected Message", "cboe.futures.orderentry.boe3.v1.0.masscancelrejectedmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.futures.orderentry.boe3.v1.0.matchingunit", ftypes.UINT8)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.futures.orderentry.boe3.v1.0.maturitydate", ftypes.UINT32)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.message = ProtoField.new("Message", "cboe.futures.orderentry.boe3.v1.0.message", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.futures.orderentry.boe3.v1.0.messageheader", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.message_length = ProtoField.new("Message Length", "cboe.futures.orderentry.boe3.v1.0.messagelength", ftypes.UINT16)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.message_type = ProtoField.new("Message Type", "cboe.futures.orderentry.boe3.v1.0.messagetype", ftypes.UINT16)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.min_qty = ProtoField.new("Min Qty", "cboe.futures.orderentry.boe3.v1.0.minqty", ftypes.UINT32)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.modify_order_message = ProtoField.new("Modify Order Message", "cboe.futures.orderentry.boe3.v1.0.modifyordermessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.modify_reject_reason = ProtoField.new("Modify Reject Reason", "cboe.futures.orderentry.boe3.v1.0.modifyrejectreason", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.modify_rejected_message = ProtoField.new("Modify Rejected Message", "cboe.futures.orderentry.boe3.v1.0.modifyrejectedmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.mtp_modifier = ProtoField.new("Mtp Modifier", "cboe.futures.orderentry.boe3.v1.0.mtpmodifier", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "cboe.futures.orderentry.boe3.v1.0.multilegreportingtype", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.new_order_message = ProtoField.new("New Order Message", "cboe.futures.orderentry.boe3.v1.0.newordermessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.futures.orderentry.boe3.v1.0.numberofunits", ftypes.UINT8)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.oeo_id = ProtoField.new("Oeo Id", "cboe.futures.orderentry.boe3.v1.0.oeoid", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.open_close = ProtoField.new("Open Close", "cboe.futures.orderentry.boe3.v1.0.openclose", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.ord_type = ProtoField.new("Ord Type", "cboe.futures.orderentry.boe3.v1.0.ordtype", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.order_acknowledgement_message = ProtoField.new("Order Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.orderacknowledgementmessage", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "cboe.futures.orderentry.boe3.v1.0.ordercancelledmessage", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.order_execution_message = ProtoField.new("Order Execution Message", "cboe.futures.orderentry.boe3.v1.0.orderexecutionmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.order_id = ProtoField.new("Order Id", "cboe.futures.orderentry.boe3.v1.0.orderid", ftypes.UINT64)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.order_modified_message = ProtoField.new("Order Modified Message", "cboe.futures.orderentry.boe3.v1.0.ordermodifiedmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.order_qty = ProtoField.new("Order Qty", "cboe.futures.orderentry.boe3.v1.0.orderqty", ftypes.UINT32)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.futures.orderentry.boe3.v1.0.orderrejectreason", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "cboe.futures.orderentry.boe3.v1.0.orderrejectedmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.futures.orderentry.boe3.v1.0.origclordid", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.orig_time = ProtoField.new("Orig Time", "cboe.futures.orderentry.boe3.v1.0.origtime", ftypes.UINT64)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.packet = ProtoField.new("Packet", "cboe.futures.orderentry.boe3.v1.0.packet", ftypes.STRING)
@@ -86,17 +98,28 @@ omi_cboe_futures_orderentry_boe3_v1_0.fields.pending_status = ProtoField.new("Pe
 omi_cboe_futures_orderentry_boe3_v1_0.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.futures.orderentry.boe3.v1.0.preventmatch", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.price = ProtoField.new("Price", "cboe.futures.orderentry.boe3.v1.0.price", ftypes.DOUBLE)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.product_name = ProtoField.new("Product Name", "cboe.futures.orderentry.boe3.v1.0.productname", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_acknowledgement_message = ProtoField.new("Purge Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.purgeacknowledgementmessage", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_orders_message = ProtoField.new("Purge Orders Message", "cboe.futures.orderentry.boe3.v1.0.purgeordersmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.futures.orderentry.boe3.v1.0.purgerejectreason", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_rejected_message = ProtoField.new("Purge Rejected Message", "cboe.futures.orderentry.boe3.v1.0.purgerejectedmessage", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_cancelled_message = ProtoField.new("Quote Cancelled Message", "cboe.futures.orderentry.boe3.v1.0.quotecancelledmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_cnt = ProtoField.new("Quote Cnt", "cboe.futures.orderentry.boe3.v1.0.quotecnt", ftypes.UINT8)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_execution_message = ProtoField.new("Quote Execution Message", "cboe.futures.orderentry.boe3.v1.0.quoteexecutionmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cboe.futures.orderentry.boe3.v1.0.quoterejectreason", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_restated_message = ProtoField.new("Quote Restated Message", "cboe.futures.orderentry.boe3.v1.0.quoterestatedmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_result = ProtoField.new("Quote Result", "cboe.futures.orderentry.boe3.v1.0.quoteresult", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_symbol = ProtoField.new("Quote Symbol", "cboe.futures.orderentry.boe3.v1.0.quotesymbol", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_group = ProtoField.new("Quote Update Acknowledgement Group", "cboe.futures.orderentry.boe3.v1.0.quoteupdateacknowledgementgroup", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_message = ProtoField.new("Quote Update Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.quoteupdateacknowledgementmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_group = ProtoField.new("Quote Update Group", "cboe.futures.orderentry.boe3.v1.0.quoteupdategroup", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_id = ProtoField.new("Quote Update Id", "cboe.futures.orderentry.boe3.v1.0.quoteupdateid", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_message = ProtoField.new("Quote Update Message", "cboe.futures.orderentry.boe3.v1.0.quoteupdatemessage", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_rejected_message = ProtoField.new("Quote Update Rejected Message", "cboe.futures.orderentry.boe3.v1.0.quoteupdaterejectedmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.futures.orderentry.boe3.v1.0.replayunspecifiedunit", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.futures.orderentry.boe3.v1.0.requestreceivedtime", ftypes.UINT64)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.futures.orderentry.boe3.v1.0.reservedfield", ftypes.UINT8)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_acknowledgement_message = ProtoField.new("Reset Risk Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.resetriskacknowledgementmessage", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_message = ProtoField.new("Reset Risk Message", "cboe.futures.orderentry.boe3.v1.0.resetriskmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.futures.orderentry.boe3.v1.0.restatementreason", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.futures.orderentry.boe3.v1.0.riskreset", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.futures.orderentry.boe3.v1.0.riskresetresult", ftypes.STRING)
@@ -111,46 +134,20 @@ omi_cboe_futures_orderentry_boe3_v1_0.fields.start_of_message = ProtoField.new("
 omi_cboe_futures_orderentry_boe3_v1_0.fields.stop_px = ProtoField.new("Stop Px", "cboe.futures.orderentry.boe3.v1.0.stoppx", ftypes.DOUBLE)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.futures.orderentry.boe3.v1.0.subliquidityindicator", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.symbol = ProtoField.new("Symbol", "cboe.futures.orderentry.boe3.v1.0.symbol", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.tas_quote_restatement_message = ProtoField.new("Tas Quote Restatement Message", "cboe.futures.orderentry.boe3.v1.0.tasquoterestatementmessage", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.tas_restatement_message = ProtoField.new("Tas Restatement Message", "cboe.futures.orderentry.boe3.v1.0.tasrestatementmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.text = ProtoField.new("Text", "cboe.futures.orderentry.boe3.v1.0.text", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.time_in_force = ProtoField.new("Time In Force", "cboe.futures.orderentry.boe3.v1.0.timeinforce", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.futures.orderentry.boe3.v1.0.tradecancelorcorrectmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.trade_date = ProtoField.new("Trade Date", "cboe.futures.orderentry.boe3.v1.0.tradedate", ftypes.UINT32)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.trading_group_id = ProtoField.new("Trading Group Id", "cboe.futures.orderentry.boe3.v1.0.tradinggroupid", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.futures.orderentry.boe3.v1.0.transactiontime", ftypes.UINT64)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.unique_id_level = ProtoField.new("Unique Id Level", "cboe.futures.orderentry.boe3.v1.0.uniqueidlevel", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.unit_number = ProtoField.new("Unit Number", "cboe.futures.orderentry.boe3.v1.0.unitnumber", ftypes.UINT8)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.futures.orderentry.boe3.v1.0.unitsequence", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.working_price = ProtoField.new("Working Price", "cboe.futures.orderentry.boe3.v1.0.workingprice", ftypes.DOUBLE)
-
--- Cboe Futures OrderEntry Boe3 1.0 messages
-omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.futures.orderentry.boe3.v1.0.cancelordermessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.futures.orderentry.boe3.v1.0.cancelrejectedmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_acknowledgement_message = ProtoField.new("Mass Cancel Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.masscancelacknowledgementmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "cboe.futures.orderentry.boe3.v1.0.masscancelordermessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_rejected_message = ProtoField.new("Mass Cancel Rejected Message", "cboe.futures.orderentry.boe3.v1.0.masscancelrejectedmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.modify_order_message = ProtoField.new("Modify Order Message", "cboe.futures.orderentry.boe3.v1.0.modifyordermessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.modify_rejected_message = ProtoField.new("Modify Rejected Message", "cboe.futures.orderentry.boe3.v1.0.modifyrejectedmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.new_order_message = ProtoField.new("New Order Message", "cboe.futures.orderentry.boe3.v1.0.newordermessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.order_acknowledgement_message = ProtoField.new("Order Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.orderacknowledgementmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "cboe.futures.orderentry.boe3.v1.0.ordercancelledmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.order_execution_message = ProtoField.new("Order Execution Message", "cboe.futures.orderentry.boe3.v1.0.orderexecutionmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.order_modified_message = ProtoField.new("Order Modified Message", "cboe.futures.orderentry.boe3.v1.0.ordermodifiedmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "cboe.futures.orderentry.boe3.v1.0.orderrejectedmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_acknowledgement_message = ProtoField.new("Purge Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.purgeacknowledgementmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_orders_message = ProtoField.new("Purge Orders Message", "cboe.futures.orderentry.boe3.v1.0.purgeordersmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_rejected_message = ProtoField.new("Purge Rejected Message", "cboe.futures.orderentry.boe3.v1.0.purgerejectedmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_cancelled_message = ProtoField.new("Quote Cancelled Message", "cboe.futures.orderentry.boe3.v1.0.quotecancelledmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_execution_message = ProtoField.new("Quote Execution Message", "cboe.futures.orderentry.boe3.v1.0.quoteexecutionmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_restated_message = ProtoField.new("Quote Restated Message", "cboe.futures.orderentry.boe3.v1.0.quoterestatedmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_message = ProtoField.new("Quote Update Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.quoteupdateacknowledgementmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_message = ProtoField.new("Quote Update Message", "cboe.futures.orderentry.boe3.v1.0.quoteupdatemessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_rejected_message = ProtoField.new("Quote Update Rejected Message", "cboe.futures.orderentry.boe3.v1.0.quoteupdaterejectedmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_acknowledgement_message = ProtoField.new("Reset Risk Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.resetriskacknowledgementmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_message = ProtoField.new("Reset Risk Message", "cboe.futures.orderentry.boe3.v1.0.resetriskmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.tas_quote_restatement_message = ProtoField.new("Tas Quote Restatement Message", "cboe.futures.orderentry.boe3.v1.0.tasquoterestatementmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.tas_restatement_message = ProtoField.new("Tas Restatement Message", "cboe.futures.orderentry.boe3.v1.0.tasrestatementmessage", ftypes.STRING)
-omi_cboe_futures_orderentry_boe3_v1_0.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.futures.orderentry.boe3.v1.0.tradecancelorcorrectmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.variance_quote_restatement_message = ProtoField.new("Variance Quote Restatement Message", "cboe.futures.orderentry.boe3.v1.0.variancequoterestatementmessage", ftypes.STRING)
 omi_cboe_futures_orderentry_boe3_v1_0.fields.variance_restatement_message = ProtoField.new("Variance Restatement Message", "cboe.futures.orderentry.boe3.v1.0.variancerestatementmessage", ftypes.STRING)
+omi_cboe_futures_orderentry_boe3_v1_0.fields.working_price = ProtoField.new("Working Price", "cboe.futures.orderentry.boe3.v1.0.workingprice", ftypes.DOUBLE)
 
 -- Cboe Futures OrderEntry Boe3 1.0 generated fields
 omi_cboe_futures_orderentry_boe3_v1_0.fields.custom_group_id_index = ProtoField.new("Custom Group Id Index", "cboe.futures.orderentry.boe3.v1.0.customgroupidindex", ftypes.UINT16)
@@ -204,7 +201,6 @@ show.trade_cancel_or_correct_message = true
 show.unit_sequence = true
 show.variance_quote_restatement_message = true
 show.variance_restatement_message = true
-show.message = false
 
 -- Register Cboe Futures OrderEntry Boe3 1.0 Show Options
 omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
@@ -246,7 +242,6 @@ omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_trade_cancel_or_correct_message
 omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_unit_sequence = Pref.bool("Show Unit Sequence", show.unit_sequence, "Parse and add Unit Sequence to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_quote_restatement_message = Pref.bool("Show Variance Quote Restatement Message", show.variance_quote_restatement_message, "Parse and add Variance Quote Restatement Message to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_restatement_message = Pref.bool("Show Variance Restatement Message", show.variance_restatement_message, "Parse and add Variance Restatement Message to protocol tree")
-omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_futures_orderentry_boe3_v1_0.prefs_changed()
@@ -409,10 +404,6 @@ function omi_cboe_futures_orderentry_boe3_v1_0.prefs_changed()
     show.variance_restatement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_restatement_message
     changed = true
   end
-  if show.message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_message then
-    show.message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_message
-    changed = true
-  end
 
   -- Reload on changed preference
   if changed then
@@ -422,8 +413,2522 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cboe Futures OrderEntry Boe3 1.0
+-- Cboe Futures OrderEntry Boe3 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Account
+cboe_futures_orderentry_boe3_v1_0.account = {}
+
+-- Size: Account
+cboe_futures_orderentry_boe3_v1_0.account.size = 16
+
+-- Display: Account
+cboe_futures_orderentry_boe3_v1_0.account.display = function(value)
+  return "Account: "..value
+end
+
+-- Dissect: Account
+cboe_futures_orderentry_boe3_v1_0.account.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.account.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Acknowledgement Style
+cboe_futures_orderentry_boe3_v1_0.acknowledgement_style = {}
+
+-- Size: Acknowledgement Style
+cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.size = 1
+
+-- Display: Acknowledgement Style
+cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.display = function(value)
+  if value == "M" then
+    return "Acknowledgement Style: Order Cancelled Messages Are Sent For Each Cancelled Order (M)"
+  end
+  if value == "S" then
+    return "Acknowledgement Style: A Single Mass Cancel Acknowledgement Message Is Sent (S)"
+  end
+  if value == "B" then
+    return "Acknowledgement Style: Both Individual Order Cancelled And Mass Cancel Acknowledgement Messages Will Be Sent (B)"
+  end
+
+  return "Acknowledgement Style: Unknown("..value..")"
+end
+
+-- Dissect: Acknowledgement Style
+cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.acknowledgement_style, range, value, display)
+
+  return offset + length, value
+end
+
+-- Base Liquidity Indicator
+cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator = {}
+
+-- Size: Base Liquidity Indicator
+cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size = 1
+
+-- Display: Base Liquidity Indicator
+cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.display = function(value)
+  if value == "A" then
+    return "Base Liquidity Indicator: Added Liquidity (A)"
+  end
+  if value == "R" then
+    return "Base Liquidity Indicator: Removed Liquidity (R)"
+  end
+  if value == "C" then
+    return "Base Liquidity Indicator: Market Opening Trade (C)"
+  end
+
+  return "Base Liquidity Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Base Liquidity Indicator
+cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.base_liquidity_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Orig On Reject
+cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject = {}
+
+-- Size: Cancel Orig On Reject
+cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.size = 1
+
+-- Display: Cancel Orig On Reject
+cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.display = function(value)
+  if value == "N" then
+    return "Cancel Orig On Reject: Leave Original Order Alone (N)"
+  end
+  if value == "Y" then
+    return "Cancel Orig On Reject: Cancel Original Order If Modification Fails (Y)"
+  end
+
+  return "Cancel Orig On Reject: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Orig On Reject
+cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_orig_on_reject, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Reason
+cboe_futures_orderentry_boe3_v1_0.cancel_reason = {}
+
+-- Size: Cancel Reason
+cboe_futures_orderentry_boe3_v1_0.cancel_reason.size = 1
+
+-- Display: Cancel Reason
+cboe_futures_orderentry_boe3_v1_0.cancel_reason.display = function(value)
+  if value == "A" then
+    return "Cancel Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Cancel Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Cancel Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Cancel Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Cancel Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reason: Incorrect Data Center (I)"
+  end
+  if value == "K" then
+    return "Cancel Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Cancel Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Cancel Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "U" then
+    return "Cancel Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Cancel Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Cancel Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Cancel Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Cancel Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Cancel Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Cancel Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Cancel Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Cancel Reason: Session End (z)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Reason
+cboe_futures_orderentry_boe3_v1_0.cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cancel_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.cancel_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Reject Reason
+cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason = {}
+
+-- Size: Cancel Reject Reason
+cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.size = 1
+
+-- Display: Cancel Reject Reason
+cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.display = function(value)
+  if value == "A" then
+    return "Cancel Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Cancel Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Cancel Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Cancel Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Cancel Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "K" then
+    return "Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Cancel Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "U" then
+    return "Cancel Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Cancel Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Cancel Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Cancel Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Cancel Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Cancel Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Cancel Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Cancel Reject Reason: Session End (z)"
+  end
+
+  return "Cancel Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Reject Reason
+cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancelled Order Count
+cboe_futures_orderentry_boe3_v1_0.cancelled_order_count = {}
+
+-- Size: Cancelled Order Count
+cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.size = 4
+
+-- Display: Cancelled Order Count
+cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.display = function(value)
+  return "Cancelled Order Count: "..value
+end
+
+-- Dissect: Cancelled Order Count
+cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cancelled_order_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Capacity
+cboe_futures_orderentry_boe3_v1_0.capacity = {}
+
+-- Size: Capacity
+cboe_futures_orderentry_boe3_v1_0.capacity.size = 1
+
+-- Display: Capacity
+cboe_futures_orderentry_boe3_v1_0.capacity.display = function(value)
+  if value == "C" then
+    return "Capacity: Customer (C)"
+  end
+  if value == "F" then
+    return "Capacity: Firm (F)"
+  end
+
+  return "Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Capacity
+cboe_futures_orderentry_boe3_v1_0.capacity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cl Ord Id
+cboe_futures_orderentry_boe3_v1_0.cl_ord_id = {}
+
+-- Size: Cl Ord Id
+cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size = 20
+
+-- Display: Cl Ord Id
+cboe_futures_orderentry_boe3_v1_0.cl_ord_id.display = function(value)
+  return "Cl Ord Id: "..value
+end
+
+-- Dissect: Cl Ord Id
+cboe_futures_orderentry_boe3_v1_0.cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Account
+cboe_futures_orderentry_boe3_v1_0.clearing_account = {}
+
+-- Size: Clearing Account
+cboe_futures_orderentry_boe3_v1_0.clearing_account.size = 4
+
+-- Display: Clearing Account
+cboe_futures_orderentry_boe3_v1_0.clearing_account.display = function(value)
+  return "Clearing Account: "..value
+end
+
+-- Dissect: Clearing Account
+cboe_futures_orderentry_boe3_v1_0.clearing_account.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.clearing_account.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.clearing_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Firm
+cboe_futures_orderentry_boe3_v1_0.clearing_firm = {}
+
+-- Size: Clearing Firm
+cboe_futures_orderentry_boe3_v1_0.clearing_firm.size = 4
+
+-- Display: Clearing Firm
+cboe_futures_orderentry_boe3_v1_0.clearing_firm.display = function(value)
+  return "Clearing Firm: "..value
+end
+
+-- Dissect: Clearing Firm
+cboe_futures_orderentry_boe3_v1_0.clearing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.clearing_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Firm Filter
+cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter = {}
+
+-- Size: Clearing Firm Filter
+cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.size = 1
+
+-- Display: Clearing Firm Filter
+cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.display = function(value)
+  if value == "A" then
+    return "Clearing Firm Filter: No Filtering By Clearing Firm (A)"
+  end
+  if value == "F" then
+    return "Clearing Firm Filter: Specified Clearing Firm Optional Field (F)"
+  end
+
+  return "Clearing Firm Filter: Unknown("..value..")"
+end
+
+-- Dissect: Clearing Firm Filter
+cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_firm_filter, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Price
+cboe_futures_orderentry_boe3_v1_0.clearing_price = {}
+
+-- Size: Clearing Price
+cboe_futures_orderentry_boe3_v1_0.clearing_price.size = 8
+
+-- Display: Clearing Price
+cboe_futures_orderentry_boe3_v1_0.clearing_price.display = function(value)
+  return "Clearing Price: "..value
+end
+
+-- Translate: Clearing Price
+cboe_futures_orderentry_boe3_v1_0.clearing_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Clearing Price
+cboe_futures_orderentry_boe3_v1_0.clearing_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.clearing_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_futures_orderentry_boe3_v1_0.clearing_price.translate(raw)
+  local display = cboe_futures_orderentry_boe3_v1_0.clearing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Size
+cboe_futures_orderentry_boe3_v1_0.clearing_size = {}
+
+-- Size: Clearing Size
+cboe_futures_orderentry_boe3_v1_0.clearing_size.size = 4
+
+-- Display: Clearing Size
+cboe_futures_orderentry_boe3_v1_0.clearing_size.display = function(value)
+  return "Clearing Size: "..value
+end
+
+-- Dissect: Clearing Size
+cboe_futures_orderentry_boe3_v1_0.clearing_size.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.clearing_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.clearing_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Symbol
+cboe_futures_orderentry_boe3_v1_0.clearing_symbol = {}
+
+-- Size: Clearing Symbol
+cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size = 8
+
+-- Display: Clearing Symbol
+cboe_futures_orderentry_boe3_v1_0.clearing_symbol.display = function(value)
+  return "Clearing Symbol: "..value
+end
+
+-- Dissect: Clearing Symbol
+cboe_futures_orderentry_boe3_v1_0.clearing_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.clearing_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Sequence
+cboe_futures_orderentry_boe3_v1_0.client_sequence = {}
+
+-- Size: Client Sequence
+cboe_futures_orderentry_boe3_v1_0.client_sequence.size = 4
+
+-- Display: Client Sequence
+cboe_futures_orderentry_boe3_v1_0.client_sequence.display = function(value)
+  return "Client Sequence: "..value
+end
+
+-- Dissect: Client Sequence
+cboe_futures_orderentry_boe3_v1_0.client_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.client_sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.client_sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.client_sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cmta Number
+cboe_futures_orderentry_boe3_v1_0.cmta_number = {}
+
+-- Size: Cmta Number
+cboe_futures_orderentry_boe3_v1_0.cmta_number.size = 4
+
+-- Display: Cmta Number
+cboe_futures_orderentry_boe3_v1_0.cmta_number.display = function(value)
+  return "Cmta Number: "..value
+end
+
+-- Dissect: Cmta Number
+cboe_futures_orderentry_boe3_v1_0.cmta_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cmta_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.cmta_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cmta_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Price
+cboe_futures_orderentry_boe3_v1_0.corrected_price = {}
+
+-- Size: Corrected Price
+cboe_futures_orderentry_boe3_v1_0.corrected_price.size = 8
+
+-- Display: Corrected Price
+cboe_futures_orderentry_boe3_v1_0.corrected_price.display = function(value)
+  return "Corrected Price: "..value
+end
+
+-- Translate: Corrected Price
+cboe_futures_orderentry_boe3_v1_0.corrected_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Corrected Price
+cboe_futures_orderentry_boe3_v1_0.corrected_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.corrected_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_futures_orderentry_boe3_v1_0.corrected_price.translate(raw)
+  local display = cboe_futures_orderentry_boe3_v1_0.corrected_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.corrected_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cti Code
+cboe_futures_orderentry_boe3_v1_0.cti_code = {}
+
+-- Size: Cti Code
+cboe_futures_orderentry_boe3_v1_0.cti_code.size = 1
+
+-- Display: Cti Code
+cboe_futures_orderentry_boe3_v1_0.cti_code.display = function(value)
+  if value == "1" then
+    return "Cti Code: Cti 1 (1)"
+  end
+  if value == "2" then
+    return "Cti Code: Cti 2 (2)"
+  end
+  if value == "3" then
+    return "Cti Code: Cti 3 (3)"
+  end
+  if value == "4" then
+    return "Cti Code: Cti 4 (4)"
+  end
+
+  return "Cti Code: Unknown("..value..")"
+end
+
+-- Dissect: Cti Code
+cboe_futures_orderentry_boe3_v1_0.cti_code.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cti_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.cti_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cti_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cum Qty
+cboe_futures_orderentry_boe3_v1_0.cum_qty = {}
+
+-- Size: Cum Qty
+cboe_futures_orderentry_boe3_v1_0.cum_qty.size = 4
+
+-- Display: Cum Qty
+cboe_futures_orderentry_boe3_v1_0.cum_qty.display = function(value)
+  return "Cum Qty: "..value
+end
+
+-- Dissect: Cum Qty
+cboe_futures_orderentry_boe3_v1_0.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cum_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.cum_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cum_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Order Handling Inst
+cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst = {}
+
+-- Size: Cust Order Handling Inst
+cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size = 1
+
+-- Display: Cust Order Handling Inst
+cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.display = function(value)
+  if value == "W" then
+    return "Cust Order Handling Inst: Desk (W)"
+  end
+  if value == "Y" then
+    return "Cust Order Handling Inst: Electronic (Y)"
+  end
+  if value == "C" then
+    return "Cust Order Handling Inst: Vendorprovided Platform Billed By (C)"
+  end
+  if value == "G" then
+    return "Cust Order Handling Inst: Sponsored Access Via Exchange Api (G)"
+  end
+  if value == "H" then
+    return "Cust Order Handling Inst: Premium Algorithmic Trading (H)"
+  end
+  if value == "D" then
+    return "Cust Order Handling Inst: Other (D)"
+  end
+  if value == "0x00" then
+    return "Cust Order Handling Inst: Apply Default (0x00)"
+  end
+
+  return "Cust Order Handling Inst: Unknown("..value..")"
+end
+
+-- Dissect: Cust Order Handling Inst
+cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cust_order_handling_inst, range, value, display)
+
+  return offset + length, value
+end
+
+-- Custom Group Id
+cboe_futures_orderentry_boe3_v1_0.custom_group_id = {}
+
+-- Size: Custom Group Id
+cboe_futures_orderentry_boe3_v1_0.custom_group_id.size = 2
+
+-- Display: Custom Group Id
+cboe_futures_orderentry_boe3_v1_0.custom_group_id.display = function(value)
+  return "Custom Group Id: "..value
+end
+
+-- Dissect: Custom Group Id
+cboe_futures_orderentry_boe3_v1_0.custom_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.custom_group_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.custom_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.custom_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Custom Group Id Cnt
+cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt = {}
+
+-- Size: Custom Group Id Cnt
+cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.size = 1
+
+-- Display: Custom Group Id Cnt
+cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.display = function(value)
+  return "Custom Group Id Cnt: "..value
+end
+
+-- Dissect: Custom Group Id Cnt
+cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.custom_group_id_cnt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Id
+cboe_futures_orderentry_boe3_v1_0.exec_id = {}
+
+-- Size: Exec Id
+cboe_futures_orderentry_boe3_v1_0.exec_id.size = 8
+
+-- Display: Exec Id
+cboe_futures_orderentry_boe3_v1_0.exec_id.display = function(value)
+  return "Exec Id: "..value
+end
+
+-- Dissect: Exec Id
+cboe_futures_orderentry_boe3_v1_0.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_futures_orderentry_boe3_v1_0.exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Ref Id
+cboe_futures_orderentry_boe3_v1_0.exec_ref_id = {}
+
+-- Size: Exec Ref Id
+cboe_futures_orderentry_boe3_v1_0.exec_ref_id.size = 8
+
+-- Display: Exec Ref Id
+cboe_futures_orderentry_boe3_v1_0.exec_ref_id.display = function(value)
+  return "Exec Ref Id: "..value
+end
+
+-- Dissect: Exec Ref Id
+cboe_futures_orderentry_boe3_v1_0.exec_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.exec_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_futures_orderentry_boe3_v1_0.exec_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.exec_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Time
+cboe_futures_orderentry_boe3_v1_0.expire_time = {}
+
+-- Size: Expire Time
+cboe_futures_orderentry_boe3_v1_0.expire_time.size = 8
+
+-- Display: Expire Time
+cboe_futures_orderentry_boe3_v1_0.expire_time.display = function(value)
+  return "Expire Time: "..value
+end
+
+-- Dissect: Expire Time
+cboe_futures_orderentry_boe3_v1_0.expire_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.expire_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_futures_orderentry_boe3_v1_0.expire_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.expire_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fee Code
+cboe_futures_orderentry_boe3_v1_0.fee_code = {}
+
+-- Size: Fee Code
+cboe_futures_orderentry_boe3_v1_0.fee_code.size = 2
+
+-- Display: Fee Code
+cboe_futures_orderentry_boe3_v1_0.fee_code.display = function(value)
+  return "Fee Code: "..value
+end
+
+-- Dissect: Fee Code
+cboe_futures_orderentry_boe3_v1_0.fee_code.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.fee_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.fee_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.fee_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Frequent Trader Id
+cboe_futures_orderentry_boe3_v1_0.frequent_trader_id = {}
+
+-- Size: Frequent Trader Id
+cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size = 6
+
+-- Display: Frequent Trader Id
+cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.display = function(value)
+  return "Frequent Trader Id: "..value
+end
+
+-- Dissect: Frequent Trader Id
+cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.frequent_trader_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gtc Order Filter
+cboe_futures_orderentry_boe3_v1_0.gtc_order_filter = {}
+
+-- Size: Gtc Order Filter
+cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.size = 1
+
+-- Display: Gtc Order Filter
+cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.display = function(value)
+  if value == "C" then
+    return "Gtc Order Filter: Cancel Gtc And Gtd Orders (C)"
+  end
+  if value == "P" then
+    return "Gtc Order Filter: Preserve Gtc And Gtd Orders (P)"
+  end
+
+  return "Gtc Order Filter: Unknown("..value..")"
+end
+
+-- Dissect: Gtc Order Filter
+cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.gtc_order_filter, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instruction Details
+cboe_futures_orderentry_boe3_v1_0.instruction_details = {}
+
+-- Size: Instruction Details
+cboe_futures_orderentry_boe3_v1_0.instruction_details.size = 11
+
+-- Display: Instruction Details
+cboe_futures_orderentry_boe3_v1_0.instruction_details.display = function(value)
+  return "Instruction Details: "..value
+end
+
+-- Dissect: Instruction Details
+cboe_futures_orderentry_boe3_v1_0.instruction_details.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.instruction_details.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.instruction_details.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.instruction_details, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type Filter
+cboe_futures_orderentry_boe3_v1_0.instrument_type_filter = {}
+
+-- Size: Instrument Type Filter
+cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.size = 1
+
+-- Display: Instrument Type Filter
+cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.display = function(value)
+  if value == "B" then
+    return "Instrument Type Filter: Both Simple And Complex Orders (B)"
+  end
+  if value == "S" then
+    return "Instrument Type Filter: Simple Orders Only (S)"
+  end
+  if value == "C" then
+    return "Instrument Type Filter: Spread Orders Only (C)"
+  end
+
+  return "Instrument Type Filter: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Type Filter
+cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.instrument_type_filter, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px
+cboe_futures_orderentry_boe3_v1_0.last_px = {}
+
+-- Size: Last Px
+cboe_futures_orderentry_boe3_v1_0.last_px.size = 8
+
+-- Display: Last Px
+cboe_futures_orderentry_boe3_v1_0.last_px.display = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+cboe_futures_orderentry_boe3_v1_0.last_px.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Last Px
+cboe_futures_orderentry_boe3_v1_0.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_futures_orderentry_boe3_v1_0.last_px.translate(raw)
+  local display = cboe_futures_orderentry_boe3_v1_0.last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Shares
+cboe_futures_orderentry_boe3_v1_0.last_shares = {}
+
+-- Size: Last Shares
+cboe_futures_orderentry_boe3_v1_0.last_shares.size = 4
+
+-- Display: Last Shares
+cboe_futures_orderentry_boe3_v1_0.last_shares.display = function(value)
+  return "Last Shares: "..value
+end
+
+-- Dissect: Last Shares
+cboe_futures_orderentry_boe3_v1_0.last_shares.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.last_shares.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.last_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.last_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+cboe_futures_orderentry_boe3_v1_0.leaves_qty = {}
+
+-- Size: Leaves Qty
+cboe_futures_orderentry_boe3_v1_0.leaves_qty.size = 4
+
+-- Display: Leaves Qty
+cboe_futures_orderentry_boe3_v1_0.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+cboe_futures_orderentry_boe3_v1_0.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lockout Instruction
+cboe_futures_orderentry_boe3_v1_0.lockout_instruction = {}
+
+-- Size: Lockout Instruction
+cboe_futures_orderentry_boe3_v1_0.lockout_instruction.size = 1
+
+-- Display: Lockout Instruction
+cboe_futures_orderentry_boe3_v1_0.lockout_instruction.display = function(value)
+  if value == "N" then
+    return "Lockout Instruction: No Lockout (N)"
+  end
+  if value == "L" then
+    return "Lockout Instruction: Lockout Until Corresponding Reset Risk Received (L)"
+  end
+
+  return "Lockout Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Lockout Instruction
+cboe_futures_orderentry_boe3_v1_0.lockout_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.lockout_instruction.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.lockout_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.lockout_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Response Status
+cboe_futures_orderentry_boe3_v1_0.login_response_status = {}
+
+-- Size: Login Response Status
+cboe_futures_orderentry_boe3_v1_0.login_response_status.size = 1
+
+-- Display: Login Response Status
+cboe_futures_orderentry_boe3_v1_0.login_response_status.display = function(value)
+  if value == "A" then
+    return "Login Response Status: Accepted (A)"
+  end
+  if value == "B" then
+    return "Login Response Status: Session In Use (B)"
+  end
+  if value == "D" then
+    return "Login Response Status: Disabled (D)"
+  end
+  if value == "I" then
+    return "Login Response Status: Invalid Unit (I)"
+  end
+  if value == "M" then
+    return "Login Response Status: Invalid Message (M)"
+  end
+  if value == "N" then
+    return "Login Response Status: Not Authorized (N)"
+  end
+  if value == "Q" then
+    return "Login Response Status: Sequence Ahead (Q)"
+  end
+  if value == "S" then
+    return "Login Response Status: Invalid Session (S)"
+  end
+
+  return "Login Response Status: Unknown("..value..")"
+end
+
+-- Dissect: Login Response Status
+cboe_futures_orderentry_boe3_v1_0.login_response_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.login_response_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.login_response_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.login_response_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Response Text
+cboe_futures_orderentry_boe3_v1_0.login_response_text = {}
+
+-- Size: Login Response Text
+cboe_futures_orderentry_boe3_v1_0.login_response_text.size = 60
+
+-- Display: Login Response Text
+cboe_futures_orderentry_boe3_v1_0.login_response_text.display = function(value)
+  return "Login Response Text: "..value
+end
+
+-- Dissect: Login Response Text
+cboe_futures_orderentry_boe3_v1_0.login_response_text.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.login_response_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.login_response_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.login_response_text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Logout Reason
+cboe_futures_orderentry_boe3_v1_0.logout_reason = {}
+
+-- Size: Logout Reason
+cboe_futures_orderentry_boe3_v1_0.logout_reason.size = 1
+
+-- Display: Logout Reason
+cboe_futures_orderentry_boe3_v1_0.logout_reason.display = function(value)
+  if value == "U" then
+    return "Logout Reason: User Requested (U)"
+  end
+  if value == "A" then
+    return "Logout Reason: Administrative (A)"
+  end
+  if value == "!" then
+    return "Logout Reason: Protocol Violation (!)"
+  end
+
+  return "Logout Reason: Unknown("..value..")"
+end
+
+-- Dissect: Logout Reason
+cboe_futures_orderentry_boe3_v1_0.logout_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.logout_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.logout_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.logout_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Logout Reason Text
+cboe_futures_orderentry_boe3_v1_0.logout_reason_text = {}
+
+-- Size: Logout Reason Text
+cboe_futures_orderentry_boe3_v1_0.logout_reason_text.size = 60
+
+-- Display: Logout Reason Text
+cboe_futures_orderentry_boe3_v1_0.logout_reason_text.display = function(value)
+  return "Logout Reason Text: "..value
+end
+
+-- Dissect: Logout Reason Text
+cboe_futures_orderentry_boe3_v1_0.logout_reason_text.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.logout_reason_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.logout_reason_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.logout_reason_text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Manual Order Indicator
+cboe_futures_orderentry_boe3_v1_0.manual_order_indicator = {}
+
+-- Size: Manual Order Indicator
+cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size = 1
+
+-- Display: Manual Order Indicator
+cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.display = function(value)
+  if value == "Y" then
+    return "Manual Order Indicator: Manual (Y)"
+  end
+  if value == "N" then
+    return "Manual Order Indicator: Automated (N)"
+  end
+
+  return "Manual Order Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Manual Order Indicator
+cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.manual_order_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Cancel Id
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_id = {}
+
+-- Size: Mass Cancel Id
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size = 20
+
+-- Display: Mass Cancel Id
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.display = function(value)
+  return "Mass Cancel Id: "..value
+end
+
+-- Dissect: Mass Cancel Id
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Cancel Reject Reason
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason = {}
+
+-- Size: Mass Cancel Reject Reason
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.size = 1
+
+-- Display: Mass Cancel Reject Reason
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.display = function(value)
+  if value == "A" then
+    return "Mass Cancel Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Mass Cancel Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Mass Cancel Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Mass Cancel Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Mass Cancel Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Mass Cancel Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "K" then
+    return "Mass Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Mass Cancel Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Mass Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Mass Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Mass Cancel Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "U" then
+    return "Mass Cancel Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Mass Cancel Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Mass Cancel Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Mass Cancel Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Mass Cancel Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Mass Cancel Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Mass Cancel Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Mass Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Mass Cancel Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Mass Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Mass Cancel Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Mass Cancel Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Mass Cancel Reject Reason: Session End (z)"
+  end
+
+  return "Mass Cancel Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Reject Reason
+cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matching Unit
+cboe_futures_orderentry_boe3_v1_0.matching_unit = {}
+
+-- Size: Matching Unit
+cboe_futures_orderentry_boe3_v1_0.matching_unit.size = 1
+
+-- Display: Matching Unit
+cboe_futures_orderentry_boe3_v1_0.matching_unit.display = function(value)
+  return "Matching Unit: "..value
+end
+
+-- Dissect: Matching Unit
+cboe_futures_orderentry_boe3_v1_0.matching_unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.matching_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.matching_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.matching_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Date
+cboe_futures_orderentry_boe3_v1_0.maturity_date = {}
+
+-- Size: Maturity Date
+cboe_futures_orderentry_boe3_v1_0.maturity_date.size = 4
+
+-- Display: Maturity Date
+cboe_futures_orderentry_boe3_v1_0.maturity_date.display = function(value)
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+cboe_futures_orderentry_boe3_v1_0.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cboe_futures_orderentry_boe3_v1_0.message_length = {}
+
+-- Size: Message Length
+cboe_futures_orderentry_boe3_v1_0.message_length.size = 2
+
+-- Display: Message Length
+cboe_futures_orderentry_boe3_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cboe_futures_orderentry_boe3_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+cboe_futures_orderentry_boe3_v1_0.message_type = {}
+
+-- Size: Message Type
+cboe_futures_orderentry_boe3_v1_0.message_type.size = 2
+
+-- Display: Message Type
+cboe_futures_orderentry_boe3_v1_0.message_type.display = function(value)
+  if value == 1 then
+    return "Message Type: Login Request Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Logout Request Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Client Heartbeat Message (3)"
+  end
+  if value == 501 then
+    return "Message Type: Login Response Message (501)"
+  end
+  if value == 502 then
+    return "Message Type: Replay Complete Message (502)"
+  end
+  if value == 503 then
+    return "Message Type: Logout Response Message (503)"
+  end
+  if value == 504 then
+    return "Message Type: Replay Complete Message (504)"
+  end
+  if value == 1001 then
+    return "Message Type: New Order Message (1001)"
+  end
+  if value == 1002 then
+    return "Message Type: Modify Order Message (1002)"
+  end
+  if value == 1003 then
+    return "Message Type: Cancel Order Message (1003)"
+  end
+  if value == 1004 then
+    return "Message Type: Mass Cancel Order Message (1004)"
+  end
+  if value == 1005 then
+    return "Message Type: Purge Orders Message (1005)"
+  end
+  if value == 1006 then
+    return "Message Type: Quote Update Message (1006)"
+  end
+  if value == 1007 then
+    return "Message Type: Reset Risk Message (1007)"
+  end
+  if value == 1501 then
+    return "Message Type: Order Acknowledgement Message (1501)"
+  end
+  if value == 1502 then
+    return "Message Type: Order Rejected Message (1502)"
+  end
+  if value == 1503 then
+    return "Message Type: Order Modified Message (1503)"
+  end
+  if value == 1504 then
+    return "Message Type: Modify Rejected Message (1504)"
+  end
+  if value == 1505 then
+    return "Message Type: Order Execution Message (1505)"
+  end
+  if value == 1506 then
+    return "Message Type: Order Cancelled Message (1506)"
+  end
+  if value == 1507 then
+    return "Message Type: Cancel Rejected Message (1507)"
+  end
+  if value == 1508 then
+    return "Message Type: Mass Cancel Acknowledgement Message (1508)"
+  end
+  if value == 1509 then
+    return "Message Type: Mass Cancel Rejected Message (1509)"
+  end
+  if value == 1510 then
+    return "Message Type: Purge Acknowledgement Message (1510)"
+  end
+  if value == 1511 then
+    return "Message Type: Purge Rejected Message (1511)"
+  end
+  if value == 1512 then
+    return "Message Type: Trade Cancel Or Correct Message (1512)"
+  end
+  if value == 1513 then
+    return "Message Type: Tas Restatement Message (1513)"
+  end
+  if value == 1514 then
+    return "Message Type: Variance Restatement Message (1514)"
+  end
+  if value == 1515 then
+    return "Message Type: Quote Update Acknowledgement Message (1515)"
+  end
+  if value == 1516 then
+    return "Message Type: Quote Update Rejected Message (1516)"
+  end
+  if value == 1517 then
+    return "Message Type: Quote Restated Message (1517)"
+  end
+  if value == 1518 then
+    return "Message Type: Quote Execution Message (1518)"
+  end
+  if value == 1519 then
+    return "Message Type: Quote Cancelled Message (1519)"
+  end
+  if value == 1520 then
+    return "Message Type: Tas Quote Restatement Message (1520)"
+  end
+  if value == 1521 then
+    return "Message Type: Variance Quote Restatement Message (1521)"
+  end
+  if value == 1522 then
+    return "Message Type: Reset Risk Acknowledgement Message (1522)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+cboe_futures_orderentry_boe3_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Qty
+cboe_futures_orderentry_boe3_v1_0.min_qty = {}
+
+-- Size: Min Qty
+cboe_futures_orderentry_boe3_v1_0.min_qty.size = 4
+
+-- Display: Min Qty
+cboe_futures_orderentry_boe3_v1_0.min_qty.display = function(value)
+  return "Min Qty: "..value
+end
+
+-- Dissect: Min Qty
+cboe_futures_orderentry_boe3_v1_0.min_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.min_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.min_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.min_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Modify Reject Reason
+cboe_futures_orderentry_boe3_v1_0.modify_reject_reason = {}
+
+-- Size: Modify Reject Reason
+cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.size = 1
+
+-- Display: Modify Reject Reason
+cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.display = function(value)
+  if value == "A" then
+    return "Modify Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Modify Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Modify Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Modify Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Modify Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Modify Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "K" then
+    return "Modify Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Modify Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Modify Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Modify Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Modify Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "U" then
+    return "Modify Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Modify Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Modify Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Modify Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Modify Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Modify Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Modify Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Modify Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Modify Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Modify Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Modify Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Modify Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Modify Reject Reason: Session End (z)"
+  end
+
+  return "Modify Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Modify Reject Reason
+cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.modify_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mtp Modifier
+cboe_futures_orderentry_boe3_v1_0.mtp_modifier = {}
+
+-- Size: Mtp Modifier
+cboe_futures_orderentry_boe3_v1_0.mtp_modifier.size = 1
+
+-- Display: Mtp Modifier
+cboe_futures_orderentry_boe3_v1_0.mtp_modifier.display = function(value)
+  if value == "N" then
+    return "Mtp Modifier: Cancel Newest (N)"
+  end
+  if value == "O" then
+    return "Mtp Modifier: Cancel Oldest (O)"
+  end
+  if value == "B" then
+    return "Mtp Modifier: Cancel Both (B)"
+  end
+
+  return "Mtp Modifier: Unknown("..value..")"
+end
+
+-- Dissect: Mtp Modifier
+cboe_futures_orderentry_boe3_v1_0.mtp_modifier.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.mtp_modifier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.mtp_modifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.mtp_modifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Multileg Reporting Type
+cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type = {}
+
+-- Size: Multileg Reporting Type
+cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size = 1
+
+-- Display: Multileg Reporting Type
+cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.display = function(value)
+  if value == "1" then
+    return "Multileg Reporting Type: Simple Instrument Execution (1)"
+  end
+  if value == "2" then
+    return "Multileg Reporting Type: Part Of A Spread Execution (2)"
+  end
+  if value == "3" then
+    return "Multileg Reporting Type: Spread Instrument Execution (3)"
+  end
+
+  return "Multileg Reporting Type: Unknown("..value..")"
+end
+
+-- Dissect: Multileg Reporting Type
+cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.multileg_reporting_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Units
+cboe_futures_orderentry_boe3_v1_0.number_of_units = {}
+
+-- Size: Number Of Units
+cboe_futures_orderentry_boe3_v1_0.number_of_units.size = 1
+
+-- Display: Number Of Units
+cboe_futures_orderentry_boe3_v1_0.number_of_units.display = function(value)
+  return "Number Of Units: "..value
+end
+
+-- Dissect: Number Of Units
+cboe_futures_orderentry_boe3_v1_0.number_of_units.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.number_of_units.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.number_of_units.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.number_of_units, range, value, display)
+
+  return offset + length, value
+end
+
+-- Oeo Id
+cboe_futures_orderentry_boe3_v1_0.oeo_id = {}
+
+-- Size: Oeo Id
+cboe_futures_orderentry_boe3_v1_0.oeo_id.size = 18
+
+-- Display: Oeo Id
+cboe_futures_orderentry_boe3_v1_0.oeo_id.display = function(value)
+  return "Oeo Id: "..value
+end
+
+-- Dissect: Oeo Id
+cboe_futures_orderentry_boe3_v1_0.oeo_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.oeo_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.oeo_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.oeo_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Close
+cboe_futures_orderentry_boe3_v1_0.open_close = {}
+
+-- Size: Open Close
+cboe_futures_orderentry_boe3_v1_0.open_close.size = 1
+
+-- Display: Open Close
+cboe_futures_orderentry_boe3_v1_0.open_close.display = function(value)
+  if value == "O" then
+    return "Open Close: Open (O)"
+  end
+  if value == "C" then
+    return "Open Close: Close (C)"
+  end
+  if value == "N" then
+    return "Open Close: None (N)"
+  end
+  if value == "0x00" then
+    return "Open Close: None (0x00)"
+  end
+
+  return "Open Close: Unknown("..value..")"
+end
+
+-- Dissect: Open Close
+cboe_futures_orderentry_boe3_v1_0.open_close.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.open_close.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.open_close.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.open_close, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Type
+cboe_futures_orderentry_boe3_v1_0.ord_type = {}
+
+-- Size: Ord Type
+cboe_futures_orderentry_boe3_v1_0.ord_type.size = 1
+
+-- Display: Ord Type
+cboe_futures_orderentry_boe3_v1_0.ord_type.display = function(value)
+  if value == "1" then
+    return "Ord Type: Market (1)"
+  end
+  if value == "2" then
+    return "Ord Type: Limit (2)"
+  end
+  if value == "4" then
+    return "Ord Type: Stop Limit (4)"
+  end
+
+  return "Ord Type: Unknown("..value..")"
+end
+
+-- Dissect: Ord Type
+cboe_futures_orderentry_boe3_v1_0.ord_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.ord_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.ord_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.ord_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+cboe_futures_orderentry_boe3_v1_0.order_id = {}
+
+-- Size: Order Id
+cboe_futures_orderentry_boe3_v1_0.order_id.size = 8
+
+-- Display: Order Id
+cboe_futures_orderentry_boe3_v1_0.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+cboe_futures_orderentry_boe3_v1_0.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_futures_orderentry_boe3_v1_0.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+cboe_futures_orderentry_boe3_v1_0.order_qty = {}
+
+-- Size: Order Qty
+cboe_futures_orderentry_boe3_v1_0.order_qty.size = 4
+
+-- Display: Order Qty
+cboe_futures_orderentry_boe3_v1_0.order_qty.display = function(value)
+  return "Order Qty: "..value
+end
+
+-- Dissect: Order Qty
+cboe_futures_orderentry_boe3_v1_0.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.order_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Reject Reason
+cboe_futures_orderentry_boe3_v1_0.order_reject_reason = {}
+
+-- Size: Order Reject Reason
+cboe_futures_orderentry_boe3_v1_0.order_reject_reason.size = 1
+
+-- Display: Order Reject Reason
+cboe_futures_orderentry_boe3_v1_0.order_reject_reason.display = function(value)
+  if value == "A" then
+    return "Order Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Order Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Order Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Order Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Order Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Order Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "K" then
+    return "Order Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Order Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Order Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Order Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Order Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "U" then
+    return "Order Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Order Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Order Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Order Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Order Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Order Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Order Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Order Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Order Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Order Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Order Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Order Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Order Reject Reason: Session End (z)"
+  end
+
+  return "Order Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Order Reject Reason
+cboe_futures_orderentry_boe3_v1_0.order_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.order_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.order_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.order_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Cl Ord Id
+cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id = {}
+
+-- Size: Orig Cl Ord Id
+cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size = 20
+
+-- Display: Orig Cl Ord Id
+cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.display = function(value)
+  return "Orig Cl Ord Id: "..value
+end
+
+-- Dissect: Orig Cl Ord Id
+cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.orig_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Time
+cboe_futures_orderentry_boe3_v1_0.orig_time = {}
+
+-- Size: Orig Time
+cboe_futures_orderentry_boe3_v1_0.orig_time.size = 8
+
+-- Display: Orig Time
+cboe_futures_orderentry_boe3_v1_0.orig_time.display = function(value)
+  return "Orig Time: "..value
+end
+
+-- Dissect: Orig Time
+cboe_futures_orderentry_boe3_v1_0.orig_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.orig_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_futures_orderentry_boe3_v1_0.orig_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.orig_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+cboe_futures_orderentry_boe3_v1_0.password = {}
+
+-- Size: Password
+cboe_futures_orderentry_boe3_v1_0.password.size = 10
+
+-- Display: Password
+cboe_futures_orderentry_boe3_v1_0.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+cboe_futures_orderentry_boe3_v1_0.password.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.password.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pending Status
+cboe_futures_orderentry_boe3_v1_0.pending_status = {}
+
+-- Size: Pending Status
+cboe_futures_orderentry_boe3_v1_0.pending_status.size = 1
+
+-- Display: Pending Status
+cboe_futures_orderentry_boe3_v1_0.pending_status.display = function(value)
+  if value == "N" then
+    return "Pending Status: Not Applicable (N)"
+  end
+  if value == "P" then
+    return "Pending Status: Pending (P)"
+  end
+
+  return "Pending Status: Unknown("..value..")"
+end
+
+-- Dissect: Pending Status
+cboe_futures_orderentry_boe3_v1_0.pending_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.pending_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.pending_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.pending_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+cboe_futures_orderentry_boe3_v1_0.price = {}
+
+-- Size: Price
+cboe_futures_orderentry_boe3_v1_0.price.size = 8
+
+-- Display: Price
+cboe_futures_orderentry_boe3_v1_0.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+cboe_futures_orderentry_boe3_v1_0.price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price
+cboe_futures_orderentry_boe3_v1_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_futures_orderentry_boe3_v1_0.price.translate(raw)
+  local display = cboe_futures_orderentry_boe3_v1_0.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Name
+cboe_futures_orderentry_boe3_v1_0.product_name = {}
+
+-- Size: Product Name
+cboe_futures_orderentry_boe3_v1_0.product_name.size = 6
+
+-- Display: Product Name
+cboe_futures_orderentry_boe3_v1_0.product_name.display = function(value)
+  return "Product Name: "..value
+end
+
+-- Dissect: Product Name
+cboe_futures_orderentry_boe3_v1_0.product_name.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.product_name.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.product_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.product_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Purge Reject Reason
+cboe_futures_orderentry_boe3_v1_0.purge_reject_reason = {}
+
+-- Size: Purge Reject Reason
+cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.size = 1
+
+-- Display: Purge Reject Reason
+cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.display = function(value)
+  if value == "A" then
+    return "Purge Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Purge Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Purge Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Purge Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Purge Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Purge Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "K" then
+    return "Purge Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Purge Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Purge Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Purge Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Purge Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "U" then
+    return "Purge Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Purge Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Purge Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Purge Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Purge Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Purge Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Purge Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Purge Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Purge Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Purge Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Purge Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Purge Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Purge Reject Reason: Session End (z)"
+  end
+
+  return "Purge Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Purge Reject Reason
+cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Cnt
+cboe_futures_orderentry_boe3_v1_0.quote_cnt = {}
+
+-- Size: Quote Cnt
+cboe_futures_orderentry_boe3_v1_0.quote_cnt.size = 1
+
+-- Display: Quote Cnt
+cboe_futures_orderentry_boe3_v1_0.quote_cnt.display = function(value)
+  return "Quote Cnt: "..value
+end
+
+-- Dissect: Quote Cnt
+cboe_futures_orderentry_boe3_v1_0.quote_cnt.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.quote_cnt.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.quote_cnt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_cnt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Reject Reason
+cboe_futures_orderentry_boe3_v1_0.quote_reject_reason = {}
+
+-- Size: Quote Reject Reason
+cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.size = 1
+
+-- Display: Quote Reject Reason
+cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.display = function(value)
+  if value == "C" then
+    return "Quote Reject Reason: Invalid Efid (C)"
+  end
+  if value == "D" then
+    return "Quote Reject Reason: Invalid Wash Id (D)"
+  end
+  if value == "F" then
+    return "Quote Reject Reason: Not Enabled For Quotes (F)"
+  end
+  if value == "I" then
+    return "Quote Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "K" then
+    return "Quote Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Quote Reject Reason: Invalid Quote Cnt (L)"
+  end
+  if value == "M" then
+    return "Quote Reject Reason: Symbols Not On Same Matching Engine (M)"
+  end
+  if value == "O" then
+    return "Quote Reject Reason: Invalid Manual Order Indicator (O)"
+  end
+  if value == "Q" then
+    return "Quote Reject Reason: Invalid Quote Update Id (Q)"
+  end
+  if value == "R" then
+    return "Quote Reject Reason: Futures Root Does Not Match Across Quotes (R)"
+  end
+  if value == "S" then
+    return "Quote Reject Reason: Symbol Not Found (S)"
+  end
+  if value == "W" then
+    return "Quote Reject Reason: Invalid Wash Prevent Type (W)"
+  end
+  if value == "a" then
+    return "Quote Reject Reason: Admin (a)"
+  end
+  if value == "c" then
+    return "Quote Reject Reason: Invalid Capacity (c)"
+  end
+  if value == "e" then
+    return "Quote Reject Reason: Invalid Oeoid (e)"
+  end
+  if value == "f" then
+    return "Quote Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
+  end
+  if value == "i" then
+    return "Quote Reject Reason: Invalid Cti Code (i)"
+  end
+  if value == "m" then
+    return "Quote Reject Reason: Invalid Wash Method (m)"
+  end
+  if value == "n" then
+    return "Quote Reject Reason: Exceeds Max Notional Value Per Order (n)"
+  end
+  if value == "o" then
+    return "Quote Reject Reason: Invalid Open Close (o)"
+  end
+  if value == "p" then
+    return "Quote Reject Reason: Risk Management Product Level (p)"
+  end
+  if value == "r" then
+    return "Quote Reject Reason: Invalid Remove (r)"
+  end
+  if value == "s" then
+    return "Quote Reject Reason: Invalid Side (s)"
+  end
+  if value == "u" then
+    return "Quote Reject Reason: Symbol Range Unreachable (u)"
+  end
+  if value == "x" then
+    return "Quote Reject Reason: Exceeds Max Size Per Order (x)"
+  end
+  if value == "y" then
+    return "Quote Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Quote Reject Reason: Invalid Size Modifier (z)"
+  end
+
+  return "Quote Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Quote Reject Reason
+cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Result
+cboe_futures_orderentry_boe3_v1_0.quote_result = {}
+
+-- Size: Quote Result
+cboe_futures_orderentry_boe3_v1_0.quote_result.size = 1
+
+-- Display: Quote Result
+cboe_futures_orderentry_boe3_v1_0.quote_result.display = function(value)
+  if value == "A" then
+    return "Quote Result: New Quote (A)"
+  end
+  if value == "L" then
+    return "Quote Result: Modified Loss Of Priority (L)"
+  end
+  if value == "R" then
+    return "Quote Result: Modified Retains Priority (R)"
+  end
+  if value == "N" then
+    return "Quote Result: No Change (N)"
+  end
+  if value == "D" then
+    return "Quote Result: New Quote (D)"
+  end
+  if value == "d" then
+    return "Quote Result: Modified But May Remove Liquidity (d)"
+  end
+  if value == "U" then
+    return "Quote Result: User Cancelled (U)"
+  end
+  if value == "a" then
+    return "Quote Result: Admin (a)"
+  end
+  if value == "O" then
+    return "Quote Result: Rejected Doesnt Match A Known Quote (O)"
+  end
+  if value == "P" then
+    return "Quote Result: Rejected Cant Post (P)"
+  end
+  if value == "f" then
+    return "Quote Result: Risk Management Efid Or Custom Group Id Level (f)"
+  end
+  if value == "S" then
+    return "Quote Result: Rejected Symbol Not Found (S)"
+  end
+  if value == "p" then
+    return "Quote Result: Rejected Invalid Price (p)"
+  end
+  if value == "s" then
+    return "Quote Result: Risk Management Product Root Level (s)"
+  end
+  if value == "n" then
+    return "Quote Result: Risk Management Configuration Is Insuffcient (n)"
+  end
+  if value == "u" then
+    return "Quote Result: Rejected Other Reason (u)"
+  end
+
+  return "Quote Result: Unknown("..value..")"
+end
+
+-- Dissect: Quote Result
+cboe_futures_orderentry_boe3_v1_0.quote_result.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.quote_result.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.quote_result.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_result, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Symbol
+cboe_futures_orderentry_boe3_v1_0.quote_symbol = {}
+
+-- Size: Quote Symbol
+cboe_futures_orderentry_boe3_v1_0.quote_symbol.size = 6
+
+-- Display: Quote Symbol
+cboe_futures_orderentry_boe3_v1_0.quote_symbol.display = function(value)
+  return "Quote Symbol: "..value
+end
+
+-- Dissect: Quote Symbol
+cboe_futures_orderentry_boe3_v1_0.quote_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.quote_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.quote_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Update Id
+cboe_futures_orderentry_boe3_v1_0.quote_update_id = {}
+
+-- Size: Quote Update Id
+cboe_futures_orderentry_boe3_v1_0.quote_update_id.size = 16
+
+-- Display: Quote Update Id
+cboe_futures_orderentry_boe3_v1_0.quote_update_id.display = function(value)
+  return "Quote Update Id: "..value
+end
+
+-- Dissect: Quote Update Id
+cboe_futures_orderentry_boe3_v1_0.quote_update_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.quote_update_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.quote_update_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Replay Unspecified Unit
+cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit = {}
+
+-- Size: Replay Unspecified Unit
+cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.size = 1
+
+-- Display: Replay Unspecified Unit
+cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.display = function(value)
+  if value == "F" then
+    return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
+  end
+  if value == "R" then
+    return "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)"
+  end
+  if value == "S" then
+    return "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)"
+  end
+
+  return "Replay Unspecified Unit: Unknown("..value..")"
+end
+
+-- Dissect: Replay Unspecified Unit
+cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.replay_unspecified_unit, range, value, display)
+
+  return offset + length, value
+end
 
 -- Request Received Time
 cboe_futures_orderentry_boe3_v1_0.request_received_time = {}
@@ -444,6 +2949,101 @@ cboe_futures_orderentry_boe3_v1_0.request_received_time.dissect = function(buffe
   local display = cboe_futures_orderentry_boe3_v1_0.request_received_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.request_received_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved Field
+cboe_futures_orderentry_boe3_v1_0.reserved_field = {}
+
+-- Size: Reserved Field
+cboe_futures_orderentry_boe3_v1_0.reserved_field.size = 1
+
+-- Display: Reserved Field
+cboe_futures_orderentry_boe3_v1_0.reserved_field.display = function(value)
+  return "Reserved Field: "..value
+end
+
+-- Dissect: Reserved Field
+cboe_futures_orderentry_boe3_v1_0.reserved_field.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.reserved_field.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.reserved_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.reserved_field, range, value, display)
+
+  return offset + length, value
+end
+
+-- Restatement Reason
+cboe_futures_orderentry_boe3_v1_0.restatement_reason = {}
+
+-- Size: Restatement Reason
+cboe_futures_orderentry_boe3_v1_0.restatement_reason.size = 1
+
+-- Display: Restatement Reason
+cboe_futures_orderentry_boe3_v1_0.restatement_reason.display = function(value)
+  if value == "Q" then
+    return "Restatement Reason: Liquidity (Q)"
+  end
+  if value == "W" then
+    return "Restatement Reason: Wash (W)"
+  end
+
+  return "Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Restatement Reason
+cboe_futures_orderentry_boe3_v1_0.restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Reset
+cboe_futures_orderentry_boe3_v1_0.risk_reset = {}
+
+-- Size: Risk Reset
+cboe_futures_orderentry_boe3_v1_0.risk_reset.size = 8
+
+-- Display: Risk Reset
+cboe_futures_orderentry_boe3_v1_0.risk_reset.display = function(value)
+  if value == "S" then
+    return "Risk Reset: Productlevel (S)"
+  end
+  if value == "F" then
+    return "Risk Reset: Firmlevel (F)"
+  end
+  if value == "C" then
+    return "Risk Reset: Custom Group Id (C)"
+  end
+  if value == "R" then
+    return "Risk Reset: Productlevel Options (R)"
+  end
+  if value == "I" then
+    return "Risk Reset: Firmlevel Options (I)"
+  end
+  if value == "D" then
+    return "Risk Reset: Custom Group Id Options (D)"
+  end
+
+  return "Risk Reset: Unknown("..value..")"
+end
+
+-- Dissect: Risk Reset
+cboe_futures_orderentry_boe3_v1_0.risk_reset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.risk_reset.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.risk_reset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.risk_reset, range, value, display)
 
   return offset + length, value
 end
@@ -528,6 +3128,487 @@ cboe_futures_orderentry_boe3_v1_0.risk_status_id.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Secondary Exec Id
+cboe_futures_orderentry_boe3_v1_0.secondary_exec_id = {}
+
+-- Size: Secondary Exec Id
+cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size = 8
+
+-- Display: Secondary Exec Id
+cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.display = function(value)
+  return "Secondary Exec Id: "..value
+end
+
+-- Dissect: Secondary Exec Id
+cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.secondary_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+cboe_futures_orderentry_boe3_v1_0.sequence_number = {}
+
+-- Size: Sequence Number
+cboe_futures_orderentry_boe3_v1_0.sequence_number.size = 4
+
+-- Display: Sequence Number
+cboe_futures_orderentry_boe3_v1_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+cboe_futures_orderentry_boe3_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+cboe_futures_orderentry_boe3_v1_0.session_id = {}
+
+-- Size: Session Id
+cboe_futures_orderentry_boe3_v1_0.session_id.size = 4
+
+-- Display: Session Id
+cboe_futures_orderentry_boe3_v1_0.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+cboe_futures_orderentry_boe3_v1_0.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.session_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Sub Id
+cboe_futures_orderentry_boe3_v1_0.session_sub_id = {}
+
+-- Size: Session Sub Id
+cboe_futures_orderentry_boe3_v1_0.session_sub_id.size = 4
+
+-- Display: Session Sub Id
+cboe_futures_orderentry_boe3_v1_0.session_sub_id.display = function(value)
+  return "Session Sub Id: "..value
+end
+
+-- Dissect: Session Sub Id
+cboe_futures_orderentry_boe3_v1_0.session_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.session_sub_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.session_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.session_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+cboe_futures_orderentry_boe3_v1_0.side = {}
+
+-- Size: Side
+cboe_futures_orderentry_boe3_v1_0.side.size = 1
+
+-- Display: Side
+cboe_futures_orderentry_boe3_v1_0.side.display = function(value)
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+cboe_futures_orderentry_boe3_v1_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size Modifier
+cboe_futures_orderentry_boe3_v1_0.size_modifier = {}
+
+-- Size: Size Modifier
+cboe_futures_orderentry_boe3_v1_0.size_modifier.size = 1
+
+-- Display: Size Modifier
+cboe_futures_orderentry_boe3_v1_0.size_modifier.display = function(value)
+  if value == "0x00" then
+    return "Size Modifier: New Quote Size (0x00)"
+  end
+  if value == "R" then
+    return "Size Modifier: Reduced Size (R)"
+  end
+
+  return "Size Modifier: Unknown("..value..")"
+end
+
+-- Dissect: Size Modifier
+cboe_futures_orderentry_boe3_v1_0.size_modifier.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.size_modifier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.size_modifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.size_modifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Of Message
+cboe_futures_orderentry_boe3_v1_0.start_of_message = {}
+
+-- Size: Start Of Message
+cboe_futures_orderentry_boe3_v1_0.start_of_message.size = 2
+
+-- Display: Start Of Message
+cboe_futures_orderentry_boe3_v1_0.start_of_message.display = function(value)
+  return "Start Of Message: "..value
+end
+
+-- Dissect: Start Of Message
+cboe_futures_orderentry_boe3_v1_0.start_of_message.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.start_of_message.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.start_of_message.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.start_of_message, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stop Px
+cboe_futures_orderentry_boe3_v1_0.stop_px = {}
+
+-- Size: Stop Px
+cboe_futures_orderentry_boe3_v1_0.stop_px.size = 99
+
+-- Display: Stop Px
+cboe_futures_orderentry_boe3_v1_0.stop_px.display = function(value)
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+cboe_futures_orderentry_boe3_v1_0.stop_px.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Stop Px
+cboe_futures_orderentry_boe3_v1_0.stop_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.stop_px.size
+  local range = buffer(offset, length)
+  local raw = range:bytes():tohex(false, " ")
+  local value = cboe_futures_orderentry_boe3_v1_0.stop_px.translate(raw)
+  local display = cboe_futures_orderentry_boe3_v1_0.stop_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.stop_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sub Liquidity Indicator
+cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator = {}
+
+-- Size: Sub Liquidity Indicator
+cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size = 1
+
+-- Display: Sub Liquidity Indicator
+cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.display = function(value)
+  if value == "0x00" then
+    return "Sub Liquidity Indicator: No Additional Information (0x00)"
+  end
+  if value == "C" then
+    return "Sub Liquidity Indicator: Carried Order Indicator (C)"
+  end
+  if value == "U" then
+    return "Sub Liquidity Indicator: Qualifying Market Turner Order (U)"
+  end
+
+  return "Sub Liquidity Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Sub Liquidity Indicator
+cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.sub_liquidity_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cboe_futures_orderentry_boe3_v1_0.symbol = {}
+
+-- Size: Symbol
+cboe_futures_orderentry_boe3_v1_0.symbol.size = 8
+
+-- Display: Symbol
+cboe_futures_orderentry_boe3_v1_0.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cboe_futures_orderentry_boe3_v1_0.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+cboe_futures_orderentry_boe3_v1_0.text = {}
+
+-- Size: Text
+cboe_futures_orderentry_boe3_v1_0.text.size = 60
+
+-- Display: Text
+cboe_futures_orderentry_boe3_v1_0.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+cboe_futures_orderentry_boe3_v1_0.text.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+cboe_futures_orderentry_boe3_v1_0.time_in_force = {}
+
+-- Size: Time In Force
+cboe_futures_orderentry_boe3_v1_0.time_in_force.size = 1
+
+-- Display: Time In Force
+cboe_futures_orderentry_boe3_v1_0.time_in_force.display = function(value)
+  if value == "0" then
+    return "Time In Force: Day (0)"
+  end
+  if value == "1" then
+    return "Time In Force: Gtc (1)"
+  end
+  if value == "3" then
+    return "Time In Force: Ioc (3)"
+  end
+  if value == "4" then
+    return "Time In Force: Fok (4)"
+  end
+  if value == "6" then
+    return "Time In Force: Gtd (6)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+cboe_futures_orderentry_boe3_v1_0.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+cboe_futures_orderentry_boe3_v1_0.trade_date = {}
+
+-- Size: Trade Date
+cboe_futures_orderentry_boe3_v1_0.trade_date.size = 4
+
+-- Display: Trade Date
+cboe_futures_orderentry_boe3_v1_0.trade_date.display = function(value)
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+cboe_futures_orderentry_boe3_v1_0.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Group Id
+cboe_futures_orderentry_boe3_v1_0.trading_group_id = {}
+
+-- Size: Trading Group Id
+cboe_futures_orderentry_boe3_v1_0.trading_group_id.size = 1
+
+-- Display: Trading Group Id
+cboe_futures_orderentry_boe3_v1_0.trading_group_id.display = function(value)
+  return "Trading Group Id: "..value
+end
+
+-- Dissect: Trading Group Id
+cboe_futures_orderentry_boe3_v1_0.trading_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.trading_group_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.trading_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.trading_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transaction Time
+cboe_futures_orderentry_boe3_v1_0.transaction_time = {}
+
+-- Size: Transaction Time
+cboe_futures_orderentry_boe3_v1_0.transaction_time.size = 8
+
+-- Display: Transaction Time
+cboe_futures_orderentry_boe3_v1_0.transaction_time.display = function(value)
+  return "Transaction Time: "..value
+end
+
+-- Dissect: Transaction Time
+cboe_futures_orderentry_boe3_v1_0.transaction_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.transaction_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_futures_orderentry_boe3_v1_0.transaction_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.transaction_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unique Id Level
+cboe_futures_orderentry_boe3_v1_0.unique_id_level = {}
+
+-- Size: Unique Id Level
+cboe_futures_orderentry_boe3_v1_0.unique_id_level.size = 1
+
+-- Display: Unique Id Level
+cboe_futures_orderentry_boe3_v1_0.unique_id_level.display = function(value)
+  if value == "N" then
+    return "Unique Id Level: Cancel Newest (N)"
+  end
+  if value == "F" then
+    return "Unique Id Level: Tph (F)"
+  end
+  if value == "M" then
+    return "Unique Id Level: Efid (M)"
+  end
+
+  return "Unique Id Level: Unknown("..value..")"
+end
+
+-- Dissect: Unique Id Level
+cboe_futures_orderentry_boe3_v1_0.unique_id_level.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.unique_id_level.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_futures_orderentry_boe3_v1_0.unique_id_level.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.unique_id_level, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Number
+cboe_futures_orderentry_boe3_v1_0.unit_number = {}
+
+-- Size: Unit Number
+cboe_futures_orderentry_boe3_v1_0.unit_number.size = 1
+
+-- Display: Unit Number
+cboe_futures_orderentry_boe3_v1_0.unit_number.display = function(value)
+  return "Unit Number: "..value
+end
+
+-- Dissect: Unit Number
+cboe_futures_orderentry_boe3_v1_0.unit_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.unit_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_futures_orderentry_boe3_v1_0.unit_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.unit_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Working Price
+cboe_futures_orderentry_boe3_v1_0.working_price = {}
+
+-- Size: Working Price
+cboe_futures_orderentry_boe3_v1_0.working_price.size = 8
+
+-- Display: Working Price
+cboe_futures_orderentry_boe3_v1_0.working_price.display = function(value)
+  return "Working Price: "..value
+end
+
+-- Translate: Working Price
+cboe_futures_orderentry_boe3_v1_0.working_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Working Price
+cboe_futures_orderentry_boe3_v1_0.working_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0.working_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_futures_orderentry_boe3_v1_0.working_price.translate(raw)
+  local display = cboe_futures_orderentry_boe3_v1_0.working_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.working_price, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cboe Futures OrderEntry Boe3 1.0
+-----------------------------------------------------------------------
+
 -- Reset Risk Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.reset_risk_acknowledgement_message = {}
 
@@ -574,173 +3655,6 @@ cboe_futures_orderentry_boe3_v1_0.reset_risk_acknowledgement_message.dissect = f
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.reset_risk_acknowledgement_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Clearing Size
-cboe_futures_orderentry_boe3_v1_0.clearing_size = {}
-
--- Size: Clearing Size
-cboe_futures_orderentry_boe3_v1_0.clearing_size.size = 4
-
--- Display: Clearing Size
-cboe_futures_orderentry_boe3_v1_0.clearing_size.display = function(value)
-  return "Clearing Size: "..value
-end
-
--- Dissect: Clearing Size
-cboe_futures_orderentry_boe3_v1_0.clearing_size.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.clearing_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.clearing_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Price
-cboe_futures_orderentry_boe3_v1_0.clearing_price = {}
-
--- Size: Clearing Price
-cboe_futures_orderentry_boe3_v1_0.clearing_price.size = 8
-
--- Display: Clearing Price
-cboe_futures_orderentry_boe3_v1_0.clearing_price.display = function(value)
-  return "Clearing Price: "..value
-end
-
--- Translate: Clearing Price
-cboe_futures_orderentry_boe3_v1_0.clearing_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Clearing Price
-cboe_futures_orderentry_boe3_v1_0.clearing_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.clearing_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_futures_orderentry_boe3_v1_0.clearing_price.translate(raw)
-  local display = cboe_futures_orderentry_boe3_v1_0.clearing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Symbol
-cboe_futures_orderentry_boe3_v1_0.clearing_symbol = {}
-
--- Size: Clearing Symbol
-cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size = 8
-
--- Display: Clearing Symbol
-cboe_futures_orderentry_boe3_v1_0.clearing_symbol.display = function(value)
-  return "Clearing Symbol: "..value
-end
-
--- Dissect: Clearing Symbol
-cboe_futures_orderentry_boe3_v1_0.clearing_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.clearing_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.clearing_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Symbol
-cboe_futures_orderentry_boe3_v1_0.quote_symbol = {}
-
--- Size: Quote Symbol
-cboe_futures_orderentry_boe3_v1_0.quote_symbol.size = 6
-
--- Display: Quote Symbol
-cboe_futures_orderentry_boe3_v1_0.quote_symbol.display = function(value)
-  return "Quote Symbol: "..value
-end
-
--- Dissect: Quote Symbol
-cboe_futures_orderentry_boe3_v1_0.quote_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.quote_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.quote_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Id
-cboe_futures_orderentry_boe3_v1_0.exec_id = {}
-
--- Size: Exec Id
-cboe_futures_orderentry_boe3_v1_0.exec_id.size = 8
-
--- Display: Exec Id
-cboe_futures_orderentry_boe3_v1_0.exec_id.display = function(value)
-  return "Exec Id: "..value
-end
-
--- Dissect: Exec Id
-cboe_futures_orderentry_boe3_v1_0.exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_futures_orderentry_boe3_v1_0.exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Update Id
-cboe_futures_orderentry_boe3_v1_0.quote_update_id = {}
-
--- Size: Quote Update Id
-cboe_futures_orderentry_boe3_v1_0.quote_update_id.size = 16
-
--- Display: Quote Update Id
-cboe_futures_orderentry_boe3_v1_0.quote_update_id.display = function(value)
-  return "Quote Update Id: "..value
-end
-
--- Dissect: Quote Update Id
-cboe_futures_orderentry_boe3_v1_0.quote_update_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.quote_update_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.quote_update_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Transaction Time
-cboe_futures_orderentry_boe3_v1_0.transaction_time = {}
-
--- Size: Transaction Time
-cboe_futures_orderentry_boe3_v1_0.transaction_time.size = 8
-
--- Display: Transaction Time
-cboe_futures_orderentry_boe3_v1_0.transaction_time.display = function(value)
-  return "Transaction Time: "..value
-end
-
--- Dissect: Transaction Time
-cboe_futures_orderentry_boe3_v1_0.transaction_time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.transaction_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_futures_orderentry_boe3_v1_0.transaction_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.transaction_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Variance Quote Restatement Message
@@ -867,155 +3781,6 @@ cboe_futures_orderentry_boe3_v1_0.tas_quote_restatement_message.dissect = functi
   end
 end
 
--- Cancel Reason
-cboe_futures_orderentry_boe3_v1_0.cancel_reason = {}
-
--- Size: Cancel Reason
-cboe_futures_orderentry_boe3_v1_0.cancel_reason.size = 1
-
--- Display: Cancel Reason
-cboe_futures_orderentry_boe3_v1_0.cancel_reason.display = function(value)
-  if value == "A" then
-    return "Cancel Reason: Admin (A)"
-  end
-  if value == "B" then
-    return "Cancel Reason: Unknown Maturity Date (B)"
-  end
-  if value == "C" then
-    return "Cancel Reason: Unknown Product Name (C)"
-  end
-  if value == "D" then
-    return "Cancel Reason: Duplicate Identifier (D)"
-  end
-  if value == "H" then
-    return "Cancel Reason: Halted (H)"
-  end
-  if value == "I" then
-    return "Cancel Reason: Incorrect Data Center (I)"
-  end
-  if value == "K" then
-    return "Cancel Reason: Order Rate Threshold Exceeded (K)"
-  end
-  if value == "M" then
-    return "Cancel Reason: Liquidity Available Exceeds Order Size (M)"
-  end
-  if value == "N" then
-    return "Cancel Reason: Ran Out Of Liquidity To Execute Against (N)"
-  end
-  if value == "O" then
-    return "Cancel Reason: Cl Ord Id Doesnt Match A Known Order (O)"
-  end
-  if value == "P" then
-    return "Cancel Reason: Cant Modify An Order That Is Pending Fill (P)"
-  end
-  if value == "U" then
-    return "Cancel Reason: User Requested (U)"
-  end
-  if value == "V" then
-    return "Cancel Reason: Would Wash (V)"
-  end
-  if value == "X" then
-    return "Cancel Reason: Order Expired (X)"
-  end
-  if value == "Y" then
-    return "Cancel Reason: Symbol Not Supported (Y)"
-  end
-  if value == "Z" then
-    return "Cancel Reason: Unforeseen Reason (Z)"
-  end
-  if value == "h" then
-    return "Cancel Reason: Order Persisted (h)"
-  end
-  if value == "f" then
-    return "Cancel Reason: Risk Management Mpid Or Custom Group Id Level (f)"
-  end
-  if value == "m" then
-    return "Cancel Reason: Market Access Risk Limit Exceeded (m)"
-  end
-  if value == "n" then
-    return "Cancel Reason: Risk Management Configuration Is Insufficient (n)"
-  end
-  if value == "o" then
-    return "Cancel Reason: Max Open Orders Count Exceeded (o)"
-  end
-  if value == "s" then
-    return "Cancel Reason: Risk Management Product Level (s)"
-  end
-  if value == "y" then
-    return "Cancel Reason: Order Received By Cfe During Replay (y)"
-  end
-  if value == "z" then
-    return "Cancel Reason: Session End (z)"
-  end
-
-  return "Cancel Reason: Unknown("..value..")"
-end
-
--- Dissect: Cancel Reason
-cboe_futures_orderentry_boe3_v1_0.cancel_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cancel_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.cancel_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-cboe_futures_orderentry_boe3_v1_0.side = {}
-
--- Size: Side
-cboe_futures_orderentry_boe3_v1_0.side.size = 1
-
--- Display: Side
-cboe_futures_orderentry_boe3_v1_0.side.display = function(value)
-  if value == "1" then
-    return "Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Side: Sell (2)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-cboe_futures_orderentry_boe3_v1_0.side.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-cboe_futures_orderentry_boe3_v1_0.order_id = {}
-
--- Size: Order Id
-cboe_futures_orderentry_boe3_v1_0.order_id.size = 8
-
--- Display: Order Id
-cboe_futures_orderentry_boe3_v1_0.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-cboe_futures_orderentry_boe3_v1_0.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_futures_orderentry_boe3_v1_0.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Cancelled Message
 cboe_futures_orderentry_boe3_v1_0.quote_cancelled_message = {}
 
@@ -1074,193 +3839,6 @@ cboe_futures_orderentry_boe3_v1_0.quote_cancelled_message.dissect = function(buf
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.quote_cancelled_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Fee Code
-cboe_futures_orderentry_boe3_v1_0.fee_code = {}
-
--- Size: Fee Code
-cboe_futures_orderentry_boe3_v1_0.fee_code.size = 2
-
--- Display: Fee Code
-cboe_futures_orderentry_boe3_v1_0.fee_code.display = function(value)
-  return "Fee Code: "..value
-end
-
--- Dissect: Fee Code
-cboe_futures_orderentry_boe3_v1_0.fee_code.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.fee_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.fee_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.fee_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Sub Liquidity Indicator
-cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator = {}
-
--- Size: Sub Liquidity Indicator
-cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size = 1
-
--- Display: Sub Liquidity Indicator
-cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.display = function(value)
-  if value == "0x00" then
-    return "Sub Liquidity Indicator: No Additional Information (0x00)"
-  end
-  if value == "C" then
-    return "Sub Liquidity Indicator: Carried Order Indicator (C)"
-  end
-  if value == "U" then
-    return "Sub Liquidity Indicator: Qualifying Market Turner Order (U)"
-  end
-
-  return "Sub Liquidity Indicator: Unknown("..value..")"
-end
-
--- Dissect: Sub Liquidity Indicator
-cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.sub_liquidity_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.sub_liquidity_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Base Liquidity Indicator
-cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator = {}
-
--- Size: Base Liquidity Indicator
-cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size = 1
-
--- Display: Base Liquidity Indicator
-cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.display = function(value)
-  if value == "A" then
-    return "Base Liquidity Indicator: Added Liquidity (A)"
-  end
-  if value == "R" then
-    return "Base Liquidity Indicator: Removed Liquidity (R)"
-  end
-  if value == "C" then
-    return "Base Liquidity Indicator: Market Opening Trade (C)"
-  end
-
-  return "Base Liquidity Indicator: Unknown("..value..")"
-end
-
--- Dissect: Base Liquidity Indicator
-cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.base_liquidity_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.base_liquidity_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Leaves Qty
-cboe_futures_orderentry_boe3_v1_0.leaves_qty = {}
-
--- Size: Leaves Qty
-cboe_futures_orderentry_boe3_v1_0.leaves_qty.size = 4
-
--- Display: Leaves Qty
-cboe_futures_orderentry_boe3_v1_0.leaves_qty.display = function(value)
-  return "Leaves Qty: "..value
-end
-
--- Dissect: Leaves Qty
-cboe_futures_orderentry_boe3_v1_0.leaves_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.leaves_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.leaves_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.leaves_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px
-cboe_futures_orderentry_boe3_v1_0.last_px = {}
-
--- Size: Last Px
-cboe_futures_orderentry_boe3_v1_0.last_px.size = 8
-
--- Display: Last Px
-cboe_futures_orderentry_boe3_v1_0.last_px.display = function(value)
-  return "Last Px: "..value
-end
-
--- Translate: Last Px
-cboe_futures_orderentry_boe3_v1_0.last_px.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Last Px
-cboe_futures_orderentry_boe3_v1_0.last_px.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.last_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_futures_orderentry_boe3_v1_0.last_px.translate(raw)
-  local display = cboe_futures_orderentry_boe3_v1_0.last_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Shares
-cboe_futures_orderentry_boe3_v1_0.last_shares = {}
-
--- Size: Last Shares
-cboe_futures_orderentry_boe3_v1_0.last_shares.size = 4
-
--- Display: Last Shares
-cboe_futures_orderentry_boe3_v1_0.last_shares.display = function(value)
-  return "Last Shares: "..value
-end
-
--- Dissect: Last Shares
-cboe_futures_orderentry_boe3_v1_0.last_shares.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.last_shares.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.last_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.last_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Firm
-cboe_futures_orderentry_boe3_v1_0.clearing_firm = {}
-
--- Size: Clearing Firm
-cboe_futures_orderentry_boe3_v1_0.clearing_firm.size = 4
-
--- Display: Clearing Firm
-cboe_futures_orderentry_boe3_v1_0.clearing_firm.display = function(value)
-  return "Clearing Firm: "..value
-end
-
--- Dissect: Clearing Firm
-cboe_futures_orderentry_boe3_v1_0.clearing_firm.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.clearing_firm.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.clearing_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_firm, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Execution Message
@@ -1351,65 +3929,6 @@ cboe_futures_orderentry_boe3_v1_0.quote_execution_message.dissect = function(buf
   end
 end
 
--- Restatement Reason
-cboe_futures_orderentry_boe3_v1_0.restatement_reason = {}
-
--- Size: Restatement Reason
-cboe_futures_orderentry_boe3_v1_0.restatement_reason.size = 1
-
--- Display: Restatement Reason
-cboe_futures_orderentry_boe3_v1_0.restatement_reason.display = function(value)
-  if value == "Q" then
-    return "Restatement Reason: Liquidity (Q)"
-  end
-  if value == "W" then
-    return "Restatement Reason: Wash (W)"
-  end
-
-  return "Restatement Reason: Unknown("..value..")"
-end
-
--- Dissect: Restatement Reason
-cboe_futures_orderentry_boe3_v1_0.restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.restatement_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.restatement_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Working Price
-cboe_futures_orderentry_boe3_v1_0.working_price = {}
-
--- Size: Working Price
-cboe_futures_orderentry_boe3_v1_0.working_price.size = 8
-
--- Display: Working Price
-cboe_futures_orderentry_boe3_v1_0.working_price.display = function(value)
-  return "Working Price: "..value
-end
-
--- Translate: Working Price
-cboe_futures_orderentry_boe3_v1_0.working_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Working Price
-cboe_futures_orderentry_boe3_v1_0.working_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.working_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_futures_orderentry_boe3_v1_0.working_price.translate(raw)
-  local display = cboe_futures_orderentry_boe3_v1_0.working_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.working_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Restated Message
 cboe_futures_orderentry_boe3_v1_0.quote_restated_message = {}
 
@@ -1478,111 +3997,6 @@ cboe_futures_orderentry_boe3_v1_0.quote_restated_message.dissect = function(buff
   end
 end
 
--- Quote Reject Reason
-cboe_futures_orderentry_boe3_v1_0.quote_reject_reason = {}
-
--- Size: Quote Reject Reason
-cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.size = 1
-
--- Display: Quote Reject Reason
-cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.display = function(value)
-  if value == "C" then
-    return "Quote Reject Reason: Invalid Efid (C)"
-  end
-  if value == "D" then
-    return "Quote Reject Reason: Invalid Wash Id (D)"
-  end
-  if value == "F" then
-    return "Quote Reject Reason: Not Enabled For Quotes (F)"
-  end
-  if value == "I" then
-    return "Quote Reject Reason: Incorrect Data Center (I)"
-  end
-  if value == "K" then
-    return "Quote Reject Reason: Order Rate Threshold Exceeded (K)"
-  end
-  if value == "L" then
-    return "Quote Reject Reason: Invalid Quote Cnt (L)"
-  end
-  if value == "M" then
-    return "Quote Reject Reason: Symbols Not On Same Matching Engine (M)"
-  end
-  if value == "O" then
-    return "Quote Reject Reason: Invalid Manual Order Indicator (O)"
-  end
-  if value == "Q" then
-    return "Quote Reject Reason: Invalid Quote Update Id (Q)"
-  end
-  if value == "R" then
-    return "Quote Reject Reason: Futures Root Does Not Match Across Quotes (R)"
-  end
-  if value == "S" then
-    return "Quote Reject Reason: Symbol Not Found (S)"
-  end
-  if value == "W" then
-    return "Quote Reject Reason: Invalid Wash Prevent Type (W)"
-  end
-  if value == "a" then
-    return "Quote Reject Reason: Admin (a)"
-  end
-  if value == "c" then
-    return "Quote Reject Reason: Invalid Capacity (c)"
-  end
-  if value == "e" then
-    return "Quote Reject Reason: Invalid Oeoid (e)"
-  end
-  if value == "f" then
-    return "Quote Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
-  end
-  if value == "i" then
-    return "Quote Reject Reason: Invalid Cti Code (i)"
-  end
-  if value == "m" then
-    return "Quote Reject Reason: Invalid Wash Method (m)"
-  end
-  if value == "n" then
-    return "Quote Reject Reason: Exceeds Max Notional Value Per Order (n)"
-  end
-  if value == "o" then
-    return "Quote Reject Reason: Invalid Open Close (o)"
-  end
-  if value == "p" then
-    return "Quote Reject Reason: Risk Management Product Level (p)"
-  end
-  if value == "r" then
-    return "Quote Reject Reason: Invalid Remove (r)"
-  end
-  if value == "s" then
-    return "Quote Reject Reason: Invalid Side (s)"
-  end
-  if value == "u" then
-    return "Quote Reject Reason: Symbol Range Unreachable (u)"
-  end
-  if value == "x" then
-    return "Quote Reject Reason: Exceeds Max Size Per Order (x)"
-  end
-  if value == "y" then
-    return "Quote Reject Reason: Order Received By Cfe During Replay (y)"
-  end
-  if value == "z" then
-    return "Quote Reject Reason: Invalid Size Modifier (z)"
-  end
-
-  return "Quote Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Quote Reject Reason
-cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.quote_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Update Rejected Message
 cboe_futures_orderentry_boe3_v1_0.quote_update_rejected_message = {}
 
@@ -1629,78 +4043,6 @@ cboe_futures_orderentry_boe3_v1_0.quote_update_rejected_message.dissect = functi
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.quote_update_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quote Result
-cboe_futures_orderentry_boe3_v1_0.quote_result = {}
-
--- Size: Quote Result
-cboe_futures_orderentry_boe3_v1_0.quote_result.size = 1
-
--- Display: Quote Result
-cboe_futures_orderentry_boe3_v1_0.quote_result.display = function(value)
-  if value == "A" then
-    return "Quote Result: New Quote (A)"
-  end
-  if value == "L" then
-    return "Quote Result: Modified Loss Of Priority (L)"
-  end
-  if value == "R" then
-    return "Quote Result: Modified Retains Priority (R)"
-  end
-  if value == "N" then
-    return "Quote Result: No Change (N)"
-  end
-  if value == "D" then
-    return "Quote Result: New Quote (D)"
-  end
-  if value == "d" then
-    return "Quote Result: Modified But May Remove Liquidity (d)"
-  end
-  if value == "U" then
-    return "Quote Result: User Cancelled (U)"
-  end
-  if value == "a" then
-    return "Quote Result: Admin (a)"
-  end
-  if value == "O" then
-    return "Quote Result: Rejected Doesnt Match A Known Quote (O)"
-  end
-  if value == "P" then
-    return "Quote Result: Rejected Cant Post (P)"
-  end
-  if value == "f" then
-    return "Quote Result: Risk Management Efid Or Custom Group Id Level (f)"
-  end
-  if value == "S" then
-    return "Quote Result: Rejected Symbol Not Found (S)"
-  end
-  if value == "p" then
-    return "Quote Result: Rejected Invalid Price (p)"
-  end
-  if value == "s" then
-    return "Quote Result: Risk Management Product Root Level (s)"
-  end
-  if value == "n" then
-    return "Quote Result: Risk Management Configuration Is Insuffcient (n)"
-  end
-  if value == "u" then
-    return "Quote Result: Rejected Other Reason (u)"
-  end
-
-  return "Quote Result: Unknown("..value..")"
-end
-
--- Dissect: Quote Result
-cboe_futures_orderentry_boe3_v1_0.quote_result.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.quote_result.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.quote_result.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_result, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Update Acknowledgement Group
@@ -1757,29 +4099,6 @@ cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_group.dissect = f
   end
 end
 
--- Quote Cnt
-cboe_futures_orderentry_boe3_v1_0.quote_cnt = {}
-
--- Size: Quote Cnt
-cboe_futures_orderentry_boe3_v1_0.quote_cnt.size = 1
-
--- Display: Quote Cnt
-cboe_futures_orderentry_boe3_v1_0.quote_cnt.display = function(value)
-  return "Quote Cnt: "..value
-end
-
--- Dissect: Quote Cnt
-cboe_futures_orderentry_boe3_v1_0.quote_cnt.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.quote_cnt.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.quote_cnt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_cnt, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Update Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message = {}
 
@@ -1833,192 +4152,20 @@ end
 
 -- Dissect: Quote Update Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_update_acknowledgement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message.display(buffer, packet, parent)
-    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_message, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message.fields(buffer, offset, packet, parent)
   end
-
-  return cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message.fields(buffer, offset, packet, parent)
-end
-
--- Secondary Exec Id
-cboe_futures_orderentry_boe3_v1_0.secondary_exec_id = {}
-
--- Size: Secondary Exec Id
-cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size = 8
-
--- Display: Secondary Exec Id
-cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.display = function(value)
-  return "Secondary Exec Id: "..value
-end
-
--- Dissect: Secondary Exec Id
-cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_futures_orderentry_boe3_v1_0.secondary_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.secondary_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Multileg Reporting Type
-cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type = {}
-
--- Size: Multileg Reporting Type
-cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size = 1
-
--- Display: Multileg Reporting Type
-cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.display = function(value)
-  if value == "1" then
-    return "Multileg Reporting Type: Simple Instrument Execution (1)"
-  end
-  if value == "2" then
-    return "Multileg Reporting Type: Part Of A Spread Execution (2)"
-  end
-  if value == "3" then
-    return "Multileg Reporting Type: Spread Instrument Execution (3)"
-  end
-
-  return "Multileg Reporting Type: Unknown("..value..")"
-end
-
--- Dissect: Multileg Reporting Type
-cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.multileg_reporting_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.multileg_reporting_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date
-cboe_futures_orderentry_boe3_v1_0.trade_date = {}
-
--- Size: Trade Date
-cboe_futures_orderentry_boe3_v1_0.trade_date.size = 4
-
--- Display: Trade Date
-cboe_futures_orderentry_boe3_v1_0.trade_date.display = function(value)
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-cboe_futures_orderentry_boe3_v1_0.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-cboe_futures_orderentry_boe3_v1_0.maturity_date = {}
-
--- Size: Maturity Date
-cboe_futures_orderentry_boe3_v1_0.maturity_date.size = 4
-
--- Display: Maturity Date
-cboe_futures_orderentry_boe3_v1_0.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-cboe_futures_orderentry_boe3_v1_0.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-cboe_futures_orderentry_boe3_v1_0.symbol = {}
-
--- Size: Symbol
-cboe_futures_orderentry_boe3_v1_0.symbol.size = 8
-
--- Display: Symbol
-cboe_futures_orderentry_boe3_v1_0.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-cboe_futures_orderentry_boe3_v1_0.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-cboe_futures_orderentry_boe3_v1_0.price = {}
-
--- Size: Price
-cboe_futures_orderentry_boe3_v1_0.price.size = 8
-
--- Display: Price
-cboe_futures_orderentry_boe3_v1_0.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-cboe_futures_orderentry_boe3_v1_0.price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price
-cboe_futures_orderentry_boe3_v1_0.price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_futures_orderentry_boe3_v1_0.price.translate(raw)
-  local display = cboe_futures_orderentry_boe3_v1_0.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Cl Ord Id
-cboe_futures_orderentry_boe3_v1_0.cl_ord_id = {}
-
--- Size: Cl Ord Id
-cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size = 20
-
--- Display: Cl Ord Id
-cboe_futures_orderentry_boe3_v1_0.cl_ord_id.display = function(value)
-  return "Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord Id
-cboe_futures_orderentry_boe3_v1_0.cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cl_ord_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Variance Restatement Message
@@ -2225,193 +4372,6 @@ cboe_futures_orderentry_boe3_v1_0.tas_restatement_message.dissect = function(buf
   end
 end
 
--- Cmta Number
-cboe_futures_orderentry_boe3_v1_0.cmta_number = {}
-
--- Size: Cmta Number
-cboe_futures_orderentry_boe3_v1_0.cmta_number.size = 4
-
--- Display: Cmta Number
-cboe_futures_orderentry_boe3_v1_0.cmta_number.display = function(value)
-  return "Cmta Number: "..value
-end
-
--- Dissect: Cmta Number
-cboe_futures_orderentry_boe3_v1_0.cmta_number.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cmta_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.cmta_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cmta_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Close
-cboe_futures_orderentry_boe3_v1_0.open_close = {}
-
--- Size: Open Close
-cboe_futures_orderentry_boe3_v1_0.open_close.size = 1
-
--- Display: Open Close
-cboe_futures_orderentry_boe3_v1_0.open_close.display = function(value)
-  if value == "O" then
-    return "Open Close: Open (O)"
-  end
-  if value == "C" then
-    return "Open Close: Close (C)"
-  end
-  if value == "N" then
-    return "Open Close: None (N)"
-  end
-  if value == "0x00" then
-    return "Open Close: None (0x00)"
-  end
-
-  return "Open Close: Unknown("..value..")"
-end
-
--- Dissect: Open Close
-cboe_futures_orderentry_boe3_v1_0.open_close.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.open_close.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.open_close.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.open_close, range, value, display)
-
-  return offset + length, value
-end
-
--- Capacity
-cboe_futures_orderentry_boe3_v1_0.capacity = {}
-
--- Size: Capacity
-cboe_futures_orderentry_boe3_v1_0.capacity.size = 1
-
--- Display: Capacity
-cboe_futures_orderentry_boe3_v1_0.capacity.display = function(value)
-  if value == "C" then
-    return "Capacity: Customer (C)"
-  end
-  if value == "F" then
-    return "Capacity: Firm (F)"
-  end
-
-  return "Capacity: Unknown("..value..")"
-end
-
--- Dissect: Capacity
-cboe_futures_orderentry_boe3_v1_0.capacity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.capacity.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Time
-cboe_futures_orderentry_boe3_v1_0.orig_time = {}
-
--- Size: Orig Time
-cboe_futures_orderentry_boe3_v1_0.orig_time.size = 8
-
--- Display: Orig Time
-cboe_futures_orderentry_boe3_v1_0.orig_time.display = function(value)
-  return "Orig Time: "..value
-end
-
--- Dissect: Orig Time
-cboe_futures_orderentry_boe3_v1_0.orig_time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.orig_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_futures_orderentry_boe3_v1_0.orig_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.orig_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Corrected Price
-cboe_futures_orderentry_boe3_v1_0.corrected_price = {}
-
--- Size: Corrected Price
-cboe_futures_orderentry_boe3_v1_0.corrected_price.size = 8
-
--- Display: Corrected Price
-cboe_futures_orderentry_boe3_v1_0.corrected_price.display = function(value)
-  return "Corrected Price: "..value
-end
-
--- Translate: Corrected Price
-cboe_futures_orderentry_boe3_v1_0.corrected_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Corrected Price
-cboe_futures_orderentry_boe3_v1_0.corrected_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.corrected_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_futures_orderentry_boe3_v1_0.corrected_price.translate(raw)
-  local display = cboe_futures_orderentry_boe3_v1_0.corrected_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.corrected_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Account
-cboe_futures_orderentry_boe3_v1_0.clearing_account = {}
-
--- Size: Clearing Account
-cboe_futures_orderentry_boe3_v1_0.clearing_account.size = 4
-
--- Display: Clearing Account
-cboe_futures_orderentry_boe3_v1_0.clearing_account.display = function(value)
-  return "Clearing Account: "..value
-end
-
--- Dissect: Clearing Account
-cboe_futures_orderentry_boe3_v1_0.clearing_account.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.clearing_account.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.clearing_account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_account, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Ref Id
-cboe_futures_orderentry_boe3_v1_0.exec_ref_id = {}
-
--- Size: Exec Ref Id
-cboe_futures_orderentry_boe3_v1_0.exec_ref_id.size = 8
-
--- Display: Exec Ref Id
-cboe_futures_orderentry_boe3_v1_0.exec_ref_id.display = function(value)
-  return "Exec Ref Id: "..value
-end
-
--- Dissect: Exec Ref Id
-cboe_futures_orderentry_boe3_v1_0.exec_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.exec_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_futures_orderentry_boe3_v1_0.exec_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.exec_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Cancel Or Correct Message
 cboe_futures_orderentry_boe3_v1_0.trade_cancel_or_correct_message = {}
 
@@ -2512,148 +4472,6 @@ cboe_futures_orderentry_boe3_v1_0.trade_cancel_or_correct_message.dissect = func
   end
 end
 
--- Text
-cboe_futures_orderentry_boe3_v1_0.text = {}
-
--- Size: Text
-cboe_futures_orderentry_boe3_v1_0.text.size = 60
-
--- Display: Text
-cboe_futures_orderentry_boe3_v1_0.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-cboe_futures_orderentry_boe3_v1_0.text.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
--- Purge Reject Reason
-cboe_futures_orderentry_boe3_v1_0.purge_reject_reason = {}
-
--- Size: Purge Reject Reason
-cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.size = 1
-
--- Display: Purge Reject Reason
-cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.display = function(value)
-  if value == "A" then
-    return "Purge Reject Reason: Admin (A)"
-  end
-  if value == "B" then
-    return "Purge Reject Reason: Unknown Maturity Date (B)"
-  end
-  if value == "C" then
-    return "Purge Reject Reason: Unknown Product Name (C)"
-  end
-  if value == "D" then
-    return "Purge Reject Reason: Duplicate Identifier (D)"
-  end
-  if value == "H" then
-    return "Purge Reject Reason: Halted (H)"
-  end
-  if value == "I" then
-    return "Purge Reject Reason: Incorrect Data Center (I)"
-  end
-  if value == "K" then
-    return "Purge Reject Reason: Order Rate Threshold Exceeded (K)"
-  end
-  if value == "M" then
-    return "Purge Reject Reason: Liquidity Available Exceeds Order Size (M)"
-  end
-  if value == "N" then
-    return "Purge Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
-  end
-  if value == "O" then
-    return "Purge Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
-  end
-  if value == "P" then
-    return "Purge Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
-  end
-  if value == "U" then
-    return "Purge Reject Reason: User Requested (U)"
-  end
-  if value == "V" then
-    return "Purge Reject Reason: Would Wash (V)"
-  end
-  if value == "X" then
-    return "Purge Reject Reason: Order Expired (X)"
-  end
-  if value == "Y" then
-    return "Purge Reject Reason: Symbol Not Supported (Y)"
-  end
-  if value == "Z" then
-    return "Purge Reject Reason: Unforeseen Reason (Z)"
-  end
-  if value == "h" then
-    return "Purge Reject Reason: Order Persisted (h)"
-  end
-  if value == "f" then
-    return "Purge Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
-  end
-  if value == "m" then
-    return "Purge Reject Reason: Market Access Risk Limit Exceeded (m)"
-  end
-  if value == "n" then
-    return "Purge Reject Reason: Risk Management Configuration Is Insufficient (n)"
-  end
-  if value == "o" then
-    return "Purge Reject Reason: Max Open Orders Count Exceeded (o)"
-  end
-  if value == "s" then
-    return "Purge Reject Reason: Risk Management Product Level (s)"
-  end
-  if value == "y" then
-    return "Purge Reject Reason: Order Received By Cfe During Replay (y)"
-  end
-  if value == "z" then
-    return "Purge Reject Reason: Session End (z)"
-  end
-
-  return "Purge Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Purge Reject Reason
-cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.purge_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Cancel Id
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_id = {}
-
--- Size: Mass Cancel Id
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size = 20
-
--- Display: Mass Cancel Id
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.display = function(value)
-  return "Mass Cancel Id: "..value
-end
-
--- Dissect: Mass Cancel Id
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.mass_cancel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Purge Rejected Message
 cboe_futures_orderentry_boe3_v1_0.purge_rejected_message = {}
 
@@ -2706,29 +4524,6 @@ cboe_futures_orderentry_boe3_v1_0.purge_rejected_message.dissect = function(buff
   end
 end
 
--- Cancelled Order Count
-cboe_futures_orderentry_boe3_v1_0.cancelled_order_count = {}
-
--- Size: Cancelled Order Count
-cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.size = 4
-
--- Display: Cancelled Order Count
-cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.display = function(value)
-  return "Cancelled Order Count: "..value
-end
-
--- Dissect: Cancelled Order Count
-cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.cancelled_order_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cancelled_order_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Purge Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0.purge_acknowledgement_message = {}
 
@@ -2779,102 +4574,6 @@ cboe_futures_orderentry_boe3_v1_0.purge_acknowledgement_message.dissect = functi
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.purge_acknowledgement_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Mass Cancel Reject Reason
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason = {}
-
--- Size: Mass Cancel Reject Reason
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.size = 1
-
--- Display: Mass Cancel Reject Reason
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.display = function(value)
-  if value == "A" then
-    return "Mass Cancel Reject Reason: Admin (A)"
-  end
-  if value == "B" then
-    return "Mass Cancel Reject Reason: Unknown Maturity Date (B)"
-  end
-  if value == "C" then
-    return "Mass Cancel Reject Reason: Unknown Product Name (C)"
-  end
-  if value == "D" then
-    return "Mass Cancel Reject Reason: Duplicate Identifier (D)"
-  end
-  if value == "H" then
-    return "Mass Cancel Reject Reason: Halted (H)"
-  end
-  if value == "I" then
-    return "Mass Cancel Reject Reason: Incorrect Data Center (I)"
-  end
-  if value == "K" then
-    return "Mass Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
-  end
-  if value == "M" then
-    return "Mass Cancel Reject Reason: Liquidity Available Exceeds Order Size (M)"
-  end
-  if value == "N" then
-    return "Mass Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
-  end
-  if value == "O" then
-    return "Mass Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
-  end
-  if value == "P" then
-    return "Mass Cancel Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
-  end
-  if value == "U" then
-    return "Mass Cancel Reject Reason: User Requested (U)"
-  end
-  if value == "V" then
-    return "Mass Cancel Reject Reason: Would Wash (V)"
-  end
-  if value == "X" then
-    return "Mass Cancel Reject Reason: Order Expired (X)"
-  end
-  if value == "Y" then
-    return "Mass Cancel Reject Reason: Symbol Not Supported (Y)"
-  end
-  if value == "Z" then
-    return "Mass Cancel Reject Reason: Unforeseen Reason (Z)"
-  end
-  if value == "h" then
-    return "Mass Cancel Reject Reason: Order Persisted (h)"
-  end
-  if value == "f" then
-    return "Mass Cancel Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
-  end
-  if value == "m" then
-    return "Mass Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
-  end
-  if value == "n" then
-    return "Mass Cancel Reject Reason: Risk Management Configuration Is Insufficient (n)"
-  end
-  if value == "o" then
-    return "Mass Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
-  end
-  if value == "s" then
-    return "Mass Cancel Reject Reason: Risk Management Product Level (s)"
-  end
-  if value == "y" then
-    return "Mass Cancel Reject Reason: Order Received By Cfe During Replay (y)"
-  end
-  if value == "z" then
-    return "Mass Cancel Reject Reason: Session End (z)"
-  end
-
-  return "Mass Cancel Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Mass Cancel Reject Reason
-cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_reject_reason, range, value, display)
-
-  return offset + length, value
 end
 
 -- Mass Cancel Rejected Message
@@ -2979,102 +4678,6 @@ cboe_futures_orderentry_boe3_v1_0.mass_cancel_acknowledgement_message.dissect = 
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.mass_cancel_acknowledgement_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cancel Reject Reason
-cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason = {}
-
--- Size: Cancel Reject Reason
-cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.size = 1
-
--- Display: Cancel Reject Reason
-cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.display = function(value)
-  if value == "A" then
-    return "Cancel Reject Reason: Admin (A)"
-  end
-  if value == "B" then
-    return "Cancel Reject Reason: Unknown Maturity Date (B)"
-  end
-  if value == "C" then
-    return "Cancel Reject Reason: Unknown Product Name (C)"
-  end
-  if value == "D" then
-    return "Cancel Reject Reason: Duplicate Identifier (D)"
-  end
-  if value == "H" then
-    return "Cancel Reject Reason: Halted (H)"
-  end
-  if value == "I" then
-    return "Cancel Reject Reason: Incorrect Data Center (I)"
-  end
-  if value == "K" then
-    return "Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
-  end
-  if value == "M" then
-    return "Cancel Reject Reason: Liquidity Available Exceeds Order Size (M)"
-  end
-  if value == "N" then
-    return "Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
-  end
-  if value == "O" then
-    return "Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
-  end
-  if value == "P" then
-    return "Cancel Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
-  end
-  if value == "U" then
-    return "Cancel Reject Reason: User Requested (U)"
-  end
-  if value == "V" then
-    return "Cancel Reject Reason: Would Wash (V)"
-  end
-  if value == "X" then
-    return "Cancel Reject Reason: Order Expired (X)"
-  end
-  if value == "Y" then
-    return "Cancel Reject Reason: Symbol Not Supported (Y)"
-  end
-  if value == "Z" then
-    return "Cancel Reject Reason: Unforeseen Reason (Z)"
-  end
-  if value == "h" then
-    return "Cancel Reject Reason: Order Persisted (h)"
-  end
-  if value == "f" then
-    return "Cancel Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
-  end
-  if value == "m" then
-    return "Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
-  end
-  if value == "n" then
-    return "Cancel Reject Reason: Risk Management Configuration Is Insufficient (n)"
-  end
-  if value == "o" then
-    return "Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
-  end
-  if value == "s" then
-    return "Cancel Reject Reason: Risk Management Product Level (s)"
-  end
-  if value == "y" then
-    return "Cancel Reject Reason: Order Received By Cfe During Replay (y)"
-  end
-  if value == "z" then
-    return "Cancel Reject Reason: Session End (z)"
-  end
-
-  return "Cancel Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Cancel Reject Reason
-cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.cancel_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_reject_reason, range, value, display)
-
-  return offset + length, value
 end
 
 -- Cancel Rejected Message
@@ -3189,36 +4792,6 @@ cboe_futures_orderentry_boe3_v1_0.order_cancelled_message.dissect = function(buf
   end
 end
 
--- Pending Status
-cboe_futures_orderentry_boe3_v1_0.pending_status = {}
-
--- Size: Pending Status
-cboe_futures_orderentry_boe3_v1_0.pending_status.size = 1
-
--- Display: Pending Status
-cboe_futures_orderentry_boe3_v1_0.pending_status.display = function(value)
-  if value == "N" then
-    return "Pending Status: Not Applicable (N)"
-  end
-  if value == "P" then
-    return "Pending Status: Pending (P)"
-  end
-
-  return "Pending Status: Unknown("..value..")"
-end
-
--- Dissect: Pending Status
-cboe_futures_orderentry_boe3_v1_0.pending_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.pending_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.pending_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.pending_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Execution Message
 cboe_futures_orderentry_boe3_v1_0.order_execution_message = {}
 
@@ -3327,125 +4900,6 @@ cboe_futures_orderentry_boe3_v1_0.order_execution_message.dissect = function(buf
   end
 end
 
--- Modify Reject Reason
-cboe_futures_orderentry_boe3_v1_0.modify_reject_reason = {}
-
--- Size: Modify Reject Reason
-cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.size = 1
-
--- Display: Modify Reject Reason
-cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.display = function(value)
-  if value == "A" then
-    return "Modify Reject Reason: Admin (A)"
-  end
-  if value == "B" then
-    return "Modify Reject Reason: Unknown Maturity Date (B)"
-  end
-  if value == "C" then
-    return "Modify Reject Reason: Unknown Product Name (C)"
-  end
-  if value == "D" then
-    return "Modify Reject Reason: Duplicate Identifier (D)"
-  end
-  if value == "H" then
-    return "Modify Reject Reason: Halted (H)"
-  end
-  if value == "I" then
-    return "Modify Reject Reason: Incorrect Data Center (I)"
-  end
-  if value == "K" then
-    return "Modify Reject Reason: Order Rate Threshold Exceeded (K)"
-  end
-  if value == "M" then
-    return "Modify Reject Reason: Liquidity Available Exceeds Order Size (M)"
-  end
-  if value == "N" then
-    return "Modify Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
-  end
-  if value == "O" then
-    return "Modify Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
-  end
-  if value == "P" then
-    return "Modify Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
-  end
-  if value == "U" then
-    return "Modify Reject Reason: User Requested (U)"
-  end
-  if value == "V" then
-    return "Modify Reject Reason: Would Wash (V)"
-  end
-  if value == "X" then
-    return "Modify Reject Reason: Order Expired (X)"
-  end
-  if value == "Y" then
-    return "Modify Reject Reason: Symbol Not Supported (Y)"
-  end
-  if value == "Z" then
-    return "Modify Reject Reason: Unforeseen Reason (Z)"
-  end
-  if value == "h" then
-    return "Modify Reject Reason: Order Persisted (h)"
-  end
-  if value == "f" then
-    return "Modify Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
-  end
-  if value == "m" then
-    return "Modify Reject Reason: Market Access Risk Limit Exceeded (m)"
-  end
-  if value == "n" then
-    return "Modify Reject Reason: Risk Management Configuration Is Insufficient (n)"
-  end
-  if value == "o" then
-    return "Modify Reject Reason: Max Open Orders Count Exceeded (o)"
-  end
-  if value == "s" then
-    return "Modify Reject Reason: Risk Management Product Level (s)"
-  end
-  if value == "y" then
-    return "Modify Reject Reason: Order Received By Cfe During Replay (y)"
-  end
-  if value == "z" then
-    return "Modify Reject Reason: Session End (z)"
-  end
-
-  return "Modify Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Modify Reject Reason
-cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.modify_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.modify_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Cl Ord Id
-cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id = {}
-
--- Size: Orig Cl Ord Id
-cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size = 20
-
--- Display: Orig Cl Ord Id
-cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.display = function(value)
-  return "Orig Cl Ord Id: "..value
-end
-
--- Dissect: Orig Cl Ord Id
-cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.orig_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Modify Rejected Message
 cboe_futures_orderentry_boe3_v1_0.modify_rejected_message = {}
 
@@ -3504,159 +4958,6 @@ cboe_futures_orderentry_boe3_v1_0.modify_rejected_message.dissect = function(buf
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.modify_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cust Order Handling Inst
-cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst = {}
-
--- Size: Cust Order Handling Inst
-cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size = 1
-
--- Display: Cust Order Handling Inst
-cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.display = function(value)
-  if value == "W" then
-    return "Cust Order Handling Inst: Desk (W)"
-  end
-  if value == "Y" then
-    return "Cust Order Handling Inst: Electronic (Y)"
-  end
-  if value == "C" then
-    return "Cust Order Handling Inst: Vendorprovided Platform Billed By (C)"
-  end
-  if value == "G" then
-    return "Cust Order Handling Inst: Sponsored Access Via Exchange Api (G)"
-  end
-  if value == "H" then
-    return "Cust Order Handling Inst: Premium Algorithmic Trading (H)"
-  end
-  if value == "D" then
-    return "Cust Order Handling Inst: Other (D)"
-  end
-  if value == "0x00" then
-    return "Cust Order Handling Inst: Apply Default (0x00)"
-  end
-
-  return "Cust Order Handling Inst: Unknown("..value..")"
-end
-
--- Dissect: Cust Order Handling Inst
-cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.cust_order_handling_inst.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cust_order_handling_inst, range, value, display)
-
-  return offset + length, value
-end
-
--- Frequent Trader Id
-cboe_futures_orderentry_boe3_v1_0.frequent_trader_id = {}
-
--- Size: Frequent Trader Id
-cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size = 6
-
--- Display: Frequent Trader Id
-cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.display = function(value)
-  return "Frequent Trader Id: "..value
-end
-
--- Dissect: Frequent Trader Id
-cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.frequent_trader_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.frequent_trader_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Stop Px
-cboe_futures_orderentry_boe3_v1_0.stop_px = {}
-
--- Size: Stop Px
-cboe_futures_orderentry_boe3_v1_0.stop_px.size = 99
-
--- Display: Stop Px
-cboe_futures_orderentry_boe3_v1_0.stop_px.display = function(value)
-  return "Stop Px: "..value
-end
-
--- Translate: Stop Px
-cboe_futures_orderentry_boe3_v1_0.stop_px.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Stop Px
-cboe_futures_orderentry_boe3_v1_0.stop_px.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.stop_px.size
-  local range = buffer(offset, length)
-  local raw = range:bytes():tohex(false, " ")
-  local value = cboe_futures_orderentry_boe3_v1_0.stop_px.translate(raw)
-  local display = cboe_futures_orderentry_boe3_v1_0.stop_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty
-cboe_futures_orderentry_boe3_v1_0.order_qty = {}
-
--- Size: Order Qty
-cboe_futures_orderentry_boe3_v1_0.order_qty.size = 4
-
--- Display: Order Qty
-cboe_futures_orderentry_boe3_v1_0.order_qty.display = function(value)
-  return "Order Qty: "..value
-end
-
--- Dissect: Order Qty
-cboe_futures_orderentry_boe3_v1_0.order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.order_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.order_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.order_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Type
-cboe_futures_orderentry_boe3_v1_0.ord_type = {}
-
--- Size: Ord Type
-cboe_futures_orderentry_boe3_v1_0.ord_type.size = 1
-
--- Display: Ord Type
-cboe_futures_orderentry_boe3_v1_0.ord_type.display = function(value)
-  if value == "1" then
-    return "Ord Type: Market (1)"
-  end
-  if value == "2" then
-    return "Ord Type: Limit (2)"
-  end
-  if value == "4" then
-    return "Ord Type: Stop Limit (4)"
-  end
-
-  return "Ord Type: Unknown("..value..")"
-end
-
--- Dissect: Ord Type
-cboe_futures_orderentry_boe3_v1_0.ord_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.ord_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.ord_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.ord_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Modified Message
@@ -3751,102 +5052,6 @@ cboe_futures_orderentry_boe3_v1_0.order_modified_message.dissect = function(buff
   end
 end
 
--- Order Reject Reason
-cboe_futures_orderentry_boe3_v1_0.order_reject_reason = {}
-
--- Size: Order Reject Reason
-cboe_futures_orderentry_boe3_v1_0.order_reject_reason.size = 1
-
--- Display: Order Reject Reason
-cboe_futures_orderentry_boe3_v1_0.order_reject_reason.display = function(value)
-  if value == "A" then
-    return "Order Reject Reason: Admin (A)"
-  end
-  if value == "B" then
-    return "Order Reject Reason: Unknown Maturity Date (B)"
-  end
-  if value == "C" then
-    return "Order Reject Reason: Unknown Product Name (C)"
-  end
-  if value == "D" then
-    return "Order Reject Reason: Duplicate Identifier (D)"
-  end
-  if value == "H" then
-    return "Order Reject Reason: Halted (H)"
-  end
-  if value == "I" then
-    return "Order Reject Reason: Incorrect Data Center (I)"
-  end
-  if value == "K" then
-    return "Order Reject Reason: Order Rate Threshold Exceeded (K)"
-  end
-  if value == "M" then
-    return "Order Reject Reason: Liquidity Available Exceeds Order Size (M)"
-  end
-  if value == "N" then
-    return "Order Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
-  end
-  if value == "O" then
-    return "Order Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
-  end
-  if value == "P" then
-    return "Order Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
-  end
-  if value == "U" then
-    return "Order Reject Reason: User Requested (U)"
-  end
-  if value == "V" then
-    return "Order Reject Reason: Would Wash (V)"
-  end
-  if value == "X" then
-    return "Order Reject Reason: Order Expired (X)"
-  end
-  if value == "Y" then
-    return "Order Reject Reason: Symbol Not Supported (Y)"
-  end
-  if value == "Z" then
-    return "Order Reject Reason: Unforeseen Reason (Z)"
-  end
-  if value == "h" then
-    return "Order Reject Reason: Order Persisted (h)"
-  end
-  if value == "f" then
-    return "Order Reject Reason: Risk Management Mpid Or Custom Group Id Level (f)"
-  end
-  if value == "m" then
-    return "Order Reject Reason: Market Access Risk Limit Exceeded (m)"
-  end
-  if value == "n" then
-    return "Order Reject Reason: Risk Management Configuration Is Insufficient (n)"
-  end
-  if value == "o" then
-    return "Order Reject Reason: Max Open Orders Count Exceeded (o)"
-  end
-  if value == "s" then
-    return "Order Reject Reason: Risk Management Product Level (s)"
-  end
-  if value == "y" then
-    return "Order Reject Reason: Order Received By Cfe During Replay (y)"
-  end
-  if value == "z" then
-    return "Order Reject Reason: Session End (z)"
-  end
-
-  return "Order Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Order Reject Reason
-cboe_futures_orderentry_boe3_v1_0.order_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.order_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.order_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.order_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Rejected Message
 cboe_futures_orderentry_boe3_v1_0.order_rejected_message = {}
 
@@ -3903,230 +5108,6 @@ cboe_futures_orderentry_boe3_v1_0.order_rejected_message.dissect = function(buff
   end
 end
 
--- Cum Qty
-cboe_futures_orderentry_boe3_v1_0.cum_qty = {}
-
--- Size: Cum Qty
-cboe_futures_orderentry_boe3_v1_0.cum_qty.size = 4
-
--- Display: Cum Qty
-cboe_futures_orderentry_boe3_v1_0.cum_qty.display = function(value)
-  return "Cum Qty: "..value
-end
-
--- Dissect: Cum Qty
-cboe_futures_orderentry_boe3_v1_0.cum_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cum_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.cum_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cum_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Oeo Id
-cboe_futures_orderentry_boe3_v1_0.oeo_id = {}
-
--- Size: Oeo Id
-cboe_futures_orderentry_boe3_v1_0.oeo_id.size = 18
-
--- Display: Oeo Id
-cboe_futures_orderentry_boe3_v1_0.oeo_id.display = function(value)
-  return "Oeo Id: "..value
-end
-
--- Dissect: Oeo Id
-cboe_futures_orderentry_boe3_v1_0.oeo_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.oeo_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.oeo_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.oeo_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Manual Order Indicator
-cboe_futures_orderentry_boe3_v1_0.manual_order_indicator = {}
-
--- Size: Manual Order Indicator
-cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size = 1
-
--- Display: Manual Order Indicator
-cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.display = function(value)
-  if value == "Y" then
-    return "Manual Order Indicator: Manual (Y)"
-  end
-  if value == "N" then
-    return "Manual Order Indicator: Automated (N)"
-  end
-
-  return "Manual Order Indicator: Unknown("..value..")"
-end
-
--- Dissect: Manual Order Indicator
-cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.manual_order_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.manual_order_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Cti Code
-cboe_futures_orderentry_boe3_v1_0.cti_code = {}
-
--- Size: Cti Code
-cboe_futures_orderentry_boe3_v1_0.cti_code.size = 1
-
--- Display: Cti Code
-cboe_futures_orderentry_boe3_v1_0.cti_code.display = function(value)
-  if value == "1" then
-    return "Cti Code: Cti 1 (1)"
-  end
-  if value == "2" then
-    return "Cti Code: Cti 2 (2)"
-  end
-  if value == "3" then
-    return "Cti Code: Cti 3 (3)"
-  end
-  if value == "4" then
-    return "Cti Code: Cti 4 (4)"
-  end
-
-  return "Cti Code: Unknown("..value..")"
-end
-
--- Dissect: Cti Code
-cboe_futures_orderentry_boe3_v1_0.cti_code.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cti_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.cti_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cti_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Expire Time
-cboe_futures_orderentry_boe3_v1_0.expire_time = {}
-
--- Size: Expire Time
-cboe_futures_orderentry_boe3_v1_0.expire_time.size = 8
-
--- Display: Expire Time
-cboe_futures_orderentry_boe3_v1_0.expire_time.display = function(value)
-  return "Expire Time: "..value
-end
-
--- Dissect: Expire Time
-cboe_futures_orderentry_boe3_v1_0.expire_time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.expire_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_futures_orderentry_boe3_v1_0.expire_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.expire_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Group Id
-cboe_futures_orderentry_boe3_v1_0.trading_group_id = {}
-
--- Size: Trading Group Id
-cboe_futures_orderentry_boe3_v1_0.trading_group_id.size = 1
-
--- Display: Trading Group Id
-cboe_futures_orderentry_boe3_v1_0.trading_group_id.display = function(value)
-  return "Trading Group Id: "..value
-end
-
--- Dissect: Trading Group Id
-cboe_futures_orderentry_boe3_v1_0.trading_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.trading_group_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.trading_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.trading_group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Unique Id Level
-cboe_futures_orderentry_boe3_v1_0.unique_id_level = {}
-
--- Size: Unique Id Level
-cboe_futures_orderentry_boe3_v1_0.unique_id_level.size = 1
-
--- Display: Unique Id Level
-cboe_futures_orderentry_boe3_v1_0.unique_id_level.display = function(value)
-  if value == "N" then
-    return "Unique Id Level: Cancel Newest (N)"
-  end
-  if value == "F" then
-    return "Unique Id Level: Tph (F)"
-  end
-  if value == "M" then
-    return "Unique Id Level: Efid (M)"
-  end
-
-  return "Unique Id Level: Unknown("..value..")"
-end
-
--- Dissect: Unique Id Level
-cboe_futures_orderentry_boe3_v1_0.unique_id_level.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.unique_id_level.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.unique_id_level.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.unique_id_level, range, value, display)
-
-  return offset + length, value
-end
-
--- Mtp Modifier
-cboe_futures_orderentry_boe3_v1_0.mtp_modifier = {}
-
--- Size: Mtp Modifier
-cboe_futures_orderentry_boe3_v1_0.mtp_modifier.size = 1
-
--- Display: Mtp Modifier
-cboe_futures_orderentry_boe3_v1_0.mtp_modifier.display = function(value)
-  if value == "N" then
-    return "Mtp Modifier: Cancel Newest (N)"
-  end
-  if value == "O" then
-    return "Mtp Modifier: Cancel Oldest (O)"
-  end
-  if value == "B" then
-    return "Mtp Modifier: Cancel Both (B)"
-  end
-
-  return "Mtp Modifier: Unknown("..value..")"
-end
-
--- Dissect: Mtp Modifier
-cboe_futures_orderentry_boe3_v1_0.mtp_modifier.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.mtp_modifier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.mtp_modifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.mtp_modifier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Prevent Match
 cboe_futures_orderentry_boe3_v1_0.prevent_match = {}
 
@@ -4138,7 +5119,7 @@ cboe_futures_orderentry_boe3_v1_0.prevent_match.size =
 
 -- Display: Prevent Match
 cboe_futures_orderentry_boe3_v1_0.prevent_match.display = function(buffer, offset, value, packet, parent)
-  return "Prevent Match: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Prevent Match
@@ -4159,101 +5140,20 @@ end
 
 -- Dissect: Prevent Match
 cboe_futures_orderentry_boe3_v1_0.prevent_match.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.prevent_match then
-    local length = cboe_futures_orderentry_boe3_v1_0.prevent_match.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:string()
-    local display = cboe_futures_orderentry_boe3_v1_0.prevent_match.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.prevent_match, range, value, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.prevent_match, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0.prevent_match.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0.prevent_match.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0.prevent_match.fields(buffer, offset, packet, parent)
   end
-
-  return cboe_futures_orderentry_boe3_v1_0.prevent_match.fields(buffer, offset, packet, parent)
-end
-
--- Account
-cboe_futures_orderentry_boe3_v1_0.account = {}
-
--- Size: Account
-cboe_futures_orderentry_boe3_v1_0.account.size = 16
-
--- Display: Account
-cboe_futures_orderentry_boe3_v1_0.account.display = function(value)
-  return "Account: "..value
-end
-
--- Dissect: Account
-cboe_futures_orderentry_boe3_v1_0.account.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.account.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.account, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Qty
-cboe_futures_orderentry_boe3_v1_0.min_qty = {}
-
--- Size: Min Qty
-cboe_futures_orderentry_boe3_v1_0.min_qty.size = 4
-
--- Display: Min Qty
-cboe_futures_orderentry_boe3_v1_0.min_qty.display = function(value)
-  return "Min Qty: "..value
-end
-
--- Dissect: Min Qty
-cboe_futures_orderentry_boe3_v1_0.min_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.min_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.min_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.min_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force
-cboe_futures_orderentry_boe3_v1_0.time_in_force = {}
-
--- Size: Time In Force
-cboe_futures_orderentry_boe3_v1_0.time_in_force.size = 1
-
--- Display: Time In Force
-cboe_futures_orderentry_boe3_v1_0.time_in_force.display = function(value)
-  if value == "0" then
-    return "Time In Force: Day (0)"
-  end
-  if value == "1" then
-    return "Time In Force: Gtc (1)"
-  end
-  if value == "3" then
-    return "Time In Force: Ioc (3)"
-  end
-  if value == "4" then
-    return "Time In Force: Fok (4)"
-  end
-  if value == "6" then
-    return "Time In Force: Gtd (6)"
-  end
-
-  return "Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Time In Force
-cboe_futures_orderentry_boe3_v1_0.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.time_in_force, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Acknowledgement Message
@@ -4412,94 +5312,6 @@ cboe_futures_orderentry_boe3_v1_0.order_acknowledgement_message.dissect = functi
   end
 end
 
--- Custom Group Id
-cboe_futures_orderentry_boe3_v1_0.custom_group_id = {}
-
--- Size: Custom Group Id
-cboe_futures_orderentry_boe3_v1_0.custom_group_id.size = 2
-
--- Display: Custom Group Id
-cboe_futures_orderentry_boe3_v1_0.custom_group_id.display = function(value)
-  return "Custom Group Id: "..value
-end
-
--- Dissect: Custom Group Id
-cboe_futures_orderentry_boe3_v1_0.custom_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.custom_group_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.custom_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.custom_group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Name
-cboe_futures_orderentry_boe3_v1_0.product_name = {}
-
--- Size: Product Name
-cboe_futures_orderentry_boe3_v1_0.product_name.size = 6
-
--- Display: Product Name
-cboe_futures_orderentry_boe3_v1_0.product_name.display = function(value)
-  return "Product Name: "..value
-end
-
--- Dissect: Product Name
-cboe_futures_orderentry_boe3_v1_0.product_name.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.product_name.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.product_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.product_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Reset
-cboe_futures_orderentry_boe3_v1_0.risk_reset = {}
-
--- Size: Risk Reset
-cboe_futures_orderentry_boe3_v1_0.risk_reset.size = 8
-
--- Display: Risk Reset
-cboe_futures_orderentry_boe3_v1_0.risk_reset.display = function(value)
-  if value == "S" then
-    return "Risk Reset: Productlevel (S)"
-  end
-  if value == "F" then
-    return "Risk Reset: Firmlevel (F)"
-  end
-  if value == "C" then
-    return "Risk Reset: Custom Group Id (C)"
-  end
-  if value == "R" then
-    return "Risk Reset: Productlevel Options (R)"
-  end
-  if value == "I" then
-    return "Risk Reset: Firmlevel Options (I)"
-  end
-  if value == "D" then
-    return "Risk Reset: Custom Group Id Options (D)"
-  end
-
-  return "Risk Reset: Unknown("..value..")"
-end
-
--- Dissect: Risk Reset
-cboe_futures_orderentry_boe3_v1_0.risk_reset.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.risk_reset.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.risk_reset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.risk_reset, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reset Risk Message
 cboe_futures_orderentry_boe3_v1_0.reset_risk_message = {}
 
@@ -4618,36 +5430,6 @@ cboe_futures_orderentry_boe3_v1_0.quote_update_group.dissect = function(buffer, 
   end
 end
 
--- Size Modifier
-cboe_futures_orderentry_boe3_v1_0.size_modifier = {}
-
--- Size: Size Modifier
-cboe_futures_orderentry_boe3_v1_0.size_modifier.size = 1
-
--- Display: Size Modifier
-cboe_futures_orderentry_boe3_v1_0.size_modifier.display = function(value)
-  if value == "0x00" then
-    return "Size Modifier: New Quote Size (0x00)"
-  end
-  if value == "R" then
-    return "Size Modifier: Reduced Size (R)"
-  end
-
-  return "Size Modifier: Unknown("..value..")"
-end
-
--- Dissect: Size Modifier
-cboe_futures_orderentry_boe3_v1_0.size_modifier.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.size_modifier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.size_modifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.size_modifier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Update Message
 cboe_futures_orderentry_boe3_v1_0.quote_update_message = {}
 
@@ -4741,217 +5523,20 @@ end
 
 -- Dissect: Quote Update Message
 cboe_futures_orderentry_boe3_v1_0.quote_update_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.quote_update_message then
-    local length = cboe_futures_orderentry_boe3_v1_0.quote_update_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0.quote_update_message.display(buffer, packet, parent)
-    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_message, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0.quote_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0.quote_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0.quote_update_message.fields(buffer, offset, packet, parent)
   end
-
-  return cboe_futures_orderentry_boe3_v1_0.quote_update_message.fields(buffer, offset, packet, parent)
-end
-
--- Custom Group Id Cnt
-cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt = {}
-
--- Size: Custom Group Id Cnt
-cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.size = 1
-
--- Display: Custom Group Id Cnt
-cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.display = function(value)
-  return "Custom Group Id Cnt: "..value
-end
-
--- Dissect: Custom Group Id Cnt
-cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.custom_group_id_cnt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.custom_group_id_cnt, range, value, display)
-
-  return offset + length, value
-end
-
--- Instruction Details
-cboe_futures_orderentry_boe3_v1_0.instruction_details = {}
-
--- Size: Instruction Details
-cboe_futures_orderentry_boe3_v1_0.instruction_details.size = 11
-
--- Display: Instruction Details
-cboe_futures_orderentry_boe3_v1_0.instruction_details.display = function(value)
-  return "Instruction Details: "..value
-end
-
--- Dissect: Instruction Details
-cboe_futures_orderentry_boe3_v1_0.instruction_details.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.instruction_details.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.instruction_details.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.instruction_details, range, value, display)
-
-  return offset + length, value
-end
-
--- Gtc Order Filter
-cboe_futures_orderentry_boe3_v1_0.gtc_order_filter = {}
-
--- Size: Gtc Order Filter
-cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.size = 1
-
--- Display: Gtc Order Filter
-cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.display = function(value)
-  if value == "C" then
-    return "Gtc Order Filter: Cancel Gtc And Gtd Orders (C)"
-  end
-  if value == "P" then
-    return "Gtc Order Filter: Preserve Gtc And Gtd Orders (P)"
-  end
-
-  return "Gtc Order Filter: Unknown("..value..")"
-end
-
--- Dissect: Gtc Order Filter
-cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.gtc_order_filter.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.gtc_order_filter, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Type Filter
-cboe_futures_orderentry_boe3_v1_0.instrument_type_filter = {}
-
--- Size: Instrument Type Filter
-cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.size = 1
-
--- Display: Instrument Type Filter
-cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.display = function(value)
-  if value == "B" then
-    return "Instrument Type Filter: Both Simple And Complex Orders (B)"
-  end
-  if value == "S" then
-    return "Instrument Type Filter: Simple Orders Only (S)"
-  end
-  if value == "C" then
-    return "Instrument Type Filter: Spread Orders Only (C)"
-  end
-
-  return "Instrument Type Filter: Unknown("..value..")"
-end
-
--- Dissect: Instrument Type Filter
-cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.instrument_type_filter.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.instrument_type_filter, range, value, display)
-
-  return offset + length, value
-end
-
--- Lockout Instruction
-cboe_futures_orderentry_boe3_v1_0.lockout_instruction = {}
-
--- Size: Lockout Instruction
-cboe_futures_orderentry_boe3_v1_0.lockout_instruction.size = 1
-
--- Display: Lockout Instruction
-cboe_futures_orderentry_boe3_v1_0.lockout_instruction.display = function(value)
-  if value == "N" then
-    return "Lockout Instruction: No Lockout (N)"
-  end
-  if value == "L" then
-    return "Lockout Instruction: Lockout Until Corresponding Reset Risk Received (L)"
-  end
-
-  return "Lockout Instruction: Unknown("..value..")"
-end
-
--- Dissect: Lockout Instruction
-cboe_futures_orderentry_boe3_v1_0.lockout_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.lockout_instruction.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.lockout_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.lockout_instruction, range, value, display)
-
-  return offset + length, value
-end
-
--- Acknowledgement Style
-cboe_futures_orderentry_boe3_v1_0.acknowledgement_style = {}
-
--- Size: Acknowledgement Style
-cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.size = 1
-
--- Display: Acknowledgement Style
-cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.display = function(value)
-  if value == "M" then
-    return "Acknowledgement Style: Order Cancelled Messages Are Sent For Each Cancelled Order (M)"
-  end
-  if value == "S" then
-    return "Acknowledgement Style: A Single Mass Cancel Acknowledgement Message Is Sent (S)"
-  end
-  if value == "B" then
-    return "Acknowledgement Style: Both Individual Order Cancelled And Mass Cancel Acknowledgement Messages Will Be Sent (B)"
-  end
-
-  return "Acknowledgement Style: Unknown("..value..")"
-end
-
--- Dissect: Acknowledgement Style
-cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.acknowledgement_style.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.acknowledgement_style, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Firm Filter
-cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter = {}
-
--- Size: Clearing Firm Filter
-cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.size = 1
-
--- Display: Clearing Firm Filter
-cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.display = function(value)
-  if value == "A" then
-    return "Clearing Firm Filter: No Filtering By Clearing Firm (A)"
-  end
-  if value == "F" then
-    return "Clearing Firm Filter: Specified Clearing Firm Optional Field (F)"
-  end
-
-  return "Clearing Firm Filter: Unknown("..value..")"
-end
-
--- Dissect: Clearing Firm Filter
-cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.clearing_firm_filter.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.clearing_firm_filter, range, value, display)
-
-  return offset + length, value
 end
 
 -- Mass Cancel Inst
@@ -4968,7 +5553,7 @@ cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.size =
 
 -- Display: Mass Cancel Inst
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.display = function(buffer, offset, value, packet, parent)
-  return "Mass Cancel Inst: "..value
+  return ""..value
 end
 
 -- Dissect Fields: Mass Cancel Inst
@@ -4998,16 +5583,20 @@ end
 
 -- Dissect: Mass Cancel Inst
 cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add element to protocol tree
   if show.mass_cancel_inst then
-    local length = cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.size(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:string()
-    local display = cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.display(buffer, offset, value, packet, parent)
-    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_inst, range, value, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_inst, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.fields(buffer, offset, packet, parent)
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0.mass_cancel_inst.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Purge Orders Message
@@ -5078,15 +5667,20 @@ end
 
 -- Dissect: Purge Orders Message
 cboe_futures_orderentry_boe3_v1_0.purge_orders_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.purge_orders_message then
-    local length = cboe_futures_orderentry_boe3_v1_0.purge_orders_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0.purge_orders_message.display(buffer, packet, parent)
-    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_orders_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.purge_orders_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0.purge_orders_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0.purge_orders_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0.purge_orders_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0.purge_orders_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Mass Cancel Order Message
@@ -5199,36 +5793,6 @@ cboe_futures_orderentry_boe3_v1_0.cancel_order_message.dissect = function(buffer
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.cancel_order_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cancel Orig On Reject
-cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject = {}
-
--- Size: Cancel Orig On Reject
-cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.size = 1
-
--- Display: Cancel Orig On Reject
-cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.display = function(value)
-  if value == "N" then
-    return "Cancel Orig On Reject: Leave Original Order Alone (N)"
-  end
-  if value == "Y" then
-    return "Cancel Orig On Reject: Cancel Original Order If Modification Fails (Y)"
-  end
-
-  return "Cancel Orig On Reject: Unknown("..value..")"
-end
-
--- Dissect: Cancel Orig On Reject
-cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.cancel_orig_on_reject.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.cancel_orig_on_reject, range, value, display)
-
-  return offset + length, value
 end
 
 -- Modify Order Message
@@ -5447,62 +6011,6 @@ cboe_futures_orderentry_boe3_v1_0.new_order_message.dissect = function(buffer, o
   end
 end
 
--- Logout Reason Text
-cboe_futures_orderentry_boe3_v1_0.logout_reason_text = {}
-
--- Size: Logout Reason Text
-cboe_futures_orderentry_boe3_v1_0.logout_reason_text.size = 60
-
--- Display: Logout Reason Text
-cboe_futures_orderentry_boe3_v1_0.logout_reason_text.display = function(value)
-  return "Logout Reason Text: "..value
-end
-
--- Dissect: Logout Reason Text
-cboe_futures_orderentry_boe3_v1_0.logout_reason_text.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.logout_reason_text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.logout_reason_text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.logout_reason_text, range, value, display)
-
-  return offset + length, value
-end
-
--- Logout Reason
-cboe_futures_orderentry_boe3_v1_0.logout_reason = {}
-
--- Size: Logout Reason
-cboe_futures_orderentry_boe3_v1_0.logout_reason.size = 1
-
--- Display: Logout Reason
-cboe_futures_orderentry_boe3_v1_0.logout_reason.display = function(value)
-  if value == "U" then
-    return "Logout Reason: User Requested (U)"
-  end
-  if value == "A" then
-    return "Logout Reason: Administrative (A)"
-  end
-  if value == "!" then
-    return "Logout Reason: Protocol Violation (!)"
-  end
-
-  return "Logout Reason: Unknown("..value..")"
-end
-
--- Dissect: Logout Reason
-cboe_futures_orderentry_boe3_v1_0.logout_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.logout_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.logout_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.logout_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Logout Response Message
 cboe_futures_orderentry_boe3_v1_0.logout_response_message = {}
 
@@ -5545,52 +6053,6 @@ cboe_futures_orderentry_boe3_v1_0.logout_response_message.dissect = function(buf
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.logout_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequence Number
-cboe_futures_orderentry_boe3_v1_0.sequence_number = {}
-
--- Size: Sequence Number
-cboe_futures_orderentry_boe3_v1_0.sequence_number.size = 4
-
--- Display: Sequence Number
-cboe_futures_orderentry_boe3_v1_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-cboe_futures_orderentry_boe3_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Number
-cboe_futures_orderentry_boe3_v1_0.unit_number = {}
-
--- Size: Unit Number
-cboe_futures_orderentry_boe3_v1_0.unit_number.size = 1
-
--- Display: Unit Number
-cboe_futures_orderentry_boe3_v1_0.unit_number.display = function(value)
-  return "Unit Number: "..value
-end
-
--- Dissect: Unit Number
-cboe_futures_orderentry_boe3_v1_0.unit_number.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.unit_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.unit_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.unit_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Unit Sequence
@@ -5641,123 +6103,6 @@ cboe_futures_orderentry_boe3_v1_0.unit_sequence.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return cboe_futures_orderentry_boe3_v1_0.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
   end
-end
-
--- Number Of Units
-cboe_futures_orderentry_boe3_v1_0.number_of_units = {}
-
--- Size: Number Of Units
-cboe_futures_orderentry_boe3_v1_0.number_of_units.size = 1
-
--- Display: Number Of Units
-cboe_futures_orderentry_boe3_v1_0.number_of_units.display = function(value)
-  return "Number Of Units: "..value
-end
-
--- Dissect: Number Of Units
-cboe_futures_orderentry_boe3_v1_0.number_of_units.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.number_of_units.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.number_of_units.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.number_of_units, range, value, display)
-
-  return offset + length, value
-end
-
--- Client Sequence
-cboe_futures_orderentry_boe3_v1_0.client_sequence = {}
-
--- Size: Client Sequence
-cboe_futures_orderentry_boe3_v1_0.client_sequence.size = 4
-
--- Display: Client Sequence
-cboe_futures_orderentry_boe3_v1_0.client_sequence.display = function(value)
-  return "Client Sequence: "..value
-end
-
--- Dissect: Client Sequence
-cboe_futures_orderentry_boe3_v1_0.client_sequence.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.client_sequence.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.client_sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.client_sequence, range, value, display)
-
-  return offset + length, value
-end
-
--- Login Response Text
-cboe_futures_orderentry_boe3_v1_0.login_response_text = {}
-
--- Size: Login Response Text
-cboe_futures_orderentry_boe3_v1_0.login_response_text.size = 60
-
--- Display: Login Response Text
-cboe_futures_orderentry_boe3_v1_0.login_response_text.display = function(value)
-  return "Login Response Text: "..value
-end
-
--- Dissect: Login Response Text
-cboe_futures_orderentry_boe3_v1_0.login_response_text.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.login_response_text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.login_response_text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.login_response_text, range, value, display)
-
-  return offset + length, value
-end
-
--- Login Response Status
-cboe_futures_orderentry_boe3_v1_0.login_response_status = {}
-
--- Size: Login Response Status
-cboe_futures_orderentry_boe3_v1_0.login_response_status.size = 1
-
--- Display: Login Response Status
-cboe_futures_orderentry_boe3_v1_0.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Accepted (A)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "D" then
-    return "Login Response Status: Disabled (D)"
-  end
-  if value == "I" then
-    return "Login Response Status: Invalid Unit (I)"
-  end
-  if value == "M" then
-    return "Login Response Status: Invalid Message (M)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized (N)"
-  end
-  if value == "Q" then
-    return "Login Response Status: Sequence Ahead (Q)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
-
-  return "Login Response Status: Unknown("..value..")"
-end
-
--- Dissect: Login Response Status
-cboe_futures_orderentry_boe3_v1_0.login_response_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.login_response_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.login_response_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.login_response_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Response Message
@@ -5813,117 +6158,20 @@ end
 
 -- Dissect: Login Response Message
 cboe_futures_orderentry_boe3_v1_0.login_response_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.login_response_message then
-    local length = cboe_futures_orderentry_boe3_v1_0.login_response_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0.login_response_message.display(buffer, packet, parent)
-    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.login_response_message, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.login_response_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0.login_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0.login_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0.login_response_message.fields(buffer, offset, packet, parent)
   end
-
-  return cboe_futures_orderentry_boe3_v1_0.login_response_message.fields(buffer, offset, packet, parent)
-end
-
--- Replay Unspecified Unit
-cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit = {}
-
--- Size: Replay Unspecified Unit
-cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.size = 1
-
--- Display: Replay Unspecified Unit
-cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.display = function(value)
-  if value == "F" then
-    return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
-  end
-  if value == "R" then
-    return "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)"
-  end
-  if value == "S" then
-    return "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)"
-  end
-
-  return "Replay Unspecified Unit: Unknown("..value..")"
-end
-
--- Dissect: Replay Unspecified Unit
-cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.replay_unspecified_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.replay_unspecified_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-cboe_futures_orderentry_boe3_v1_0.password = {}
-
--- Size: Password
-cboe_futures_orderentry_boe3_v1_0.password.size = 10
-
--- Display: Password
-cboe_futures_orderentry_boe3_v1_0.password.display = function(value)
-  return "Password: "..value
-end
-
--- Dissect: Password
-cboe_futures_orderentry_boe3_v1_0.password.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.password.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.password, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Sub Id
-cboe_futures_orderentry_boe3_v1_0.session_sub_id = {}
-
--- Size: Session Sub Id
-cboe_futures_orderentry_boe3_v1_0.session_sub_id.size = 4
-
--- Display: Session Sub Id
-cboe_futures_orderentry_boe3_v1_0.session_sub_id.display = function(value)
-  return "Session Sub Id: "..value
-end
-
--- Dissect: Session Sub Id
-cboe_futures_orderentry_boe3_v1_0.session_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.session_sub_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.session_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.session_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-cboe_futures_orderentry_boe3_v1_0.session_id = {}
-
--- Size: Session Id
-cboe_futures_orderentry_boe3_v1_0.session_id.size = 4
-
--- Display: Session Id
-cboe_futures_orderentry_boe3_v1_0.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-cboe_futures_orderentry_boe3_v1_0.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.session_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_futures_orderentry_boe3_v1_0.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.session_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Request Message
@@ -5984,186 +6232,38 @@ end
 
 -- Dissect: Login Request Message
 cboe_futures_orderentry_boe3_v1_0.login_request_message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
   if show.login_request_message then
-    local length = cboe_futures_orderentry_boe3_v1_0.login_request_message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0.login_request_message.display(buffer, packet, parent)
-    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.login_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.login_request_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0.login_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0.login_request_message.display(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0.login_request_message.fields(buffer, offset, packet, parent)
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0.login_request_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Message
 cboe_futures_orderentry_boe3_v1_0.message = {}
 
--- Size: Message
-cboe_futures_orderentry_boe3_v1_0.message.size = function(buffer, offset, message_type)
-  -- Size of Login Request Message
-  if message_type == 1 then
-    return cboe_futures_orderentry_boe3_v1_0.login_request_message.size(buffer, offset)
-  end
-  -- Size of Logout Request Message
-  if message_type == 2 then
-    return 0
-  end
-  -- Size of Client Heartbeat Message
-  if message_type == 3 then
-    return 0
-  end
-  -- Size of Login Response Message
-  if message_type == 501 then
-    return cboe_futures_orderentry_boe3_v1_0.login_response_message.size(buffer, offset)
-  end
-  -- Size of Replay Complete Message
-  if message_type == 502 then
-    return 0
-  end
-  -- Size of Logout Response Message
-  if message_type == 503 then
-    return cboe_futures_orderentry_boe3_v1_0.logout_response_message.size
-  end
-  -- Size of Replay Complete Message
-  if message_type == 504 then
-    return 0
-  end
-  -- Size of New Order Message
-  if message_type == 1001 then
-    return cboe_futures_orderentry_boe3_v1_0.new_order_message.size
-  end
-  -- Size of Modify Order Message
-  if message_type == 1002 then
-    return cboe_futures_orderentry_boe3_v1_0.modify_order_message.size
-  end
-  -- Size of Cancel Order Message
-  if message_type == 1003 then
-    return cboe_futures_orderentry_boe3_v1_0.cancel_order_message.size
-  end
-  -- Size of Mass Cancel Order Message
-  if message_type == 1004 then
-    return cboe_futures_orderentry_boe3_v1_0.mass_cancel_order_message.size
-  end
-  -- Size of Purge Orders Message
-  if message_type == 1005 then
-    return cboe_futures_orderentry_boe3_v1_0.purge_orders_message.size(buffer, offset)
-  end
-  -- Size of Quote Update Message
-  if message_type == 1006 then
-    return cboe_futures_orderentry_boe3_v1_0.quote_update_message.size(buffer, offset)
-  end
-  -- Size of Reset Risk Message
-  if message_type == 1007 then
-    return cboe_futures_orderentry_boe3_v1_0.reset_risk_message.size
-  end
-  -- Size of Order Acknowledgement Message
-  if message_type == 1501 then
-    return cboe_futures_orderentry_boe3_v1_0.order_acknowledgement_message.size
-  end
-  -- Size of Order Rejected Message
-  if message_type == 1502 then
-    return cboe_futures_orderentry_boe3_v1_0.order_rejected_message.size
-  end
-  -- Size of Order Modified Message
-  if message_type == 1503 then
-    return cboe_futures_orderentry_boe3_v1_0.order_modified_message.size
-  end
-  -- Size of Modify Rejected Message
-  if message_type == 1504 then
-    return cboe_futures_orderentry_boe3_v1_0.modify_rejected_message.size
-  end
-  -- Size of Order Execution Message
-  if message_type == 1505 then
-    return cboe_futures_orderentry_boe3_v1_0.order_execution_message.size
-  end
-  -- Size of Order Cancelled Message
-  if message_type == 1506 then
-    return cboe_futures_orderentry_boe3_v1_0.order_cancelled_message.size
-  end
-  -- Size of Cancel Rejected Message
-  if message_type == 1507 then
-    return cboe_futures_orderentry_boe3_v1_0.cancel_rejected_message.size
-  end
-  -- Size of Mass Cancel Acknowledgement Message
-  if message_type == 1508 then
-    return cboe_futures_orderentry_boe3_v1_0.mass_cancel_acknowledgement_message.size
-  end
-  -- Size of Mass Cancel Rejected Message
-  if message_type == 1509 then
-    return cboe_futures_orderentry_boe3_v1_0.mass_cancel_rejected_message.size
-  end
-  -- Size of Purge Acknowledgement Message
-  if message_type == 1510 then
-    return cboe_futures_orderentry_boe3_v1_0.purge_acknowledgement_message.size
-  end
-  -- Size of Purge Rejected Message
-  if message_type == 1511 then
-    return cboe_futures_orderentry_boe3_v1_0.purge_rejected_message.size
-  end
-  -- Size of Trade Cancel Or Correct Message
-  if message_type == 1512 then
-    return cboe_futures_orderentry_boe3_v1_0.trade_cancel_or_correct_message.size
-  end
-  -- Size of Tas Restatement Message
-  if message_type == 1513 then
-    return cboe_futures_orderentry_boe3_v1_0.tas_restatement_message.size
-  end
-  -- Size of Variance Restatement Message
-  if message_type == 1514 then
-    return cboe_futures_orderentry_boe3_v1_0.variance_restatement_message.size
-  end
-  -- Size of Quote Update Acknowledgement Message
-  if message_type == 1515 then
-    return cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_message.size(buffer, offset)
-  end
-  -- Size of Quote Update Rejected Message
-  if message_type == 1516 then
-    return cboe_futures_orderentry_boe3_v1_0.quote_update_rejected_message.size
-  end
-  -- Size of Quote Restated Message
-  if message_type == 1517 then
-    return cboe_futures_orderentry_boe3_v1_0.quote_restated_message.size
-  end
-  -- Size of Quote Execution Message
-  if message_type == 1518 then
-    return cboe_futures_orderentry_boe3_v1_0.quote_execution_message.size
-  end
-  -- Size of Quote Cancelled Message
-  if message_type == 1519 then
-    return cboe_futures_orderentry_boe3_v1_0.quote_cancelled_message.size
-  end
-  -- Size of Tas Quote Restatement Message
-  if message_type == 1520 then
-    return cboe_futures_orderentry_boe3_v1_0.tas_quote_restatement_message.size
-  end
-  -- Size of Variance Quote Restatement Message
-  if message_type == 1521 then
-    return cboe_futures_orderentry_boe3_v1_0.variance_quote_restatement_message.size
-  end
-  -- Size of Reset Risk Acknowledgement Message
-  if message_type == 1522 then
-    return cboe_futures_orderentry_boe3_v1_0.reset_risk_acknowledgement_message.size
-  end
-
-  return 0
-end
-
--- Display: Message
-cboe_futures_orderentry_boe3_v1_0.message.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Message
-cboe_futures_orderentry_boe3_v1_0.message.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Message
+cboe_futures_orderentry_boe3_v1_0.message.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
   if message_type == 1 then
     return cboe_futures_orderentry_boe3_v1_0.login_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Message
   if message_type == 2 then
+    return offset
   end
   -- Dissect Client Heartbeat Message
   if message_type == 3 then
+    return offset
   end
   -- Dissect Login Response Message
   if message_type == 501 then
@@ -6171,6 +6271,7 @@ cboe_futures_orderentry_boe3_v1_0.message.branches = function(buffer, offset, pa
   end
   -- Dissect Replay Complete Message
   if message_type == 502 then
+    return offset
   end
   -- Dissect Logout Response Message
   if message_type == 503 then
@@ -6178,6 +6279,7 @@ cboe_futures_orderentry_boe3_v1_0.message.branches = function(buffer, offset, pa
   end
   -- Dissect Replay Complete Message
   if message_type == 504 then
+    return offset
   end
   -- Dissect New Order Message
   if message_type == 1001 then
@@ -6297,250 +6399,6 @@ cboe_futures_orderentry_boe3_v1_0.message.branches = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Dissect: Message
-cboe_futures_orderentry_boe3_v1_0.message.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.message then
-    return cboe_futures_orderentry_boe3_v1_0.message.branches(buffer, offset, packet, parent, message_type)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = cboe_futures_orderentry_boe3_v1_0.message.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = cboe_futures_orderentry_boe3_v1_0.message.display(buffer, packet, parent)
-  local element = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.message, range, display)
-
-  return cboe_futures_orderentry_boe3_v1_0.message.branches(buffer, offset, packet, parent, message_type)
-end
-
--- Reserved Field
-cboe_futures_orderentry_boe3_v1_0.reserved_field = {}
-
--- Size: Reserved Field
-cboe_futures_orderentry_boe3_v1_0.reserved_field.size = 1
-
--- Display: Reserved Field
-cboe_futures_orderentry_boe3_v1_0.reserved_field.display = function(value)
-  return "Reserved Field: "..value
-end
-
--- Dissect: Reserved Field
-cboe_futures_orderentry_boe3_v1_0.reserved_field.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.reserved_field.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.reserved_field.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.reserved_field, range, value, display)
-
-  return offset + length, value
-end
-
--- Matching Unit
-cboe_futures_orderentry_boe3_v1_0.matching_unit = {}
-
--- Size: Matching Unit
-cboe_futures_orderentry_boe3_v1_0.matching_unit.size = 1
-
--- Display: Matching Unit
-cboe_futures_orderentry_boe3_v1_0.matching_unit.display = function(value)
-  return "Matching Unit: "..value
-end
-
--- Dissect: Matching Unit
-cboe_futures_orderentry_boe3_v1_0.matching_unit.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.matching_unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.matching_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.matching_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-cboe_futures_orderentry_boe3_v1_0.message_type = {}
-
--- Size: Message Type
-cboe_futures_orderentry_boe3_v1_0.message_type.size = 2
-
--- Display: Message Type
-cboe_futures_orderentry_boe3_v1_0.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Logout Request Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Client Heartbeat Message (3)"
-  end
-  if value == 501 then
-    return "Message Type: Login Response Message (501)"
-  end
-  if value == 502 then
-    return "Message Type: Replay Complete Message (502)"
-  end
-  if value == 503 then
-    return "Message Type: Logout Response Message (503)"
-  end
-  if value == 504 then
-    return "Message Type: Replay Complete Message (504)"
-  end
-  if value == 1001 then
-    return "Message Type: New Order Message (1001)"
-  end
-  if value == 1002 then
-    return "Message Type: Modify Order Message (1002)"
-  end
-  if value == 1003 then
-    return "Message Type: Cancel Order Message (1003)"
-  end
-  if value == 1004 then
-    return "Message Type: Mass Cancel Order Message (1004)"
-  end
-  if value == 1005 then
-    return "Message Type: Purge Orders Message (1005)"
-  end
-  if value == 1006 then
-    return "Message Type: Quote Update Message (1006)"
-  end
-  if value == 1007 then
-    return "Message Type: Reset Risk Message (1007)"
-  end
-  if value == 1501 then
-    return "Message Type: Order Acknowledgement Message (1501)"
-  end
-  if value == 1502 then
-    return "Message Type: Order Rejected Message (1502)"
-  end
-  if value == 1503 then
-    return "Message Type: Order Modified Message (1503)"
-  end
-  if value == 1504 then
-    return "Message Type: Modify Rejected Message (1504)"
-  end
-  if value == 1505 then
-    return "Message Type: Order Execution Message (1505)"
-  end
-  if value == 1506 then
-    return "Message Type: Order Cancelled Message (1506)"
-  end
-  if value == 1507 then
-    return "Message Type: Cancel Rejected Message (1507)"
-  end
-  if value == 1508 then
-    return "Message Type: Mass Cancel Acknowledgement Message (1508)"
-  end
-  if value == 1509 then
-    return "Message Type: Mass Cancel Rejected Message (1509)"
-  end
-  if value == 1510 then
-    return "Message Type: Purge Acknowledgement Message (1510)"
-  end
-  if value == 1511 then
-    return "Message Type: Purge Rejected Message (1511)"
-  end
-  if value == 1512 then
-    return "Message Type: Trade Cancel Or Correct Message (1512)"
-  end
-  if value == 1513 then
-    return "Message Type: Tas Restatement Message (1513)"
-  end
-  if value == 1514 then
-    return "Message Type: Variance Restatement Message (1514)"
-  end
-  if value == 1515 then
-    return "Message Type: Quote Update Acknowledgement Message (1515)"
-  end
-  if value == 1516 then
-    return "Message Type: Quote Update Rejected Message (1516)"
-  end
-  if value == 1517 then
-    return "Message Type: Quote Restated Message (1517)"
-  end
-  if value == 1518 then
-    return "Message Type: Quote Execution Message (1518)"
-  end
-  if value == 1519 then
-    return "Message Type: Quote Cancelled Message (1519)"
-  end
-  if value == 1520 then
-    return "Message Type: Tas Quote Restatement Message (1520)"
-  end
-  if value == 1521 then
-    return "Message Type: Variance Quote Restatement Message (1521)"
-  end
-  if value == 1522 then
-    return "Message Type: Reset Risk Acknowledgement Message (1522)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-cboe_futures_orderentry_boe3_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-cboe_futures_orderentry_boe3_v1_0.message_length = {}
-
--- Size: Message Length
-cboe_futures_orderentry_boe3_v1_0.message_length.size = 2
-
--- Display: Message Length
-cboe_futures_orderentry_boe3_v1_0.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-cboe_futures_orderentry_boe3_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Start Of Message
-cboe_futures_orderentry_boe3_v1_0.start_of_message = {}
-
--- Size: Start Of Message
-cboe_futures_orderentry_boe3_v1_0.start_of_message.size = 2
-
--- Display: Start Of Message
-cboe_futures_orderentry_boe3_v1_0.start_of_message.display = function(value)
-  return "Start Of Message: "..value
-end
-
--- Dissect: Start Of Message
-cboe_futures_orderentry_boe3_v1_0.start_of_message.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_futures_orderentry_boe3_v1_0.start_of_message.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_futures_orderentry_boe3_v1_0.start_of_message.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.start_of_message, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
