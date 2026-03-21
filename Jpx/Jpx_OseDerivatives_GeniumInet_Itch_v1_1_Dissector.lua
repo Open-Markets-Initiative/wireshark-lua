@@ -43,6 +43,7 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_count = ProtoField.ne
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_header = ProtoField.new("Message Header", "jpx.osederivatives.geniuminet.itch.v1.1.messageheader", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_length = ProtoField.new("Message Length", "jpx.osederivatives.geniuminet.itch.v1.1.messagelength", ftypes.UINT16)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_type = ProtoField.new("Message Type", "jpx.osederivatives.geniuminet.itch.v1.1.messagetype", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.nanoseconds = ProtoField.new("Nanoseconds", "jpx.osederivatives.geniuminet.itch.v1.1.nanoseconds", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.new_orderbook_position = ProtoField.new("New Orderbook Position", "jpx.osederivatives.geniuminet.itch.v1.1.neworderbookposition", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.nominal_value = ProtoField.new("Nominal Value", "jpx.osederivatives.geniuminet.itch.v1.1.nominalvalue", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "jpx.osederivatives.geniuminet.itch.v1.1.numberoflegs", ftypes.UINT8)
@@ -77,7 +78,6 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.state_name = ProtoField.new("
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.strike_price = ProtoField.new("Strike Price", "jpx.osederivatives.geniuminet.itch.v1.1.strikeprice", ftypes.INT32)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.symbol = ProtoField.new("Symbol", "jpx.osederivatives.geniuminet.itch.v1.1.symbol", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.tick_size = ProtoField.new("Tick Size", "jpx.osederivatives.geniuminet.itch.v1.1.ticksize", ftypes.UINT64)
-omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "jpx.osederivatives.geniuminet.itch.v1.1.timestamp", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trade_price = ProtoField.new("Trade Price", "jpx.osederivatives.geniuminet.itch.v1.1.tradeprice", ftypes.INT32)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trading_currency = ProtoField.new("Trading Currency", "jpx.osederivatives.geniuminet.itch.v1.1.tradingcurrency", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.underlying_orderbook_id = ProtoField.new("Underlying Orderbook Id", "jpx.osederivatives.geniuminet.itch.v1.1.underlyingorderbookid", ftypes.UINT32)
@@ -102,6 +102,7 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trade_message = ProtoField.ne
 
 -- Jpx OseDerivatives GeniumInet Itch 1.1 generated fields
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_index = ProtoField.new("Message Index", "jpx.osederivatives.geniuminet.itch.v1.1.messageindex", ftypes.UINT16)
+omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "jpx.osederivatives.geniuminet.itch.v1.1.timestamp", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -855,6 +856,32 @@ jpx_osederivatives_geniuminet_itch_v1_1.message_type.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Nanoseconds
+jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds = {}
+
+-- Size: Nanoseconds
+jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size = 4
+
+-- Dissect: Nanoseconds
+jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size
+  local range = buffer(offset, length)
+  local nanoseconds = range:uint()
+  local stored_seconds = jpx_osederivatives_geniuminet_itch_v1_1.seconds.store
+
+  if stored_seconds ~= nil then
+    -- Timestamp subtree
+    local display = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.display(nanoseconds)
+    local timestamp = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.timestamp, range)
+    timestamp:set_text(display)
+    timestamp:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.nanoseconds, range, nanoseconds, "Nanoseconds: "..nanoseconds)
+  else
+    parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.nanoseconds, range, nanoseconds, "Nanoseconds: "..nanoseconds)
+  end
+
+  return offset + length, nanoseconds
+end
+
 -- New Orderbook Position
 jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position = {}
 
@@ -1546,36 +1573,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.tick_size.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Timestamp
-jpx_osederivatives_geniuminet_itch_v1_1.timestamp = {}
-
--- Size: Timestamp
-jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size = 4
-
--- Display: Timestamp
-jpx_osederivatives_geniuminet_itch_v1_1.timestamp.display = function(nanoseconds, info, parent)
-  -- Lookup seconds
-  local seconds = jpx_osederivatives_geniuminet_itch_v1_1.seconds.store
-
-  if seconds ~= nil then
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-  end
-
-  return "Timestamp: "..nanoseconds
-end
-
--- Dissect: Timestamp
-jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Price
 jpx_osederivatives_geniuminet_itch_v1_1.trade_price = {}
 
@@ -1645,6 +1642,20 @@ jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.dissect = functi
   return offset + length, value
 end
 
+-- Timestamp
+jpx_osederivatives_geniuminet_itch_v1_1.timestamp = {}
+
+-- Display: Timestamp
+jpx_osederivatives_geniuminet_itch_v1_1.timestamp.display = function(nanoseconds, info, parent)
+  local seconds = jpx_osederivatives_geniuminet_itch_v1_1.seconds.store
+
+  if seconds ~= nil then
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  end
+
+  return "Timestamp: "..nanoseconds
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Jpx OseDerivatives GeniumInet Itch 1.1
@@ -1655,7 +1666,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update = {}
 
 -- Size: Equilibrium Price Update
 jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.available_bid_quantity_at_equilibrium_price.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.available_ask_quantity_at_equilibrium_price.size + 
@@ -1671,8 +1682,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.dissect(buffer, index, packet, parent)
@@ -1715,7 +1726,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.trade_message = {}
 
 -- Size: Trade Message
 jpx_osederivatives_geniuminet_itch_v1_1.trade_message.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.match_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.side.size + 
@@ -1736,8 +1747,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Match Id: Numeric
   index, match_id = jpx_osederivatives_geniuminet_itch_v1_1.match_id.dissect(buffer, index, packet, parent)
@@ -1795,7 +1806,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_delete_message = {}
 
 -- Size: Order Delete Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_delete_message.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.side.size
@@ -1809,8 +1820,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.order_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = jpx_osederivatives_geniuminet_itch_v1_1.order_id.dissect(buffer, index, packet, parent)
@@ -1925,7 +1936,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message = {}
 
 -- Size: Order Replace Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.side.size + 
@@ -1943,8 +1954,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = jpx_osederivatives_geniuminet_itch_v1_1.order_id.dissect(buffer, index, packet, parent)
@@ -1993,7 +2004,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_executed_with_price_message = {}
 
 -- Size: Order Executed With Price Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_executed_with_price_message.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.side.size + 
@@ -2015,8 +2026,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.order_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = jpx_osederivatives_geniuminet_itch_v1_1.order_id.dissect(buffer, index, packet, parent)
@@ -2077,7 +2088,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message = {}
 
 -- Size: Order Executed Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.side.size + 
@@ -2096,8 +2107,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = jpx_osederivatives_geniuminet_itch_v1_1.order_id.dissect(buffer, index, packet, parent)
@@ -2149,7 +2160,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.add_order_with_mpid = {}
 
 -- Size: Add Order With Mpid
 jpx_osederivatives_geniuminet_itch_v1_1.add_order_with_mpid.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.side.size + 
@@ -2169,8 +2180,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.add_order_with_mpid.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = jpx_osederivatives_geniuminet_itch_v1_1.order_id.dissect(buffer, index, packet, parent)
@@ -2225,7 +2236,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.add_order_no_mpid = {}
 
 -- Size: Add Order No Mpid
 jpx_osederivatives_geniuminet_itch_v1_1.add_order_no_mpid.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.side.size + 
@@ -2244,8 +2255,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.add_order_no_mpid.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = jpx_osederivatives_geniuminet_itch_v1_1.order_id.dissect(buffer, index, packet, parent)
@@ -2297,7 +2308,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_book_state_message = {}
 
 -- Size: Order Book State Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_book_state_message.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.state_name.size
 
@@ -2310,8 +2321,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.order_book_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.dissect(buffer, index, packet, parent)
@@ -2345,7 +2356,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.system_event_message = {}
 
 -- Size: System Event Message
 jpx_osederivatives_geniuminet_itch_v1_1.system_event_message.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.event_code.size
 
 -- Display: System Event Message
@@ -2357,8 +2368,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Event Code: Alpha
   index, event_code = jpx_osederivatives_geniuminet_itch_v1_1.event_code.dissect(buffer, index, packet, parent)
@@ -2389,7 +2400,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.tick_size_table_entry = {}
 
 -- Size: Tick Size Table Entry
 jpx_osederivatives_geniuminet_itch_v1_1.tick_size_table_entry.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.tick_size.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.price_from.size + 
@@ -2404,8 +2415,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.tick_size_table_entry.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.dissect(buffer, index, packet, parent)
@@ -2445,7 +2456,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg = {}
 
 -- Size: Combination Orderbook Leg
 jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.leg_side.size + 
@@ -2460,8 +2471,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Combination Orderbook Id: Numeric
   index, combination_orderbook_id = jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.dissect(buffer, index, packet, parent)
@@ -2501,7 +2512,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_book_directory = {}
 
 -- Size: Order Book Directory
 jpx_osederivatives_geniuminet_itch_v1_1.order_book_directory.size =
-  jpx_osederivatives_geniuminet_itch_v1_1.timestamp.size + 
+  jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.symbol.size + 
   jpx_osederivatives_geniuminet_itch_v1_1.long_name.size + 
@@ -2530,8 +2541,8 @@ end
 jpx_osederivatives_geniuminet_itch_v1_1.order_book_directory.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = jpx_osederivatives_geniuminet_itch_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.dissect(buffer, index, packet, parent)
