@@ -264,7 +264,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.ask_quantity_numeric_5.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.ask_quantity_numeric_5.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.ask_quantity_numeric_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.ask_quantity_numeric_5, range, value, display)
@@ -287,7 +292,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.ask_quantity_numeric_6.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.ask_quantity_numeric_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.ask_quantity_numeric_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.ask_quantity_numeric_6, range, value, display)
@@ -394,7 +404,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.bid_quantity_numeric_5.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.bid_quantity_numeric_5.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.bid_quantity_numeric_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.bid_quantity_numeric_5, range, value, display)
@@ -417,7 +432,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.bid_quantity_numeric_6.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.bid_quantity_numeric_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.bid_quantity_numeric_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.bid_quantity_numeric_6, range, value, display)
@@ -463,7 +483,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.cumulative_volume_numeric_7.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.cumulative_volume_numeric_7.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.cumulative_volume_numeric_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.cumulative_volume_numeric_7, range, value, display)
@@ -486,7 +511,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.cumulative_volume_numeric_9.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.cumulative_volume_numeric_9.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.cumulative_volume_numeric_9.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.cumulative_volume_numeric_9, range, value, display)
@@ -616,7 +646,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_quantity_numeric_5.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_quantity_numeric_5.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_quantity_numeric_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.last_quantity_numeric_5, range, value, display)
@@ -639,7 +674,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_quantity_numeric_6.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_quantity_numeric_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_quantity_numeric_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.last_quantity_numeric_6, range, value, display)
@@ -718,7 +758,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_trade_size.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_trade_size.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.last_trade_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.last_trade_size, range, value, display)
@@ -920,7 +965,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.milliseconds.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.milliseconds.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.milliseconds.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.milliseconds, range, value, display)
@@ -1081,7 +1131,12 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_3_9.seconds.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_3_9.seconds.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_summarydepth_pitch_v1_3_9.seconds.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_3_9.fields.seconds, range, value, display)

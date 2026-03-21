@@ -197,7 +197,12 @@ end
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.auction_only_price_numeric_10.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.auction_only_price_numeric_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.auction_only_price_numeric_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.auction_only_price_numeric_10, range, value, display)
@@ -259,7 +264,12 @@ end
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.buy_shares.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.buy_shares.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.buy_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.buy_shares, range, value, display)
@@ -310,7 +320,12 @@ end
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.indicative_price_numeric_10.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.indicative_price_numeric_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.indicative_price_numeric_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.indicative_price_numeric_10, range, value, display)
@@ -435,7 +450,12 @@ end
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.price_numeric_10.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.price_numeric_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.price_numeric_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.price_numeric_10, range, value, display)
@@ -486,7 +506,12 @@ end
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.reference_price_numeric_10.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.reference_price_numeric_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.reference_price_numeric_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.reference_price_numeric_10, range, value, display)
@@ -578,7 +603,12 @@ end
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.sell_shares.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.sell_shares.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.sell_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.sell_shares, range, value, display)
@@ -683,7 +713,12 @@ end
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.shares.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.shares.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.shares, range, value, display)
