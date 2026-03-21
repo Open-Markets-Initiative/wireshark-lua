@@ -5271,15 +5271,15 @@ coinbase_derivatives_ordersapi_sbe_v1_8.sbe_message.fields = function(buffer, of
   -- Payload: Runtime Type with 42 branches
   index = coinbase_derivatives_ordersapi_sbe_v1_8.payload.dissect(buffer, index, packet, parent, template_id)
 
+  -- Dependency element: Message Length
+  local message_length = buffer(offset + 2, 2):le_uint()
+
   -- Runtime optional field: Padding
   local padding = nil
 
   local padding_exists = message_length - (index - offset) > 0
 
   if padding_exists then
-
-    -- Dependency element: Message Length
-    local message_length = buffer(offset + 2, 2):le_uint()
 
     -- Runtime Size Of: Padding
     local size_of_padding = message_length - (index - offset)

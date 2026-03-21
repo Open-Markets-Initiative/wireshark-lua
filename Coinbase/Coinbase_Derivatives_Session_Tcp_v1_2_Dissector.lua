@@ -862,15 +862,15 @@ coinbase_derivatives_session_tcp_v1_2.gap_fill_message.fields = function(buffer,
   -- New Sequence Number: uint32
   index, new_sequence_number = coinbase_derivatives_session_tcp_v1_2.new_sequence_number.dissect(buffer, index, packet, parent)
 
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 30, 2):le_uint()
+
   -- Runtime optional field: Padding
   local padding = nil
 
   local padding_exists = message_length - (index - offset) > 0
 
   if padding_exists then
-
-    -- Dependency element: Message Length
-    local message_length = buffer(offset - 30, 2):le_uint()
 
     -- Runtime Size Of: Padding
     local size_of_padding = message_length - (index - offset)
@@ -1338,15 +1338,15 @@ coinbase_derivatives_session_tcp_v1_2.sbe_message.fields = function(buffer, offs
   -- Payload: Runtime Type with 9 branches
   index = coinbase_derivatives_session_tcp_v1_2.payload.dissect(buffer, index, packet, parent, template_id)
 
+  -- Dependency element: Message Length
+  local message_length = buffer(offset + 2, 2):le_uint()
+
   -- Runtime optional field: Padding
   local padding = nil
 
   local padding_exists = message_length - (index - offset) > 0
 
   if padding_exists then
-
-    -- Dependency element: Message Length
-    local message_length = buffer(offset + 2, 2):le_uint()
 
     -- Runtime Size Of: Padding
     local size_of_padding = message_length - (index - offset)
