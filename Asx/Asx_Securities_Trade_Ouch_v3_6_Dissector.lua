@@ -18,7 +18,7 @@ local asx_securities_trade_ouch_v3_6 = {}
 omi_asx_securities_trade_ouch_v3_6.fields.capacity_of_participant = ProtoField.new("Capacity Of Participant", "asx.securities.trade.ouch.v3.6.capacityofparticipant", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.securities.trade.ouch.v3.6.clearingparticipant", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.client_account = ProtoField.new("Client Account", "asx.securities.trade.ouch.v3.6.clientaccount", ftypes.STRING)
-omi_asx_securities_trade_ouch_v3_6.fields.crossing_dealing_capacity = ProtoField.new("Crossing Dealing Capacity", "asx.securities.trade.ouch.v3.6.crossingdealingcapacity", ftypes.UINT8, [0]="Not Crossed", [1]="Principal Order", [3]="Agency Order", [4]="Mixed Agency And Principal Order", base.DEC, 0x06)
+omi_asx_securities_trade_ouch_v3_6.fields.crossing_dealing_capacity = ProtoField.new("Crossing Dealing Capacity", "asx.securities.trade.ouch.v3.6.crossingdealingcapacity", ftypes.UINT8, {[0]="Not Crossed", [1]="Principal Order", [3]="Agency Order", [4]="Mixed Agency And Principal Order"}, base.DEC, 0x06)
 omi_asx_securities_trade_ouch_v3_6.fields.crossing_key = ProtoField.new("Crossing Key", "asx.securities.trade.ouch.v3.6.crossingkey", ftypes.UINT32)
 omi_asx_securities_trade_ouch_v3_6.fields.customer_info = ProtoField.new("Customer Info", "asx.securities.trade.ouch.v3.6.customerinfo", ftypes.STRING)
 omi_asx_securities_trade_ouch_v3_6.fields.deal_source = ProtoField.new("Deal Source", "asx.securities.trade.ouch.v3.6.dealsource", ftypes.UINT16)
