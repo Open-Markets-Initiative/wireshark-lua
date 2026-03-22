@@ -1359,24 +1359,21 @@ asx_securities_ntp_itch_v1_05.nanoseconds = {}
 -- Size: Nanoseconds
 asx_securities_ntp_itch_v1_05.nanoseconds.size = 4
 
+-- Display: Nanoseconds
+asx_securities_ntp_itch_v1_05.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
 -- Dissect: Nanoseconds
 asx_securities_ntp_itch_v1_05.nanoseconds.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.nanoseconds.size
   local range = buffer(offset, length)
-  local nanoseconds = range:uint()
-  local stored_seconds = asx_securities_ntp_itch_v1_05.seconds.store
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.nanoseconds.display(value, buffer, offset, packet, parent)
 
-  if stored_seconds ~= nil then
-    -- Timestamp subtree
-    local display = asx_securities_ntp_itch_v1_05.timestamp.display(nanoseconds)
-    local timestamp = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.timestamp, range)
-    timestamp:set_text(display)
-    timestamp:add(omi_asx_securities_ntp_itch_v1_05.fields.nanoseconds, range, nanoseconds, "Nanoseconds: "..nanoseconds)
-  else
-    parent:add(omi_asx_securities_ntp_itch_v1_05.fields.nanoseconds, range, nanoseconds, "Nanoseconds: "..nanoseconds)
-  end
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.nanoseconds, range, value, display)
 
-  return offset + length, nanoseconds
+  return offset + length, value
 end
 
 -- Open Interest
@@ -1933,6 +1930,13 @@ asx_securities_ntp_itch_v1_05.seconds.size = 4
 
 -- Store: Seconds
 asx_securities_ntp_itch_v1_05.seconds.store = nil
+
+-- Generated: Seconds
+asx_securities_ntp_itch_v1_05.seconds.generated = function(value, range, packet, parent)
+  local display = asx_securities_ntp_itch_v1_05.seconds.display(value)
+  local seconds = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
 
 -- Display: Seconds
 asx_securities_ntp_itch_v1_05.seconds.display = function(value)
@@ -2671,15 +2675,42 @@ end
 -- Timestamp
 asx_securities_ntp_itch_v1_05.timestamp = {}
 
--- Display: Timestamp
-asx_securities_ntp_itch_v1_05.timestamp.display = function(nanoseconds, info, parent)
-  local seconds = asx_securities_ntp_itch_v1_05.seconds.store
+-- Translate: Timestamp
+asx_securities_ntp_itch_v1_05.timestamp.translate = function(nanoseconds, stored_seconds)
+  return stored_seconds * 1000000000 + nanoseconds
+end
 
-  if seconds ~= nil then
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+-- Display: Timestamp
+asx_securities_ntp_itch_v1_05.timestamp.display = function(nanoseconds, stored_seconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Composite: Timestamp
+asx_securities_ntp_itch_v1_05.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.nanoseconds.size
+  local range = buffer(offset, length)
+  local nanoseconds = range:uint()
+  local value = asx_securities_ntp_itch_v1_05.timestamp.translate(nanoseconds, stored_seconds)
+  local display = asx_securities_ntp_itch_v1_05.timestamp.display(nanoseconds, stored_seconds)
+  parent = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.timestamp, range, value, display)
+
+  asx_securities_ntp_itch_v1_05.seconds.generated(stored_seconds, range, packet, parent)
+
+  display = asx_securities_ntp_itch_v1_05.nanoseconds.display(nanoseconds)
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.nanoseconds, range, nanoseconds, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+asx_securities_ntp_itch_v1_05.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_seconds = asx_securities_ntp_itch_v1_05.seconds.store
+
+  if stored_seconds ~= nil then
+    return asx_securities_ntp_itch_v1_05.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
   end
 
-  return "Timestamp: "..nanoseconds
+  return asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -2709,7 +2740,7 @@ asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.fields = function
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -2772,7 +2803,7 @@ asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message.fields =
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -2840,7 +2871,7 @@ asx_securities_ntp_itch_v1_05.request_for_quote_message.fields = function(buffer
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -2895,7 +2926,7 @@ asx_securities_ntp_itch_v1_05.text_message.fields = function(buffer, offset, pac
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -2952,7 +2983,7 @@ asx_securities_ntp_itch_v1_05.market_settlement_message.fields = function(buffer
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3024,7 +3055,7 @@ asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.fields
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3094,7 +3125,7 @@ asx_securities_ntp_itch_v1_05.equilibrium_price_message.fields = function(buffer
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3155,7 +3186,7 @@ asx_securities_ntp_itch_v1_05.trade_cancellation_message.fields = function(buffe
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3220,7 +3251,7 @@ asx_securities_ntp_itch_v1_05.combination_trade_executed_message.fields = functi
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3317,7 +3348,7 @@ asx_securities_ntp_itch_v1_05.trade_executed_message.fields = function(buffer, o
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3388,7 +3419,7 @@ asx_securities_ntp_itch_v1_05.implied_order_deleted_message.fields = function(bu
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3447,7 +3478,7 @@ asx_securities_ntp_itch_v1_05.implied_order_replaced_message.fields = function(b
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3515,7 +3546,7 @@ asx_securities_ntp_itch_v1_05.implied_order_added_message.fields = function(buff
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3589,7 +3620,7 @@ asx_securities_ntp_itch_v1_05.combination_order_executed_message.fields = functi
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3678,7 +3709,7 @@ asx_securities_ntp_itch_v1_05.auction_order_executed_message.fields = function(b
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3759,7 +3790,7 @@ asx_securities_ntp_itch_v1_05.order_executed_message.fields = function(buffer, o
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3836,7 +3867,7 @@ asx_securities_ntp_itch_v1_05.order_deleted_message.fields = function(buffer, of
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3893,7 +3924,7 @@ asx_securities_ntp_itch_v1_05.order_volume_cancelled_message.fields = function(b
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -3955,7 +3986,7 @@ asx_securities_ntp_itch_v1_05.add_order_message.fields = function(buffer, offset
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -4019,7 +4050,7 @@ asx_securities_ntp_itch_v1_05.order_book_state_message.fields = function(buffer,
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -4137,7 +4168,7 @@ asx_securities_ntp_itch_v1_05.bundles_symbol_directory.fields = function(buffer,
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -4281,7 +4312,7 @@ asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.fields = func
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -4386,7 +4417,7 @@ asx_securities_ntp_itch_v1_05.options_symbol_directory_message.fields = function
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -4538,7 +4569,7 @@ asx_securities_ntp_itch_v1_05.future_symbol_directory_message.fields = function(
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
@@ -4646,7 +4677,7 @@ asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.fields = functi
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
