@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/CancelOrderRequest.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["miax.pearlequities.expressorders.meo.v2.6.lua"]' \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
 
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved8" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
@@ -18,7 +17,6 @@ tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/CancelOrderResponse.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["miax.pearlequities.expressorders.meo.v2.6.lua"]' \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
@@ -34,7 +32,6 @@ tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/LoginRequest.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["miax.pearlequities.expressorders.meo.v2.6.lua"]' \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
 
 grep "miax.pearlequities.expressorders.meo.v2.6.esesmversion" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
@@ -47,7 +44,6 @@ tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/LoginResponse.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["miax.pearlequities.expressorders.meo.v2.6.lua"]' \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
 
 grep "miax.pearlequities.expressorders.meo.v2.6.numberofmatchingengines" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
@@ -58,7 +54,6 @@ tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/NewOrderNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["miax.pearlequities.expressorders.meo.v2.6.lua"]' \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
@@ -91,7 +86,6 @@ tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/OrderPriceUpdateNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["miax.pearlequities.expressorders.meo.v2.6.lua"]' \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
@@ -104,7 +98,6 @@ tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/SymbolUpdate.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["miax.pearlequities.expressorders.meo.v2.6.lua"]' \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
@@ -122,7 +115,6 @@ tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/SystemStateNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["miax.pearlequities.expressorders.meo.v2.6.lua"]' \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json

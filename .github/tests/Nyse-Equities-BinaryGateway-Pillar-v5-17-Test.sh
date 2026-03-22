@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nyse/Equities.BinaryGateway.Pillar.v5.8/NewOrderSingleAndCancelReplaceRequestMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_BinaryGateway_Pillar_v5_17_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.binarygateway.pillar.v5.17.lua"]' \
   > Nyse.Equities.BinaryGateway.Pillar.v5.17.NewOrderSingleAndCancelReplaceRequestMessage.json
 
 grep "nyse.equities.binarygateway.pillar.v5.17.symbolid" Nyse.Equities.BinaryGateway.Pillar.v5.17.NewOrderSingleAndCancelReplaceRequestMessage.json

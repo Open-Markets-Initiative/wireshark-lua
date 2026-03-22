@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/AddOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Amex_Equities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.amex.equities.integratedfeed.xdp.v2.1.g.lua"]' \
   > Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
 
 grep "nyse.amex.equities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
@@ -21,7 +20,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Amex_Equities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.amex.equities.integratedfeed.xdp.v2.1.g.lua"]' \
   > Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
 
 grep "nyse.amex.equities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
@@ -48,7 +46,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/OrderExecutionMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Amex_Equities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.amex.equities.integratedfeed.xdp.v2.1.g.lua"]' \
   > Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
 
 grep "nyse.amex.equities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
@@ -65,7 +62,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ReplaceOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Amex_Equities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.amex.equities.integratedfeed.xdp.v2.1.g.lua"]' \
   > Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
 
 grep "nyse.amex.equities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
@@ -81,7 +77,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Amex_Equities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.amex.equities.integratedfeed.xdp.v2.1.g.lua"]' \
   > Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
 
 grep "nyse.amex.equities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
@@ -103,7 +98,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Amex_Equities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.amex.equities.integratedfeed.xdp.v2.1.g.lua"]' \
   > Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
 
 grep "nyse.amex.equities.integratedfeed.xdp.v2.1.g.id" Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
@@ -113,7 +107,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Amex_Equities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.amex.equities.integratedfeed.xdp.v2.1.g.lua"]' \
   > Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json
 
 grep "nyse.amex.equities.integratedfeed.xdp.v2.1.g.symbolindex" Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json

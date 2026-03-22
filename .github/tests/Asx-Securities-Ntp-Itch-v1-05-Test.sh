@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.AddOrderMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.AddOrderMessage.json
@@ -20,7 +19,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AnomalousOrderThresholdPublishMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
@@ -36,7 +34,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AuctionOrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
@@ -54,7 +51,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationOrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
@@ -75,7 +71,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
@@ -93,7 +88,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationTradeExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
@@ -117,7 +111,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/EquilibriumPriceMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
@@ -131,7 +124,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/FutureSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
@@ -161,7 +153,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderAddedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
@@ -176,7 +167,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderDeletedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
@@ -188,7 +178,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderReplacedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
@@ -203,7 +192,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OpenHighLowLastTradeAdjustmentMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
@@ -219,7 +207,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OptionsSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
@@ -257,7 +244,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderBookStateMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OrderBookStateMessage.json
@@ -268,7 +254,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderDeletedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OrderDeletedMessage.json
@@ -280,7 +265,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OrderExecutedMessage.json
@@ -299,7 +283,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderVolumeCancelledMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
@@ -312,14 +295,12 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/Seconds.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.Seconds.json
 
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TextMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.TextMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.TextMessage.json
@@ -330,7 +311,6 @@ tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TradeExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["asx.securities.ntp.itch.v1.05.lua"]' \
   > Asx.Securities.Ntp.Itch.v1.05.TradeExecutedMessage.json
 
 grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.TradeExecutedMessage.json

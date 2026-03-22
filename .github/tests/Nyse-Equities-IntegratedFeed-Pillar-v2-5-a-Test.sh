@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/AddOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
@@ -21,7 +20,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/CrossTradeMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
@@ -35,7 +33,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/DeleteOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
@@ -47,7 +44,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
@@ -77,7 +73,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/OrderExecutionMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
@@ -97,7 +92,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ReplaceOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
@@ -113,7 +107,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
@@ -135,7 +128,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.id" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
@@ -145,7 +137,6 @@ tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/StockSummaryMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.integratedfeed.pillar.v2.5.a.lua"]' \
   > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json
 
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json

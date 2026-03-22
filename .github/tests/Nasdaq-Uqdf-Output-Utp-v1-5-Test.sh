@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/LimitUpLimitDownPriceBandMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nasdaq.uqdf.output.utp.v1.5.lua"]' \
   > Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 
 grep "nasdaq.uqdf.output.utp.v1.5.symbol" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
@@ -17,7 +16,6 @@ tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteLongFormMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nasdaq.uqdf.output.utp.v1.5.lua"]' \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 
 grep "nasdaq.uqdf.output.utp.v1.5.finratimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
@@ -37,7 +35,6 @@ tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteShortFormMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nasdaq.uqdf.output.utp.v1.5.lua"]' \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json
 
 grep "nasdaq.uqdf.output.utp.v1.5.symbolshort" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json

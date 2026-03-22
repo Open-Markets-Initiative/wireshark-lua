@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Arca_Equities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.arca.equities.bbo.xdp.v2.4.c.lua"]' \
   > Nyse.Arca.Equities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 
 grep "nyse.arca.equities.bbo.xdp.v2.4.c.sourcetimens" Nyse.Arca.Equities.Bbo.Xdp.v2.4.c.QuoteMessage.json
@@ -22,7 +21,6 @@ tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Arca_Equities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.arca.equities.bbo.xdp.v2.4.c.lua"]' \
   > Nyse.Arca.Equities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json
 
 grep "nyse.arca.equities.bbo.xdp.v2.4.c.sourcetime" Nyse.Arca.Equities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json
@@ -33,7 +31,6 @@ tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Arca_Equities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.arca.equities.bbo.xdp.v2.4.c.lua"]' \
   > Nyse.Arca.Equities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json
 
 grep "nyse.arca.equities.bbo.xdp.v2.4.c.symbolindex" Nyse.Arca.Equities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json

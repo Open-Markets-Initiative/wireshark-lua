@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" \
   -X "lua_script:Siac/Siac_Cqs_Output_Cta_v1_91_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["siac.cqs.output.cta.v1.91.lua"]' \
   > Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 
 grep "siac.cqs.output.cta.v1.91.participantid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json

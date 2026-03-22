@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Jnx/Equities.Pts.Ouch.v1.11/EnterOrderMessage.pcap" \
   -X "lua_script:Jnx/Jnx_Equities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["jnx.equities.pts.ouch.v1.11.lua"]' \
   > Jnx.Equities.Pts.Ouch.v1.11.EnterOrderMessage.json
 
 grep "jnx.equities.pts.ouch.v1.11.ordertoken" Jnx.Equities.Pts.Ouch.v1.11.EnterOrderMessage.json
@@ -26,7 +25,6 @@ tshark \
   -r "omi-data-packets/Jnx/Equities.Pts.Ouch.v1.11/LoginAcceptedPacket.pcap" \
   -X "lua_script:Jnx/Jnx_Equities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["jnx.equities.pts.ouch.v1.11.lua"]' \
   > Jnx.Equities.Pts.Ouch.v1.11.LoginAcceptedPacket.json
 
 grep "jnx.equities.pts.ouch.v1.11.session" Jnx.Equities.Pts.Ouch.v1.11.LoginAcceptedPacket.json
@@ -35,7 +33,6 @@ tshark \
   -r "omi-data-packets/Jnx/Equities.Pts.Ouch.v1.11/LoginRequestPacket.pcap" \
   -X "lua_script:Jnx/Jnx_Equities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["jnx.equities.pts.ouch.v1.11.lua"]' \
   > Jnx.Equities.Pts.Ouch.v1.11.LoginRequestPacket.json
 
 grep "jnx.equities.pts.ouch.v1.11.username" Jnx.Equities.Pts.Ouch.v1.11.LoginRequestPacket.json
@@ -46,7 +43,6 @@ tshark \
   -r "omi-data-packets/Jnx/Equities.Pts.Ouch.v1.11/OrderAcceptedMessage.pcap" \
   -X "lua_script:Jnx/Jnx_Equities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["jnx.equities.pts.ouch.v1.11.lua"]' \
   > Jnx.Equities.Pts.Ouch.v1.11.OrderAcceptedMessage.json
 
 grep "jnx.equities.pts.ouch.v1.11.timestamp" Jnx.Equities.Pts.Ouch.v1.11.OrderAcceptedMessage.json
@@ -70,7 +66,6 @@ tshark \
   -r "omi-data-packets/Jnx/Equities.Pts.Ouch.v1.11/ReplaceOrderMessage.pcap" \
   -X "lua_script:Jnx/Jnx_Equities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["jnx.equities.pts.ouch.v1.11.lua"]' \
   > Jnx.Equities.Pts.Ouch.v1.11.ReplaceOrderMessage.json
 
 grep "jnx.equities.pts.ouch.v1.11.existingordertoken" Jnx.Equities.Pts.Ouch.v1.11.ReplaceOrderMessage.json

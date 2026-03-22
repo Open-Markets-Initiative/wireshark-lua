@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pcap" \
   -X "lua_script:Cme/Cme_Futures_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.mdp3.sbe.v1.5.lua"]' \
   > Cme.Futures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 
 grep "cme.futures.mdp3.sbe.v1.5.transacttime" Cme.Futures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
@@ -15,7 +14,6 @@ tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" \
   -X "lua_script:Cme/Cme_Futures_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.mdp3.sbe.v1.5.lua"]' \
   > Cme.Futures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 
 grep "cme.futures.mdp3.sbe.v1.5.transacttime" Cme.Futures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
@@ -25,7 +23,6 @@ tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_Futures_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.mdp3.sbe.v1.5.lua"]' \
   > Cme.Futures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 
 grep "cme.futures.mdp3.sbe.v1.5.transacttime" Cme.Futures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
@@ -35,7 +32,6 @@ tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" \
   -X "lua_script:Cme/Cme_Futures_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.mdp3.sbe.v1.5.lua"]' \
   > Cme.Futures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 
 grep "cme.futures.mdp3.sbe.v1.5.transacttime" Cme.Futures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
@@ -45,7 +41,6 @@ tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" \
   -X "lua_script:Cme/Cme_Futures_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.mdp3.sbe.v1.5.lua"]' \
   > Cme.Futures.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
 
 grep "cme.futures.mdp3.sbe.v1.5.matcheventindicator" Cme.Futures.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json

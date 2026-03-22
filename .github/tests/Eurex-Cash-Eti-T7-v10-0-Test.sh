@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" \
   -X "lua_script:Eurex/Eurex_Cash_Eti_T7_v10_0_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["eurex.cash.eti.t7.v10.0.lua"]' \
   > Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json
 
 grep "eurex.cash.eti.t7.v10.0.pad2" Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json

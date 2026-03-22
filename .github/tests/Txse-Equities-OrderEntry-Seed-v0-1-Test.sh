@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/DefineSymbolMessage.pcap" \
   -X "lua_script:Txse/Txse_Equities_OrderEntry_Seed_v0_1_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["txse.equities.orderentry.seed.v0.1.lua"]' \
   > Txse.Equities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json
 
 grep "txse.equities.orderentry.seed.v0.1.transacttime" Txse.Equities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json
@@ -19,7 +18,6 @@ tshark \
   -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/LimitOrderMessage.pcap" \
   -X "lua_script:Txse/Txse_Equities_OrderEntry_Seed_v0_1_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["txse.equities.orderentry.seed.v0.1.lua"]' \
   > Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
 
 grep "txse.equities.orderentry.seed.v0.1.limitorderpresencebits" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json

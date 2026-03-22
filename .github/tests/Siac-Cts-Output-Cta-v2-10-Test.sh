@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.10/TradeCorrectionMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_10_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["siac.cts.output.cta.v2.10.lua"]' \
   > Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json
 
 grep "siac.cts.output.cta.v2.10.participantid" Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json

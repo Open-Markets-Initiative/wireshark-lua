@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/AddOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_Futures_DepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cboe.futures.depthofbook.pitch.v1.1.6.lua"]' \
   > Cboe.Futures.DepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json
 
 grep "cboe.futures.depthofbook.pitch.v1.1.6.timeoffset" Cboe.Futures.DepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json
@@ -18,7 +17,6 @@ tshark \
   -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/ModifyOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_Futures_DepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cboe.futures.depthofbook.pitch.v1.1.6.lua"]' \
   > Cboe.Futures.DepthOfBook.Pitch.v1.1.6.ModifyOrderShortMessage.json
 
 grep "cboe.futures.depthofbook.pitch.v1.1.6.timeoffset" Cboe.Futures.DepthOfBook.Pitch.v1.1.6.ModifyOrderShortMessage.json
@@ -29,7 +27,6 @@ tshark \
   -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/TimeMessage.pcap" \
   -X "lua_script:Cboe/Cboe_Futures_DepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cboe.futures.depthofbook.pitch.v1.1.6.lua"]' \
   > Cboe.Futures.DepthOfBook.Pitch.v1.1.6.TimeMessage.json
 
 grep "cboe.futures.depthofbook.pitch.v1.1.6.time" Cboe.Futures.DepthOfBook.Pitch.v1.1.6.TimeMessage.json
@@ -38,7 +35,6 @@ tshark \
   -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/TradingStatusMessage.pcap" \
   -X "lua_script:Cboe/Cboe_Futures_DepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cboe.futures.depthofbook.pitch.v1.1.6.lua"]' \
   > Cboe.Futures.DepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json
 
 grep "cboe.futures.depthofbook.pitch.v1.1.6.timeoffset" Cboe.Futures.DepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json

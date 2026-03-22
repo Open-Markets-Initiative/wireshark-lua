@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Cboe/Options.MarketLevel2.Csm.v1.0.4/SecurityDefinitionMessage.pcap" \
   -X "lua_script:Cboe/Cboe_Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cboe.options.marketlevel2.csm.v1.0.4.lua"]' \
   > Cboe.Options.MarketLevel2.Csm.v1.0.4.SecurityDefinitionMessage.json
 
 grep "cboe.options.marketlevel2.csm.v1.0.4.securityexchange" Cboe.Options.MarketLevel2.Csm.v1.0.4.SecurityDefinitionMessage.json

@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_Bbo_Pillar_v2_5_b_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.bbo.pillar.v2.5.b.lua"]' \
   > Nyse.Equities.Bbo.Pillar.v2.5.b.QuoteMessage.json
 
 grep "nyse.equities.bbo.pillar.v2.5.b.sourcetimens" Nyse.Equities.Bbo.Pillar.v2.5.b.QuoteMessage.json
@@ -21,7 +20,6 @@ tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_Bbo_Pillar_v2_5_b_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.bbo.pillar.v2.5.b.lua"]' \
   > Nyse.Equities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
 
 grep "nyse.equities.bbo.pillar.v2.5.b.currentrefreshpkt" Nyse.Equities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
@@ -32,7 +30,6 @@ tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_Bbo_Pillar_v2_5_b_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.bbo.pillar.v2.5.b.lua"]' \
   > Nyse.Equities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 
 grep "nyse.equities.bbo.pillar.v2.5.b.sourcetime" Nyse.Equities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
@@ -54,7 +51,6 @@ tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_Bbo_Pillar_v2_5_b_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.bbo.pillar.v2.5.b.lua"]' \
   > Nyse.Equities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json
 
 grep "nyse.equities.bbo.pillar.v2.5.b.id" Nyse.Equities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json

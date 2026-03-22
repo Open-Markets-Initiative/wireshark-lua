@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/ExecutionReportStatus.pcap" \
   -X "lua_script:Cme/Cme_Futures_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.ilink3.sbe.v8.5.lua"]' \
   > Cme.Futures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
 
 grep "cme.futures.ilink3.sbe.v8.5.seqnum" Cme.Futures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
@@ -50,7 +49,6 @@ tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/QuoteCancel.pcap" \
   -X "lua_script:Cme/Cme_Futures_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.ilink3.sbe.v8.5.lua"]' \
   > Cme.Futures.iLink3.Sbe.v8.5.QuoteCancel.json
 
 grep "cme.futures.ilink3.sbe.v8.5.partydetailslistreqid" Cme.Futures.iLink3.Sbe.v8.5.QuoteCancel.json
@@ -66,7 +64,6 @@ tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/QuoteCancelAck.pcap" \
   -X "lua_script:Cme/Cme_Futures_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.ilink3.sbe.v8.5.lua"]' \
   > Cme.Futures.iLink3.Sbe.v8.5.QuoteCancelAck.json
 
 grep "cme.futures.ilink3.sbe.v8.5.seqnum" Cme.Futures.iLink3.Sbe.v8.5.QuoteCancelAck.json
@@ -95,7 +92,6 @@ tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/Sequence.pcap" \
   -X "lua_script:Cme/Cme_Futures_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["cme.futures.ilink3.sbe.v8.5.lua"]' \
   > Cme.Futures.iLink3.Sbe.v8.5.Sequence.json
 
 grep "cme.futures.ilink3.sbe.v8.5.uuid" Cme.Futures.iLink3.Sbe.v8.5.Sequence.json

@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/OptionsQuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Arca_Options_TopFeed_Pillar_v1_2_c_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.arca.options.topfeed.pillar.v1.2.c.lua"]' \
   > Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json
 
 grep "nyse.arca.options.topfeed.pillar.v1.2.c.sourcetimens" Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json
@@ -23,7 +22,6 @@ tshark \
   -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Arca_Options_TopFeed_Pillar_v1_2_c_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.arca.options.topfeed.pillar.v1.2.c.lua"]' \
   > Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json
 
 grep "nyse.arca.options.topfeed.pillar.v1.2.c.sourcetime" Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json

@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/DeleteOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.33.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.33.marketid" Ice.Futures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
@@ -16,7 +15,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MarketSnapshotOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.33.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.33.marketid" Ice.Futures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
@@ -33,7 +31,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MarketStatisticsMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.33.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.33.marketid" Ice.Futures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
@@ -49,7 +46,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MessageBundleMarker.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.33.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json
 
 grep "ice.futures.mdf.impact.v1.1.33.startorend" Ice.Futures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json
@@ -57,7 +53,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/SpecialFieldMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.33.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.33.numberofspecialfields" Ice.Futures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json
@@ -65,7 +60,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/TradeMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.33.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.33.TradeMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.33.marketid" Ice.Futures.Mdf.iMpact.v1.1.33.TradeMessage.json

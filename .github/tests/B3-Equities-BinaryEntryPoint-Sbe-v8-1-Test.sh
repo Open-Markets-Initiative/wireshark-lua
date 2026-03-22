@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/EstablishMessage.pcap" \
   -X "lua_script:B3/B3_Equities_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["b3.equities.binaryentrypoint.sbe.v8.1.lua"]' \
   > B3.Equities.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json
 
 grep "b3.equities.binaryentrypoint.sbe.v8.1.sessionid" B3.Equities.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json
@@ -20,7 +19,6 @@ tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMessage.pcap" \
   -X "lua_script:B3/B3_Equities_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["b3.equities.binaryentrypoint.sbe.v8.1.lua"]' \
   > B3.Equities.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json
 
 grep "b3.equities.binaryentrypoint.sbe.v8.1.side" B3.Equities.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json
@@ -58,7 +56,6 @@ tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportTradeMessage.pcap" \
   -X "lua_script:B3/B3_Equities_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["b3.equities.binaryentrypoint.sbe.v8.1.lua"]' \
   > B3.Equities.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json
 
 grep "b3.equities.binaryentrypoint.sbe.v8.1.side" B3.Equities.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json
@@ -99,7 +96,6 @@ tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/NegotiateMessage.pcap" \
   -X "lua_script:B3/B3_Equities_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["b3.equities.binaryentrypoint.sbe.v8.1.lua"]' \
   > B3.Equities.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json
 
 grep "b3.equities.binaryentrypoint.sbe.v8.1.sessionid" B3.Equities.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json
@@ -111,7 +107,6 @@ tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleModifyOrderMessage.pcap" \
   -X "lua_script:B3/B3_Equities_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["b3.equities.binaryentrypoint.sbe.v8.1.lua"]' \
   > B3.Equities.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json
 
 grep "b3.equities.binaryentrypoint.sbe.v8.1.ordtagid" B3.Equities.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json
@@ -134,7 +129,6 @@ tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleNewOrderMessage.pcap" \
   -X "lua_script:B3/B3_Equities_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["b3.equities.binaryentrypoint.sbe.v8.1.lua"]' \
   > B3.Equities.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json
 
 grep "b3.equities.binaryentrypoint.sbe.v8.1.ordtagid" B3.Equities.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json

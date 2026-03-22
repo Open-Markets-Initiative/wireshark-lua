@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/AddOrModifyOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_24_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.24.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.24.marketid" Ice.Futures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json
@@ -23,7 +22,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/MarketStateChangeMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_24_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.24.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.24.marketid" Ice.Futures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json
@@ -33,7 +31,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/NewOptionsStrategyDefinitionMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_24_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.24.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.24.marketid" Ice.Futures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json
@@ -54,7 +51,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/OpenPriceMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_24_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.24.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.24.marketid" Ice.Futures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json
@@ -64,7 +60,6 @@ tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/PreOpenPriceIndicatorMessage.pcap" \
   -X "lua_script:Ice/Ice_Futures_Mdf_iMpact_v1_1_24_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["ice.futures.mdf.impact.v1.1.24.lua"]' \
   > Ice.Futures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json
 
 grep "ice.futures.mdf.impact.v1.1.24.marketid" Ice.Futures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json

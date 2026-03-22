@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nyse/ImbalancesFeed.Xdp.v2.1.f/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_ImbalancesFeed_Xdp_v2_1_f_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.imbalancesfeed.xdp.v2.1.f.lua"]' \
   > Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json
 
 grep "nyse.equities.imbalancesfeed.xdp.v2.1.f.sourcetime" Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json

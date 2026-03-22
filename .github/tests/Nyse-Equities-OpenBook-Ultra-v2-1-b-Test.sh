@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/DeltaUpdateMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.openbook.ultra.v2.1.b.lua"]' \
   > Nyse.Equities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json
 
 grep "nyse.equities.openbook.ultra.v2.1.b.deltasize" Nyse.Equities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json
@@ -21,7 +20,6 @@ tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullUpdateMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.openbook.ultra.v2.1.b.lua"]' \
   > Nyse.Equities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json
 
 grep "nyse.equities.openbook.ultra.v2.1.b.updatesize" Nyse.Equities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json
@@ -40,7 +38,6 @@ tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["nyse.equities.openbook.ultra.v2.1.b.lua"]' \
   > Nyse.Equities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json
 
 grep "nyse.equities.openbook.ultra.v2.1.b.nextsequencenumber" Nyse.Equities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json

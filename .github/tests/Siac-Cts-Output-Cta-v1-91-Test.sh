@@ -5,7 +5,6 @@ tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v1.91/IndexMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v1_91_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["siac.cts.output.cta.v1.91.lua"]' \
   > Siac.Cts.Output.Cta.v1.91.IndexMessage.json
 
 grep "siac.cts.output.cta.v1.91.participantid" Siac.Cts.Output.Cta.v1.91.IndexMessage.json
@@ -18,7 +17,6 @@ tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v1.91/LineIntegrityMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v1_91_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["siac.cts.output.cta.v1.91.lua"]' \
   > Siac.Cts.Output.Cta.v1.91.LineIntegrityMessage.json
 
 grep "siac.cts.output.cta.v1.91.participantid" Siac.Cts.Output.Cta.v1.91.LineIntegrityMessage.json
@@ -29,7 +27,6 @@ tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v1.91/LongTradeMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v1_91_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["siac.cts.output.cta.v1.91.lua"]' \
   > Siac.Cts.Output.Cta.v1.91.LongTradeMessage.json
 
 grep "siac.cts.output.cta.v1.91.participantid" Siac.Cts.Output.Cta.v1.91.LongTradeMessage.json
@@ -54,7 +51,6 @@ tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v1.91/ShortTradeMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v1_91_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["siac.cts.output.cta.v1.91.lua"]' \
   > Siac.Cts.Output.Cta.v1.91.ShortTradeMessage.json
 
 grep "siac.cts.output.cta.v1.91.participantid" Siac.Cts.Output.Cta.v1.91.ShortTradeMessage.json
@@ -73,7 +69,6 @@ tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v1.91/TradingStatusMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v1_91_Dissector.lua" \
   -T json \
-  | jq '.[0]._source.layers["siac.cts.output.cta.v1.91.lua"]' \
   > Siac.Cts.Output.Cta.v1.91.TradingStatusMessage.json
 
 grep "siac.cts.output.cta.v1.91.participantid" Siac.Cts.Output.Cta.v1.91.TradingStatusMessage.json
