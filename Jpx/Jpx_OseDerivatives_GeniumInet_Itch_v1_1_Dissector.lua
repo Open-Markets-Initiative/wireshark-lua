@@ -102,7 +102,7 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trade_message = ProtoField.ne
 
 -- Jpx OseDerivatives GeniumInet Itch 1.1 generated fields
 omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_index = ProtoField.new("Message Index", "jpx.osederivatives.geniuminet.itch.v1.1.messageindex", ftypes.UINT16)
-omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "jpx.osederivatives.geniuminet.itch.v1.1.timestamp", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "jpx.osederivatives.geniuminet.itch.v1.1.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -1651,7 +1651,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.timestamp = {}
 
 -- Translate: Timestamp
 jpx_osederivatives_geniuminet_itch_v1_1.timestamp.translate = function(nanoseconds, stored_seconds)
-  return stored_seconds * 1000000000 + nanoseconds
+  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
 end
 
 -- Display: Timestamp

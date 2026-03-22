@@ -2677,7 +2677,7 @@ asx_securities_ntp_itch_v1_05.timestamp = {}
 
 -- Translate: Timestamp
 asx_securities_ntp_itch_v1_05.timestamp.translate = function(nanoseconds, stored_seconds)
-  return stored_seconds * 1000000000 + nanoseconds
+  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
 end
 
 -- Display: Timestamp
