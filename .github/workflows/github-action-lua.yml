@@ -14,11 +14,17 @@ jobs:
       - name: Update Operating System
         run: sudo apt-get update
 
+      - name: Install lua
+        run: sudo apt-get install -y lua5.4
+
       - name: Install tshark
         run: sudo apt-get install -y tshark
 
       - name: Set Environment Variables
         run: export PATH=/usr/local/bin:$PATH
+
+      - name: Lua Syntax Check
+        run: find . -name '*.lua' | xargs -n 1 luac -p
 
       - name: Clone Omi Data
         run: git clone --depth=1 https://github.com/Open-Markets-Initiative/omi-data-packets.git
