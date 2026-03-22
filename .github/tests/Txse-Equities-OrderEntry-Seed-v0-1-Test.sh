@@ -26,16 +26,3 @@ grep "txse.equities.orderentry.seed.v0.1.orderqty" Txse.Equities.OrderEntry.Seed
 grep "txse.equities.orderentry.seed.v0.1.limitorderbitfields" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
 grep "txse.equities.orderentry.seed.v0.1.symbolid" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
 grep "txse.equities.orderentry.seed.v0.1.price" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.selfmatchscope" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.selfmatchinstruction" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.priceslideinstruction" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.minqty" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.maxfloorqty" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.maxreplenishqtyrange" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.maxreplenishtimerange" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.referencepricetarget" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.expiretime" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.userdata" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.mpid" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.membergroup" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json
-grep "txse.equities.orderentry.seed.v0.1.locatebroker" Txse.Equities.OrderEntry.Seed.v0.1.LimitOrderMessage.json

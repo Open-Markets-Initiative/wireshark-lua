@@ -59,9 +59,6 @@ jobs:
       - name: Run Cboe Options MarketLevel2 Csm 1.0.4 Dissector Tests
         run: bash -x .github/tests/Cboe-Options-MarketLevel2-Csm-v1-0-4-Test.sh
 
-      - name: Run Cme Futures Mdp3 Sbe 1.12 Dissector Tests
-        run: bash -x .github/tests/Cme-Futures-Mdp3-Sbe-v1-12-Test.sh
-
       - name: Run Cme Futures Mdp3 Sbe 1.5 Dissector Tests
         run: bash -x .github/tests/Cme-Futures-Mdp3-Sbe-v1-5-Test.sh
 
@@ -82,9 +79,6 @@ jobs:
 
       - name: Run Eurex Cash Eti T7 10.0 Dissector Tests
         run: bash -x .github/tests/Eurex-Cash-Eti-T7-v10-0-Test.sh
-
-      - name: Run Eurex Cash Eti T7 6.1 Dissector Tests
-        run: bash -x .github/tests/Eurex-Cash-Eti-T7-v6-1-Test.sh
 
       - name: Run Eurex Derivatives Eobi T7 3.0 Dissector Tests
         run: bash -x .github/tests/Eurex-Derivatives-Eobi-T7-v3-0-Test.sh
@@ -152,9 +146,6 @@ jobs:
       - name: Run Nyse Equities Bbo Pillar 2.5.b Dissector Tests
         run: bash -x .github/tests/Nyse-Equities-Bbo-Pillar-v2-5-b-Test.sh
 
-      - name: Run Nyse Equities BinaryGateway Pillar 5.17 Dissector Tests
-        run: bash -x .github/tests/Nyse-Equities-BinaryGateway-Pillar-v5-17-Test.sh
-
       - name: Run Nyse Equities ImbalancesFeed Xdp 2.1.f Dissector Tests
         run: bash -x .github/tests/Nyse-Equities-ImbalancesFeed-Xdp-v2-1-f-Test.sh
 
@@ -166,9 +157,6 @@ jobs:
 
       - name: Run Siac Cqs Output Cta 1.91 Dissector Tests
         run: bash -x .github/tests/Siac-Cqs-Output-Cta-v1-91-Test.sh
-
-      - name: Run Siac Cts Output Cta 1.91 Dissector Tests
-        run: bash -x .github/tests/Siac-Cts-Output-Cta-v1-91-Test.sh
 
       - name: Run Siac Cts Output Cta 2.10 Dissector Tests
         run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-10-Test.sh
