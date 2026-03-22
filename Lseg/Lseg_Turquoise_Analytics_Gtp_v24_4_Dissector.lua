@@ -24,7 +24,7 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.buy_order_count = ProtoField.new("
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.buy_order_size = ProtoField.new("Buy Order Size", "lseg.turquoise.analytics.gtp.v24.4.buyordersize", ftypes.DOUBLE)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.turquoise.analytics.gtp.v24.4.currency", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.turquoise.analytics.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.analytics.gtp.v24.4.electronicorderbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+omi_lseg_turquoise_analytics_gtp_v24_4.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.analytics.gtp.v24.4.electronicorderbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.end_time = ProtoField.new("End Time", "lseg.turquoise.analytics.gtp.v24.4.endtime", ftypes.UINT64)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.analytics.gtp.v24.4.eventcode", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.analytics.gtp.v24.4.instrument", ftypes.UINT64)
@@ -39,7 +39,6 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_type = ProtoField.new("Mes
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.analytics.gtp.v24.4.newendtime", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.analytics.gtp.v24.4.orderbooktype", ftypes.UINT8)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.analytics.gtp.v24.4.packet", ftypes.STRING)
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.payload = ProtoField.new("Payload", "lseg.turquoise.analytics.gtp.v24.4.payload", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.analytics.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.analytics.gtp.v24.4.reserved23", ftypes.BYTES)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.analytics.gtp.v24.4.reserved38", ftypes.BYTES)
@@ -58,14 +57,14 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id"
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.analytics.gtp.v24.4.timestamp", ftypes.UINT64)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.analytics.gtp.v24.4.tradingstatus", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.analytics.gtp.v24.4.unitheader", ftypes.STRING)
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_2 = ProtoField.new("Unused 2", "lseg.turquoise.analytics.gtp.v24.4.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.turquoise.analytics.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
+omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.analytics.gtp.v24.4.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
+omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.analytics.gtp.v24.4.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.analytics.gtp.v24.4.venueinstrumentid", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.turquoise.analytics.gtp.v24.4.vwapbuy", ftypes.DOUBLE)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.turquoise.analytics.gtp.v24.4.vwapsell", ftypes.DOUBLE)
 
--- Lseg Turquoise Analytics Gtp 24.4 messages
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.analytics.gtp.v24.4.addorderincrementalmessage", ftypes.STRING)
+-- Lseg Turquoise Gtp Analytics 24.4 Application Messages
+omi_lseg_turquoise_analytics_gtp_v24_4.fields.analytics_message = ProtoField.new("Analytics Message", "lseg.turquoise.analytics.gtp.v24.4.analyticsmessage", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.analytics.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.analytics.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.analytics.gtp.v24.4.systemeventmessage", ftypes.STRING)
@@ -80,48 +79,32 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_index = ProtoField.new("Me
 local show = {}
 
 -- Lseg Turquoise Analytics Gtp 24.4 Element Dissection Options
-show.add_order_incremental_message = true
 show.allowed_book_types = true
-show.instrument_directory_message = true
-show.instrument_status_message = true
+show.application_messages = true
 show.message = true
 show.message_header = true
 show.packet = true
-show.system_event_message = true
 show.unit_header = true
-show.payload = false
 
 -- Register Lseg Turquoise Analytics Gtp 24.4 Show Options
-omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_add_order_incremental_message = Pref.bool("Show Add Order Incremental Message", show.add_order_incremental_message, "Parse and add Add Order Incremental Message to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
-omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_instrument_directory_message = Pref.bool("Show Instrument Directory Message", show.instrument_directory_message, "Parse and add Instrument Directory Message to protocol tree")
-omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_instrument_status_message = Pref.bool("Show Instrument Status Message", show.instrument_status_message, "Parse and add Instrument Status Message to protocol tree")
+omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function omi_lseg_turquoise_analytics_gtp_v24_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_incremental_message ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_add_order_incremental_message then
-    show.add_order_incremental_message = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_add_order_incremental_message
-    changed = true
-  end
   if show.allowed_book_types ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_allowed_book_types then
     show.allowed_book_types = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_allowed_book_types
     changed = true
   end
-  if show.instrument_directory_message ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_instrument_directory_message then
-    show.instrument_directory_message = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_instrument_directory_message
-    changed = true
-  end
-  if show.instrument_status_message ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_instrument_status_message then
-    show.instrument_status_message = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_instrument_status_message
+  if show.application_messages ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_application_messages then
+    show.application_messages = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_application_messages
     changed = true
   end
   if show.message ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_message then
@@ -136,16 +119,8 @@ function omi_lseg_turquoise_analytics_gtp_v24_4.prefs_changed()
     show.packet = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_packet
     changed = true
   end
-  if show.system_event_message ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_system_event_message then
-    show.system_event_message = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_system_event_message
-    changed = true
-  end
   if show.unit_header ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_unit_header then
     show.unit_header = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_unit_header
-    changed = true
-  end
-  if show.payload ~= omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_payload then
-    show.payload = omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_payload
     changed = true
   end
 
@@ -175,66 +150,8 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Lseg Turquoise Analytics Gtp 24.4
+-- Lseg Turquoise Analytics Gtp 24.4 Fields
 -----------------------------------------------------------------------
-
--- Vwap Sell
-lseg_turquoise_analytics_gtp_v24_4.vwap_sell = {}
-
--- Size: Vwap Sell
-lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size = 8
-
--- Display: Vwap Sell
-lseg_turquoise_analytics_gtp_v24_4.vwap_sell.display = function(value)
-  return "Vwap Sell: "..value
-end
-
--- Translate: Vwap Sell
-lseg_turquoise_analytics_gtp_v24_4.vwap_sell.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Vwap Sell
-lseg_turquoise_analytics_gtp_v24_4.vwap_sell.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.translate(raw)
-  local display = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_sell, range, value, display)
-
-  return offset + length, value
-end
-
--- Vwap Buy
-lseg_turquoise_analytics_gtp_v24_4.vwap_buy = {}
-
--- Size: Vwap Buy
-lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size = 8
-
--- Display: Vwap Buy
-lseg_turquoise_analytics_gtp_v24_4.vwap_buy.display = function(value)
-  return "Vwap Buy: "..value
-end
-
--- Translate: Vwap Buy
-lseg_turquoise_analytics_gtp_v24_4.vwap_buy.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Vwap Buy
-lseg_turquoise_analytics_gtp_v24_4.vwap_buy.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.translate(raw)
-  local display = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_buy, range, value, display)
-
-  return offset + length, value
-end
 
 -- Bid Ask Spread
 lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread = {}
@@ -265,48 +182,25 @@ lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Sell Market Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations = {}
+-- Buy Limit Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations = {}
 
--- Size: Sell Market Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size = 4
+-- Size: Buy Limit Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size = 4
 
--- Display: Sell Market Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.display = function(value)
-  return "Sell Market Order Cancellations: "..value
+-- Display: Buy Limit Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.display = function(value)
+  return "Buy Limit Order Cancellations: "..value
 end
 
--- Dissect: Sell Market Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size
+-- Dissect: Buy Limit Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.display(value, buffer, offset, packet, parent)
+  local display = lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_market_order_cancellations, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Limit Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations = {}
-
--- Size: Sell Limit Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size = 4
-
--- Display: Sell Limit Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.display = function(value)
-  return "Sell Limit Order Cancellations: "..value
-end
-
--- Dissect: Sell Limit Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_limit_order_cancellations, range, value, display)
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.buy_limit_order_cancellations, range, value, display)
 
   return offset + length, value
 end
@@ -334,52 +228,6 @@ lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations.dissect = func
   return offset + length, value
 end
 
--- Buy Limit Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations = {}
-
--- Size: Buy Limit Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size = 4
-
--- Display: Buy Limit Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.display = function(value)
-  return "Buy Limit Order Cancellations: "..value
-end
-
--- Dissect: Buy Limit Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.buy_limit_order_cancellations, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations = {}
-
--- Size: Sell Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size = 4
-
--- Display: Sell Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.display = function(value)
-  return "Sell Order Cancellations: "..value
-end
-
--- Dissect: Sell Order Cancellations
-lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_order_cancellations, range, value, display)
-
-  return offset + length, value
-end
-
 -- Buy Order Cancellations
 lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations = {}
 
@@ -403,31 +251,25 @@ lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations.dissect = function(bu
   return offset + length, value
 end
 
--- Sell Order Size
-lseg_turquoise_analytics_gtp_v24_4.sell_order_size = {}
+-- Buy Order Count
+lseg_turquoise_analytics_gtp_v24_4.buy_order_count = {}
 
--- Size: Sell Order Size
-lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size = 8
+-- Size: Buy Order Count
+lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size = 4
 
--- Display: Sell Order Size
-lseg_turquoise_analytics_gtp_v24_4.sell_order_size.display = function(value)
-  return "Sell Order Size: "..value
+-- Display: Buy Order Count
+lseg_turquoise_analytics_gtp_v24_4.buy_order_count.display = function(value)
+  return "Buy Order Count: "..value
 end
 
--- Translate: Sell Order Size
-lseg_turquoise_analytics_gtp_v24_4.sell_order_size.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Sell Order Size
-lseg_turquoise_analytics_gtp_v24_4.sell_order_size.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size
+-- Dissect: Buy Order Count
+lseg_turquoise_analytics_gtp_v24_4.buy_order_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.translate(raw)
-  local display = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.buy_order_count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_order_size, range, value, display)
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.buy_order_count, range, value, display)
 
   return offset + length, value
 end
@@ -461,6 +303,506 @@ lseg_turquoise_analytics_gtp_v24_4.buy_order_size.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Currency
+lseg_turquoise_analytics_gtp_v24_4.currency = {}
+
+-- Size: Currency
+lseg_turquoise_analytics_gtp_v24_4.currency.size = 3
+
+-- Display: Currency
+lseg_turquoise_analytics_gtp_v24_4.currency.display = function(value)
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+lseg_turquoise_analytics_gtp_v24_4.currency.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_turquoise_analytics_gtp_v24_4.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Dynamic Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances = {}
+
+-- Size: Dynamic Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.size = 8
+
+-- Display: Dynamic Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.display = function(value)
+  return "Dynamic Circuit Breaker Tolerances: "..value
+end
+
+-- Translate: Dynamic Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Dynamic Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate(raw)
+  local display = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Time
+lseg_turquoise_analytics_gtp_v24_4.end_time = {}
+
+-- Size: End Time
+lseg_turquoise_analytics_gtp_v24_4.end_time.size = 8
+
+-- Display: End Time
+lseg_turquoise_analytics_gtp_v24_4.end_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: End Time
+lseg_turquoise_analytics_gtp_v24_4.end_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.end_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_turquoise_analytics_gtp_v24_4.end_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.end_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+lseg_turquoise_analytics_gtp_v24_4.event_code = {}
+
+-- Size: Event Code
+lseg_turquoise_analytics_gtp_v24_4.event_code.size = 1
+
+-- Display: Event Code
+lseg_turquoise_analytics_gtp_v24_4.event_code.display = function(value)
+  if value == "C" then
+    return "Event Code: End Of Day (C)"
+  end
+  if value == "O" then
+    return "Event Code: Start Of Day (O)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+lseg_turquoise_analytics_gtp_v24_4.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_turquoise_analytics_gtp_v24_4.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument
+lseg_turquoise_analytics_gtp_v24_4.instrument = {}
+
+-- Size: Instrument
+lseg_turquoise_analytics_gtp_v24_4.instrument.size = 8
+
+-- Display: Instrument
+lseg_turquoise_analytics_gtp_v24_4.instrument.display = function(value)
+  return "Instrument: "..value
+end
+
+-- Dissect: Instrument
+lseg_turquoise_analytics_gtp_v24_4.instrument.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.instrument.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_turquoise_analytics_gtp_v24_4.instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin
+lseg_turquoise_analytics_gtp_v24_4.isin = {}
+
+-- Size: Isin
+lseg_turquoise_analytics_gtp_v24_4.isin.size = 12
+
+-- Display: Isin
+lseg_turquoise_analytics_gtp_v24_4.isin.display = function(value)
+  return "Isin: "..value
+end
+
+-- Dissect: Isin
+lseg_turquoise_analytics_gtp_v24_4.isin.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.isin.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_turquoise_analytics_gtp_v24_4.isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+lseg_turquoise_analytics_gtp_v24_4.length = {}
+
+-- Size: Length
+lseg_turquoise_analytics_gtp_v24_4.length.size = 2
+
+-- Display: Length
+lseg_turquoise_analytics_gtp_v24_4.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+lseg_turquoise_analytics_gtp_v24_4.length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Data Group
+lseg_turquoise_analytics_gtp_v24_4.market_data_group = {}
+
+-- Size: Market Data Group
+lseg_turquoise_analytics_gtp_v24_4.market_data_group.size = 1
+
+-- Display: Market Data Group
+lseg_turquoise_analytics_gtp_v24_4.market_data_group.display = function(value)
+  return "Market Data Group: "..value
+end
+
+-- Dissect: Market Data Group
+lseg_turquoise_analytics_gtp_v24_4.market_data_group.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.market_data_group.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_turquoise_analytics_gtp_v24_4.market_data_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.market_data_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+lseg_turquoise_analytics_gtp_v24_4.message_count = {}
+
+-- Size: Message Count
+lseg_turquoise_analytics_gtp_v24_4.message_count.size = 1
+
+-- Display: Message Count
+lseg_turquoise_analytics_gtp_v24_4.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+lseg_turquoise_analytics_gtp_v24_4.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+lseg_turquoise_analytics_gtp_v24_4.message_length = {}
+
+-- Size: Message Length
+lseg_turquoise_analytics_gtp_v24_4.message_length.size = 1
+
+-- Display: Message Length
+lseg_turquoise_analytics_gtp_v24_4.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+lseg_turquoise_analytics_gtp_v24_4.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+lseg_turquoise_analytics_gtp_v24_4.message_type = {}
+
+-- Size: Message Type
+lseg_turquoise_analytics_gtp_v24_4.message_type.size = 1
+
+-- Display: Message Type
+lseg_turquoise_analytics_gtp_v24_4.message_type.display = function(value)
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x70 then
+    return "Message Type: Instrument Directory Message (0x70)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x61 then
+    return "Message Type: Analytics Message (0x61)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+lseg_turquoise_analytics_gtp_v24_4.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- New End Time
+lseg_turquoise_analytics_gtp_v24_4.new_end_time = {}
+
+-- Size: New End Time
+lseg_turquoise_analytics_gtp_v24_4.new_end_time.size = 6
+
+-- Display: New End Time
+lseg_turquoise_analytics_gtp_v24_4.new_end_time.display = function(value)
+  return "New End Time: "..value
+end
+
+-- Dissect: New End Time
+lseg_turquoise_analytics_gtp_v24_4.new_end_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.new_end_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_turquoise_analytics_gtp_v24_4.new_end_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.new_end_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book Type
+lseg_turquoise_analytics_gtp_v24_4.order_book_type = {}
+
+-- Size: Order Book Type
+lseg_turquoise_analytics_gtp_v24_4.order_book_type.size = 1
+
+-- Display: Order Book Type
+lseg_turquoise_analytics_gtp_v24_4.order_book_type.display = function(value)
+  if value == 3 then
+    return "Order Book Type: Electronic (3)"
+  end
+
+  return "Order Book Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Book Type
+lseg_turquoise_analytics_gtp_v24_4.order_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.order_book_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.order_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.order_book_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Band Tolerances
+lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances = {}
+
+-- Size: Price Band Tolerances
+lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.size = 8
+
+-- Display: Price Band Tolerances
+lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.display = function(value)
+  return "Price Band Tolerances: "..value
+end
+
+-- Translate: Price Band Tolerances
+lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price Band Tolerances
+lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.translate(raw)
+  local display = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.price_band_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 23
+lseg_turquoise_analytics_gtp_v24_4.reserved_23 = {}
+
+-- Size: Reserved 23
+lseg_turquoise_analytics_gtp_v24_4.reserved_23.size = 23
+
+-- Display: Reserved 23
+lseg_turquoise_analytics_gtp_v24_4.reserved_23.display = function(value)
+  return "Reserved 23: "..value
+end
+
+-- Dissect: Reserved 23
+lseg_turquoise_analytics_gtp_v24_4.reserved_23.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.reserved_23.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_analytics_gtp_v24_4.reserved_23.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.reserved_23, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 38
+lseg_turquoise_analytics_gtp_v24_4.reserved_38 = {}
+
+-- Size: Reserved 38
+lseg_turquoise_analytics_gtp_v24_4.reserved_38.size = 38
+
+-- Display: Reserved 38
+lseg_turquoise_analytics_gtp_v24_4.reserved_38.display = function(value)
+  return "Reserved 38: "..value
+end
+
+-- Dissect: Reserved 38
+lseg_turquoise_analytics_gtp_v24_4.reserved_38.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.reserved_38.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_analytics_gtp_v24_4.reserved_38.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.reserved_38, range, value, display)
+
+  return offset + length, value
+end
+
+-- Segment
+lseg_turquoise_analytics_gtp_v24_4.segment = {}
+
+-- Size: Segment
+lseg_turquoise_analytics_gtp_v24_4.segment.size = 6
+
+-- Display: Segment
+lseg_turquoise_analytics_gtp_v24_4.segment.display = function(value)
+  return "Segment: "..value
+end
+
+-- Dissect: Segment
+lseg_turquoise_analytics_gtp_v24_4.segment.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.segment.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_turquoise_analytics_gtp_v24_4.segment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.segment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Limit Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations = {}
+
+-- Size: Sell Limit Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size = 4
+
+-- Display: Sell Limit Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.display = function(value)
+  return "Sell Limit Order Cancellations: "..value
+end
+
+-- Dissect: Sell Limit Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_limit_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Market Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations = {}
+
+-- Size: Sell Market Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size = 4
+
+-- Display: Sell Market Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.display = function(value)
+  return "Sell Market Order Cancellations: "..value
+end
+
+-- Dissect: Sell Market Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_market_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations = {}
+
+-- Size: Sell Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size = 4
+
+-- Display: Sell Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.display = function(value)
+  return "Sell Order Cancellations: "..value
+end
+
+-- Dissect: Sell Order Cancellations
+lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sell Order Count
 lseg_turquoise_analytics_gtp_v24_4.sell_order_count = {}
 
@@ -484,79 +826,99 @@ lseg_turquoise_analytics_gtp_v24_4.sell_order_count.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Buy Order Count
-lseg_turquoise_analytics_gtp_v24_4.buy_order_count = {}
+-- Sell Order Size
+lseg_turquoise_analytics_gtp_v24_4.sell_order_size = {}
 
--- Size: Buy Order Count
-lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size = 4
+-- Size: Sell Order Size
+lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size = 8
 
--- Display: Buy Order Count
-lseg_turquoise_analytics_gtp_v24_4.buy_order_count.display = function(value)
-  return "Buy Order Count: "..value
+-- Display: Sell Order Size
+lseg_turquoise_analytics_gtp_v24_4.sell_order_size.display = function(value)
+  return "Sell Order Size: "..value
 end
 
--- Dissect: Buy Order Count
-lseg_turquoise_analytics_gtp_v24_4.buy_order_count.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size
+-- Translate: Sell Order Size
+lseg_turquoise_analytics_gtp_v24_4.sell_order_size.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Sell Order Size
+lseg_turquoise_analytics_gtp_v24_4.sell_order_size.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.translate(raw)
+  local display = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_order_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+lseg_turquoise_analytics_gtp_v24_4.sequence_number = {}
+
+-- Size: Sequence Number
+lseg_turquoise_analytics_gtp_v24_4.sequence_number.size = 4
+
+-- Display: Sequence Number
+lseg_turquoise_analytics_gtp_v24_4.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+lseg_turquoise_analytics_gtp_v24_4.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.buy_order_count.display(value, buffer, offset, packet, parent)
+  local display = lseg_turquoise_analytics_gtp_v24_4.sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.buy_order_count, range, value, display)
-
-  return offset + length, value
-end
-
--- End Time
-lseg_turquoise_analytics_gtp_v24_4.end_time = {}
-
--- Size: End Time
-lseg_turquoise_analytics_gtp_v24_4.end_time.size = 8
-
--- Display: End Time
-lseg_turquoise_analytics_gtp_v24_4.end_time.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
-
-  return "End Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: End Time
-lseg_turquoise_analytics_gtp_v24_4.end_time.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.end_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = lseg_turquoise_analytics_gtp_v24_4.end_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.end_time, range, value, display)
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
--- Start Time
-lseg_turquoise_analytics_gtp_v24_4.start_time = {}
+-- Session Change Reason
+lseg_turquoise_analytics_gtp_v24_4.session_change_reason = {}
 
--- Size: Start Time
-lseg_turquoise_analytics_gtp_v24_4.start_time.size = 8
+-- Size: Session Change Reason
+lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size = 1
 
--- Display: Start Time
-lseg_turquoise_analytics_gtp_v24_4.start_time.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+-- Display: Session Change Reason
+lseg_turquoise_analytics_gtp_v24_4.session_change_reason.display = function(value)
+  if value == 0 then
+    return "Session Change Reason: Scheduled Transition (0)"
+  end
+  if value == 1 then
+    return "Session Change Reason: Extended By Market Ops (1)"
+  end
+  if value == 2 then
+    return "Session Change Reason: Shortened By Market Ops (2)"
+  end
+  if value == 3 then
+    return "Session Change Reason: Market Order Imbalance (3)"
+  end
+  if value == 4 then
+    return "Session Change Reason: Price Outside Range (4)"
+  end
+  if value == 5 then
+    return "Session Change Reason: Aesp Circuit Breaker Tripped (5)"
+  end
+  if value == 9 then
+    return "Session Change Reason: Unavailable (9)"
+  end
 
-  return "Start Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Session Change Reason: Unknown("..value..")"
 end
 
--- Dissect: Start Time
-lseg_turquoise_analytics_gtp_v24_4.start_time.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.start_time.size
+-- Dissect: Session Change Reason
+lseg_turquoise_analytics_gtp_v24_4.session_change_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = lseg_turquoise_analytics_gtp_v24_4.start_time.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.session_change_reason.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.start_time, range, value, display)
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -603,25 +965,81 @@ lseg_turquoise_analytics_gtp_v24_4.source_venue.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Instrument
-lseg_turquoise_analytics_gtp_v24_4.instrument = {}
+-- Start Time
+lseg_turquoise_analytics_gtp_v24_4.start_time = {}
 
--- Size: Instrument
-lseg_turquoise_analytics_gtp_v24_4.instrument.size = 8
+-- Size: Start Time
+lseg_turquoise_analytics_gtp_v24_4.start_time.size = 8
 
--- Display: Instrument
-lseg_turquoise_analytics_gtp_v24_4.instrument.display = function(value)
-  return "Instrument: "..value
+-- Display: Start Time
+lseg_turquoise_analytics_gtp_v24_4.start_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Dissect: Instrument
-lseg_turquoise_analytics_gtp_v24_4.instrument.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.instrument.size
+-- Dissect: Start Time
+lseg_turquoise_analytics_gtp_v24_4.start_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_turquoise_analytics_gtp_v24_4.instrument.display(value, buffer, offset, packet, parent)
+  local display = lseg_turquoise_analytics_gtp_v24_4.start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument, range, value, display)
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.start_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Static Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances = {}
+
+-- Size: Static Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.size = 8
+
+-- Display: Static Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.display = function(value)
+  return "Static Circuit Breaker Tolerances: "..value
+end
+
+-- Translate: Static Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Static Circuit Breaker Tolerances
+lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.translate(raw)
+  local display = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Id
+lseg_turquoise_analytics_gtp_v24_4.tick_id = {}
+
+-- Size: Tick Id
+lseg_turquoise_analytics_gtp_v24_4.tick_id.size = 2
+
+-- Display: Tick Id
+lseg_turquoise_analytics_gtp_v24_4.tick_id.display = function(value)
+  return "Tick Id: "..value
+end
+
+-- Dissect: Tick Id
+lseg_turquoise_analytics_gtp_v24_4.tick_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.tick_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_turquoise_analytics_gtp_v24_4.tick_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.tick_id, range, value, display)
 
   return offset + length, value
 end
@@ -634,11 +1052,11 @@ lseg_turquoise_analytics_gtp_v24_4.timestamp.size = 8
 
 -- Display: Timestamp
 lseg_turquoise_analytics_gtp_v24_4.timestamp.display = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000000000)
-  local nanoseconds = value:tonumber()%1000000000
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -649,209 +1067,6 @@ lseg_turquoise_analytics_gtp_v24_4.timestamp.dissect = function(buffer, offset, 
   local display = lseg_turquoise_analytics_gtp_v24_4.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Add Order Incremental Message
-lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message = {}
-
--- Size: Add Order Incremental Message
-lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.size =
-  lseg_turquoise_analytics_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_analytics_gtp_v24_4.instrument.size + 
-  lseg_turquoise_analytics_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_analytics_gtp_v24_4.start_time.size + 
-  lseg_turquoise_analytics_gtp_v24_4.end_time.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_order_count.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_order_size.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size + 
-  lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.size + 
-  lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size + 
-  lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size
-
--- Display: Add Order Incremental Message
-lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Add Order Incremental Message
-lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = lseg_turquoise_analytics_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Instrument: 8 Byte Unsigned Fixed Width Integer
-  index, instrument = lseg_turquoise_analytics_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
-
-  -- Source Venue: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, source_venue = lseg_turquoise_analytics_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
-
-  -- Start Time: 8 Byte Unsigned Fixed Width Integer
-  index, start_time = lseg_turquoise_analytics_gtp_v24_4.start_time.dissect(buffer, index, packet, parent)
-
-  -- End Time: 8 Byte Unsigned Fixed Width Integer
-  index, end_time = lseg_turquoise_analytics_gtp_v24_4.end_time.dissect(buffer, index, packet, parent)
-
-  -- Buy Order Count: 4 Byte Unsigned Fixed Width Integer
-  index, buy_order_count = lseg_turquoise_analytics_gtp_v24_4.buy_order_count.dissect(buffer, index, packet, parent)
-
-  -- Sell Order Count: 4 Byte Unsigned Fixed Width Integer
-  index, sell_order_count = lseg_turquoise_analytics_gtp_v24_4.sell_order_count.dissect(buffer, index, packet, parent)
-
-  -- Buy Order Size: 8 Byte Unsigned Fixed Width Integer
-  index, buy_order_size = lseg_turquoise_analytics_gtp_v24_4.buy_order_size.dissect(buffer, index, packet, parent)
-
-  -- Sell Order Size: 8 Byte Unsigned Fixed Width Integer
-  index, sell_order_size = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.dissect(buffer, index, packet, parent)
-
-  -- Buy Order Cancellations: 4 Byte Unsigned Fixed Width Integer
-  index, buy_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations.dissect(buffer, index, packet, parent)
-
-  -- Sell Order Cancellations: 4 Byte Unsigned Fixed Width Integer
-  index, sell_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.dissect(buffer, index, packet, parent)
-
-  -- Buy Limit Order Cancellations: 4 Byte Unsigned Fixed Width Integer
-  index, buy_limit_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.dissect(buffer, index, packet, parent)
-
-  -- Buy Market Order Cancellations: 4 Byte Unsigned Fixed Width Integer
-  index, buy_market_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations.dissect(buffer, index, packet, parent)
-
-  -- Sell Limit Order Cancellations: 4 Byte Unsigned Fixed Width Integer
-  index, sell_limit_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.dissect(buffer, index, packet, parent)
-
-  -- Sell Market Order Cancellations: 4 Byte Unsigned Fixed Width Integer
-  index, sell_market_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.dissect(buffer, index, packet, parent)
-
-  -- Bid Ask Spread: 8 Byte Signed Fixed Width Integer
-  index, bid_ask_spread = lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.dissect(buffer, index, packet, parent)
-
-  -- Vwap Buy: 8 Byte Signed Fixed Width Integer
-  index, vwap_buy = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.dissect(buffer, index, packet, parent)
-
-  -- Vwap Sell: 8 Byte Signed Fixed Width Integer
-  index, vwap_sell = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Add Order Incremental Message
-lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_incremental_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.add_order_incremental_message, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Book Type
-lseg_turquoise_analytics_gtp_v24_4.order_book_type = {}
-
--- Size: Order Book Type
-lseg_turquoise_analytics_gtp_v24_4.order_book_type.size = 1
-
--- Display: Order Book Type
-lseg_turquoise_analytics_gtp_v24_4.order_book_type.display = function(value)
-  if value == 3 then
-    return "Order Book Type: Electronic (3)"
-  end
-
-  return "Order Book Type: Unknown("..value..")"
-end
-
--- Dissect: Order Book Type
-lseg_turquoise_analytics_gtp_v24_4.order_book_type.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.order_book_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.order_book_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.order_book_type, range, value, display)
-
-  return offset + length, value
-end
-
--- New End Time
-lseg_turquoise_analytics_gtp_v24_4.new_end_time = {}
-
--- Size: New End Time
-lseg_turquoise_analytics_gtp_v24_4.new_end_time.size = 6
-
--- Display: New End Time
-lseg_turquoise_analytics_gtp_v24_4.new_end_time.display = function(value)
-  return "New End Time: "..value
-end
-
--- Dissect: New End Time
-lseg_turquoise_analytics_gtp_v24_4.new_end_time.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.new_end_time.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = lseg_turquoise_analytics_gtp_v24_4.new_end_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.new_end_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Change Reason
-lseg_turquoise_analytics_gtp_v24_4.session_change_reason = {}
-
--- Size: Session Change Reason
-lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size = 1
-
--- Display: Session Change Reason
-lseg_turquoise_analytics_gtp_v24_4.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 5 then
-    return "Session Change Reason: Aesp Circuit Breaker Tripped (5)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable (9)"
-  end
-
-  return "Session Change Reason: Unknown("..value..")"
-end
-
--- Dissect: Session Change Reason
-lseg_turquoise_analytics_gtp_v24_4.session_change_reason.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.session_change_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
@@ -907,272 +1122,6 @@ lseg_turquoise_analytics_gtp_v24_4.trading_status.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Instrument Status Message
-lseg_turquoise_analytics_gtp_v24_4.instrument_status_message = {}
-
--- Size: Instrument Status Message
-lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.size =
-  lseg_turquoise_analytics_gtp_v24_4.timestamp.size + 
-  lseg_turquoise_analytics_gtp_v24_4.instrument.size + 
-  lseg_turquoise_analytics_gtp_v24_4.source_venue.size + 
-  lseg_turquoise_analytics_gtp_v24_4.trading_status.size + 
-  lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size + 
-  lseg_turquoise_analytics_gtp_v24_4.new_end_time.size + 
-  lseg_turquoise_analytics_gtp_v24_4.order_book_type.size
-
--- Display: Instrument Status Message
-lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Instrument Status Message
-lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = lseg_turquoise_analytics_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Instrument: 8 Byte Unsigned Fixed Width Integer
-  index, instrument = lseg_turquoise_analytics_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
-
-  -- Source Venue: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, source_venue = lseg_turquoise_analytics_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
-
-  -- Trading Status: 1 Byte Ascii String Enum with 9 values
-  index, trading_status = lseg_turquoise_analytics_gtp_v24_4.trading_status.dissect(buffer, index, packet, parent)
-
-  -- Session Change Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, session_change_reason = lseg_turquoise_analytics_gtp_v24_4.session_change_reason.dissect(buffer, index, packet, parent)
-
-  -- New End Time: 6 Byte Ascii String
-  index, new_end_time = lseg_turquoise_analytics_gtp_v24_4.new_end_time.dissect(buffer, index, packet, parent)
-
-  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index, order_book_type = lseg_turquoise_analytics_gtp_v24_4.order_book_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrument Status Message
-lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_status_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reserved 38
-lseg_turquoise_analytics_gtp_v24_4.reserved_38 = {}
-
--- Size: Reserved 38
-lseg_turquoise_analytics_gtp_v24_4.reserved_38.size = 38
-
--- Display: Reserved 38
-lseg_turquoise_analytics_gtp_v24_4.reserved_38.display = function(value)
-  return "Reserved 38: "..value
-end
-
--- Dissect: Reserved 38
-lseg_turquoise_analytics_gtp_v24_4.reserved_38.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.reserved_38.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = lseg_turquoise_analytics_gtp_v24_4.reserved_38.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.reserved_38, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-lseg_turquoise_analytics_gtp_v24_4.currency = {}
-
--- Size: Currency
-lseg_turquoise_analytics_gtp_v24_4.currency.size = 3
-
--- Display: Currency
-lseg_turquoise_analytics_gtp_v24_4.currency.display = function(value)
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-lseg_turquoise_analytics_gtp_v24_4.currency.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = lseg_turquoise_analytics_gtp_v24_4.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 23
-lseg_turquoise_analytics_gtp_v24_4.reserved_23 = {}
-
--- Size: Reserved 23
-lseg_turquoise_analytics_gtp_v24_4.reserved_23.size = 23
-
--- Display: Reserved 23
-lseg_turquoise_analytics_gtp_v24_4.reserved_23.display = function(value)
-  return "Reserved 23: "..value
-end
-
--- Dissect: Reserved 23
-lseg_turquoise_analytics_gtp_v24_4.reserved_23.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.reserved_23.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = lseg_turquoise_analytics_gtp_v24_4.reserved_23.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.reserved_23, range, value, display)
-
-  return offset + length, value
-end
-
--- Segment
-lseg_turquoise_analytics_gtp_v24_4.segment = {}
-
--- Size: Segment
-lseg_turquoise_analytics_gtp_v24_4.segment.size = 6
-
--- Display: Segment
-lseg_turquoise_analytics_gtp_v24_4.segment.display = function(value)
-  return "Segment: "..value
-end
-
--- Dissect: Segment
-lseg_turquoise_analytics_gtp_v24_4.segment.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.segment.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = lseg_turquoise_analytics_gtp_v24_4.segment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.segment, range, value, display)
-
-  return offset + length, value
-end
-
--- Static Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances = {}
-
--- Size: Static Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.size = 8
-
--- Display: Static Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.display = function(value)
-  return "Static Circuit Breaker Tolerances: "..value
-end
-
--- Translate: Static Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Static Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.translate(raw)
-  local display = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
-
-  return offset + length, value
-end
-
--- Dynamic Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances = {}
-
--- Size: Dynamic Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.size = 8
-
--- Display: Dynamic Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.display = function(value)
-  return "Dynamic Circuit Breaker Tolerances: "..value
-end
-
--- Translate: Dynamic Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Dynamic Circuit Breaker Tolerances
-lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.translate(raw)
-  local display = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Band Tolerances
-lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances = {}
-
--- Size: Price Band Tolerances
-lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.size = 8
-
--- Display: Price Band Tolerances
-lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.display = function(value)
-  return "Price Band Tolerances: "..value
-end
-
--- Translate: Price Band Tolerances
-lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price Band Tolerances
-lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.translate(raw)
-  local display = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.price_band_tolerances, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Id
-lseg_turquoise_analytics_gtp_v24_4.tick_id = {}
-
--- Size: Tick Id
-lseg_turquoise_analytics_gtp_v24_4.tick_id.size = 2
-
--- Display: Tick Id
-lseg_turquoise_analytics_gtp_v24_4.tick_id.display = function(value)
-  return "Tick Id: "..value
-end
-
--- Dissect: Tick Id
-lseg_turquoise_analytics_gtp_v24_4.tick_id.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.tick_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = lseg_turquoise_analytics_gtp_v24_4.tick_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.tick_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Venue Instrument Id
 lseg_turquoise_analytics_gtp_v24_4.venue_instrument_id = {}
 
@@ -1196,6 +1145,241 @@ lseg_turquoise_analytics_gtp_v24_4.venue_instrument_id.dissect = function(buffer
   return offset + length, value
 end
 
+-- Vwap Buy
+lseg_turquoise_analytics_gtp_v24_4.vwap_buy = {}
+
+-- Size: Vwap Buy
+lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size = 8
+
+-- Display: Vwap Buy
+lseg_turquoise_analytics_gtp_v24_4.vwap_buy.display = function(value)
+  return "Vwap Buy: "..value
+end
+
+-- Translate: Vwap Buy
+lseg_turquoise_analytics_gtp_v24_4.vwap_buy.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Vwap Buy
+lseg_turquoise_analytics_gtp_v24_4.vwap_buy.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.translate(raw)
+  local display = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_buy, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vwap Sell
+lseg_turquoise_analytics_gtp_v24_4.vwap_sell = {}
+
+-- Size: Vwap Sell
+lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size = 8
+
+-- Display: Vwap Sell
+lseg_turquoise_analytics_gtp_v24_4.vwap_sell.display = function(value)
+  return "Vwap Sell: "..value
+end
+
+-- Translate: Vwap Sell
+lseg_turquoise_analytics_gtp_v24_4.vwap_sell.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Vwap Sell
+lseg_turquoise_analytics_gtp_v24_4.vwap_sell.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.translate(raw)
+  local display = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_sell, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Lseg Turquoise Analytics Gtp 24.4
+-----------------------------------------------------------------------
+
+-- Analytics Message
+lseg_turquoise_analytics_gtp_v24_4.analytics_message = {}
+
+-- Size: Analytics Message
+lseg_turquoise_analytics_gtp_v24_4.analytics_message.size =
+  lseg_turquoise_analytics_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_analytics_gtp_v24_4.instrument.size + 
+  lseg_turquoise_analytics_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_analytics_gtp_v24_4.start_time.size + 
+  lseg_turquoise_analytics_gtp_v24_4.end_time.size + 
+  lseg_turquoise_analytics_gtp_v24_4.buy_order_count.size + 
+  lseg_turquoise_analytics_gtp_v24_4.sell_order_count.size + 
+  lseg_turquoise_analytics_gtp_v24_4.buy_order_size.size + 
+  lseg_turquoise_analytics_gtp_v24_4.sell_order_size.size + 
+  lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations.size + 
+  lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.size + 
+  lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.size + 
+  lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations.size + 
+  lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.size + 
+  lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.size + 
+  lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.size + 
+  lseg_turquoise_analytics_gtp_v24_4.vwap_buy.size + 
+  lseg_turquoise_analytics_gtp_v24_4.vwap_sell.size
+
+-- Display: Analytics Message
+lseg_turquoise_analytics_gtp_v24_4.analytics_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Analytics Message
+lseg_turquoise_analytics_gtp_v24_4.analytics_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_turquoise_analytics_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_turquoise_analytics_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_turquoise_analytics_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Start Time: UDT
+  index, start_time = lseg_turquoise_analytics_gtp_v24_4.start_time.dissect(buffer, index, packet, parent)
+
+  -- End Time: UDT
+  index, end_time = lseg_turquoise_analytics_gtp_v24_4.end_time.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Count: UInt32
+  index, buy_order_count = lseg_turquoise_analytics_gtp_v24_4.buy_order_count.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Count: UInt32
+  index, sell_order_count = lseg_turquoise_analytics_gtp_v24_4.sell_order_count.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Size: Size4
+  index, buy_order_size = lseg_turquoise_analytics_gtp_v24_4.buy_order_size.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Size: Size4
+  index, sell_order_size = lseg_turquoise_analytics_gtp_v24_4.sell_order_size.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Cancellations: UInt32
+  index, buy_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.buy_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Cancellations: UInt32
+  index, sell_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.sell_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Buy Limit Order Cancellations: UInt32
+  index, buy_limit_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.buy_limit_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Buy Market Order Cancellations: UInt32
+  index, buy_market_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.buy_market_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Sell Limit Order Cancellations: UInt32
+  index, sell_limit_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.sell_limit_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Sell Market Order Cancellations: UInt32
+  index, sell_market_order_cancellations = lseg_turquoise_analytics_gtp_v24_4.sell_market_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Bid Ask Spread: Price
+  index, bid_ask_spread = lseg_turquoise_analytics_gtp_v24_4.bid_ask_spread.dissect(buffer, index, packet, parent)
+
+  -- Vwap Buy: Price
+  index, vwap_buy = lseg_turquoise_analytics_gtp_v24_4.vwap_buy.dissect(buffer, index, packet, parent)
+
+  -- Vwap Sell: Price
+  index, vwap_sell = lseg_turquoise_analytics_gtp_v24_4.vwap_sell.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Analytics Message
+lseg_turquoise_analytics_gtp_v24_4.analytics_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.analytics_message, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4.analytics_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_analytics_gtp_v24_4.analytics_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_analytics_gtp_v24_4.analytics_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Instrument Status Message
+lseg_turquoise_analytics_gtp_v24_4.instrument_status_message = {}
+
+-- Size: Instrument Status Message
+lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.size =
+  lseg_turquoise_analytics_gtp_v24_4.timestamp.size + 
+  lseg_turquoise_analytics_gtp_v24_4.instrument.size + 
+  lseg_turquoise_analytics_gtp_v24_4.source_venue.size + 
+  lseg_turquoise_analytics_gtp_v24_4.trading_status.size + 
+  lseg_turquoise_analytics_gtp_v24_4.session_change_reason.size + 
+  lseg_turquoise_analytics_gtp_v24_4.new_end_time.size + 
+  lseg_turquoise_analytics_gtp_v24_4.order_book_type.size
+
+-- Display: Instrument Status Message
+lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Status Message
+lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_turquoise_analytics_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_turquoise_analytics_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_turquoise_analytics_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Byte
+  index, trading_status = lseg_turquoise_analytics_gtp_v24_4.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Session Change Reason: UInt8
+  index, session_change_reason = lseg_turquoise_analytics_gtp_v24_4.session_change_reason.dissect(buffer, index, packet, parent)
+
+  -- New End Time: Time
+  index, new_end_time = lseg_turquoise_analytics_gtp_v24_4.new_end_time.dissect(buffer, index, packet, parent)
+
+  -- Order Book Type: UInt8
+  index, order_book_type = lseg_turquoise_analytics_gtp_v24_4.order_book_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Status Message
+lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Allowed Book Types
 lseg_turquoise_analytics_gtp_v24_4.allowed_book_types = {}
 
@@ -1203,65 +1387,43 @@ lseg_turquoise_analytics_gtp_v24_4.allowed_book_types = {}
 lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.size = 1
 
 -- Display: Allowed Book Types
-lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.display = function(buffer, packet, parent)
-  local display = ""
+lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.display = function(range, value, packet, parent)
+  local flags = {}
 
   -- Is Electronic Order Book flag set?
-  if buffer:bitfield(2) > 0 then
-    display = display.."Electronic Order Book|"
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Electronic Order Book"
   end
 
-  return display:sub(1, -2)
+  return table.concat(flags, "|")
 end
 
 -- Dissect Bit Fields: Allowed Book Types
-lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.bits = function(buffer, offset, packet, parent)
+lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Unused 2: 2 Bit
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_2, buffer(offset, 1))
+  -- Unused 3: 3 Bit
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_3, range, value)
 
   -- Electronic Order Book: 1 Bit
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.electronic_order_book, buffer(offset, 1))
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.electronic_order_book, range, value)
 
-  -- Unused 5: 5 Bit
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_5, buffer(offset, 1))
+  -- Unused 4: 4 Bit
+  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_4, range, value)
 end
 
 -- Dissect: Allowed Book Types
 lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.dissect = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.size
   local range = buffer(offset, size)
-  local display = lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.display(range, packet, parent)
+  local value = range:le_uint()
+  local display = lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.allowed_book_types, range, display)
 
   if show.allowed_book_types then
-    lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.bits(buffer, offset, packet, element)
+    lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.bits(range, value, packet, element)
   end
 
-  return offset + 1, range
-end
-
--- Isin
-lseg_turquoise_analytics_gtp_v24_4.isin = {}
-
--- Size: Isin
-lseg_turquoise_analytics_gtp_v24_4.isin.size = 12
-
--- Display: Isin
-lseg_turquoise_analytics_gtp_v24_4.isin.display = function(value)
-  return "Isin: "..value
-end
-
--- Dissect: Isin
-lseg_turquoise_analytics_gtp_v24_4.isin.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.isin.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = lseg_turquoise_analytics_gtp_v24_4.isin.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.isin, range, value, display)
-
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Instrument Directory Message
@@ -1293,46 +1455,46 @@ end
 lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UDT
   index, timestamp = lseg_turquoise_analytics_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Instrument: 8 Byte Unsigned Fixed Width Integer
+  -- Instrument: UInt64
   index, instrument = lseg_turquoise_analytics_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
 
-  -- Isin: 12 Byte Ascii String
+  -- Isin: Alpha
   index, isin = lseg_turquoise_analytics_gtp_v24_4.isin.dissect(buffer, index, packet, parent)
 
   -- Allowed Book Types: Struct of 3 fields
   index, allowed_book_types = lseg_turquoise_analytics_gtp_v24_4.allowed_book_types.dissect(buffer, index, packet, parent)
 
-  -- Source Venue: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Source Venue: UInt16
   index, source_venue = lseg_turquoise_analytics_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
 
-  -- Venue Instrument Id: 11 Byte Ascii String
+  -- Venue Instrument Id: Alpha
   index, venue_instrument_id = lseg_turquoise_analytics_gtp_v24_4.venue_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Tick Id: 2 Byte Ascii String
+  -- Tick Id: Alpha
   index, tick_id = lseg_turquoise_analytics_gtp_v24_4.tick_id.dissect(buffer, index, packet, parent)
 
-  -- Price Band Tolerances: 8 Byte Signed Fixed Width Integer
+  -- Price Band Tolerances: Price
   index, price_band_tolerances = lseg_turquoise_analytics_gtp_v24_4.price_band_tolerances.dissect(buffer, index, packet, parent)
 
-  -- Dynamic Circuit Breaker Tolerances: 8 Byte Signed Fixed Width Integer
+  -- Dynamic Circuit Breaker Tolerances: Price
   index, dynamic_circuit_breaker_tolerances = lseg_turquoise_analytics_gtp_v24_4.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- Static Circuit Breaker Tolerances: 8 Byte Signed Fixed Width Integer
+  -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_turquoise_analytics_gtp_v24_4.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- Segment: 6 Byte Ascii String
+  -- Segment: Alpha
   index, segment = lseg_turquoise_analytics_gtp_v24_4.segment.dissect(buffer, index, packet, parent)
 
-  -- Reserved 23: 23 Byte
+  -- Reserved 23: Alpha
   index, reserved_23 = lseg_turquoise_analytics_gtp_v24_4.reserved_23.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alpha
   index, currency = lseg_turquoise_analytics_gtp_v24_4.currency.dissect(buffer, index, packet, parent)
 
-  -- Reserved 38: 38 Byte
+  -- Reserved 38: Byte
   index, reserved_38 = lseg_turquoise_analytics_gtp_v24_4.reserved_38.dissect(buffer, index, packet, parent)
 
   return index
@@ -1340,7 +1502,7 @@ end
 
 -- Dissect: Instrument Directory Message
 lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_directory_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
     local index = lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.fields(buffer, offset, packet, parent)
@@ -1354,36 +1516,6 @@ lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.dissect = functi
     -- Skip element, add fields directly
     return lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Event Code
-lseg_turquoise_analytics_gtp_v24_4.event_code = {}
-
--- Size: Event Code
-lseg_turquoise_analytics_gtp_v24_4.event_code.size = 1
-
--- Display: Event Code
-lseg_turquoise_analytics_gtp_v24_4.event_code.display = function(value)
-  if value == "C" then
-    return "Event Code: End Of Day (C)"
-  end
-  if value == "O" then
-    return "Event Code: Start Of Day (O)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-lseg_turquoise_analytics_gtp_v24_4.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = lseg_turquoise_analytics_gtp_v24_4.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.event_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- System Event Message
@@ -1404,13 +1536,13 @@ end
 lseg_turquoise_analytics_gtp_v24_4.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: UDT
   index, timestamp = lseg_turquoise_analytics_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 2 values
+  -- Event Code: Byte
   index, event_code = lseg_turquoise_analytics_gtp_v24_4.event_code.dissect(buffer, index, packet, parent)
 
-  -- Source Venue: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Source Venue: UInt16
   index, source_venue = lseg_turquoise_analytics_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
 
   return index
@@ -1418,7 +1550,7 @@ end
 
 -- Dissect: System Event Message
 lseg_turquoise_analytics_gtp_v24_4.system_event_message.dissect = function(buffer, offset, packet, parent)
-  if show.system_event_message then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
     local index = lseg_turquoise_analytics_gtp_v24_4.system_event_message.fields(buffer, offset, packet, parent)
@@ -1437,35 +1569,8 @@ end
 -- Payload
 lseg_turquoise_analytics_gtp_v24_4.payload = {}
 
--- Size: Payload
-lseg_turquoise_analytics_gtp_v24_4.payload.size = function(buffer, offset, message_type)
-  -- Size of System Event Message
-  if message_type == 0x53 then
-    return lseg_turquoise_analytics_gtp_v24_4.system_event_message.size
-  end
-  -- Size of Instrument Directory Message
-  if message_type == 0x70 then
-    return lseg_turquoise_analytics_gtp_v24_4.instrument_directory_message.size
-  end
-  -- Size of Instrument Status Message
-  if message_type == 0x48 then
-    return lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.size
-  end
-  -- Size of Add Order Incremental Message
-  if message_type == 0x61 then
-    return lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.size
-  end
-
-  return 0
-end
-
--- Display: Payload
-lseg_turquoise_analytics_gtp_v24_4.payload.display = function(buffer, offset, packet, parent)
-  return ""
-end
-
--- Dissect Branches: Payload
-lseg_turquoise_analytics_gtp_v24_4.payload.branches = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Payload
+lseg_turquoise_analytics_gtp_v24_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == 0x53 then
     return lseg_turquoise_analytics_gtp_v24_4.system_event_message.dissect(buffer, offset, packet, parent)
@@ -1478,91 +1583,12 @@ lseg_turquoise_analytics_gtp_v24_4.payload.branches = function(buffer, offset, p
   if message_type == 0x48 then
     return lseg_turquoise_analytics_gtp_v24_4.instrument_status_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Add Order Incremental Message
+  -- Dissect Analytics Message
   if message_type == 0x61 then
-    return lseg_turquoise_analytics_gtp_v24_4.add_order_incremental_message.dissect(buffer, offset, packet, parent)
+    return lseg_turquoise_analytics_gtp_v24_4.analytics_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
-end
-
--- Dissect: Payload
-lseg_turquoise_analytics_gtp_v24_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  if not show.payload then
-    return lseg_turquoise_analytics_gtp_v24_4.payload.branches(buffer, offset, packet, parent, message_type)
-  end
-
-  -- Calculate size and check that branch is not empty
-  local size = lseg_turquoise_analytics_gtp_v24_4.payload.size(buffer, offset, message_type)
-  if size == 0 then
-    return offset
-  end
-
-  -- Dissect Element
-  local range = buffer(offset, size)
-  local display = lseg_turquoise_analytics_gtp_v24_4.payload.display(buffer, packet, parent)
-  local element = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.payload, range, display)
-
-  return lseg_turquoise_analytics_gtp_v24_4.payload.branches(buffer, offset, packet, parent, message_type)
-end
-
--- Message Type
-lseg_turquoise_analytics_gtp_v24_4.message_type = {}
-
--- Size: Message Type
-lseg_turquoise_analytics_gtp_v24_4.message_type.size = 1
-
--- Display: Message Type
-lseg_turquoise_analytics_gtp_v24_4.message_type.display = function(value)
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x70 then
-    return "Message Type: Instrument Directory Message (0x70)"
-  end
-  if value == 0x48 then
-    return "Message Type: Instrument Status Message (0x48)"
-  end
-  if value == 0x61 then
-    return "Message Type: Add Order Incremental Message (0x61)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-lseg_turquoise_analytics_gtp_v24_4.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-lseg_turquoise_analytics_gtp_v24_4.message_length = {}
-
--- Size: Message Length
-lseg_turquoise_analytics_gtp_v24_4.message_length.size = 1
-
--- Display: Message Length
-lseg_turquoise_analytics_gtp_v24_4.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-lseg_turquoise_analytics_gtp_v24_4.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -1654,108 +1680,21 @@ lseg_turquoise_analytics_gtp_v24_4.message.fields = function(buffer, offset, pac
 end
 
 -- Dissect: Message
-lseg_turquoise_analytics_gtp_v24_4.message.dissect = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+lseg_turquoise_analytics_gtp_v24_4.message.dissect = function(buffer, offset, packet, parent, message_index)
   if show.message then
-    local length = lseg_turquoise_analytics_gtp_v24_4.message.size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_analytics_gtp_v24_4.message.display(buffer, packet, parent)
-    parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4.message.fields(buffer, offset, packet, parent, message_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_analytics_gtp_v24_4.message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_analytics_gtp_v24_4.message.fields(buffer, offset, packet, parent, message_index)
   end
-
-  return lseg_turquoise_analytics_gtp_v24_4.message.fields(buffer, offset, packet, parent)
-end
-
--- Sequence Number
-lseg_turquoise_analytics_gtp_v24_4.sequence_number = {}
-
--- Size: Sequence Number
-lseg_turquoise_analytics_gtp_v24_4.sequence_number.size = 4
-
--- Display: Sequence Number
-lseg_turquoise_analytics_gtp_v24_4.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-lseg_turquoise_analytics_gtp_v24_4.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Data Group
-lseg_turquoise_analytics_gtp_v24_4.market_data_group = {}
-
--- Size: Market Data Group
-lseg_turquoise_analytics_gtp_v24_4.market_data_group.size = 1
-
--- Display: Market Data Group
-lseg_turquoise_analytics_gtp_v24_4.market_data_group.display = function(value)
-  return "Market Data Group: "..value
-end
-
--- Dissect: Market Data Group
-lseg_turquoise_analytics_gtp_v24_4.market_data_group.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.market_data_group.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = lseg_turquoise_analytics_gtp_v24_4.market_data_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.market_data_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Count
-lseg_turquoise_analytics_gtp_v24_4.message_count = {}
-
--- Size: Message Count
-lseg_turquoise_analytics_gtp_v24_4.message_count.size = 1
-
--- Display: Message Count
-lseg_turquoise_analytics_gtp_v24_4.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-lseg_turquoise_analytics_gtp_v24_4.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.message_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Length
-lseg_turquoise_analytics_gtp_v24_4.length = {}
-
--- Size: Length
-lseg_turquoise_analytics_gtp_v24_4.length.size = 2
-
--- Display: Length
-lseg_turquoise_analytics_gtp_v24_4.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-lseg_turquoise_analytics_gtp_v24_4.length.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_analytics_gtp_v24_4.length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = lseg_turquoise_analytics_gtp_v24_4.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Unit Header

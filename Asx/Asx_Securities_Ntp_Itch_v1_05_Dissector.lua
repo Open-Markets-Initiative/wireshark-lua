@@ -148,7 +148,7 @@ omi_asx_securities_ntp_itch_v1_05.fields.volume_and_open_interest_message = Prot
 omi_asx_securities_ntp_itch_v1_05.fields.bundle_leg_index = ProtoField.new("Bundle Leg Index", "asx.securities.ntp.itch.v1.05.bundlelegindex", ftypes.UINT16)
 omi_asx_securities_ntp_itch_v1_05.fields.combination_leg_index = ProtoField.new("Combination Leg Index", "asx.securities.ntp.itch.v1.05.combinationlegindex", ftypes.UINT16)
 omi_asx_securities_ntp_itch_v1_05.fields.message_index = ProtoField.new("Message Index", "asx.securities.ntp.itch.v1.05.messageindex", ftypes.UINT16)
-omi_asx_securities_ntp_itch_v1_05.fields.timestamp = ProtoField.new("Timestamp", "asx.securities.ntp.itch.v1.05.timestamp", ftypes.STRING)
+omi_asx_securities_ntp_itch_v1_05.fields.timestamp = ProtoField.new("Timestamp", "asx.securities.ntp.itch.v1.05.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
