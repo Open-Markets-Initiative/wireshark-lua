@@ -30,17 +30,6 @@ grep "nyse.equities.integratedfeed.pillar.v2.5.a.price" Nyse.Equities.Integrated
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.volume" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
 grep "nyse.equities.integratedfeed.pillar.v2.5.a.crosstype" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
 tshark \
-  -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/DeleteOrderMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -T json \
-  > Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
-
-grep "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
-grep "nyse.equities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
-grep "nyse.equities.integratedfeed.pillar.v2.5.a.symbolseqnum" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
-grep "nyse.equities.integratedfeed.pillar.v2.5.a.orderid" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
-grep "nyse.equities.integratedfeed.pillar.v2.5.a.reserved11" Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
-tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
   -T json \
