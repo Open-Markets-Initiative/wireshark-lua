@@ -67,7 +67,7 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.paired_contracts = ProtoFiel
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.marketdepth.itch.v1.5.price", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.printable = ProtoField.new("Printable", "nasdaq.phlxoptions.marketdepth.itch.v1.5.printable", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.phlxoptions.marketdepth.itch.v1.5.referencenumberdelta", ftypes.UINT32)
-omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlxoptions.marketdepth.itch.v1.5.reserved", ftypes.UINT32)
+omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlxoptions.marketdepth.itch.v1.5.reserved", ftypes.BYTES)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.second = ProtoField.new("Second", "nasdaq.phlxoptions.marketdepth.itch.v1.5.second", ftypes.UINT32)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.marketdepth.itch.v1.5.securitysymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.phlxoptions.marketdepth.itch.v1.5.sequencenumber", ftypes.UINT64)
@@ -1545,7 +1545,7 @@ end
 nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.reserved, range, value, display)

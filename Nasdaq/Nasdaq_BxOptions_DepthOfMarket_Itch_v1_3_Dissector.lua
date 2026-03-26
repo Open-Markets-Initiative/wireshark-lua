@@ -72,7 +72,7 @@ omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price_long = ProtoField.new(
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.printable = ProtoField.new("Printable", "nasdaq.bxoptions.depthofmarket.itch.v1.3.printable", ftypes.STRING)
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.referencenumberdelta", ftypes.UINT32)
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan = ProtoField.new("Reference Number Deltan", "nasdaq.bxoptions.depthofmarket.itch.v1.3.referencenumberdeltan", ftypes.UINT32)
-omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved = ProtoField.new("Reserved", "nasdaq.bxoptions.depthofmarket.itch.v1.3.reserved", ftypes.UINT32)
+omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved = ProtoField.new("Reserved", "nasdaq.bxoptions.depthofmarket.itch.v1.3.reserved", ftypes.BYTES)
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.second = ProtoField.new("Second", "nasdaq.bxoptions.depthofmarket.itch.v1.3.second", ftypes.UINT32)
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.bxoptions.depthofmarket.itch.v1.3.securitysymbol", ftypes.STRING)
 omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.sequencenumber", ftypes.UINT64)
@@ -1684,7 +1684,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved, range, value, display)

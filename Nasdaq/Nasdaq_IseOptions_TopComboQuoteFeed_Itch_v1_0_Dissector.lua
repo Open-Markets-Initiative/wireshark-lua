@@ -72,7 +72,7 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.source = ProtoField.new
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.strategyid", ftypes.UINT32)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.strategytype", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.subversion", ftypes.UINT8)
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.timestamp", ftypes.UINT64)
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.timestamp", ftypes.BYTES)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.tradecondition", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.version", ftypes.UINT8)
@@ -1549,7 +1549,7 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.timestamp, range, value, display)

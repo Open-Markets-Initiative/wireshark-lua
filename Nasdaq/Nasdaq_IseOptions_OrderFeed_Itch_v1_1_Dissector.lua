@@ -62,7 +62,7 @@ omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.size = ProtoField.new("Size", "
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.source = ProtoField.new("Source", "nasdaq.iseoptions.orderfeed.itch.v1.1.source", ftypes.UINT8)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.strikeprice", ftypes.DOUBLE)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.orderfeed.itch.v1.1.subversion", ftypes.UINT8)
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.orderfeed.itch.v1.1.timestamp", ftypes.UINT64)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.orderfeed.itch.v1.1.timestamp", ftypes.BYTES)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradable", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type = ProtoField.new("Trading Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingtype", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
@@ -1344,7 +1344,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp, range, value, display)

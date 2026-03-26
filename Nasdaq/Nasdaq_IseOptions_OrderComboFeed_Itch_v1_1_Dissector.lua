@@ -63,7 +63,7 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.source = ProtoField.new("S
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid", ftypes.UINT32)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategytype", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.subversion", ftypes.UINT8)
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp", ftypes.UINT64)
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp", ftypes.BYTES)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.version", ftypes.UINT8)
 
@@ -1364,7 +1364,7 @@ end
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.timestamp, range, value, display)

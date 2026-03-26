@@ -76,7 +76,7 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.sequence_number = ProtoField.
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.aggregated.itch.v2.0.session", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.aggregated.itch.v2.0.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.aggregated.itch.v2.0.stock", ftypes.STRING)
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.aggregated.itch.v2.0.timestamp", ftypes.UINT64)
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.aggregated.itch.v2.0.timestamp", ftypes.BYTES)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.aggregated.itch.v2.0.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.aggregated.itch.v2.0.tradingstate", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.nsmequities.aggregated.itch.v2.0.upperauctioncollarprice", ftypes.DOUBLE)
@@ -2305,7 +2305,7 @@ end
 nasdaq_nsmequities_aggregated_itch_v2_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_aggregated_itch_v2_0.timestamp.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nsmequities_aggregated_itch_v2_0.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.timestamp, range, value, display)
