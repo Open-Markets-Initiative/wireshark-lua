@@ -177,6 +177,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Cboe C1 Options Complex Pitch 2.1.37 Fields
 -----------------------------------------------------------------------
 
@@ -477,7 +495,7 @@ end
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_id, range, value, display)
@@ -500,7 +518,7 @@ end
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_id_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_id_8, range, value, display)
@@ -523,7 +541,7 @@ end
 cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_complex_pitch_v2_1_37.complex_instrument_underlying.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_instrument_underlying, range, value, display)
@@ -546,7 +564,7 @@ end
 cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_complex_pitch_v2_1_37.complex_symbol_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.complex_symbol_id, range, value, display)
@@ -749,7 +767,7 @@ end
 cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_complex_pitch_v2_1_37.feed_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.feed_symbol, range, value, display)
@@ -910,7 +928,7 @@ end
 cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_complex_pitch_v2_1_37.leg_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.leg_symbol, range, value, display)
@@ -1150,7 +1168,7 @@ end
 cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_complex_pitch_v2_1_37.osi_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_complex_pitch_v2_1_37.fields.osi_symbol, range, value, display)

@@ -192,6 +192,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Cboe Futures DepthOfBook Pitch 1.1.12 Fields
 -----------------------------------------------------------------------
 
@@ -1401,7 +1419,7 @@ end
 cboe_futures_depthofbook_pitch_v1_1_12.symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_futures_depthofbook_pitch_v1_1_12.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_futures_depthofbook_pitch_v1_1_12.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_12.fields.symbol, range, value, display)

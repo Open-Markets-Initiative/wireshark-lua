@@ -155,6 +155,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Cboe Titanium Equities DepthOfBook PitchUdp 2.41.64 Fields
 -----------------------------------------------------------------------
 
@@ -975,7 +993,7 @@ end
 cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.stock_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.stock_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.stock_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.fields.stock_symbol, range, value, display)
@@ -998,7 +1016,7 @@ end
 cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.symbol_printable_ascii_6.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.symbol_printable_ascii_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.symbol_printable_ascii_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.fields.symbol_printable_ascii_6, range, value, display)
@@ -1021,7 +1039,7 @@ end
 cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.symbol_printable_ascii_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.symbol_printable_ascii_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.symbol_printable_ascii_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.fields.symbol_printable_ascii_8, range, value, display)

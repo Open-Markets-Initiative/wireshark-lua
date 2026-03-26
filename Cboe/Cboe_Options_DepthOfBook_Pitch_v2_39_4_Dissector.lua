@@ -165,6 +165,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Cboe Options DepthOfBook Pitch 2.39.4 Fields
 -----------------------------------------------------------------------
 
@@ -494,7 +512,7 @@ end
 cboe_options_depthofbook_pitch_v2_39_4.expanded_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_options_depthofbook_pitch_v2_39_4.expanded_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_options_depthofbook_pitch_v2_39_4.expanded_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_depthofbook_pitch_v2_39_4.fields.expanded_symbol, range, value, display)
@@ -517,7 +535,7 @@ end
 cboe_options_depthofbook_pitch_v2_39_4.feed_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_options_depthofbook_pitch_v2_39_4.feed_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_options_depthofbook_pitch_v2_39_4.feed_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_depthofbook_pitch_v2_39_4.fields.feed_symbol, range, value, display)
@@ -789,7 +807,7 @@ end
 cboe_options_depthofbook_pitch_v2_39_4.osi_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_options_depthofbook_pitch_v2_39_4.osi_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_options_depthofbook_pitch_v2_39_4.osi_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_depthofbook_pitch_v2_39_4.fields.osi_symbol, range, value, display)
@@ -1150,7 +1168,7 @@ end
 cboe_options_depthofbook_pitch_v2_39_4.stock_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_options_depthofbook_pitch_v2_39_4.stock_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_options_depthofbook_pitch_v2_39_4.stock_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_depthofbook_pitch_v2_39_4.fields.stock_symbol, range, value, display)
@@ -1173,7 +1191,7 @@ end
 cboe_options_depthofbook_pitch_v2_39_4.symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_options_depthofbook_pitch_v2_39_4.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_options_depthofbook_pitch_v2_39_4.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_depthofbook_pitch_v2_39_4.fields.symbol, range, value, display)

@@ -124,6 +124,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Cboe C1 Options AuctionFeed Pitch 1.1.1 Fields
 -----------------------------------------------------------------------
 
@@ -398,7 +416,7 @@ end
 cboe_c1_options_auctionfeed_pitch_v1_1_1.feed_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.feed_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.feed_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.feed_symbol, range, value, display)
@@ -638,7 +656,7 @@ end
 cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.osi_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.osi_symbol, range, value, display)
@@ -841,7 +859,7 @@ end
 cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol, range, value, display)
@@ -894,7 +912,7 @@ end
 cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_extended.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_extended.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.symbol_extended.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_extended, range, value, display)
@@ -986,7 +1004,7 @@ end
 cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.underlying.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.underlying, range, value, display)
