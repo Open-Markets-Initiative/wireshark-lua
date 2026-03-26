@@ -127,7 +127,7 @@ omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_px = ProtoField.new("Md Entry Px",
 omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.futures.mdp3.sbe.v1.6.mdentrypxoptional", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.mdp3.sbe.v1.6.mdentrysize", ftypes.INT32)
 omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_size_optional = ProtoField.new("Md Entry Size Optional", "cme.futures.mdp3.sbe.v1.6.mdentrysizeoptional", ftypes.INT32)
-omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_type_ = ProtoField.new("Md Entry Type ", "cme.futures.mdp3.sbe.v1.6.mdentrytype", ftypes.STRING)
+omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_type = ProtoField.new("Md Entry Type ", "cme.futures.mdp3.sbe.v1.6.mdentrytype", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_type_book = ProtoField.new("Md Entry Type Book", "cme.futures.mdp3.sbe.v1.6.mdentrytypebook", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_type_daily_statistics = ProtoField.new("Md Entry Type Daily Statistics", "cme.futures.mdp3.sbe.v1.6.mdentrytypedailystatistics", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_type_statistics = ProtoField.new("Md Entry Type Statistics", "cme.futures.mdp3.sbe.v1.6.mdentrytypestatistics", ftypes.STRING)
@@ -1833,13 +1833,13 @@ cme_futures_mdp3_sbe_v1_6.md_entry_size_optional.dissect = function(buffer, offs
 end
 
 -- Md Entry Type
-cme_futures_mdp3_sbe_v1_6.md_entry_type_ = {}
+cme_futures_mdp3_sbe_v1_6.md_entry_type = {}
 
 -- Size: Md Entry Type
-cme_futures_mdp3_sbe_v1_6.md_entry_type_.size = 1
+cme_futures_mdp3_sbe_v1_6.md_entry_type.size = 1
 
 -- Display: Md Entry Type
-cme_futures_mdp3_sbe_v1_6.md_entry_type_.display = function(value)
+cme_futures_mdp3_sbe_v1_6.md_entry_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Md Entry Type : No Value"
@@ -1901,8 +1901,8 @@ cme_futures_mdp3_sbe_v1_6.md_entry_type_.display = function(value)
 end
 
 -- Dissect: Md Entry Type
-cme_futures_mdp3_sbe_v1_6.md_entry_type_.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_6.md_entry_type_.size
+cme_futures_mdp3_sbe_v1_6.md_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_6.md_entry_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1913,9 +1913,9 @@ cme_futures_mdp3_sbe_v1_6.md_entry_type_.dissect = function(buffer, offset, pack
     value = range:string()
   end
 
-  local display = cme_futures_mdp3_sbe_v1_6.md_entry_type_.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_mdp3_sbe_v1_6.md_entry_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_type_, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_6.fields.md_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -6140,7 +6140,7 @@ cme_futures_mdp3_sbe_v1_6.snapshot_full_refresh_38_no_m_d_entries_group.size =
   cme_futures_mdp3_sbe_v1_6.trading_reference_date.size + 
   cme_futures_mdp3_sbe_v1_6.open_close_settl_flag.size + 
   cme_futures_mdp3_sbe_v1_6.settl_price_type.size + 
-  cme_futures_mdp3_sbe_v1_6.md_entry_type_.size
+  cme_futures_mdp3_sbe_v1_6.md_entry_type.size
 
 -- Display: Snapshot Full Refresh 38 No M D Entries Group
 cme_futures_mdp3_sbe_v1_6.snapshot_full_refresh_38_no_m_d_entries_group.display = function(packet, parent, length)
@@ -6179,7 +6179,7 @@ cme_futures_mdp3_sbe_v1_6.snapshot_full_refresh_38_no_m_d_entries_group.fields =
   index, settl_price_type = cme_futures_mdp3_sbe_v1_6.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Type : MDEntryType
-  index, md_entry_type_ = cme_futures_mdp3_sbe_v1_6.md_entry_type_.dissect(buffer, index, packet, parent)
+  index, md_entry_type = cme_futures_mdp3_sbe_v1_6.md_entry_type.dissect(buffer, index, packet, parent)
 
   return index
 end

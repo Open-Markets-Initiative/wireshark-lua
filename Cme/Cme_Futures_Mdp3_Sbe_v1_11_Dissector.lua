@@ -134,7 +134,7 @@ omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px_ex = ProtoField.new("Md Entry 
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_px_optional_ex = ProtoField.new("Md Entry Px Optional Ex", "cme.futures.mdp3.sbe.v1.11.mdentrypxoptionalex", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size_short = ProtoField.new("Md Entry Size Short", "cme.futures.mdp3.sbe.v1.11.mdentrysizeshort", ftypes.INT32)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_size_short_optional = ProtoField.new("Md Entry Size Short Optional", "cme.futures.mdp3.sbe.v1.11.mdentrysizeshortoptional", ftypes.INT32)
-omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_ = ProtoField.new("Md Entry Type ", "cme.futures.mdp3.sbe.v1.11.mdentrytype", ftypes.STRING)
+omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.mdp3.sbe.v1.11.mdentrytype", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_book = ProtoField.new("Md Entry Type Book", "cme.futures.mdp3.sbe.v1.11.mdentrytypebook", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_daily_statistics = ProtoField.new("Md Entry Type Daily Statistics", "cme.futures.mdp3.sbe.v1.11.mdentrytypedailystatistics", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_statistics = ProtoField.new("Md Entry Type Statistics", "cme.futures.mdp3.sbe.v1.11.mdentrytypestatistics", ftypes.STRING)
@@ -2540,79 +2540,79 @@ cme_futures_mdp3_sbe_v1_11.md_entry_size_short_optional.dissect = function(buffe
 end
 
 -- Md Entry Type
-cme_futures_mdp3_sbe_v1_11.md_entry_type_ = {}
+cme_futures_mdp3_sbe_v1_11.md_entry_type = {}
 
 -- Size: Md Entry Type
-cme_futures_mdp3_sbe_v1_11.md_entry_type_.size = 1
+cme_futures_mdp3_sbe_v1_11.md_entry_type.size = 1
 
 -- Display: Md Entry Type
-cme_futures_mdp3_sbe_v1_11.md_entry_type_.display = function(value)
+cme_futures_mdp3_sbe_v1_11.md_entry_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Md Entry Type : No Value"
+    return "Md Entry Type: No Value"
   end
 
   if value == "0" then
-    return "Md Entry Type : Bid (0)"
+    return "Md Entry Type: Bid (0)"
   end
   if value == "1" then
-    return "Md Entry Type : Offer (1)"
+    return "Md Entry Type: Offer (1)"
   end
   if value == "2" then
-    return "Md Entry Type : Trade (2)"
+    return "Md Entry Type: Trade (2)"
   end
   if value == "4" then
-    return "Md Entry Type : Open Price (4)"
+    return "Md Entry Type: Open Price (4)"
   end
   if value == "6" then
-    return "Md Entry Type : Settlement Price (6)"
+    return "Md Entry Type: Settlement Price (6)"
   end
   if value == "7" then
-    return "Md Entry Type : Trading Session High Price (7)"
+    return "Md Entry Type: Trading Session High Price (7)"
   end
   if value == "8" then
-    return "Md Entry Type : Trading Session Low Price (8)"
+    return "Md Entry Type: Trading Session Low Price (8)"
   end
   if value == "9" then
-    return "Md Entry Type : Vwap (9)"
+    return "Md Entry Type: Vwap (9)"
   end
   if value == "B" then
-    return "Md Entry Type : Cleared Volume (B)"
+    return "Md Entry Type: Cleared Volume (B)"
   end
   if value == "C" then
-    return "Md Entry Type : Open Interest (C)"
+    return "Md Entry Type: Open Interest (C)"
   end
   if value == "E" then
-    return "Md Entry Type : Implied Bid (E)"
+    return "Md Entry Type: Implied Bid (E)"
   end
   if value == "F" then
-    return "Md Entry Type : Implied Offer (F)"
+    return "Md Entry Type: Implied Offer (F)"
   end
   if value == "J" then
-    return "Md Entry Type : Book Reset (J)"
+    return "Md Entry Type: Book Reset (J)"
   end
   if value == "N" then
-    return "Md Entry Type : Session High Bid (N)"
+    return "Md Entry Type: Session High Bid (N)"
   end
   if value == "O" then
-    return "Md Entry Type : Session Low Offer (O)"
+    return "Md Entry Type: Session Low Offer (O)"
   end
   if value == "W" then
-    return "Md Entry Type : Fixing Price (W)"
+    return "Md Entry Type: Fixing Price (W)"
   end
   if value == "e" then
-    return "Md Entry Type : Electronic Volume (e)"
+    return "Md Entry Type: Electronic Volume (e)"
   end
   if value == "g" then
-    return "Md Entry Type : Threshold Limitsand Price Band Variation (g)"
+    return "Md Entry Type: Threshold Limitsand Price Band Variation (g)"
   end
 
-  return "Md Entry Type : Unknown("..value..")"
+  return "Md Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
-cme_futures_mdp3_sbe_v1_11.md_entry_type_.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_mdp3_sbe_v1_11.md_entry_type_.size
+cme_futures_mdp3_sbe_v1_11.md_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_mdp3_sbe_v1_11.md_entry_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -2623,9 +2623,9 @@ cme_futures_mdp3_sbe_v1_11.md_entry_type_.dissect = function(buffer, offset, pac
     value = range:string()
   end
 
-  local display = cme_futures_mdp3_sbe_v1_11.md_entry_type_.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_mdp3_sbe_v1_11.md_entry_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_, range, value, display)
+  parent:add(omi_cme_futures_mdp3_sbe_v1_11.fields.md_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -6761,7 +6761,7 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group.size =
   cme_futures_mdp3_sbe_v1_11.number_of_orders_optional.size + 
   cme_futures_mdp3_sbe_v1_11.md_price_level_optional.size + 
   cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_type_.size + 
+  cme_futures_mdp3_sbe_v1_11.md_entry_type.size + 
   cme_futures_mdp3_sbe_v1_11.trading_reference_date.size + 
   cme_futures_mdp3_sbe_v1_11.settl_price_type.size
 
@@ -6798,8 +6798,8 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_group.fields = function(buf
   -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type : MDEntryType
-  index, md_entry_type_ = cme_futures_mdp3_sbe_v1_11.md_entry_type_.dissect(buffer, index, packet, parent)
+  -- Md Entry Type: MDEntryType
+  index, md_entry_type = cme_futures_mdp3_sbe_v1_11.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_futures_mdp3_sbe_v1_11.trading_reference_date.dissect(buffer, index, packet, parent)
@@ -10250,7 +10250,7 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group.size =
   cme_futures_mdp3_sbe_v1_11.trading_reference_date.size + 
   cme_futures_mdp3_sbe_v1_11.open_close_settl_flag.size + 
   cme_futures_mdp3_sbe_v1_11.settl_price_type.size + 
-  cme_futures_mdp3_sbe_v1_11.md_entry_type_.size
+  cme_futures_mdp3_sbe_v1_11.md_entry_type.size
 
 -- Display: Snapshot Full Refresh Group
 cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group.display = function(packet, parent, length)
@@ -10288,8 +10288,8 @@ cme_futures_mdp3_sbe_v1_11.snapshot_full_refresh_group.fields = function(buffer,
   -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_futures_mdp3_sbe_v1_11.settl_price_type.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type : MDEntryType
-  index, md_entry_type_ = cme_futures_mdp3_sbe_v1_11.md_entry_type_.dissect(buffer, index, packet, parent)
+  -- Md Entry Type: MDEntryType
+  index, md_entry_type = cme_futures_mdp3_sbe_v1_11.md_entry_type.dissect(buffer, index, packet, parent)
 
   return index
 end
