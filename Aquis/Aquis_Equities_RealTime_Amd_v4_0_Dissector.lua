@@ -1879,13 +1879,13 @@ end
 aquis_equities_realtime_amd_v4_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Msg Type: u8
   index, msg_type = aquis_equities_realtime_amd_v4_0.msg_type.dissect(buffer, index, packet, parent)
 
-  -- Msg Length: 1 Byte Unsigned Fixed Width Integer
+  -- Msg Length: u8
   index, msg_length = aquis_equities_realtime_amd_v4_0.msg_length.dissect(buffer, index, packet, parent)
 
-  -- Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Seq No: u32
   index, seq_no = aquis_equities_realtime_amd_v4_0.seq_no.dissect(buffer, index, packet, parent)
 
   return index
@@ -1976,7 +1976,7 @@ end
 aquis_equities_realtime_amd_v4_0.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  -- Message Count: u8
   index, message_count = aquis_equities_realtime_amd_v4_0.message_count.dissect(buffer, index, packet, parent)
 
   return index
