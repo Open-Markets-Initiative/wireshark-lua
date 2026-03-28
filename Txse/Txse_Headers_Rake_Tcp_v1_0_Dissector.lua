@@ -627,22 +627,22 @@ end
 txse_headers_rake_tcp_v1_0.logon_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 8 Byte Unsigned Fixed Width Integer
+  -- Session: Long
   index, session = txse_headers_rake_tcp_v1_0.session.dissect(buffer, index, packet, parent)
 
-  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  -- Next Sequence Number: Long
   index, next_sequence_number = txse_headers_rake_tcp_v1_0.next_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Highest Known Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  -- Highest Known Sequence Number: Long
   index, highest_known_sequence_number = txse_headers_rake_tcp_v1_0.highest_known_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Logon Response Code: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Logon Response Code: Enum
   index, logon_response_code = txse_headers_rake_tcp_v1_0.logon_response_code.dissect(buffer, index, packet, parent)
 
-  -- Number Stream Ids: 1 Byte Unsigned Fixed Width Integer
+  -- Number Stream Ids: Byte
   index, number_stream_ids = txse_headers_rake_tcp_v1_0.number_stream_ids.dissect(buffer, index, packet, parent)
 
-  -- Rake Instance: 4 Byte Unsigned Fixed Width Integer
+  -- Rake Instance: Int
   index, rake_instance = txse_headers_rake_tcp_v1_0.rake_instance.dissect(buffer, index, packet, parent)
 
   return index
@@ -740,7 +740,7 @@ end
 txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.fields = function(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
   local index = offset
 
-  -- Unsequenced Message Type: 1 Byte Unsigned Fixed Width Integer
+  -- Unsequenced Message Type: Byte
   index, unsequenced_message_type = txse_headers_rake_tcp_v1_0.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
@@ -796,16 +796,16 @@ end
 txse_headers_rake_tcp_v1_0.logon_request_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 8 Byte Unsigned Fixed Width Integer
+  -- Session: Long
   index, session = txse_headers_rake_tcp_v1_0.session.dissect(buffer, index, packet, parent)
 
-  -- Sender Comp: 8 Byte Ascii String
+  -- Sender Comp: Long
   index, sender_comp = txse_headers_rake_tcp_v1_0.sender_comp.dissect(buffer, index, packet, parent)
 
-  -- Member Token: 8 Byte Ascii String
+  -- Member Token: Long
   index, member_token = txse_headers_rake_tcp_v1_0.member_token.dissect(buffer, index, packet, parent)
 
-  -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  -- Requested Sequence Number: Long
   index, requested_sequence_number = txse_headers_rake_tcp_v1_0.requested_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
