@@ -24,7 +24,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.flags = ProtoField.new("Fl
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.topofmarket.mach.v1.1.a.lotsize", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.topofmarket.mach.v1.1.a.marketstate", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message = ProtoField.new("Message", "miax.pearlequities.topofmarket.mach.v1.1.a.message", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.topofmarket.mach.v1.1.a.messagetype", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.topofmarket.mach.v1.1.a.messagetype", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_price = ProtoField.new("Offer Price", "miax.pearlequities.topofmarket.mach.v1.1.a.offerprice", ftypes.DOUBLE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_size = ProtoField.new("Offer Size", "miax.pearlequities.topofmarket.mach.v1.1.a.offersize", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.topofmarket.mach.v1.1.a.openingtime", ftypes.STRING)
@@ -315,28 +315,28 @@ miax_pearlequities_topofmarket_mach_v1_1_a.message_type.size = 1
 
 -- Display: Message Type
 miax_pearlequities_topofmarket_mach_v1_1_a.message_type.display = function(value)
-  if value == "49" then
+  if value == 49 then
     return "Message Type: System Time Message (49)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Message Type: Symbol Update Message (1)"
   end
-  if value == "83" then
+  if value == 83 then
     return "Message Type: System State Message (83)"
   end
-  if value == "4" then
+  if value == 4 then
     return "Message Type: Security Trading Status Notification Message (4)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Message Type: Compact Top Of Market Best Bid And Offer Message (2)"
   end
-  if value == "3" then
+  if value == 3 then
     return "Message Type: Wide Top Of Market Best Bid And Offer Message (3)"
   end
-  if value == "10" then
+  if value == 10 then
     return "Message Type: Last Sale Message (10)"
   end
-  if value == "11" then
+  if value == 11 then
     return "Message Type: Trade Cancel Message (11)"
   end
 
@@ -347,7 +347,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.message_type.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_a.message_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = miax_pearlequities_topofmarket_mach_v1_1_a.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message_type, range, value, display)
@@ -1440,35 +1440,35 @@ miax_pearlequities_topofmarket_mach_v1_1_a.data = {}
 -- Dissect: Data
 miax_pearlequities_topofmarket_mach_v1_1_a.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
-  if message_type == "49" then
+  if message_type == 49 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Update Message
-  if message_type == "1" then
+  if message_type == 1 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect System State Message
-  if message_type == "83" then
+  if message_type == 83 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Security Trading Status Notification Message
-  if message_type == "4" then
+  if message_type == 4 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Compact Top Of Market Best Bid And Offer Message
-  if message_type == "2" then
+  if message_type == 2 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Wide Top Of Market Best Bid And Offer Message
-  if message_type == "3" then
+  if message_type == 3 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Last Sale Message
-  if message_type == "10" then
+  if message_type == 10 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Message
-  if message_type == "11" then
+  if message_type == 11 then
     return miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -1497,7 +1497,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 8 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, message_type = miax_pearlequities_topofmarket_mach_v1_1_a.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 8 branches

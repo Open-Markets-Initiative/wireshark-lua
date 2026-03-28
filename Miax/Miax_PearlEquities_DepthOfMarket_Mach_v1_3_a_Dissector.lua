@@ -23,7 +23,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.do_m_version = ProtoFiel
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.depthofmarket.mach.v1.3.a.lotsize", ftypes.UINT16)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.depthofmarket.mach.v1.3.a.marketstate", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.message = ProtoField.new("Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.message", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.a.messagetype", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.a.messagetype", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "miax.pearlequities.depthofmarket.mach.v1.3.a.modifyorderflags", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.depthofmarket.mach.v1.3.a.openingtime", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_execution_flags = ProtoField.new("Order Execution Flags", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderexecutionflags", ftypes.STRING)
@@ -42,6 +42,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_id = ProtoField.
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_number = ProtoField.new("Session Number", "miax.pearlequities.depthofmarket.mach.v1.3.a.sessionnumber", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "miax.pearlequities.depthofmarket.mach.v1.3.a.shortsalerestriction", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.size = ProtoField.new("Size", "miax.pearlequities.depthofmarket.mach.v1.3.a.size", ftypes.UINT32)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.spare = ProtoField.new("Spare", "miax.pearlequities.depthofmarket.mach.v1.3.a.spare", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.symbol_id = ProtoField.new("Symbol Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.symbolid", ftypes.UINT32)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_status = ProtoField.new("System Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.systemstatus", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.test_security_indicator = ProtoField.new("Test Security Indicator", "miax.pearlequities.depthofmarket.mach.v1.3.a.testsecurityindicator", ftypes.STRING)
@@ -311,37 +312,37 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.size = 1
 
 -- Display: Message Type
 miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.display = function(value)
-  if value == "49" then
+  if value == 49 then
     return "Message Type: System Time Message (49)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Message Type: Symbol Update Message (1)"
   end
-  if value == "83" then
+  if value == 83 then
     return "Message Type: System State Message (83)"
   end
-  if value == "4" then
+  if value == 4 then
     return "Message Type: Security Trading Status Notification Message (4)"
   end
-  if value == "5" then
+  if value == 5 then
     return "Message Type: Symbol Clear Message (5)"
   end
-  if value == "20" then
+  if value == 20 then
     return "Message Type: Add Order Message (20)"
   end
-  if value == "21" then
+  if value == 21 then
     return "Message Type: Modify Order Message (21)"
   end
-  if value == "23" then
+  if value == 23 then
     return "Message Type: Delete Order Message (23)"
   end
-  if value == "24" then
+  if value == 24 then
     return "Message Type: Order Execution Message (24)"
   end
-  if value == "10" then
+  if value == 10 then
     return "Message Type: Trade Message (10)"
   end
-  if value == "11" then
+  if value == 11 then
     return "Message Type: Trade Cancel Message (11)"
   end
 
@@ -352,7 +353,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.message_type, range, value, display)
@@ -747,6 +748,29 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.size.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Spare
+miax_pearlequities_depthofmarket_mach_v1_3_a.spare = {}
+
+-- Size: Spare
+miax_pearlequities_depthofmarket_mach_v1_3_a.spare.size = 1
+
+-- Display: Spare
+miax_pearlequities_depthofmarket_mach_v1_3_a.spare.display = function(value)
+  return "Spare: "..value
+end
+
+-- Dissect: Spare
+miax_pearlequities_depthofmarket_mach_v1_3_a.spare.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_a.spare.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.spare.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.spare, range, value, display)
+
+  return offset + length, value
+end
+
 -- Symbol Id
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id = {}
 
@@ -779,16 +803,16 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.size = 1
 -- Display: System Status
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.display = function(value)
   if value == "S" then
-    return "System Status: Start (S)"
+    return "System Status: Start Of System Hours (S)"
   end
   if value == "C" then
-    return "System Status: End (C)"
+    return "System Status: End Of System Hours (C)"
   end
   if value == "1" then
-    return "System Status: Start (1)"
+    return "System Status: Start Of Test Session (1)"
   end
   if value == "2" then
-    return "System Status: End (2)"
+    return "System Status: End Of Test Session (2)"
   end
 
   return "System Status: Unknown("..value..")"
@@ -1600,7 +1624,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.size =
   miax_pearlequities_depthofmarket_mach_v1_3_a.ticker_symbol.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.spare.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.lot_size.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.opening_time.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.closing_time.size + 
@@ -1630,8 +1654,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.fields = func
   -- Test Security Indicator: Alphanumeric
   index, test_security_indicator = miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: BinaryU
-  index, reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
+  -- Spare: BinaryU
+  index, spare = miax_pearlequities_depthofmarket_mach_v1_3_a.spare.dissect(buffer, index, packet, parent)
 
   -- Lot Size: BinaryU
   index, lot_size = miax_pearlequities_depthofmarket_mach_v1_3_a.lot_size.dissect(buffer, index, packet, parent)
@@ -1712,47 +1736,47 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.data = {}
 -- Dissect: Data
 miax_pearlequities_depthofmarket_mach_v1_3_a.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
-  if message_type == "49" then
+  if message_type == 49 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Update Message
-  if message_type == "1" then
+  if message_type == 1 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect System State Message
-  if message_type == "83" then
+  if message_type == 83 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Security Trading Status Notification Message
-  if message_type == "4" then
+  if message_type == 4 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Clear Message
-  if message_type == "5" then
+  if message_type == 5 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message
-  if message_type == "20" then
+  if message_type == 20 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Message
-  if message_type == "21" then
+  if message_type == 21 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
-  if message_type == "23" then
+  if message_type == 23 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Execution Message
-  if message_type == "24" then
+  if message_type == 24 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
-  if message_type == "10" then
+  if message_type == 10 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Message
-  if message_type == "11" then
+  if message_type == 11 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -1781,7 +1805,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 11 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, message_type = miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 11 branches
