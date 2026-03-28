@@ -5,8 +5,8 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [Headers][SmallX.Headers.Sbe.v1.0.Dissector] | Sbe | [1.0][SmallX.Headers.Sbe.v1.0.Dissector] | 10/12/2021 | 664 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][SmallX.Headers.Sbe.v1.0.Url] - [pdf][SmallX.Headers.Sbe.v1.0.Pdf] |
-|  | [OrderBookFeed][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | Sbe | [2.2][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | 10/12/2021 | 5710 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][SmallX.OrderBookFeed.Sbe.v2.2.Url] - [pdf][SmallX.OrderBookFeed.Sbe.v2.2.Pdf] - [xml][SmallX.OrderBookFeed.Sbe.v2.2.Xml] |
+|  | [Headers][SmallX.Headers.Sbe.v1.0.Dissector] | [Sbe][Omi.Protocol.Sbe] | [1.0][SmallX.Headers.Sbe.v1.0.Dissector] | 10/12/2021 | 664 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][SmallX.Headers.Sbe.v1.0.Url] - [pdf][SmallX.Headers.Sbe.v1.0.Pdf] |
+|  | [OrderBookFeed][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | [Sbe][Omi.Protocol.Sbe] | [2.2][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | 10/12/2021 | 5710 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][SmallX.OrderBookFeed.Sbe.v2.2.Url] - [pdf][SmallX.OrderBookFeed.Sbe.v2.2.Pdf] - [xml][SmallX.OrderBookFeed.Sbe.v2.2.Xml] |
 
 
 SmallX: [website](https://smallexchange.com/ "Go to The Small Exchange")
@@ -23,6 +23,7 @@ SmallX: [website](https://smallexchange.com/ "Go to The Small Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
 
 [SmallX.OrderBookFeed.Sbe.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/SmallX/SmallX_OrderBookFeed_Sbe_v2_2_Dissector.lua "SmallX OrderBookFeed Sbe v2.2 Wireshark Dissector"
 [SmallX.OrderBookFeed.Sbe.v2.2.Url]: https://smallexchange.com/reference/info-hub "The Small Exchange 2.2 Url"

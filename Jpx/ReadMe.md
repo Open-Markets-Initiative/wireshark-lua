@@ -5,8 +5,8 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| OseDerivatives | [GeniumInet][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | Itch | [1.1][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | 5/8/2024 | 2989 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf] |
-| OseDerivatives | [GeniumInet][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | Ouch | [5.0][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | 9/16/2020 | 3076 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Pdf] |
+| OseDerivatives | [GeniumInet][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | [Itch][Omi.Protocol.Itch] | [1.1][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | 5/8/2024 | 2989 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf] |
+| OseDerivatives | [GeniumInet][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | [Ouch][Omi.Protocol.Ouch] | [5.0][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | 9/16/2020 | 3076 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Pdf] |
 
 
 Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
@@ -23,6 +23,8 @@ Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
+[Omi.Protocol.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Protocol"
 
 [Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jpx/Jpx_OseDerivatives_GeniumInet_Itch_v1_1_Dissector.lua "Jpx OseDerivatives GeniumInet Itch v1.1 Wireshark Dissector"
 [Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Specifications/OseDerivatives\Itch\Jpx.OseDerivatives.GeniumInet.Itch.v1.1.pdf "Japan Exchange Group 1.1 Pdf"

@@ -25,7 +25,7 @@
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
-[Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Protocols/Sbe "Sbe Protocol"
+[Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
 
 [24X.Equities.Memo.Sbe.v1.13.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/24X/24X_Equities_Memo_Sbe_v1_13_Dissector.lua "24X Equities Memo Sbe v1.13 Wireshark Dissector"
 [24X.Equities.Memo.Sbe.v1.13.Url]: https://equities.24exchange.com/exchange "24 Exchange 1.13 Url"

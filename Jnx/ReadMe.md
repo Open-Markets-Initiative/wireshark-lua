@@ -5,13 +5,13 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Bonds | [Pts][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | Itch | [1.2][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | 1649 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Itch.v1.2.Url] - [pdf][Jnx.Bonds.Pts.Itch.v1.2.Pdf] |
-| Bonds | [Pts][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | Ouch | [1.4][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | 2612 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Ouch.v1.4.Url] - [pdf][Jnx.Bonds.Pts.Ouch.v1.4.Pdf] |
-| Equities | [Pts][Jnx.Equities.Pts.Itch.v2.0.Dissector] | Itch | [2.0][Jnx.Equities.Pts.Itch.v2.0.Dissector] | 9/17/2025 | 1918 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Itch.v2.0.Url] - [pdf][Jnx.Equities.Pts.Itch.v2.0.Pdf] |
-| Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | Itch | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | 1899 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Itch.v1.7.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.7.Pdf] |
-| Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | 1899 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.Equities.Pts.Itch.v1.6.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.6.Pdf] |
-| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | 2620 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.Equities.Pts.Ouch.v1.12.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.12.Pdf] |
-| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | Ouch | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | 2620 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Ouch.v1.11.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.11.Pdf] |
+| Bonds | [Pts][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | [Itch][Omi.Protocol.Itch] | [1.2][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | 1649 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Itch.v1.2.Url] - [pdf][Jnx.Bonds.Pts.Itch.v1.2.Pdf] |
+| Bonds | [Pts][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | [Ouch][Omi.Protocol.Ouch] | [1.4][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | 2612 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Ouch.v1.4.Url] - [pdf][Jnx.Bonds.Pts.Ouch.v1.4.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Itch.v2.0.Dissector] | [Itch][Omi.Protocol.Itch] | [2.0][Jnx.Equities.Pts.Itch.v2.0.Dissector] | 9/17/2025 | 1918 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Itch.v2.0.Url] - [pdf][Jnx.Equities.Pts.Itch.v2.0.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | [Itch][Omi.Protocol.Itch] | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | 1899 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Itch.v1.7.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.7.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | [Itch][Omi.Protocol.Itch] | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | 1899 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.Equities.Pts.Itch.v1.6.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.6.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | [Ouch][Omi.Protocol.Ouch] | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | 2620 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.Equities.Pts.Ouch.v1.12.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.12.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | [Ouch][Omi.Protocol.Ouch] | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | 2620 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Ouch.v1.11.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.11.Pdf] |
 
 
 Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext")
@@ -28,6 +28,8 @@ Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
+[Omi.Protocol.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Protocol"
 
 [Jnx.Bonds.Pts.Itch.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Bonds_Pts_Itch_v1_2_Dissector.lua "Jnx Bonds Pts Itch v1.2 Wireshark Dissector"
 [Jnx.Bonds.Pts.Itch.v1.2.Url]: https://www.japannext.co.jp/library "Japannext 1.2 Url"

@@ -5,9 +5,9 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Forex | [Esp][Currenex.Forex.Esp.Cbp.v9.0.Dissector] | Cbp | [9.0][Currenex.Forex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1662 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Esp.Cbp.v9.0.Url] - [pdf][Currenex.Forex.Esp.Cbp.v9.0.Pdf] |
-| Forex | [Now][Currenex.Forex.Now.Cbp.v10.0.Dissector] | Cbp | [10.0][Currenex.Forex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2309 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Now.Cbp.v10.0.Url] - [pdf][Currenex.Forex.Now.Cbp.v10.0.Pdf] |
-| Forex | [OrderService][Currenex.Forex.OrderService.Cbp.v26.0.Dissector] | Cbp | [26.0][Currenex.Forex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2537 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.OrderService.Cbp.v26.0.Url] - [pdf][Currenex.Forex.OrderService.Cbp.v26.0.Pdf] |
+| Forex | [Esp][Currenex.Forex.Esp.Cbp.v9.0.Dissector] | [Cbp][Omi.Protocol.Cbp] | [9.0][Currenex.Forex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1662 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Esp.Cbp.v9.0.Url] - [pdf][Currenex.Forex.Esp.Cbp.v9.0.Pdf] |
+| Forex | [Now][Currenex.Forex.Now.Cbp.v10.0.Dissector] | [Cbp][Omi.Protocol.Cbp] | [10.0][Currenex.Forex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2309 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Now.Cbp.v10.0.Url] - [pdf][Currenex.Forex.Now.Cbp.v10.0.Pdf] |
+| Forex | [OrderService][Currenex.Forex.OrderService.Cbp.v26.0.Dissector] | [Cbp][Omi.Protocol.Cbp] | [26.0][Currenex.Forex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2537 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.OrderService.Cbp.v26.0.Url] - [pdf][Currenex.Forex.OrderService.Cbp.v26.0.Pdf] |
 
 
 Currenex: [website](https://currenex.com "Go to Currenex")
@@ -24,6 +24,7 @@ Currenex: [website](https://currenex.com "Go to Currenex")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Cbp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cbp.md "Cbp Protocol"
 
 [Currenex.Forex.Esp.Cbp.v9.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_Forex_Esp_Cbp_v9_0_Dissector.lua "Currenex Forex Esp Cbp v9.0 Wireshark Dissector"
 [Currenex.Forex.Esp.Cbp.v9.0.Url]: https://www.currenex.com/support "Currenex 9.0 Url"

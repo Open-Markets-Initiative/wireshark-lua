@@ -5,9 +5,9 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [Rtmdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | Amd | [1.3.2][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1803 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Pdf] |
-| Equities | [Snapshot][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | Amd | [1.3.2][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 993 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Snapshot.Amd.v1.3.2.Pdf] |
-| Equities | [UdpHeader][A2X.Equities.UdpHeader.Amd.v1.0.Dissector] | Amd | [1.0][A2X.Equities.UdpHeader.Amd.v1.0.Dissector] | 9/1/2017 | 384 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.UdpHeader.Amd.v1.0.Url] |
+| Equities | [Rtmdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | [Amd][Omi.Protocol.Amd] | [1.3.2][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1803 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Pdf] |
+| Equities | [Snapshot][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | [Amd][Omi.Protocol.Amd] | [1.3.2][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 993 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Snapshot.Amd.v1.3.2.Pdf] |
+| Equities | [UdpHeader][A2X.Equities.UdpHeader.Amd.v1.0.Dissector] | [Amd][Omi.Protocol.Amd] | [1.0][A2X.Equities.UdpHeader.Amd.v1.0.Dissector] | 9/1/2017 | 384 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.UdpHeader.Amd.v1.0.Url] |
 
 
 A2X: [website](https://www.a2x.co.za "Go to A2X Markets")
@@ -24,6 +24,7 @@ A2X: [website](https://www.a2x.co.za "Go to A2X Markets")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Amd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Amd.md "Amd Protocol"
 
 [A2X.Equities.UdpHeader.Amd.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/A2X/A2X_Equities_UdpHeader_Amd_v1_0_Dissector.lua "A2X Equities UdpHeader Amd v1.0 Wireshark Dissector"
 [A2X.Equities.UdpHeader.Amd.v1.0.Url]: https://www.a2x.co.za/?page_id=734/#a2xtech "A2X Markets 1.0 Url"
