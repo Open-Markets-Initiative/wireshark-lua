@@ -419,7 +419,7 @@ end
 cboe_options_complex_pitch_v2_1_37.client_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_options_complex_pitch_v2_1_37.client_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_options_complex_pitch_v2_1_37.client_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.client_id, range, value, display)
@@ -1158,7 +1158,7 @@ end
 cboe_options_complex_pitch_v2_1_37.participant_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_options_complex_pitch_v2_1_37.participant_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_options_complex_pitch_v2_1_37.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.participant_id, range, value, display)
@@ -1611,7 +1611,7 @@ end
 cboe_options_complex_pitch_v2_1_37.underlying.dissect = function(buffer, offset, packet, parent)
   local length = cboe_options_complex_pitch_v2_1_37.underlying.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_options_complex_pitch_v2_1_37.underlying.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.underlying, range, value, display)

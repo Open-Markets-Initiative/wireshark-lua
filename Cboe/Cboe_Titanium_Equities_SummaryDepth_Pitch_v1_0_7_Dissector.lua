@@ -164,6 +164,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Cboe Titanium Equities SummaryDepth Pitch 1.0.7 Fields
 -----------------------------------------------------------------------
 
@@ -782,7 +800,7 @@ end
 cboe_titanium_equities_summarydepth_pitch_v1_0_7.symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titanium_equities_summarydepth_pitch_v1_0_7.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_titanium_equities_summarydepth_pitch_v1_0_7.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titanium_equities_summarydepth_pitch_v1_0_7.fields.symbol, range, value, display)

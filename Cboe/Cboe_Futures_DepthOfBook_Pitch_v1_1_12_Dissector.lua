@@ -728,7 +728,7 @@ end
 cboe_futures_depthofbook_pitch_v1_1_12.leg_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_futures_depthofbook_pitch_v1_1_12.leg_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_futures_depthofbook_pitch_v1_1_12.leg_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_12.fields.leg_symbol, range, value, display)
@@ -1222,7 +1222,7 @@ end
 cboe_futures_depthofbook_pitch_v1_1_12.report_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_futures_depthofbook_pitch_v1_1_12.report_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_futures_depthofbook_pitch_v1_1_12.report_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_12.fields.report_symbol, range, value, display)
@@ -1245,7 +1245,7 @@ end
 cboe_futures_depthofbook_pitch_v1_1_12.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = cboe_futures_depthofbook_pitch_v1_1_12.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_futures_depthofbook_pitch_v1_1_12.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_12.fields.reserved_2, range, value, display)
@@ -1268,7 +1268,7 @@ end
 cboe_futures_depthofbook_pitch_v1_1_12.reserved_3.dissect = function(buffer, offset, packet, parent)
   local length = cboe_futures_depthofbook_pitch_v1_1_12.reserved_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_futures_depthofbook_pitch_v1_1_12.reserved_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_12.fields.reserved_3, range, value, display)

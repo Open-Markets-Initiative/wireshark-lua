@@ -456,7 +456,7 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.participant_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1.participant_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.participant_id, range, value, display)

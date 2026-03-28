@@ -854,7 +854,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.currency.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.currency.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.currency, range, value, display)
@@ -1045,7 +1045,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.execution_venue.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_venue, range, value, display)
@@ -1673,7 +1673,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.participant_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.participant_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.participant_id, range, value, display)
@@ -1858,7 +1858,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.product_code_alphanumeric_6, range, value, display)
@@ -1881,7 +1881,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.product_code_alphanumeric_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.product_code_alphanumeric_8, range, value, display)
@@ -2025,7 +2025,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.reserved.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.reserved, range, value, display)
@@ -2264,7 +2264,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_alphanumeric_6, range, value, display)
@@ -2287,7 +2287,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_alphanumeric_8, range, value, display)
@@ -2333,7 +2333,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_cedxmulticast_pitch_v1_11.symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.symbol_short, range, value, display)

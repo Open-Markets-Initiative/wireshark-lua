@@ -294,7 +294,7 @@ end
 cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.client_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.client_id, range, value, display)
@@ -679,7 +679,7 @@ end
 cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_c1_options_auctionfeed_pitch_v1_1_1.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.participant_id, range, value, display)

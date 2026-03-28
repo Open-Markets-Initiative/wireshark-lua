@@ -169,6 +169,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Cboe Europe DepthOfBook Pitch 6.49 Fields
 -----------------------------------------------------------------------
 
@@ -399,7 +417,7 @@ end
 cboe_europe_depthofbook_pitch_v6_49.currency.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_depthofbook_pitch_v6_49.currency.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_depthofbook_pitch_v6_49.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.currency, range, value, display)
@@ -498,7 +516,7 @@ end
 cboe_europe_depthofbook_pitch_v6_49.execution_venue.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_depthofbook_pitch_v6_49.execution_venue.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_depthofbook_pitch_v6_49.execution_venue.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.execution_venue, range, value, display)
@@ -616,7 +634,7 @@ end
 cboe_europe_depthofbook_pitch_v6_49.index_ticker.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_depthofbook_pitch_v6_49.index_ticker.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_depthofbook_pitch_v6_49.index_ticker.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.index_ticker, range, value, display)
@@ -937,7 +955,7 @@ end
 cboe_europe_depthofbook_pitch_v6_49.participant_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_depthofbook_pitch_v6_49.participant_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_depthofbook_pitch_v6_49.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.participant_id, range, value, display)
@@ -1175,7 +1193,7 @@ end
 cboe_europe_depthofbook_pitch_v6_49.reserved.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_depthofbook_pitch_v6_49.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_depthofbook_pitch_v6_49.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.reserved, range, value, display)
@@ -1359,7 +1377,7 @@ end
 cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.symbol_alphanumeric_12, range, value, display)
@@ -1382,7 +1400,7 @@ end
 cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.symbol_alphanumeric_8, range, value, display)
@@ -1405,7 +1423,7 @@ end
 cboe_europe_depthofbook_pitch_v6_49.symbol_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_europe_depthofbook_pitch_v6_49.symbol_short.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_europe_depthofbook_pitch_v6_49.symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.symbol_short, range, value, display)
