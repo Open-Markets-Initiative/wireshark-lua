@@ -7,6 +7,7 @@
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Bonds | [Pts][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | Itch | [1.2][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | 1649 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Itch.v1.2.Url] - [pdf][Jnx.Bonds.Pts.Itch.v1.2.Pdf] |
 | Bonds | [Pts][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | Ouch | [1.4][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | 2612 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Ouch.v1.4.Url] - [pdf][Jnx.Bonds.Pts.Ouch.v1.4.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Itch.v2.0.Dissector] | Itch | [2.0][Jnx.Equities.Pts.Itch.v2.0.Dissector] | 9/17/2025 | 1918 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Itch.v2.0.Url] - [pdf][Jnx.Equities.Pts.Itch.v2.0.Pdf] |
 | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | Itch | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | 1899 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Itch.v1.7.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.7.Pdf] |
 | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | 1899 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.Equities.Pts.Itch.v1.6.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.6.Pdf] |
 | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | 2620 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.Equities.Pts.Ouch.v1.12.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.12.Pdf] |
@@ -40,6 +41,9 @@ Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext")
 [Jnx.Equities.Pts.Itch.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Itch_v1_7_Dissector.lua "Jnx Equities Pts Itch v1.7 Wireshark Dissector"
 [Jnx.Equities.Pts.Itch.v1.7.Url]: https://www.japannext.co.jp/library "Japannext 1.7 Url"
 [Jnx.Equities.Pts.Itch.v1.7.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Specifications/Jnx.Equties.Pts.Itch.v1.7.pdf "Japannext 1.7 Pdf"
+[Jnx.Equities.Pts.Itch.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Itch_v2_0_Dissector.lua "Jnx Equities Pts Itch v2.0 Wireshark Dissector"
+[Jnx.Equities.Pts.Itch.v2.0.Url]: https://www.japannext.co.jp/library "Japannext 2.0 Url"
+[Jnx.Equities.Pts.Itch.v2.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Specifications/Equities/Itch/Jnx.Equties.Pts.Itch.v2.0.20250917.pdf "Japannext 2.0 Pdf"
 [Jnx.Equities.Pts.Ouch.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Ouch_v1_11_Dissector.lua "Jnx Equities Pts Ouch v1.11 Wireshark Dissector"
 [Jnx.Equities.Pts.Ouch.v1.11.Url]: https://www.japannext.co.jp/library "Japannext 1.11 Url"
 [Jnx.Equities.Pts.Ouch.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Specifications/Jnx.Equties.Pts.Ouch.v1.11.pdf "Japannext 1.11 Pdf"
