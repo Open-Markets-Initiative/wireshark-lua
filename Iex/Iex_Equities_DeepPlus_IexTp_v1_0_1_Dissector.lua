@@ -731,12 +731,6 @@ iex_equities_deepplus_iextp_v1_0_1.security_event.display = function(value)
   if value == "C" then
     return "Security Event: Closing Process Complete (C)"
   end
-  if value == "8" then
-    return "Security Event: Buy (8)"
-  end
-  if value == "5" then
-    return "Security Event: Sell (5)"
-  end
 
   return "Security Event: Unknown("..value..")"
 end
@@ -841,7 +835,14 @@ iex_equities_deepplus_iextp_v1_0_1.side.size = 1
 
 -- Display: Side
 iex_equities_deepplus_iextp_v1_0_1.side.display = function(value)
-  return "Side: "..value
+  if value == "8" then
+    return "Side: Buy (8)"
+  end
+  if value == "5" then
+    return "Side: Sell (5)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
