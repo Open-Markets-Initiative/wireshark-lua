@@ -2858,7 +2858,10 @@ miax_miaxoptions_topofmarket_mach_v2_2.packet.dissect = function(buffer, packet,
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 5 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
     index, message = miax_miaxoptions_topofmarket_mach_v2_2.message.dissect(buffer, index, packet, parent)
   end
 

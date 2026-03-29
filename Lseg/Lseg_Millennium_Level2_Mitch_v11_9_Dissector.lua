@@ -3163,7 +3163,10 @@ lseg_millennium_level2_mitch_v11_9.packet.dissect = function(buffer, packet, par
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
     index, message = lseg_millennium_level2_mitch_v11_9.message.dissect(buffer, index, packet, parent, message_index)
   end
 

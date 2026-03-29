@@ -1620,7 +1620,10 @@ miax_pearlequities_topofmarket_mach_v1_1_a.packet.dissect = function(buffer, pac
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 5 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
     index, message = miax_pearlequities_topofmarket_mach_v1_1_a.message.dissect(buffer, index, packet, parent)
   end
 

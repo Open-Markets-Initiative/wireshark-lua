@@ -407,7 +407,10 @@ lseg_millennium_udpunitheader_mitch_v1_0.packet.dissect = function(buffer, packe
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
     index, message = lseg_millennium_udpunitheader_mitch_v1_0.message.dissect(buffer, index, packet, parent, message_index)
   end
 

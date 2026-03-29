@@ -1829,7 +1829,10 @@ lseg_tradeecho_level2_gtp_v24_4.packet.dissect = function(buffer, packet, parent
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
     index, message = lseg_tradeecho_level2_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_index)
   end
 
