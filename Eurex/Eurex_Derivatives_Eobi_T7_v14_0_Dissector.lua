@@ -7318,7 +7318,10 @@ eurex_derivatives_eobi_t7_v14_0.packet.dissect = function(buffer, packet, parent
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
 
     -- Dependency element: Body Len
     local body_len = buffer(index, 2):le_uint()

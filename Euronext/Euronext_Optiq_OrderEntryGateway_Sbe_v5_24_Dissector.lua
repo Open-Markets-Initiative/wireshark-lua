@@ -19154,7 +19154,10 @@ euronext_optiq_orderentrygateway_sbe_v5_24.packet.dissect = function(buffer, pac
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
     index, message = euronext_optiq_orderentrygateway_sbe_v5_24.message.dissect(buffer, index, packet, parent)
   end
 

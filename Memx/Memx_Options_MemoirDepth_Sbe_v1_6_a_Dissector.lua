@@ -2369,7 +2369,10 @@ memx_options_memoirdepth_sbe_v1_6_a.sequenced_message.fields = function(buffer, 
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):uint()

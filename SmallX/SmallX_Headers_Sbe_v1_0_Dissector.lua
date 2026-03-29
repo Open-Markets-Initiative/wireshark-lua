@@ -578,7 +578,10 @@ smallx_headers_sbe_v1_0.packet.dissect = function(buffer, packet, parent)
   local end_of_payload = buffer:len()
 
   -- Sbe Frame: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
 
     -- Dependency element: Frame Length
     local frame_length = buffer(index, 1):uint()

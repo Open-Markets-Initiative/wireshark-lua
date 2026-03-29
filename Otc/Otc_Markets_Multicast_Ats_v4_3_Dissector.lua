@@ -3934,7 +3934,10 @@ otc_markets_multicast_ats_v4_3.packet.dissect = function(buffer, packet, parent)
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):uint()

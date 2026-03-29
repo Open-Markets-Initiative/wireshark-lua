@@ -19295,7 +19295,10 @@ euronext_optiq_marketdatagateway_sbe_v5_56.packet.dissect = function(buffer, pac
   local end_of_payload = buffer:len()
 
   -- Optiq Message: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
+
 
     -- Dependency element: Frame
     local frame = buffer(index, 2):le_uint()
