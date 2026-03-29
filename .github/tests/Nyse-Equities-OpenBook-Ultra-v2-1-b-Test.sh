@@ -35,6 +35,12 @@ grep "nyse.equities.openbook.ultra.v2.1.b.tradingstatus" Nyse.Equities.OpenBook.
 grep "nyse.equities.openbook.ultra.v2.1.b.reserved1" Nyse.Equities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json
 grep "nyse.equities.openbook.ultra.v2.1.b.mpv" Nyse.Equities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json
 tshark \
+  -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/HeartbeatMessage.pcap" \
+  -X "lua_script:Nyse/Nyse_Equities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
+  -T json \
+  > Nyse.Equities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json
+
+tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \

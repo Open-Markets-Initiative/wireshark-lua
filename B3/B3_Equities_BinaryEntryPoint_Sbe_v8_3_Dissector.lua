@@ -8926,7 +8926,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.outbound_business_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
@@ -9102,7 +9102,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.inbound_business_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
@@ -10177,7 +10177,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.bidirectional_business_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
@@ -13570,7 +13570,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.retransmit_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Request Timestamp: UTCTimestampNanos
@@ -13619,7 +13619,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.retransmission_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Request Timestamp: UTCTimestampNanos
@@ -13671,7 +13671,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.retransmit_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: UTCTimestampNanos
@@ -13806,7 +13806,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.terminate_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -13857,7 +13857,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.establish_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -13917,7 +13917,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.establish_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -14064,7 +14064,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.establish_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -14134,7 +14134,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.negotiate_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -14248,7 +14248,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.negotiate_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -14534,7 +14534,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3.negotiate_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: SessionID
   index, session_id = b3_equities_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
