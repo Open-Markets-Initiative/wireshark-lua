@@ -65,6 +65,9 @@ omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_messag
 omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.equities.memoirtopofbook.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
 omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.equities.memoirtopofbook.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
+-- Memx Equities MemoirTopOfBook Sbe 1.3 generated fields
+omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "memx.equities.memoirtopofbook.sbe.v1.3.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -1764,25 +1767,20 @@ end
 -- Message
 memx_equities_memoirtopofbook_sbe_v1_3.message = {}
 
--- Calculate size of: Message
-memx_equities_memoirtopofbook_sbe_v1_3.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_equities_memoirtopofbook_sbe_v1_3.message_length.size
-
-  index = index + memx_equities_memoirtopofbook_sbe_v1_3.sbe_message.size(buffer, offset + index)
-
-  return index
-end
-
 -- Display: Message
 memx_equities_memoirtopofbook_sbe_v1_3.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-memx_equities_memoirtopofbook_sbe_v1_3.message.fields = function(buffer, offset, packet, parent)
+memx_equities_memoirtopofbook_sbe_v1_3.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil then
+    local iteration = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = memx_equities_memoirtopofbook_sbe_v1_3.message_length.dissect(buffer, index, packet, parent)
@@ -1794,20 +1792,23 @@ memx_equities_memoirtopofbook_sbe_v1_3.message.fields = function(buffer, offset,
 end
 
 -- Dissect: Message
-memx_equities_memoirtopofbook_sbe_v1_3.message.dissect = function(buffer, offset, packet, parent)
+memx_equities_memoirtopofbook_sbe_v1_3.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_equities_memoirtopofbook_sbe_v1_3.fields.message, buffer(offset, 0))
-    local index = memx_equities_memoirtopofbook_sbe_v1_3.message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_equities_memoirtopofbook_sbe_v1_3.message.display(packet, parent, length)
+    local current = memx_equities_memoirtopofbook_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = memx_equities_memoirtopofbook_sbe_v1_3.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirtopofbook_sbe_v1_3.message.fields(buffer, offset, packet, parent)
+    memx_equities_memoirtopofbook_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -1838,7 +1839,15 @@ memx_equities_memoirtopofbook_sbe_v1_3.sequenced_message.fields = function(buffe
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = memx_equities_memoirtopofbook_sbe_v1_3.message.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_length + 2
+
+    -- Message: Struct of 2 fields
+    index, message = memx_equities_memoirtopofbook_sbe_v1_3.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index
