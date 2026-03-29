@@ -101,6 +101,7 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.legs_group = ProtoField.new("Legs Group", "
 omi_cme_futures_mdp3_sbe_v1_9.fields.legs_groups = ProtoField.new("Legs Groups", "cme.futures.mdp3.sbe.v1.9.legsgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.lot_type = ProtoField.new("Lot Type", "cme.futures.mdp3.sbe.v1.9.lottype", ftypes.INT8)
 omi_cme_futures_mdp3_sbe_v1_9.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.futures.mdp3.sbe.v1.9.lottyperulesgroup", ftypes.STRING)
+omi_cme_futures_mdp3_sbe_v1_9.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.futures.mdp3.sbe.v1.9.lottyperulesgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.futures.mdp3.sbe.v1.9.lowlimitprice", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_9.fields.low_limit_price_ex = ProtoField.new("Low Limit Price Ex", "cme.futures.mdp3.sbe.v1.9.lowlimitpriceex", ftypes.DOUBLE)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_book_32_no_m_d_entries_group = ProtoField.new("M D Incremental Refresh Book 32 No M D Entries Group", "cme.futures.mdp3.sbe.v1.9.mdincrementalrefreshbook32nomdentriesgroup", ftypes.STRING)
@@ -143,8 +144,6 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_even
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_events_groups = ProtoField.new("M D Instrument Definition Spread 29 No Events Groups", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29noeventsgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_inst_attrib_group = ProtoField.new("M D Instrument Definition Spread 29 No Inst Attrib Group", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29noinstattribgroup", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_inst_attrib_groups = ProtoField.new("M D Instrument Definition Spread 29 No Inst Attrib Groups", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29noinstattribgroups", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_legs_group = ProtoField.new("M D Instrument Definition Spread 29 No Legs Group", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29nolegsgroup", ftypes.STRING)
-omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_legs_groups = ProtoField.new("M D Instrument Definition Spread 29 No Legs Groups", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29nolegsgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_group = ProtoField.new("M D Instrument Definition Spread 29 No Lot Type Rules Group", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29nolottyperulesgroup", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_groups = ProtoField.new("M D Instrument Definition Spread 29 No Lot Type Rules Groups", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29nolottyperulesgroups", ftypes.STRING)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_group = ProtoField.new("M D Instrument Definition Spread 29 No M D Feed Types Group", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29nomdfeedtypesgroup", ftypes.STRING)
@@ -358,7 +357,6 @@ omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_option_41_no_rela
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_option_41_no_underlyings_group_index = ProtoField.new("M D Instrument Definition Option 41 No Underlyings Group Index", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionoption41nounderlyingsgroupindex", ftypes.UINT16)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_events_group_index = ProtoField.new("M D Instrument Definition Spread 29 No Events Group Index", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29noeventsgroupindex", ftypes.UINT16)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_inst_attrib_group_index = ProtoField.new("M D Instrument Definition Spread 29 No Inst Attrib Group Index", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29noinstattribgroupindex", ftypes.UINT16)
-omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_legs_group_index = ProtoField.new("M D Instrument Definition Spread 29 No Legs Group Index", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29nolegsgroupindex", ftypes.UINT16)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index = ProtoField.new("M D Instrument Definition Spread 29 No Lot Type Rules Group Index", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29nolottyperulesgroupindex", ftypes.UINT16)
 omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index = ProtoField.new("M D Instrument Definition Spread 29 No M D Feed Types Group Index", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread29nomdfeedtypesgroupindex", ftypes.UINT16)
 omi_cme_futures_mdp3_sbe_v1_9.fields.option_related_instruments_group_index = ProtoField.new("Option Related Instruments Group Index", "cme.futures.mdp3.sbe.v1.9.optionrelatedinstrumentsgroupindex", ftypes.UINT16)
@@ -410,6 +408,7 @@ show.inst_attrib_value = true
 show.legs_group = true
 show.legs_groups = true
 show.lot_type_rules_group = true
+show.lot_type_rules_groups = true
 show.m_d_incremental_refresh_book_32_no_m_d_entries_group = true
 show.m_d_incremental_refresh_book_32_no_m_d_entries_groups = true
 show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group = true
@@ -450,8 +449,6 @@ show.m_d_instrument_definition_spread_29_no_events_group = true
 show.m_d_instrument_definition_spread_29_no_events_groups = true
 show.m_d_instrument_definition_spread_29_no_inst_attrib_group = true
 show.m_d_instrument_definition_spread_29_no_inst_attrib_groups = true
-show.m_d_instrument_definition_spread_29_no_legs_group = true
-show.m_d_instrument_definition_spread_29_no_legs_groups = true
 show.m_d_instrument_definition_spread_29_no_lot_type_rules_group = true
 show.m_d_instrument_definition_spread_29_no_lot_type_rules_groups = true
 show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group = true
@@ -512,6 +509,7 @@ omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_value = Pref.bool("Show Ins
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_group = Pref.bool("Show Lot Type Rules Group", show.lot_type_rules_group, "Parse and add Lot Type Rules Group to protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_groups = Pref.bool("Show Lot Type Rules Groups", show.lot_type_rules_groups, "Parse and add Lot Type Rules Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_group = Pref.bool("Show M D Incremental Refresh Book 32 No M D Entries Group", show.m_d_incremental_refresh_book_32_no_m_d_entries_group, "Parse and add M D Incremental Refresh Book 32 No M D Entries Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_groups = Pref.bool("Show M D Incremental Refresh Book 32 No M D Entries Groups", show.m_d_incremental_refresh_book_32_no_m_d_entries_groups, "Parse and add M D Incremental Refresh Book 32 No M D Entries Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_order_i_d_entries_group = Pref.bool("Show M D Incremental Refresh Book 32 No Order I D Entries Group", show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group, "Parse and add M D Incremental Refresh Book 32 No Order I D Entries Group to protocol tree")
@@ -552,8 +550,6 @@ omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_events_groups = Pref.bool("Show M D Instrument Definition Spread 29 No Events Groups", show.m_d_instrument_definition_spread_29_no_events_groups, "Parse and add M D Instrument Definition Spread 29 No Events Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_group = Pref.bool("Show M D Instrument Definition Spread 29 No Inst Attrib Group", show.m_d_instrument_definition_spread_29_no_inst_attrib_group, "Parse and add M D Instrument Definition Spread 29 No Inst Attrib Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_groups = Pref.bool("Show M D Instrument Definition Spread 29 No Inst Attrib Groups", show.m_d_instrument_definition_spread_29_no_inst_attrib_groups, "Parse and add M D Instrument Definition Spread 29 No Inst Attrib Groups to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_legs_group = Pref.bool("Show M D Instrument Definition Spread 29 No Legs Group", show.m_d_instrument_definition_spread_29_no_legs_group, "Parse and add M D Instrument Definition Spread 29 No Legs Group to protocol tree")
-omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_legs_groups = Pref.bool("Show M D Instrument Definition Spread 29 No Legs Groups", show.m_d_instrument_definition_spread_29_no_legs_groups, "Parse and add M D Instrument Definition Spread 29 No Legs Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_group = Pref.bool("Show M D Instrument Definition Spread 29 No Lot Type Rules Group", show.m_d_instrument_definition_spread_29_no_lot_type_rules_group, "Parse and add M D Instrument Definition Spread 29 No Lot Type Rules Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_groups = Pref.bool("Show M D Instrument Definition Spread 29 No Lot Type Rules Groups", show.m_d_instrument_definition_spread_29_no_lot_type_rules_groups, "Parse and add M D Instrument Definition Spread 29 No Lot Type Rules Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_group = Pref.bool("Show M D Instrument Definition Spread 29 No M D Feed Types Group", show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group, "Parse and add M D Instrument Definition Spread 29 No M D Feed Types Group to protocol tree")
@@ -720,6 +716,10 @@ function omi_cme_futures_mdp3_sbe_v1_9.prefs_changed()
     show.lot_type_rules_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_group
     changed = true
   end
+  if show.lot_type_rules_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_groups then
+    show.lot_type_rules_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_groups
+    changed = true
+  end
   if show.m_d_incremental_refresh_book_32_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_group then
     show.m_d_incremental_refresh_book_32_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_group
     changed = true
@@ -878,14 +878,6 @@ function omi_cme_futures_mdp3_sbe_v1_9.prefs_changed()
   end
   if show.m_d_instrument_definition_spread_29_no_inst_attrib_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_groups then
     show.m_d_instrument_definition_spread_29_no_inst_attrib_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_groups
-    changed = true
-  end
-  if show.m_d_instrument_definition_spread_29_no_legs_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_legs_group then
-    show.m_d_instrument_definition_spread_29_no_legs_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_legs_group
-    changed = true
-  end
-  if show.m_d_instrument_definition_spread_29_no_legs_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_legs_groups then
-    show.m_d_instrument_definition_spread_29_no_legs_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_legs_groups
     changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_lot_type_rules_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_group then
@@ -5724,6 +5716,63 @@ cme_futures_mdp3_sbe_v1_9.lot_type_rules_group.dissect = function(buffer, offset
   end
 end
 
+-- Lot Type Rules Groups
+cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups = {}
+
+-- Calculate size of: Lot Type Rules Groups
+cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_futures_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + lot_type_rules_group_count * 5
+
+  return index
+end
+
+-- Display: Lot Type Rules Groups
+cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Lot Type Rules Groups
+cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_futures_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Lot Type Rules Group
+  for lot_type_rules_group_index = 1, num_in_group do
+    index, lot_type_rules_group = cme_futures_mdp3_sbe_v1_9.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Lot Type Rules Groups
+cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
+  if show.lot_type_rules_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.lot_type_rules_groups, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Inst Attrib Value
 cme_futures_mdp3_sbe_v1_9.inst_attrib_value = {}
 
@@ -6550,9 +6599,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_spread.size = function(buffer
 
   index = index + cme_futures_mdp3_sbe_v1_9.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_futures_mdp3_sbe_v1_9.legs_groups.size(buffer, offset + index)
 
@@ -6691,13 +6738,8 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_spread.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_futures_mdp3_sbe_v1_9.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 216, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_futures_mdp3_sbe_v1_9.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
   index, legs_groups = cme_futures_mdp3_sbe_v1_9.legs_groups.dissect(buffer, index, packet, parent)
@@ -7034,9 +7076,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_option.size = function(buffer
 
   index = index + cme_futures_mdp3_sbe_v1_9.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_futures_mdp3_sbe_v1_9.option_underlyings_groups.size(buffer, offset + index)
 
@@ -7189,13 +7229,8 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_option.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_futures_mdp3_sbe_v1_9.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 234, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_futures_mdp3_sbe_v1_9.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Option Underlyings Groups: Struct of 2 fields
   index, option_underlyings_groups = cme_futures_mdp3_sbe_v1_9.option_underlyings_groups.dissect(buffer, index, packet, parent)
@@ -7325,9 +7360,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_future.size = function(buffer
 
   index = index + cme_futures_mdp3_sbe_v1_9.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7482,13 +7515,8 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_future.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_futures_mdp3_sbe_v1_9.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 237, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_futures_mdp3_sbe_v1_9.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_futures_mdp3_sbe_v1_9.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -12546,125 +12574,6 @@ cme_futures_mdp3_sbe_v1_9.security_status.dissect = function(buffer, offset, pac
   end
 end
 
--- M D Instrument Definition Spread 29 No Legs Group
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group = {}
-
--- Size: M D Instrument Definition Spread 29 No Legs Group
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group.size =
-  cme_futures_mdp3_sbe_v1_9.leg_security_id.size + 
-  cme_futures_mdp3_sbe_v1_9.leg_side.size + 
-  cme_futures_mdp3_sbe_v1_9.leg_ratio_qty.size + 
-  cme_futures_mdp3_sbe_v1_9.leg_price.size + 
-  cme_futures_mdp3_sbe_v1_9.leg_option_delta.size
-
--- Display: M D Instrument Definition Spread 29 No Legs Group
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No Legs Group
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Spread 29 No Legs Group Index
-  if m_d_instrument_definition_spread_29_no_legs_group_index ~= nil then
-    local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_legs_group_index, m_d_instrument_definition_spread_29_no_legs_group_index)
-    iteration:set_generated()
-  end
-
-  -- Leg Security Id: Int32
-  index, leg_security_id = cme_futures_mdp3_sbe_v1_9.leg_security_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Side: LegSide
-  index, leg_side = cme_futures_mdp3_sbe_v1_9.leg_side.dissect(buffer, index, packet, parent)
-
-  -- Leg Ratio Qty: Int8
-  index, leg_ratio_qty = cme_futures_mdp3_sbe_v1_9.leg_ratio_qty.dissect(buffer, index, packet, parent)
-
-  -- Leg Price: PRICENULL
-  index, leg_price = cme_futures_mdp3_sbe_v1_9.leg_price.dissect(buffer, index, packet, parent)
-
-  -- Leg Option Delta: DecimalQty
-  index, leg_option_delta = cme_futures_mdp3_sbe_v1_9.leg_option_delta.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No Legs Group
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
-  if show.m_d_instrument_definition_spread_29_no_legs_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_legs_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
-  end
-end
-
--- M D Instrument Definition Spread 29 No Legs Groups
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups = {}
-
--- Calculate size of: M D Instrument Definition Spread 29 No Legs Groups
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_futures_mdp3_sbe_v1_9.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_spread_29_no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_spread_29_no_legs_group_count * 18
-
-  return index
-end
-
--- Display: M D Instrument Definition Spread 29 No Legs Groups
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No Legs Groups
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_futures_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Spread 29 No Legs Group
-  for m_d_instrument_definition_spread_29_no_legs_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_spread_29_no_legs_group = cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No Legs Groups
-cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.m_d_instrument_definition_spread_29_no_legs_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_legs_groups, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- M D Instrument Definition Spread 29 No Lot Type Rules Group
 cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_lot_type_rules_group = {}
 
@@ -13180,7 +13089,7 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.size = function
 
   index = index + cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.size(buffer, offset + index)
 
-  index = index + cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.size(buffer, offset + index)
+  index = index + cme_futures_mdp3_sbe_v1_9.legs_groups.size(buffer, offset + index)
 
   return index
 end
@@ -13320,8 +13229,8 @@ cme_futures_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.fields = functi
   -- M D Instrument Definition Spread 29 No Lot Type Rules Groups: Struct of 2 fields
   index, m_d_instrument_definition_spread_29_no_lot_type_rules_groups = cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Spread 29 No Legs Groups: Struct of 2 fields
-  index, m_d_instrument_definition_spread_29_no_legs_groups = cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_legs_groups.dissect(buffer, index, packet, parent)
+  -- Legs Groups: Struct of 2 fields
+  index, legs_groups = cme_futures_mdp3_sbe_v1_9.legs_groups.dissect(buffer, index, packet, parent)
 
   return index
 end

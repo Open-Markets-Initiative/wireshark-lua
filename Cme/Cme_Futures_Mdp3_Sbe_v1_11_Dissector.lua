@@ -2954,7 +2954,7 @@ cme_futures_mdp3_sbe_v1_11.md_security_trading_status.display = function(value)
     return "Md Security Trading Status: Not Available For Trading (18)"
   end
   if value == 20 then
-    return "Md Security Trading Status: unknown Or Invalid (20)"
+    return "Md Security Trading Status: Unknown Or Invalid (20)"
   end
   if value == 21 then
     return "Md Security Trading Status: Pre Open (21)"
