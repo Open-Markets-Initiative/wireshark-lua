@@ -3,7 +3,7 @@
 
 ## European New Exchange Technology
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Optiq | [MarketDataGateway][Euronext.Optiq.MarketDataGateway.Sbe.v6.64.Dissector] | [Sbe][Omi.Protocol.Sbe] | [6.64][Euronext.Optiq.MarketDataGateway.Sbe.v6.64.Dissector] | 2/25/2026 | 19480 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Euronext.Optiq.MarketDataGateway.Sbe.v6.64.Url] - [pdf][Euronext.Optiq.MarketDataGateway.Sbe.v6.64.Pdf] - [xml][Euronext.Optiq.MarketDataGateway.Sbe.v6.64.Xml] |
 | Optiq | [MarketDataGateway][Euronext.Optiq.MarketDataGateway.Sbe.v5.56.Dissector] | [Sbe][Omi.Protocol.Sbe] | [5.56][Euronext.Optiq.MarketDataGateway.Sbe.v5.56.Dissector] | 6/4/2025 | 19411 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Euronext.Optiq.MarketDataGateway.Sbe.v5.56.Url] - [pdf][Euronext.Optiq.MarketDataGateway.Sbe.v5.56.Pdf] - [xml][Euronext.Optiq.MarketDataGateway.Sbe.v5.56.Xml] |
@@ -88,6 +88,7 @@ Euronext: [website](https://www.euronext.com "Go to European New Exchange Techno
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
 [Omi.Protocol.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Protocol"
 

@@ -3,7 +3,7 @@
 
 ## Bruce Markets
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Equities | [BestBidAndOffer][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1236 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf] |
 | Equities | [DepthOfBook][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1236 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf] |
@@ -24,6 +24,7 @@ BruceAts: [website](https://www.brucemarkets.com "Go to Bruce Markets")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
 
 [BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/BruceAts/BruceAts_Equities_BestBidAndOffer_Itch_v1_0_Dissector.lua "BruceAts Equities BestBidAndOffer Itch v1.0 Wireshark Dissector"

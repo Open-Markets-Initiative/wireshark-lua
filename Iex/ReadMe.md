@@ -3,7 +3,7 @@
 
 ## Investors Exchange
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Equities | [Deep][Iex.Equities.Deep.IexTp.v1.0.8.Dissector] | [IexTp][Omi.Protocol.IexTp] | [1.0.8][Iex.Equities.Deep.IexTp.v1.0.8.Dissector] | 2/27/2018 | 2626 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Deep.IexTp.v1.0.8.Url] - [pdf][Iex.Equities.Deep.IexTp.v1.0.8.Pdf] |
 | Equities | [Deep][Iex.Equities.Deep.IexTp.v1.0.6.Dissector] | [IexTp][Omi.Protocol.IexTp] | [1.0.6][Iex.Equities.Deep.IexTp.v1.0.6.Dissector] | 2/27/2018 | 2527 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Deep.IexTp.v1.0.6.Url] - [pdf][Iex.Equities.Deep.IexTp.v1.0.6.Pdf] |
@@ -28,6 +28,7 @@ Iex: [website](https://www.iexexchange.io "Go to Investors Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.IexTp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/IexTp.md "IexTp Protocol"
 
 [Iex.Equities.Deep.IexTp.v1.0.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_Equities_Deep_IexTp_v1_0_6_Dissector.lua "Iex Equities Deep IexTp v1.0.6 Wireshark Dissector"

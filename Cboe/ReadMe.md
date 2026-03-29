@@ -3,7 +3,7 @@
 
 ## Chicago Board Options Exchange
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Byx Equities | [DepthOfBook][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector] | [Pitch][Omi.Protocol.Pitch] | [2.41.29][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector] | 4/20/2022 | 2730 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Url] - [pdf][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Pdf] |
 | Byx Equities | [SummaryDepth][Cboe.Byx.Equities.SummaryDepth.Pitch.v1.0.4.Dissector] | [Pitch][Omi.Protocol.Pitch] | [1.0.4][Cboe.Byx.Equities.SummaryDepth.Pitch.v1.0.4.Dissector] | 7/26/2021 | 1856 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cboe.Byx.Equities.SummaryDepth.Pitch.v1.0.4.Url] - [pdf][Cboe.Byx.Equities.SummaryDepth.Pitch.v1.0.4.Pdf] |
@@ -62,6 +62,7 @@ Cboe: [website](https://www.cboe.com "Go to Chicago Board Options Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Pitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Pitch.md "Pitch Protocol"
 [Omi.Protocol.PitchUdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/PitchUdp.md "PitchUdp Protocol"
 [Omi.Protocol.Boe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Boe.md "Boe Protocol"

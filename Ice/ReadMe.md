@@ -3,7 +3,7 @@
 
 ## Intercontinental Exchange
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Futures | [Mdf][Ice.Futures.Mdf.iMpact.v1.1.51.Dissector] | [iMpact][Omi.Protocol.iMpact] | [1.1.51][Ice.Futures.Mdf.iMpact.v1.1.51.Dissector] | 1/1/2025 | 12467 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Ice.Futures.Mdf.iMpact.v1.1.51.Pdf] |
 | Futures | [Mdf][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | [iMpact][Omi.Protocol.iMpact] | [1.1.43][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | 11/18/2020 | 12377 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Ice.Futures.Mdf.iMpact.v1.1.43.Pdf] |
@@ -26,6 +26,7 @@ Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.iMpact]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/iMpact.md "iMpact Protocol"
 
 [Ice.Futures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_Futures_Mdf_iMpact_v1_1_24_Dissector.lua "Ice Futures Mdf iMpact v1.1.24 Wireshark Dissector"

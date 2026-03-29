@@ -3,7 +3,7 @@
 
 ## Aquis Exchange
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Equities | [RealTime][Aquis.Equities.RealTime.Amd.v4.1.Dissector] | [Amd][Omi.Protocol.Amd] | [4.1][Aquis.Equities.RealTime.Amd.v4.1.Dissector] | 1/1/2026 | 2103 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.RealTime.Amd.v4.1.Url] - [pdf][Aquis.Equities.RealTime.Amd.v4.1.Pdf] |
 | Equities | [RealTime][Aquis.Equities.RealTime.Amd.v4.0.Dissector] | [Amd][Omi.Protocol.Amd] | [4.0][Aquis.Equities.RealTime.Amd.v4.0.Dissector] | 8/1/2025 | 2099 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.RealTime.Amd.v4.0.Url] - [pdf][Aquis.Equities.RealTime.Amd.v4.0.Pdf] |
@@ -30,6 +30,7 @@ Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Amd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Amd.md "Amd Protocol"
 [Omi.Protocol.Atp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Atp.md "Atp Protocol"
 

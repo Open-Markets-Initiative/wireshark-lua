@@ -3,7 +3,7 @@
 
 ## Texas Stock Exchange
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Equities | [OrderEntry][Txse.Equities.OrderEntry.Seed.v0.1.Dissector] | [Seed][Omi.Protocol.Seed] | [0.1][Txse.Equities.OrderEntry.Seed.v0.1.Dissector] | 10/14/2025 | 6816 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Equities.OrderEntry.Seed.v0.1.Url] - [pdf][Txse.Equities.OrderEntry.Seed.v0.1.Pdf] |
 | Headers | [Rake][Txse.Headers.Rake.Tcp.v1.0.Dissector] | [Tcp][Omi.Protocol.Tcp] | [1.0][Txse.Headers.Rake.Tcp.v1.0.Dissector] | 10/28/2025 | 1076 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Headers.Rake.Tcp.v1.0.Url] - [pdf][Txse.Headers.Rake.Tcp.v1.0.Pdf] |
@@ -23,6 +23,7 @@ Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Protocol"
 [Omi.Protocol.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Seed.md "Seed Protocol"
 

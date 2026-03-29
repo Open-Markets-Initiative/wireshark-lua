@@ -3,7 +3,7 @@
 
 ## Miami International Holdings
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | MiaxOptions | [ComplexTopOfMarket][Miax.MiaxOptions.ComplexTopOfMarket.Mach.v1.3.Dissector] | [Mach][Omi.Protocol.Mach] | [1.3][Miax.MiaxOptions.ComplexTopOfMarket.Mach.v1.3.Dissector] | 3/16/2018 | 3140 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Miax.MiaxOptions.ComplexTopOfMarket.Mach.v1.3.Url] - [pdf][Miax.MiaxOptions.ComplexTopOfMarket.Mach.v1.3.Pdf] |
 | MiaxOptions | [ComplexTopOfMarket][Miax.MiaxOptions.ComplexTopOfMarket.Mach.v1.1.Dissector] | [Mach][Omi.Protocol.Mach] | [1.1][Miax.MiaxOptions.ComplexTopOfMarket.Mach.v1.1.Dissector] | 7/15/2016 | 3216 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Miax.MiaxOptions.ComplexTopOfMarket.Mach.v1.1.Url] - [pdf][Miax.MiaxOptions.ComplexTopOfMarket.Mach.v1.1.Pdf] |
@@ -37,6 +37,7 @@ Miax: [website](https://www.miaxglobal.com "Go to Miami International Holdings")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Mach]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mach.md "Mach Protocol"
 [Omi.Protocol.ESesM]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ESesM.md "ESesM Protocol"
 [Omi.Protocol.Meo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Meo.md "Meo Protocol"

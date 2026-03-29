@@ -3,7 +3,7 @@
 
 ## Australian Securities Exchange
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Securities | [Ntp][Asx.Securities.Ntp.Itch.v1.05.Dissector] | [Itch][Omi.Protocol.Itch] | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5093 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Asx.Securities.Ntp.Itch.v1.05.Url] - [pdf][Asx.Securities.Ntp.Itch.v1.05.Pdf] |
 | Securities | [T24][Asx.Securities.T24.Itch.v1.13.Dissector] | [Itch][Omi.Protocol.Itch] | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5519 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.Securities.T24.Itch.v1.13.Pdf] |
@@ -27,6 +27,7 @@ Asx: [website](https://www.asx.com.au "Go to Australian Securities Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
 [Omi.Protocol.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Protocol"
 

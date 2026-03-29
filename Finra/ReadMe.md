@@ -3,7 +3,7 @@
 
 ## Financial Industry Regulatory Authority
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Orf | [Tdds][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | [Dfi][Omi.Protocol.Dfi] | [2.1][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3771 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.1.Pdf] |
 | Orf | [Tdds][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | [Dfi][Omi.Protocol.Dfi] | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3727 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.0.Pdf] |
@@ -24,6 +24,7 @@ Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Auth
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Dfi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Dfi.md "Dfi Protocol"
 
 [Finra.Orf.Tdds.Dfi.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_Orf_Tdds_Dfi_v2_0_Dissector.lua "Finra Orf Tdds Dfi v2.0 Wireshark Dissector"

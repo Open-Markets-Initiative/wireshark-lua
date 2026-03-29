@@ -3,7 +3,7 @@
 
 ## Eurex Exchange
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Cash | [Eti][Eurex.Cash.Eti.T7.v14.1.Dissector] | [T7][Omi.Protocol.T7] | [14.1][Eurex.Cash.Eti.T7.v14.1.Dissector] | 3/20/2026 | 29160 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Cash.Eti.T7.v14.1.Url] - [pdf][Eurex.Cash.Eti.T7.v14.1.Pdf] - [xml][Eurex.Cash.Eti.T7.v14.1.Xml] |
 | Cash | [Eti][Eurex.Cash.Eti.T7.v14.0.Dissector] | [T7][Omi.Protocol.T7] | [14.0][Eurex.Cash.Eti.T7.v14.0.Dissector] | 8/18/2025 | 29789 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Cash.Eti.T7.v14.0.Url] - [pdf][Eurex.Cash.Eti.T7.v14.0.Pdf] - [xml][Eurex.Cash.Eti.T7.v14.0.Xml] |
@@ -87,6 +87,7 @@ Eurex: [website](https://www.eurex.com "Go to Eurex Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.T7]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/T7.md "T7 Protocol"
 
 [Eurex.Derivatives.Eti.T7.v2.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Derivatives_Eti_T7_v2_5_Dissector.lua "Eurex Derivatives Eti T7 v2.5 Wireshark Dissector"

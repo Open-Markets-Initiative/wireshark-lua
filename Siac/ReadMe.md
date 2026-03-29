@@ -3,7 +3,7 @@
 
 ## Securities Industry Automation Corporation
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Cqs | [Output][Siac.Cqs.Output.Cta.v2.9.Dissector] | [Cta][Omi.Protocol.Cta] | [2.9][Siac.Cqs.Output.Cta.v2.9.Dissector] | 12/16/2022 | 5100 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Output.Cta.v2.9.Url] - [pdf][Siac.Cqs.Output.Cta.v2.9.Pdf] |
 | Cqs | [Output][Siac.Cqs.Output.Cta.v1.91.Dissector] | [Cta][Omi.Protocol.Cta] | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | 4893 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cqs.Output.Cta.v1.91.Url] - [pdf][Siac.Cqs.Output.Cta.v1.91.Pdf] |
@@ -30,6 +30,7 @@ Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Cor
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Obi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Obi.md "Obi Protocol"
 [Omi.Protocol.Cta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cta.md "Cta Protocol"
 

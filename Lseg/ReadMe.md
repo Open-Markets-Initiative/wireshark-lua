@@ -3,7 +3,7 @@
 
 ## London Stock Exchange Group
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Millennium | [Level2][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | [Mitch][Omi.Protocol.Mitch] | [11.9][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | 3244 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.Level2.Mitch.v11.9.Url] - [pdf][Lseg.Millennium.Level2.Mitch.v11.9.Pdf] |
 | Millennium | [UdpUnitHeader][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector] | [Mitch][Omi.Protocol.Mitch] | [1.0][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector] | 1/1/2018 | 488 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url] - [pdf][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf] |
@@ -29,6 +29,7 @@ Lseg: [website](https://www.londonstockexchange.com "Go to London Stock Exchange
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Mitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mitch.md "Mitch Protocol"
 [Omi.Protocol.Gtp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Gtp.md "Gtp Protocol"
 

@@ -3,7 +3,7 @@
 
 ## Coinbase
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Derivatives | [MarketDataApi][Coinbase.Derivatives.MarketDataApi.Sbe.v1.9.Dissector] | [Sbe][Omi.Protocol.Sbe] | [1.9][Coinbase.Derivatives.MarketDataApi.Sbe.v1.9.Dissector] | 9/5/2025 | 6023 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Derivatives.MarketDataApi.Sbe.v1.9.Url] - [xml][Coinbase.Derivatives.MarketDataApi.Sbe.v1.9.Xml] |
 | Derivatives | [MarketDataApi][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector] | [Sbe][Omi.Protocol.Sbe] | [1.7][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector] | 4/14/2022 | 5383 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Pdf] - [xml][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Xml] |
@@ -32,6 +32,7 @@ Coinbase: [website](https://www.coinbase.com/ "Go to Coinbase")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Protocol"
 [Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
 

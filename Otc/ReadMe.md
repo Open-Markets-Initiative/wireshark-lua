@@ -3,7 +3,7 @@
 
 ## Otc Markets
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Markets | [Headers][Otc.Markets.Headers.Ats.v1.0.Dissector] | [Ats][Omi.Protocol.Ats] | [1.0][Otc.Markets.Headers.Ats.v1.0.Dissector] | 12/11/2019 | 571 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Headers.Ats.v1.0.Url] - [pdf][Otc.Markets.Headers.Ats.v1.0.Pdf] |
 | Markets | [Multicast][Otc.Markets.Multicast.Ats.v4.5.Dissector] | [Ats][Omi.Protocol.Ats] | [4.5][Otc.Markets.Multicast.Ats.v4.5.Dissector] | 7/28/2022 | 4020 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.Markets.Multicast.Ats.v4.5.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.5.Pdf] |
@@ -24,6 +24,7 @@ Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Protocol"
 
 [Otc.Markets.Multicast.Ats.v4.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_Markets_Multicast_Ats_v4_3_Dissector.lua "Otc Markets Multicast Ats v4.3 Wireshark Dissector"

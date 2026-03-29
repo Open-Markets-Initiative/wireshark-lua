@@ -3,7 +3,7 @@
 
 ## Hong Kong Exchanges and Clearing
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Derivatives | [FullTick][Hkex.Derivatives.FullTick.Omd.v2.0.Dissector] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.FullTick.Omd.v2.0.Dissector] | 9/16/2025 | 5165 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Hkex.Derivatives.FullTick.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.FullTick.Omd.v2.0.Pdf] |
 | Derivatives | [FullTick][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | 10/14/2025 | 5136 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.FullTick.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.FullTick.Omd.v1.47.Pdf] |
@@ -30,6 +30,7 @@ Hkex: [website](https://www.hkex.com.hk "Go to Hong Kong Exchanges and Clearing"
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Protocol"
 [Omi.Protocol.Omd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Omd.md "Omd Protocol"
 

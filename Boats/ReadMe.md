@@ -3,7 +3,7 @@
 
 ## Blue Ocean Ats
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 |  | [CommonHeader][Boats.CommonHeader.Udp.v1.1.Dissector] | [Udp][Omi.Protocol.Udp] | [1.1][Boats.CommonHeader.Udp.v1.1.Dissector] | 1/1/2024 | 732 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.CommonHeader.Udp.v1.1.Url] |
 | Equities | [Memo][Boats.Equities.Memo.Sbe.v1.13.Dissector] | [Sbe][Omi.Protocol.Sbe] | [1.13][Boats.Equities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 6950 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Boats.Equities.Memo.Sbe.v1.13.Url] - [pdf][Boats.Equities.Memo.Sbe.v1.13.Pdf] - [xml][Boats.Equities.Memo.Sbe.v1.13.Xml] |
@@ -26,6 +26,7 @@ Boats: [website](https://blueocean-tech.io "Go to Blue Ocean Ats")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
 [Omi.Protocol.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Protocol"
 

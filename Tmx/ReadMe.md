@@ -3,7 +3,7 @@
 
 ## Tmx Group
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Mx Sola | [Multicast][Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Dissector] | [Hsvf][Omi.Protocol.Hsvf] | [1.14][Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Dissector] | 2/5/2024 | 9616 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Url] - [pdf][Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Pdf] |
 | Mx Sola | [Multicast][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | [Hsvf][Omi.Protocol.Hsvf] | [1.11][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | 1/23/2019 | 10934 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Url] - [pdf][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Pdf] |
@@ -32,6 +32,7 @@ Tmx: [website](https://www.tmx.com/ "Go to Tmx Group")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Hsvf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Hsvf.md "Hsvf Protocol"
 [Omi.Protocol.Xmt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Xmt.md "Xmt Protocol"
 [Omi.Protocol.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Protocol"

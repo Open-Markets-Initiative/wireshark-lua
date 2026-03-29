@@ -3,7 +3,7 @@
 
 ## Japannext
 
-| Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Bonds | [Pts][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | [Itch][Omi.Protocol.Itch] | [1.2][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | 1649 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Itch.v1.2.Url] - [pdf][Jnx.Bonds.Pts.Itch.v1.2.Pdf] |
 | Bonds | [Pts][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | [Ouch][Omi.Protocol.Ouch] | [1.4][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | 2612 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Ouch.v1.4.Url] - [pdf][Jnx.Bonds.Pts.Ouch.v1.4.Pdf] |
@@ -28,6 +28,7 @@ Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
 [Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
 [Omi.Protocol.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Protocol"
 
