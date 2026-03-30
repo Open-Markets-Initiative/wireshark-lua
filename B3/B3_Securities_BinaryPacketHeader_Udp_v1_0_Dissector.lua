@@ -592,7 +592,6 @@ b3_securities_binarypacketheader_udp_v1_0.packet.dissect = function(buffer, pack
   while index < end_of_payload do
     message_index = message_index + 1
 
-
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):le_uint()
 

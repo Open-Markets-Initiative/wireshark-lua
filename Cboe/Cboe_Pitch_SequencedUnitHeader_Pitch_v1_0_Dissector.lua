@@ -407,7 +407,9 @@ cboe_pitch_sequencedunitheader_pitch_v1_0.packet.dissect = function(buffer, pack
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 1):le_uint()

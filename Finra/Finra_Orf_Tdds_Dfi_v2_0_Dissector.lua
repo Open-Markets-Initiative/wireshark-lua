@@ -3649,7 +3649,6 @@ finra_orf_tdds_dfi_v2_0.packet.dissect = function(buffer, packet, parent)
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-
     index, message = finra_orf_tdds_dfi_v2_0.message.dissect(buffer, index, packet, parent)
   end
 

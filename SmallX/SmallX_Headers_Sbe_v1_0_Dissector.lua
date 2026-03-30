@@ -582,7 +582,6 @@ smallx_headers_sbe_v1_0.packet.dissect = function(buffer, packet, parent)
   while index < end_of_payload do
     message_index = message_index + 1
 
-
     -- Dependency element: Frame Length
     local frame_length = buffer(index, 1):uint()
 

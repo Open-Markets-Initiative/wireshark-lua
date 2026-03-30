@@ -19277,7 +19277,6 @@ euronext_optiq_orderentrygateway_sbe_v5_39.packet.dissect = function(buffer, pac
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-
     index, message = euronext_optiq_orderentrygateway_sbe_v5_39.message.dissect(buffer, index, packet, parent)
   end
 

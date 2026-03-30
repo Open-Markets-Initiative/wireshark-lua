@@ -9862,7 +9862,6 @@ b3_equities_binaryumdf_sbe_v1_7.packet.dissect = function(buffer, packet, parent
   while index < end_of_payload do
     message_index = message_index + 1
 
-
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):le_uint()
 

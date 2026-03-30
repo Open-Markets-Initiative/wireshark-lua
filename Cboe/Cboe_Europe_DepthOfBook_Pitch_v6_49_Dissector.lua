@@ -3464,7 +3464,9 @@ cboe_europe_depthofbook_pitch_v6_49.packet.dissect = function(buffer, packet, pa
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 1):le_uint()

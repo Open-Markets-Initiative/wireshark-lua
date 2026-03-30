@@ -2326,7 +2326,6 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.packet.dissect = function(buffer, packe
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-
     index, message = miax_onyxfutures_topofmarket_mach_v1_0_b.message.dissect(buffer, index, packet, parent)
   end
 

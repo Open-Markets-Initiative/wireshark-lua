@@ -1766,7 +1766,6 @@ lseg_turquoise_analytics_gtp_v24_4.packet.dissect = function(buffer, packet, par
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-
     index, message = lseg_turquoise_analytics_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_index)
   end
 

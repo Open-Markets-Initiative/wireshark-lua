@@ -1445,7 +1445,6 @@ cme_brokertec_ust_sbe_v10_1.packet.dissect = function(buffer, packet, parent)
   while index < end_of_payload do
     message_index = message_index + 1
 
-
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 

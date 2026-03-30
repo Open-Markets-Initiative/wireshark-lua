@@ -5912,7 +5912,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_9.packet.dissect = function(buffer, pa
   while index < end_of_payload do
     message_index = message_index + 1
 
-
     -- Dependency element: Frame Length
     local frame_length = buffer(index, 2):le_uint()
 

@@ -631,7 +631,6 @@ euronext_optiq_marketdatapacket_udp_v1_0.packet.dissect = function(buffer, packe
   while index < end_of_payload do
     message_index = message_index + 1
 
-
     -- Dependency element: Frame
     local frame = buffer(index, 2):le_uint()
 

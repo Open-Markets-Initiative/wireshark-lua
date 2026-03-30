@@ -1591,7 +1591,6 @@ imperative_intelligentcross_mdf_v1_11.packet.dissect = function(buffer, packet, 
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-
     index, message = imperative_intelligentcross_mdf_v1_11.message.dissect(buffer, index, packet, parent, message_index)
   end
 

@@ -1842,7 +1842,6 @@ memx_equities_memoirtopofbook_sbe_v1_1.sequenced_message.fields = function(buffe
   while index < end_of_payload do
     message_index = message_index + 1
 
-
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):uint()
 

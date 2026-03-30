@@ -13368,7 +13368,6 @@ cme_futures_streamlined_sbe_v5_9.packet.dissect = function(buffer, packet, paren
   while index < end_of_payload do
     message_index = message_index + 1
 
-
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
