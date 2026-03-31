@@ -2024,7 +2024,7 @@ aquis_equities_realtime_amd_v4_1.packet.dissect = function(buffer, packet, paren
     local msg_length = buffer(index + 1, 1):uint()
 
     -- Runtime Size Of: Message
-    index, message = aquis_equities_realtime_amd_v4_1.message.dissect(buffer, index, packet, parent, msg_length)
+    index, message = aquis_equities_realtime_amd_v4_1.message.dissect(buffer, index, packet, parent, msg_length, message_index)
   end
 
   return index

@@ -752,7 +752,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1.packet.dissect = function(buffer, packet, par
       local msg_length = buffer(index, 2):le_uint()
 
       -- Runtime Size Of: Body
-      index, body = tmx_quantumfeed_xmtheader_udp_v1_1.body.dissect(buffer, index, packet, parent, msg_length)
+      index, body = tmx_quantumfeed_xmtheader_udp_v1_1.body.dissect(buffer, index, packet, parent, msg_length, body_index)
     end
   end
 

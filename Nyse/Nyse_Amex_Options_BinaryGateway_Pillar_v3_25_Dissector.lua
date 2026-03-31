@@ -8036,7 +8036,9 @@ nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_referen
   local end_of_payload = buffer:len()
 
   -- Mpv Level Definition: Struct of 5 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, mpv_level_definition = nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_definition.dissect(buffer, index, packet, parent)
   end
 
@@ -8355,7 +8357,9 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.
   local end_of_payload = buffer:len()
 
   -- Complex Series Leg Group: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, complex_series_leg_group = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_leg_group.dissect(buffer, index, packet, parent)
   end
 

@@ -493,7 +493,7 @@ otc_markets_headers_ats_v1_0.packet.dissect = function(buffer, packet, parent)
     local message_size = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    index, message = otc_markets_headers_ats_v1_0.message.dissect(buffer, index, packet, parent, message_size)
+    index, message = otc_markets_headers_ats_v1_0.message.dissect(buffer, index, packet, parent, message_size, message_index)
   end
 
   return index

@@ -2690,7 +2690,7 @@ cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.packet.dissect = function(b
     local message_length = buffer(index, 1):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.message.dissect(buffer, index, packet, parent, message_length)
+    index, message = cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

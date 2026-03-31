@@ -31923,7 +31923,7 @@ cboe_bzx_options_orderentry_boe_v2_10.login_response_message.fields = function(b
     local param_group_length = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Param Group
-    index, param_group = cboe_bzx_options_orderentry_boe_v2_10.param_group.dissect(buffer, index, packet, parent, param_group_length)
+    index, param_group = cboe_bzx_options_orderentry_boe_v2_10.param_group.dissect(buffer, index, packet, parent, param_group_length, param_group_index)
   end
 
   return index
@@ -31992,7 +31992,7 @@ cboe_bzx_options_orderentry_boe_v2_10.login_request_message.fields = function(bu
     local param_group_length = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Param Group
-    index, param_group = cboe_bzx_options_orderentry_boe_v2_10.param_group.dissect(buffer, index, packet, parent, param_group_length)
+    index, param_group = cboe_bzx_options_orderentry_boe_v2_10.param_group.dissect(buffer, index, packet, parent, param_group_length, param_group_index)
   end
 
   return index

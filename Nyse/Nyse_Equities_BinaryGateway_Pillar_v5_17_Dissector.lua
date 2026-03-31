@@ -7841,7 +7841,9 @@ nyse_equities_binarygateway_pillar_v5_17.minimum_price_variant_level_reference_d
   local end_of_payload = buffer:len()
 
   -- Mpv Level Definition: Struct of 5 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, mpv_level_definition = nyse_equities_binarygateway_pillar_v5_17.mpv_level_definition.dissect(buffer, index, packet, parent)
   end
 

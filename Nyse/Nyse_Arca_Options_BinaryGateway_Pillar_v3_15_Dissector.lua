@@ -6175,7 +6175,9 @@ nyse_arca_options_binarygateway_pillar_v3_15.complex_series_request_acknowledgem
   local end_of_payload = repeating_groups
 
   -- Complex Leg Ack: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, complex_leg_ack = nyse_arca_options_binarygateway_pillar_v3_15.complex_leg_ack.dissect(buffer, index, packet, parent)
   end
 
@@ -7407,7 +7409,9 @@ nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote_acknowledgment.fields = 
   local end_of_payload = seq_msg_length
 
   -- Quote Ack: Struct of 7 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, quote_ack = nyse_arca_options_binarygateway_pillar_v3_15.quote_ack.dissect(buffer, index, packet, parent)
   end
 
@@ -8026,7 +8030,9 @@ nyse_arca_options_binarygateway_pillar_v3_15.minimum_price_variant_level_referen
   local end_of_payload = seq_msg_length
 
   -- Mpv Level Definition: Struct of 5 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, mpv_level_definition = nyse_arca_options_binarygateway_pillar_v3_15.mpv_level_definition.dissect(buffer, index, packet, parent)
   end
 
@@ -8314,7 +8320,9 @@ nyse_arca_options_binarygateway_pillar_v3_15.new_complex_series_request.fields =
   local end_of_payload = seq_msg_length
 
   -- Complex Leg: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, complex_leg = nyse_arca_options_binarygateway_pillar_v3_15.complex_leg.dissect(buffer, index, packet, parent)
   end
 
@@ -9036,7 +9044,9 @@ nyse_arca_options_binarygateway_pillar_v3_15.new_bulk_quote.fields = function(bu
   local end_of_payload = seq_msg_length
 
   -- Bulk Quote: Struct of 4 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, bulk_quote = nyse_arca_options_binarygateway_pillar_v3_15.bulk_quote.dissect(buffer, index, packet, parent)
   end
 

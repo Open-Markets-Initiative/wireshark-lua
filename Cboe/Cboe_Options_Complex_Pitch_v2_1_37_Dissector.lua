@@ -3464,7 +3464,7 @@ cboe_options_complex_pitch_v2_1_37.packet.dissect = function(buffer, packet, par
     local message_length = buffer(index, 1):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = cboe_options_complex_pitch_v2_1_37.message.dissect(buffer, index, packet, parent, message_length)
+    index, message = cboe_options_complex_pitch_v2_1_37.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

@@ -8412,7 +8412,7 @@ siac_cts_output_cta_v2_10.packet.dissect = function(buffer, packet, parent)
     local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    index, message = siac_cts_output_cta_v2_10.message.dissect(buffer, index, packet, parent, message_length)
+    index, message = siac_cts_output_cta_v2_10.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   -- Runtime optional field: Block Pad Byte

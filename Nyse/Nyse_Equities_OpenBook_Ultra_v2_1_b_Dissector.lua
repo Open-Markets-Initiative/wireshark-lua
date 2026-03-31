@@ -1081,7 +1081,9 @@ nyse_equities_openbook_ultra_v2_1_b.delta_update_message.fields = function(buffe
   local end_of_payload = offset + delta_size - (index - offset)
 
   -- Delta Price Point: Struct of 9 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, delta_price_point = nyse_equities_openbook_ultra_v2_1_b.delta_price_point.dissect(buffer, index, packet, parent)
   end
 
@@ -1130,7 +1132,9 @@ nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.fields = function(buff
   local end_of_payload = buffer:len()
 
   -- Delta Update Message: Struct of 10 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Delta Size
     local delta_size = buffer(index, 2):int()
@@ -1268,7 +1272,9 @@ nyse_equities_openbook_ultra_v2_1_b.full_update_message.fields = function(buffer
   local end_of_payload = offset + update_size - (index - offset)
 
   -- Full Price Point: Struct of 5 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, full_price_point = nyse_equities_openbook_ultra_v2_1_b.full_price_point.dissect(buffer, index, packet, parent)
   end
 
@@ -1317,7 +1323,9 @@ nyse_equities_openbook_ultra_v2_1_b.full_update_messages.fields = function(buffe
   local end_of_payload = buffer:len()
 
   -- Full Update Message: Struct of 13 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Update Size
     local update_size = buffer(index, 2):int()

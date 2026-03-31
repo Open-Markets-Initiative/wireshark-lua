@@ -3293,7 +3293,7 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.fields = function(buffer, o
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
   index, seconds = nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Binary
   index, nanoseconds = nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -3390,13 +3390,15 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.packet.dissect = function(buffer, pac
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = nyse_equities_imbalancesfeed_pillar_v2_2_h.message.dissect(buffer, index, packet, parent, message_size)
+    index, message = nyse_equities_imbalancesfeed_pillar_v2_2_h.message.dissect(buffer, index, packet, parent, message_size, message_index)
   end
 
   return index

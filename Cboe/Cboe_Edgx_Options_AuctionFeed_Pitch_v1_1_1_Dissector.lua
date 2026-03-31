@@ -1239,7 +1239,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1.packet.dissect = function(buffer, pac
     local message_length = buffer(index, 1):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = cboe_edgx_options_auctionfeed_pitch_v1_1_1.message.dissect(buffer, index, packet, parent, message_length)
+    index, message = cboe_edgx_options_auctionfeed_pitch_v1_1_1.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

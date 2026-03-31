@@ -1778,7 +1778,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.packet.dissect = function(buffer, pa
     local message_length = buffer(index, 1):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = cboe_byx_equities_summarydepth_pitch_v1_0_4.message.dissect(buffer, index, packet, parent, message_length)
+    index, message = cboe_byx_equities_summarydepth_pitch_v1_0_4.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

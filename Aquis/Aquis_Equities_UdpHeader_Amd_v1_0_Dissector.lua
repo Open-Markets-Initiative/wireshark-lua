@@ -355,7 +355,7 @@ aquis_equities_udpheader_amd_v1_0.packet.dissect = function(buffer, packet, pare
     local msg_length = buffer(index + 1, 1):uint()
 
     -- Runtime Size Of: Message
-    index, message = aquis_equities_udpheader_amd_v1_0.message.dissect(buffer, index, packet, parent, msg_length)
+    index, message = aquis_equities_udpheader_amd_v1_0.message.dissect(buffer, index, packet, parent, msg_length, message_index)
   end
 
   return index

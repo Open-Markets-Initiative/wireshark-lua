@@ -1723,7 +1723,7 @@ a2x_equities_rtmdf_amd_v1_3_2.packet.dissect = function(buffer, packet, parent)
     local msg_length = buffer(index + 1, 1):uint()
 
     -- Runtime Size Of: Message
-    index, message = a2x_equities_rtmdf_amd_v1_3_2.message.dissect(buffer, index, packet, parent, msg_length)
+    index, message = a2x_equities_rtmdf_amd_v1_3_2.message.dissect(buffer, index, packet, parent, msg_length, message_index)
   end
 
   return index

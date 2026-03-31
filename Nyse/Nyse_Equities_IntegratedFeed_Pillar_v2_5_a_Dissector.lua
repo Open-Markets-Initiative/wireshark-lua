@@ -3292,7 +3292,6 @@ nyse_equities_integratedfeed_pillar_v2_5_a.non_displayed_trade_message.size =
   nyse_equities_integratedfeed_pillar_v2_5_a.printable_flag.size + 
   nyse_equities_integratedfeed_pillar_v2_5_a.trade_cond_1.size + 
   nyse_equities_integratedfeed_pillar_v2_5_a.trade_cond_2.size + 
-  nyse_equities_integratedfeed_pillar_v2_5_a.trade_cond_2.size + 
   nyse_equities_integratedfeed_pillar_v2_5_a.trade_cond_3.size + 
   nyse_equities_integratedfeed_pillar_v2_5_a.trade_cond_4.size
 
@@ -3328,9 +3327,6 @@ nyse_equities_integratedfeed_pillar_v2_5_a.non_displayed_trade_message.fields = 
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 3 values
   index, trade_cond_1 = nyse_equities_integratedfeed_pillar_v2_5_a.trade_cond_1.dissect(buffer, index, packet, parent)
-
-  -- Trade Cond 2: 1 Byte Ascii String Enum with 6 values
-  index, trade_cond_2 = nyse_equities_integratedfeed_pillar_v2_5_a.trade_cond_2.dissect(buffer, index, packet, parent)
 
   -- Trade Cond 2: 1 Byte Ascii String Enum with 6 values
   index, trade_cond_2 = nyse_equities_integratedfeed_pillar_v2_5_a.trade_cond_2.dissect(buffer, index, packet, parent)
@@ -4880,7 +4876,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a.send_time.fields = function(buffer, o
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
   index, seconds = nyse_equities_integratedfeed_pillar_v2_5_a.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Binary
   index, nanoseconds = nyse_equities_integratedfeed_pillar_v2_5_a.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -4977,13 +4973,15 @@ nyse_equities_integratedfeed_pillar_v2_5_a.packet.dissect = function(buffer, pac
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = nyse_equities_integratedfeed_pillar_v2_5_a.message.dissect(buffer, index, packet, parent, message_size)
+    index, message = nyse_equities_integratedfeed_pillar_v2_5_a.message.dissect(buffer, index, packet, parent, message_size, message_index)
   end
 
   return index

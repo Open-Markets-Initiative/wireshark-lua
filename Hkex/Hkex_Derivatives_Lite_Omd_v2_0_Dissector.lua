@@ -5445,7 +5445,7 @@ hkex_derivatives_lite_omd_v2_0.packet.dissect = function(buffer, packet, parent)
     local msg_size = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = hkex_derivatives_lite_omd_v2_0.message.dissect(buffer, index, packet, parent, msg_size)
+    index, message = hkex_derivatives_lite_omd_v2_0.message.dissect(buffer, index, packet, parent, msg_size, message_index)
   end
 
   return index

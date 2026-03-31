@@ -30567,7 +30567,7 @@ cboe_edgx_equities_orderentry_boe_v2_3.login_response_message.fields = function(
     local param_group_length = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Param Group
-    index, param_group = cboe_edgx_equities_orderentry_boe_v2_3.param_group.dissect(buffer, index, packet, parent, param_group_length)
+    index, param_group = cboe_edgx_equities_orderentry_boe_v2_3.param_group.dissect(buffer, index, packet, parent, param_group_length, param_group_index)
   end
 
   return index
@@ -30636,7 +30636,7 @@ cboe_edgx_equities_orderentry_boe_v2_3.login_request_message.fields = function(b
     local param_group_length = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Param Group
-    index, param_group = cboe_edgx_equities_orderentry_boe_v2_3.param_group.dissect(buffer, index, packet, parent, param_group_length)
+    index, param_group = cboe_edgx_equities_orderentry_boe_v2_3.param_group.dissect(buffer, index, packet, parent, param_group_length, param_group_index)
   end
 
   return index

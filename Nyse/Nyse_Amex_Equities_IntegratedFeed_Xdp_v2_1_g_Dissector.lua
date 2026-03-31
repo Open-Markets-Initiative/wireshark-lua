@@ -4690,27 +4690,13 @@ end
 -- Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message = {}
 
--- Calculate size of: Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.message_header.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 2, 2):le_uint()
-  index = index + nyse_amex_equities_integratedfeed_xdp_v2_1_g.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.fields = function(buffer, offset, packet, parent, message_index)
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -4732,20 +4718,23 @@ nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.fields = function(buffer, o
 end
 
 -- Dissect: Message
-nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.dissect = function(buffer, offset, packet, parent, message_index)
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.display(packet, parent, length)
+    local current = nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.fields(buffer, offset, packet, parent, message_index)
+    nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -4823,8 +4812,15 @@ nyse_amex_equities_integratedfeed_xdp_v2_1_g.packet.dissect = function(buffer, p
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
-    index, message = nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.dissect(buffer, index, packet, parent, message_index)
+    message_index = message_index + 1
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = nyse_amex_equities_integratedfeed_xdp_v2_1_g.message.dissect(buffer, index, packet, parent, message_size, message_index)
   end
 
   return index

@@ -415,7 +415,7 @@ cboe_pitch_sequencedunitheader_pitch_v1_0.packet.dissect = function(buffer, pack
     local message_length = buffer(index, 1):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = cboe_pitch_sequencedunitheader_pitch_v1_0.message.dissect(buffer, index, packet, parent, message_length)
+    index, message = cboe_pitch_sequencedunitheader_pitch_v1_0.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

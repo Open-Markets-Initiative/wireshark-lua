@@ -3377,7 +3377,7 @@ cboe_futures_depthofbook_pitch_v1_1_12.packet.dissect = function(buffer, packet,
     local message_length = buffer(index, 1):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = cboe_futures_depthofbook_pitch_v1_1_12.message.dissect(buffer, index, packet, parent, message_length)
+    index, message = cboe_futures_depthofbook_pitch_v1_1_12.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

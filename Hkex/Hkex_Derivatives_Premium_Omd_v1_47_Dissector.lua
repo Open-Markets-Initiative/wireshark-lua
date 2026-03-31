@@ -5387,7 +5387,7 @@ hkex_derivatives_premium_omd_v1_47.packet.dissect = function(buffer, packet, par
     local msg_size = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = hkex_derivatives_premium_omd_v1_47.message.dissect(buffer, index, packet, parent, msg_size)
+    index, message = hkex_derivatives_premium_omd_v1_47.message.dissect(buffer, index, packet, parent, msg_size, message_index)
   end
 
   return index

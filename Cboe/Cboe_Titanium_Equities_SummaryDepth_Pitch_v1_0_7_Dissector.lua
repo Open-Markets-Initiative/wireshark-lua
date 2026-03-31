@@ -1833,7 +1833,7 @@ cboe_titanium_equities_summarydepth_pitch_v1_0_7.packet.dissect = function(buffe
     local message_length = buffer(index, 1):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = cboe_titanium_equities_summarydepth_pitch_v1_0_7.message.dissect(buffer, index, packet, parent, message_length)
+    index, message = cboe_titanium_equities_summarydepth_pitch_v1_0_7.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

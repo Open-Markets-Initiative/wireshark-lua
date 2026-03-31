@@ -2025,7 +2025,7 @@ tmx_quantumfeed_alphalevel1_xmt_v2_2.packet.dissect = function(buffer, packet, p
       local msg_length = buffer(index, 2):le_uint()
 
       -- Runtime Size Of: Body
-      index, body = tmx_quantumfeed_alphalevel1_xmt_v2_2.body.dissect(buffer, index, packet, parent, msg_length)
+      index, body = tmx_quantumfeed_alphalevel1_xmt_v2_2.body.dissect(buffer, index, packet, parent, msg_length, body_index)
     end
   end
 
