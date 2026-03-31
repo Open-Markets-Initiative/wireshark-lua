@@ -2677,7 +2677,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields = function(buff
   local end_of_payload = appendage_length + index
 
   -- Replace Order Appendage: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):int()
@@ -2839,7 +2841,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields = function(buffer
   local end_of_payload = appendage_length + index
 
   -- Enter Order Appendage: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):int()
@@ -3151,7 +3155,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields = function(buf
   local end_of_payload = appendage_length + index
 
   -- Order Restated Appendage: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):int()
@@ -3662,7 +3668,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields = function(buf
   local end_of_payload = appendage_length + index
 
   -- Order Executed Appendage: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):int()
@@ -3972,7 +3980,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields = function(buffer, o
   local end_of_payload = appendage_length + index
 
   -- Replaced Message Appendage: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):int()
@@ -4191,7 +4201,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields = function(buf
   local end_of_payload = appendage_length + index
 
   -- Order Accepted Appendage: Struct of 3 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):int()

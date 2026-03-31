@@ -129,6 +129,19 @@ omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_message_header = Pref
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
+-- Timestamp Display Preferences
+nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_psxequities_totalview_itch_v5_0_2018.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+
 -- Handle changed preferences
 function omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs_changed()
   local changed = false
@@ -152,6 +165,16 @@ function omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs_changed()
   end
   if show.packet_header ~= omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.show_packet_header
+    changed = true
+  end
+
+  -- Check Timestamp preferences
+  if nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp_format ~= omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.timestamp_format then
+    nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp_format = omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.timestamp_format
+    changed = true
+  end
+  if nasdaq_psxequities_totalview_itch_v5_0_2018.utc_offset_hours ~= omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.utc_offset_hours then
+    nasdaq_psxequities_totalview_itch_v5_0_2018.utc_offset_hours = omi_nasdaq_psxequities_totalview_itch_v5_0_2018.prefs.utc_offset_hours
     changed = true
   end
 
@@ -2015,8 +2038,28 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.size = 6
 
 -- Display: Timestamp
-nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.display = function(value)
-  return "Timestamp: "..value
+nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_psxequities_totalview_itch_v5_0_2018.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

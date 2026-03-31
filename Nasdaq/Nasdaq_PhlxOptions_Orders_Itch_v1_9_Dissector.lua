@@ -2756,7 +2756,9 @@ nasdaq_phlxoptions_orders_itch_v1_9.packet.dissect = function(buffer, packet, pa
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
+  local message_index = 0
   while index < end_of_payload do
+    message_index = message_index + 1
     index, message = nasdaq_phlxoptions_orders_itch_v1_9.message.dissect(buffer, index, packet, parent, message_index)
   end
 

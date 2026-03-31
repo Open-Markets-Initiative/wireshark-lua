@@ -100,6 +100,19 @@ omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_message_header = Pref.bool(
 omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
+-- Timestamp Timestamp 6 Display Preferences
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_nsmequities_noi_itch_v3_0_2026.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+
+local timestamp_timestamp_6_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.timestamp_timestamp_6_format = Pref.enum("Timestamp Timestamp 6 Format", 2, "Timestamp Timestamp 6 display format", timestamp_timestamp_6_format_enum, false)
+omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs_changed()
   local changed = false
@@ -123,6 +136,16 @@ function omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs_changed()
   end
   if show.packet_header ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_packet_header
+    changed = true
+  end
+
+  -- Check Timestamp Timestamp 6 preferences
+  if nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6_format ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.timestamp_timestamp_6_format then
+    nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6_format = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.timestamp_timestamp_6_format
+    changed = true
+  end
+  if nasdaq_nsmequities_noi_itch_v3_0_2026.utc_offset_hours ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.utc_offset_hours then
+    nasdaq_nsmequities_noi_itch_v3_0_2026.utc_offset_hours = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.utc_offset_hours
     changed = true
   end
 
@@ -1801,8 +1824,28 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6 = {}
 nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.size = 6
 
 -- Display: Timestamp Integer 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.display = function(value)
-  return "Timestamp Integer 6: "..value
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6_format == 0 then
+    return "Timestamp Integer 6: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_nsmequities_noi_itch_v3_0_2026.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp Integer 6: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp Integer 6: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp Integer 6
@@ -1824,8 +1867,28 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6 = {}
 nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size = 6
 
 -- Display: Timestamp Timestamp 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.display = function(value)
-  return "Timestamp Timestamp 6: "..value
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6_format == 0 then
+    return "Timestamp Timestamp 6: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_nsmequities_noi_itch_v3_0_2026.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp Timestamp 6: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp Timestamp 6: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp Timestamp 6

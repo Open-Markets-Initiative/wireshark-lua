@@ -79,7 +79,7 @@ omi_nasdaq_bxequities_totalview_itch_v5_0.fields.shares_long = ProtoField.new("S
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.bxequities.totalview.itch.v5.0.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.stock = ProtoField.new("Stock", "nasdaq.bxequities.totalview.itch.v5.0.stock", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.stock_locate = ProtoField.new("Stock Locate", "nasdaq.bxequities.totalview.itch.v5.0.stocklocate", ftypes.UINT16)
-omi_nasdaq_bxequities_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.bxequities.totalview.itch.v5.0.timestamp", ftypes.BYTES)
+omi_nasdaq_bxequities_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.bxequities.totalview.itch.v5.0.timestamp", ftypes.UINT64)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.bxequities.totalview.itch.v5.0.trackingnumber", ftypes.UINT16)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.bxequities.totalview.itch.v5.0.tradingactionreason", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.bxequities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
@@ -2090,7 +2090,7 @@ end
 nasdaq_bxequities_totalview_itch_v5_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_bxequities_totalview_itch_v5_0.timestamp.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint64()
   local display = nasdaq_bxequities_totalview_itch_v5_0.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxequities_totalview_itch_v5_0.fields.timestamp, range, value, display)

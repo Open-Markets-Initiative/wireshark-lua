@@ -19,7 +19,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.adjusted_closing_price = ProtoFi
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.nlsplus.itch.v4.0.authenticity", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.bloomberg_id = ProtoField.new("Bloomberg Id", "nasdaq.nsmequities.nlsplus.itch.v4.0.bloombergid", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.nsmequities.nlsplus.itch.v4.0.breachedlevel", ftypes.STRING)
-omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.client_timestamp = ProtoField.new("Client Timestamp", "nasdaq.nsmequities.nlsplus.itch.v4.0.clienttimestamp", ftypes.BYTES)
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.client_timestamp = ProtoField.new("Client Timestamp", "nasdaq.nsmequities.nlsplus.itch.v4.0.clienttimestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.consolidated_closing_price = ProtoField.new("Consolidated Closing Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.consolidatedclosingprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.consolidatedhighprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.consolidated_low_price = ProtoField.new("Consolidated Low Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.consolidatedlowprice", ftypes.DOUBLE)
@@ -74,7 +74,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.session = ProtoField.new("Sessio
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.nlsplus.itch.v4.0.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.nlsplus.itch.v4.0.stock", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.stock_alpha_8 = ProtoField.new("Stock Alpha 8", "nasdaq.nsmequities.nlsplus.itch.v4.0.stockalpha8", ftypes.STRING)
-omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.nlsplus.itch.v4.0.timestamp", ftypes.BYTES)
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.nlsplus.itch.v4.0.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.nlsplus.itch.v4.0.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_control_number = ProtoField.new("Trade Control Number", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradecontrolnumber", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradeprice", ftypes.DOUBLE)
@@ -119,6 +119,19 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.show_message_header = Pref.bool("
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
+-- Timestamp Display Preferences
+nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_nsmequities_nlsplus_itch_v4_0.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs_changed()
   local changed = false
@@ -142,6 +155,16 @@ function omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs_changed()
   end
   if show.packet_header ~= omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.show_packet_header
+    changed = true
+  end
+
+  -- Check Timestamp preferences
+  if nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp_format ~= omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.timestamp_format then
+    nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp_format = omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.timestamp_format
+    changed = true
+  end
+  if nasdaq_nsmequities_nlsplus_itch_v4_0.utc_offset_hours ~= omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.utc_offset_hours then
+    nasdaq_nsmequities_nlsplus_itch_v4_0.utc_offset_hours = omi_nasdaq_nsmequities_nlsplus_itch_v4_0.prefs.utc_offset_hours
     changed = true
   end
 
@@ -296,15 +319,35 @@ nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.size = 6
 
 -- Display: Client Timestamp
-nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.display = function(value)
-  return "Client Timestamp: "..value
+nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp_format == 0 then
+    return "Client Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_nsmequities_nlsplus_itch_v4_0.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Client Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Client Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Client Timestamp
 nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint64()
   local display = nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.client_timestamp, range, value, display)
@@ -1894,15 +1937,35 @@ nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.size = 6
 
 -- Display: Timestamp
-nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.display = function(value)
-  return "Timestamp: "..value
+nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_nsmequities_nlsplus_itch_v4_0.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
 nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:uint64()
   local display = nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.timestamp, range, value, display)

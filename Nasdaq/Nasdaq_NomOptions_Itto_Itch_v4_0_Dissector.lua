@@ -69,7 +69,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price = ProtoField.new("Price", "nas
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price_long = ProtoField.new("Price Long", "nasdaq.nomoptions.itto.itch.v4.0.pricelong", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.printable = ProtoField.new("Printable", "nasdaq.nomoptions.itto.itch.v4.0.printable", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reference_number = ProtoField.new("Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.referencenumber", ftypes.UINT64)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.nomoptions.itto.itch.v4.0.reserved", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.nomoptions.itto.itch.v4.0.reserved", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.nomoptions.itto.itch.v4.0.securitysymbol", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.sequencenumber", ftypes.UINT64)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.session = ProtoField.new("Session", "nasdaq.nomoptions.itto.itch.v4.0.session", ftypes.STRING)
@@ -1603,7 +1603,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.reserved.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.reserved.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nomoptions_itto_itch_v4_0.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved, range, value, display)
