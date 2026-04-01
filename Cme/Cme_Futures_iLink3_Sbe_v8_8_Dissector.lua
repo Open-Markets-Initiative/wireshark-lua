@@ -487,6 +487,30 @@ show.trade_legs_groups = true
 show.trd_reg_publications_group = true
 show.trd_reg_publications_groups = true
 show.volatility = true
+show.quote_entries_group_index = true
+show.party_details_group_index = true
+show.trd_reg_publications_group_index = true
+show.fills_group_index = true
+show.outright_order_events_group_index = true
+show.trade_legs_group_index = true
+show.spread_order_events_group_index = true
+show.quote_cancel_entries_group_index = true
+show.quote_cancel_sets_group_index = true
+show.requesting_party_ids_group_index = true
+show.party_ids_group_index = true
+show.related_sym_group_index = true
+show.sides_group_index = true
+show.quote_ack_entries_group_index = true
+show.outright_trade_events_group_index = true
+show.trade_addendum_legs_group_index = true
+show.spread_trade_events_group_index = true
+show.request_legs_group_index = true
+show.broken_dates_request_group_index = true
+show.response_legs_group_index = true
+show.broken_dates_response_group_index = true
+show.affected_orders_group_index = true
+show.quote_cancel_ack_entries_group_index = true
+show.quote_cancel_ack_sets_group_index = true
 
 -- Register Cme Futures iLink3 Sbe 8.8 Show Options
 omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_group = Pref.bool("Show Affected Orders Group", show.affected_orders_group, "Parse and add Affected Orders Group to protocol tree")
@@ -555,280 +579,304 @@ omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_groups = Pref.bool("Show T
 omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_group = Pref.bool("Show Trd Reg Publications Group", show.trd_reg_publications_group, "Parse and add Trd Reg Publications Group to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_groups = Pref.bool("Show Trd Reg Publications Groups", show.trd_reg_publications_groups, "Parse and add Trd Reg Publications Groups to protocol tree")
 omi_cme_futures_ilink3_sbe_v8_8.prefs.show_volatility = Pref.bool("Show Volatility", show.volatility, "Parse and add Volatility to protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_entries_group_index = Pref.bool("Show Quote Entries Group Index", show.quote_entries_group_index, "Show generated quote entries group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_details_group_index = Pref.bool("Show Party Details Group Index", show.party_details_group_index, "Show generated party details group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_group_index = Pref.bool("Show Trd Reg Publications Group Index", show.trd_reg_publications_group_index, "Show generated trd reg publications group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_fills_group_index = Pref.bool("Show Fills Group Index", show.fills_group_index, "Show generated fills group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_order_events_group_index = Pref.bool("Show Outright Order Events Group Index", show.outright_order_events_group_index, "Show generated outright order events group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_group_index = Pref.bool("Show Trade Legs Group Index", show.trade_legs_group_index, "Show generated trade legs group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_order_events_group_index = Pref.bool("Show Spread Order Events Group Index", show.spread_order_events_group_index, "Show generated spread order events group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_entries_group_index = Pref.bool("Show Quote Cancel Entries Group Index", show.quote_cancel_entries_group_index, "Show generated quote cancel entries group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_sets_group_index = Pref.bool("Show Quote Cancel Sets Group Index", show.quote_cancel_sets_group_index, "Show generated quote cancel sets group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_requesting_party_ids_group_index = Pref.bool("Show Requesting Party Ids Group Index", show.requesting_party_ids_group_index, "Show generated requesting party ids group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_ids_group_index = Pref.bool("Show Party Ids Group Index", show.party_ids_group_index, "Show generated party ids group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_related_sym_group_index = Pref.bool("Show Related Sym Group Index", show.related_sym_group_index, "Show generated related sym group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_sides_group_index = Pref.bool("Show Sides Group Index", show.sides_group_index, "Show generated sides group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_ack_entries_group_index = Pref.bool("Show Quote Ack Entries Group Index", show.quote_ack_entries_group_index, "Show generated quote ack entries group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_trade_events_group_index = Pref.bool("Show Outright Trade Events Group Index", show.outright_trade_events_group_index, "Show generated outright trade events group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_addendum_legs_group_index = Pref.bool("Show Trade Addendum Legs Group Index", show.trade_addendum_legs_group_index, "Show generated trade addendum legs group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_trade_events_group_index = Pref.bool("Show Spread Trade Events Group Index", show.spread_trade_events_group_index, "Show generated spread trade events group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_request_legs_group_index = Pref.bool("Show Request Legs Group Index", show.request_legs_group_index, "Show generated request legs group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_request_group_index = Pref.bool("Show Broken Dates Request Group Index", show.broken_dates_request_group_index, "Show generated broken dates request group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_response_legs_group_index = Pref.bool("Show Response Legs Group Index", show.response_legs_group_index, "Show generated response legs group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_response_group_index = Pref.bool("Show Broken Dates Response Group Index", show.broken_dates_response_group_index, "Show generated broken dates response group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_group_index = Pref.bool("Show Affected Orders Group Index", show.affected_orders_group_index, "Show generated affected orders group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_entries_group_index = Pref.bool("Show Quote Cancel Ack Entries Group Index", show.quote_cancel_ack_entries_group_index, "Show generated quote cancel ack entries group index in protocol tree")
+omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_sets_group_index = Pref.bool("Show Quote Cancel Ack Sets Group Index", show.quote_cancel_ack_sets_group_index, "Show generated quote cancel ack sets group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_ilink3_sbe_v8_8.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.affected_orders_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_group then
     show.affected_orders_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_group
-    changed = true
   end
   if show.affected_orders_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_groups then
     show.affected_orders_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_groups
-    changed = true
   end
   if show.application_messages ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_application_messages then
     show.application_messages = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_application_messages
-    changed = true
   end
   if show.broken_dates_request_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_request_group then
     show.broken_dates_request_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_request_group
-    changed = true
   end
   if show.broken_dates_request_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_request_groups then
     show.broken_dates_request_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_request_groups
-    changed = true
   end
   if show.broken_dates_response_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_response_group then
     show.broken_dates_response_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_response_group
-    changed = true
   end
   if show.broken_dates_response_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_response_groups then
     show.broken_dates_response_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_response_groups
-    changed = true
   end
   if show.calculated_ccy_last_qty ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_calculated_ccy_last_qty then
     show.calculated_ccy_last_qty = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_calculated_ccy_last_qty
-    changed = true
   end
   if show.contra_calculated_ccy_last_qty ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_contra_calculated_ccy_last_qty then
     show.contra_calculated_ccy_last_qty = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_contra_calculated_ccy_last_qty
-    changed = true
   end
   if show.contra_gross_trade_amt ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_contra_gross_trade_amt then
     show.contra_gross_trade_amt = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_contra_gross_trade_amt
-    changed = true
   end
   if show.credentials ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_credentials then
     show.credentials = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_credentials
-    changed = true
   end
   if show.exec_inst ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_exec_inst then
     show.exec_inst = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_exec_inst
-    changed = true
   end
   if show.fills_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_fills_group then
     show.fills_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_fills_group
-    changed = true
   end
   if show.fills_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_fills_groups then
     show.fills_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_fills_groups
-    changed = true
   end
   if show.gross_trade_amt ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_gross_trade_amt then
     show.gross_trade_amt = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_gross_trade_amt
-    changed = true
   end
   if show.group_size ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_group_size then
     show.group_size = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_group_size
-    changed = true
   end
   if show.leg_option_delta ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_leg_option_delta then
     show.leg_option_delta = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_leg_option_delta
-    changed = true
   end
   if show.maturity_month_year ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_maturity_month_year then
     show.maturity_month_year = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_maturity_month_year
-    changed = true
   end
   if show.message_header ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_message_header then
     show.message_header = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_message_header
-    changed = true
   end
   if show.option_delta ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_option_delta then
     show.option_delta = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_option_delta
-    changed = true
   end
   if show.outright_order_events_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_order_events_group then
     show.outright_order_events_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_order_events_group
-    changed = true
   end
   if show.outright_order_events_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_order_events_groups then
     show.outright_order_events_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_order_events_groups
-    changed = true
   end
   if show.outright_trade_events_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_trade_events_group then
     show.outright_trade_events_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_trade_events_group
-    changed = true
   end
   if show.outright_trade_events_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_trade_events_groups then
     show.outright_trade_events_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_trade_events_groups
-    changed = true
   end
   if show.packet ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_packet then
     show.packet = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_packet
-    changed = true
   end
   if show.party_details_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_details_group then
     show.party_details_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_details_group
-    changed = true
   end
   if show.party_details_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_details_groups then
     show.party_details_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_details_groups
-    changed = true
   end
   if show.party_ids_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_ids_group then
     show.party_ids_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_ids_group
-    changed = true
   end
   if show.party_ids_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_ids_groups then
     show.party_ids_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_ids_groups
-    changed = true
   end
   if show.quote_ack_entries_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_ack_entries_group then
     show.quote_ack_entries_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_ack_entries_group
-    changed = true
   end
   if show.quote_ack_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_ack_entries_groups then
     show.quote_ack_entries_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_ack_entries_groups
-    changed = true
   end
   if show.quote_cancel_ack_entries_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_entries_group then
     show.quote_cancel_ack_entries_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_entries_group
-    changed = true
   end
   if show.quote_cancel_ack_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_entries_groups then
     show.quote_cancel_ack_entries_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_entries_groups
-    changed = true
   end
   if show.quote_cancel_ack_sets_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_sets_group then
     show.quote_cancel_ack_sets_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_sets_group
-    changed = true
   end
   if show.quote_cancel_ack_sets_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_sets_groups then
     show.quote_cancel_ack_sets_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_sets_groups
-    changed = true
   end
   if show.quote_cancel_entries_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_entries_group then
     show.quote_cancel_entries_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_entries_group
-    changed = true
   end
   if show.quote_cancel_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_entries_groups then
     show.quote_cancel_entries_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_entries_groups
-    changed = true
   end
   if show.quote_cancel_sets_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_sets_group then
     show.quote_cancel_sets_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_sets_group
-    changed = true
   end
   if show.quote_cancel_sets_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_sets_groups then
     show.quote_cancel_sets_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_sets_groups
-    changed = true
   end
   if show.quote_entries_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_entries_group then
     show.quote_entries_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_entries_group
-    changed = true
   end
   if show.quote_entries_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_entries_groups then
     show.quote_entries_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_entries_groups
-    changed = true
   end
   if show.related_sym_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_related_sym_group then
     show.related_sym_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_related_sym_group
-    changed = true
   end
   if show.related_sym_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_related_sym_groups then
     show.related_sym_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_related_sym_groups
-    changed = true
   end
   if show.request_legs_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_request_legs_group then
     show.request_legs_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_request_legs_group
-    changed = true
   end
   if show.request_legs_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_request_legs_groups then
     show.request_legs_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_request_legs_groups
-    changed = true
   end
   if show.requesting_party_ids_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_requesting_party_ids_group then
     show.requesting_party_ids_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_requesting_party_ids_group
-    changed = true
   end
   if show.requesting_party_ids_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_requesting_party_ids_groups then
     show.requesting_party_ids_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_requesting_party_ids_groups
-    changed = true
   end
   if show.response_legs_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_response_legs_group then
     show.response_legs_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_response_legs_group
-    changed = true
   end
   if show.response_legs_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_response_legs_groups then
     show.response_legs_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_response_legs_groups
-    changed = true
   end
   if show.risk_free_rate ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_risk_free_rate then
     show.risk_free_rate = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_risk_free_rate
-    changed = true
   end
   if show.sides_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_sides_group then
     show.sides_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_sides_group
-    changed = true
   end
   if show.sides_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_sides_groups then
     show.sides_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_sides_groups
-    changed = true
   end
   if show.simple_open_frame ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_simple_open_frame then
     show.simple_open_frame = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_simple_open_frame
-    changed = true
   end
   if show.simple_open_framing_header ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_simple_open_framing_header then
     show.simple_open_framing_header = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_simple_open_framing_header
-    changed = true
   end
   if show.spread_order_events_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_order_events_group then
     show.spread_order_events_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_order_events_group
-    changed = true
   end
   if show.spread_order_events_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_order_events_groups then
     show.spread_order_events_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_order_events_groups
-    changed = true
   end
   if show.spread_trade_events_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_trade_events_group then
     show.spread_trade_events_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_trade_events_group
-    changed = true
   end
   if show.spread_trade_events_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_trade_events_groups then
     show.spread_trade_events_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_trade_events_groups
-    changed = true
   end
   if show.time_to_expiration ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_time_to_expiration then
     show.time_to_expiration = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_time_to_expiration
-    changed = true
   end
   if show.trade_addendum_legs_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_addendum_legs_group then
     show.trade_addendum_legs_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_addendum_legs_group
-    changed = true
   end
   if show.trade_addendum_legs_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_addendum_legs_groups then
     show.trade_addendum_legs_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_addendum_legs_groups
-    changed = true
   end
   if show.trade_legs_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_group then
     show.trade_legs_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_group
-    changed = true
   end
   if show.trade_legs_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_groups then
     show.trade_legs_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_groups
-    changed = true
   end
   if show.trd_reg_publications_group ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_group then
     show.trd_reg_publications_group = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_group
-    changed = true
   end
   if show.trd_reg_publications_groups ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_groups then
     show.trd_reg_publications_groups = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_groups
-    changed = true
   end
   if show.volatility ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_volatility then
     show.volatility = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_volatility
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.quote_entries_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_entries_group_index then
+    show.quote_entries_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_entries_group_index
+  end
+  if show.party_details_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_details_group_index then
+    show.party_details_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_details_group_index
+  end
+  if show.trd_reg_publications_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_group_index then
+    show.trd_reg_publications_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trd_reg_publications_group_index
+  end
+  if show.fills_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_fills_group_index then
+    show.fills_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_fills_group_index
+  end
+  if show.outright_order_events_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_order_events_group_index then
+    show.outright_order_events_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_order_events_group_index
+  end
+  if show.trade_legs_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_group_index then
+    show.trade_legs_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_legs_group_index
+  end
+  if show.spread_order_events_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_order_events_group_index then
+    show.spread_order_events_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_order_events_group_index
+  end
+  if show.quote_cancel_entries_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_entries_group_index then
+    show.quote_cancel_entries_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_entries_group_index
+  end
+  if show.quote_cancel_sets_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_sets_group_index then
+    show.quote_cancel_sets_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_sets_group_index
+  end
+  if show.requesting_party_ids_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_requesting_party_ids_group_index then
+    show.requesting_party_ids_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_requesting_party_ids_group_index
+  end
+  if show.party_ids_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_ids_group_index then
+    show.party_ids_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_party_ids_group_index
+  end
+  if show.related_sym_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_related_sym_group_index then
+    show.related_sym_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_related_sym_group_index
+  end
+  if show.sides_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_sides_group_index then
+    show.sides_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_sides_group_index
+  end
+  if show.quote_ack_entries_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_ack_entries_group_index then
+    show.quote_ack_entries_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_ack_entries_group_index
+  end
+  if show.outright_trade_events_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_trade_events_group_index then
+    show.outright_trade_events_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_outright_trade_events_group_index
+  end
+  if show.trade_addendum_legs_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_addendum_legs_group_index then
+    show.trade_addendum_legs_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_trade_addendum_legs_group_index
+  end
+  if show.spread_trade_events_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_trade_events_group_index then
+    show.spread_trade_events_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_spread_trade_events_group_index
+  end
+  if show.request_legs_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_request_legs_group_index then
+    show.request_legs_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_request_legs_group_index
+  end
+  if show.broken_dates_request_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_request_group_index then
+    show.broken_dates_request_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_request_group_index
+  end
+  if show.response_legs_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_response_legs_group_index then
+    show.response_legs_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_response_legs_group_index
+  end
+  if show.broken_dates_response_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_response_group_index then
+    show.broken_dates_response_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_broken_dates_response_group_index
+  end
+  if show.affected_orders_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_group_index then
+    show.affected_orders_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_affected_orders_group_index
+  end
+  if show.quote_cancel_ack_entries_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_entries_group_index then
+    show.quote_cancel_ack_entries_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_entries_group_index
+  end
+  if show.quote_cancel_ack_sets_group_index ~= omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_sets_group_index then
+    show.quote_cancel_ack_sets_group_index = omi_cme_futures_ilink3_sbe_v8_8.prefs.show_quote_cancel_ack_sets_group_index
   end
 end
 
@@ -8986,7 +9034,7 @@ cme_futures_ilink3_sbe_v8_8.quote_cancel_ack_sets_group.fields = function(buffer
   local index = offset
 
   -- Implicit Quote Cancel Ack Sets Group Index
-  if quote_cancel_ack_sets_group_index ~= nil then
+  if quote_cancel_ack_sets_group_index ~= nil and show.quote_cancel_ack_sets_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.quote_cancel_ack_sets_group_index, quote_cancel_ack_sets_group_index)
     iteration:set_generated()
   end
@@ -9138,7 +9186,7 @@ cme_futures_ilink3_sbe_v8_8.quote_cancel_ack_entries_group.fields = function(buf
   local index = offset
 
   -- Implicit Quote Cancel Ack Entries Group Index
-  if quote_cancel_ack_entries_group_index ~= nil then
+  if quote_cancel_ack_entries_group_index ~= nil and show.quote_cancel_ack_entries_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.quote_cancel_ack_entries_group_index, quote_cancel_ack_entries_group_index)
     iteration:set_generated()
   end
@@ -9424,7 +9472,7 @@ cme_futures_ilink3_sbe_v8_8.affected_orders_group.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Affected Orders Group Index
-  if affected_orders_group_index ~= nil then
+  if affected_orders_group_index ~= nil and show.affected_orders_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.affected_orders_group_index, affected_orders_group_index)
     iteration:set_generated()
   end
@@ -9726,7 +9774,7 @@ cme_futures_ilink3_sbe_v8_8.broken_dates_response_group.fields = function(buffer
   local index = offset
 
   -- Implicit Broken Dates Response Group Index
-  if broken_dates_response_group_index ~= nil then
+  if broken_dates_response_group_index ~= nil and show.broken_dates_response_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.broken_dates_response_group_index, broken_dates_response_group_index)
     iteration:set_generated()
   end
@@ -9893,7 +9941,7 @@ cme_futures_ilink3_sbe_v8_8.response_legs_group.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Response Legs Group Index
-  if response_legs_group_index ~= nil then
+  if response_legs_group_index ~= nil and show.response_legs_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.response_legs_group_index, response_legs_group_index)
     iteration:set_generated()
   end
@@ -10256,7 +10304,7 @@ cme_futures_ilink3_sbe_v8_8.broken_dates_request_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Broken Dates Request Group Index
-  if broken_dates_request_group_index ~= nil then
+  if broken_dates_request_group_index ~= nil and show.broken_dates_request_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.broken_dates_request_group_index, broken_dates_request_group_index)
     iteration:set_generated()
   end
@@ -10366,7 +10414,7 @@ cme_futures_ilink3_sbe_v8_8.request_legs_group.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Request Legs Group Index
-  if request_legs_group_index ~= nil then
+  if request_legs_group_index ~= nil and show.request_legs_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.request_legs_group_index, request_legs_group_index)
     iteration:set_generated()
   end
@@ -10602,7 +10650,7 @@ cme_futures_ilink3_sbe_v8_8.spread_trade_events_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Spread Trade Events Group Index
-  if spread_trade_events_group_index ~= nil then
+  if spread_trade_events_group_index ~= nil and show.spread_trade_events_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.spread_trade_events_group_index, spread_trade_events_group_index)
     iteration:set_generated()
   end
@@ -10726,7 +10774,7 @@ cme_futures_ilink3_sbe_v8_8.fills_group.fields = function(buffer, offset, packet
   local index = offset
 
   -- Implicit Fills Group Index
-  if fills_group_index ~= nil then
+  if fills_group_index ~= nil and show.fills_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.fills_group_index, fills_group_index)
     iteration:set_generated()
   end
@@ -11127,7 +11175,7 @@ cme_futures_ilink3_sbe_v8_8.trade_addendum_legs_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Trade Addendum Legs Group Index
-  if trade_addendum_legs_group_index ~= nil then
+  if trade_addendum_legs_group_index ~= nil and show.trade_addendum_legs_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.trade_addendum_legs_group_index, trade_addendum_legs_group_index)
     iteration:set_generated()
   end
@@ -11660,7 +11708,7 @@ cme_futures_ilink3_sbe_v8_8.outright_trade_events_group.fields = function(buffer
   local index = offset
 
   -- Implicit Outright Trade Events Group Index
-  if outright_trade_events_group_index ~= nil then
+  if outright_trade_events_group_index ~= nil and show.outright_trade_events_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.outright_trade_events_group_index, outright_trade_events_group_index)
     iteration:set_generated()
   end
@@ -12124,7 +12172,7 @@ cme_futures_ilink3_sbe_v8_8.quote_ack_entries_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Quote Ack Entries Group Index
-  if quote_ack_entries_group_index ~= nil then
+  if quote_ack_entries_group_index ~= nil and show.quote_ack_entries_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.quote_ack_entries_group_index, quote_ack_entries_group_index)
     iteration:set_generated()
   end
@@ -12400,7 +12448,7 @@ cme_futures_ilink3_sbe_v8_8.sides_group.fields = function(buffer, offset, packet
   local index = offset
 
   -- Implicit Sides Group Index
-  if sides_group_index ~= nil then
+  if sides_group_index ~= nil and show.sides_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.sides_group_index, sides_group_index)
     iteration:set_generated()
   end
@@ -12612,7 +12660,7 @@ cme_futures_ilink3_sbe_v8_8.related_sym_group.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Related Sym Group Index
-  if related_sym_group_index ~= nil then
+  if related_sym_group_index ~= nil and show.related_sym_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.related_sym_group_index, related_sym_group_index)
     iteration:set_generated()
   end
@@ -12903,7 +12951,7 @@ cme_futures_ilink3_sbe_v8_8.trd_reg_publications_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Trd Reg Publications Group Index
-  if trd_reg_publications_group_index ~= nil then
+  if trd_reg_publications_group_index ~= nil and show.trd_reg_publications_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.trd_reg_publications_group_index, trd_reg_publications_group_index)
     iteration:set_generated()
   end
@@ -13010,7 +13058,7 @@ cme_futures_ilink3_sbe_v8_8.party_details_group.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Party Details Group Index
-  if party_details_group_index ~= nil then
+  if party_details_group_index ~= nil and show.party_details_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.party_details_group_index, party_details_group_index)
     iteration:set_generated()
   end
@@ -13273,7 +13321,7 @@ cme_futures_ilink3_sbe_v8_8.party_ids_group.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Party Ids Group Index
-  if party_ids_group_index ~= nil then
+  if party_ids_group_index ~= nil and show.party_ids_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.party_ids_group_index, party_ids_group_index)
     iteration:set_generated()
   end
@@ -13384,7 +13432,7 @@ cme_futures_ilink3_sbe_v8_8.requesting_party_ids_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Requesting Party Ids Group Index
-  if requesting_party_ids_group_index ~= nil then
+  if requesting_party_ids_group_index ~= nil and show.requesting_party_ids_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.requesting_party_ids_group_index, requesting_party_ids_group_index)
     iteration:set_generated()
   end
@@ -14640,7 +14688,7 @@ cme_futures_ilink3_sbe_v8_8.quote_cancel_sets_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Quote Cancel Sets Group Index
-  if quote_cancel_sets_group_index ~= nil then
+  if quote_cancel_sets_group_index ~= nil and show.quote_cancel_sets_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.quote_cancel_sets_group_index, quote_cancel_sets_group_index)
     iteration:set_generated()
   end
@@ -14750,7 +14798,7 @@ cme_futures_ilink3_sbe_v8_8.quote_cancel_entries_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Quote Cancel Entries Group Index
-  if quote_cancel_entries_group_index ~= nil then
+  if quote_cancel_entries_group_index ~= nil and show.quote_cancel_entries_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.quote_cancel_entries_group_index, quote_cancel_entries_group_index)
     iteration:set_generated()
   end
@@ -14966,7 +15014,7 @@ cme_futures_ilink3_sbe_v8_8.spread_order_events_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Spread Order Events Group Index
-  if spread_order_events_group_index ~= nil then
+  if spread_order_events_group_index ~= nil and show.spread_order_events_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.spread_order_events_group_index, spread_order_events_group_index)
     iteration:set_generated()
   end
@@ -15488,7 +15536,7 @@ cme_futures_ilink3_sbe_v8_8.trade_legs_group.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Trade Legs Group Index
-  if trade_legs_group_index ~= nil then
+  if trade_legs_group_index ~= nil and show.trade_legs_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.trade_legs_group_index, trade_legs_group_index)
     iteration:set_generated()
   end
@@ -15863,7 +15911,7 @@ cme_futures_ilink3_sbe_v8_8.outright_order_events_group.fields = function(buffer
   local index = offset
 
   -- Implicit Outright Order Events Group Index
-  if outright_order_events_group_index ~= nil then
+  if outright_order_events_group_index ~= nil and show.outright_order_events_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.outright_order_events_group_index, outright_order_events_group_index)
     iteration:set_generated()
   end
@@ -17233,7 +17281,7 @@ cme_futures_ilink3_sbe_v8_8.quote_entries_group.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Quote Entries Group Index
-  if quote_entries_group_index ~= nil then
+  if quote_entries_group_index ~= nil and show.quote_entries_group_index then
     local iteration = parent:add(omi_cme_futures_ilink3_sbe_v8_8.fields.quote_entries_group_index, quote_entries_group_index)
     iteration:set_generated()
   end

@@ -512,6 +512,26 @@ show.side_alloc_ext_grp_comp = true
 show.side_alloc_grp_bc_comp = true
 show.side_alloc_grp_comp = true
 show.underlying_stip_grp_comp = true
+show.instrmt_leg_grp_comp_index = true
+show.not_affected_orders_grp_comp_index = true
+show.not_affected_securities_grp_comp_index = true
+show.side_alloc_grp_comp_index = true
+show.instrument_event_grp_comp_index = true
+show.instrument_attribute_grp_comp_index = true
+show.underlying_stip_grp_comp_index = true
+show.enrichment_rules_grp_comp_index = true
+show.mm_parameter_grp_comp_index = true
+show.sessions_grp_comp_index = true
+show.party_details_grp_comp_index = true
+show.quote_entry_grp_comp_index = true
+show.quote_entry_ack_grp_comp_index = true
+show.leg_ord_grp_comp_index = true
+show.fills_grp_comp_index = true
+show.instrmnt_leg_exec_grp_comp_index = true
+show.quote_event_grp_comp_index = true
+show.quote_leg_exec_grp_comp_index = true
+show.side_alloc_grp_bc_comp_index = true
+show.side_alloc_ext_grp_comp_index = true
 
 -- Register Eurex Derivatives Eti T7 5.0 Show Options
 omi_eurex_derivatives_eti_t7_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -546,144 +566,186 @@ omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_ext_grp_comp = Pref.bool
 omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_bc_comp = Pref.bool("Show Side Alloc Grp Bc Comp", show.side_alloc_grp_bc_comp, "Parse and add Side Alloc Grp Bc Comp to protocol tree")
 omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_comp = Pref.bool("Show Side Alloc Grp Comp", show.side_alloc_grp_comp, "Parse and add Side Alloc Grp Comp to protocol tree")
 omi_eurex_derivatives_eti_t7_v5_0.prefs.show_underlying_stip_grp_comp = Pref.bool("Show Underlying Stip Grp Comp", show.underlying_stip_grp_comp, "Parse and add Underlying Stip Grp Comp to protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmt_leg_grp_comp_index = Pref.bool("Show Instrmt Leg Grp Comp Index", show.instrmt_leg_grp_comp_index, "Show generated instrmt leg grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_orders_grp_comp_index = Pref.bool("Show Not Affected Orders Grp Comp Index", show.not_affected_orders_grp_comp_index, "Show generated not affected orders grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_securities_grp_comp_index = Pref.bool("Show Not Affected Securities Grp Comp Index", show.not_affected_securities_grp_comp_index, "Show generated not affected securities grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_comp_index = Pref.bool("Show Side Alloc Grp Comp Index", show.side_alloc_grp_comp_index, "Show generated side alloc grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_event_grp_comp_index = Pref.bool("Show Instrument Event Grp Comp Index", show.instrument_event_grp_comp_index, "Show generated instrument event grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_attribute_grp_comp_index = Pref.bool("Show Instrument Attribute Grp Comp Index", show.instrument_attribute_grp_comp_index, "Show generated instrument attribute grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_underlying_stip_grp_comp_index = Pref.bool("Show Underlying Stip Grp Comp Index", show.underlying_stip_grp_comp_index, "Show generated underlying stip grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_enrichment_rules_grp_comp_index = Pref.bool("Show Enrichment Rules Grp Comp Index", show.enrichment_rules_grp_comp_index, "Show generated enrichment rules grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_mm_parameter_grp_comp_index = Pref.bool("Show Mm Parameter Grp Comp Index", show.mm_parameter_grp_comp_index, "Show generated mm parameter grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_sessions_grp_comp_index = Pref.bool("Show Sessions Grp Comp Index", show.sessions_grp_comp_index, "Show generated sessions grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_party_details_grp_comp_index = Pref.bool("Show Party Details Grp Comp Index", show.party_details_grp_comp_index, "Show generated party details grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_grp_comp_index = Pref.bool("Show Quote Entry Grp Comp Index", show.quote_entry_grp_comp_index, "Show generated quote entry grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_ack_grp_comp_index = Pref.bool("Show Quote Entry Ack Grp Comp Index", show.quote_entry_ack_grp_comp_index, "Show generated quote entry ack grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_leg_ord_grp_comp_index = Pref.bool("Show Leg Ord Grp Comp Index", show.leg_ord_grp_comp_index, "Show generated leg ord grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_fills_grp_comp_index = Pref.bool("Show Fills Grp Comp Index", show.fills_grp_comp_index, "Show generated fills grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmnt_leg_exec_grp_comp_index = Pref.bool("Show Instrmnt Leg Exec Grp Comp Index", show.instrmnt_leg_exec_grp_comp_index, "Show generated instrmnt leg exec grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_event_grp_comp_index = Pref.bool("Show Quote Event Grp Comp Index", show.quote_event_grp_comp_index, "Show generated quote event grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_leg_exec_grp_comp_index = Pref.bool("Show Quote Leg Exec Grp Comp Index", show.quote_leg_exec_grp_comp_index, "Show generated quote leg exec grp comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_bc_comp_index = Pref.bool("Show Side Alloc Grp Bc Comp Index", show.side_alloc_grp_bc_comp_index, "Show generated side alloc grp bc comp index in protocol tree")
+omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_ext_grp_comp_index = Pref.bool("Show Side Alloc Ext Grp Comp Index", show.side_alloc_ext_grp_comp_index, "Show generated side alloc ext grp comp index in protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v5_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_application_messages then
     show.application_messages = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_application_messages
-    changed = true
   end
   if show.enrichment_rules_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_enrichment_rules_grp_comp then
     show.enrichment_rules_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_enrichment_rules_grp_comp
-    changed = true
   end
   if show.fills_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_fills_grp_comp then
     show.fills_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_fills_grp_comp
-    changed = true
   end
   if show.instrmnt_leg_exec_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmnt_leg_exec_grp_comp then
     show.instrmnt_leg_exec_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmnt_leg_exec_grp_comp
-    changed = true
   end
   if show.instrmt_leg_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmt_leg_grp_comp then
     show.instrmt_leg_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmt_leg_grp_comp
-    changed = true
   end
   if show.instrument_attribute_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_attribute_grp_comp then
     show.instrument_attribute_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_attribute_grp_comp
-    changed = true
   end
   if show.instrument_event_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_event_grp_comp then
     show.instrument_event_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_event_grp_comp
-    changed = true
   end
   if show.leg_ord_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_leg_ord_grp_comp then
     show.leg_ord_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_leg_ord_grp_comp
-    changed = true
   end
   if show.message ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_message then
     show.message = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_message_header then
     show.message_header = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_message_header
-    changed = true
   end
   if show.mm_parameter_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_mm_parameter_grp_comp then
     show.mm_parameter_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_mm_parameter_grp_comp
-    changed = true
   end
   if show.not_affected_orders_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_orders_grp_comp then
     show.not_affected_orders_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_orders_grp_comp
-    changed = true
   end
   if show.not_affected_securities_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_securities_grp_comp then
     show.not_affected_securities_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_securities_grp_comp
-    changed = true
   end
   if show.notif_header_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_notif_header_comp then
     show.notif_header_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_notif_header_comp
-    changed = true
   end
   if show.nr_response_header_me_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_nr_response_header_me_comp then
     show.nr_response_header_me_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_nr_response_header_me_comp
-    changed = true
   end
   if show.nrbc_header_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_nrbc_header_comp then
     show.nrbc_header_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_nrbc_header_comp
-    changed = true
   end
   if show.packet ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_packet then
     show.packet = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_packet
-    changed = true
   end
   if show.party_details_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_party_details_grp_comp then
     show.party_details_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_party_details_grp_comp
-    changed = true
   end
   if show.quote_entry_ack_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_ack_grp_comp then
     show.quote_entry_ack_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_ack_grp_comp
-    changed = true
   end
   if show.quote_entry_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_grp_comp then
     show.quote_entry_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_grp_comp
-    changed = true
   end
   if show.quote_event_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_event_grp_comp then
     show.quote_event_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_event_grp_comp
-    changed = true
   end
   if show.quote_leg_exec_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_leg_exec_grp_comp then
     show.quote_leg_exec_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_leg_exec_grp_comp
-    changed = true
   end
   if show.rbc_header_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_rbc_header_comp then
     show.rbc_header_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_rbc_header_comp
-    changed = true
   end
   if show.rbc_header_me_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_rbc_header_me_comp then
     show.rbc_header_me_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_rbc_header_me_comp
-    changed = true
   end
   if show.request_header_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_request_header_comp then
     show.request_header_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_request_header_comp
-    changed = true
   end
   if show.response_header_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_response_header_comp then
     show.response_header_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_response_header_comp
-    changed = true
   end
   if show.response_header_me_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_response_header_me_comp then
     show.response_header_me_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_response_header_me_comp
-    changed = true
   end
   if show.sessions_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_sessions_grp_comp then
     show.sessions_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_sessions_grp_comp
-    changed = true
   end
   if show.side_alloc_ext_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_ext_grp_comp then
     show.side_alloc_ext_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_ext_grp_comp
-    changed = true
   end
   if show.side_alloc_grp_bc_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_bc_comp then
     show.side_alloc_grp_bc_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_bc_comp
-    changed = true
   end
   if show.side_alloc_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_comp then
     show.side_alloc_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_comp
-    changed = true
   end
   if show.underlying_stip_grp_comp ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_underlying_stip_grp_comp then
     show.underlying_stip_grp_comp = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_underlying_stip_grp_comp
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.instrmt_leg_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmt_leg_grp_comp_index then
+    show.instrmt_leg_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmt_leg_grp_comp_index
+  end
+  if show.not_affected_orders_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_orders_grp_comp_index then
+    show.not_affected_orders_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_orders_grp_comp_index
+  end
+  if show.not_affected_securities_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_securities_grp_comp_index then
+    show.not_affected_securities_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_not_affected_securities_grp_comp_index
+  end
+  if show.side_alloc_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_comp_index then
+    show.side_alloc_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_comp_index
+  end
+  if show.instrument_event_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_event_grp_comp_index then
+    show.instrument_event_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_event_grp_comp_index
+  end
+  if show.instrument_attribute_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_attribute_grp_comp_index then
+    show.instrument_attribute_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrument_attribute_grp_comp_index
+  end
+  if show.underlying_stip_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_underlying_stip_grp_comp_index then
+    show.underlying_stip_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_underlying_stip_grp_comp_index
+  end
+  if show.enrichment_rules_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_enrichment_rules_grp_comp_index then
+    show.enrichment_rules_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_enrichment_rules_grp_comp_index
+  end
+  if show.mm_parameter_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_mm_parameter_grp_comp_index then
+    show.mm_parameter_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_mm_parameter_grp_comp_index
+  end
+  if show.sessions_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_sessions_grp_comp_index then
+    show.sessions_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_sessions_grp_comp_index
+  end
+  if show.party_details_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_party_details_grp_comp_index then
+    show.party_details_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_party_details_grp_comp_index
+  end
+  if show.quote_entry_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_grp_comp_index then
+    show.quote_entry_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_grp_comp_index
+  end
+  if show.quote_entry_ack_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_ack_grp_comp_index then
+    show.quote_entry_ack_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_entry_ack_grp_comp_index
+  end
+  if show.leg_ord_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_leg_ord_grp_comp_index then
+    show.leg_ord_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_leg_ord_grp_comp_index
+  end
+  if show.fills_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_fills_grp_comp_index then
+    show.fills_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_fills_grp_comp_index
+  end
+  if show.instrmnt_leg_exec_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmnt_leg_exec_grp_comp_index then
+    show.instrmnt_leg_exec_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_instrmnt_leg_exec_grp_comp_index
+  end
+  if show.quote_event_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_event_grp_comp_index then
+    show.quote_event_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_event_grp_comp_index
+  end
+  if show.quote_leg_exec_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_leg_exec_grp_comp_index then
+    show.quote_leg_exec_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_quote_leg_exec_grp_comp_index
+  end
+  if show.side_alloc_grp_bc_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_bc_comp_index then
+    show.side_alloc_grp_bc_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_grp_bc_comp_index
+  end
+  if show.side_alloc_ext_grp_comp_index ~= omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_ext_grp_comp_index then
+    show.side_alloc_ext_grp_comp_index = omi_eurex_derivatives_eti_t7_v5_0.prefs.show_side_alloc_ext_grp_comp_index
   end
 end
 
@@ -11213,7 +11275,7 @@ eurex_derivatives_eti_t7_v5_0.underlying_stip_grp_comp.fields = function(buffer,
   local index = offset
 
   -- Implicit Underlying Stip Grp Comp Index
-  if underlying_stip_grp_comp_index ~= nil then
+  if underlying_stip_grp_comp_index ~= nil and show.underlying_stip_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
     iteration:set_generated()
   end
@@ -11267,7 +11329,7 @@ eurex_derivatives_eti_t7_v5_0.instrument_attribute_grp_comp.fields = function(bu
   local index = offset
 
   -- Implicit Instrument Attribute Grp Comp Index
-  if instrument_attribute_grp_comp_index ~= nil then
+  if instrument_attribute_grp_comp_index ~= nil and show.instrument_attribute_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
     iteration:set_generated()
   end
@@ -11321,7 +11383,7 @@ eurex_derivatives_eti_t7_v5_0.instrument_event_grp_comp.fields = function(buffer
   local index = offset
 
   -- Implicit Instrument Event Grp Comp Index
-  if instrument_event_grp_comp_index ~= nil then
+  if instrument_event_grp_comp_index ~= nil and show.instrument_event_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
     iteration:set_generated()
   end
@@ -11393,7 +11455,7 @@ eurex_derivatives_eti_t7_v5_0.side_alloc_ext_grp_comp.fields = function(buffer, 
   local index = offset
 
   -- Implicit Side Alloc Ext Grp Comp Index
-  if side_alloc_ext_grp_comp_index ~= nil then
+  if side_alloc_ext_grp_comp_index ~= nil and show.side_alloc_ext_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.side_alloc_ext_grp_comp_index, side_alloc_ext_grp_comp_index)
     iteration:set_generated()
   end
@@ -13015,7 +13077,7 @@ eurex_derivatives_eti_t7_v5_0.side_alloc_grp_bc_comp.fields = function(buffer, o
   local index = offset
 
   -- Implicit Side Alloc Grp Bc Comp Index
-  if side_alloc_grp_bc_comp_index ~= nil then
+  if side_alloc_grp_bc_comp_index ~= nil and show.side_alloc_grp_bc_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.side_alloc_grp_bc_comp_index, side_alloc_grp_bc_comp_index)
     iteration:set_generated()
   end
@@ -14410,7 +14472,7 @@ eurex_derivatives_eti_t7_v5_0.quote_leg_exec_grp_comp.fields = function(buffer, 
   local index = offset
 
   -- Implicit Quote Leg Exec Grp Comp Index
-  if quote_leg_exec_grp_comp_index ~= nil then
+  if quote_leg_exec_grp_comp_index ~= nil and show.quote_leg_exec_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_leg_exec_grp_comp_index, quote_leg_exec_grp_comp_index)
     iteration:set_generated()
   end
@@ -14483,7 +14545,7 @@ eurex_derivatives_eti_t7_v5_0.quote_event_grp_comp.fields = function(buffer, off
   local index = offset
 
   -- Implicit Quote Event Grp Comp Index
-  if quote_event_grp_comp_index ~= nil then
+  if quote_event_grp_comp_index ~= nil and show.quote_event_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_event_grp_comp_index, quote_event_grp_comp_index)
     iteration:set_generated()
   end
@@ -14634,7 +14696,7 @@ eurex_derivatives_eti_t7_v5_0.not_affected_securities_grp_comp.fields = function
   local index = offset
 
   -- Implicit Not Affected Securities Grp Comp Index
-  if not_affected_securities_grp_comp_index ~= nil then
+  if not_affected_securities_grp_comp_index ~= nil and show.not_affected_securities_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
     iteration:set_generated()
   end
@@ -15075,7 +15137,7 @@ eurex_derivatives_eti_t7_v5_0.instrmnt_leg_exec_grp_comp.fields = function(buffe
   local index = offset
 
   -- Implicit Instrmnt Leg Exec Grp Comp Index
-  if instrmnt_leg_exec_grp_comp_index ~= nil then
+  if instrmnt_leg_exec_grp_comp_index ~= nil and show.instrmnt_leg_exec_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.instrmnt_leg_exec_grp_comp_index, instrmnt_leg_exec_grp_comp_index)
     iteration:set_generated()
   end
@@ -15144,7 +15206,7 @@ eurex_derivatives_eti_t7_v5_0.fills_grp_comp.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Fills Grp Comp Index
-  if fills_grp_comp_index ~= nil then
+  if fills_grp_comp_index ~= nil and show.fills_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.fills_grp_comp_index, fills_grp_comp_index)
     iteration:set_generated()
   end
@@ -15413,7 +15475,7 @@ eurex_derivatives_eti_t7_v5_0.leg_ord_grp_comp.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Leg Ord Grp Comp Index
-  if leg_ord_grp_comp_index ~= nil then
+  if leg_ord_grp_comp_index ~= nil and show.leg_ord_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.leg_ord_grp_comp_index, leg_ord_grp_comp_index)
     iteration:set_generated()
   end
@@ -16457,7 +16519,7 @@ eurex_derivatives_eti_t7_v5_0.side_alloc_grp_comp.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Side Alloc Grp Comp Index
-  if side_alloc_grp_comp_index ~= nil then
+  if side_alloc_grp_comp_index ~= nil and show.side_alloc_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
     iteration:set_generated()
   end
@@ -17235,7 +17297,7 @@ eurex_derivatives_eti_t7_v5_0.quote_entry_ack_grp_comp.fields = function(buffer,
   local index = offset
 
   -- Implicit Quote Entry Ack Grp Comp Index
-  if quote_entry_ack_grp_comp_index ~= nil then
+  if quote_entry_ack_grp_comp_index ~= nil and show.quote_entry_ack_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
     iteration:set_generated()
   end
@@ -17373,7 +17435,7 @@ eurex_derivatives_eti_t7_v5_0.quote_entry_grp_comp.fields = function(buffer, off
   local index = offset
 
   -- Implicit Quote Entry Grp Comp Index
-  if quote_entry_grp_comp_index ~= nil then
+  if quote_entry_grp_comp_index ~= nil and show.quote_entry_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
     iteration:set_generated()
   end
@@ -18035,7 +18097,7 @@ eurex_derivatives_eti_t7_v5_0.party_details_grp_comp.fields = function(buffer, o
   local index = offset
 
   -- Implicit Party Details Grp Comp Index
-  if party_details_grp_comp_index ~= nil then
+  if party_details_grp_comp_index ~= nil and show.party_details_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.party_details_grp_comp_index, party_details_grp_comp_index)
     iteration:set_generated()
   end
@@ -18225,7 +18287,7 @@ eurex_derivatives_eti_t7_v5_0.sessions_grp_comp.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Sessions Grp Comp Index
-  if sessions_grp_comp_index ~= nil then
+  if sessions_grp_comp_index ~= nil and show.sessions_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.sessions_grp_comp_index, sessions_grp_comp_index)
     iteration:set_generated()
   end
@@ -18406,7 +18468,7 @@ eurex_derivatives_eti_t7_v5_0.mm_parameter_grp_comp.fields = function(buffer, of
   local index = offset
 
   -- Implicit Mm Parameter Grp Comp Index
-  if mm_parameter_grp_comp_index ~= nil then
+  if mm_parameter_grp_comp_index ~= nil and show.mm_parameter_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.mm_parameter_grp_comp_index, mm_parameter_grp_comp_index)
     iteration:set_generated()
   end
@@ -18612,7 +18674,7 @@ eurex_derivatives_eti_t7_v5_0.enrichment_rules_grp_comp.fields = function(buffer
   local index = offset
 
   -- Implicit Enrichment Rules Grp Comp Index
-  if enrichment_rules_grp_comp_index ~= nil then
+  if enrichment_rules_grp_comp_index ~= nil and show.enrichment_rules_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
     iteration:set_generated()
   end
@@ -20132,7 +20194,7 @@ eurex_derivatives_eti_t7_v5_0.not_affected_orders_grp_comp.fields = function(buf
   local index = offset
 
   -- Implicit Not Affected Orders Grp Comp Index
-  if not_affected_orders_grp_comp_index ~= nil then
+  if not_affected_orders_grp_comp_index ~= nil and show.not_affected_orders_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
     iteration:set_generated()
   end
@@ -21088,7 +21150,7 @@ eurex_derivatives_eti_t7_v5_0.instrmt_leg_grp_comp.fields = function(buffer, off
   local index = offset
 
   -- Implicit Instrmt Leg Grp Comp Index
-  if instrmt_leg_grp_comp_index ~= nil then
+  if instrmt_leg_grp_comp_index ~= nil and show.instrmt_leg_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eti_t7_v5_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
     iteration:set_generated()
   end

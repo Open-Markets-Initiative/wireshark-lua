@@ -553,6 +553,24 @@ show.side_alloc_grp_bc_comp = true
 show.side_alloc_grp_comp = true
 show.srqs_quote_entry_grp_comp = true
 show.xetra_en_light_target_parties_comp = true
+show.not_affected_orders_grp_comp_index = true
+show.affected_ord_grp_comp_index = true
+show.affected_order_requests_grp_comp_index = true
+show.not_affected_securities_grp_comp_index = true
+show.side_alloc_grp_comp_index = true
+show.enrichment_rules_grp_comp_index = true
+show.sessions_grp_comp_index = true
+show.party_details_grp_comp_index = true
+show.security_status_event_grp_comp_index = true
+show.quote_entry_grp_comp_index = true
+show.quote_entry_ack_grp_comp_index = true
+show.order_event_grp_comp_index = true
+show.fills_grp_comp_index = true
+show.quote_event_grp_comp_index = true
+show.side_alloc_grp_bc_comp_index = true
+show.order_book_item_grp_comp_index = true
+show.xetra_en_light_target_parties_comp_index = true
+show.srqs_quote_entry_grp_comp_index = true
 
 -- Register Eurex Cash Eti T7 10.0 Show Options
 omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp = Pref.bool("Show Affected Ord Grp Comp", show.affected_ord_grp_comp, "Parse and add Affected Ord Grp Comp to protocol tree")
@@ -585,136 +603,172 @@ omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_bc_comp = Pref.bool("Show 
 omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_comp = Pref.bool("Show Side Alloc Grp Comp", show.side_alloc_grp_comp, "Parse and add Side Alloc Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_0.prefs.show_srqs_quote_entry_grp_comp = Pref.bool("Show Srqs Quote Entry Grp Comp", show.srqs_quote_entry_grp_comp, "Parse and add Srqs Quote Entry Grp Comp to protocol tree")
 omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_target_parties_comp = Pref.bool("Show Xetra En Light Target Parties Comp", show.xetra_en_light_target_parties_comp, "Parse and add Xetra En Light Target Parties Comp to protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_orders_grp_comp_index = Pref.bool("Show Not Affected Orders Grp Comp Index", show.not_affected_orders_grp_comp_index, "Show generated not affected orders grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp_index = Pref.bool("Show Affected Ord Grp Comp Index", show.affected_ord_grp_comp_index, "Show generated affected ord grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_order_requests_grp_comp_index = Pref.bool("Show Affected Order Requests Grp Comp Index", show.affected_order_requests_grp_comp_index, "Show generated affected order requests grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_securities_grp_comp_index = Pref.bool("Show Not Affected Securities Grp Comp Index", show.not_affected_securities_grp_comp_index, "Show generated not affected securities grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_comp_index = Pref.bool("Show Side Alloc Grp Comp Index", show.side_alloc_grp_comp_index, "Show generated side alloc grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_enrichment_rules_grp_comp_index = Pref.bool("Show Enrichment Rules Grp Comp Index", show.enrichment_rules_grp_comp_index, "Show generated enrichment rules grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_sessions_grp_comp_index = Pref.bool("Show Sessions Grp Comp Index", show.sessions_grp_comp_index, "Show generated sessions grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_party_details_grp_comp_index = Pref.bool("Show Party Details Grp Comp Index", show.party_details_grp_comp_index, "Show generated party details grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_security_status_event_grp_comp_index = Pref.bool("Show Security Status Event Grp Comp Index", show.security_status_event_grp_comp_index, "Show generated security status event grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_grp_comp_index = Pref.bool("Show Quote Entry Grp Comp Index", show.quote_entry_grp_comp_index, "Show generated quote entry grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_ack_grp_comp_index = Pref.bool("Show Quote Entry Ack Grp Comp Index", show.quote_entry_ack_grp_comp_index, "Show generated quote entry ack grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_order_event_grp_comp_index = Pref.bool("Show Order Event Grp Comp Index", show.order_event_grp_comp_index, "Show generated order event grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_fills_grp_comp_index = Pref.bool("Show Fills Grp Comp Index", show.fills_grp_comp_index, "Show generated fills grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_event_grp_comp_index = Pref.bool("Show Quote Event Grp Comp Index", show.quote_event_grp_comp_index, "Show generated quote event grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_bc_comp_index = Pref.bool("Show Side Alloc Grp Bc Comp Index", show.side_alloc_grp_bc_comp_index, "Show generated side alloc grp bc comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_order_book_item_grp_comp_index = Pref.bool("Show Order Book Item Grp Comp Index", show.order_book_item_grp_comp_index, "Show generated order book item grp comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_target_parties_comp_index = Pref.bool("Show Xetra En Light Target Parties Comp Index", show.xetra_en_light_target_parties_comp_index, "Show generated xetra en light target parties comp index in protocol tree")
+omi_eurex_cash_eti_t7_v10_0.prefs.show_srqs_quote_entry_grp_comp_index = Pref.bool("Show Srqs Quote Entry Grp Comp Index", show.srqs_quote_entry_grp_comp_index, "Show generated srqs quote entry grp comp index in protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_cash_eti_t7_v10_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.affected_ord_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp then
     show.affected_ord_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp
-    changed = true
   end
   if show.affected_order_requests_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_order_requests_grp_comp then
     show.affected_order_requests_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_order_requests_grp_comp
-    changed = true
   end
   if show.application_messages ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_application_messages then
     show.application_messages = omi_eurex_cash_eti_t7_v10_0.prefs.show_application_messages
-    changed = true
   end
   if show.enrichment_rules_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_enrichment_rules_grp_comp then
     show.enrichment_rules_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_enrichment_rules_grp_comp
-    changed = true
   end
   if show.fills_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_fills_grp_comp then
     show.fills_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_fills_grp_comp
-    changed = true
   end
   if show.message ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_message then
     show.message = omi_eurex_cash_eti_t7_v10_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_message_header then
     show.message_header = omi_eurex_cash_eti_t7_v10_0.prefs.show_message_header
-    changed = true
   end
   if show.not_affected_orders_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_orders_grp_comp then
     show.not_affected_orders_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_orders_grp_comp
-    changed = true
   end
   if show.not_affected_securities_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_securities_grp_comp then
     show.not_affected_securities_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_securities_grp_comp
-    changed = true
   end
   if show.notif_header_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_notif_header_comp then
     show.notif_header_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_notif_header_comp
-    changed = true
   end
   if show.nr_response_header_me_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_nr_response_header_me_comp then
     show.nr_response_header_me_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_nr_response_header_me_comp
-    changed = true
   end
   if show.nrbc_header_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_nrbc_header_comp then
     show.nrbc_header_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_nrbc_header_comp
-    changed = true
   end
   if show.order_book_item_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_order_book_item_grp_comp then
     show.order_book_item_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_order_book_item_grp_comp
-    changed = true
   end
   if show.order_event_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_order_event_grp_comp then
     show.order_event_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_order_event_grp_comp
-    changed = true
   end
   if show.packet ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_packet then
     show.packet = omi_eurex_cash_eti_t7_v10_0.prefs.show_packet
-    changed = true
   end
   if show.party_details_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_party_details_grp_comp then
     show.party_details_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_party_details_grp_comp
-    changed = true
   end
   if show.quote_entry_ack_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_ack_grp_comp then
     show.quote_entry_ack_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_ack_grp_comp
-    changed = true
   end
   if show.quote_entry_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_grp_comp then
     show.quote_entry_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_grp_comp
-    changed = true
   end
   if show.quote_event_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_event_grp_comp then
     show.quote_event_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_event_grp_comp
-    changed = true
   end
   if show.rbc_header_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_rbc_header_comp then
     show.rbc_header_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_rbc_header_comp
-    changed = true
   end
   if show.rbc_header_me_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_rbc_header_me_comp then
     show.rbc_header_me_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_rbc_header_me_comp
-    changed = true
   end
   if show.request_header_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_request_header_comp then
     show.request_header_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_request_header_comp
-    changed = true
   end
   if show.response_header_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_response_header_comp then
     show.response_header_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_response_header_comp
-    changed = true
   end
   if show.response_header_me_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_response_header_me_comp then
     show.response_header_me_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_response_header_me_comp
-    changed = true
   end
   if show.security_status_event_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_security_status_event_grp_comp then
     show.security_status_event_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_security_status_event_grp_comp
-    changed = true
   end
   if show.sessions_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_sessions_grp_comp then
     show.sessions_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_sessions_grp_comp
-    changed = true
   end
   if show.side_alloc_grp_bc_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_bc_comp then
     show.side_alloc_grp_bc_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_bc_comp
-    changed = true
   end
   if show.side_alloc_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_comp then
     show.side_alloc_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_comp
-    changed = true
   end
   if show.srqs_quote_entry_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_srqs_quote_entry_grp_comp then
     show.srqs_quote_entry_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_srqs_quote_entry_grp_comp
-    changed = true
   end
   if show.xetra_en_light_target_parties_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_target_parties_comp then
     show.xetra_en_light_target_parties_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_target_parties_comp
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.not_affected_orders_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_orders_grp_comp_index then
+    show.not_affected_orders_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_orders_grp_comp_index
+  end
+  if show.affected_ord_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp_index then
+    show.affected_ord_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp_index
+  end
+  if show.affected_order_requests_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_order_requests_grp_comp_index then
+    show.affected_order_requests_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_order_requests_grp_comp_index
+  end
+  if show.not_affected_securities_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_securities_grp_comp_index then
+    show.not_affected_securities_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_not_affected_securities_grp_comp_index
+  end
+  if show.side_alloc_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_comp_index then
+    show.side_alloc_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_comp_index
+  end
+  if show.enrichment_rules_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_enrichment_rules_grp_comp_index then
+    show.enrichment_rules_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_enrichment_rules_grp_comp_index
+  end
+  if show.sessions_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_sessions_grp_comp_index then
+    show.sessions_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_sessions_grp_comp_index
+  end
+  if show.party_details_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_party_details_grp_comp_index then
+    show.party_details_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_party_details_grp_comp_index
+  end
+  if show.security_status_event_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_security_status_event_grp_comp_index then
+    show.security_status_event_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_security_status_event_grp_comp_index
+  end
+  if show.quote_entry_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_grp_comp_index then
+    show.quote_entry_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_grp_comp_index
+  end
+  if show.quote_entry_ack_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_ack_grp_comp_index then
+    show.quote_entry_ack_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_entry_ack_grp_comp_index
+  end
+  if show.order_event_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_order_event_grp_comp_index then
+    show.order_event_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_order_event_grp_comp_index
+  end
+  if show.fills_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_fills_grp_comp_index then
+    show.fills_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_fills_grp_comp_index
+  end
+  if show.quote_event_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_event_grp_comp_index then
+    show.quote_event_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_quote_event_grp_comp_index
+  end
+  if show.side_alloc_grp_bc_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_bc_comp_index then
+    show.side_alloc_grp_bc_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_side_alloc_grp_bc_comp_index
+  end
+  if show.order_book_item_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_order_book_item_grp_comp_index then
+    show.order_book_item_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_order_book_item_grp_comp_index
+  end
+  if show.xetra_en_light_target_parties_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_target_parties_comp_index then
+    show.xetra_en_light_target_parties_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_xetra_en_light_target_parties_comp_index
+  end
+  if show.srqs_quote_entry_grp_comp_index ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_srqs_quote_entry_grp_comp_index then
+    show.srqs_quote_entry_grp_comp_index = omi_eurex_cash_eti_t7_v10_0.prefs.show_srqs_quote_entry_grp_comp_index
   end
 end
 
@@ -12442,7 +12496,7 @@ eurex_cash_eti_t7_v10_0.xetra_en_light_target_parties_comp.fields = function(buf
   local index = offset
 
   -- Implicit Xetra En Light Target Parties Comp Index
-  if xetra_en_light_target_parties_comp_index ~= nil then
+  if xetra_en_light_target_parties_comp_index ~= nil and show.xetra_en_light_target_parties_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.xetra_en_light_target_parties_comp_index, xetra_en_light_target_parties_comp_index)
     iteration:set_generated()
   end
@@ -12974,7 +13028,7 @@ eurex_cash_eti_t7_v10_0.srqs_quote_entry_grp_comp.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Srqs Quote Entry Grp Comp Index
-  if srqs_quote_entry_grp_comp_index ~= nil then
+  if srqs_quote_entry_grp_comp_index ~= nil and show.srqs_quote_entry_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.srqs_quote_entry_grp_comp_index, srqs_quote_entry_grp_comp_index)
     iteration:set_generated()
   end
@@ -14223,7 +14277,7 @@ eurex_cash_eti_t7_v10_0.order_book_item_grp_comp.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Order Book Item Grp Comp Index
-  if order_book_item_grp_comp_index ~= nil then
+  if order_book_item_grp_comp_index ~= nil and show.order_book_item_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.order_book_item_grp_comp_index, order_book_item_grp_comp_index)
     iteration:set_generated()
   end
@@ -16021,7 +16075,7 @@ eurex_cash_eti_t7_v10_0.side_alloc_grp_bc_comp.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Side Alloc Grp Bc Comp Index
-  if side_alloc_grp_bc_comp_index ~= nil then
+  if side_alloc_grp_bc_comp_index ~= nil and show.side_alloc_grp_bc_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.side_alloc_grp_bc_comp_index, side_alloc_grp_bc_comp_index)
     iteration:set_generated()
   end
@@ -17021,7 +17075,7 @@ eurex_cash_eti_t7_v10_0.fills_grp_comp.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Implicit Fills Grp Comp Index
-  if fills_grp_comp_index ~= nil then
+  if fills_grp_comp_index ~= nil and show.fills_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.fills_grp_comp_index, fills_grp_comp_index)
     iteration:set_generated()
   end
@@ -17338,7 +17392,7 @@ eurex_cash_eti_t7_v10_0.not_affected_orders_grp_comp.fields = function(buffer, o
   local index = offset
 
   -- Implicit Not Affected Orders Grp Comp Index
-  if not_affected_orders_grp_comp_index ~= nil then
+  if not_affected_orders_grp_comp_index ~= nil and show.not_affected_orders_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
     iteration:set_generated()
   end
@@ -17388,7 +17442,7 @@ eurex_cash_eti_t7_v10_0.affected_ord_grp_comp.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Affected Ord Grp Comp Index
-  if affected_ord_grp_comp_index ~= nil then
+  if affected_ord_grp_comp_index ~= nil and show.affected_ord_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
     iteration:set_generated()
   end
@@ -18593,7 +18647,7 @@ eurex_cash_eti_t7_v10_0.quote_event_grp_comp.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Quote Event Grp Comp Index
-  if quote_event_grp_comp_index ~= nil then
+  if quote_event_grp_comp_index ~= nil and show.quote_event_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.quote_event_grp_comp_index, quote_event_grp_comp_index)
     iteration:set_generated()
   end
@@ -18739,7 +18793,7 @@ eurex_cash_eti_t7_v10_0.not_affected_securities_grp_comp.fields = function(buffe
   local index = offset
 
   -- Implicit Not Affected Securities Grp Comp Index
-  if not_affected_securities_grp_comp_index ~= nil then
+  if not_affected_securities_grp_comp_index ~= nil and show.not_affected_securities_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
     iteration:set_generated()
   end
@@ -19299,7 +19353,7 @@ eurex_cash_eti_t7_v10_0.order_event_grp_comp.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Order Event Grp Comp Index
-  if order_event_grp_comp_index ~= nil then
+  if order_event_grp_comp_index ~= nil and show.order_event_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
     iteration:set_generated()
   end
@@ -20532,7 +20586,7 @@ eurex_cash_eti_t7_v10_0.side_alloc_grp_comp.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Side Alloc Grp Comp Index
-  if side_alloc_grp_comp_index ~= nil then
+  if side_alloc_grp_comp_index ~= nil and show.side_alloc_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
     iteration:set_generated()
   end
@@ -21241,7 +21295,7 @@ eurex_cash_eti_t7_v10_0.quote_entry_ack_grp_comp.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Quote Entry Ack Grp Comp Index
-  if quote_entry_ack_grp_comp_index ~= nil then
+  if quote_entry_ack_grp_comp_index ~= nil and show.quote_entry_ack_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
     iteration:set_generated()
   end
@@ -21379,7 +21433,7 @@ eurex_cash_eti_t7_v10_0.quote_entry_grp_comp.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Quote Entry Grp Comp Index
-  if quote_entry_grp_comp_index ~= nil then
+  if quote_entry_grp_comp_index ~= nil and show.quote_entry_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
     iteration:set_generated()
   end
@@ -21983,7 +22037,7 @@ eurex_cash_eti_t7_v10_0.security_status_event_grp_comp.fields = function(buffer,
   local index = offset
 
   -- Implicit Security Status Event Grp Comp Index
-  if security_status_event_grp_comp_index ~= nil then
+  if security_status_event_grp_comp_index ~= nil and show.security_status_event_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.security_status_event_grp_comp_index, security_status_event_grp_comp_index)
     iteration:set_generated()
   end
@@ -22208,7 +22262,7 @@ eurex_cash_eti_t7_v10_0.party_details_grp_comp.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Party Details Grp Comp Index
-  if party_details_grp_comp_index ~= nil then
+  if party_details_grp_comp_index ~= nil and show.party_details_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.party_details_grp_comp_index, party_details_grp_comp_index)
     iteration:set_generated()
   end
@@ -22398,7 +22452,7 @@ eurex_cash_eti_t7_v10_0.sessions_grp_comp.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Sessions Grp Comp Index
-  if sessions_grp_comp_index ~= nil then
+  if sessions_grp_comp_index ~= nil and show.sessions_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.sessions_grp_comp_index, sessions_grp_comp_index)
     iteration:set_generated()
   end
@@ -22577,7 +22631,7 @@ eurex_cash_eti_t7_v10_0.enrichment_rules_grp_comp.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Enrichment Rules Grp Comp Index
-  if enrichment_rules_grp_comp_index ~= nil then
+  if enrichment_rules_grp_comp_index ~= nil and show.enrichment_rules_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
     iteration:set_generated()
   end
@@ -24039,7 +24093,7 @@ eurex_cash_eti_t7_v10_0.affected_order_requests_grp_comp.fields = function(buffe
   local index = offset
 
   -- Implicit Affected Order Requests Grp Comp Index
-  if affected_order_requests_grp_comp_index ~= nil then
+  if affected_order_requests_grp_comp_index ~= nil and show.affected_order_requests_grp_comp_index then
     local iteration = parent:add(omi_eurex_cash_eti_t7_v10_0.fields.affected_order_requests_grp_comp_index, affected_order_requests_grp_comp_index)
     iteration:set_generated()
   end

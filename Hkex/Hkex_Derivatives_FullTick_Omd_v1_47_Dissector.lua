@@ -184,6 +184,8 @@ show.order_type = true
 show.packet = true
 show.packet_header = true
 show.trade_condition = true
+show.message_index = true
+show.content_index = true
 
 -- Register Hkex Derivatives FullTick Omd 1.47 Show Options
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -194,48 +196,42 @@ omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_order_type = Pref.bool("Show 
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
+omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_content_index = Pref.bool("Show Content Index", show.content_index, "Show generated content index in protocol tree")
 
 -- Handle changed preferences
 function omi_hkex_derivatives_fulltick_omd_v1_47.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_application_messages then
     show.application_messages = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_application_messages
-    changed = true
   end
   if show.deal_type ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_deal_type then
     show.deal_type = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_deal_type
-    changed = true
   end
   if show.message ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message then
     show.message = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message
-    changed = true
   end
   if show.msg_header ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_msg_header then
     show.msg_header = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_msg_header
-    changed = true
   end
   if show.order_type ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_order_type then
     show.order_type = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_order_type
-    changed = true
   end
   if show.packet ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet then
     show.packet = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet_header then
     show.packet_header = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_packet_header
-    changed = true
   end
   if show.trade_condition ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition then
     show.trade_condition = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_trade_condition
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message_index then
+    show.message_index = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_message_index
+  end
+  if show.content_index ~= omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_content_index then
+    show.content_index = omi_hkex_derivatives_fulltick_omd_v1_47.prefs.show_content_index
   end
 end
 
@@ -4942,7 +4938,7 @@ hkex_derivatives_fulltick_omd_v1_47.message.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_hkex_derivatives_fulltick_omd_v1_47.fields.message_index, message_index)
     iteration:set_generated()
   end

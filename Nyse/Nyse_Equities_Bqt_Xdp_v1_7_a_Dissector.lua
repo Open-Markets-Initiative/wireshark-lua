@@ -156,6 +156,7 @@ show.retransmission_request_message = true
 show.sequence_number_reset_message = true
 show.symbol_index_mapping_message = true
 show.symbol_index_mapping_request_message = true
+show.message_index = true
 
 -- Register Nyse Equities Bqt Xdp 1.7.a Show Options
 omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message = Pref.bool("Show Bqt Message", show.bqt_message, "Parse and add Bqt Message to protocol tree")
@@ -181,108 +182,83 @@ omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message = Pre
 omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
 omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
+omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_bqt_xdp_v1_7_a.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.bqt_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message then
     show.bqt_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_bqt_message
-    changed = true
   end
   if show.consolidated_security_status_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message then
     show.consolidated_security_status_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message
-    changed = true
   end
   if show.consolidated_single_sided_quote_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message then
     show.consolidated_single_sided_quote_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message
-    changed = true
   end
   if show.consolidated_stock_summary_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message then
     show.consolidated_stock_summary_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message
-    changed = true
   end
   if show.consolidated_symbol_clear_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message then
     show.consolidated_symbol_clear_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message
-    changed = true
   end
   if show.consolidated_trade_cancel_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message then
     show.consolidated_trade_cancel_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message
-    changed = true
   end
   if show.consolidated_trade_correction_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message then
     show.consolidated_trade_correction_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message
-    changed = true
   end
   if show.consolidated_trade_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message then
     show.consolidated_trade_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message
-    changed = true
   end
   if show.consolidated_trading_session_change_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message then
     show.consolidated_trading_session_change_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message
-    changed = true
   end
   if show.consolidated_volume_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message then
     show.consolidated_volume_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message
-    changed = true
   end
   if show.heartbeat_response_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message then
     show.heartbeat_response_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message
-    changed = true
   end
   if show.message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message then
     show.message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_header then
     show.message_header = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_header
-    changed = true
   end
   if show.message_unavailable_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message then
     show.message_unavailable_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message
-    changed = true
   end
   if show.packet ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet then
     show.packet = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet_header then
     show.packet_header = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_packet_header
-    changed = true
   end
   if show.refresh_header_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message then
     show.refresh_header_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message
-    changed = true
   end
   if show.refresh_request_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message then
     show.refresh_request_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message
-    changed = true
   end
   if show.request_response_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_request_response_message then
     show.request_response_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_request_response_message
-    changed = true
   end
   if show.retransmission_request_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message then
     show.retransmission_request_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message
-    changed = true
   end
   if show.sequence_number_reset_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message then
     show.sequence_number_reset_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message
-    changed = true
   end
   if show.symbol_index_mapping_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message then
     show.symbol_index_mapping_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message
-    changed = true
   end
   if show.symbol_index_mapping_request_message ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message then
     show.symbol_index_mapping_request_message = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_index then
+    show.message_index = omi_nyse_equities_bqt_xdp_v1_7_a.prefs.show_message_index
   end
 end
 
@@ -4315,7 +4291,7 @@ nyse_equities_bqt_xdp_v1_7_a.message.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nyse_equities_bqt_xdp_v1_7_a.fields.message_index, message_index)
     iteration:set_generated()
   end

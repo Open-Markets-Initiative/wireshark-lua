@@ -124,6 +124,7 @@ show.block_timestamp = true
 show.expiration_block = true
 show.message = true
 show.packet = true
+show.message_index = true
 
 -- Register Siac Opra Recipient Obi 6.1 Show Options
 omi_siac_opra_recipient_obi_v6_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -135,52 +136,41 @@ omi_siac_opra_recipient_obi_v6_1.prefs.show_block_timestamp = Pref.bool("Show Bl
 omi_siac_opra_recipient_obi_v6_1.prefs.show_expiration_block = Pref.bool("Show Expiration Block", show.expiration_block, "Parse and add Expiration Block to protocol tree")
 omi_siac_opra_recipient_obi_v6_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_siac_opra_recipient_obi_v6_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_siac_opra_recipient_obi_v6_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v6_1.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_application_messages then
     show.application_messages = omi_siac_opra_recipient_obi_v6_1.prefs.show_application_messages
-    changed = true
   end
   if show.best_bid_and_offer_appendage ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_and_offer_appendage then
     show.best_bid_and_offer_appendage = omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_and_offer_appendage
-    changed = true
   end
   if show.best_bid_appendage ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_appendage then
     show.best_bid_appendage = omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_appendage
-    changed = true
   end
   if show.best_offer_appendage ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_best_offer_appendage then
     show.best_offer_appendage = omi_siac_opra_recipient_obi_v6_1.prefs.show_best_offer_appendage
-    changed = true
   end
   if show.block_header ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_block_header then
     show.block_header = omi_siac_opra_recipient_obi_v6_1.prefs.show_block_header
-    changed = true
   end
   if show.block_timestamp ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_block_timestamp then
     show.block_timestamp = omi_siac_opra_recipient_obi_v6_1.prefs.show_block_timestamp
-    changed = true
   end
   if show.expiration_block ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_expiration_block then
     show.expiration_block = omi_siac_opra_recipient_obi_v6_1.prefs.show_expiration_block
-    changed = true
   end
   if show.message ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_message then
     show.message = omi_siac_opra_recipient_obi_v6_1.prefs.show_message
-    changed = true
   end
   if show.packet ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_packet then
     show.packet = omi_siac_opra_recipient_obi_v6_1.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_message_index then
+    show.message_index = omi_siac_opra_recipient_obi_v6_1.prefs.show_message_index
   end
 end
 
@@ -3637,7 +3627,7 @@ siac_opra_recipient_obi_v6_1.message.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.message_index, message_index)
     iteration:set_generated()
   end

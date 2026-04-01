@@ -200,49 +200,34 @@ omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_sbe_message = Pref.bo
 
 -- Handle changed preferences
 function omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_application_messages then
     show.application_messages = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_application_messages
-    changed = true
   end
   if show.definition_flags ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_definition_flags then
     show.definition_flags = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_definition_flags
-    changed = true
   end
   if show.flags ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_flags then
     show.flags = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_flags
-    changed = true
   end
   if show.instr_header ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_instr_header then
     show.instr_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_instr_header
-    changed = true
   end
   if show.logical_expiry ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_logical_expiry then
     show.logical_expiry = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_logical_expiry
-    changed = true
   end
   if show.message_header ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_message_header then
     show.message_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_packet then
     show.packet = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_packet_header then
     show.packet_header = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_packet_header
-    changed = true
   end
   if show.sbe_message ~= omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_sbe_message then
     show.sbe_message = omi_coinbase_derivatives_marketdataapi_sbe_v1_9.prefs.show_sbe_message
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

@@ -220,93 +220,67 @@ omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_unsequenced_data_packet
 
 -- Handle changed preferences
 function omi_miax_pearlequities_expressorders_meo_v2_7.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.additional_liquidity_indicator ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_additional_liquidity_indicator then
     show.additional_liquidity_indicator = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_additional_liquidity_indicator
-    changed = true
   end
   if show.application_messages ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_application_messages then
     show.application_messages = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_application_messages
-    changed = true
   end
   if show.esesm_tcp_packet ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_esesm_tcp_packet then
     show.esesm_tcp_packet = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_esesm_tcp_packet
-    changed = true
   end
   if show.goodbye_packet ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_goodbye_packet then
     show.goodbye_packet = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_goodbye_packet
-    changed = true
   end
   if show.login_request ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_login_request then
     show.login_request = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_login_request
-    changed = true
   end
   if show.login_response ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_login_response then
     show.login_response = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_login_response
-    changed = true
   end
   if show.logout_request ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_logout_request then
     show.logout_request = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_logout_request
-    changed = true
   end
   if show.modify_order_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_modify_order_instructions then
     show.modify_order_instructions = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_modify_order_instructions
-    changed = true
   end
   if show.new_order_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_new_order_instructions then
     show.new_order_instructions = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_new_order_instructions
-    changed = true
   end
   if show.order_execution_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_order_execution_instructions then
     show.order_execution_instructions = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_order_execution_instructions
-    changed = true
   end
   if show.packet ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_packet then
     show.packet = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_packet_header then
     show.packet_header = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_packet_header
-    changed = true
   end
   if show.purge_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_purge_instructions then
     show.purge_instructions = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_purge_instructions
-    changed = true
   end
   if show.retransmission_request ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_retransmission_request then
     show.retransmission_request = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_retransmission_request
-    changed = true
   end
   if show.routing ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_routing then
     show.routing = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_routing
-    changed = true
   end
   if show.self_trade_protection ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_self_trade_protection then
     show.self_trade_protection = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_self_trade_protection
-    changed = true
   end
   if show.sequenced_data_packet ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_sequenced_data_packet then
     show.sequenced_data_packet = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_sequenced_data_packet
-    changed = true
   end
   if show.synchronization_complete ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_synchronization_complete then
     show.synchronization_complete = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_synchronization_complete
-    changed = true
   end
   if show.test_packet ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_test_packet then
     show.test_packet = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_test_packet
-    changed = true
   end
   if show.unsequenced_data_packet ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 
@@ -2145,7 +2119,7 @@ miax_pearlequities_expressorders_meo_v2_7.order_status.display = function(value)
     return "Order Status: Blocked By Drop Copy Acosf Event (9)"
   end
   if value == "!" then
-    return "Order Status: Invalid Use Of‘ Cancel Order If Not A Nbbo Setter (!)"
+    return "Order Status: Invalid Use Of Cancel Order If Not A Nbbo Setter (!)"
   end
   if value == "@" then
     return "Order Status: Invalid Order Expiry Time (@)"

@@ -58,33 +58,22 @@ omi_smallx_headers_sbe_v1_0.prefs.show_sbe_frame = Pref.bool("Show Sbe Frame", s
 
 -- Handle changed preferences
 function omi_smallx_headers_sbe_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.message_header ~= omi_smallx_headers_sbe_v1_0.prefs.show_message_header then
     show.message_header = omi_smallx_headers_sbe_v1_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_smallx_headers_sbe_v1_0.prefs.show_packet then
     show.packet = omi_smallx_headers_sbe_v1_0.prefs.show_packet
-    changed = true
   end
   if show.packet_flags ~= omi_smallx_headers_sbe_v1_0.prefs.show_packet_flags then
     show.packet_flags = omi_smallx_headers_sbe_v1_0.prefs.show_packet_flags
-    changed = true
   end
   if show.packet_header ~= omi_smallx_headers_sbe_v1_0.prefs.show_packet_header then
     show.packet_header = omi_smallx_headers_sbe_v1_0.prefs.show_packet_header
-    changed = true
   end
   if show.sbe_frame ~= omi_smallx_headers_sbe_v1_0.prefs.show_sbe_frame then
     show.sbe_frame = omi_smallx_headers_sbe_v1_0.prefs.show_sbe_frame
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

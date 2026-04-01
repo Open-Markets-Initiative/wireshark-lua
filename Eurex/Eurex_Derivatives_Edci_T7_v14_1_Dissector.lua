@@ -156,6 +156,10 @@ show.rbc_header_comp = true
 show.request_header_comp = true
 show.response_header_comp = true
 show.sessions_grp_comp = true
+show.affected_ord_grp_comp_index = true
+show.fills_grp_comp_index = true
+show.partition_grp_comp_index = true
+show.sessions_grp_comp_index = true
 
 -- Register Eurex Derivatives Edci T7 14.1 Show Options
 omi_eurex_derivatives_edci_t7_v14_1.prefs.show_affected_ord_grp_comp = Pref.bool("Show Affected Ord Grp Comp", show.affected_ord_grp_comp, "Parse and add Affected Ord Grp Comp to protocol tree")
@@ -170,64 +174,62 @@ omi_eurex_derivatives_edci_t7_v14_1.prefs.show_rbc_header_comp = Pref.bool("Show
 omi_eurex_derivatives_edci_t7_v14_1.prefs.show_request_header_comp = Pref.bool("Show Request Header Comp", show.request_header_comp, "Parse and add Request Header Comp to protocol tree")
 omi_eurex_derivatives_edci_t7_v14_1.prefs.show_response_header_comp = Pref.bool("Show Response Header Comp", show.response_header_comp, "Parse and add Response Header Comp to protocol tree")
 omi_eurex_derivatives_edci_t7_v14_1.prefs.show_sessions_grp_comp = Pref.bool("Show Sessions Grp Comp", show.sessions_grp_comp, "Parse and add Sessions Grp Comp to protocol tree")
+omi_eurex_derivatives_edci_t7_v14_1.prefs.show_affected_ord_grp_comp_index = Pref.bool("Show Affected Ord Grp Comp Index", show.affected_ord_grp_comp_index, "Show generated affected ord grp comp index in protocol tree")
+omi_eurex_derivatives_edci_t7_v14_1.prefs.show_fills_grp_comp_index = Pref.bool("Show Fills Grp Comp Index", show.fills_grp_comp_index, "Show generated fills grp comp index in protocol tree")
+omi_eurex_derivatives_edci_t7_v14_1.prefs.show_partition_grp_comp_index = Pref.bool("Show Partition Grp Comp Index", show.partition_grp_comp_index, "Show generated partition grp comp index in protocol tree")
+omi_eurex_derivatives_edci_t7_v14_1.prefs.show_sessions_grp_comp_index = Pref.bool("Show Sessions Grp Comp Index", show.sessions_grp_comp_index, "Show generated sessions grp comp index in protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_derivatives_edci_t7_v14_1.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.affected_ord_grp_comp ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_affected_ord_grp_comp then
     show.affected_ord_grp_comp = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_affected_ord_grp_comp
-    changed = true
   end
   if show.application_messages ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_application_messages then
     show.application_messages = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_application_messages
-    changed = true
   end
   if show.fills_grp_comp ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_fills_grp_comp then
     show.fills_grp_comp = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_fills_grp_comp
-    changed = true
   end
   if show.message ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_message then
     show.message = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_message_header then
     show.message_header = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_message_header
-    changed = true
   end
   if show.notif_header_comp ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_notif_header_comp then
     show.notif_header_comp = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_notif_header_comp
-    changed = true
   end
   if show.packet ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_packet then
     show.packet = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_packet
-    changed = true
   end
   if show.partition_grp_comp ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_partition_grp_comp then
     show.partition_grp_comp = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_partition_grp_comp
-    changed = true
   end
   if show.rbc_header_comp ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_rbc_header_comp then
     show.rbc_header_comp = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_rbc_header_comp
-    changed = true
   end
   if show.request_header_comp ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_request_header_comp then
     show.request_header_comp = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_request_header_comp
-    changed = true
   end
   if show.response_header_comp ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_response_header_comp then
     show.response_header_comp = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_response_header_comp
-    changed = true
   end
   if show.sessions_grp_comp ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_sessions_grp_comp then
     show.sessions_grp_comp = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_sessions_grp_comp
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.affected_ord_grp_comp_index ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_affected_ord_grp_comp_index then
+    show.affected_ord_grp_comp_index = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_affected_ord_grp_comp_index
+  end
+  if show.fills_grp_comp_index ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_fills_grp_comp_index then
+    show.fills_grp_comp_index = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_fills_grp_comp_index
+  end
+  if show.partition_grp_comp_index ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_partition_grp_comp_index then
+    show.partition_grp_comp_index = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_partition_grp_comp_index
+  end
+  if show.sessions_grp_comp_index ~= omi_eurex_derivatives_edci_t7_v14_1.prefs.show_sessions_grp_comp_index then
+    show.sessions_grp_comp_index = omi_eurex_derivatives_edci_t7_v14_1.prefs.show_sessions_grp_comp_index
   end
 end
 
@@ -3352,7 +3354,7 @@ eurex_derivatives_edci_t7_v14_1.sessions_grp_comp.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Sessions Grp Comp Index
-  if sessions_grp_comp_index ~= nil then
+  if sessions_grp_comp_index ~= nil and show.sessions_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_edci_t7_v14_1.fields.sessions_grp_comp_index, sessions_grp_comp_index)
     iteration:set_generated()
   end
@@ -3656,7 +3658,7 @@ eurex_derivatives_edci_t7_v14_1.partition_grp_comp.fields = function(buffer, off
   local index = offset
 
   -- Implicit Partition Grp Comp Index
-  if partition_grp_comp_index ~= nil then
+  if partition_grp_comp_index ~= nil and show.partition_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_edci_t7_v14_1.fields.partition_grp_comp_index, partition_grp_comp_index)
     iteration:set_generated()
   end
@@ -3772,7 +3774,7 @@ eurex_derivatives_edci_t7_v14_1.fills_grp_comp.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Fills Grp Comp Index
-  if fills_grp_comp_index ~= nil then
+  if fills_grp_comp_index ~= nil and show.fills_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_edci_t7_v14_1.fields.fills_grp_comp_index, fills_grp_comp_index)
     iteration:set_generated()
   end
@@ -4501,7 +4503,7 @@ eurex_derivatives_edci_t7_v14_1.affected_ord_grp_comp.fields = function(buffer, 
   local index = offset
 
   -- Implicit Affected Ord Grp Comp Index
-  if affected_ord_grp_comp_index ~= nil then
+  if affected_ord_grp_comp_index ~= nil and show.affected_ord_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_edci_t7_v14_1.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
     iteration:set_generated()
   end

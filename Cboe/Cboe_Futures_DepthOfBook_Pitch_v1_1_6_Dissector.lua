@@ -129,6 +129,8 @@ show.packet_header = true
 show.standard = true
 show.summary_flags = true
 show.variance = true
+show.message_index = true
+show.future_leg_index = true
 
 -- Register Cboe Futures DepthOfBook Pitch 1.1.6 Show Options
 omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -140,52 +142,45 @@ omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_packet_header = Pref.bool("
 omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_standard = Pref.bool("Show Standard", show.standard, "Parse and add Standard to protocol tree")
 omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_summary_flags = Pref.bool("Show Summary Flags", show.summary_flags, "Parse and add Summary Flags to protocol tree")
 omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_variance = Pref.bool("Show Variance", show.variance, "Parse and add Variance to protocol tree")
+omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_leg_index = Pref.bool("Show Future Leg Index", show.future_leg_index, "Show generated future leg index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_application_messages then
     show.application_messages = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_application_messages
-    changed = true
   end
   if show.future_leg ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_leg then
     show.future_leg = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_leg
-    changed = true
   end
   if show.message ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message then
     show.message = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message_header then
     show.message_header = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_packet then
     show.packet = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_packet_header then
     show.packet_header = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_packet_header
-    changed = true
   end
   if show.standard ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_standard then
     show.standard = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_standard
-    changed = true
   end
   if show.summary_flags ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_summary_flags then
     show.summary_flags = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_summary_flags
-    changed = true
   end
   if show.variance ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_variance then
     show.variance = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_variance
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message_index then
+    show.message_index = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_message_index
+  end
+  if show.future_leg_index ~= omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_leg_index then
+    show.future_leg_index = omi_cboe_futures_depthofbook_pitch_v1_1_6.prefs.show_future_leg_index
   end
 end
 
@@ -2646,7 +2641,7 @@ cboe_futures_depthofbook_pitch_v1_1_6.future_leg.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Future Leg Index
-  if future_leg_index ~= nil then
+  if future_leg_index ~= nil and show.future_leg_index then
     local iteration = parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_6.fields.future_leg_index, future_leg_index)
     iteration:set_generated()
   end
@@ -3233,7 +3228,7 @@ cboe_futures_depthofbook_pitch_v1_1_6.message.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_cboe_futures_depthofbook_pitch_v1_1_6.fields.message_index, message_index)
     iteration:set_generated()
   end

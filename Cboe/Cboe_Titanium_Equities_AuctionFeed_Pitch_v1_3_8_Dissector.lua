@@ -85,49 +85,34 @@ omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_unsequenced_data_
 
 -- Handle changed preferences
 function omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_application_messages then
     show.application_messages = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_application_messages
-    changed = true
   end
   if show.debug_packet ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_debug_packet then
     show.debug_packet = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_debug_packet
-    changed = true
   end
   if show.login_accepted_packet ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_login_accepted_packet then
     show.login_accepted_packet = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_login_accepted_packet
-    changed = true
   end
   if show.login_rejected_packet ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_login_rejected_packet then
     show.login_rejected_packet = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_login_rejected_packet
-    changed = true
   end
   if show.login_request_packet ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_login_request_packet then
     show.login_request_packet = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_login_request_packet
-    changed = true
   end
   if show.packet ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_packet then
     show.packet = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_packet
-    changed = true
   end
   if show.sequenced_data_packet ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_sequenced_data_packet then
     show.sequenced_data_packet = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_sequenced_data_packet
-    changed = true
   end
   if show.sequenced_message_header ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_sequenced_message_header then
     show.sequenced_message_header = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_sequenced_message_header
-    changed = true
   end
   if show.unsequenced_data_packet ~= omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

@@ -285,69 +285,49 @@ omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_sub_msg_header = Pref.bo
 
 -- Handle changed preferences
 function omi_nyse_equities_binarygateway_pillar_v5_17.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_application_messages then
     show.application_messages = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_application_messages
-    changed = true
   end
   if show.bitfield_flow_indicator ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bitfield_flow_indicator then
     show.bitfield_flow_indicator = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bitfield_flow_indicator
-    changed = true
   end
   if show.bitfield_order_instructions ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bitfield_order_instructions then
     show.bitfield_order_instructions = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_bitfield_order_instructions
-    changed = true
   end
   if show.manual_action_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_id then
     show.manual_action_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_manual_action_id
-    changed = true
   end
   if show.mpv_level_definition ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mpv_level_definition then
     show.mpv_level_definition = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_mpv_level_definition
-    changed = true
   end
   if show.msg_header ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_msg_header then
     show.msg_header = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_msg_header
-    changed = true
   end
   if show.optional_order_add_on ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_order_add_on then
     show.optional_order_add_on = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_order_add_on
-    changed = true
   end
   if show.optional_settlement_type_add_on ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_settlement_type_add_on then
     show.optional_settlement_type_add_on = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_optional_settlement_type_add_on
-    changed = true
   end
   if show.ref_seq_msg_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id then
     show.ref_seq_msg_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_ref_seq_msg_id
-    changed = true
   end
   if show.seq_msg_header ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_header then
     show.seq_msg_header = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_header
-    changed = true
   end
   if show.seq_msg_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_id then
     show.seq_msg_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_seq_msg_id
-    changed = true
   end
   if show.session_messages ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_messages then
     show.session_messages = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_session_messages
-    changed = true
   end
   if show.stream_id ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_stream_id then
     show.stream_id = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_stream_id
-    changed = true
   end
   if show.sub_msg_header ~= omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_sub_msg_header then
     show.sub_msg_header = omi_nyse_equities_binarygateway_pillar_v5_17.prefs.show_sub_msg_header
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

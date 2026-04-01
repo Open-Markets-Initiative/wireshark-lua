@@ -48,6 +48,7 @@ show.message_header = true
 show.packet = true
 show.packet_flag = true
 show.packet_header = true
+show.message_index = true
 
 -- Register Otc Markets Headers Ats 1.0 Show Options
 omi_otc_markets_headers_ats_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -55,36 +56,29 @@ omi_otc_markets_headers_ats_v1_0.prefs.show_message_header = Pref.bool("Show Mes
 omi_otc_markets_headers_ats_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_otc_markets_headers_ats_v1_0.prefs.show_packet_flag = Pref.bool("Show Packet Flag", show.packet_flag, "Parse and add Packet Flag to protocol tree")
 omi_otc_markets_headers_ats_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_otc_markets_headers_ats_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_otc_markets_headers_ats_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.message ~= omi_otc_markets_headers_ats_v1_0.prefs.show_message then
     show.message = omi_otc_markets_headers_ats_v1_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_otc_markets_headers_ats_v1_0.prefs.show_message_header then
     show.message_header = omi_otc_markets_headers_ats_v1_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_otc_markets_headers_ats_v1_0.prefs.show_packet then
     show.packet = omi_otc_markets_headers_ats_v1_0.prefs.show_packet
-    changed = true
   end
   if show.packet_flag ~= omi_otc_markets_headers_ats_v1_0.prefs.show_packet_flag then
     show.packet_flag = omi_otc_markets_headers_ats_v1_0.prefs.show_packet_flag
-    changed = true
   end
   if show.packet_header ~= omi_otc_markets_headers_ats_v1_0.prefs.show_packet_header then
     show.packet_header = omi_otc_markets_headers_ats_v1_0.prefs.show_packet_header
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_otc_markets_headers_ats_v1_0.prefs.show_message_index then
+    show.message_index = omi_otc_markets_headers_ats_v1_0.prefs.show_message_index
   end
 end
 
@@ -316,7 +310,7 @@ otc_markets_headers_ats_v1_0.message.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end

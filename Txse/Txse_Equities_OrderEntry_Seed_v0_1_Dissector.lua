@@ -327,141 +327,103 @@ omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_presenc
 
 -- Handle changed preferences
 function omi_txse_equities_orderentry_seed_v0_1.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_application_messages then
     show.application_messages = omi_txse_equities_orderentry_seed_v0_1.prefs.show_application_messages
-    changed = true
   end
   if show.debug_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_debug_message then
     show.debug_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_debug_message
-    changed = true
   end
   if show.define_symbol_bitfields ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_define_symbol_bitfields then
     show.define_symbol_bitfields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_define_symbol_bitfields
-    changed = true
   end
   if show.limit_order_accepted_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_accepted_presence_bits then
     show.limit_order_accepted_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_accepted_presence_bits
-    changed = true
   end
   if show.limit_order_bit_fields ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_bit_fields then
     show.limit_order_bit_fields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_bit_fields
-    changed = true
   end
   if show.limit_order_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_presence_bits then
     show.limit_order_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_presence_bits
-    changed = true
   end
   if show.limit_order_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_rejected_presence_bits then
     show.limit_order_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_limit_order_rejected_presence_bits
-    changed = true
   end
   if show.logon_request_packet ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_logon_request_packet then
     show.logon_request_packet = omi_txse_equities_orderentry_seed_v0_1.prefs.show_logon_request_packet
-    changed = true
   end
   if show.logon_response_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_logon_response_message then
     show.logon_response_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_logon_response_message
-    changed = true
   end
   if show.market_order_accepted_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_accepted_presence_bits then
     show.market_order_accepted_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_accepted_presence_bits
-    changed = true
   end
   if show.market_order_bit_fields ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_bit_fields then
     show.market_order_bit_fields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_bit_fields
-    changed = true
   end
   if show.market_order_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_presence_bits then
     show.market_order_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_presence_bits
-    changed = true
   end
   if show.market_order_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_rejected_presence_bits then
     show.market_order_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_market_order_rejected_presence_bits
-    changed = true
   end
   if show.mass_cancel_accepted_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_accepted_presence_bits then
     show.mass_cancel_accepted_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_accepted_presence_bits
-    changed = true
   end
   if show.mass_cancel_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_presence_bits then
     show.mass_cancel_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_presence_bits
-    changed = true
   end
   if show.mass_cancel_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_rejected_presence_bits then
     show.mass_cancel_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_rejected_presence_bits
-    changed = true
   end
   if show.mass_cancel_result_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_result_presence_bits then
     show.mass_cancel_result_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_mass_cancel_result_presence_bits
-    changed = true
   end
   if show.modify_bitfields ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_bitfields then
     show.modify_bitfields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_bitfields
-    changed = true
   end
   if show.modify_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_rejected_presence_bits then
     show.modify_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_modify_rejected_presence_bits
-    changed = true
   end
   if show.order_modified_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_modified_presence_bits then
     show.order_modified_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_modified_presence_bits
-    changed = true
   end
   if show.order_replaced_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_replaced_presence_bits then
     show.order_replaced_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_replaced_presence_bits
-    changed = true
   end
   if show.order_restated_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_restated_presence_bits then
     show.order_restated_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_order_restated_presence_bits
-    changed = true
   end
   if show.packet ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_packet then
     show.packet = omi_txse_equities_orderentry_seed_v0_1.prefs.show_packet
-    changed = true
   end
   if show.rake_message_header ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_rake_message_header then
     show.rake_message_header = omi_txse_equities_orderentry_seed_v0_1.prefs.show_rake_message_header
-    changed = true
   end
   if show.rake_tcp_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_rake_tcp_message then
     show.rake_tcp_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_rake_tcp_message
-    changed = true
   end
   if show.replace_bitfields ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_bitfields then
     show.replace_bitfields = omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_bitfields
-    changed = true
   end
   if show.replace_order_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_order_presence_bits then
     show.replace_order_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_order_presence_bits
-    changed = true
   end
   if show.replace_rejected_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_rejected_presence_bits then
     show.replace_rejected_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_replace_rejected_presence_bits
-    changed = true
   end
   if show.symbol_status_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_symbol_status_presence_bits then
     show.symbol_status_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_symbol_status_presence_bits
-    changed = true
   end
   if show.tcp_sequenced_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_sequenced_message then
     show.tcp_sequenced_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_sequenced_message
-    changed = true
   end
   if show.tcp_unsequenced_message ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_unsequenced_message then
     show.tcp_unsequenced_message = omi_txse_equities_orderentry_seed_v0_1.prefs.show_tcp_unsequenced_message
-    changed = true
   end
   if show.trading_session_status_presence_bits ~= omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_presence_bits then
     show.trading_session_status_presence_bits = omi_txse_equities_orderentry_seed_v0_1.prefs.show_trading_session_status_presence_bits
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

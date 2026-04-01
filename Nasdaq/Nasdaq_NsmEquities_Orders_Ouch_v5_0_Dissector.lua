@@ -157,57 +157,40 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bo
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages
-    changed = true
   end
   if show.enter_order_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_appendage then
     show.enter_order_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_appendage
-    changed = true
   end
   if show.order_accepted_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_appendage then
     show.order_accepted_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_appendage
-    changed = true
   end
   if show.order_executed_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_appendage then
     show.order_executed_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_appendage
-    changed = true
   end
   if show.order_restated_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_appendage then
     show.order_restated_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_appendage
-    changed = true
   end
   if show.packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet then
     show.packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet_header
-    changed = true
   end
   if show.replace_order_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage then
     show.replace_order_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage
-    changed = true
   end
   if show.replaced_message_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage then
     show.replaced_message_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage
-    changed = true
   end
   if show.session_messages ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages
-    changed = true
   end
   if show.soup_bin_tcp_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet then
     show.soup_bin_tcp_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

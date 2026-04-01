@@ -55,33 +55,22 @@ omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet_header = Pref.bo
 
 -- Handle changed preferences
 function omi_b3_securities_binarypacketheader_udp_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.framing_header ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_framing_header then
     show.framing_header = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_framing_header
-    changed = true
   end
   if show.message ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message then
     show.message = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message_header then
     show.message_header = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet then
     show.packet = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet_header then
     show.packet_header = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet_header
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

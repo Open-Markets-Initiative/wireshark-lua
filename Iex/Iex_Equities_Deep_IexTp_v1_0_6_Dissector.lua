@@ -105,6 +105,7 @@ show.message_header = true
 show.packet = true
 show.sale_condition_flags = true
 show.security_directory_flags = true
+show.message_index = true
 
 -- Register Iex Equities Deep IexTp 1.0.6 Show Options
 omi_iex_equities_deep_iextp_v1_0_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -114,44 +115,35 @@ omi_iex_equities_deep_iextp_v1_0_6.prefs.show_message_header = Pref.bool("Show M
 omi_iex_equities_deep_iextp_v1_0_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_iex_equities_deep_iextp_v1_0_6.prefs.show_sale_condition_flags = Pref.bool("Show Sale Condition Flags", show.sale_condition_flags, "Parse and add Sale Condition Flags to protocol tree")
 omi_iex_equities_deep_iextp_v1_0_6.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
+omi_iex_equities_deep_iextp_v1_0_6.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_iex_equities_deep_iextp_v1_0_6.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_iex_equities_deep_iextp_v1_0_6.prefs.show_application_messages then
     show.application_messages = omi_iex_equities_deep_iextp_v1_0_6.prefs.show_application_messages
-    changed = true
   end
   if show.iextp_header ~= omi_iex_equities_deep_iextp_v1_0_6.prefs.show_iextp_header then
     show.iextp_header = omi_iex_equities_deep_iextp_v1_0_6.prefs.show_iextp_header
-    changed = true
   end
   if show.message ~= omi_iex_equities_deep_iextp_v1_0_6.prefs.show_message then
     show.message = omi_iex_equities_deep_iextp_v1_0_6.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_iex_equities_deep_iextp_v1_0_6.prefs.show_message_header then
     show.message_header = omi_iex_equities_deep_iextp_v1_0_6.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_iex_equities_deep_iextp_v1_0_6.prefs.show_packet then
     show.packet = omi_iex_equities_deep_iextp_v1_0_6.prefs.show_packet
-    changed = true
   end
   if show.sale_condition_flags ~= omi_iex_equities_deep_iextp_v1_0_6.prefs.show_sale_condition_flags then
     show.sale_condition_flags = omi_iex_equities_deep_iextp_v1_0_6.prefs.show_sale_condition_flags
-    changed = true
   end
   if show.security_directory_flags ~= omi_iex_equities_deep_iextp_v1_0_6.prefs.show_security_directory_flags then
     show.security_directory_flags = omi_iex_equities_deep_iextp_v1_0_6.prefs.show_security_directory_flags
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_iex_equities_deep_iextp_v1_0_6.prefs.show_message_index then
+    show.message_index = omi_iex_equities_deep_iextp_v1_0_6.prefs.show_message_index
   end
 end
 
@@ -2294,7 +2286,7 @@ iex_equities_deep_iextp_v1_0_6.message.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_index, message_index)
     iteration:set_generated()
   end

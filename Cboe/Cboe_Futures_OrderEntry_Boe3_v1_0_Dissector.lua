@@ -201,6 +201,9 @@ show.trade_cancel_or_correct_message = true
 show.unit_sequence = true
 show.variance_quote_restatement_message = true
 show.variance_restatement_message = true
+show.unit_sequence_index = true
+show.quote_update_group_index = true
+show.quote_update_acknowledgement_group_index = true
 
 -- Register Cboe Futures OrderEntry Boe3 1.0 Show Options
 omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
@@ -242,172 +245,139 @@ omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_trade_cancel_or_correct_message
 omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_unit_sequence = Pref.bool("Show Unit Sequence", show.unit_sequence, "Parse and add Unit Sequence to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_quote_restatement_message = Pref.bool("Show Variance Quote Restatement Message", show.variance_quote_restatement_message, "Parse and add Variance Quote Restatement Message to protocol tree")
 omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_restatement_message = Pref.bool("Show Variance Restatement Message", show.variance_restatement_message, "Parse and add Variance Restatement Message to protocol tree")
+omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_unit_sequence_index = Pref.bool("Show Unit Sequence Index", show.unit_sequence_index, "Show generated unit sequence index in protocol tree")
+omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_group_index = Pref.bool("Show Quote Update Group Index", show.quote_update_group_index, "Show generated quote update group index in protocol tree")
+omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_acknowledgement_group_index = Pref.bool("Show Quote Update Acknowledgement Group Index", show.quote_update_acknowledgement_group_index, "Show generated quote update acknowledgement group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_futures_orderentry_boe3_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.cancel_order_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_cancel_order_message then
     show.cancel_order_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_cancel_order_message
-    changed = true
   end
   if show.cancel_rejected_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_cancel_rejected_message then
     show.cancel_rejected_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_cancel_rejected_message
-    changed = true
   end
   if show.login_request_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_login_request_message then
     show.login_request_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_login_request_message
-    changed = true
   end
   if show.login_response_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_login_response_message then
     show.login_response_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_login_response_message
-    changed = true
   end
   if show.logout_response_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_logout_response_message then
     show.logout_response_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_logout_response_message
-    changed = true
   end
   if show.mass_cancel_acknowledgement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_mass_cancel_acknowledgement_message then
     show.mass_cancel_acknowledgement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_mass_cancel_acknowledgement_message
-    changed = true
   end
   if show.mass_cancel_inst ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_mass_cancel_inst then
     show.mass_cancel_inst = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_mass_cancel_inst
-    changed = true
   end
   if show.mass_cancel_order_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_mass_cancel_order_message then
     show.mass_cancel_order_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_mass_cancel_order_message
-    changed = true
   end
   if show.mass_cancel_rejected_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_mass_cancel_rejected_message then
     show.mass_cancel_rejected_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_mass_cancel_rejected_message
-    changed = true
   end
   if show.message_header ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_message_header then
     show.message_header = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_message_header
-    changed = true
   end
   if show.modify_order_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_modify_order_message then
     show.modify_order_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_modify_order_message
-    changed = true
   end
   if show.modify_rejected_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_modify_rejected_message then
     show.modify_rejected_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_modify_rejected_message
-    changed = true
   end
   if show.new_order_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_new_order_message then
     show.new_order_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_new_order_message
-    changed = true
   end
   if show.order_acknowledgement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_acknowledgement_message then
     show.order_acknowledgement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_acknowledgement_message
-    changed = true
   end
   if show.order_cancelled_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_cancelled_message then
     show.order_cancelled_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_cancelled_message
-    changed = true
   end
   if show.order_execution_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_execution_message then
     show.order_execution_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_execution_message
-    changed = true
   end
   if show.order_modified_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_modified_message then
     show.order_modified_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_modified_message
-    changed = true
   end
   if show.order_rejected_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_rejected_message then
     show.order_rejected_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_order_rejected_message
-    changed = true
   end
   if show.packet ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_packet then
     show.packet = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_packet
-    changed = true
   end
   if show.prevent_match ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_prevent_match then
     show.prevent_match = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_prevent_match
-    changed = true
   end
   if show.purge_acknowledgement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_purge_acknowledgement_message then
     show.purge_acknowledgement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_purge_acknowledgement_message
-    changed = true
   end
   if show.purge_orders_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_purge_orders_message then
     show.purge_orders_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_purge_orders_message
-    changed = true
   end
   if show.purge_rejected_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_purge_rejected_message then
     show.purge_rejected_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_purge_rejected_message
-    changed = true
   end
   if show.quote_cancelled_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_cancelled_message then
     show.quote_cancelled_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_cancelled_message
-    changed = true
   end
   if show.quote_execution_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_execution_message then
     show.quote_execution_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_execution_message
-    changed = true
   end
   if show.quote_restated_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_restated_message then
     show.quote_restated_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_restated_message
-    changed = true
   end
   if show.quote_update_acknowledgement_group ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_acknowledgement_group then
     show.quote_update_acknowledgement_group = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_acknowledgement_group
-    changed = true
   end
   if show.quote_update_acknowledgement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_acknowledgement_message then
     show.quote_update_acknowledgement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_acknowledgement_message
-    changed = true
   end
   if show.quote_update_group ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_group then
     show.quote_update_group = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_group
-    changed = true
   end
   if show.quote_update_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_message then
     show.quote_update_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_message
-    changed = true
   end
   if show.quote_update_rejected_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_rejected_message then
     show.quote_update_rejected_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_rejected_message
-    changed = true
   end
   if show.reset_risk_acknowledgement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_reset_risk_acknowledgement_message then
     show.reset_risk_acknowledgement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_reset_risk_acknowledgement_message
-    changed = true
   end
   if show.reset_risk_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_reset_risk_message then
     show.reset_risk_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_reset_risk_message
-    changed = true
   end
   if show.tas_quote_restatement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_tas_quote_restatement_message then
     show.tas_quote_restatement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_tas_quote_restatement_message
-    changed = true
   end
   if show.tas_restatement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_tas_restatement_message then
     show.tas_restatement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_tas_restatement_message
-    changed = true
   end
   if show.trade_cancel_or_correct_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_trade_cancel_or_correct_message then
     show.trade_cancel_or_correct_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_trade_cancel_or_correct_message
-    changed = true
   end
   if show.unit_sequence ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_unit_sequence then
     show.unit_sequence = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_unit_sequence
-    changed = true
   end
   if show.variance_quote_restatement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_quote_restatement_message then
     show.variance_quote_restatement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_quote_restatement_message
-    changed = true
   end
   if show.variance_restatement_message ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_restatement_message then
     show.variance_restatement_message = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_variance_restatement_message
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.unit_sequence_index ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_unit_sequence_index then
+    show.unit_sequence_index = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_unit_sequence_index
+  end
+  if show.quote_update_group_index ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_group_index then
+    show.quote_update_group_index = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_group_index
+  end
+  if show.quote_update_acknowledgement_group_index ~= omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_acknowledgement_group_index then
+    show.quote_update_acknowledgement_group_index = omi_cboe_futures_orderentry_boe3_v1_0.prefs.show_quote_update_acknowledgement_group_index
   end
 end
 
@@ -4064,7 +4034,7 @@ cboe_futures_orderentry_boe3_v1_0.quote_update_acknowledgement_group.fields = fu
   local index = offset
 
   -- Implicit Quote Update Acknowledgement Group Index
-  if quote_update_acknowledgement_group_index ~= nil then
+  if quote_update_acknowledgement_group_index ~= nil and show.quote_update_acknowledgement_group_index then
     local iteration = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_group_index, quote_update_acknowledgement_group_index)
     iteration:set_generated()
   end
@@ -5389,7 +5359,7 @@ cboe_futures_orderentry_boe3_v1_0.quote_update_group.fields = function(buffer, o
   local index = offset
 
   -- Implicit Quote Update Group Index
-  if quote_update_group_index ~= nil then
+  if quote_update_group_index ~= nil and show.quote_update_group_index then
     local iteration = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.quote_update_group_index, quote_update_group_index)
     iteration:set_generated()
   end
@@ -6073,7 +6043,7 @@ cboe_futures_orderentry_boe3_v1_0.unit_sequence.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Unit Sequence Index
-  if unit_sequence_index ~= nil then
+  if unit_sequence_index ~= nil and show.unit_sequence_index then
     local iteration = parent:add(omi_cboe_futures_orderentry_boe3_v1_0.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()
   end

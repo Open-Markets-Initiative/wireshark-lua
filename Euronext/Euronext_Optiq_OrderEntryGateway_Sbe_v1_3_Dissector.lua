@@ -373,6 +373,19 @@ show.quotes_rep_groups = true
 show.trade_qualifier = true
 show.trading_session = true
 show.waiver_indicator = true
+show.new_order_message_free_text_section_group_index = true
+show.mifid_short_codes_group_index = true
+show.order_optional_fields_group_index = true
+show.order_clearing_fields_group_index = true
+show.fill_optional_field_group_index = true
+show.fill_strategy_field_group_index = true
+show.cancel_replace_optional_field_group_index = true
+show.cancel_replace_clearing_fields_group_index = true
+show.collar_fields_group_index = true
+show.clearing_dataset_group_index = true
+show.quotes_rep_group_index = true
+show.quote_acks_group_index = true
+show.instrument_synchronization_group_index = true
 
 -- Register Euronext Optiq OrderEntryGateway Sbe 1.3 Show Options
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -414,172 +427,179 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_groups = Pre
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_trade_qualifier = Pref.bool("Show Trade Qualifier", show.trade_qualifier, "Parse and add Trade Qualifier to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_trading_session = Pref.bool("Show Trading Session", show.trading_session, "Parse and add Trading Session to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_waiver_indicator = Pref.bool("Show Waiver Indicator", show.waiver_indicator, "Parse and add Waiver Indicator to protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message_free_text_section_group_index = Pref.bool("Show New Order Message Free Text Section Group Index", show.new_order_message_free_text_section_group_index, "Show generated new order message free text section group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_group_index = Pref.bool("Show Mifid Short Codes Group Index", show.mifid_short_codes_group_index, "Show generated mifid short codes group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_group_index = Pref.bool("Show Order Optional Fields Group Index", show.order_optional_fields_group_index, "Show generated order optional fields group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_group_index = Pref.bool("Show Order Clearing Fields Group Index", show.order_clearing_fields_group_index, "Show generated order clearing fields group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_group_index = Pref.bool("Show Fill Optional Field Group Index", show.fill_optional_field_group_index, "Show generated fill optional field group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_group_index = Pref.bool("Show Fill Strategy Field Group Index", show.fill_strategy_field_group_index, "Show generated fill strategy field group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_group_index = Pref.bool("Show Cancel Replace Optional Field Group Index", show.cancel_replace_optional_field_group_index, "Show generated cancel replace optional field group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_group_index = Pref.bool("Show Cancel Replace Clearing Fields Group Index", show.cancel_replace_clearing_fields_group_index, "Show generated cancel replace clearing fields group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_group_index = Pref.bool("Show Collar Fields Group Index", show.collar_fields_group_index, "Show generated collar fields group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_group_index = Pref.bool("Show Clearing Dataset Group Index", show.clearing_dataset_group_index, "Show generated clearing dataset group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_group_index = Pref.bool("Show Quotes Rep Group Index", show.quotes_rep_group_index, "Show generated quotes rep group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quote_acks_group_index = Pref.bool("Show Quote Acks Group Index", show.quote_acks_group_index, "Show generated quote acks group index in protocol tree")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group_index = Pref.bool("Show Instrument Synchronization Group Index", show.instrument_synchronization_group_index, "Show generated instrument synchronization group index in protocol tree")
 
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.ack_qualifiers ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ack_qualifiers then
     show.ack_qualifiers = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ack_qualifiers
-    changed = true
   end
   if show.application_messages ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_application_messages
-    changed = true
   end
   if show.cancel_replace_clearing_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_group then
     show.cancel_replace_clearing_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_group
-    changed = true
   end
   if show.cancel_replace_clearing_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_groups then
     show.cancel_replace_clearing_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_groups
-    changed = true
   end
   if show.cancel_replace_optional_field_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_group then
     show.cancel_replace_optional_field_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_group
-    changed = true
   end
   if show.cancel_replace_optional_field_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_groups then
     show.cancel_replace_optional_field_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_groups
-    changed = true
   end
   if show.clearing_dataset_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_group then
     show.clearing_dataset_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_group
-    changed = true
   end
   if show.clearing_dataset_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_groups then
     show.clearing_dataset_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_groups
-    changed = true
   end
   if show.collar_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_group then
     show.collar_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_group
-    changed = true
   end
   if show.collar_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_groups then
     show.collar_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_groups
-    changed = true
   end
   if show.dark_execution_instruction ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_dark_execution_instruction then
     show.dark_execution_instruction = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_dark_execution_instruction
-    changed = true
   end
   if show.execution_instruction ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_execution_instruction then
     show.execution_instruction = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_execution_instruction
-    changed = true
   end
   if show.fill_optional_field_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_group then
     show.fill_optional_field_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_group
-    changed = true
   end
   if show.fill_optional_field_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_groups then
     show.fill_optional_field_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_groups
-    changed = true
   end
   if show.fill_strategy_field_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_group then
     show.fill_strategy_field_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_group
-    changed = true
   end
   if show.fill_strategy_field_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_groups then
     show.fill_strategy_field_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_groups
-    changed = true
   end
   if show.free_text_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_groups then
     show.free_text_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_free_text_groups
-    changed = true
   end
   if show.group_size_encoding ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_group_size_encoding then
     show.group_size_encoding = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_group_size_encoding
-    changed = true
   end
   if show.instrument_synchronization_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group then
     show.instrument_synchronization_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group
-    changed = true
   end
   if show.instrument_synchronization_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_groups then
     show.instrument_synchronization_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_groups
-    changed = true
   end
   if show.message ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_message then
     show.message = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_message_header then
     show.message_header = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_message_header
-    changed = true
   end
   if show.mi_fid_indicators ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mi_fid_indicators then
     show.mi_fid_indicators = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mi_fid_indicators
-    changed = true
   end
   if show.mifid_short_codes_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_group then
     show.mifid_short_codes_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_group
-    changed = true
   end
   if show.mifid_short_codes_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_groups then
     show.mifid_short_codes_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_groups
-    changed = true
   end
   if show.new_order_message_free_text_section_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message_free_text_section_group then
     show.new_order_message_free_text_section_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message_free_text_section_group
-    changed = true
   end
   if show.open_close ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_open_close then
     show.open_close = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_open_close
-    changed = true
   end
   if show.order_clearing_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_group then
     show.order_clearing_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_group
-    changed = true
   end
   if show.order_clearing_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_groups then
     show.order_clearing_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_groups
-    changed = true
   end
   if show.order_optional_fields_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_group then
     show.order_optional_fields_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_group
-    changed = true
   end
   if show.order_optional_fields_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_groups then
     show.order_optional_fields_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_groups
-    changed = true
   end
   if show.packet ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_packet then
     show.packet = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_packet
-    changed = true
   end
   if show.quote_acks_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quote_acks_group then
     show.quote_acks_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quote_acks_group
-    changed = true
   end
   if show.quote_acks_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quote_acks_groups then
     show.quote_acks_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quote_acks_groups
-    changed = true
   end
   if show.quotes_rep_group ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_group then
     show.quotes_rep_group = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_group
-    changed = true
   end
   if show.quotes_rep_groups ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_groups then
     show.quotes_rep_groups = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_groups
-    changed = true
   end
   if show.trade_qualifier ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_trade_qualifier then
     show.trade_qualifier = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_trade_qualifier
-    changed = true
   end
   if show.trading_session ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_trading_session then
     show.trading_session = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_trading_session
-    changed = true
   end
   if show.waiver_indicator ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_waiver_indicator then
     show.waiver_indicator = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_waiver_indicator
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.new_order_message_free_text_section_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message_free_text_section_group_index then
+    show.new_order_message_free_text_section_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_new_order_message_free_text_section_group_index
+  end
+  if show.mifid_short_codes_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_group_index then
+    show.mifid_short_codes_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_mifid_short_codes_group_index
+  end
+  if show.order_optional_fields_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_group_index then
+    show.order_optional_fields_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_optional_fields_group_index
+  end
+  if show.order_clearing_fields_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_group_index then
+    show.order_clearing_fields_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_order_clearing_fields_group_index
+  end
+  if show.fill_optional_field_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_group_index then
+    show.fill_optional_field_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_optional_field_group_index
+  end
+  if show.fill_strategy_field_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_group_index then
+    show.fill_strategy_field_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_fill_strategy_field_group_index
+  end
+  if show.cancel_replace_optional_field_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_group_index then
+    show.cancel_replace_optional_field_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_optional_field_group_index
+  end
+  if show.cancel_replace_clearing_fields_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_group_index then
+    show.cancel_replace_clearing_fields_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_cancel_replace_clearing_fields_group_index
+  end
+  if show.collar_fields_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_group_index then
+    show.collar_fields_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_collar_fields_group_index
+  end
+  if show.clearing_dataset_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_group_index then
+    show.clearing_dataset_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_clearing_dataset_group_index
+  end
+  if show.quotes_rep_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_group_index then
+    show.quotes_rep_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_group_index
+  end
+  if show.quote_acks_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quote_acks_group_index then
+    show.quote_acks_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quote_acks_group_index
+  end
+  if show.instrument_synchronization_group_index ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group_index then
+    show.instrument_synchronization_group_index = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group_index
   end
 end
 
@@ -6412,7 +6432,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_group.field
   local index = offset
 
   -- Implicit Instrument Synchronization Group Index
-  if instrument_synchronization_group_index ~= nil then
+  if instrument_synchronization_group_index ~= nil and show.instrument_synchronization_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_group_index, instrument_synchronization_group_index)
     iteration:set_generated()
   end
@@ -8781,7 +8801,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.quote_acks_group.fields = function(buf
   local index = offset
 
   -- Implicit Quote Acks Group Index
-  if quote_acks_group_index ~= nil then
+  if quote_acks_group_index ~= nil and show.quote_acks_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_acks_group_index, quote_acks_group_index)
     iteration:set_generated()
   end
@@ -9015,7 +9035,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.quotes_rep_group.fields = function(buf
   local index = offset
 
   -- Implicit Quotes Rep Group Index
-  if quotes_rep_group_index ~= nil then
+  if quotes_rep_group_index ~= nil and show.quotes_rep_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_rep_group_index, quotes_rep_group_index)
     iteration:set_generated()
   end
@@ -9245,7 +9265,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.clearing_dataset_group.fields = functi
   local index = offset
 
   -- Implicit Clearing Dataset Group Index
-  if clearing_dataset_group_index ~= nil then
+  if clearing_dataset_group_index ~= nil and show.clearing_dataset_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_dataset_group_index, clearing_dataset_group_index)
     iteration:set_generated()
   end
@@ -9368,7 +9388,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mifid_short_codes_group.fields = funct
   local index = offset
 
   -- Implicit Mifid Short Codes Group Index
-  if mifid_short_codes_group_index ~= nil then
+  if mifid_short_codes_group_index ~= nil and show.mifid_short_codes_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.mifid_short_codes_group_index, mifid_short_codes_group_index)
     iteration:set_generated()
   end
@@ -9583,7 +9603,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.collar_fields_group.fields = function(
   local index = offset
 
   -- Implicit Collar Fields Group Index
-  if collar_fields_group_index ~= nil then
+  if collar_fields_group_index ~= nil and show.collar_fields_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.collar_fields_group_index, collar_fields_group_index)
     iteration:set_generated()
   end
@@ -9819,7 +9839,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_clearing_fields_group.f
   local index = offset
 
   -- Implicit Cancel Replace Clearing Fields Group Index
-  if cancel_replace_clearing_fields_group_index ~= nil then
+  if cancel_replace_clearing_fields_group_index ~= nil and show.cancel_replace_clearing_fields_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_group_index, cancel_replace_clearing_fields_group_index)
     iteration:set_generated()
   end
@@ -10009,7 +10029,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_optional_field_group.fi
   local index = offset
 
   -- Implicit Cancel Replace Optional Field Group Index
-  if cancel_replace_optional_field_group_index ~= nil then
+  if cancel_replace_optional_field_group_index ~= nil and show.cancel_replace_optional_field_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_group_index, cancel_replace_optional_field_group_index)
     iteration:set_generated()
   end
@@ -10136,7 +10156,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.new_order_message_free_text_section_gr
   local index = offset
 
   -- Implicit New Order Message Free Text Section Group Index
-  if new_order_message_free_text_section_group_index ~= nil then
+  if new_order_message_free_text_section_group_index ~= nil and show.new_order_message_free_text_section_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.new_order_message_free_text_section_group_index, new_order_message_free_text_section_group_index)
     iteration:set_generated()
   end
@@ -10647,7 +10667,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.fill_strategy_field_group.fields = fun
   local index = offset
 
   -- Implicit Fill Strategy Field Group Index
-  if fill_strategy_field_group_index ~= nil then
+  if fill_strategy_field_group_index ~= nil and show.fill_strategy_field_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_strategy_field_group_index, fill_strategy_field_group_index)
     iteration:set_generated()
   end
@@ -10762,7 +10782,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.fill_optional_field_group.fields = fun
   local index = offset
 
   -- Implicit Fill Optional Field Group Index
-  if fill_optional_field_group_index ~= nil then
+  if fill_optional_field_group_index ~= nil and show.fill_optional_field_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_group_index, fill_optional_field_group_index)
     iteration:set_generated()
   end
@@ -11279,7 +11299,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_clearing_fields_group.fields = f
   local index = offset
 
   -- Implicit Order Clearing Fields Group Index
-  if order_clearing_fields_group_index ~= nil then
+  if order_clearing_fields_group_index ~= nil and show.order_clearing_fields_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_group_index, order_clearing_fields_group_index)
     iteration:set_generated()
   end
@@ -11410,7 +11430,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.fields = f
   local index = offset
 
   -- Implicit Order Optional Fields Group Index
-  if order_optional_fields_group_index ~= nil then
+  if order_optional_fields_group_index ~= nil and show.order_optional_fields_group_index then
     local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_group_index, order_optional_fields_group_index)
     iteration:set_generated()
   end

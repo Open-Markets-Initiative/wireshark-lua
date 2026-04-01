@@ -115,53 +115,37 @@ omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation = Pref.bool("Show Quotation
 
 -- Handle changed preferences
 function omi_finra_otc_bbds_dfi_v2018_1a.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.action_datetime ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime then
     show.action_datetime = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_action_datetime
-    changed = true
   end
   if show.administrative ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative then
     show.administrative = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_administrative
-    changed = true
   end
   if show.application_messages ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_application_messages then
     show.application_messages = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_application_messages
-    changed = true
   end
   if show.control ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control then
     show.control = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_control
-    changed = true
   end
   if show.datetime ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime then
     show.datetime = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_datetime
-    changed = true
   end
   if show.inside_appendage ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage then
     show.inside_appendage = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_inside_appendage
-    changed = true
   end
   if show.message ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message then
     show.message = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header then
     show.message_header = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_packet then
     show.packet = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_packet
-    changed = true
   end
   if show.quotation ~= omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation then
     show.quotation = omi_finra_otc_bbds_dfi_v2018_1a.prefs.show_quotation
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

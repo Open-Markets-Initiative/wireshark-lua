@@ -47,38 +47,33 @@ show.iextp_header = true
 show.message = true
 show.message_header = true
 show.packet = true
+show.message_index = true
 
 -- Register Iex Equities UdpHeader IexTp 1.0 Show Options
 omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iextp_header = Pref.bool("Show Iextp Header", show.iextp_header, "Parse and add Iextp Header to protocol tree")
 omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_iex_equities_udpheader_iextp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_iex_equities_udpheader_iextp_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.iextp_header ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iextp_header then
     show.iextp_header = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_iextp_header
-    changed = true
   end
   if show.message ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message then
     show.message = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_header then
     show.message_header = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_packet then
     show.packet = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_index then
+    show.message_index = omi_iex_equities_udpheader_iextp_v1_0.prefs.show_message_index
   end
 end
 
@@ -458,7 +453,7 @@ iex_equities_udpheader_iextp_v1_0.message.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end

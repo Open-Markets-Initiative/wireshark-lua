@@ -187,6 +187,8 @@ show.summary = true
 show.timestamp_1 = true
 show.timestamp_2 = true
 show.trade = true
+show.message_index = true
+show.participants_index = true
 
 -- Register Siac Cts Output Cta 2.9 Show Options
 omi_siac_cts_output_cta_v2_9.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
@@ -211,104 +213,84 @@ omi_siac_cts_output_cta_v2_9.prefs.show_summary = Pref.bool("Show Summary", show
 omi_siac_cts_output_cta_v2_9.prefs.show_timestamp_1 = Pref.bool("Show Timestamp 1", show.timestamp_1, "Parse and add Timestamp 1 to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_timestamp_2 = Pref.bool("Show Timestamp 2", show.timestamp_2, "Parse and add Timestamp 2 to protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
+omi_siac_cts_output_cta_v2_9.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_siac_cts_output_cta_v2_9.prefs.show_participants_index = Pref.bool("Show Participants Index", show.participants_index, "Show generated participants index in protocol tree")
 
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_9.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.administrative ~= omi_siac_cts_output_cta_v2_9.prefs.show_administrative then
     show.administrative = omi_siac_cts_output_cta_v2_9.prefs.show_administrative
-    changed = true
   end
   if show.application_messages ~= omi_siac_cts_output_cta_v2_9.prefs.show_application_messages then
     show.application_messages = omi_siac_cts_output_cta_v2_9.prefs.show_application_messages
-    changed = true
   end
   if show.block_header ~= omi_siac_cts_output_cta_v2_9.prefs.show_block_header then
     show.block_header = omi_siac_cts_output_cta_v2_9.prefs.show_block_header
-    changed = true
   end
   if show.consolidated_data ~= omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_data then
     show.consolidated_data = omi_siac_cts_output_cta_v2_9.prefs.show_consolidated_data
-    changed = true
   end
   if show.control ~= omi_siac_cts_output_cta_v2_9.prefs.show_control then
     show.control = omi_siac_cts_output_cta_v2_9.prefs.show_control
-    changed = true
   end
   if show.corrected_trade ~= omi_siac_cts_output_cta_v2_9.prefs.show_corrected_trade then
     show.corrected_trade = omi_siac_cts_output_cta_v2_9.prefs.show_corrected_trade
-    changed = true
   end
   if show.index ~= omi_siac_cts_output_cta_v2_9.prefs.show_index then
     show.index = omi_siac_cts_output_cta_v2_9.prefs.show_index
-    changed = true
   end
   if show.market_status ~= omi_siac_cts_output_cta_v2_9.prefs.show_market_status then
     show.market_status = omi_siac_cts_output_cta_v2_9.prefs.show_market_status
-    changed = true
   end
   if show.message ~= omi_siac_cts_output_cta_v2_9.prefs.show_message then
     show.message = omi_siac_cts_output_cta_v2_9.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_siac_cts_output_cta_v2_9.prefs.show_message_header then
     show.message_header = omi_siac_cts_output_cta_v2_9.prefs.show_message_header
-    changed = true
   end
   if show.original_trade ~= omi_siac_cts_output_cta_v2_9.prefs.show_original_trade then
     show.original_trade = omi_siac_cts_output_cta_v2_9.prefs.show_original_trade
-    changed = true
   end
   if show.packet ~= omi_siac_cts_output_cta_v2_9.prefs.show_packet then
     show.packet = omi_siac_cts_output_cta_v2_9.prefs.show_packet
-    changed = true
   end
   if show.participant_data ~= omi_siac_cts_output_cta_v2_9.prefs.show_participant_data then
     show.participant_data = omi_siac_cts_output_cta_v2_9.prefs.show_participant_data
-    changed = true
   end
   if show.participants ~= omi_siac_cts_output_cta_v2_9.prefs.show_participants then
     show.participants = omi_siac_cts_output_cta_v2_9.prefs.show_participants
-    changed = true
   end
   if show.prior_day ~= omi_siac_cts_output_cta_v2_9.prefs.show_prior_day then
     show.prior_day = omi_siac_cts_output_cta_v2_9.prefs.show_prior_day
-    changed = true
   end
   if show.prior_day_trade_date_and_time ~= omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_date_and_time then
     show.prior_day_trade_date_and_time = omi_siac_cts_output_cta_v2_9.prefs.show_prior_day_trade_date_and_time
-    changed = true
   end
   if show.sale_conditions ~= omi_siac_cts_output_cta_v2_9.prefs.show_sale_conditions then
     show.sale_conditions = omi_siac_cts_output_cta_v2_9.prefs.show_sale_conditions
-    changed = true
   end
   if show.sip_block_timestamp ~= omi_siac_cts_output_cta_v2_9.prefs.show_sip_block_timestamp then
     show.sip_block_timestamp = omi_siac_cts_output_cta_v2_9.prefs.show_sip_block_timestamp
-    changed = true
   end
   if show.summary ~= omi_siac_cts_output_cta_v2_9.prefs.show_summary then
     show.summary = omi_siac_cts_output_cta_v2_9.prefs.show_summary
-    changed = true
   end
   if show.timestamp_1 ~= omi_siac_cts_output_cta_v2_9.prefs.show_timestamp_1 then
     show.timestamp_1 = omi_siac_cts_output_cta_v2_9.prefs.show_timestamp_1
-    changed = true
   end
   if show.timestamp_2 ~= omi_siac_cts_output_cta_v2_9.prefs.show_timestamp_2 then
     show.timestamp_2 = omi_siac_cts_output_cta_v2_9.prefs.show_timestamp_2
-    changed = true
   end
   if show.trade ~= omi_siac_cts_output_cta_v2_9.prefs.show_trade then
     show.trade = omi_siac_cts_output_cta_v2_9.prefs.show_trade
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_siac_cts_output_cta_v2_9.prefs.show_message_index then
+    show.message_index = omi_siac_cts_output_cta_v2_9.prefs.show_message_index
+  end
+  if show.participants_index ~= omi_siac_cts_output_cta_v2_9.prefs.show_participants_index then
+    show.participants_index = omi_siac_cts_output_cta_v2_9.prefs.show_participants_index
   end
 end
 
@@ -5250,7 +5232,7 @@ siac_cts_output_cta_v2_9.participants.fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Implicit Participants Index
-  if participants_index ~= nil then
+  if participants_index ~= nil and show.participants_index then
     local iteration = parent:add(omi_siac_cts_output_cta_v2_9.fields.participants_index, participants_index)
     iteration:set_generated()
   end
@@ -6597,7 +6579,7 @@ siac_cts_output_cta_v2_9.message.fields = function(buffer, offset, packet, paren
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_siac_cts_output_cta_v2_9.fields.message_index, message_index)
     iteration:set_generated()
   end

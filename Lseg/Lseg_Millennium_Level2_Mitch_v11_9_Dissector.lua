@@ -125,6 +125,7 @@ show.packet = true
 show.pt_mod_flags = true
 show.symbol_status_flags = true
 show.unit_header = true
+show.message_index = true
 
 -- Register Lseg Millennium Level2 Mitch 11.9 Show Options
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_flags = Pref.bool("Show Add Attributed Order Flags", show.add_attributed_order_flags, "Parse and add Add Attributed Order Flags to protocol tree")
@@ -139,64 +140,50 @@ omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet = Pref.bool("Show Packe
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags = Pref.bool("Show Pt Mod Flags", show.pt_mod_flags, "Parse and add Pt Mod Flags to protocol tree")
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_flags = Pref.bool("Show Symbol Status Flags", show.symbol_status_flags, "Parse and add Symbol Status Flags to protocol tree")
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_lseg_millennium_level2_mitch_v11_9.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.add_attributed_order_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_flags then
     show.add_attributed_order_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_flags
-    changed = true
   end
   if show.add_order_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_flags then
     show.add_order_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_flags
-    changed = true
   end
   if show.application_messages ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages then
     show.application_messages = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages
-    changed = true
   end
   if show.message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message then
     show.message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_header then
     show.message_header = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_header
-    changed = true
   end
   if show.order_book_clear_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_flags then
     show.order_book_clear_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_flags
-    changed = true
   end
   if show.order_deleted_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_flags then
     show.order_deleted_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_flags
-    changed = true
   end
   if show.order_modified_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_flags then
     show.order_modified_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_flags
-    changed = true
   end
   if show.packet ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet then
     show.packet = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet
-    changed = true
   end
   if show.pt_mod_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags then
     show.pt_mod_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags
-    changed = true
   end
   if show.symbol_status_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_flags then
     show.symbol_status_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_flags
-    changed = true
   end
   if show.unit_header ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header then
     show.unit_header = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_index then
+    show.message_index = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_index
   end
 end
 
@@ -3062,7 +3049,7 @@ lseg_millennium_level2_mitch_v11_9.message.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_index, message_index)
     iteration:set_generated()
   end

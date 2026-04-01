@@ -98,6 +98,8 @@ show.refresh_complex_quote_message = true
 show.refresh_complex_trade_message = true
 show.sequence_number_reset_message = true
 show.stream_id_message = true
+show.message_index = true
+show.leg_definition_index = true
 
 -- Register Nyse Options ComplexFeed Xdp 1.3.a Show Options
 omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message = Pref.bool("Show Complex Crossing Rfq Message", show.complex_crossing_rfq_message, "Parse and add Complex Crossing Rfq Message to protocol tree")
@@ -115,76 +117,63 @@ omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
 omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message = Pref.bool("Show Refresh Complex Trade Message", show.refresh_complex_trade_message, "Parse and add Refresh Complex Trade Message to protocol tree")
 omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
 omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_options_complexfeed_xdp_v1_3_a.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.complex_crossing_rfq_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message then
     show.complex_crossing_rfq_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message
-    changed = true
   end
   if show.complex_cube_rfq_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message then
     show.complex_cube_rfq_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message
-    changed = true
   end
   if show.complex_quote_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message then
     show.complex_quote_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message
-    changed = true
   end
   if show.complex_status_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message then
     show.complex_status_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message
-    changed = true
   end
   if show.complex_symbol_definition_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message then
     show.complex_symbol_definition_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message
-    changed = true
   end
   if show.complex_trade_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message then
     show.complex_trade_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message
-    changed = true
   end
   if show.leg_definition ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition then
     show.leg_definition = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition
-    changed = true
   end
   if show.message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message then
     show.message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_header then
     show.message_header = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet then
     show.packet = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet_header then
     show.packet_header = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_packet_header
-    changed = true
   end
   if show.refresh_complex_quote_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message then
     show.refresh_complex_quote_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
-    changed = true
   end
   if show.refresh_complex_trade_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message then
     show.refresh_complex_trade_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message
-    changed = true
   end
   if show.sequence_number_reset_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message then
     show.sequence_number_reset_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message
-    changed = true
   end
   if show.stream_id_message ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message then
     show.stream_id_message = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_index then
+    show.message_index = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_message_index
+  end
+  if show.leg_definition_index ~= omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition_index then
+    show.leg_definition_index = omi_nyse_options_complexfeed_xdp_v1_3_a.prefs.show_leg_definition_index
   end
 end
 
@@ -1425,7 +1414,7 @@ nyse_options_complexfeed_xdp_v1_3_a.leg_definition.fields = function(buffer, off
   local index = offset
 
   -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil then
+  if leg_definition_index ~= nil and show.leg_definition_index then
     local iteration = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
@@ -2191,7 +2180,7 @@ nyse_options_complexfeed_xdp_v1_3_a.message.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nyse_options_complexfeed_xdp_v1_3_a.fields.message_index, message_index)
     iteration:set_generated()
   end

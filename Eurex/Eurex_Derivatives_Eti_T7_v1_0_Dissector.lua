@@ -40,25 +40,16 @@ omi_eurex_derivatives_eti_t7_v1_0.prefs.show_packet = Pref.bool("Show Packet", s
 
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.message ~= omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message then
     show.message = omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message_header then
     show.message_header = omi_eurex_derivatives_eti_t7_v1_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_eurex_derivatives_eti_t7_v1_0.prefs.show_packet then
     show.packet = omi_eurex_derivatives_eti_t7_v1_0.prefs.show_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

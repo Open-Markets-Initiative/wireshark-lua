@@ -121,6 +121,7 @@ show.symbol_clear_message = true
 show.symbol_index_mapping_message = true
 show.symbol_index_mapping_request_message = true
 show.trading_session_change_message = true
+show.message_index = true
 
 -- Register Nyse Equities Bbo Xdp 2.4.g Show Options
 omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
@@ -141,88 +142,68 @@ omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message = Pref.bool("Sh
 omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
 omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
 omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message = Pref.bool("Show Trading Session Change Message", show.trading_session_change_message, "Parse and add Trading Session Change Message to protocol tree")
+omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_bbo_xdp_v2_4_g.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.heartbeat_response_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message then
     show.heartbeat_response_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message
-    changed = true
   end
   if show.message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message then
     show.message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_header then
     show.message_header = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_header
-    changed = true
   end
   if show.message_unavailable_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message then
     show.message_unavailable_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_unavailable_message
-    changed = true
   end
   if show.packet ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet then
     show.packet = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet_header then
     show.packet_header = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_packet_header
-    changed = true
   end
   if show.quote_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_quote_message then
     show.quote_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_quote_message
-    changed = true
   end
   if show.refresh_header_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_header_message then
     show.refresh_header_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_header_message
-    changed = true
   end
   if show.refresh_request_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_request_message then
     show.refresh_request_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_refresh_request_message
-    changed = true
   end
   if show.request_response_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_request_response_message then
     show.request_response_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_request_response_message
-    changed = true
   end
   if show.retransmission_request_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message then
     show.retransmission_request_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_retransmission_request_message
-    changed = true
   end
   if show.security_status_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_security_status_message then
     show.security_status_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_security_status_message
-    changed = true
   end
   if show.sequence_number_reset_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message then
     show.sequence_number_reset_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_sequence_number_reset_message
-    changed = true
   end
   if show.source_time_reference_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message then
     show.source_time_reference_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_source_time_reference_message
-    changed = true
   end
   if show.symbol_clear_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message then
     show.symbol_clear_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_clear_message
-    changed = true
   end
   if show.symbol_index_mapping_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message then
     show.symbol_index_mapping_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_message
-    changed = true
   end
   if show.symbol_index_mapping_request_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message then
     show.symbol_index_mapping_request_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_symbol_index_mapping_request_message
-    changed = true
   end
   if show.trading_session_change_message ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message then
     show.trading_session_change_message = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_trading_session_change_message
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_index then
+    show.message_index = omi_nyse_equities_bbo_xdp_v2_4_g.prefs.show_message_index
   end
 end
 
@@ -2916,7 +2897,7 @@ nyse_equities_bbo_xdp_v2_4_g.message.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nyse_equities_bbo_xdp_v2_4_g.fields.message_index, message_index)
     iteration:set_generated()
   end

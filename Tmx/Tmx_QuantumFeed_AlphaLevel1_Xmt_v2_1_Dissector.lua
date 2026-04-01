@@ -90,6 +90,7 @@ show.business_header = true
 show.application_messages = true
 show.frame_header = true
 show.packet = true
+show.body_index = true
 
 -- Register Tmx QuantumFeed AlphaLevel1 Xmt 2.1 Show Options
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
@@ -99,44 +100,35 @@ omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_business_header = Pref.bool(
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
 omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body_index = Pref.bool("Show Body Index", show.body_index, "Show generated body index in protocol tree")
 
 -- Handle changed preferences
 function omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_application_messages then
     show.application_messages = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_application_messages
-    changed = true
   end
   if show.body ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body then
     show.body = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body
-    changed = true
   end
   if show.body_header ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body_header then
     show.body_header = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body_header
-    changed = true
   end
   if show.body_message ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body_message then
     show.body_message = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body_message
-    changed = true
   end
   if show.business_header ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_business_header then
     show.business_header = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_business_header
-    changed = true
   end
   if show.frame_header ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_frame_header then
     show.frame_header = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_frame_header
-    changed = true
   end
   if show.packet ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_packet then
     show.packet = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.body_index ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body_index then
+    show.body_index = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body_index
   end
 end
 
@@ -1883,7 +1875,7 @@ tmx_quantumfeed_alphalevel1_xmt_v2_1.body.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Body Index
-  if body_index ~= nil then
+  if body_index ~= nil and show.body_index then
     local iteration = parent:add(omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.fields.body_index, body_index)
     iteration:set_generated()
   end

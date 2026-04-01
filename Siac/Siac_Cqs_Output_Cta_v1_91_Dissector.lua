@@ -148,6 +148,7 @@ show.packet = true
 show.participant_timestamp = true
 show.quote = true
 show.sip_block_timestamp = true
+show.message_index = true
 
 -- Register Siac Cqs Output Cta 1.91 Show Options
 omi_siac_cqs_output_cta_v1_91.prefs.show_adf_timestamp = Pref.bool("Show Adf Timestamp", show.adf_timestamp, "Parse and add Adf Timestamp to protocol tree")
@@ -166,80 +167,62 @@ omi_siac_cqs_output_cta_v1_91.prefs.show_packet = Pref.bool("Show Packet", show.
 omi_siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp = Pref.bool("Show Participant Timestamp", show.participant_timestamp, "Parse and add Participant Timestamp to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
+omi_siac_cqs_output_cta_v1_91.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_siac_cqs_output_cta_v1_91.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.adf_timestamp ~= omi_siac_cqs_output_cta_v1_91.prefs.show_adf_timestamp then
     show.adf_timestamp = omi_siac_cqs_output_cta_v1_91.prefs.show_adf_timestamp
-    changed = true
   end
   if show.administrative ~= omi_siac_cqs_output_cta_v1_91.prefs.show_administrative then
     show.administrative = omi_siac_cqs_output_cta_v1_91.prefs.show_administrative
-    changed = true
   end
   if show.application_messages ~= omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages then
     show.application_messages = omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages
-    changed = true
   end
   if show.block_header ~= omi_siac_cqs_output_cta_v1_91.prefs.show_block_header then
     show.block_header = omi_siac_cqs_output_cta_v1_91.prefs.show_block_header
-    changed = true
   end
   if show.control ~= omi_siac_cqs_output_cta_v1_91.prefs.show_control then
     show.control = omi_siac_cqs_output_cta_v1_91.prefs.show_control
-    changed = true
   end
   if show.market_status ~= omi_siac_cqs_output_cta_v1_91.prefs.show_market_status then
     show.market_status = omi_siac_cqs_output_cta_v1_91.prefs.show_market_status
-    changed = true
   end
   if show.message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_message then
     show.message = omi_siac_cqs_output_cta_v1_91.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_siac_cqs_output_cta_v1_91.prefs.show_message_header then
     show.message_header = omi_siac_cqs_output_cta_v1_91.prefs.show_message_header
-    changed = true
   end
   if show.national_best_bid_long_appendage ~= omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage then
     show.national_best_bid_long_appendage = omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage
-    changed = true
   end
   if show.national_best_bid_short_appendage ~= omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_short_appendage then
     show.national_best_bid_short_appendage = omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_short_appendage
-    changed = true
   end
   if show.national_best_offer_long_appendage ~= omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_long_appendage then
     show.national_best_offer_long_appendage = omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_long_appendage
-    changed = true
   end
   if show.national_best_offer_short_appendage ~= omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_short_appendage then
     show.national_best_offer_short_appendage = omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_short_appendage
-    changed = true
   end
   if show.packet ~= omi_siac_cqs_output_cta_v1_91.prefs.show_packet then
     show.packet = omi_siac_cqs_output_cta_v1_91.prefs.show_packet
-    changed = true
   end
   if show.participant_timestamp ~= omi_siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp then
     show.participant_timestamp = omi_siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp
-    changed = true
   end
   if show.quote ~= omi_siac_cqs_output_cta_v1_91.prefs.show_quote then
     show.quote = omi_siac_cqs_output_cta_v1_91.prefs.show_quote
-    changed = true
   end
   if show.sip_block_timestamp ~= omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp then
     show.sip_block_timestamp = omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_siac_cqs_output_cta_v1_91.prefs.show_message_index then
+    show.message_index = omi_siac_cqs_output_cta_v1_91.prefs.show_message_index
   end
 end
 
@@ -4634,7 +4617,7 @@ siac_cqs_output_cta_v1_91.message.fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_siac_cqs_output_cta_v1_91.fields.message_index, message_index)
     iteration:set_generated()
   end

@@ -473,6 +473,50 @@ show.snapshot_full_refresh_order_book_44_no_m_d_entries_group = true
 show.snapshot_full_refresh_order_book_44_no_m_d_entries_groups = true
 show.snapshot_full_refresh_order_book_group = true
 show.snapshot_full_refresh_order_book_groups = true
+show.channel_reset_group_index = true
+show.m_d_instrument_definition_future_27_no_events_group_index = true
+show.m_d_instrument_definition_future_27_no_m_d_feed_types_group_index = true
+show.m_d_instrument_definition_future_27_no_inst_attrib_group_index = true
+show.m_d_instrument_definition_future_27_no_lot_type_rules_group_index = true
+show.m_d_instrument_definition_spread_29_no_events_group_index = true
+show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index = true
+show.m_d_instrument_definition_spread_29_no_inst_attrib_group_index = true
+show.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index = true
+show.legs_group_index = true
+show.m_d_incremental_refresh_book_32_no_m_d_entries_group_index = true
+show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index = true
+show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index = true
+show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index = true
+show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index = true
+show.incremental_refresh_volume_group_index = true
+show.snapshot_full_refresh_38_no_m_d_entries_group_index = true
+show.related_sym_group_index = true
+show.m_d_instrument_definition_option_41_no_events_group_index = true
+show.m_d_instrument_definition_option_41_no_m_d_feed_types_group_index = true
+show.m_d_instrument_definition_option_41_no_inst_attrib_group_index = true
+show.m_d_instrument_definition_option_41_no_lot_type_rules_group_index = true
+show.m_d_instrument_definition_option_41_no_underlyings_group_index = true
+show.m_d_instrument_definition_option_41_no_related_instruments_group_index = true
+show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index = true
+show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index = true
+show.m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index = true
+show.snapshot_full_refresh_order_book_44_no_m_d_entries_group_index = true
+show.incremental_refresh_book_group_index = true
+show.incremental_refresh_book_order_id_group_index = true
+show.incremental_refresh_order_book_group_index = true
+show.incremental_refresh_trade_summary_group_index = true
+show.incremental_refresh_trade_summary_order_id_group_index = true
+show.incremental_refresh_daily_statistics_group_index = true
+show.incremental_refresh_limits_banding_group_index = true
+show.incremental_refresh_session_statistics_group_index = true
+show.snapshot_full_refresh_group_index = true
+show.snapshot_full_refresh_order_book_group_index = true
+show.events_group_index = true
+show.feed_types_group_index = true
+show.inst_attrib_group_index = true
+show.lot_type_rules_group_index = true
+show.option_underlyings_group_index = true
+show.option_related_instruments_group_index = true
 
 -- Register Cme Futures Mdp3 Sbe 1.9 Show Options
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -574,412 +618,483 @@ omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_m_d_entries_groups = Pref.bool("Show Snapshot Full Refresh Order Book 44 No M D Entries Groups", show.snapshot_full_refresh_order_book_44_no_m_d_entries_groups, "Parse and add Snapshot Full Refresh Order Book 44 No M D Entries Groups to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_group = Pref.bool("Show Snapshot Full Refresh Order Book Group", show.snapshot_full_refresh_order_book_group, "Parse and add Snapshot Full Refresh Order Book Group to protocol tree")
 omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_groups = Pref.bool("Show Snapshot Full Refresh Order Book Groups", show.snapshot_full_refresh_order_book_groups, "Parse and add Snapshot Full Refresh Order Book Groups to protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_channel_reset_group_index = Pref.bool("Show Channel Reset Group Index", show.channel_reset_group_index, "Show generated channel reset group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_events_group_index = Pref.bool("Show M D Instrument Definition Future 27 No Events Group Index", show.m_d_instrument_definition_future_27_no_events_group_index, "Show generated m d instrument definition future 27 no events group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_m_d_feed_types_group_index = Pref.bool("Show M D Instrument Definition Future 27 No M D Feed Types Group Index", show.m_d_instrument_definition_future_27_no_m_d_feed_types_group_index, "Show generated m d instrument definition future 27 no m d feed types group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_inst_attrib_group_index = Pref.bool("Show M D Instrument Definition Future 27 No Inst Attrib Group Index", show.m_d_instrument_definition_future_27_no_inst_attrib_group_index, "Show generated m d instrument definition future 27 no inst attrib group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_lot_type_rules_group_index = Pref.bool("Show M D Instrument Definition Future 27 No Lot Type Rules Group Index", show.m_d_instrument_definition_future_27_no_lot_type_rules_group_index, "Show generated m d instrument definition future 27 no lot type rules group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_events_group_index = Pref.bool("Show M D Instrument Definition Spread 29 No Events Group Index", show.m_d_instrument_definition_spread_29_no_events_group_index, "Show generated m d instrument definition spread 29 no events group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index = Pref.bool("Show M D Instrument Definition Spread 29 No M D Feed Types Group Index", show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index, "Show generated m d instrument definition spread 29 no m d feed types group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_group_index = Pref.bool("Show M D Instrument Definition Spread 29 No Inst Attrib Group Index", show.m_d_instrument_definition_spread_29_no_inst_attrib_group_index, "Show generated m d instrument definition spread 29 no inst attrib group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_group_index = Pref.bool("Show M D Instrument Definition Spread 29 No Lot Type Rules Group Index", show.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index, "Show generated m d instrument definition spread 29 no lot type rules group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_group_index = Pref.bool("Show Legs Group Index", show.legs_group_index, "Show generated legs group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_group_index = Pref.bool("Show M D Incremental Refresh Book 32 No M D Entries Group Index", show.m_d_incremental_refresh_book_32_no_m_d_entries_group_index, "Show generated m d incremental refresh book 32 no m d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index = Pref.bool("Show M D Incremental Refresh Book 32 No Order I D Entries Group Index", show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index, "Show generated m d incremental refresh book 32 no order i d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index = Pref.bool("Show M D Incremental Refresh Daily Statistics 33 No M D Entries Group Index", show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index, "Show generated m d incremental refresh daily statistics 33 no m d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index = Pref.bool("Show M D Incremental Refresh Limits Banding 34 No M D Entries Group Index", show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index, "Show generated m d incremental refresh limits banding 34 no m d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index = Pref.bool("Show M D Incremental Refresh Session Statistics 35 No M D Entries Group Index", show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index, "Show generated m d incremental refresh session statistics 35 no m d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_volume_group_index = Pref.bool("Show Incremental Refresh Volume Group Index", show.incremental_refresh_volume_group_index, "Show generated incremental refresh volume group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_38_no_m_d_entries_group_index = Pref.bool("Show Snapshot Full Refresh 38 No M D Entries Group Index", show.snapshot_full_refresh_38_no_m_d_entries_group_index, "Show generated snapshot full refresh 38 no m d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_related_sym_group_index = Pref.bool("Show Related Sym Group Index", show.related_sym_group_index, "Show generated related sym group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_events_group_index = Pref.bool("Show M D Instrument Definition Option 41 No Events Group Index", show.m_d_instrument_definition_option_41_no_events_group_index, "Show generated m d instrument definition option 41 no events group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_m_d_feed_types_group_index = Pref.bool("Show M D Instrument Definition Option 41 No M D Feed Types Group Index", show.m_d_instrument_definition_option_41_no_m_d_feed_types_group_index, "Show generated m d instrument definition option 41 no m d feed types group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_inst_attrib_group_index = Pref.bool("Show M D Instrument Definition Option 41 No Inst Attrib Group Index", show.m_d_instrument_definition_option_41_no_inst_attrib_group_index, "Show generated m d instrument definition option 41 no inst attrib group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_lot_type_rules_group_index = Pref.bool("Show M D Instrument Definition Option 41 No Lot Type Rules Group Index", show.m_d_instrument_definition_option_41_no_lot_type_rules_group_index, "Show generated m d instrument definition option 41 no lot type rules group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_underlyings_group_index = Pref.bool("Show M D Instrument Definition Option 41 No Underlyings Group Index", show.m_d_instrument_definition_option_41_no_underlyings_group_index, "Show generated m d instrument definition option 41 no underlyings group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_related_instruments_group_index = Pref.bool("Show M D Instrument Definition Option 41 No Related Instruments Group Index", show.m_d_instrument_definition_option_41_no_related_instruments_group_index, "Show generated m d instrument definition option 41 no related instruments group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index = Pref.bool("Show M D Incremental Refresh Trade Summary 42 No M D Entries Group Index", show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index, "Show generated m d incremental refresh trade summary 42 no m d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index = Pref.bool("Show M D Incremental Refresh Trade Summary 42 No Order I D Entries Group Index", show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index, "Show generated m d incremental refresh trade summary 42 no order i d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index = Pref.bool("Show M D Incremental Refresh Order Book 43 No M D Entries Group Index", show.m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index, "Show generated m d incremental refresh order book 43 no m d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_m_d_entries_group_index = Pref.bool("Show Snapshot Full Refresh Order Book 44 No M D Entries Group Index", show.snapshot_full_refresh_order_book_44_no_m_d_entries_group_index, "Show generated snapshot full refresh order book 44 no m d entries group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_group_index = Pref.bool("Show Incremental Refresh Book Group Index", show.incremental_refresh_book_group_index, "Show generated incremental refresh book group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_order_id_group_index = Pref.bool("Show Incremental Refresh Book Order Id Group Index", show.incremental_refresh_book_order_id_group_index, "Show generated incremental refresh book order id group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_order_book_group_index = Pref.bool("Show Incremental Refresh Order Book Group Index", show.incremental_refresh_order_book_group_index, "Show generated incremental refresh order book group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_group_index = Pref.bool("Show Incremental Refresh Trade Summary Group Index", show.incremental_refresh_trade_summary_group_index, "Show generated incremental refresh trade summary group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_order_id_group_index = Pref.bool("Show Incremental Refresh Trade Summary Order Id Group Index", show.incremental_refresh_trade_summary_order_id_group_index, "Show generated incremental refresh trade summary order id group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_daily_statistics_group_index = Pref.bool("Show Incremental Refresh Daily Statistics Group Index", show.incremental_refresh_daily_statistics_group_index, "Show generated incremental refresh daily statistics group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_limits_banding_group_index = Pref.bool("Show Incremental Refresh Limits Banding Group Index", show.incremental_refresh_limits_banding_group_index, "Show generated incremental refresh limits banding group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_session_statistics_group_index = Pref.bool("Show Incremental Refresh Session Statistics Group Index", show.incremental_refresh_session_statistics_group_index, "Show generated incremental refresh session statistics group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_group_index = Pref.bool("Show Snapshot Full Refresh Group Index", show.snapshot_full_refresh_group_index, "Show generated snapshot full refresh group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_group_index = Pref.bool("Show Snapshot Full Refresh Order Book Group Index", show.snapshot_full_refresh_order_book_group_index, "Show generated snapshot full refresh order book group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_events_group_index = Pref.bool("Show Events Group Index", show.events_group_index, "Show generated events group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_feed_types_group_index = Pref.bool("Show Feed Types Group Index", show.feed_types_group_index, "Show generated feed types group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_group_index = Pref.bool("Show Inst Attrib Group Index", show.inst_attrib_group_index, "Show generated inst attrib group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_group_index = Pref.bool("Show Lot Type Rules Group Index", show.lot_type_rules_group_index, "Show generated lot type rules group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_underlyings_group_index = Pref.bool("Show Option Underlyings Group Index", show.option_underlyings_group_index, "Show generated option underlyings group index in protocol tree")
+omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_related_instruments_group_index = Pref.bool("Show Option Related Instruments Group Index", show.option_related_instruments_group_index, "Show generated option related instruments group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_mdp3_sbe_v1_9.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_application_messages then
     show.application_messages = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_application_messages
-    changed = true
   end
   if show.binary_packet_header ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_binary_packet_header
-    changed = true
   end
   if show.channel_reset_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_channel_reset_group then
     show.channel_reset_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_channel_reset_group
-    changed = true
   end
   if show.channel_reset_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_channel_reset_groups then
     show.channel_reset_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_channel_reset_groups
-    changed = true
   end
   if show.events_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_events_group then
     show.events_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_events_group
-    changed = true
   end
   if show.events_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_events_groups then
     show.events_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_events_groups
-    changed = true
   end
   if show.feed_types_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_feed_types_group then
     show.feed_types_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_feed_types_group
-    changed = true
   end
   if show.feed_types_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_feed_types_groups then
     show.feed_types_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_feed_types_groups
-    changed = true
   end
   if show.group_size ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_group_size then
     show.group_size = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_group_size
-    changed = true
   end
   if show.group_size_8_byte ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_group_size_8_byte then
     show.group_size_8_byte = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_group_size_8_byte
-    changed = true
   end
   if show.incremental_refresh_book_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_group then
     show.incremental_refresh_book_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_group
-    changed = true
   end
   if show.incremental_refresh_book_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_groups then
     show.incremental_refresh_book_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_groups
-    changed = true
   end
   if show.incremental_refresh_book_order_id_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_order_id_group then
     show.incremental_refresh_book_order_id_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_order_id_group
-    changed = true
   end
   if show.incremental_refresh_book_order_id_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_order_id_groups then
     show.incremental_refresh_book_order_id_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_order_id_groups
-    changed = true
   end
   if show.incremental_refresh_daily_statistics_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_daily_statistics_group then
     show.incremental_refresh_daily_statistics_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_daily_statistics_group
-    changed = true
   end
   if show.incremental_refresh_daily_statistics_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_daily_statistics_groups then
     show.incremental_refresh_daily_statistics_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_daily_statistics_groups
-    changed = true
   end
   if show.incremental_refresh_limits_banding_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_limits_banding_group then
     show.incremental_refresh_limits_banding_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_limits_banding_group
-    changed = true
   end
   if show.incremental_refresh_limits_banding_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_limits_banding_groups then
     show.incremental_refresh_limits_banding_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_limits_banding_groups
-    changed = true
   end
   if show.incremental_refresh_order_book_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_order_book_group then
     show.incremental_refresh_order_book_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_order_book_group
-    changed = true
   end
   if show.incremental_refresh_order_book_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_order_book_groups then
     show.incremental_refresh_order_book_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_order_book_groups
-    changed = true
   end
   if show.incremental_refresh_session_statistics_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_session_statistics_group then
     show.incremental_refresh_session_statistics_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_session_statistics_group
-    changed = true
   end
   if show.incremental_refresh_session_statistics_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_session_statistics_groups then
     show.incremental_refresh_session_statistics_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_session_statistics_groups
-    changed = true
   end
   if show.incremental_refresh_trade_summary_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_group then
     show.incremental_refresh_trade_summary_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_group
-    changed = true
   end
   if show.incremental_refresh_trade_summary_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_groups then
     show.incremental_refresh_trade_summary_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_groups
-    changed = true
   end
   if show.incremental_refresh_trade_summary_order_id_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_order_id_group then
     show.incremental_refresh_trade_summary_order_id_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_order_id_group
-    changed = true
   end
   if show.incremental_refresh_trade_summary_order_id_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_order_id_groups then
     show.incremental_refresh_trade_summary_order_id_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_order_id_groups
-    changed = true
   end
   if show.incremental_refresh_volume_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_volume_group then
     show.incremental_refresh_volume_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_volume_group
-    changed = true
   end
   if show.incremental_refresh_volume_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_volume_groups then
     show.incremental_refresh_volume_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_volume_groups
-    changed = true
   end
   if show.inst_attrib_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_group then
     show.inst_attrib_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_group
-    changed = true
   end
   if show.inst_attrib_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_groups then
     show.inst_attrib_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_groups
-    changed = true
   end
   if show.inst_attrib_value ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_value then
     show.inst_attrib_value = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_value
-    changed = true
   end
   if show.legs_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_group then
     show.legs_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_group
-    changed = true
   end
   if show.legs_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_groups then
     show.legs_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_groups
-    changed = true
   end
   if show.lot_type_rules_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_group then
     show.lot_type_rules_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_group
-    changed = true
   end
   if show.lot_type_rules_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_groups then
     show.lot_type_rules_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_groups
-    changed = true
   end
   if show.m_d_incremental_refresh_book_32_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_group then
     show.m_d_incremental_refresh_book_32_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_group
-    changed = true
   end
   if show.m_d_incremental_refresh_book_32_no_m_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_groups then
     show.m_d_incremental_refresh_book_32_no_m_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_groups
-    changed = true
   end
   if show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_order_i_d_entries_group then
     show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_order_i_d_entries_group
-    changed = true
   end
   if show.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_order_i_d_entries_groups then
     show.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_order_i_d_entries_groups
-    changed = true
   end
   if show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group then
     show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group
-    changed = true
   end
   if show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups then
     show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups
-    changed = true
   end
   if show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group then
     show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group
-    changed = true
   end
   if show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups then
     show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups
-    changed = true
   end
   if show.m_d_incremental_refresh_order_book_43_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_order_book_43_no_m_d_entries_group then
     show.m_d_incremental_refresh_order_book_43_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_order_book_43_no_m_d_entries_group
-    changed = true
   end
   if show.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_order_book_43_no_m_d_entries_groups then
     show.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_order_book_43_no_m_d_entries_groups
-    changed = true
   end
   if show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group then
     show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group
-    changed = true
   end
   if show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups then
     show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups
-    changed = true
   end
   if show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group then
     show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group
-    changed = true
   end
   if show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups then
     show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups
-    changed = true
   end
   if show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group then
     show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group
-    changed = true
   end
   if show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups then
     show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups
-    changed = true
   end
   if show.m_d_instrument_definition_future_27_no_events_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_events_group then
     show.m_d_instrument_definition_future_27_no_events_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_events_group
-    changed = true
   end
   if show.m_d_instrument_definition_future_27_no_events_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_events_groups then
     show.m_d_instrument_definition_future_27_no_events_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_events_groups
-    changed = true
   end
   if show.m_d_instrument_definition_future_27_no_inst_attrib_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_inst_attrib_group then
     show.m_d_instrument_definition_future_27_no_inst_attrib_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_inst_attrib_group
-    changed = true
   end
   if show.m_d_instrument_definition_future_27_no_inst_attrib_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_inst_attrib_groups then
     show.m_d_instrument_definition_future_27_no_inst_attrib_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_inst_attrib_groups
-    changed = true
   end
   if show.m_d_instrument_definition_future_27_no_lot_type_rules_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_lot_type_rules_group then
     show.m_d_instrument_definition_future_27_no_lot_type_rules_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_lot_type_rules_group
-    changed = true
   end
   if show.m_d_instrument_definition_future_27_no_lot_type_rules_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_lot_type_rules_groups then
     show.m_d_instrument_definition_future_27_no_lot_type_rules_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_lot_type_rules_groups
-    changed = true
   end
   if show.m_d_instrument_definition_future_27_no_m_d_feed_types_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_m_d_feed_types_group then
     show.m_d_instrument_definition_future_27_no_m_d_feed_types_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_m_d_feed_types_group
-    changed = true
   end
   if show.m_d_instrument_definition_future_27_no_m_d_feed_types_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_m_d_feed_types_groups then
     show.m_d_instrument_definition_future_27_no_m_d_feed_types_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_m_d_feed_types_groups
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_events_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_events_group then
     show.m_d_instrument_definition_option_41_no_events_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_events_group
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_events_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_events_groups then
     show.m_d_instrument_definition_option_41_no_events_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_events_groups
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_inst_attrib_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_inst_attrib_group then
     show.m_d_instrument_definition_option_41_no_inst_attrib_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_inst_attrib_group
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_inst_attrib_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_inst_attrib_groups then
     show.m_d_instrument_definition_option_41_no_inst_attrib_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_inst_attrib_groups
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_lot_type_rules_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_lot_type_rules_group then
     show.m_d_instrument_definition_option_41_no_lot_type_rules_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_lot_type_rules_group
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_lot_type_rules_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_lot_type_rules_groups then
     show.m_d_instrument_definition_option_41_no_lot_type_rules_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_lot_type_rules_groups
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_m_d_feed_types_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_m_d_feed_types_group then
     show.m_d_instrument_definition_option_41_no_m_d_feed_types_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_m_d_feed_types_group
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_m_d_feed_types_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_m_d_feed_types_groups then
     show.m_d_instrument_definition_option_41_no_m_d_feed_types_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_m_d_feed_types_groups
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_related_instruments_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_related_instruments_group then
     show.m_d_instrument_definition_option_41_no_related_instruments_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_related_instruments_group
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_related_instruments_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_related_instruments_groups then
     show.m_d_instrument_definition_option_41_no_related_instruments_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_related_instruments_groups
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_underlyings_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_underlyings_group then
     show.m_d_instrument_definition_option_41_no_underlyings_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_underlyings_group
-    changed = true
   end
   if show.m_d_instrument_definition_option_41_no_underlyings_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_underlyings_groups then
     show.m_d_instrument_definition_option_41_no_underlyings_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_underlyings_groups
-    changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_events_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_events_group then
     show.m_d_instrument_definition_spread_29_no_events_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_events_group
-    changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_events_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_events_groups then
     show.m_d_instrument_definition_spread_29_no_events_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_events_groups
-    changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_inst_attrib_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_group then
     show.m_d_instrument_definition_spread_29_no_inst_attrib_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_group
-    changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_inst_attrib_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_groups then
     show.m_d_instrument_definition_spread_29_no_inst_attrib_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_groups
-    changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_lot_type_rules_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_group then
     show.m_d_instrument_definition_spread_29_no_lot_type_rules_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_group
-    changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_lot_type_rules_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_groups then
     show.m_d_instrument_definition_spread_29_no_lot_type_rules_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_groups
-    changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_group then
     show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_group
-    changed = true
   end
   if show.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_groups then
     show.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_groups
-    changed = true
   end
   if show.match_event_indicator ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_match_event_indicator then
     show.match_event_indicator = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_match_event_indicator
-    changed = true
   end
   if show.maturity_month_year ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_maturity_month_year then
     show.maturity_month_year = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_maturity_month_year
-    changed = true
   end
   if show.message ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_message then
     show.message = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_message_header then
     show.message_header = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_message_header
-    changed = true
   end
   if show.option_related_instruments_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_related_instruments_group then
     show.option_related_instruments_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_related_instruments_group
-    changed = true
   end
   if show.option_related_instruments_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_related_instruments_groups then
     show.option_related_instruments_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_related_instruments_groups
-    changed = true
   end
   if show.option_underlyings_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_underlyings_group then
     show.option_underlyings_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_underlyings_group
-    changed = true
   end
   if show.option_underlyings_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_underlyings_groups then
     show.option_underlyings_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_underlyings_groups
-    changed = true
   end
   if show.packet ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_packet then
     show.packet = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_packet
-    changed = true
   end
   if show.related_sym_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_related_sym_group then
     show.related_sym_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_related_sym_group
-    changed = true
   end
   if show.related_sym_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_related_sym_groups then
     show.related_sym_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_related_sym_groups
-    changed = true
   end
   if show.settl_price_type ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_settl_price_type then
     show.settl_price_type = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_settl_price_type
-    changed = true
   end
   if show.snapshot_full_refresh_38_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_38_no_m_d_entries_group then
     show.snapshot_full_refresh_38_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_38_no_m_d_entries_group
-    changed = true
   end
   if show.snapshot_full_refresh_38_no_m_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_38_no_m_d_entries_groups then
     show.snapshot_full_refresh_38_no_m_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_38_no_m_d_entries_groups
-    changed = true
   end
   if show.snapshot_full_refresh_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_group then
     show.snapshot_full_refresh_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_group
-    changed = true
   end
   if show.snapshot_full_refresh_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_groups then
     show.snapshot_full_refresh_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_groups
-    changed = true
   end
   if show.snapshot_full_refresh_order_book_44_no_m_d_entries_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_m_d_entries_group then
     show.snapshot_full_refresh_order_book_44_no_m_d_entries_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_m_d_entries_group
-    changed = true
   end
   if show.snapshot_full_refresh_order_book_44_no_m_d_entries_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_m_d_entries_groups then
     show.snapshot_full_refresh_order_book_44_no_m_d_entries_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_m_d_entries_groups
-    changed = true
   end
   if show.snapshot_full_refresh_order_book_group ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_group then
     show.snapshot_full_refresh_order_book_group = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_group
-    changed = true
   end
   if show.snapshot_full_refresh_order_book_groups ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_groups then
     show.snapshot_full_refresh_order_book_groups = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_groups
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.channel_reset_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_channel_reset_group_index then
+    show.channel_reset_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_channel_reset_group_index
+  end
+  if show.m_d_instrument_definition_future_27_no_events_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_events_group_index then
+    show.m_d_instrument_definition_future_27_no_events_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_events_group_index
+  end
+  if show.m_d_instrument_definition_future_27_no_m_d_feed_types_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_m_d_feed_types_group_index then
+    show.m_d_instrument_definition_future_27_no_m_d_feed_types_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_m_d_feed_types_group_index
+  end
+  if show.m_d_instrument_definition_future_27_no_inst_attrib_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_inst_attrib_group_index then
+    show.m_d_instrument_definition_future_27_no_inst_attrib_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_inst_attrib_group_index
+  end
+  if show.m_d_instrument_definition_future_27_no_lot_type_rules_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_lot_type_rules_group_index then
+    show.m_d_instrument_definition_future_27_no_lot_type_rules_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_future_27_no_lot_type_rules_group_index
+  end
+  if show.m_d_instrument_definition_spread_29_no_events_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_events_group_index then
+    show.m_d_instrument_definition_spread_29_no_events_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_events_group_index
+  end
+  if show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index then
+    show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index
+  end
+  if show.m_d_instrument_definition_spread_29_no_inst_attrib_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_group_index then
+    show.m_d_instrument_definition_spread_29_no_inst_attrib_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_inst_attrib_group_index
+  end
+  if show.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_group_index then
+    show.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_spread_29_no_lot_type_rules_group_index
+  end
+  if show.legs_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_group_index then
+    show.legs_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_legs_group_index
+  end
+  if show.m_d_incremental_refresh_book_32_no_m_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_group_index then
+    show.m_d_incremental_refresh_book_32_no_m_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_m_d_entries_group_index
+  end
+  if show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index then
+    show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index
+  end
+  if show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index then
+    show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index
+  end
+  if show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index then
+    show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index
+  end
+  if show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index then
+    show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index
+  end
+  if show.incremental_refresh_volume_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_volume_group_index then
+    show.incremental_refresh_volume_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_volume_group_index
+  end
+  if show.snapshot_full_refresh_38_no_m_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_38_no_m_d_entries_group_index then
+    show.snapshot_full_refresh_38_no_m_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_38_no_m_d_entries_group_index
+  end
+  if show.related_sym_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_related_sym_group_index then
+    show.related_sym_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_related_sym_group_index
+  end
+  if show.m_d_instrument_definition_option_41_no_events_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_events_group_index then
+    show.m_d_instrument_definition_option_41_no_events_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_events_group_index
+  end
+  if show.m_d_instrument_definition_option_41_no_m_d_feed_types_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_m_d_feed_types_group_index then
+    show.m_d_instrument_definition_option_41_no_m_d_feed_types_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_m_d_feed_types_group_index
+  end
+  if show.m_d_instrument_definition_option_41_no_inst_attrib_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_inst_attrib_group_index then
+    show.m_d_instrument_definition_option_41_no_inst_attrib_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_inst_attrib_group_index
+  end
+  if show.m_d_instrument_definition_option_41_no_lot_type_rules_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_lot_type_rules_group_index then
+    show.m_d_instrument_definition_option_41_no_lot_type_rules_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_lot_type_rules_group_index
+  end
+  if show.m_d_instrument_definition_option_41_no_underlyings_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_underlyings_group_index then
+    show.m_d_instrument_definition_option_41_no_underlyings_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_underlyings_group_index
+  end
+  if show.m_d_instrument_definition_option_41_no_related_instruments_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_related_instruments_group_index then
+    show.m_d_instrument_definition_option_41_no_related_instruments_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_instrument_definition_option_41_no_related_instruments_group_index
+  end
+  if show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index then
+    show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index
+  end
+  if show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index then
+    show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index
+  end
+  if show.m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index then
+    show.m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index
+  end
+  if show.snapshot_full_refresh_order_book_44_no_m_d_entries_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_m_d_entries_group_index then
+    show.snapshot_full_refresh_order_book_44_no_m_d_entries_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_44_no_m_d_entries_group_index
+  end
+  if show.incremental_refresh_book_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_group_index then
+    show.incremental_refresh_book_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_group_index
+  end
+  if show.incremental_refresh_book_order_id_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_order_id_group_index then
+    show.incremental_refresh_book_order_id_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_book_order_id_group_index
+  end
+  if show.incremental_refresh_order_book_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_order_book_group_index then
+    show.incremental_refresh_order_book_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_order_book_group_index
+  end
+  if show.incremental_refresh_trade_summary_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_group_index then
+    show.incremental_refresh_trade_summary_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_group_index
+  end
+  if show.incremental_refresh_trade_summary_order_id_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_order_id_group_index then
+    show.incremental_refresh_trade_summary_order_id_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_trade_summary_order_id_group_index
+  end
+  if show.incremental_refresh_daily_statistics_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_daily_statistics_group_index then
+    show.incremental_refresh_daily_statistics_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_daily_statistics_group_index
+  end
+  if show.incremental_refresh_limits_banding_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_limits_banding_group_index then
+    show.incremental_refresh_limits_banding_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_limits_banding_group_index
+  end
+  if show.incremental_refresh_session_statistics_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_session_statistics_group_index then
+    show.incremental_refresh_session_statistics_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_incremental_refresh_session_statistics_group_index
+  end
+  if show.snapshot_full_refresh_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_group_index then
+    show.snapshot_full_refresh_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_group_index
+  end
+  if show.snapshot_full_refresh_order_book_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_group_index then
+    show.snapshot_full_refresh_order_book_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_snapshot_full_refresh_order_book_group_index
+  end
+  if show.events_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_events_group_index then
+    show.events_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_events_group_index
+  end
+  if show.feed_types_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_feed_types_group_index then
+    show.feed_types_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_feed_types_group_index
+  end
+  if show.inst_attrib_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_group_index then
+    show.inst_attrib_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_inst_attrib_group_index
+  end
+  if show.lot_type_rules_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_group_index then
+    show.lot_type_rules_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_lot_type_rules_group_index
+  end
+  if show.option_underlyings_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_underlyings_group_index then
+    show.option_underlyings_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_underlyings_group_index
+  end
+  if show.option_related_instruments_group_index ~= omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_related_instruments_group_index then
+    show.option_related_instruments_group_index = omi_cme_futures_mdp3_sbe_v1_9.prefs.show_option_related_instruments_group_index
   end
 end
 
@@ -5524,7 +5639,7 @@ cme_futures_mdp3_sbe_v1_9.legs_group.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Legs Group Index
-  if legs_group_index ~= nil then
+  if legs_group_index ~= nil and show.legs_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.legs_group_index, legs_group_index)
     iteration:set_generated()
   end
@@ -5684,7 +5799,7 @@ cme_futures_mdp3_sbe_v1_9.lot_type_rules_group.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Lot Type Rules Group Index
-  if lot_type_rules_group_index ~= nil then
+  if lot_type_rules_group_index ~= nil and show.lot_type_rules_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.lot_type_rules_group_index, lot_type_rules_group_index)
     iteration:set_generated()
   end
@@ -5980,7 +6095,7 @@ cme_futures_mdp3_sbe_v1_9.inst_attrib_group.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Inst Attrib Group Index
-  if inst_attrib_group_index ~= nil then
+  if inst_attrib_group_index ~= nil and show.inst_attrib_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_group_index, inst_attrib_group_index)
     iteration:set_generated()
   end
@@ -6084,7 +6199,7 @@ cme_futures_mdp3_sbe_v1_9.feed_types_group.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Feed Types Group Index
-  if feed_types_group_index ~= nil then
+  if feed_types_group_index ~= nil and show.feed_types_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.feed_types_group_index, feed_types_group_index)
     iteration:set_generated()
   end
@@ -6191,7 +6306,7 @@ cme_futures_mdp3_sbe_v1_9.events_group.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Implicit Events Group Index
-  if events_group_index ~= nil then
+  if events_group_index ~= nil and show.events_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.events_group_index, events_group_index)
     iteration:set_generated()
   end
@@ -6783,7 +6898,7 @@ cme_futures_mdp3_sbe_v1_9.option_related_instruments_group.fields = function(buf
   local index = offset
 
   -- Implicit Option Related Instruments Group Index
-  if option_related_instruments_group_index ~= nil then
+  if option_related_instruments_group_index ~= nil and show.option_related_instruments_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.option_related_instruments_group_index, option_related_instruments_group_index)
     iteration:set_generated()
   end
@@ -6890,7 +7005,7 @@ cme_futures_mdp3_sbe_v1_9.option_underlyings_group.fields = function(buffer, off
   local index = offset
 
   -- Implicit Option Underlyings Group Index
-  if option_underlyings_group_index ~= nil then
+  if option_underlyings_group_index ~= nil and show.option_underlyings_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.option_underlyings_group_index, option_underlyings_group_index)
     iteration:set_generated()
   end
@@ -7560,7 +7675,7 @@ cme_futures_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_group.fields = functi
   local index = offset
 
   -- Implicit Snapshot Full Refresh Order Book Group Index
-  if snapshot_full_refresh_order_book_group_index ~= nil then
+  if snapshot_full_refresh_order_book_group_index ~= nil and show.snapshot_full_refresh_order_book_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_group_index, snapshot_full_refresh_order_book_group_index)
     iteration:set_generated()
   end
@@ -7757,7 +7872,7 @@ cme_futures_mdp3_sbe_v1_9.snapshot_full_refresh_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Snapshot Full Refresh Group Index
-  if snapshot_full_refresh_group_index ~= nil then
+  if snapshot_full_refresh_group_index ~= nil and show.snapshot_full_refresh_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_group_index, snapshot_full_refresh_group_index)
     iteration:set_generated()
   end
@@ -7988,7 +8103,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_session_statistics_group.fields = 
   local index = offset
 
   -- Implicit Incremental Refresh Session Statistics Group Index
-  if incremental_refresh_session_statistics_group_index ~= nil then
+  if incremental_refresh_session_statistics_group_index ~= nil and show.incremental_refresh_session_statistics_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_group_index, incremental_refresh_session_statistics_group_index)
     iteration:set_generated()
   end
@@ -8176,7 +8291,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_limits_banding_group.fields = func
   local index = offset
 
   -- Implicit Incremental Refresh Limits Banding Group Index
-  if incremental_refresh_limits_banding_group_index ~= nil then
+  if incremental_refresh_limits_banding_group_index ~= nil and show.incremental_refresh_limits_banding_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_group_index, incremental_refresh_limits_banding_group_index)
     iteration:set_generated()
   end
@@ -8359,7 +8474,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_group.fields = fu
   local index = offset
 
   -- Implicit Incremental Refresh Daily Statistics Group Index
-  if incremental_refresh_daily_statistics_group_index ~= nil then
+  if incremental_refresh_daily_statistics_group_index ~= nil and show.incremental_refresh_daily_statistics_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_group_index, incremental_refresh_daily_statistics_group_index)
     iteration:set_generated()
   end
@@ -8548,7 +8663,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_trade_summary_order_id_group.field
   local index = offset
 
   -- Implicit Incremental Refresh Trade Summary Order Id Group Index
-  if incremental_refresh_trade_summary_order_id_group_index ~= nil then
+  if incremental_refresh_trade_summary_order_id_group_index ~= nil and show.incremental_refresh_trade_summary_order_id_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_order_id_group_index, incremental_refresh_trade_summary_order_id_group_index)
     iteration:set_generated()
   end
@@ -8713,7 +8828,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_trade_summary_group.fields = funct
   local index = offset
 
   -- Implicit Incremental Refresh Trade Summary Group Index
-  if incremental_refresh_trade_summary_group_index ~= nil then
+  if incremental_refresh_trade_summary_group_index ~= nil and show.incremental_refresh_trade_summary_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_group_index, incremental_refresh_trade_summary_group_index)
     iteration:set_generated()
   end
@@ -8912,7 +9027,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_order_book_group.fields = function
   local index = offset
 
   -- Implicit Incremental Refresh Order Book Group Index
-  if incremental_refresh_order_book_group_index ~= nil then
+  if incremental_refresh_order_book_group_index ~= nil and show.incremental_refresh_order_book_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_group_index, incremental_refresh_order_book_group_index)
     iteration:set_generated()
   end
@@ -9101,7 +9216,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_book_order_id_group.fields = funct
   local index = offset
 
   -- Implicit Incremental Refresh Book Order Id Group Index
-  if incremental_refresh_book_order_id_group_index ~= nil then
+  if incremental_refresh_book_order_id_group_index ~= nil and show.incremental_refresh_book_order_id_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_book_order_id_group_index, incremental_refresh_book_order_id_group_index)
     iteration:set_generated()
   end
@@ -9227,7 +9342,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_book_group.fields = function(buffe
   local index = offset
 
   -- Implicit Incremental Refresh Book Group Index
-  if incremental_refresh_book_group_index ~= nil then
+  if incremental_refresh_book_group_index ~= nil and show.incremental_refresh_book_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_book_group_index, incremental_refresh_book_group_index)
     iteration:set_generated()
   end
@@ -9423,7 +9538,7 @@ cme_futures_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_44_no_m_d_entries_gro
   local index = offset
 
   -- Implicit Snapshot Full Refresh Order Book 44 No M D Entries Group Index
-  if snapshot_full_refresh_order_book_44_no_m_d_entries_group_index ~= nil then
+  if snapshot_full_refresh_order_book_44_no_m_d_entries_group_index ~= nil and show.snapshot_full_refresh_order_book_44_no_m_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_group_index, snapshot_full_refresh_order_book_44_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -9620,7 +9735,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_order_book_43_no_m_d_entries_g
   local index = offset
 
   -- Implicit M D Incremental Refresh Order Book 43 No M D Entries Group Index
-  if m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index ~= nil then
+  if m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index ~= nil and show.m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index, m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -9806,7 +9921,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_trade_summary_42_no_order_i_d_
   local index = offset
 
   -- Implicit M D Incremental Refresh Trade Summary 42 No Order I D Entries Group Index
-  if m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index ~= nil then
+  if m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index ~= nil and show.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index)
     iteration:set_generated()
   end
@@ -9923,7 +10038,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_trade_summary_42_no_m_d_entrie
   local index = offset
 
   -- Implicit M D Incremental Refresh Trade Summary 42 No M D Entries Group Index
-  if m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index ~= nil then
+  if m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index ~= nil and show.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -10116,7 +10231,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_option_41_no_related_instrum
   local index = offset
 
   -- Implicit M D Instrument Definition Option 41 No Related Instruments Group Index
-  if m_d_instrument_definition_option_41_no_related_instruments_group_index ~= nil then
+  if m_d_instrument_definition_option_41_no_related_instruments_group_index ~= nil and show.m_d_instrument_definition_option_41_no_related_instruments_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_option_41_no_related_instruments_group_index, m_d_instrument_definition_option_41_no_related_instruments_group_index)
     iteration:set_generated()
   end
@@ -10223,7 +10338,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_option_41_no_underlyings_gro
   local index = offset
 
   -- Implicit M D Instrument Definition Option 41 No Underlyings Group Index
-  if m_d_instrument_definition_option_41_no_underlyings_group_index ~= nil then
+  if m_d_instrument_definition_option_41_no_underlyings_group_index ~= nil and show.m_d_instrument_definition_option_41_no_underlyings_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_option_41_no_underlyings_group_index, m_d_instrument_definition_option_41_no_underlyings_group_index)
     iteration:set_generated()
   end
@@ -10330,7 +10445,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_option_41_no_lot_type_rules_
   local index = offset
 
   -- Implicit M D Instrument Definition Option 41 No Lot Type Rules Group Index
-  if m_d_instrument_definition_option_41_no_lot_type_rules_group_index ~= nil then
+  if m_d_instrument_definition_option_41_no_lot_type_rules_group_index ~= nil and show.m_d_instrument_definition_option_41_no_lot_type_rules_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_option_41_no_lot_type_rules_group_index, m_d_instrument_definition_option_41_no_lot_type_rules_group_index)
     iteration:set_generated()
   end
@@ -10436,7 +10551,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_option_41_no_inst_attrib_gro
   local index = offset
 
   -- Implicit M D Instrument Definition Option 41 No Inst Attrib Group Index
-  if m_d_instrument_definition_option_41_no_inst_attrib_group_index ~= nil then
+  if m_d_instrument_definition_option_41_no_inst_attrib_group_index ~= nil and show.m_d_instrument_definition_option_41_no_inst_attrib_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_option_41_no_inst_attrib_group_index, m_d_instrument_definition_option_41_no_inst_attrib_group_index)
     iteration:set_generated()
   end
@@ -10540,7 +10655,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_option_41_no_m_d_feed_types_
   local index = offset
 
   -- Implicit M D Instrument Definition Option 41 No M D Feed Types Group Index
-  if m_d_instrument_definition_option_41_no_m_d_feed_types_group_index ~= nil then
+  if m_d_instrument_definition_option_41_no_m_d_feed_types_group_index ~= nil and show.m_d_instrument_definition_option_41_no_m_d_feed_types_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_group_index, m_d_instrument_definition_option_41_no_m_d_feed_types_group_index)
     iteration:set_generated()
   end
@@ -10647,7 +10762,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_option_41_no_events_group.fi
   local index = offset
 
   -- Implicit M D Instrument Definition Option 41 No Events Group Index
-  if m_d_instrument_definition_option_41_no_events_group_index ~= nil then
+  if m_d_instrument_definition_option_41_no_events_group_index ~= nil and show.m_d_instrument_definition_option_41_no_events_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_option_41_no_events_group_index, m_d_instrument_definition_option_41_no_events_group_index)
     iteration:set_generated()
   end
@@ -11038,7 +11153,7 @@ cme_futures_mdp3_sbe_v1_9.related_sym_group.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Related Sym Group Index
-  if related_sym_group_index ~= nil then
+  if related_sym_group_index ~= nil and show.related_sym_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.related_sym_group_index, related_sym_group_index)
     iteration:set_generated()
   end
@@ -11228,7 +11343,7 @@ cme_futures_mdp3_sbe_v1_9.snapshot_full_refresh_38_no_m_d_entries_group.fields =
   local index = offset
 
   -- Implicit Snapshot Full Refresh 38 No M D Entries Group Index
-  if snapshot_full_refresh_38_no_m_d_entries_group_index ~= nil then
+  if snapshot_full_refresh_38_no_m_d_entries_group_index ~= nil and show.snapshot_full_refresh_38_no_m_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_38_no_m_d_entries_group_index, snapshot_full_refresh_38_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -11456,7 +11571,7 @@ cme_futures_mdp3_sbe_v1_9.incremental_refresh_volume_group.fields = function(buf
   local index = offset
 
   -- Implicit Incremental Refresh Volume Group Index
-  if incremental_refresh_volume_group_index ~= nil then
+  if incremental_refresh_volume_group_index ~= nil and show.incremental_refresh_volume_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.incremental_refresh_volume_group_index, incremental_refresh_volume_group_index)
     iteration:set_generated()
   end
@@ -11638,7 +11753,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_session_statistics_35_no_m_d_e
   local index = offset
 
   -- Implicit M D Incremental Refresh Session Statistics 35 No M D Entries Group Index
-  if m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index ~= nil then
+  if m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index ~= nil and show.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -11826,7 +11941,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_limits_banding_34_no_m_d_entri
   local index = offset
 
   -- Implicit M D Incremental Refresh Limits Banding 34 No M D Entries Group Index
-  if m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index ~= nil then
+  if m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index ~= nil and show.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -12009,7 +12124,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_daily_statistics_33_no_m_d_ent
   local index = offset
 
   -- Implicit M D Incremental Refresh Daily Statistics 33 No M D Entries Group Index
-  if m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index ~= nil then
+  if m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index ~= nil and show.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -12201,7 +12316,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_book_32_no_order_i_d_entries_g
   local index = offset
 
   -- Implicit M D Incremental Refresh Book 32 No Order I D Entries Group Index
-  if m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index ~= nil then
+  if m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index ~= nil and show.m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index, m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index)
     iteration:set_generated()
   end
@@ -12327,7 +12442,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_incremental_refresh_book_32_no_m_d_entries_group.f
   local index = offset
 
   -- Implicit M D Incremental Refresh Book 32 No M D Entries Group Index
-  if m_d_incremental_refresh_book_32_no_m_d_entries_group_index ~= nil then
+  if m_d_incremental_refresh_book_32_no_m_d_entries_group_index ~= nil and show.m_d_incremental_refresh_book_32_no_m_d_entries_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_book_32_no_m_d_entries_group_index, m_d_incremental_refresh_book_32_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -12592,7 +12707,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_lot_type_rules_
   local index = offset
 
   -- Implicit M D Instrument Definition Spread 29 No Lot Type Rules Group Index
-  if m_d_instrument_definition_spread_29_no_lot_type_rules_group_index ~= nil then
+  if m_d_instrument_definition_spread_29_no_lot_type_rules_group_index ~= nil and show.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index, m_d_instrument_definition_spread_29_no_lot_type_rules_group_index)
     iteration:set_generated()
   end
@@ -12698,7 +12813,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_inst_attrib_gro
   local index = offset
 
   -- Implicit M D Instrument Definition Spread 29 No Inst Attrib Group Index
-  if m_d_instrument_definition_spread_29_no_inst_attrib_group_index ~= nil then
+  if m_d_instrument_definition_spread_29_no_inst_attrib_group_index ~= nil and show.m_d_instrument_definition_spread_29_no_inst_attrib_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_inst_attrib_group_index, m_d_instrument_definition_spread_29_no_inst_attrib_group_index)
     iteration:set_generated()
   end
@@ -12802,7 +12917,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_m_d_feed_types_
   local index = offset
 
   -- Implicit M D Instrument Definition Spread 29 No M D Feed Types Group Index
-  if m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index ~= nil then
+  if m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index ~= nil and show.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index, m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index)
     iteration:set_generated()
   end
@@ -12909,7 +13024,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_spread_29_no_events_group.fi
   local index = offset
 
   -- Implicit M D Instrument Definition Spread 29 No Events Group Index
-  if m_d_instrument_definition_spread_29_no_events_group_index ~= nil then
+  if m_d_instrument_definition_spread_29_no_events_group_index ~= nil and show.m_d_instrument_definition_spread_29_no_events_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_no_events_group_index, m_d_instrument_definition_spread_29_no_events_group_index)
     iteration:set_generated()
   end
@@ -13271,7 +13386,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_future_27_no_lot_type_rules_
   local index = offset
 
   -- Implicit M D Instrument Definition Future 27 No Lot Type Rules Group Index
-  if m_d_instrument_definition_future_27_no_lot_type_rules_group_index ~= nil then
+  if m_d_instrument_definition_future_27_no_lot_type_rules_group_index ~= nil and show.m_d_instrument_definition_future_27_no_lot_type_rules_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_future_27_no_lot_type_rules_group_index, m_d_instrument_definition_future_27_no_lot_type_rules_group_index)
     iteration:set_generated()
   end
@@ -13377,7 +13492,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_future_27_no_inst_attrib_gro
   local index = offset
 
   -- Implicit M D Instrument Definition Future 27 No Inst Attrib Group Index
-  if m_d_instrument_definition_future_27_no_inst_attrib_group_index ~= nil then
+  if m_d_instrument_definition_future_27_no_inst_attrib_group_index ~= nil and show.m_d_instrument_definition_future_27_no_inst_attrib_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_future_27_no_inst_attrib_group_index, m_d_instrument_definition_future_27_no_inst_attrib_group_index)
     iteration:set_generated()
   end
@@ -13481,7 +13596,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_future_27_no_m_d_feed_types_
   local index = offset
 
   -- Implicit M D Instrument Definition Future 27 No M D Feed Types Group Index
-  if m_d_instrument_definition_future_27_no_m_d_feed_types_group_index ~= nil then
+  if m_d_instrument_definition_future_27_no_m_d_feed_types_group_index ~= nil and show.m_d_instrument_definition_future_27_no_m_d_feed_types_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_group_index, m_d_instrument_definition_future_27_no_m_d_feed_types_group_index)
     iteration:set_generated()
   end
@@ -13588,7 +13703,7 @@ cme_futures_mdp3_sbe_v1_9.m_d_instrument_definition_future_27_no_events_group.fi
   local index = offset
 
   -- Implicit M D Instrument Definition Future 27 No Events Group Index
-  if m_d_instrument_definition_future_27_no_events_group_index ~= nil then
+  if m_d_instrument_definition_future_27_no_events_group_index ~= nil and show.m_d_instrument_definition_future_27_no_events_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_future_27_no_events_group_index, m_d_instrument_definition_future_27_no_events_group_index)
     iteration:set_generated()
   end
@@ -14054,7 +14169,7 @@ cme_futures_mdp3_sbe_v1_9.channel_reset_group.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Channel Reset Group Index
-  if channel_reset_group_index ~= nil then
+  if channel_reset_group_index ~= nil and show.channel_reset_group_index then
     local iteration = parent:add(omi_cme_futures_mdp3_sbe_v1_9.fields.channel_reset_group_index, channel_reset_group_index)
     iteration:set_generated()
   end

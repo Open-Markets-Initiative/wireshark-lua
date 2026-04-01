@@ -155,6 +155,7 @@ show.sequenced_data_packet = true
 show.sesm_tcp_packet = true
 show.strategy_leg = true
 show.unsequenced_data_packet = true
+show.strategy_leg_index = true
 
 -- Register Miax OnyxFutures ExpressInterface Fei 1.0.c Show Options
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators = Pref.bool("Show Additional Order Indicators", show.additional_order_indicators, "Parse and add Additional Order Indicators to protocol tree")
@@ -172,76 +173,59 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packe
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet = Pref.bool("Show Sesm Tcp Packet", show.sesm_tcp_packet, "Parse and add Sesm Tcp Packet to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg = Pref.bool("Show Strategy Leg", show.strategy_leg, "Parse and add Strategy Leg to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg_index = Pref.bool("Show Strategy Leg Index", show.strategy_leg_index, "Show generated strategy leg index in protocol tree")
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.additional_order_indicators ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators then
     show.additional_order_indicators = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators
-    changed = true
   end
   if show.application_messages ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages then
     show.application_messages = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages
-    changed = true
   end
   if show.goodbye_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet then
     show.goodbye_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet
-    changed = true
   end
   if show.login_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request then
     show.login_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request
-    changed = true
   end
   if show.login_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response then
     show.login_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response
-    changed = true
   end
   if show.logout_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request then
     show.logout_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request
-    changed = true
   end
   if show.order_instructions ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions then
     show.order_instructions = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions
-    changed = true
   end
   if show.packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet then
     show.packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header then
     show.packet_header = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header
-    changed = true
   end
   if show.retransmission_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request then
     show.retransmission_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request
-    changed = true
   end
   if show.self_trade_protection ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection then
     show.self_trade_protection = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection
-    changed = true
   end
   if show.sequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet then
     show.sequenced_data_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet
-    changed = true
   end
   if show.sesm_tcp_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet then
     show.sesm_tcp_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet
-    changed = true
   end
   if show.strategy_leg ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg then
     show.strategy_leg = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg
-    changed = true
   end
   if show.unsequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.strategy_leg_index ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg_index then
+    show.strategy_leg_index = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg_index
   end
 end
 
@@ -2641,7 +2625,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.fields = function(buff
   local index = offset
 
   -- Implicit Strategy Leg Index
-  if strategy_leg_index ~= nil then
+  if strategy_leg_index ~= nil and show.strategy_leg_index then
     local iteration = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index, strategy_leg_index)
     iteration:set_generated()
   end

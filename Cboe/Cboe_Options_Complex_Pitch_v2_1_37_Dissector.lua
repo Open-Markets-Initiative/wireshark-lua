@@ -121,6 +121,8 @@ show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
+show.message_index = true
+show.complex_instrument_leg_index = true
 
 -- Register Cboe Options Complex Pitch 2.1.37 Show Options
 omi_cboe_options_complex_pitch_v2_1_37.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -130,44 +132,39 @@ omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message = Pref.bool("Show Mess
 omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cboe_options_complex_pitch_v2_1_37.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_options_complex_pitch_v2_1_37.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg_index = Pref.bool("Show Complex Instrument Leg Index", show.complex_instrument_leg_index, "Show generated complex instrument leg index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_options_complex_pitch_v2_1_37.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_application_messages then
     show.application_messages = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_application_messages
-    changed = true
   end
   if show.complex_instrument_leg ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg then
     show.complex_instrument_leg = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg
-    changed = true
   end
   if show.complex_instrument_type ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_type then
     show.complex_instrument_type = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_type
-    changed = true
   end
   if show.message ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message then
     show.message = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message_header then
     show.message_header = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_packet then
     show.packet = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_packet_header then
     show.packet_header = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_packet_header
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message_index then
+    show.message_index = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_message_index
+  end
+  if show.complex_instrument_leg_index ~= omi_cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg_index then
+    show.complex_instrument_leg_index = omi_cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg_index
   end
 end
 
@@ -2873,7 +2870,7 @@ cboe_options_complex_pitch_v2_1_37.complex_instrument_leg.fields = function(buff
   local index = offset
 
   -- Implicit Complex Instrument Leg Index
-  if complex_instrument_leg_index ~= nil then
+  if complex_instrument_leg_index ~= nil and show.complex_instrument_leg_index then
     local iteration = parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_leg_index, complex_instrument_leg_index)
     iteration:set_generated()
   end
@@ -3352,7 +3349,7 @@ cboe_options_complex_pitch_v2_1_37.message.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_cboe_options_complex_pitch_v2_1_37.fields.message_index, message_index)
     iteration:set_generated()
   end

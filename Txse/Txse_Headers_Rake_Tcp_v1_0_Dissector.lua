@@ -69,45 +69,31 @@ omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message = Pref.bool("S
 
 -- Handle changed preferences
 function omi_txse_headers_rake_tcp_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.debug_message ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_debug_message then
     show.debug_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_debug_message
-    changed = true
   end
   if show.logon_request_packet ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_logon_request_packet then
     show.logon_request_packet = omi_txse_headers_rake_tcp_v1_0.prefs.show_logon_request_packet
-    changed = true
   end
   if show.logon_response_message ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_logon_response_message then
     show.logon_response_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_logon_response_message
-    changed = true
   end
   if show.packet ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_packet then
     show.packet = omi_txse_headers_rake_tcp_v1_0.prefs.show_packet
-    changed = true
   end
   if show.rake_message_header ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_rake_message_header then
     show.rake_message_header = omi_txse_headers_rake_tcp_v1_0.prefs.show_rake_message_header
-    changed = true
   end
   if show.rake_tcp_message ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_rake_tcp_message then
     show.rake_tcp_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_rake_tcp_message
-    changed = true
   end
   if show.tcp_sequenced_message ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_sequenced_message then
     show.tcp_sequenced_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_sequenced_message
-    changed = true
   end
   if show.tcp_unsequenced_message ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message then
     show.tcp_unsequenced_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

@@ -87,61 +87,43 @@ omi_miax_pearlequities_esesm_v1_0_a.prefs.show_unsequenced_data_packet = Pref.bo
 
 -- Handle changed preferences
 function omi_miax_pearlequities_esesm_v1_0_a.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.esesm_tcp_packet ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_esesm_tcp_packet then
     show.esesm_tcp_packet = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_esesm_tcp_packet
-    changed = true
   end
   if show.goodbye_packet ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_goodbye_packet then
     show.goodbye_packet = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_goodbye_packet
-    changed = true
   end
   if show.login_request ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_login_request then
     show.login_request = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_login_request
-    changed = true
   end
   if show.login_response ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_login_response then
     show.login_response = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_login_response
-    changed = true
   end
   if show.logout_request ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_logout_request then
     show.logout_request = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_logout_request
-    changed = true
   end
   if show.packet ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_packet then
     show.packet = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_packet_header then
     show.packet_header = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_packet_header
-    changed = true
   end
   if show.retransmission_request ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_retransmission_request then
     show.retransmission_request = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_retransmission_request
-    changed = true
   end
   if show.sequenced_data_packet ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_sequenced_data_packet then
     show.sequenced_data_packet = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_sequenced_data_packet
-    changed = true
   end
   if show.synchronization_complete ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_synchronization_complete then
     show.synchronization_complete = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_synchronization_complete
-    changed = true
   end
   if show.test_packet ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_test_packet then
     show.test_packet = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_test_packet
-    changed = true
   end
   if show.unsequenced_data_packet ~= omi_miax_pearlequities_esesm_v1_0_a.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_miax_pearlequities_esesm_v1_0_a.prefs.show_unsequenced_data_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

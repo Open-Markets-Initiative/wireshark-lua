@@ -135,6 +135,11 @@ show.symbol = true
 show.target_location_id = true
 show.underlying_symbol = true
 show.underlying_type = true
+show.message_index = true
+show.security_definition_leg_index = true
+show.snapshot_full_refresh_md_entry_index = true
+show.md_volume_entry_index = true
+show.incremental_refresh_md_entry_index = true
 
 -- Register Cboe Options MarketLevel2 Csm 1.0.4 Show Options
 omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_currency_code = Pref.bool("Show Currency Code", show.currency_code, "Parse and add Currency Code to protocol tree")
@@ -159,104 +164,96 @@ omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_symbol = Pref.bool("Show Sym
 omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_target_location_id = Pref.bool("Show Target Location Id", show.target_location_id, "Parse and add Target Location Id to protocol tree")
 omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_underlying_symbol = Pref.bool("Show Underlying Symbol", show.underlying_symbol, "Parse and add Underlying Symbol to protocol tree")
 omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_underlying_type = Pref.bool("Show Underlying Type", show.underlying_type, "Parse and add Underlying Type to protocol tree")
+omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_security_definition_leg_index = Pref.bool("Show Security Definition Leg Index", show.security_definition_leg_index, "Show generated security definition leg index in protocol tree")
+omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_snapshot_full_refresh_md_entry_index = Pref.bool("Show Snapshot Full Refresh Md Entry Index", show.snapshot_full_refresh_md_entry_index, "Show generated snapshot full refresh md entry index in protocol tree")
+omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_md_volume_entry_index = Pref.bool("Show Md Volume Entry Index", show.md_volume_entry_index, "Show generated md volume entry index in protocol tree")
+omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_incremental_refresh_md_entry_index = Pref.bool("Show Incremental Refresh Md Entry Index", show.incremental_refresh_md_entry_index, "Show generated incremental refresh md entry index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_options_marketlevel2_csm_v1_0_4.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_application_messages then
     show.application_messages = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_application_messages
-    changed = true
   end
   if show.currency_code ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_currency_code then
     show.currency_code = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_currency_code
-    changed = true
   end
   if show.incremental_refresh_md_entry ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_incremental_refresh_md_entry then
     show.incremental_refresh_md_entry = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_incremental_refresh_md_entry
-    changed = true
   end
   if show.max_strike_price ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_max_strike_price then
     show.max_strike_price = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_max_strike_price
-    changed = true
   end
   if show.md_entry_px ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_md_entry_px then
     show.md_entry_px = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_md_entry_px
-    changed = true
   end
   if show.md_volume_entry ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_md_volume_entry then
     show.md_volume_entry = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_md_volume_entry
-    changed = true
   end
   if show.message ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_message then
     show.message = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_message_header then
     show.message_header = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_message_header
-    changed = true
   end
   if show.minimum_above_premium_fraction ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_minimum_above_premium_fraction then
     show.minimum_above_premium_fraction = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_minimum_above_premium_fraction
-    changed = true
   end
   if show.minimum_below_premium_fraction ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_minimum_below_premium_fraction then
     show.minimum_below_premium_fraction = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_minimum_below_premium_fraction
-    changed = true
   end
   if show.minimum_strike_price_fraction ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_minimum_strike_price_fraction then
     show.minimum_strike_price_fraction = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_minimum_strike_price_fraction
-    changed = true
   end
   if show.packet ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_packet then
     show.packet = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_packet_header then
     show.packet_header = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_packet_header
-    changed = true
   end
   if show.premium_break_point ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_premium_break_point then
     show.premium_break_point = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_premium_break_point
-    changed = true
   end
   if show.security_definition_leg ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_security_definition_leg then
     show.security_definition_leg = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_security_definition_leg
-    changed = true
   end
   if show.security_type ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_security_type then
     show.security_type = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_security_type
-    changed = true
   end
   if show.snapshot_full_refresh_md_entry ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_snapshot_full_refresh_md_entry then
     show.snapshot_full_refresh_md_entry = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_snapshot_full_refresh_md_entry
-    changed = true
   end
   if show.strike_price ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_strike_price then
     show.strike_price = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_strike_price
-    changed = true
   end
   if show.symbol ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_symbol then
     show.symbol = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_symbol
-    changed = true
   end
   if show.target_location_id ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_target_location_id then
     show.target_location_id = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_target_location_id
-    changed = true
   end
   if show.underlying_symbol ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_underlying_symbol then
     show.underlying_symbol = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_underlying_symbol
-    changed = true
   end
   if show.underlying_type ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_underlying_type then
     show.underlying_type = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_underlying_type
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_message_index then
+    show.message_index = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_message_index
+  end
+  if show.security_definition_leg_index ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_security_definition_leg_index then
+    show.security_definition_leg_index = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_security_definition_leg_index
+  end
+  if show.snapshot_full_refresh_md_entry_index ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_snapshot_full_refresh_md_entry_index then
+    show.snapshot_full_refresh_md_entry_index = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_snapshot_full_refresh_md_entry_index
+  end
+  if show.md_volume_entry_index ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_md_volume_entry_index then
+    show.md_volume_entry_index = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_md_volume_entry_index
+  end
+  if show.incremental_refresh_md_entry_index ~= omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_incremental_refresh_md_entry_index then
+    show.incremental_refresh_md_entry_index = omi_cboe_options_marketlevel2_csm_v1_0_4.prefs.show_incremental_refresh_md_entry_index
   end
 end
 
@@ -1725,7 +1722,7 @@ cboe_options_marketlevel2_csm_v1_0_4.md_volume_entry.fields = function(buffer, o
   local index = offset
 
   -- Implicit Md Volume Entry Index
-  if md_volume_entry_index ~= nil then
+  if md_volume_entry_index ~= nil and show.md_volume_entry_index then
     local iteration = parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.md_volume_entry_index, md_volume_entry_index)
     iteration:set_generated()
   end
@@ -1835,7 +1832,7 @@ cboe_options_marketlevel2_csm_v1_0_4.incremental_refresh_md_entry.fields = funct
   local index = offset
 
   -- Implicit Incremental Refresh Md Entry Index
-  if incremental_refresh_md_entry_index ~= nil then
+  if incremental_refresh_md_entry_index ~= nil and show.incremental_refresh_md_entry_index then
     local iteration = parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_md_entry_index, incremental_refresh_md_entry_index)
     iteration:set_generated()
   end
@@ -1996,7 +1993,7 @@ cboe_options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_md_entry.fields = fun
   local index = offset
 
   -- Implicit Snapshot Full Refresh Md Entry Index
-  if snapshot_full_refresh_md_entry_index ~= nil then
+  if snapshot_full_refresh_md_entry_index ~= nil and show.snapshot_full_refresh_md_entry_index then
     local iteration = parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry_index, snapshot_full_refresh_md_entry_index)
     iteration:set_generated()
   end
@@ -2146,7 +2143,7 @@ cboe_options_marketlevel2_csm_v1_0_4.security_definition_leg.fields = function(b
   local index = offset
 
   -- Implicit Security Definition Leg Index
-  if security_definition_leg_index ~= nil then
+  if security_definition_leg_index ~= nil and show.security_definition_leg_index then
     local iteration = parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.security_definition_leg_index, security_definition_leg_index)
     iteration:set_generated()
   end
@@ -3013,7 +3010,7 @@ cboe_options_marketlevel2_csm_v1_0_4.message.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_cboe_options_marketlevel2_csm_v1_0_4.fields.message_index, message_index)
     iteration:set_generated()
   end

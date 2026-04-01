@@ -314,6 +314,10 @@ show.sides_groups = true
 show.simple_open_frame = true
 show.simple_open_framing_header = true
 show.text = true
+show.cross_sides_group_index = true
+show.legs_group_index = true
+show.sides_group_index = true
+show.positions_group_index = true
 
 -- Register B3 Equities BinaryEntryPoint Sbe 8.0 Show Options
 omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -343,124 +347,107 @@ omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_sides_groups = Pref.bool("S
 omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_simple_open_frame = Pref.bool("Show Simple Open Frame", show.simple_open_frame, "Parse and add Simple Open Frame to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
 omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_text = Pref.bool("Show Text", show.text, "Parse and add Text to protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_cross_sides_group_index = Pref.bool("Show Cross Sides Group Index", show.cross_sides_group_index, "Show generated cross sides group index in protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_legs_group_index = Pref.bool("Show Legs Group Index", show.legs_group_index, "Show generated legs group index in protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_sides_group_index = Pref.bool("Show Sides Group Index", show.sides_group_index, "Show generated sides group index in protocol tree")
+omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_positions_group_index = Pref.bool("Show Positions Group Index", show.positions_group_index, "Show generated positions group index in protocol tree")
 
 -- Handle changed preferences
 function omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_application_messages then
     show.application_messages = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_application_messages
-    changed = true
   end
   if show.bidirectional_business_header ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_bidirectional_business_header then
     show.bidirectional_business_header = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_bidirectional_business_header
-    changed = true
   end
   if show.client_app_name ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_client_app_name then
     show.client_app_name = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_client_app_name
-    changed = true
   end
   if show.client_app_version ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_client_app_version then
     show.client_app_version = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_client_app_version
-    changed = true
   end
   if show.client_ip ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_client_ip then
     show.client_ip = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_client_ip
-    changed = true
   end
   if show.credentials ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_credentials then
     show.credentials = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_credentials
-    changed = true
   end
   if show.cross_sides_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_cross_sides_group then
     show.cross_sides_group = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_cross_sides_group
-    changed = true
   end
   if show.cross_sides_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_cross_sides_groups then
     show.cross_sides_groups = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_cross_sides_groups
-    changed = true
   end
   if show.custodian_info ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_custodian_info then
     show.custodian_info = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_custodian_info
-    changed = true
   end
   if show.desk_id ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_desk_id then
     show.desk_id = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_desk_id
-    changed = true
   end
   if show.group_size_encoding ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_group_size_encoding then
     show.group_size_encoding = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_group_size_encoding
-    changed = true
   end
   if show.inbound_business_header ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_inbound_business_header then
     show.inbound_business_header = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_inbound_business_header
-    changed = true
   end
   if show.investor_id ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_investor_id then
     show.investor_id = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_investor_id
-    changed = true
   end
   if show.legs_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_legs_group then
     show.legs_group = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_legs_group
-    changed = true
   end
   if show.legs_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_legs_groups then
     show.legs_groups = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_legs_groups
-    changed = true
   end
   if show.memo ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_memo then
     show.memo = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_memo
-    changed = true
   end
   if show.message_header ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_message_header then
     show.message_header = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_message_header
-    changed = true
   end
   if show.outbound_business_header ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_outbound_business_header then
     show.outbound_business_header = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_outbound_business_header
-    changed = true
   end
   if show.packet ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_packet then
     show.packet = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_packet
-    changed = true
   end
   if show.positions_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_positions_group then
     show.positions_group = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_positions_group
-    changed = true
   end
   if show.positions_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_positions_groups then
     show.positions_groups = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_positions_groups
-    changed = true
   end
   if show.quote_req_id ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_quote_req_id then
     show.quote_req_id = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_quote_req_id
-    changed = true
   end
   if show.sides_group ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_sides_group then
     show.sides_group = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_sides_group
-    changed = true
   end
   if show.sides_groups ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_sides_groups then
     show.sides_groups = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_sides_groups
-    changed = true
   end
   if show.simple_open_frame ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_simple_open_frame then
     show.simple_open_frame = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_simple_open_frame
-    changed = true
   end
   if show.simple_open_framing_header ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_simple_open_framing_header then
     show.simple_open_framing_header = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_simple_open_framing_header
-    changed = true
   end
   if show.text ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_text then
     show.text = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_text
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.cross_sides_group_index ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_cross_sides_group_index then
+    show.cross_sides_group_index = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_cross_sides_group_index
+  end
+  if show.legs_group_index ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_legs_group_index then
+    show.legs_group_index = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_legs_group_index
+  end
+  if show.sides_group_index ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_sides_group_index then
+    show.sides_group_index = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_sides_group_index
+  end
+  if show.positions_group_index ~= omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_positions_group_index then
+    show.positions_group_index = omi_b3_equities_binaryentrypoint_sbe_v8_0.prefs.show_positions_group_index
   end
 end
 
@@ -8771,7 +8758,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.positions_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Positions Group Index
-  if positions_group_index ~= nil then
+  if positions_group_index ~= nil and show.positions_group_index then
     local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_0.fields.positions_group_index, positions_group_index)
     iteration:set_generated()
   end
@@ -9303,7 +9290,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.sides_group.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Sides Group Index
-  if sides_group_index ~= nil then
+  if sides_group_index ~= nil and show.sides_group_index then
     local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_0.fields.sides_group_index, sides_group_index)
     iteration:set_generated()
   end
@@ -10203,7 +10190,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.legs_group.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Legs Group Index
-  if legs_group_index ~= nil then
+  if legs_group_index ~= nil and show.legs_group_index then
     local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_0.fields.legs_group_index, legs_group_index)
     iteration:set_generated()
   end
@@ -11524,7 +11511,7 @@ b3_equities_binaryentrypoint_sbe_v8_0.cross_sides_group.fields = function(buffer
   local index = offset
 
   -- Implicit Cross Sides Group Index
-  if cross_sides_group_index ~= nil then
+  if cross_sides_group_index ~= nil and show.cross_sides_group_index then
     local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_0.fields.cross_sides_group_index, cross_sides_group_index)
     iteration:set_generated()
   end

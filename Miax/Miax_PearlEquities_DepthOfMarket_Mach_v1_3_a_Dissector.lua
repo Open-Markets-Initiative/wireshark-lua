@@ -92,41 +92,28 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags = Pref.b
 
 -- Handle changed preferences
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_message then
     show.application_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_message
-    changed = true
   end
   if show.application_messages ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_messages then
     show.application_messages = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_messages
-    changed = true
   end
   if show.message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_message then
     show.message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_message
-    changed = true
   end
   if show.modify_order_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_flags then
     show.modify_order_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_modify_order_flags
-    changed = true
   end
   if show.order_execution_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_flags then
     show.order_execution_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_order_execution_flags
-    changed = true
   end
   if show.packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_packet then
     show.packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_packet
-    changed = true
   end
   if show.trade_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags then
     show.trade_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

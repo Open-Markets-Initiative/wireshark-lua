@@ -321,6 +321,13 @@ show.trade_condition = true
 show.underlyings_group = true
 show.underlyings_groups = true
 show.url_link = true
+show.deprecated_underlyings_group_index = true
+show.deprecated_legs_group_index = true
+show.deprecated_instr_attribs_group_index = true
+show.underlyings_group_index = true
+show.legs_group_index = true
+show.instr_attribs_group_index = true
+show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = true
 
 -- Register B3 Equities BinaryUmdf Sbe 1.8 Show Options
 omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -353,136 +360,128 @@ omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_trade_condition = Pref.bool("Show
 omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_group = Pref.bool("Show Underlyings Group", show.underlyings_group, "Parse and add Underlyings Group to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_groups = Pref.bool("Show Underlyings Groups", show.underlyings_groups, "Parse and add Underlyings Groups to protocol tree")
 omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_url_link = Pref.bool("Show Url Link", show.url_link, "Parse and add Url Link to protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_underlyings_group_index = Pref.bool("Show Deprecated Underlyings Group Index", show.deprecated_underlyings_group_index, "Show generated deprecated underlyings group index in protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_legs_group_index = Pref.bool("Show Deprecated Legs Group Index", show.deprecated_legs_group_index, "Show generated deprecated legs group index in protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_instr_attribs_group_index = Pref.bool("Show Deprecated Instr Attribs Group Index", show.deprecated_instr_attribs_group_index, "Show generated deprecated instr attribs group index in protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_group_index = Pref.bool("Show Underlyings Group Index", show.underlyings_group_index, "Show generated underlyings group index in protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_legs_group_index = Pref.bool("Show Legs Group Index", show.legs_group_index, "Show generated legs group index in protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_instr_attribs_group_index = Pref.bool("Show Instr Attribs Group Index", show.instr_attribs_group_index, "Show generated instr attribs group index in protocol tree")
+omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index, "Show generated snapshot full refresh orders mb o 71 message no m d entries group index in protocol tree")
 
 -- Handle changed preferences
 function omi_b3_equities_binaryumdf_sbe_v1_8.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_application_messages then
     show.application_messages = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_application_messages
-    changed = true
   end
   if show.contract_settl_month ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_contract_settl_month then
     show.contract_settl_month = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_contract_settl_month
-    changed = true
   end
   if show.deprecated_instr_attribs_group ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_instr_attribs_group then
     show.deprecated_instr_attribs_group = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_instr_attribs_group
-    changed = true
   end
   if show.deprecated_instr_attribs_groups ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_instr_attribs_groups then
     show.deprecated_instr_attribs_groups = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_instr_attribs_groups
-    changed = true
   end
   if show.deprecated_legs_group ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_legs_group then
     show.deprecated_legs_group = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_legs_group
-    changed = true
   end
   if show.deprecated_legs_groups ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_legs_groups then
     show.deprecated_legs_groups = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_legs_groups
-    changed = true
   end
   if show.deprecated_underlyings_group ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_underlyings_group then
     show.deprecated_underlyings_group = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_underlyings_group
-    changed = true
   end
   if show.deprecated_underlyings_groups ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_underlyings_groups then
     show.deprecated_underlyings_groups = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_underlyings_groups
-    changed = true
   end
   if show.framing_header ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_framing_header then
     show.framing_header = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_framing_header
-    changed = true
   end
   if show.group_size_encoding ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_group_size_encoding then
     show.group_size_encoding = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_group_size_encoding
-    changed = true
   end
   if show.headline ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_headline then
     show.headline = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_headline
-    changed = true
   end
   if show.imbalance_condition ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_imbalance_condition then
     show.imbalance_condition = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_imbalance_condition
-    changed = true
   end
   if show.instr_attribs_group ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_instr_attribs_group then
     show.instr_attribs_group = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_instr_attribs_group
-    changed = true
   end
   if show.instr_attribs_groups ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_instr_attribs_groups then
     show.instr_attribs_groups = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_instr_attribs_groups
-    changed = true
   end
   if show.legs_group ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_legs_group then
     show.legs_group = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_legs_group
-    changed = true
   end
   if show.legs_groups ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_legs_groups then
     show.legs_groups = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_legs_groups
-    changed = true
   end
   if show.match_event_indicator ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_match_event_indicator then
     show.match_event_indicator = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_match_event_indicator
-    changed = true
   end
   if show.maturity_month_year ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_maturity_month_year then
     show.maturity_month_year = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_maturity_month_year
-    changed = true
   end
   if show.message ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_message then
     show.message = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_message_header then
     show.message_header = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_packet then
     show.packet = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_packet_header then
     show.packet_header = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_packet_header
-    changed = true
   end
   if show.security_desc ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_security_desc then
     show.security_desc = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_security_desc
-    changed = true
   end
   if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group then
     show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group
-    changed = true
   end
   if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups then
     show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups
-    changed = true
   end
   if show.text ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_text then
     show.text = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_text
-    changed = true
   end
   if show.trade_condition ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_trade_condition then
     show.trade_condition = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_trade_condition
-    changed = true
   end
   if show.underlyings_group ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_group then
     show.underlyings_group = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_group
-    changed = true
   end
   if show.underlyings_groups ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_groups then
     show.underlyings_groups = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_groups
-    changed = true
   end
   if show.url_link ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_url_link then
     show.url_link = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_url_link
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.deprecated_underlyings_group_index ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_underlyings_group_index then
+    show.deprecated_underlyings_group_index = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_underlyings_group_index
+  end
+  if show.deprecated_legs_group_index ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_legs_group_index then
+    show.deprecated_legs_group_index = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_legs_group_index
+  end
+  if show.deprecated_instr_attribs_group_index ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_instr_attribs_group_index then
+    show.deprecated_instr_attribs_group_index = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_deprecated_instr_attribs_group_index
+  end
+  if show.underlyings_group_index ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_group_index then
+    show.underlyings_group_index = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_underlyings_group_index
+  end
+  if show.legs_group_index ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_legs_group_index then
+    show.legs_group_index = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_legs_group_index
+  end
+  if show.instr_attribs_group_index ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_instr_attribs_group_index then
+    show.instr_attribs_group_index = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_instr_attribs_group_index
+  end
+  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index ~= omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index then
+    show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = omi_b3_equities_binaryumdf_sbe_v1_8.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index
   end
 end
 
@@ -5565,7 +5564,7 @@ b3_equities_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_
   local index = offset
 
   -- Implicit Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index
-  if snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index ~= nil then
+  if snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index ~= nil and show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index then
     local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -8084,7 +8083,7 @@ b3_equities_binaryumdf_sbe_v1_8.instr_attribs_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Instr Attribs Group Index
-  if instr_attribs_group_index ~= nil then
+  if instr_attribs_group_index ~= nil and show.instr_attribs_group_index then
     local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_8.fields.instr_attribs_group_index, instr_attribs_group_index)
     iteration:set_generated()
   end
@@ -8194,7 +8193,7 @@ b3_equities_binaryumdf_sbe_v1_8.legs_group.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Legs Group Index
-  if legs_group_index ~= nil then
+  if legs_group_index ~= nil and show.legs_group_index then
     local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_8.fields.legs_group_index, legs_group_index)
     iteration:set_generated()
   end
@@ -8310,7 +8309,7 @@ b3_equities_binaryumdf_sbe_v1_8.underlyings_group.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Underlyings Group Index
-  if underlyings_group_index ~= nil then
+  if underlyings_group_index ~= nil and show.underlyings_group_index then
     local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_8.fields.underlyings_group_index, underlyings_group_index)
     iteration:set_generated()
   end
@@ -8836,7 +8835,7 @@ b3_equities_binaryumdf_sbe_v1_8.deprecated_instr_attribs_group.fields = function
   local index = offset
 
   -- Implicit Deprecated Instr Attribs Group Index
-  if deprecated_instr_attribs_group_index ~= nil then
+  if deprecated_instr_attribs_group_index ~= nil and show.deprecated_instr_attribs_group_index then
     local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_8.fields.deprecated_instr_attribs_group_index, deprecated_instr_attribs_group_index)
     iteration:set_generated()
   end
@@ -8946,7 +8945,7 @@ b3_equities_binaryumdf_sbe_v1_8.deprecated_legs_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Deprecated Legs Group Index
-  if deprecated_legs_group_index ~= nil then
+  if deprecated_legs_group_index ~= nil and show.deprecated_legs_group_index then
     local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_8.fields.deprecated_legs_group_index, deprecated_legs_group_index)
     iteration:set_generated()
   end
@@ -9064,7 +9063,7 @@ b3_equities_binaryumdf_sbe_v1_8.deprecated_underlyings_group.fields = function(b
   local index = offset
 
   -- Implicit Deprecated Underlyings Group Index
-  if deprecated_underlyings_group_index ~= nil then
+  if deprecated_underlyings_group_index ~= nil and show.deprecated_underlyings_group_index then
     local iteration = parent:add(omi_b3_equities_binaryumdf_sbe_v1_8.fields.deprecated_underlyings_group_index, deprecated_underlyings_group_index)
     iteration:set_generated()
   end

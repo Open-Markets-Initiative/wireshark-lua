@@ -61,29 +61,19 @@ omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet = Pref.bool("S
 
 -- Handle changed preferences
 function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet then
     show.packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header
-    changed = true
   end
   if show.session_messages ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages
-    changed = true
   end
   if show.soup_bin_tcp_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet then
     show.soup_bin_tcp_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

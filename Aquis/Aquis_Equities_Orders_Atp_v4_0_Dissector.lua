@@ -153,69 +153,49 @@ omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_flags = Pref.bool("Show Trad
 
 -- Handle changed preferences
 function omi_aquis_equities_orders_atp_v4_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_application_messages then
     show.application_messages = omi_aquis_equities_orders_atp_v4_0.prefs.show_application_messages
-    changed = true
   end
   if show.extended_order_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_extended_order_flags then
     show.extended_order_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_extended_order_flags
-    changed = true
   end
   if show.flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_flags then
     show.flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_flags
-    changed = true
   end
   if show.ioi_extended_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_extended_flags then
     show.ioi_extended_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_ioi_extended_flags
-    changed = true
   end
   if show.message ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_message then
     show.message = omi_aquis_equities_orders_atp_v4_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_message_header then
     show.message_header = omi_aquis_equities_orders_atp_v4_0.prefs.show_message_header
-    changed = true
   end
   if show.order_add_response_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_response_flags then
     show.order_add_response_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_order_add_response_flags
-    changed = true
   end
   if show.packet ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_packet then
     show.packet = omi_aquis_equities_orders_atp_v4_0.prefs.show_packet
-    changed = true
   end
   if show.status ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_status then
     show.status = omi_aquis_equities_orders_atp_v4_0.prefs.show_status
-    changed = true
   end
   if show.table_select_1 ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_1 then
     show.table_select_1 = omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_1
-    changed = true
   end
   if show.table_select_2 ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_2 then
     show.table_select_2 = omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_2
-    changed = true
   end
   if show.table_select_3 ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_3 then
     show.table_select_3 = omi_aquis_equities_orders_atp_v4_0.prefs.show_table_select_3
-    changed = true
   end
   if show.trade_capture_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_flags then
     show.trade_capture_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_capture_flags
-    changed = true
   end
   if show.trade_flags ~= omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_flags then
     show.trade_flags = omi_aquis_equities_orders_atp_v4_0.prefs.show_trade_flags
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

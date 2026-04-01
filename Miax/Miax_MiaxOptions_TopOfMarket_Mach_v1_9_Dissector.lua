@@ -112,29 +112,19 @@ omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_packet = Pref.bool("Show P
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_message then
     show.application_message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_message
-    changed = true
   end
   if show.application_messages ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_messages then
     show.application_messages = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_application_messages
-    changed = true
   end
   if show.message ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_message then
     show.message = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_message
-    changed = true
   end
   if show.packet ~= omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_packet then
     show.packet = omi_miax_miaxoptions_topofmarket_mach_v1_9.prefs.show_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

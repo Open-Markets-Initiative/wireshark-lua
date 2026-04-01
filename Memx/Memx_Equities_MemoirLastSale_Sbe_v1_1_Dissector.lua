@@ -89,6 +89,7 @@ show.packet = true
 show.sbe_header = true
 show.sbe_message = true
 show.sequenced_message = true
+show.message_index = true
 
 -- Register Memx Equities MemoirLastSale Sbe 1.1 Show Options
 omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
@@ -98,44 +99,35 @@ omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_packet = Pref.bool("Show Pa
 omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
 omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
+omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_memx_equities_memoirlastsale_sbe_v1_1.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_application_messages then
     show.application_messages = omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_application_messages
-    changed = true
   end
   if show.common_header ~= omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_common_header then
     show.common_header = omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_common_header
-    changed = true
   end
   if show.message ~= omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_message then
     show.message = omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_message
-    changed = true
   end
   if show.packet ~= omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_packet then
     show.packet = omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_packet
-    changed = true
   end
   if show.sbe_header ~= omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sbe_header then
     show.sbe_header = omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sbe_header
-    changed = true
   end
   if show.sbe_message ~= omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sbe_message then
     show.sbe_message = omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sbe_message
-    changed = true
   end
   if show.sequenced_message ~= omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sequenced_message then
     show.sequenced_message = omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_sequenced_message
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_message_index then
+    show.message_index = omi_memx_equities_memoirlastsale_sbe_v1_1.prefs.show_message_index
   end
 end
 
@@ -2142,7 +2134,7 @@ memx_equities_memoirlastsale_sbe_v1_1.message.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_memx_equities_memoirlastsale_sbe_v1_1.fields.message_index, message_index)
     iteration:set_generated()
   end

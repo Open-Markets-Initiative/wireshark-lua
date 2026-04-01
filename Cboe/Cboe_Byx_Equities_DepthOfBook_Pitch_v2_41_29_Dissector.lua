@@ -102,6 +102,7 @@ show.message_header = true
 show.modify_order_flags = true
 show.packet = true
 show.packet_header = true
+show.message_index = true
 
 -- Register Cboe Byx Equities DepthOfBook Pitch 2.41.29 Show Options
 omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -111,44 +112,35 @@ omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header = Pre
 omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_flags = Pref.bool("Show Modify Order Flags", show.modify_order_flags, "Parse and add Modify Order Flags to protocol tree")
 omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.add_order_flags ~= omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_flags then
     show.add_order_flags = omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_flags
-    changed = true
   end
   if show.application_messages ~= omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_application_messages then
     show.application_messages = omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_application_messages
-    changed = true
   end
   if show.message ~= omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message then
     show.message = omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header then
     show.message_header = omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header
-    changed = true
   end
   if show.modify_order_flags ~= omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_flags then
     show.modify_order_flags = omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_flags
-    changed = true
   end
   if show.packet ~= omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet then
     show.packet = omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header then
     show.packet_header = omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_packet_header
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_index then
+    show.message_index = omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_index
   end
 end
 
@@ -2540,7 +2532,7 @@ cboe_byx_equities_depthofbook_pitch_v2_41_29.message.fields = function(buffer, o
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.message_index, message_index)
     iteration:set_generated()
   end

@@ -43,25 +43,16 @@ omi_miax_onyxfutures_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_mach_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_message ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_application_message then
     show.application_message = omi_miax_onyxfutures_mach_v1_0.prefs.show_application_message
-    changed = true
   end
   if show.message ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_message then
     show.message = omi_miax_onyxfutures_mach_v1_0.prefs.show_message
-    changed = true
   end
   if show.packet ~= omi_miax_onyxfutures_mach_v1_0.prefs.show_packet then
     show.packet = omi_miax_onyxfutures_mach_v1_0.prefs.show_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

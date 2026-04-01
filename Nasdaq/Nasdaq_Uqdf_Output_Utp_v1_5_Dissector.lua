@@ -158,6 +158,8 @@ show.packet = true
 show.packet_header = true
 show.quote = true
 show.short_form_national_bbo_appendage = true
+show.message_index = true
+show.market_center_close_recap_index = true
 
 -- Register Nasdaq Uqdf Output Utp 1.5 Show Options
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
@@ -173,68 +175,57 @@ omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_packet = Pref.bool("Show Packet", sho
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_short_form_national_bbo_appendage = Pref.bool("Show Short Form National Bbo Appendage", show.short_form_national_bbo_appendage, "Parse and add Short Form National Bbo Appendage to protocol tree")
+omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_market_center_close_recap_index = Pref.bool("Show Market Center Close Recap Index", show.market_center_close_recap_index, "Show generated market center close recap index in protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_uqdf_output_utp_v1_5.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.administrative ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_administrative then
     show.administrative = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_administrative
-    changed = true
   end
   if show.application_messages ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages
-    changed = true
   end
   if show.control ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_control then
     show.control = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_control
-    changed = true
   end
   if show.finra_adf_mpid_appendage ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_finra_adf_mpid_appendage then
     show.finra_adf_mpid_appendage = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_finra_adf_mpid_appendage
-    changed = true
   end
   if show.long_form_national_bbo_appendage ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_long_form_national_bbo_appendage then
     show.long_form_national_bbo_appendage = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_long_form_national_bbo_appendage
-    changed = true
   end
   if show.market_center_close_recap ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_market_center_close_recap then
     show.market_center_close_recap = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_market_center_close_recap
-    changed = true
   end
   if show.message ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message then
     show.message = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message_header then
     show.message_header = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message_header
-    changed = true
   end
   if show.message_info ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message_info then
     show.message_info = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message_info
-    changed = true
   end
   if show.packet ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_packet then
     show.packet = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_packet_header
-    changed = true
   end
   if show.quote ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_quote then
     show.quote = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_quote
-    changed = true
   end
   if show.short_form_national_bbo_appendage ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_short_form_national_bbo_appendage then
     show.short_form_national_bbo_appendage = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_short_form_national_bbo_appendage
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message_index then
+    show.message_index = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_message_index
+  end
+  if show.market_center_close_recap_index ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_market_center_close_recap_index then
+    show.market_center_close_recap_index = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_market_center_close_recap_index
   end
 end
 
@@ -3268,7 +3259,7 @@ nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.fields = function(buffer, 
   local index = offset
 
   -- Implicit Market Center Close Recap Index
-  if market_center_close_recap_index ~= nil then
+  if market_center_close_recap_index ~= nil and show.market_center_close_recap_index then
     local iteration = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap_index, market_center_close_recap_index)
     iteration:set_generated()
   end
@@ -4623,7 +4614,7 @@ nasdaq_uqdf_output_utp_v1_5.message.fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.message_index, message_index)
     iteration:set_generated()
   end

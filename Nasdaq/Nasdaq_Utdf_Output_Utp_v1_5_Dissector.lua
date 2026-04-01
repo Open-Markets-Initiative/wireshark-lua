@@ -171,6 +171,9 @@ show.packet_header = true
 show.sale_condition = true
 show.trade = true
 show.volume = true
+show.message_index = true
+show.market_center_closing_price_and_volume_summary_index = true
+show.market_center_volume_attachment_index = true
 
 -- Register Nasdaq Utdf Output Utp 1.5 Show Options
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
@@ -188,76 +191,67 @@ omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header = Pref.bool("Show Packe
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition = Pref.bool("Show Sale Condition", show.sale_condition, "Parse and add Sale Condition to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume = Pref.bool("Show Volume", show.volume, "Parse and add Volume to protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary_index = Pref.bool("Show Market Center Closing Price And Volume Summary Index", show.market_center_closing_price_and_volume_summary_index, "Show generated market center closing price and volume summary index in protocol tree")
+omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment_index = Pref.bool("Show Market Center Volume Attachment Index", show.market_center_volume_attachment_index, "Show generated market center volume attachment index in protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.administrative ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative then
     show.administrative = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative
-    changed = true
   end
   if show.application_messages ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_application_messages
-    changed = true
   end
   if show.control ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control then
     show.control = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_control
-    changed = true
   end
   if show.corrected_sale_condition ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_corrected_sale_condition then
     show.corrected_sale_condition = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_corrected_sale_condition
-    changed = true
   end
   if show.market_center_closing_price_and_volume_summary ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary then
     show.market_center_closing_price_and_volume_summary = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary
-    changed = true
   end
   if show.market_center_volume_attachment ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment then
     show.market_center_volume_attachment = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment
-    changed = true
   end
   if show.message ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message then
     show.message = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_header then
     show.message_header = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_header
-    changed = true
   end
   if show.message_info ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info then
     show.message_info = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_info
-    changed = true
   end
   if show.original_sale_condition ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_original_sale_condition then
     show.original_sale_condition = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_original_sale_condition
-    changed = true
   end
   if show.packet ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet then
     show.packet = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_packet_header
-    changed = true
   end
   if show.sale_condition ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition then
     show.sale_condition = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_sale_condition
-    changed = true
   end
   if show.trade ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade then
     show.trade = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_trade
-    changed = true
   end
   if show.volume ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume then
     show.volume = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_volume
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_index then
+    show.message_index = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_message_index
+  end
+  if show.market_center_closing_price_and_volume_summary_index ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary_index then
+    show.market_center_closing_price_and_volume_summary_index = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_closing_price_and_volume_summary_index
+  end
+  if show.market_center_volume_attachment_index ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment_index then
+    show.market_center_volume_attachment_index = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment_index
   end
 end
 
@@ -3449,7 +3443,7 @@ nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.fields = function(bu
   local index = offset
 
   -- Implicit Market Center Volume Attachment Index
-  if market_center_volume_attachment_index ~= nil then
+  if market_center_volume_attachment_index ~= nil and show.market_center_volume_attachment_index then
     local iteration = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment_index, market_center_volume_attachment_index)
     iteration:set_generated()
   end
@@ -3630,7 +3624,7 @@ nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.field
   local index = offset
 
   -- Implicit Market Center Closing Price And Volume Summary Index
-  if market_center_closing_price_and_volume_summary_index ~= nil then
+  if market_center_closing_price_and_volume_summary_index ~= nil and show.market_center_closing_price_and_volume_summary_index then
     local iteration = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary_index, market_center_closing_price_and_volume_summary_index)
     iteration:set_generated()
   end
@@ -5156,7 +5150,7 @@ nasdaq_utdf_output_utp_v1_5.message.fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_index, message_index)
     iteration:set_generated()
   end

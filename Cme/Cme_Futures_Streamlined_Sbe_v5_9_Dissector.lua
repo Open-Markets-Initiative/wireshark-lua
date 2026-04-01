@@ -417,6 +417,30 @@ show.underlying_maturity_month_year = true
 show.unit_of_measure_qty_decimal = true
 show.unit_of_measure_qty_decimal_optional = true
 show.yield = true
+show.eris_reference_data_group_index = true
+show.eris_security_alt_id_group_index = true
+show.incremental_refresh_eris_related_instruments_group_index = true
+show.events_group_index = true
+show.news_indices_related_sym_group_index = true
+show.lines_of_text_group_index = true
+show.trade_blocks_original_group_index = true
+show.trade_blocks_underlyings_group_index = true
+show.trade_blocks_party_ids_group_index = true
+show.trade_blocks_original_legs_group_index = true
+show.quote_request_related_sym_group_index = true
+show.inst_attrib_group_index = true
+show.incremental_refresh_indices_group_index = true
+show.trade_blocks_legacy_group_index = true
+show.eris_original_group_index = true
+show.eris_group_index = true
+show.otc_original_group_index = true
+show.otc_underlyings_group_index = true
+show.otc_security_alt_id_group_index = true
+show.eris_feed_types_group_index = true
+show.eris_legs_group_index = true
+show.trade_blocks_group_index = true
+show.trade_blocks_legs_group_index = true
+show.otc_group_index = true
 
 -- Register Cme Futures Streamlined Sbe 5.9 Show Options
 omi_cme_futures_streamlined_sbe_v5_9.prefs.show_accrued_coupons = Pref.bool("Show Accrued Coupons", show.accrued_coupons, "Parse and add Accrued Coupons to protocol tree")
@@ -518,412 +542,403 @@ omi_cme_futures_streamlined_sbe_v5_9.prefs.show_underlying_maturity_month_year =
 omi_cme_futures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal = Pref.bool("Show Unit Of Measure Qty Decimal", show.unit_of_measure_qty_decimal, "Parse and add Unit Of Measure Qty Decimal to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal_optional = Pref.bool("Show Unit Of Measure Qty Decimal Optional", show.unit_of_measure_qty_decimal_optional, "Parse and add Unit Of Measure Qty Decimal Optional to protocol tree")
 omi_cme_futures_streamlined_sbe_v5_9.prefs.show_yield = Pref.bool("Show Yield", show.yield, "Parse and add Yield to protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group_index = Pref.bool("Show Eris Reference Data Group Index", show.eris_reference_data_group_index, "Show generated eris reference data group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group_index = Pref.bool("Show Eris Security Alt Id Group Index", show.eris_security_alt_id_group_index, "Show generated eris security alt id group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group_index = Pref.bool("Show Incremental Refresh Eris Related Instruments Group Index", show.incremental_refresh_eris_related_instruments_group_index, "Show generated incremental refresh eris related instruments group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_events_group_index = Pref.bool("Show Events Group Index", show.events_group_index, "Show generated events group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group_index = Pref.bool("Show News Indices Related Sym Group Index", show.news_indices_related_sym_group_index, "Show generated news indices related sym group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group_index = Pref.bool("Show Lines Of Text Group Index", show.lines_of_text_group_index, "Show generated lines of text group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group_index = Pref.bool("Show Trade Blocks Original Group Index", show.trade_blocks_original_group_index, "Show generated trade blocks original group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group_index = Pref.bool("Show Trade Blocks Underlyings Group Index", show.trade_blocks_underlyings_group_index, "Show generated trade blocks underlyings group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group_index = Pref.bool("Show Trade Blocks Party Ids Group Index", show.trade_blocks_party_ids_group_index, "Show generated trade blocks party ids group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group_index = Pref.bool("Show Trade Blocks Original Legs Group Index", show.trade_blocks_original_legs_group_index, "Show generated trade blocks original legs group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group_index = Pref.bool("Show Quote Request Related Sym Group Index", show.quote_request_related_sym_group_index, "Show generated quote request related sym group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group_index = Pref.bool("Show Inst Attrib Group Index", show.inst_attrib_group_index, "Show generated inst attrib group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group_index = Pref.bool("Show Incremental Refresh Indices Group Index", show.incremental_refresh_indices_group_index, "Show generated incremental refresh indices group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group_index = Pref.bool("Show Trade Blocks Legacy Group Index", show.trade_blocks_legacy_group_index, "Show generated trade blocks legacy group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_original_group_index = Pref.bool("Show Eris Original Group Index", show.eris_original_group_index, "Show generated eris original group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_group_index = Pref.bool("Show Eris Group Index", show.eris_group_index, "Show generated eris group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_original_group_index = Pref.bool("Show Otc Original Group Index", show.otc_original_group_index, "Show generated otc original group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group_index = Pref.bool("Show Otc Underlyings Group Index", show.otc_underlyings_group_index, "Show generated otc underlyings group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group_index = Pref.bool("Show Otc Security Alt Id Group Index", show.otc_security_alt_id_group_index, "Show generated otc security alt id group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group_index = Pref.bool("Show Eris Feed Types Group Index", show.eris_feed_types_group_index, "Show generated eris feed types group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_legs_group_index = Pref.bool("Show Eris Legs Group Index", show.eris_legs_group_index, "Show generated eris legs group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group_index = Pref.bool("Show Trade Blocks Group Index", show.trade_blocks_group_index, "Show generated trade blocks group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group_index = Pref.bool("Show Trade Blocks Legs Group Index", show.trade_blocks_legs_group_index, "Show generated trade blocks legs group index in protocol tree")
+omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_group_index = Pref.bool("Show Otc Group Index", show.otc_group_index, "Show generated otc group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_streamlined_sbe_v5_9.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.accrued_coupons ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_accrued_coupons then
     show.accrued_coupons = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_accrued_coupons
-    changed = true
   end
   if show.application_messages ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_application_messages then
     show.application_messages = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_application_messages
-    changed = true
   end
   if show.binary_packet_header ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_binary_packet_header
-    changed = true
   end
   if show.cal_fut_px ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_cal_fut_px then
     show.cal_fut_px = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_cal_fut_px
-    changed = true
   end
   if show.cal_fut_px_optional ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_cal_fut_px_optional then
     show.cal_fut_px_optional = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_cal_fut_px_optional
-    changed = true
   end
   if show.coupon_rate_optional ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_coupon_rate_optional then
     show.coupon_rate_optional = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_coupon_rate_optional
-    changed = true
   end
   if show.d_v_01 ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_d_v_01 then
     show.d_v_01 = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_d_v_01
-    changed = true
   end
   if show.daily_incremental_eris_pai ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_daily_incremental_eris_pai then
     show.daily_incremental_eris_pai = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_daily_incremental_eris_pai
-    changed = true
   end
   if show.eris_feed_types_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group then
     show.eris_feed_types_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group
-    changed = true
   end
   if show.eris_feed_types_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_groups then
     show.eris_feed_types_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_groups
-    changed = true
   end
   if show.eris_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_group then
     show.eris_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_group
-    changed = true
   end
   if show.eris_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_groups then
     show.eris_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_groups
-    changed = true
   end
   if show.eris_legs_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_legs_group then
     show.eris_legs_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_legs_group
-    changed = true
   end
   if show.eris_legs_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_legs_groups then
     show.eris_legs_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_legs_groups
-    changed = true
   end
   if show.eris_original_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_original_group then
     show.eris_original_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_original_group
-    changed = true
   end
   if show.eris_original_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_original_groups then
     show.eris_original_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_original_groups
-    changed = true
   end
   if show.eris_pai ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_pai then
     show.eris_pai = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_pai
-    changed = true
   end
   if show.eris_reference_data_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group then
     show.eris_reference_data_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group
-    changed = true
   end
   if show.eris_reference_data_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_groups then
     show.eris_reference_data_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_groups
-    changed = true
   end
   if show.eris_security_alt_id_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group then
     show.eris_security_alt_id_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group
-    changed = true
   end
   if show.eris_security_alt_id_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_groups then
     show.eris_security_alt_id_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_groups
-    changed = true
   end
   if show.events_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_events_group then
     show.events_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_events_group
-    changed = true
   end
   if show.events_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_events_groups then
     show.events_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_events_groups
-    changed = true
   end
   if show.fair_coupon_pct ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_fair_coupon_pct then
     show.fair_coupon_pct = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_fair_coupon_pct
-    changed = true
   end
   if show.fed_funds_rate ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_fed_funds_rate then
     show.fed_funds_rate = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_fed_funds_rate
-    changed = true
   end
   if show.final_settlement_futures_price ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_final_settlement_futures_price then
     show.final_settlement_futures_price = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_final_settlement_futures_price
-    changed = true
   end
   if show.fixed_npv ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_fixed_npv then
     show.fixed_npv = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_fixed_npv
-    changed = true
   end
   if show.fixed_payment ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_fixed_payment then
     show.fixed_payment = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_fixed_payment
-    changed = true
   end
   if show.float_npv ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_float_npv then
     show.float_npv = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_float_npv
-    changed = true
   end
   if show.floating_payment ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_floating_payment then
     show.floating_payment = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_floating_payment
-    changed = true
   end
   if show.group_size ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_group_size then
     show.group_size = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_group_size
-    changed = true
   end
   if show.group_size_encoding ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_group_size_encoding then
     show.group_size_encoding = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_group_size_encoding
-    changed = true
   end
   if show.incremental_refresh_eris_related_instruments_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group then
     show.incremental_refresh_eris_related_instruments_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group
-    changed = true
   end
   if show.incremental_refresh_eris_related_instruments_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_groups then
     show.incremental_refresh_eris_related_instruments_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_groups
-    changed = true
   end
   if show.incremental_refresh_indices_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group then
     show.incremental_refresh_indices_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group
-    changed = true
   end
   if show.incremental_refresh_indices_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_groups then
     show.incremental_refresh_indices_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_groups
-    changed = true
   end
   if show.inst_attrib_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group then
     show.inst_attrib_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group
-    changed = true
   end
   if show.inst_attrib_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_inst_attrib_groups then
     show.inst_attrib_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_inst_attrib_groups
-    changed = true
   end
   if show.interpolation_factor ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_interpolation_factor then
     show.interpolation_factor = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_interpolation_factor
-    changed = true
   end
   if show.leg_contract_multiplier ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_contract_multiplier then
     show.leg_contract_multiplier = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_contract_multiplier
-    changed = true
   end
   if show.leg_maturity_month_year ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_maturity_month_year then
     show.leg_maturity_month_year = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_maturity_month_year
-    changed = true
   end
   if show.leg_purchase_rate ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_purchase_rate then
     show.leg_purchase_rate = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_purchase_rate
-    changed = true
   end
   if show.leg_strike_price_decimal_64_null ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_strike_price_decimal_64_null then
     show.leg_strike_price_decimal_64_null = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_strike_price_decimal_64_null
-    changed = true
   end
   if show.leg_unit_of_measure_qty_decimal_64_null ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_unit_of_measure_qty_decimal_64_null then
     show.leg_unit_of_measure_qty_decimal_64_null = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_leg_unit_of_measure_qty_decimal_64_null
-    changed = true
   end
   if show.lines_of_text_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group then
     show.lines_of_text_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group
-    changed = true
   end
   if show.lines_of_text_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_lines_of_text_groups then
     show.lines_of_text_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_lines_of_text_groups
-    changed = true
   end
   if show.match_event_indicator ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_match_event_indicator then
     show.match_event_indicator = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_match_event_indicator
-    changed = true
   end
   if show.maturity_month_year ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_maturity_month_year then
     show.maturity_month_year = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_maturity_month_year
-    changed = true
   end
   if show.md_entry_px_decimal ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal then
     show.md_entry_px_decimal = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal
-    changed = true
   end
   if show.md_entry_px_decimal_optional ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal_optional then
     show.md_entry_px_decimal_optional = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal_optional
-    changed = true
   end
   if show.md_entry_size ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_md_entry_size then
     show.md_entry_size = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_md_entry_size
-    changed = true
   end
   if show.message ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_message then
     show.message = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_message_header then
     show.message_header = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_message_header
-    changed = true
   end
   if show.min_price_increment ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_min_price_increment then
     show.min_price_increment = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_min_price_increment
-    changed = true
   end
   if show.min_price_increment_optional ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_min_price_increment_optional then
     show.min_price_increment_optional = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_min_price_increment_optional
-    changed = true
   end
   if show.net_chg_prev_day ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_net_chg_prev_day then
     show.net_chg_prev_day = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_net_chg_prev_day
-    changed = true
   end
   if show.net_pct_chg ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_net_pct_chg then
     show.net_pct_chg = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_net_pct_chg
-    changed = true
   end
   if show.news_indices_related_sym_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group then
     show.news_indices_related_sym_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group
-    changed = true
   end
   if show.news_indices_related_sym_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_groups then
     show.news_indices_related_sym_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_groups
-    changed = true
   end
   if show.next_fixed_payment_amount ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_next_fixed_payment_amount then
     show.next_fixed_payment_amount = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_next_fixed_payment_amount
-    changed = true
   end
   if show.next_floating_payment_amount ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_next_floating_payment_amount then
     show.next_floating_payment_amount = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_next_floating_payment_amount
-    changed = true
   end
   if show.npv ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_npv then
     show.npv = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_npv
-    changed = true
   end
   if show.otc_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_group then
     show.otc_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_group
-    changed = true
   end
   if show.otc_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_groups then
     show.otc_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_groups
-    changed = true
   end
   if show.otc_original_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_original_group then
     show.otc_original_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_original_group
-    changed = true
   end
   if show.otc_original_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_original_groups then
     show.otc_original_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_original_groups
-    changed = true
   end
   if show.otc_security_alt_id_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group then
     show.otc_security_alt_id_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group
-    changed = true
   end
   if show.otc_security_alt_id_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_groups then
     show.otc_security_alt_id_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_groups
-    changed = true
   end
   if show.otc_underlyings_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group then
     show.otc_underlyings_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group
-    changed = true
   end
   if show.otc_underlyings_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_groups then
     show.otc_underlyings_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_groups
-    changed = true
   end
   if show.p_v_01 ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_p_v_01 then
     show.p_v_01 = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_p_v_01
-    changed = true
   end
   if show.packet ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_packet then
     show.packet = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_packet
-    changed = true
   end
   if show.percent_trading ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_percent_trading then
     show.percent_trading = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_percent_trading
-    changed = true
   end
   if show.previous_eris_pai ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_previous_eris_pai then
     show.previous_eris_pai = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_previous_eris_pai
-    changed = true
   end
   if show.previous_fixing_rate ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_previous_fixing_rate then
     show.previous_fixing_rate = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_previous_fixing_rate
-    changed = true
   end
   if show.quote_request_related_sym_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group then
     show.quote_request_related_sym_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group
-    changed = true
   end
   if show.quote_request_related_sym_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_groups then
     show.quote_request_related_sym_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_groups
-    changed = true
   end
   if show.settl_price_type ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_settl_price_type then
     show.settl_price_type = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_settl_price_type
-    changed = true
   end
   if show.settlement_npv ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_settlement_npv then
     show.settlement_npv = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_settlement_npv
-    changed = true
   end
   if show.strike_price_decimal ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal then
     show.strike_price_decimal = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal
-    changed = true
   end
   if show.strike_price_decimal_optional ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal_optional then
     show.strike_price_decimal_optional = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal_optional
-    changed = true
   end
   if show.trade_blocks_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group then
     show.trade_blocks_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group
-    changed = true
   end
   if show.trade_blocks_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_groups then
     show.trade_blocks_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_groups
-    changed = true
   end
   if show.trade_blocks_legacy_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group then
     show.trade_blocks_legacy_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group
-    changed = true
   end
   if show.trade_blocks_legacy_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_groups then
     show.trade_blocks_legacy_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_groups
-    changed = true
   end
   if show.trade_blocks_legs_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group then
     show.trade_blocks_legs_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group
-    changed = true
   end
   if show.trade_blocks_legs_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_groups then
     show.trade_blocks_legs_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_groups
-    changed = true
   end
   if show.trade_blocks_original_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group then
     show.trade_blocks_original_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group
-    changed = true
   end
   if show.trade_blocks_original_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_groups then
     show.trade_blocks_original_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_groups
-    changed = true
   end
   if show.trade_blocks_original_legs_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group then
     show.trade_blocks_original_legs_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group
-    changed = true
   end
   if show.trade_blocks_original_legs_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_groups then
     show.trade_blocks_original_legs_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_groups
-    changed = true
   end
   if show.trade_blocks_party_ids_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group then
     show.trade_blocks_party_ids_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group
-    changed = true
   end
   if show.trade_blocks_party_ids_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_groups then
     show.trade_blocks_party_ids_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_groups
-    changed = true
   end
   if show.trade_blocks_underlyings_group ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group then
     show.trade_blocks_underlyings_group = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group
-    changed = true
   end
   if show.trade_blocks_underlyings_groups ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_groups then
     show.trade_blocks_underlyings_groups = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_groups
-    changed = true
   end
   if show.underlying_maturity_month_year ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_underlying_maturity_month_year then
     show.underlying_maturity_month_year = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_underlying_maturity_month_year
-    changed = true
   end
   if show.unit_of_measure_qty_decimal ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal then
     show.unit_of_measure_qty_decimal = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal
-    changed = true
   end
   if show.unit_of_measure_qty_decimal_optional ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal_optional then
     show.unit_of_measure_qty_decimal_optional = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal_optional
-    changed = true
   end
   if show.yield ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_yield then
     show.yield = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_yield
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.eris_reference_data_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group_index then
+    show.eris_reference_data_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group_index
+  end
+  if show.eris_security_alt_id_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group_index then
+    show.eris_security_alt_id_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group_index
+  end
+  if show.incremental_refresh_eris_related_instruments_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group_index then
+    show.incremental_refresh_eris_related_instruments_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group_index
+  end
+  if show.events_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_events_group_index then
+    show.events_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_events_group_index
+  end
+  if show.news_indices_related_sym_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group_index then
+    show.news_indices_related_sym_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group_index
+  end
+  if show.lines_of_text_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group_index then
+    show.lines_of_text_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group_index
+  end
+  if show.trade_blocks_original_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group_index then
+    show.trade_blocks_original_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group_index
+  end
+  if show.trade_blocks_underlyings_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group_index then
+    show.trade_blocks_underlyings_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group_index
+  end
+  if show.trade_blocks_party_ids_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group_index then
+    show.trade_blocks_party_ids_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group_index
+  end
+  if show.trade_blocks_original_legs_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group_index then
+    show.trade_blocks_original_legs_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group_index
+  end
+  if show.quote_request_related_sym_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group_index then
+    show.quote_request_related_sym_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group_index
+  end
+  if show.inst_attrib_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group_index then
+    show.inst_attrib_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group_index
+  end
+  if show.incremental_refresh_indices_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group_index then
+    show.incremental_refresh_indices_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group_index
+  end
+  if show.trade_blocks_legacy_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group_index then
+    show.trade_blocks_legacy_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group_index
+  end
+  if show.eris_original_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_original_group_index then
+    show.eris_original_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_original_group_index
+  end
+  if show.eris_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_group_index then
+    show.eris_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_group_index
+  end
+  if show.otc_original_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_original_group_index then
+    show.otc_original_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_original_group_index
+  end
+  if show.otc_underlyings_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group_index then
+    show.otc_underlyings_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group_index
+  end
+  if show.otc_security_alt_id_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group_index then
+    show.otc_security_alt_id_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group_index
+  end
+  if show.eris_feed_types_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group_index then
+    show.eris_feed_types_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group_index
+  end
+  if show.eris_legs_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_legs_group_index then
+    show.eris_legs_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_eris_legs_group_index
+  end
+  if show.trade_blocks_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group_index then
+    show.trade_blocks_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group_index
+  end
+  if show.trade_blocks_legs_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group_index then
+    show.trade_blocks_legs_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group_index
+  end
+  if show.otc_group_index ~= omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_group_index then
+    show.otc_group_index = omi_cme_futures_streamlined_sbe_v5_9.prefs.show_otc_group_index
   end
 end
 
@@ -5679,7 +5694,7 @@ cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_group.fields = function(buf
   local index = offset
 
   -- Implicit Otc Security Alt Id Group Index
-  if otc_security_alt_id_group_index ~= nil then
+  if otc_security_alt_id_group_index ~= nil and show.otc_security_alt_id_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_security_alt_id_group_index, otc_security_alt_id_group_index)
     iteration:set_generated()
   end
@@ -5884,7 +5899,7 @@ cme_futures_streamlined_sbe_v5_9.otc_underlyings_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Otc Underlyings Group Index
-  if otc_underlyings_group_index ~= nil then
+  if otc_underlyings_group_index ~= nil and show.otc_underlyings_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_underlyings_group_index, otc_underlyings_group_index)
     iteration:set_generated()
   end
@@ -6272,7 +6287,7 @@ cme_futures_streamlined_sbe_v5_9.otc_group.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Otc Group Index
-  if otc_group_index ~= nil then
+  if otc_group_index ~= nil and show.otc_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_group_index, otc_group_index)
     iteration:set_generated()
   end
@@ -6797,7 +6812,7 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_group.fields = function(buffe
   local index = offset
 
   -- Implicit Trade Blocks Legs Group Index
-  if trade_blocks_legs_group_index ~= nil then
+  if trade_blocks_legs_group_index ~= nil and show.trade_blocks_legs_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_legs_group_index, trade_blocks_legs_group_index)
     iteration:set_generated()
   end
@@ -6943,7 +6958,7 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_group.fields = function(
   local index = offset
 
   -- Implicit Trade Blocks Party Ids Group Index
-  if trade_blocks_party_ids_group_index ~= nil then
+  if trade_blocks_party_ids_group_index ~= nil and show.trade_blocks_party_ids_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_party_ids_group_index, trade_blocks_party_ids_group_index)
     iteration:set_generated()
   end
@@ -7052,7 +7067,7 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_group.fields = functio
   local index = offset
 
   -- Implicit Trade Blocks Underlyings Group Index
-  if trade_blocks_underlyings_group_index ~= nil then
+  if trade_blocks_underlyings_group_index ~= nil and show.trade_blocks_underlyings_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_group_index, trade_blocks_underlyings_group_index)
     iteration:set_generated()
   end
@@ -7231,7 +7246,7 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Trade Blocks Group Index
-  if trade_blocks_group_index ~= nil then
+  if trade_blocks_group_index ~= nil and show.trade_blocks_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_group_index, trade_blocks_group_index)
     iteration:set_generated()
   end
@@ -7494,7 +7509,7 @@ cme_futures_streamlined_sbe_v5_9.eris_security_alt_id_group.fields = function(bu
   local index = offset
 
   -- Implicit Eris Security Alt Id Group Index
-  if eris_security_alt_id_group_index ~= nil then
+  if eris_security_alt_id_group_index ~= nil and show.eris_security_alt_id_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_security_alt_id_group_index, eris_security_alt_id_group_index)
     iteration:set_generated()
   end
@@ -7733,7 +7748,7 @@ cme_futures_streamlined_sbe_v5_9.eris_legs_group.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Eris Legs Group Index
-  if eris_legs_group_index ~= nil then
+  if eris_legs_group_index ~= nil and show.eris_legs_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_legs_group_index, eris_legs_group_index)
     iteration:set_generated()
   end
@@ -7877,7 +7892,7 @@ cme_futures_streamlined_sbe_v5_9.events_group.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Events Group Index
-  if events_group_index ~= nil then
+  if events_group_index ~= nil and show.events_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.events_group_index, events_group_index)
     iteration:set_generated()
   end
@@ -7984,7 +7999,7 @@ cme_futures_streamlined_sbe_v5_9.eris_feed_types_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Eris Feed Types Group Index
-  if eris_feed_types_group_index ~= nil then
+  if eris_feed_types_group_index ~= nil and show.eris_feed_types_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_feed_types_group_index, eris_feed_types_group_index)
     iteration:set_generated()
   end
@@ -8439,7 +8454,7 @@ cme_futures_streamlined_sbe_v5_9.otc_original_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Otc Original Group Index
-  if otc_original_group_index ~= nil then
+  if otc_original_group_index ~= nil and show.otc_original_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.otc_original_group_index, otc_original_group_index)
     iteration:set_generated()
   end
@@ -8852,7 +8867,7 @@ cme_futures_streamlined_sbe_v5_9.eris_group.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Eris Group Index
-  if eris_group_index ~= nil then
+  if eris_group_index ~= nil and show.eris_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_group_index, eris_group_index)
     iteration:set_generated()
   end
@@ -9114,7 +9129,7 @@ cme_futures_streamlined_sbe_v5_9.eris_original_group.fields = function(buffer, o
   local index = offset
 
   -- Implicit Eris Original Group Index
-  if eris_original_group_index ~= nil then
+  if eris_original_group_index ~= nil and show.eris_original_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_original_group_index, eris_original_group_index)
     iteration:set_generated()
   end
@@ -9346,7 +9361,7 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_group.fields = funct
   local index = offset
 
   -- Implicit Trade Blocks Original Legs Group Index
-  if trade_blocks_original_legs_group_index ~= nil then
+  if trade_blocks_original_legs_group_index ~= nil and show.trade_blocks_original_legs_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_original_legs_group_index, trade_blocks_original_legs_group_index)
     iteration:set_generated()
   end
@@ -9558,7 +9573,7 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_legacy_group.fields = function(buf
   local index = offset
 
   -- Implicit Trade Blocks Legacy Group Index
-  if trade_blocks_legacy_group_index ~= nil then
+  if trade_blocks_legacy_group_index ~= nil and show.trade_blocks_legacy_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_group_index, trade_blocks_legacy_group_index)
     iteration:set_generated()
   end
@@ -10038,7 +10053,7 @@ cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_group.fields = func
   local index = offset
 
   -- Implicit Incremental Refresh Indices Group Index
-  if incremental_refresh_indices_group_index ~= nil then
+  if incremental_refresh_indices_group_index ~= nil and show.incremental_refresh_indices_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.incremental_refresh_indices_group_index, incremental_refresh_indices_group_index)
     iteration:set_generated()
   end
@@ -10249,7 +10264,7 @@ cme_futures_streamlined_sbe_v5_9.inst_attrib_group.fields = function(buffer, off
   local index = offset
 
   -- Implicit Inst Attrib Group Index
-  if inst_attrib_group_index ~= nil then
+  if inst_attrib_group_index ~= nil and show.inst_attrib_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.inst_attrib_group_index, inst_attrib_group_index)
     iteration:set_generated()
   end
@@ -10507,7 +10522,7 @@ cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_group.fields = functi
   local index = offset
 
   -- Implicit Quote Request Related Sym Group Index
-  if quote_request_related_sym_group_index ~= nil then
+  if quote_request_related_sym_group_index ~= nil and show.quote_request_related_sym_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_request_related_sym_group_index, quote_request_related_sym_group_index)
     iteration:set_generated()
   end
@@ -10765,7 +10780,7 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_original_group.fields = function(b
   local index = offset
 
   -- Implicit Trade Blocks Original Group Index
-  if trade_blocks_original_group_index ~= nil then
+  if trade_blocks_original_group_index ~= nil and show.trade_blocks_original_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_blocks_original_group_index, trade_blocks_original_group_index)
     iteration:set_generated()
   end
@@ -11022,7 +11037,7 @@ cme_futures_streamlined_sbe_v5_9.lines_of_text_group.fields = function(buffer, o
   local index = offset
 
   -- Implicit Lines Of Text Group Index
-  if lines_of_text_group_index ~= nil then
+  if lines_of_text_group_index ~= nil and show.lines_of_text_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.lines_of_text_group_index, lines_of_text_group_index)
     iteration:set_generated()
   end
@@ -11125,7 +11140,7 @@ cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_group.fields = functio
   local index = offset
 
   -- Implicit News Indices Related Sym Group Index
-  if news_indices_related_sym_group_index ~= nil then
+  if news_indices_related_sym_group_index ~= nil and show.news_indices_related_sym_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.news_indices_related_sym_group_index, news_indices_related_sym_group_index)
     iteration:set_generated()
   end
@@ -11295,7 +11310,7 @@ cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_gr
   local index = offset
 
   -- Implicit Incremental Refresh Eris Related Instruments Group Index
-  if incremental_refresh_eris_related_instruments_group_index ~= nil then
+  if incremental_refresh_eris_related_instruments_group_index ~= nil and show.incremental_refresh_eris_related_instruments_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_group_index, incremental_refresh_eris_related_instruments_group_index)
     iteration:set_generated()
   end
@@ -12765,7 +12780,7 @@ cme_futures_streamlined_sbe_v5_9.eris_reference_data_group.fields = function(buf
   local index = offset
 
   -- Implicit Eris Reference Data Group Index
-  if eris_reference_data_group_index ~= nil then
+  if eris_reference_data_group_index ~= nil and show.eris_reference_data_group_index then
     local iteration = parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.eris_reference_data_group_index, eris_reference_data_group_index)
     iteration:set_generated()
   end

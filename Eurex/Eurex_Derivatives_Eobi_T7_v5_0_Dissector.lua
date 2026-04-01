@@ -141,6 +141,9 @@ show.order_details_comp = true
 show.packet = true
 show.packet_header = true
 show.packet_info = true
+show.instrmt_leg_grp_comp_index = true
+show.md_instrument_entry_grp_comp_index = true
+show.md_trade_entry_grp_comp_index = true
 
 -- Register Eurex Derivatives Eobi T7 5.0 Show Options
 omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -153,56 +156,52 @@ omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_order_details_comp = Pref.bool("Sh
 omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet_info = Pref.bool("Show Packet Info", show.packet_info, "Parse and add Packet Info to protocol tree")
+omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_instrmt_leg_grp_comp_index = Pref.bool("Show Instrmt Leg Grp Comp Index", show.instrmt_leg_grp_comp_index, "Show generated instrmt leg grp comp index in protocol tree")
+omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_instrument_entry_grp_comp_index = Pref.bool("Show Md Instrument Entry Grp Comp Index", show.md_instrument_entry_grp_comp_index, "Show generated md instrument entry grp comp index in protocol tree")
+omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_trade_entry_grp_comp_index = Pref.bool("Show Md Trade Entry Grp Comp Index", show.md_trade_entry_grp_comp_index, "Show generated md trade entry grp comp index in protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_derivatives_eobi_t7_v5_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_application_messages then
     show.application_messages = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_application_messages
-    changed = true
   end
   if show.instrmt_leg_grp_comp ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_instrmt_leg_grp_comp then
     show.instrmt_leg_grp_comp = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_instrmt_leg_grp_comp
-    changed = true
   end
   if show.md_instrument_entry_grp_comp ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_instrument_entry_grp_comp then
     show.md_instrument_entry_grp_comp = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_instrument_entry_grp_comp
-    changed = true
   end
   if show.md_trade_entry_grp_comp ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_trade_entry_grp_comp then
     show.md_trade_entry_grp_comp = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_trade_entry_grp_comp
-    changed = true
   end
   if show.message ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_message then
     show.message = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_message
-    changed = true
   end
   if show.message_header_comp ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_message_header_comp then
     show.message_header_comp = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_message_header_comp
-    changed = true
   end
   if show.order_details_comp ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_order_details_comp then
     show.order_details_comp = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_order_details_comp
-    changed = true
   end
   if show.packet ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet then
     show.packet = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet_header then
     show.packet_header = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet_header
-    changed = true
   end
   if show.packet_info ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet_info then
     show.packet_info = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_packet_info
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.instrmt_leg_grp_comp_index ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_instrmt_leg_grp_comp_index then
+    show.instrmt_leg_grp_comp_index = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_instrmt_leg_grp_comp_index
+  end
+  if show.md_instrument_entry_grp_comp_index ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_instrument_entry_grp_comp_index then
+    show.md_instrument_entry_grp_comp_index = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_instrument_entry_grp_comp_index
+  end
+  if show.md_trade_entry_grp_comp_index ~= omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_trade_entry_grp_comp_index then
+    show.md_trade_entry_grp_comp_index = omi_eurex_derivatives_eobi_t7_v5_0.prefs.show_md_trade_entry_grp_comp_index
   end
 end
 
@@ -2555,7 +2554,7 @@ eurex_derivatives_eobi_t7_v5_0.md_trade_entry_grp_comp.fields = function(buffer,
   local index = offset
 
   -- Implicit Md Trade Entry Grp Comp Index
-  if md_trade_entry_grp_comp_index ~= nil then
+  if md_trade_entry_grp_comp_index ~= nil and show.md_trade_entry_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eobi_t7_v5_0.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
     iteration:set_generated()
   end
@@ -3434,7 +3433,7 @@ eurex_derivatives_eobi_t7_v5_0.md_instrument_entry_grp_comp.fields = function(bu
   local index = offset
 
   -- Implicit Md Instrument Entry Grp Comp Index
-  if md_instrument_entry_grp_comp_index ~= nil then
+  if md_instrument_entry_grp_comp_index ~= nil and show.md_instrument_entry_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eobi_t7_v5_0.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
     iteration:set_generated()
   end
@@ -4041,7 +4040,7 @@ eurex_derivatives_eobi_t7_v5_0.instrmt_leg_grp_comp.fields = function(buffer, of
   local index = offset
 
   -- Implicit Instrmt Leg Grp Comp Index
-  if instrmt_leg_grp_comp_index ~= nil then
+  if instrmt_leg_grp_comp_index ~= nil and show.instrmt_leg_grp_comp_index then
     local iteration = parent:add(omi_eurex_derivatives_eobi_t7_v5_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
     iteration:set_generated()
   end

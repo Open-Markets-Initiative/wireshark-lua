@@ -198,6 +198,9 @@ show.market_flow_indicator = true
 show.message_header = true
 show.option_marker = true
 show.packet = true
+show.market_depth_level_index = true
+show.complex_market_depth_level_index = true
+show.instrument_leg_index = true
 
 -- Register Box Options Sola Multicast Hsvf 1.8 Show Options
 omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -209,52 +212,49 @@ omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_market_flow_indicator = Pref
 omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_option_marker = Pref.bool("Show Option Marker", show.option_marker, "Parse and add Option Marker to protocol tree")
 omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_market_depth_level_index = Pref.bool("Show Market Depth Level Index", show.market_depth_level_index, "Show generated market depth level index in protocol tree")
+omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_complex_market_depth_level_index = Pref.bool("Show Complex Market Depth Level Index", show.complex_market_depth_level_index, "Show generated complex market depth level index in protocol tree")
+omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_instrument_leg_index = Pref.bool("Show Instrument Leg Index", show.instrument_leg_index, "Show generated instrument leg index in protocol tree")
 
 -- Handle changed preferences
 function omi_box_options_sola_multicast_hsvf_v1_8.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_application_messages then
     show.application_messages = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_application_messages
-    changed = true
   end
   if show.complex_market_depth_level ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_complex_market_depth_level then
     show.complex_market_depth_level = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_complex_market_depth_level
-    changed = true
   end
   if show.instrument_description ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_instrument_description then
     show.instrument_description = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_instrument_description
-    changed = true
   end
   if show.instrument_leg ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_instrument_leg then
     show.instrument_leg = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_instrument_leg
-    changed = true
   end
   if show.market_depth_level ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_market_depth_level then
     show.market_depth_level = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_market_depth_level
-    changed = true
   end
   if show.market_flow_indicator ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_market_flow_indicator then
     show.market_flow_indicator = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_market_flow_indicator
-    changed = true
   end
   if show.message_header ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_message_header then
     show.message_header = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_message_header
-    changed = true
   end
   if show.option_marker ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_option_marker then
     show.option_marker = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_option_marker
-    changed = true
   end
   if show.packet ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_packet then
     show.packet = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.market_depth_level_index ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_market_depth_level_index then
+    show.market_depth_level_index = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_market_depth_level_index
+  end
+  if show.complex_market_depth_level_index ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_complex_market_depth_level_index then
+    show.complex_market_depth_level_index = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_complex_market_depth_level_index
+  end
+  if show.instrument_leg_index ~= omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_instrument_leg_index then
+    show.instrument_leg_index = omi_box_options_sola_multicast_hsvf_v1_8.prefs.show_instrument_leg_index
   end
 end
 
@@ -4889,7 +4889,7 @@ box_options_sola_multicast_hsvf_v1_8.instrument_leg.fields = function(buffer, of
   local index = offset
 
   -- Implicit Instrument Leg Index
-  if instrument_leg_index ~= nil then
+  if instrument_leg_index ~= nil and show.instrument_leg_index then
     local iteration = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.instrument_leg_index, instrument_leg_index)
     iteration:set_generated()
   end
@@ -5405,7 +5405,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_market_depth_level.fields = functio
   local index = offset
 
   -- Implicit Complex Market Depth Level Index
-  if complex_market_depth_level_index ~= nil then
+  if complex_market_depth_level_index ~= nil and show.complex_market_depth_level_index then
     local iteration = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.complex_market_depth_level_index, complex_market_depth_level_index)
     iteration:set_generated()
   end
@@ -5558,7 +5558,7 @@ box_options_sola_multicast_hsvf_v1_8.market_depth_level.fields = function(buffer
   local index = offset
 
   -- Implicit Market Depth Level Index
-  if market_depth_level_index ~= nil then
+  if market_depth_level_index ~= nil and show.market_depth_level_index then
     local iteration = parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.market_depth_level_index, market_depth_level_index)
     iteration:set_generated()
   end

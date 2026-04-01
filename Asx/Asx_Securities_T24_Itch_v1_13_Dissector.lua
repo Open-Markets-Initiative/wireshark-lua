@@ -176,6 +176,8 @@ show.message_header = true
 show.packet = true
 show.packet_header = true
 show.session = true
+show.message_index = true
+show.contract_legs_index = true
 
 -- Register Asx Securities T24 Itch 1.13 Show Options
 omi_asx_securities_t24_itch_v1_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -186,48 +188,42 @@ omi_asx_securities_t24_itch_v1_13.prefs.show_message_header = Pref.bool("Show Me
 omi_asx_securities_t24_itch_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_asx_securities_t24_itch_v1_13.prefs.show_session = Pref.bool("Show Session", show.session, "Parse and add Session to protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs_index = Pref.bool("Show Contract Legs Index", show.contract_legs_index, "Show generated contract legs index in protocol tree")
 
 -- Handle changed preferences
 function omi_asx_securities_t24_itch_v1_13.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_asx_securities_t24_itch_v1_13.prefs.show_application_messages then
     show.application_messages = omi_asx_securities_t24_itch_v1_13.prefs.show_application_messages
-    changed = true
   end
   if show.contract_legs ~= omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs then
     show.contract_legs = omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs
-    changed = true
   end
   if show.market_updates ~= omi_asx_securities_t24_itch_v1_13.prefs.show_market_updates then
     show.market_updates = omi_asx_securities_t24_itch_v1_13.prefs.show_market_updates
-    changed = true
   end
   if show.message ~= omi_asx_securities_t24_itch_v1_13.prefs.show_message then
     show.message = omi_asx_securities_t24_itch_v1_13.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_asx_securities_t24_itch_v1_13.prefs.show_message_header then
     show.message_header = omi_asx_securities_t24_itch_v1_13.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_asx_securities_t24_itch_v1_13.prefs.show_packet then
     show.packet = omi_asx_securities_t24_itch_v1_13.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_asx_securities_t24_itch_v1_13.prefs.show_packet_header then
     show.packet_header = omi_asx_securities_t24_itch_v1_13.prefs.show_packet_header
-    changed = true
   end
   if show.session ~= omi_asx_securities_t24_itch_v1_13.prefs.show_session then
     show.session = omi_asx_securities_t24_itch_v1_13.prefs.show_session
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_asx_securities_t24_itch_v1_13.prefs.show_message_index then
+    show.message_index = omi_asx_securities_t24_itch_v1_13.prefs.show_message_index
+  end
+  if show.contract_legs_index ~= omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs_index then
+    show.contract_legs_index = omi_asx_securities_t24_itch_v1_13.prefs.show_contract_legs_index
   end
 end
 
@@ -4034,7 +4030,7 @@ asx_securities_t24_itch_v1_13.contract_legs.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Contract Legs Index
-  if contract_legs_index ~= nil then
+  if contract_legs_index ~= nil and show.contract_legs_index then
     local iteration = parent:add(omi_asx_securities_t24_itch_v1_13.fields.contract_legs_index, contract_legs_index)
     iteration:set_generated()
   end
@@ -5258,7 +5254,7 @@ asx_securities_t24_itch_v1_13.message.fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_asx_securities_t24_itch_v1_13.fields.message_index, message_index)
     iteration:set_generated()
   end

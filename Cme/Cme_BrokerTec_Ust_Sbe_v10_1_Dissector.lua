@@ -72,6 +72,7 @@ show.application_messages = true
 show.message = true
 show.message_header = true
 show.packet = true
+show.incremental_refresh_btec_group_index = true
 
 -- Register Cme BrokerTec Ust Sbe 10.1 Show Options
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
@@ -84,56 +85,44 @@ omi_cme_brokertec_ust_sbe_v10_1.prefs.show_application_messages = Pref.bool("Sho
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cme_brokertec_ust_sbe_v10_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group_index = Pref.bool("Show Incremental Refresh Btec Group Index", show.incremental_refresh_btec_group_index, "Show generated incremental refresh btec group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cme_brokertec_ust_sbe_v10_1.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_application_messages then
     show.application_messages = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_application_messages
-    changed = true
   end
   if show.binary_packet_header ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_binary_packet_header
-    changed = true
   end
   if show.coupon_rate ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_coupon_rate then
     show.coupon_rate = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_coupon_rate
-    changed = true
   end
   if show.group_size ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_group_size then
     show.group_size = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_group_size
-    changed = true
   end
   if show.incremental_refresh_btec_group ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group then
     show.incremental_refresh_btec_group = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group
-    changed = true
   end
   if show.incremental_refresh_btec_groups ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_groups then
     show.incremental_refresh_btec_groups = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_groups
-    changed = true
   end
   if show.md_entry_px ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_entry_px then
     show.md_entry_px = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_md_entry_px
-    changed = true
   end
   if show.message ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message then
     show.message = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message_header then
     show.message_header = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_packet then
     show.packet = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.incremental_refresh_btec_group_index ~= omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group_index then
+    show.incremental_refresh_btec_group_index = omi_cme_brokertec_ust_sbe_v10_1.prefs.show_incremental_refresh_btec_group_index
   end
 end
 
@@ -1045,7 +1034,7 @@ cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.fields = function(buf
   local index = offset
 
   -- Implicit Incremental Refresh Btec Group Index
-  if incremental_refresh_btec_group_index ~= nil then
+  if incremental_refresh_btec_group_index ~= nil and show.incremental_refresh_btec_group_index then
     local iteration = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.incremental_refresh_btec_group_index, incremental_refresh_btec_group_index)
     iteration:set_generated()
   end

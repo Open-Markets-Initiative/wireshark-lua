@@ -89,6 +89,8 @@ show.packet = true
 show.packet_header = true
 show.short_update_adap_block = true
 show.trade_flags = true
+show.message_index = true
+show.adap_block_index = true
 
 -- Register Cboe Byx Equities SummaryDepth Pitch 1.0.4 Show Options
 omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_adap_block = Pref.bool("Show Adap Block", show.adap_block, "Parse and add Adap Block to protocol tree")
@@ -101,56 +103,48 @@ omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_packet = Pref.bool("S
 omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_short_update_adap_block = Pref.bool("Show Short Update Adap Block", show.short_update_adap_block, "Parse and add Short Update Adap Block to protocol tree")
 omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
+omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_adap_block_index = Pref.bool("Show Adap Block Index", show.adap_block_index, "Show generated adap block index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.adap_block ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_adap_block then
     show.adap_block = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_adap_block
-    changed = true
   end
   if show.adap_flags ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_adap_flags then
     show.adap_flags = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_adap_flags
-    changed = true
   end
   if show.application_messages ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_application_messages then
     show.application_messages = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_application_messages
-    changed = true
   end
   if show.long_update_adap_block ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_long_update_adap_block then
     show.long_update_adap_block = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_long_update_adap_block
-    changed = true
   end
   if show.message ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_message then
     show.message = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_message_header then
     show.message_header = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_packet then
     show.packet = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_packet_header then
     show.packet_header = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_packet_header
-    changed = true
   end
   if show.short_update_adap_block ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_short_update_adap_block then
     show.short_update_adap_block = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_short_update_adap_block
-    changed = true
   end
   if show.trade_flags ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_trade_flags then
     show.trade_flags = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_trade_flags
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_message_index then
+    show.message_index = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_message_index
+  end
+  if show.adap_block_index ~= omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_adap_block_index then
+    show.adap_block_index = omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.prefs.show_adap_block_index
   end
 end
 
@@ -1308,7 +1302,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.adap_block.fields = function(buffer,
   local index = offset
 
   -- Implicit Adap Block Index
-  if adap_block_index ~= nil then
+  if adap_block_index ~= nil and show.adap_block_index then
     local iteration = parent:add(omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.adap_block_index, adap_block_index)
     iteration:set_generated()
   end
@@ -1666,7 +1660,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4.message.fields = function(buffer, of
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.message_index, message_index)
     iteration:set_generated()
   end

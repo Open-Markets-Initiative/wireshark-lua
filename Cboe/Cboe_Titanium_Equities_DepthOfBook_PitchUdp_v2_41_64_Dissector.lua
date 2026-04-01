@@ -103,6 +103,7 @@ show.message_header = true
 show.modify_flags = true
 show.packet = true
 show.packet_header = true
+show.message_index = true
 
 -- Register Cboe Titanium Equities DepthOfBook PitchUdp 2.41.64 Show Options
 omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_add_flags = Pref.bool("Show Add Flags", show.add_flags, "Parse and add Add Flags to protocol tree")
@@ -112,44 +113,35 @@ omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_message_head
 omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
 omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.add_flags ~= omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_add_flags then
     show.add_flags = omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_add_flags
-    changed = true
   end
   if show.application_messages ~= omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_application_messages then
     show.application_messages = omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_application_messages
-    changed = true
   end
   if show.message ~= omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_message then
     show.message = omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_message_header then
     show.message_header = omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_message_header
-    changed = true
   end
   if show.modify_flags ~= omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_modify_flags then
     show.modify_flags = omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_modify_flags
-    changed = true
   end
   if show.packet ~= omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_packet then
     show.packet = omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_packet_header then
     show.packet_header = omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_packet_header
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_message_index then
+    show.message_index = omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.prefs.show_message_index
   end
 end
 
@@ -2578,7 +2570,7 @@ cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.message.fields = function(b
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_cboe_titanium_equities_depthofbook_pitchudp_v2_41_64.fields.message_index, message_index)
     iteration:set_generated()
   end

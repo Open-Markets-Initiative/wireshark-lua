@@ -123,6 +123,7 @@ show.message_header = true
 show.packet = true
 show.packet_header = true
 show.send_time = true
+show.message_index = true
 
 -- Register Nyse Equities ImbalancesFeed Pillar 2.2.h Show Options
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -131,40 +132,32 @@ omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_message_header = Pref.
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
+omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_application_messages then
     show.application_messages = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_application_messages
-    changed = true
   end
   if show.message ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_message then
     show.message = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_message_header then
     show.message_header = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_packet then
     show.packet = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_packet_header then
     show.packet_header = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_packet_header
-    changed = true
   end
   if show.send_time ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_send_time then
     show.send_time = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_send_time
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_message_index then
+    show.message_index = omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.prefs.show_message_index
   end
 end
 
@@ -3225,7 +3218,7 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.message.fields = function(buffer, off
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_index, message_index)
     iteration:set_generated()
   end

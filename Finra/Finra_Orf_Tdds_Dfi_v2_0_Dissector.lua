@@ -147,73 +147,52 @@ omi_finra_orf_tdds_dfi_v2_0.prefs.show_trade_summary_information = Pref.bool("Sh
 
 -- Handle changed preferences
 function omi_finra_orf_tdds_dfi_v2_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.action_datetime ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_action_datetime then
     show.action_datetime = omi_finra_orf_tdds_dfi_v2_0.prefs.show_action_datetime
-    changed = true
   end
   if show.administrative ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_administrative then
     show.administrative = omi_finra_orf_tdds_dfi_v2_0.prefs.show_administrative
-    changed = true
   end
   if show.application_messages ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_application_messages then
     show.application_messages = omi_finra_orf_tdds_dfi_v2_0.prefs.show_application_messages
-    changed = true
   end
   if show.control ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_control then
     show.control = omi_finra_orf_tdds_dfi_v2_0.prefs.show_control
-    changed = true
   end
   if show.corrected_trade_information ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_corrected_trade_information then
     show.corrected_trade_information = omi_finra_orf_tdds_dfi_v2_0.prefs.show_corrected_trade_information
-    changed = true
   end
   if show.datetime ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_datetime then
     show.datetime = omi_finra_orf_tdds_dfi_v2_0.prefs.show_datetime
-    changed = true
   end
   if show.execution_datetime ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_execution_datetime then
     show.execution_datetime = omi_finra_orf_tdds_dfi_v2_0.prefs.show_execution_datetime
-    changed = true
   end
   if show.message ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_message then
     show.message = omi_finra_orf_tdds_dfi_v2_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_message_header then
     show.message_header = omi_finra_orf_tdds_dfi_v2_0.prefs.show_message_header
-    changed = true
   end
   if show.original_dissemination_date ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_original_dissemination_date then
     show.original_dissemination_date = omi_finra_orf_tdds_dfi_v2_0.prefs.show_original_dissemination_date
-    changed = true
   end
   if show.original_trade_information ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_original_trade_information then
     show.original_trade_information = omi_finra_orf_tdds_dfi_v2_0.prefs.show_original_trade_information
-    changed = true
   end
   if show.packet ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_packet then
     show.packet = omi_finra_orf_tdds_dfi_v2_0.prefs.show_packet
-    changed = true
   end
   if show.trade ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_trade then
     show.trade = omi_finra_orf_tdds_dfi_v2_0.prefs.show_trade
-    changed = true
   end
   if show.trade_information ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_trade_information then
     show.trade_information = omi_finra_orf_tdds_dfi_v2_0.prefs.show_trade_information
-    changed = true
   end
   if show.trade_summary_information ~= omi_finra_orf_tdds_dfi_v2_0.prefs.show_trade_summary_information then
     show.trade_summary_information = omi_finra_orf_tdds_dfi_v2_0.prefs.show_trade_summary_information
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

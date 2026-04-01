@@ -89,6 +89,7 @@ show.level = true
 show.message_header = true
 show.offer = true
 show.packet = true
+show.level_index = true
 
 -- Register Currenex Forex Now Cbp 10.0 Show Options
 omi_currenex_forex_now_cbp_v10_0.prefs.show_bid = Pref.bool("Show Bid", show.bid, "Parse and add Bid to protocol tree")
@@ -100,52 +101,41 @@ omi_currenex_forex_now_cbp_v10_0.prefs.show_level = Pref.bool("Show Level", show
 omi_currenex_forex_now_cbp_v10_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_offer = Pref.bool("Show Offer", show.offer, "Parse and add Offer to protocol tree")
 omi_currenex_forex_now_cbp_v10_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_currenex_forex_now_cbp_v10_0.prefs.show_level_index = Pref.bool("Show Level Index", show.level_index, "Show generated level index in protocol tree")
 
 -- Handle changed preferences
 function omi_currenex_forex_now_cbp_v10_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_application_messages then
     show.application_messages = omi_currenex_forex_now_cbp_v10_0.prefs.show_application_messages
-    changed = true
   end
   if show.bid ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_bid then
     show.bid = omi_currenex_forex_now_cbp_v10_0.prefs.show_bid
-    changed = true
   end
   if show.conf_factor_25 ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_25 then
     show.conf_factor_25 = omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_25
-    changed = true
   end
   if show.conf_factor_50 ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_50 then
     show.conf_factor_50 = omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_50
-    changed = true
   end
   if show.conf_factor_75 ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_75 then
     show.conf_factor_75 = omi_currenex_forex_now_cbp_v10_0.prefs.show_conf_factor_75
-    changed = true
   end
   if show.level ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_level then
     show.level = omi_currenex_forex_now_cbp_v10_0.prefs.show_level
-    changed = true
   end
   if show.message_header ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_message_header then
     show.message_header = omi_currenex_forex_now_cbp_v10_0.prefs.show_message_header
-    changed = true
   end
   if show.offer ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_offer then
     show.offer = omi_currenex_forex_now_cbp_v10_0.prefs.show_offer
-    changed = true
   end
   if show.packet ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_packet then
     show.packet = omi_currenex_forex_now_cbp_v10_0.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.level_index ~= omi_currenex_forex_now_cbp_v10_0.prefs.show_level_index then
+    show.level_index = omi_currenex_forex_now_cbp_v10_0.prefs.show_level_index
   end
 end
 
@@ -1538,7 +1528,7 @@ currenex_forex_now_cbp_v10_0.level.fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Implicit Level Index
-  if level_index ~= nil then
+  if level_index ~= nil and show.level_index then
     local iteration = parent:add(omi_currenex_forex_now_cbp_v10_0.fields.level_index, level_index)
     iteration:set_generated()
   end

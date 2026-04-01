@@ -128,6 +128,8 @@ show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
+show.message_index = true
+show.cancelled_reference_number_delta_index = true
 
 -- Register Nasdaq PhlxOptions MarketDepth Itch 1.5 Show Options
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -135,36 +137,33 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message = Pref.bool("Sho
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_cancelled_reference_number_delta_index = Pref.bool("Show Cancelled Reference Number Delta Index", show.cancelled_reference_number_delta_index, "Show generated cancelled reference number delta index in protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_application_messages
-    changed = true
   end
   if show.message ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message then
     show.message = omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message_header then
     show.message_header = omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_packet then
     show.packet = omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_packet_header
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message_index then
+    show.message_index = omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message_index
+  end
+  if show.cancelled_reference_number_delta_index ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_cancelled_reference_number_delta_index then
+    show.cancelled_reference_number_delta_index = omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_cancelled_reference_number_delta_index
   end
 end
 
@@ -3682,7 +3681,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5.message.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message_index, message_index)
     iteration:set_generated()
   end

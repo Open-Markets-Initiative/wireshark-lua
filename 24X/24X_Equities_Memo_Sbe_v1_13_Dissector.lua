@@ -181,6 +181,7 @@ show.stream_complete_message = true
 show.stream_rejected_message = true
 show.stream_request_message = true
 show.unsequenced_message = true
+show.parties_group_index = true
 
 -- Register 24X Equities Memo Sbe 1.13 Show Options
 omi_n24x_equities_memo_sbe_v1_13.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
@@ -207,112 +208,86 @@ omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message = Pref.bool(
 omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
 omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
 omi_n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_group_index = Pref.bool("Show Parties Group Index", show.parties_group_index, "Show generated parties group index in protocol tree")
 
 -- Handle changed preferences
 function omi_n24x_equities_memo_sbe_v1_13.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_application_messages then
     show.application_messages = omi_n24x_equities_memo_sbe_v1_13.prefs.show_application_messages
-    changed = true
   end
   if show.common_header ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_common_header then
     show.common_header = omi_n24x_equities_memo_sbe_v1_13.prefs.show_common_header
-    changed = true
   end
   if show.exec_inst ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_exec_inst then
     show.exec_inst = omi_n24x_equities_memo_sbe_v1_13.prefs.show_exec_inst
-    changed = true
   end
   if show.login_accepted_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_accepted_message then
     show.login_accepted_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_accepted_message
-    changed = true
   end
   if show.login_rejected_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_rejected_message then
     show.login_rejected_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_rejected_message
-    changed = true
   end
   if show.login_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_request_message then
     show.login_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_login_request_message
-    changed = true
   end
   if show.packet ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_packet then
     show.packet = omi_n24x_equities_memo_sbe_v1_13.prefs.show_packet
-    changed = true
   end
   if show.parties_group ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_group then
     show.parties_group = omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_group
-    changed = true
   end
   if show.parties_groups ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_groups then
     show.parties_groups = omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_groups
-    changed = true
   end
   if show.repeating_group_dimensions ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions then
     show.repeating_group_dimensions = omi_n24x_equities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions
-    changed = true
   end
   if show.replay_all_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_all_request_message then
     show.replay_all_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_all_request_message
-    changed = true
   end
   if show.replay_begin_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_begin_message then
     show.replay_begin_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_begin_message
-    changed = true
   end
   if show.replay_complete_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_complete_message then
     show.replay_complete_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_complete_message
-    changed = true
   end
   if show.replay_rejected_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_rejected_message then
     show.replay_rejected_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_rejected_message
-    changed = true
   end
   if show.replay_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_request_message then
     show.replay_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_replay_request_message
-    changed = true
   end
   if show.sbe_header ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_header then
     show.sbe_header = omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_header
-    changed = true
   end
   if show.sbe_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_message then
     show.sbe_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_sbe_message
-    changed = true
   end
   if show.sequenced_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_sequenced_message then
     show.sequenced_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_sequenced_message
-    changed = true
   end
   if show.start_of_session_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_start_of_session_message then
     show.start_of_session_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_start_of_session_message
-    changed = true
   end
   if show.stream_begin_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_begin_message then
     show.stream_begin_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_begin_message
-    changed = true
   end
   if show.stream_complete_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message then
     show.stream_complete_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_complete_message
-    changed = true
   end
   if show.stream_rejected_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message then
     show.stream_rejected_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_rejected_message
-    changed = true
   end
   if show.stream_request_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message then
     show.stream_request_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_stream_request_message
-    changed = true
   end
   if show.unsequenced_message ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message then
     show.unsequenced_message = omi_n24x_equities_memo_sbe_v1_13.prefs.show_unsequenced_message
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.parties_group_index ~= omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_group_index then
+    show.parties_group_index = omi_n24x_equities_memo_sbe_v1_13.prefs.show_parties_group_index
   end
 end
 
@@ -3812,7 +3787,7 @@ n24x_equities_memo_sbe_v1_13.parties_group.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Parties Group Index
-  if parties_group_index ~= nil then
+  if parties_group_index ~= nil and show.parties_group_index then
     local iteration = parent:add(omi_n24x_equities_memo_sbe_v1_13.fields.parties_group_index, parties_group_index)
     iteration:set_generated()
   end

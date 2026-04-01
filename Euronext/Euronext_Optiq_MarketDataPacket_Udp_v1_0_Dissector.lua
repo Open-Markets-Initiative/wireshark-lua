@@ -59,33 +59,22 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags = Pref.bool
 
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.market_data_packet_header ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header then
     show.market_data_packet_header = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header
-    changed = true
   end
   if show.message_header ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message_header then
     show.message_header = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message_header
-    changed = true
   end
   if show.optiq_message ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message then
     show.optiq_message = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message
-    changed = true
   end
   if show.packet ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet then
     show.packet = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet
-    changed = true
   end
   if show.packet_flags ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags then
     show.packet_flags = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

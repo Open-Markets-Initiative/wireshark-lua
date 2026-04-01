@@ -96,6 +96,7 @@ show.sbe_header = true
 show.sbe_message = true
 show.sequenced_message = true
 show.trade_conditions = true
+show.message_index = true
 
 -- Register Memx Options MemoirDepth Sbe 1.6.a Show Options
 omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -106,48 +107,38 @@ omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sbe_header = Pref.bool("Show 
 omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
+omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_memx_options_memoirdepth_sbe_v1_6_a.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_application_messages then
     show.application_messages = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_application_messages
-    changed = true
   end
   if show.common_header ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_common_header then
     show.common_header = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_common_header
-    changed = true
   end
   if show.message ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_message then
     show.message = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_message
-    changed = true
   end
   if show.packet ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_packet then
     show.packet = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_packet
-    changed = true
   end
   if show.sbe_header ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sbe_header then
     show.sbe_header = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sbe_header
-    changed = true
   end
   if show.sbe_message ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sbe_message then
     show.sbe_message = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sbe_message
-    changed = true
   end
   if show.sequenced_message ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sequenced_message then
     show.sequenced_message = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_sequenced_message
-    changed = true
   end
   if show.trade_conditions ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_trade_conditions then
     show.trade_conditions = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_trade_conditions
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_message_index then
+    show.message_index = omi_memx_options_memoirdepth_sbe_v1_6_a.prefs.show_message_index
   end
 end
 
@@ -2308,7 +2299,7 @@ memx_options_memoirdepth_sbe_v1_6_a.message.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_memx_options_memoirdepth_sbe_v1_6_a.fields.message_index, message_index)
     iteration:set_generated()
   end

@@ -262,6 +262,7 @@ show.seq_msg_header = true
 show.seq_msg_id = true
 show.stream_id = true
 show.sub_msg_header = true
+show.leg_group_index = true
 
 -- Register Nyse Amex Options BinaryGateway Pillar 3.25 Show Options
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -279,76 +280,59 @@ omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_header = Pre
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
 omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
+omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_leg_group_index = Pref.bool("Show Leg Group Index", show.leg_group_index, "Show generated leg group index in protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_messages then
     show.application_messages = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_application_messages
-    changed = true
   end
   if show.bitfield_flow_indicator ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_flow_indicator then
     show.bitfield_flow_indicator = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_bitfield_flow_indicator
-    changed = true
   end
   if show.complex_series_leg_group ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_leg_group then
     show.complex_series_leg_group = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_complex_series_leg_group
-    changed = true
   end
   if show.covered ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_covered then
     show.covered = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_covered
-    changed = true
   end
   if show.exposed ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_exposed then
     show.exposed = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_exposed
-    changed = true
   end
   if show.leg_group ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_leg_group then
     show.leg_group = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_leg_group
-    changed = true
   end
   if show.mpv_level_definition ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_mpv_level_definition then
     show.mpv_level_definition = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_mpv_level_definition
-    changed = true
   end
   if show.msg_header ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_msg_header then
     show.msg_header = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_msg_header
-    changed = true
   end
   if show.optional_order_add_on ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_optional_order_add_on then
     show.optional_order_add_on = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_optional_order_add_on
-    changed = true
   end
   if show.ref_seq_msg_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id then
     show.ref_seq_msg_id = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_ref_seq_msg_id
-    changed = true
   end
   if show.seq_msg_header ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_header then
     show.seq_msg_header = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_header
-    changed = true
   end
   if show.seq_msg_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_id then
     show.seq_msg_id = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_seq_msg_id
-    changed = true
   end
   if show.session_messages ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_messages then
     show.session_messages = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_session_messages
-    changed = true
   end
   if show.stream_id ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_id then
     show.stream_id = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_stream_id
-    changed = true
   end
   if show.sub_msg_header ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sub_msg_header then
     show.sub_msg_header = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_sub_msg_header
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.leg_group_index ~= omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_leg_group_index then
+    show.leg_group_index = omi_nyse_amex_options_binarygateway_pillar_v3_25.prefs.show_leg_group_index
   end
 end
 
@@ -6336,7 +6320,7 @@ nyse_amex_options_binarygateway_pillar_v3_25.leg_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Leg Group Index
-  if leg_group_index ~= nil then
+  if leg_group_index ~= nil and show.leg_group_index then
     local iteration = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_group_index, leg_group_index)
     iteration:set_generated()
   end

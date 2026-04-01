@@ -85,6 +85,10 @@ show.snapshot_refresh_spectrum_group = true
 show.snapshot_refresh_spectrum_groups = true
 show.snapshot_refresh_ticker_group = true
 show.snapshot_refresh_ticker_groups = true
+show.incremental_refresh_spectrum_group_index = true
+show.incremental_refresh_ticker_group_index = true
+show.snapshot_refresh_spectrum_group_index = true
+show.snapshot_refresh_ticker_group_index = true
 
 -- Register Cme Futures Derived Sbe 12.0 Show Options
 omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
@@ -101,72 +105,68 @@ omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group = P
 omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_groups = Pref.bool("Show Snapshot Refresh Spectrum Groups", show.snapshot_refresh_spectrum_groups, "Parse and add Snapshot Refresh Spectrum Groups to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group = Pref.bool("Show Snapshot Refresh Ticker Group", show.snapshot_refresh_ticker_group, "Parse and add Snapshot Refresh Ticker Group to protocol tree")
 omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups = Pref.bool("Show Snapshot Refresh Ticker Groups", show.snapshot_refresh_ticker_groups, "Parse and add Snapshot Refresh Ticker Groups to protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group_index = Pref.bool("Show Incremental Refresh Spectrum Group Index", show.incremental_refresh_spectrum_group_index, "Show generated incremental refresh spectrum group index in protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_group_index = Pref.bool("Show Incremental Refresh Ticker Group Index", show.incremental_refresh_ticker_group_index, "Show generated incremental refresh ticker group index in protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group_index = Pref.bool("Show Snapshot Refresh Spectrum Group Index", show.snapshot_refresh_spectrum_group_index, "Show generated snapshot refresh spectrum group index in protocol tree")
+omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group_index = Pref.bool("Show Snapshot Refresh Ticker Group Index", show.snapshot_refresh_ticker_group_index, "Show generated snapshot refresh ticker group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_derived_sbe_v12_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_application_messages then
     show.application_messages = omi_cme_futures_derived_sbe_v12_0.prefs.show_application_messages
-    changed = true
   end
   if show.binary_packet_header ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_futures_derived_sbe_v12_0.prefs.show_binary_packet_header
-    changed = true
   end
   if show.group_size ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_group_size then
     show.group_size = omi_cme_futures_derived_sbe_v12_0.prefs.show_group_size
-    changed = true
   end
   if show.incremental_refresh_spectrum_group ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group then
     show.incremental_refresh_spectrum_group = omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group
-    changed = true
   end
   if show.incremental_refresh_spectrum_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_groups then
     show.incremental_refresh_spectrum_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_groups
-    changed = true
   end
   if show.incremental_refresh_ticker_group ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_group then
     show.incremental_refresh_ticker_group = omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_group
-    changed = true
   end
   if show.incremental_refresh_ticker_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_groups then
     show.incremental_refresh_ticker_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_groups
-    changed = true
   end
   if show.message ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_message then
     show.message = omi_cme_futures_derived_sbe_v12_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_message_header then
     show.message_header = omi_cme_futures_derived_sbe_v12_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_packet then
     show.packet = omi_cme_futures_derived_sbe_v12_0.prefs.show_packet
-    changed = true
   end
   if show.snapshot_refresh_spectrum_group ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group then
     show.snapshot_refresh_spectrum_group = omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group
-    changed = true
   end
   if show.snapshot_refresh_spectrum_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_groups then
     show.snapshot_refresh_spectrum_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_groups
-    changed = true
   end
   if show.snapshot_refresh_ticker_group ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group then
     show.snapshot_refresh_ticker_group = omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group
-    changed = true
   end
   if show.snapshot_refresh_ticker_groups ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups then
     show.snapshot_refresh_ticker_groups = omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_groups
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.incremental_refresh_spectrum_group_index ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group_index then
+    show.incremental_refresh_spectrum_group_index = omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_spectrum_group_index
+  end
+  if show.incremental_refresh_ticker_group_index ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_group_index then
+    show.incremental_refresh_ticker_group_index = omi_cme_futures_derived_sbe_v12_0.prefs.show_incremental_refresh_ticker_group_index
+  end
+  if show.snapshot_refresh_spectrum_group_index ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group_index then
+    show.snapshot_refresh_spectrum_group_index = omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group_index
+  end
+  if show.snapshot_refresh_ticker_group_index ~= omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group_index then
+    show.snapshot_refresh_ticker_group_index = omi_cme_futures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group_index
   end
 end
 
@@ -948,7 +948,7 @@ cme_futures_derived_sbe_v12_0.snapshot_refresh_ticker_group.fields = function(bu
   local index = offset
 
   -- Implicit Snapshot Refresh Ticker Group Index
-  if snapshot_refresh_ticker_group_index ~= nil then
+  if snapshot_refresh_ticker_group_index ~= nil and show.snapshot_refresh_ticker_group_index then
     local iteration = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.snapshot_refresh_ticker_group_index, snapshot_refresh_ticker_group_index)
     iteration:set_generated()
   end
@@ -1191,7 +1191,7 @@ cme_futures_derived_sbe_v12_0.snapshot_refresh_spectrum_group.fields = function(
   local index = offset
 
   -- Implicit Snapshot Refresh Spectrum Group Index
-  if snapshot_refresh_spectrum_group_index ~= nil then
+  if snapshot_refresh_spectrum_group_index ~= nil and show.snapshot_refresh_spectrum_group_index then
     local iteration = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.snapshot_refresh_spectrum_group_index, snapshot_refresh_spectrum_group_index)
     iteration:set_generated()
   end
@@ -1388,7 +1388,7 @@ cme_futures_derived_sbe_v12_0.incremental_refresh_ticker_group.fields = function
   local index = offset
 
   -- Implicit Incremental Refresh Ticker Group Index
-  if incremental_refresh_ticker_group_index ~= nil then
+  if incremental_refresh_ticker_group_index ~= nil and show.incremental_refresh_ticker_group_index then
     local iteration = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.incremental_refresh_ticker_group_index, incremental_refresh_ticker_group_index)
     iteration:set_generated()
   end
@@ -1583,7 +1583,7 @@ cme_futures_derived_sbe_v12_0.incremental_refresh_spectrum_group.fields = functi
   local index = offset
 
   -- Implicit Incremental Refresh Spectrum Group Index
-  if incremental_refresh_spectrum_group_index ~= nil then
+  if incremental_refresh_spectrum_group_index ~= nil and show.incremental_refresh_spectrum_group_index then
     local iteration = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.incremental_refresh_spectrum_group_index, incremental_refresh_spectrum_group_index)
     iteration:set_generated()
   end

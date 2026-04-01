@@ -193,6 +193,12 @@ show.trade_bust_groups = true
 show.trade_conditions = true
 show.trade_correct_group = true
 show.trade_correct_groups = true
+show.incremental_trade_group_index = true
+show.trade_correct_group_index = true
+show.trade_bust_group_index = true
+show.incremetal_orders_group_index = true
+show.snaphot_orders_group_index = true
+show.legs_group_index = true
 
 -- Register SmallX OrderBookFeed Sbe 2.2 Show Options
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension = Pref.bool("Show Group Dimension", show.group_dimension, "Parse and add Group Dimension to protocol tree")
@@ -218,108 +224,103 @@ omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_groups = Pref.bool("Show
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group = Pref.bool("Show Trade Correct Group", show.trade_correct_group, "Parse and add Trade Correct Group to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups = Pref.bool("Show Trade Correct Groups", show.trade_correct_groups, "Parse and add Trade Correct Groups to protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group_index = Pref.bool("Show Incremental Trade Group Index", show.incremental_trade_group_index, "Show generated incremental trade group index in protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group_index = Pref.bool("Show Trade Correct Group Index", show.trade_correct_group_index, "Show generated trade correct group index in protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group_index = Pref.bool("Show Trade Bust Group Index", show.trade_bust_group_index, "Show generated trade bust group index in protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group_index = Pref.bool("Show Incremetal Orders Group Index", show.incremetal_orders_group_index, "Show generated incremetal orders group index in protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group_index = Pref.bool("Show Snaphot Orders Group Index", show.snaphot_orders_group_index, "Show generated snaphot orders group index in protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group_index = Pref.bool("Show Legs Group Index", show.legs_group_index, "Show generated legs group index in protocol tree")
 
 -- Handle changed preferences
 function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages then
     show.application_messages = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages
-    changed = true
   end
   if show.group_dimension ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension then
     show.group_dimension = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension
-    changed = true
   end
   if show.incremental_message_instructions ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_message_instructions then
     show.incremental_message_instructions = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_message_instructions
-    changed = true
   end
   if show.incremental_trade_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group then
     show.incremental_trade_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group
-    changed = true
   end
   if show.incremental_trade_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_groups then
     show.incremental_trade_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_groups
-    changed = true
   end
   if show.incremetal_orders_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group then
     show.incremetal_orders_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group
-    changed = true
   end
   if show.incremetal_orders_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_groups then
     show.incremetal_orders_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_groups
-    changed = true
   end
   if show.legs_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group then
     show.legs_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group
-    changed = true
   end
   if show.legs_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_groups then
     show.legs_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_groups
-    changed = true
   end
   if show.message_header ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_message_header then
     show.message_header = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_message_header
-    changed = true
   end
   if show.order_attributes ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_attributes then
     show.order_attributes = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_attributes
-    changed = true
   end
   if show.packet ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet then
     show.packet = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet
-    changed = true
   end
   if show.packet_flags ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_flags then
     show.packet_flags = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_flags
-    changed = true
   end
   if show.packet_header ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_header then
     show.packet_header = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_header
-    changed = true
   end
   if show.sbe_frame ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_sbe_frame then
     show.sbe_frame = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_sbe_frame
-    changed = true
   end
   if show.snaphot_orders_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group then
     show.snaphot_orders_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group
-    changed = true
   end
   if show.snaphot_orders_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_groups then
     show.snaphot_orders_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_groups
-    changed = true
   end
   if show.snapshot_message_instructions ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snapshot_message_instructions then
     show.snapshot_message_instructions = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snapshot_message_instructions
-    changed = true
   end
   if show.trade_bust_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group then
     show.trade_bust_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group
-    changed = true
   end
   if show.trade_bust_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_groups then
     show.trade_bust_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_groups
-    changed = true
   end
   if show.trade_conditions ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions then
     show.trade_conditions = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions
-    changed = true
   end
   if show.trade_correct_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group then
     show.trade_correct_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group
-    changed = true
   end
   if show.trade_correct_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups then
     show.trade_correct_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.incremental_trade_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group_index then
+    show.incremental_trade_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group_index
+  end
+  if show.trade_correct_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group_index then
+    show.trade_correct_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group_index
+  end
+  if show.trade_bust_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group_index then
+    show.trade_bust_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group_index
+  end
+  if show.incremetal_orders_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group_index then
+    show.incremetal_orders_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group_index
+  end
+  if show.snaphot_orders_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group_index then
+    show.snaphot_orders_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group_index
+  end
+  if show.legs_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group_index then
+    show.legs_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group_index
   end
 end
 
@@ -2862,7 +2863,7 @@ smallx_orderbookfeed_sbe_v2_2.legs_group.fields = function(buffer, offset, packe
   local index = offset
 
   -- Implicit Legs Group Index
-  if legs_group_index ~= nil then
+  if legs_group_index ~= nil and show.legs_group_index then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.legs_group_index, legs_group_index)
     iteration:set_generated()
   end
@@ -4027,7 +4028,7 @@ smallx_orderbookfeed_sbe_v2_2.snaphot_orders_group.fields = function(buffer, off
   local index = offset
 
   -- Implicit Snaphot Orders Group Index
-  if snaphot_orders_group_index ~= nil then
+  if snaphot_orders_group_index ~= nil and show.snaphot_orders_group_index then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snaphot_orders_group_index, snaphot_orders_group_index)
     iteration:set_generated()
   end
@@ -4332,7 +4333,7 @@ smallx_orderbookfeed_sbe_v2_2.incremetal_orders_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Incremetal Orders Group Index
-  if incremetal_orders_group_index ~= nil then
+  if incremetal_orders_group_index ~= nil and show.incremetal_orders_group_index then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremetal_orders_group_index, incremetal_orders_group_index)
     iteration:set_generated()
   end
@@ -4588,7 +4589,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_bust_group.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Trade Bust Group Index
-  if trade_bust_group_index ~= nil then
+  if trade_bust_group_index ~= nil and show.trade_bust_group_index then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_bust_group_index, trade_bust_group_index)
     iteration:set_generated()
   end
@@ -4815,7 +4816,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_correct_group.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Trade Correct Group Index
-  if trade_correct_group_index ~= nil then
+  if trade_correct_group_index ~= nil and show.trade_correct_group_index then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_correct_group_index, trade_correct_group_index)
     iteration:set_generated()
   end
@@ -5043,7 +5044,7 @@ smallx_orderbookfeed_sbe_v2_2.incremental_trade_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Incremental Trade Group Index
-  if incremental_trade_group_index ~= nil then
+  if incremental_trade_group_index ~= nil and show.incremental_trade_group_index then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_trade_group_index, incremental_trade_group_index)
     iteration:set_generated()
   end

@@ -168,6 +168,7 @@ show.quote_flags = true
 show.security_detail = true
 show.security_flags = true
 show.trade_status = true
+show.message_index = true
 
 -- Register Otc Markets Multicast Ats 4.3 Show Options
 omi_otc_markets_multicast_ats_v4_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -183,68 +184,53 @@ omi_otc_markets_multicast_ats_v4_3.prefs.show_quote_flags = Pref.bool("Show Quot
 omi_otc_markets_multicast_ats_v4_3.prefs.show_security_detail = Pref.bool("Show Security Detail", show.security_detail, "Parse and add Security Detail to protocol tree")
 omi_otc_markets_multicast_ats_v4_3.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
 omi_otc_markets_multicast_ats_v4_3.prefs.show_trade_status = Pref.bool("Show Trade Status", show.trade_status, "Parse and add Trade Status to protocol tree")
+omi_otc_markets_multicast_ats_v4_3.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_otc_markets_multicast_ats_v4_3.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_application_messages then
     show.application_messages = omi_otc_markets_multicast_ats_v4_3.prefs.show_application_messages
-    changed = true
   end
   if show.extended_quote_flags ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_extended_quote_flags then
     show.extended_quote_flags = omi_otc_markets_multicast_ats_v4_3.prefs.show_extended_quote_flags
-    changed = true
   end
   if show.extended_security_flags ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_extended_security_flags then
     show.extended_security_flags = omi_otc_markets_multicast_ats_v4_3.prefs.show_extended_security_flags
-    changed = true
   end
   if show.issuer ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_issuer then
     show.issuer = omi_otc_markets_multicast_ats_v4_3.prefs.show_issuer
-    changed = true
   end
   if show.message ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_message then
     show.message = omi_otc_markets_multicast_ats_v4_3.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_message_header then
     show.message_header = omi_otc_markets_multicast_ats_v4_3.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_packet then
     show.packet = omi_otc_markets_multicast_ats_v4_3.prefs.show_packet
-    changed = true
   end
   if show.packet_flag ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_packet_flag then
     show.packet_flag = omi_otc_markets_multicast_ats_v4_3.prefs.show_packet_flag
-    changed = true
   end
   if show.packet_header ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_packet_header then
     show.packet_header = omi_otc_markets_multicast_ats_v4_3.prefs.show_packet_header
-    changed = true
   end
   if show.quote_flags ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_quote_flags then
     show.quote_flags = omi_otc_markets_multicast_ats_v4_3.prefs.show_quote_flags
-    changed = true
   end
   if show.security_detail ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_security_detail then
     show.security_detail = omi_otc_markets_multicast_ats_v4_3.prefs.show_security_detail
-    changed = true
   end
   if show.security_flags ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_security_flags then
     show.security_flags = omi_otc_markets_multicast_ats_v4_3.prefs.show_security_flags
-    changed = true
   end
   if show.trade_status ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_trade_status then
     show.trade_status = omi_otc_markets_multicast_ats_v4_3.prefs.show_trade_status
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_otc_markets_multicast_ats_v4_3.prefs.show_message_index then
+    show.message_index = omi_otc_markets_multicast_ats_v4_3.prefs.show_message_index
   end
 end
 
@@ -3762,7 +3748,7 @@ otc_markets_multicast_ats_v4_3.message.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_otc_markets_multicast_ats_v4_3.fields.message_index, message_index)
     iteration:set_generated()
   end

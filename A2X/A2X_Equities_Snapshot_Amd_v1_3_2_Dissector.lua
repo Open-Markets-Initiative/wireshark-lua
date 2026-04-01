@@ -61,6 +61,7 @@ show.market_flags = true
 show.message = true
 show.message_header = true
 show.packet = true
+show.message_index = true
 
 -- Register A2X Equities Snapshot Amd 1.3.2 Show Options
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -68,36 +69,29 @@ omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_market_flags = Pref.bool("Show M
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_a2x_equities_snapshot_amd_v1_3_2.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_application_messages then
     show.application_messages = omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_application_messages
-    changed = true
   end
   if show.market_flags ~= omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_market_flags then
     show.market_flags = omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_market_flags
-    changed = true
   end
   if show.message ~= omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message then
     show.message = omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_header then
     show.message_header = omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_packet then
     show.packet = omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_index then
+    show.message_index = omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_index
   end
 end
 
@@ -858,7 +852,7 @@ a2x_equities_snapshot_amd_v1_3_2.message.fields = function(buffer, offset, packe
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.message_index, message_index)
     iteration:set_generated()
   end

@@ -1027,6 +1027,10 @@ show.variance_restatement_byte_8 = true
 show.variance_restatement_byte_9 = true
 show.variance_restatement_optional_fields = true
 show.variance_restatement_return_bitfields = true
+show.param_group_index = true
+show.unit_sequence_index = true
+show.quote_group_index = true
+show.quote_result_group_index = true
 
 -- Register Cboe Futures OrderEntry Boe 1.3 Show Options
 omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_byte_1 = Pref.bool("Show Cancel Order Byte 1", show.cancel_order_byte_1, "Parse and add Cancel Order Byte 1 to protocol tree")
@@ -1270,980 +1274,749 @@ omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_8 = Pr
 omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_9 = Pref.bool("Show Variance Restatement Byte 9", show.variance_restatement_byte_9, "Parse and add Variance Restatement Byte 9 to protocol tree")
 omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_optional_fields = Pref.bool("Show Variance Restatement Optional Fields", show.variance_restatement_optional_fields, "Parse and add Variance Restatement Optional Fields to protocol tree")
 omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_return_bitfields = Pref.bool("Show Variance Restatement Return Bitfields", show.variance_restatement_return_bitfields, "Parse and add Variance Restatement Return Bitfields to protocol tree")
+omi_cboe_futures_orderentry_boe_v1_3.prefs.show_param_group_index = Pref.bool("Show Param Group Index", show.param_group_index, "Show generated param group index in protocol tree")
+omi_cboe_futures_orderentry_boe_v1_3.prefs.show_unit_sequence_index = Pref.bool("Show Unit Sequence Index", show.unit_sequence_index, "Show generated unit sequence index in protocol tree")
+omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_group_index = Pref.bool("Show Quote Group Index", show.quote_group_index, "Show generated quote group index in protocol tree")
+omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_result_group_index = Pref.bool("Show Quote Result Group Index", show.quote_result_group_index, "Show generated quote result group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_futures_orderentry_boe_v1_3.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_application_messages
-    changed = true
   end
   if show.cancel_order_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_byte_1 then
     show.cancel_order_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_byte_1
-    changed = true
   end
   if show.cancel_order_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_byte_2 then
     show.cancel_order_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_byte_2
-    changed = true
   end
   if show.cancel_order_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_optional_fields then
     show.cancel_order_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_optional_fields
-    changed = true
   end
   if show.cancel_order_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_return_bitfields then
     show.cancel_order_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_order_return_bitfields
-    changed = true
   end
   if show.cancel_rejected_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_1 then
     show.cancel_rejected_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_1
-    changed = true
   end
   if show.cancel_rejected_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_10 then
     show.cancel_rejected_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_10
-    changed = true
   end
   if show.cancel_rejected_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_11 then
     show.cancel_rejected_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_11
-    changed = true
   end
   if show.cancel_rejected_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_12 then
     show.cancel_rejected_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_12
-    changed = true
   end
   if show.cancel_rejected_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_13 then
     show.cancel_rejected_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_13
-    changed = true
   end
   if show.cancel_rejected_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_14 then
     show.cancel_rejected_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_14
-    changed = true
   end
   if show.cancel_rejected_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_15 then
     show.cancel_rejected_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_15
-    changed = true
   end
   if show.cancel_rejected_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_16 then
     show.cancel_rejected_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_16
-    changed = true
   end
   if show.cancel_rejected_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_17 then
     show.cancel_rejected_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_17
-    changed = true
   end
   if show.cancel_rejected_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_2 then
     show.cancel_rejected_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_2
-    changed = true
   end
   if show.cancel_rejected_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_3 then
     show.cancel_rejected_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_3
-    changed = true
   end
   if show.cancel_rejected_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_4 then
     show.cancel_rejected_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_4
-    changed = true
   end
   if show.cancel_rejected_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_5 then
     show.cancel_rejected_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_5
-    changed = true
   end
   if show.cancel_rejected_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_6 then
     show.cancel_rejected_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_6
-    changed = true
   end
   if show.cancel_rejected_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_7 then
     show.cancel_rejected_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_7
-    changed = true
   end
   if show.cancel_rejected_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_8 then
     show.cancel_rejected_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_8
-    changed = true
   end
   if show.cancel_rejected_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_9 then
     show.cancel_rejected_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_byte_9
-    changed = true
   end
   if show.cancel_rejected_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_optional_fields then
     show.cancel_rejected_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_optional_fields
-    changed = true
   end
   if show.cancel_rejected_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_return_bitfields then
     show.cancel_rejected_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_cancel_rejected_return_bitfields
-    changed = true
   end
   if show.message_header ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_message_header then
     show.message_header = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_message_header
-    changed = true
   end
   if show.modify_order_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_modify_order_byte_1 then
     show.modify_order_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_modify_order_byte_1
-    changed = true
   end
   if show.modify_order_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_modify_order_byte_2 then
     show.modify_order_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_modify_order_byte_2
-    changed = true
   end
   if show.modify_order_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_modify_order_optional_fields then
     show.modify_order_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_modify_order_optional_fields
-    changed = true
   end
   if show.modify_order_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_modify_order_return_bitfields then
     show.modify_order_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_modify_order_return_bitfields
-    changed = true
   end
   if show.new_order_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_1 then
     show.new_order_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_1
-    changed = true
   end
   if show.new_order_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_2 then
     show.new_order_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_2
-    changed = true
   end
   if show.new_order_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_3 then
     show.new_order_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_3
-    changed = true
   end
   if show.new_order_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_4 then
     show.new_order_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_4
-    changed = true
   end
   if show.new_order_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_5 then
     show.new_order_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_5
-    changed = true
   end
   if show.new_order_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_6 then
     show.new_order_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_6
-    changed = true
   end
   if show.new_order_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_7 then
     show.new_order_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_7
-    changed = true
   end
   if show.new_order_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_8 then
     show.new_order_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_byte_8
-    changed = true
   end
   if show.new_order_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_optional_fields then
     show.new_order_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_optional_fields
-    changed = true
   end
   if show.new_order_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_return_bitfields then
     show.new_order_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_new_order_return_bitfields
-    changed = true
   end
   if show.order_acknowledgment_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_1 then
     show.order_acknowledgment_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_1
-    changed = true
   end
   if show.order_acknowledgment_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_10 then
     show.order_acknowledgment_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_10
-    changed = true
   end
   if show.order_acknowledgment_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_11 then
     show.order_acknowledgment_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_11
-    changed = true
   end
   if show.order_acknowledgment_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_12 then
     show.order_acknowledgment_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_12
-    changed = true
   end
   if show.order_acknowledgment_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_13 then
     show.order_acknowledgment_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_13
-    changed = true
   end
   if show.order_acknowledgment_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_14 then
     show.order_acknowledgment_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_14
-    changed = true
   end
   if show.order_acknowledgment_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_15 then
     show.order_acknowledgment_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_15
-    changed = true
   end
   if show.order_acknowledgment_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_16 then
     show.order_acknowledgment_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_16
-    changed = true
   end
   if show.order_acknowledgment_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_17 then
     show.order_acknowledgment_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_17
-    changed = true
   end
   if show.order_acknowledgment_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_2 then
     show.order_acknowledgment_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_2
-    changed = true
   end
   if show.order_acknowledgment_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_3 then
     show.order_acknowledgment_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_3
-    changed = true
   end
   if show.order_acknowledgment_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_4 then
     show.order_acknowledgment_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_4
-    changed = true
   end
   if show.order_acknowledgment_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_5 then
     show.order_acknowledgment_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_5
-    changed = true
   end
   if show.order_acknowledgment_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_6 then
     show.order_acknowledgment_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_6
-    changed = true
   end
   if show.order_acknowledgment_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_7 then
     show.order_acknowledgment_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_7
-    changed = true
   end
   if show.order_acknowledgment_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_8 then
     show.order_acknowledgment_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_8
-    changed = true
   end
   if show.order_acknowledgment_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_9 then
     show.order_acknowledgment_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_byte_9
-    changed = true
   end
   if show.order_acknowledgment_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_optional_fields then
     show.order_acknowledgment_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_optional_fields
-    changed = true
   end
   if show.order_acknowledgment_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_return_bitfields then
     show.order_acknowledgment_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_acknowledgment_return_bitfields
-    changed = true
   end
   if show.order_cancelled_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_1 then
     show.order_cancelled_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_1
-    changed = true
   end
   if show.order_cancelled_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_10 then
     show.order_cancelled_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_10
-    changed = true
   end
   if show.order_cancelled_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_11 then
     show.order_cancelled_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_11
-    changed = true
   end
   if show.order_cancelled_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_12 then
     show.order_cancelled_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_12
-    changed = true
   end
   if show.order_cancelled_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_13 then
     show.order_cancelled_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_13
-    changed = true
   end
   if show.order_cancelled_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_14 then
     show.order_cancelled_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_14
-    changed = true
   end
   if show.order_cancelled_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_15 then
     show.order_cancelled_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_15
-    changed = true
   end
   if show.order_cancelled_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_16 then
     show.order_cancelled_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_16
-    changed = true
   end
   if show.order_cancelled_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_17 then
     show.order_cancelled_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_17
-    changed = true
   end
   if show.order_cancelled_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_2 then
     show.order_cancelled_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_2
-    changed = true
   end
   if show.order_cancelled_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_3 then
     show.order_cancelled_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_3
-    changed = true
   end
   if show.order_cancelled_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_4 then
     show.order_cancelled_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_4
-    changed = true
   end
   if show.order_cancelled_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_5 then
     show.order_cancelled_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_5
-    changed = true
   end
   if show.order_cancelled_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_6 then
     show.order_cancelled_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_6
-    changed = true
   end
   if show.order_cancelled_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_7 then
     show.order_cancelled_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_7
-    changed = true
   end
   if show.order_cancelled_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_8 then
     show.order_cancelled_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_8
-    changed = true
   end
   if show.order_cancelled_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_9 then
     show.order_cancelled_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_byte_9
-    changed = true
   end
   if show.order_cancelled_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_optional_fields then
     show.order_cancelled_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_optional_fields
-    changed = true
   end
   if show.order_cancelled_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_return_bitfields then
     show.order_cancelled_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_cancelled_return_bitfields
-    changed = true
   end
   if show.order_execution_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_1 then
     show.order_execution_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_1
-    changed = true
   end
   if show.order_execution_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_10 then
     show.order_execution_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_10
-    changed = true
   end
   if show.order_execution_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_11 then
     show.order_execution_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_11
-    changed = true
   end
   if show.order_execution_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_12 then
     show.order_execution_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_12
-    changed = true
   end
   if show.order_execution_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_13 then
     show.order_execution_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_13
-    changed = true
   end
   if show.order_execution_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_14 then
     show.order_execution_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_14
-    changed = true
   end
   if show.order_execution_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_15 then
     show.order_execution_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_15
-    changed = true
   end
   if show.order_execution_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_16 then
     show.order_execution_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_16
-    changed = true
   end
   if show.order_execution_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_17 then
     show.order_execution_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_17
-    changed = true
   end
   if show.order_execution_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_2 then
     show.order_execution_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_2
-    changed = true
   end
   if show.order_execution_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_3 then
     show.order_execution_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_3
-    changed = true
   end
   if show.order_execution_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_4 then
     show.order_execution_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_4
-    changed = true
   end
   if show.order_execution_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_5 then
     show.order_execution_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_5
-    changed = true
   end
   if show.order_execution_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_6 then
     show.order_execution_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_6
-    changed = true
   end
   if show.order_execution_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_7 then
     show.order_execution_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_7
-    changed = true
   end
   if show.order_execution_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_8 then
     show.order_execution_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_8
-    changed = true
   end
   if show.order_execution_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_9 then
     show.order_execution_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_byte_9
-    changed = true
   end
   if show.order_execution_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_optional_fields then
     show.order_execution_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_optional_fields
-    changed = true
   end
   if show.order_execution_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_return_bitfields then
     show.order_execution_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_execution_return_bitfields
-    changed = true
   end
   if show.order_modified_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_1 then
     show.order_modified_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_1
-    changed = true
   end
   if show.order_modified_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_10 then
     show.order_modified_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_10
-    changed = true
   end
   if show.order_modified_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_11 then
     show.order_modified_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_11
-    changed = true
   end
   if show.order_modified_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_12 then
     show.order_modified_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_12
-    changed = true
   end
   if show.order_modified_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_13 then
     show.order_modified_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_13
-    changed = true
   end
   if show.order_modified_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_14 then
     show.order_modified_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_14
-    changed = true
   end
   if show.order_modified_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_15 then
     show.order_modified_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_15
-    changed = true
   end
   if show.order_modified_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_16 then
     show.order_modified_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_16
-    changed = true
   end
   if show.order_modified_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_17 then
     show.order_modified_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_17
-    changed = true
   end
   if show.order_modified_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_2 then
     show.order_modified_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_2
-    changed = true
   end
   if show.order_modified_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_3 then
     show.order_modified_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_3
-    changed = true
   end
   if show.order_modified_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_4 then
     show.order_modified_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_4
-    changed = true
   end
   if show.order_modified_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_5 then
     show.order_modified_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_5
-    changed = true
   end
   if show.order_modified_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_6 then
     show.order_modified_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_6
-    changed = true
   end
   if show.order_modified_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_7 then
     show.order_modified_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_7
-    changed = true
   end
   if show.order_modified_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_8 then
     show.order_modified_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_8
-    changed = true
   end
   if show.order_modified_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_9 then
     show.order_modified_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_byte_9
-    changed = true
   end
   if show.order_modified_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_optional_fields then
     show.order_modified_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_optional_fields
-    changed = true
   end
   if show.order_modified_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_return_bitfields then
     show.order_modified_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_modified_return_bitfields
-    changed = true
   end
   if show.order_rejected_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_1 then
     show.order_rejected_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_1
-    changed = true
   end
   if show.order_rejected_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_10 then
     show.order_rejected_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_10
-    changed = true
   end
   if show.order_rejected_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_11 then
     show.order_rejected_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_11
-    changed = true
   end
   if show.order_rejected_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_12 then
     show.order_rejected_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_12
-    changed = true
   end
   if show.order_rejected_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_13 then
     show.order_rejected_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_13
-    changed = true
   end
   if show.order_rejected_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_14 then
     show.order_rejected_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_14
-    changed = true
   end
   if show.order_rejected_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_15 then
     show.order_rejected_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_15
-    changed = true
   end
   if show.order_rejected_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_16 then
     show.order_rejected_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_16
-    changed = true
   end
   if show.order_rejected_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_17 then
     show.order_rejected_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_17
-    changed = true
   end
   if show.order_rejected_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_2 then
     show.order_rejected_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_2
-    changed = true
   end
   if show.order_rejected_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_3 then
     show.order_rejected_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_3
-    changed = true
   end
   if show.order_rejected_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_4 then
     show.order_rejected_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_4
-    changed = true
   end
   if show.order_rejected_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_5 then
     show.order_rejected_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_5
-    changed = true
   end
   if show.order_rejected_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_6 then
     show.order_rejected_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_6
-    changed = true
   end
   if show.order_rejected_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_7 then
     show.order_rejected_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_7
-    changed = true
   end
   if show.order_rejected_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_8 then
     show.order_rejected_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_8
-    changed = true
   end
   if show.order_rejected_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_9 then
     show.order_rejected_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_byte_9
-    changed = true
   end
   if show.order_rejected_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_optional_fields then
     show.order_rejected_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_optional_fields
-    changed = true
   end
   if show.order_rejected_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_return_bitfields then
     show.order_rejected_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_order_rejected_return_bitfields
-    changed = true
   end
   if show.packet ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_packet then
     show.packet = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_packet
-    changed = true
   end
   if show.param_group ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_param_group then
     show.param_group = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_param_group
-    changed = true
   end
   if show.param_header ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_param_header then
     show.param_header = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_param_header
-    changed = true
   end
   if show.purge_order_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_order_byte_1 then
     show.purge_order_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_order_byte_1
-    changed = true
   end
   if show.purge_order_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_order_byte_2 then
     show.purge_order_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_order_byte_2
-    changed = true
   end
   if show.purge_order_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_order_optional_fields then
     show.purge_order_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_order_optional_fields
-    changed = true
   end
   if show.purge_order_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_order_return_bitfields then
     show.purge_order_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_order_return_bitfields
-    changed = true
   end
   if show.purge_rejected_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_1 then
     show.purge_rejected_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_1
-    changed = true
   end
   if show.purge_rejected_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_10 then
     show.purge_rejected_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_10
-    changed = true
   end
   if show.purge_rejected_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_11 then
     show.purge_rejected_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_11
-    changed = true
   end
   if show.purge_rejected_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_12 then
     show.purge_rejected_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_12
-    changed = true
   end
   if show.purge_rejected_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_13 then
     show.purge_rejected_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_13
-    changed = true
   end
   if show.purge_rejected_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_14 then
     show.purge_rejected_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_14
-    changed = true
   end
   if show.purge_rejected_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_15 then
     show.purge_rejected_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_15
-    changed = true
   end
   if show.purge_rejected_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_16 then
     show.purge_rejected_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_16
-    changed = true
   end
   if show.purge_rejected_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_17 then
     show.purge_rejected_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_17
-    changed = true
   end
   if show.purge_rejected_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_2 then
     show.purge_rejected_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_2
-    changed = true
   end
   if show.purge_rejected_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_3 then
     show.purge_rejected_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_3
-    changed = true
   end
   if show.purge_rejected_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_4 then
     show.purge_rejected_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_4
-    changed = true
   end
   if show.purge_rejected_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_5 then
     show.purge_rejected_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_5
-    changed = true
   end
   if show.purge_rejected_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_6 then
     show.purge_rejected_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_6
-    changed = true
   end
   if show.purge_rejected_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_7 then
     show.purge_rejected_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_7
-    changed = true
   end
   if show.purge_rejected_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_8 then
     show.purge_rejected_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_8
-    changed = true
   end
   if show.purge_rejected_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_9 then
     show.purge_rejected_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_byte_9
-    changed = true
   end
   if show.purge_rejected_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_optional_fields then
     show.purge_rejected_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_optional_fields
-    changed = true
   end
   if show.purge_rejected_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_return_bitfields then
     show.purge_rejected_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_purge_rejected_return_bitfields
-    changed = true
   end
   if show.quote_group ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_group then
     show.quote_group = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_group
-    changed = true
   end
   if show.quote_result_group ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_result_group then
     show.quote_result_group = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_result_group
-    changed = true
   end
   if show.return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_return_bitfields then
     show.return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_return_bitfields
-    changed = true
   end
   if show.tas_restatement_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_1 then
     show.tas_restatement_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_1
-    changed = true
   end
   if show.tas_restatement_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_10 then
     show.tas_restatement_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_10
-    changed = true
   end
   if show.tas_restatement_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_11 then
     show.tas_restatement_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_11
-    changed = true
   end
   if show.tas_restatement_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_12 then
     show.tas_restatement_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_12
-    changed = true
   end
   if show.tas_restatement_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_13 then
     show.tas_restatement_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_13
-    changed = true
   end
   if show.tas_restatement_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_14 then
     show.tas_restatement_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_14
-    changed = true
   end
   if show.tas_restatement_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_15 then
     show.tas_restatement_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_15
-    changed = true
   end
   if show.tas_restatement_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_16 then
     show.tas_restatement_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_16
-    changed = true
   end
   if show.tas_restatement_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_17 then
     show.tas_restatement_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_17
-    changed = true
   end
   if show.tas_restatement_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_2 then
     show.tas_restatement_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_2
-    changed = true
   end
   if show.tas_restatement_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_3 then
     show.tas_restatement_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_3
-    changed = true
   end
   if show.tas_restatement_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_4 then
     show.tas_restatement_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_4
-    changed = true
   end
   if show.tas_restatement_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_5 then
     show.tas_restatement_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_5
-    changed = true
   end
   if show.tas_restatement_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_6 then
     show.tas_restatement_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_6
-    changed = true
   end
   if show.tas_restatement_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_7 then
     show.tas_restatement_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_7
-    changed = true
   end
   if show.tas_restatement_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_8 then
     show.tas_restatement_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_8
-    changed = true
   end
   if show.tas_restatement_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_9 then
     show.tas_restatement_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_byte_9
-    changed = true
   end
   if show.tas_restatement_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_optional_fields then
     show.tas_restatement_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_optional_fields
-    changed = true
   end
   if show.tas_restatement_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_return_bitfields then
     show.tas_restatement_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_tas_restatement_return_bitfields
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_1 then
     show.trade_cancel_or_correct_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_1
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_10 then
     show.trade_cancel_or_correct_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_10
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_11 then
     show.trade_cancel_or_correct_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_11
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_12 then
     show.trade_cancel_or_correct_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_12
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_13 then
     show.trade_cancel_or_correct_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_13
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_14 then
     show.trade_cancel_or_correct_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_14
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_15 then
     show.trade_cancel_or_correct_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_15
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_16 then
     show.trade_cancel_or_correct_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_16
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_17 then
     show.trade_cancel_or_correct_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_17
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_2 then
     show.trade_cancel_or_correct_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_2
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_3 then
     show.trade_cancel_or_correct_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_3
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_4 then
     show.trade_cancel_or_correct_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_4
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_5 then
     show.trade_cancel_or_correct_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_5
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_6 then
     show.trade_cancel_or_correct_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_6
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_7 then
     show.trade_cancel_or_correct_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_7
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_8 then
     show.trade_cancel_or_correct_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_8
-    changed = true
   end
   if show.trade_cancel_or_correct_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_9 then
     show.trade_cancel_or_correct_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_byte_9
-    changed = true
   end
   if show.trade_cancel_or_correct_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_optional_fields then
     show.trade_cancel_or_correct_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_optional_fields
-    changed = true
   end
   if show.trade_cancel_or_correct_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_return_bitfields then
     show.trade_cancel_or_correct_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_trade_cancel_or_correct_return_bitfields
-    changed = true
   end
   if show.unit_sequence ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_unit_sequence then
     show.unit_sequence = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_unit_sequence
-    changed = true
   end
   if show.unit_sequences ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_unit_sequences then
     show.unit_sequences = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_unit_sequences
-    changed = true
   end
   if show.user_modify_rejected_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_1 then
     show.user_modify_rejected_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_1
-    changed = true
   end
   if show.user_modify_rejected_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_10 then
     show.user_modify_rejected_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_10
-    changed = true
   end
   if show.user_modify_rejected_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_11 then
     show.user_modify_rejected_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_11
-    changed = true
   end
   if show.user_modify_rejected_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_12 then
     show.user_modify_rejected_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_12
-    changed = true
   end
   if show.user_modify_rejected_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_13 then
     show.user_modify_rejected_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_13
-    changed = true
   end
   if show.user_modify_rejected_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_14 then
     show.user_modify_rejected_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_14
-    changed = true
   end
   if show.user_modify_rejected_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_15 then
     show.user_modify_rejected_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_15
-    changed = true
   end
   if show.user_modify_rejected_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_16 then
     show.user_modify_rejected_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_16
-    changed = true
   end
   if show.user_modify_rejected_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_17 then
     show.user_modify_rejected_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_17
-    changed = true
   end
   if show.user_modify_rejected_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_2 then
     show.user_modify_rejected_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_2
-    changed = true
   end
   if show.user_modify_rejected_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_3 then
     show.user_modify_rejected_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_3
-    changed = true
   end
   if show.user_modify_rejected_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_4 then
     show.user_modify_rejected_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_4
-    changed = true
   end
   if show.user_modify_rejected_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_5 then
     show.user_modify_rejected_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_5
-    changed = true
   end
   if show.user_modify_rejected_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_6 then
     show.user_modify_rejected_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_6
-    changed = true
   end
   if show.user_modify_rejected_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_7 then
     show.user_modify_rejected_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_7
-    changed = true
   end
   if show.user_modify_rejected_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_8 then
     show.user_modify_rejected_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_8
-    changed = true
   end
   if show.user_modify_rejected_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_9 then
     show.user_modify_rejected_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_byte_9
-    changed = true
   end
   if show.user_modify_rejected_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_optional_fields then
     show.user_modify_rejected_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_optional_fields
-    changed = true
   end
   if show.user_modify_rejected_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_return_bitfields then
     show.user_modify_rejected_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_user_modify_rejected_return_bitfields
-    changed = true
   end
   if show.variance_restatement_byte_1 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_1 then
     show.variance_restatement_byte_1 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_1
-    changed = true
   end
   if show.variance_restatement_byte_10 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_10 then
     show.variance_restatement_byte_10 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_10
-    changed = true
   end
   if show.variance_restatement_byte_11 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_11 then
     show.variance_restatement_byte_11 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_11
-    changed = true
   end
   if show.variance_restatement_byte_12 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_12 then
     show.variance_restatement_byte_12 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_12
-    changed = true
   end
   if show.variance_restatement_byte_13 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_13 then
     show.variance_restatement_byte_13 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_13
-    changed = true
   end
   if show.variance_restatement_byte_14 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_14 then
     show.variance_restatement_byte_14 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_14
-    changed = true
   end
   if show.variance_restatement_byte_15 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_15 then
     show.variance_restatement_byte_15 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_15
-    changed = true
   end
   if show.variance_restatement_byte_16 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_16 then
     show.variance_restatement_byte_16 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_16
-    changed = true
   end
   if show.variance_restatement_byte_17 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_17 then
     show.variance_restatement_byte_17 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_17
-    changed = true
   end
   if show.variance_restatement_byte_2 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_2 then
     show.variance_restatement_byte_2 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_2
-    changed = true
   end
   if show.variance_restatement_byte_3 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_3 then
     show.variance_restatement_byte_3 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_3
-    changed = true
   end
   if show.variance_restatement_byte_4 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_4 then
     show.variance_restatement_byte_4 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_4
-    changed = true
   end
   if show.variance_restatement_byte_5 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_5 then
     show.variance_restatement_byte_5 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_5
-    changed = true
   end
   if show.variance_restatement_byte_6 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_6 then
     show.variance_restatement_byte_6 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_6
-    changed = true
   end
   if show.variance_restatement_byte_7 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_7 then
     show.variance_restatement_byte_7 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_7
-    changed = true
   end
   if show.variance_restatement_byte_8 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_8 then
     show.variance_restatement_byte_8 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_8
-    changed = true
   end
   if show.variance_restatement_byte_9 ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_9 then
     show.variance_restatement_byte_9 = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_byte_9
-    changed = true
   end
   if show.variance_restatement_optional_fields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_optional_fields then
     show.variance_restatement_optional_fields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_optional_fields
-    changed = true
   end
   if show.variance_restatement_return_bitfields ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_return_bitfields then
     show.variance_restatement_return_bitfields = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_variance_restatement_return_bitfields
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.param_group_index ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_param_group_index then
+    show.param_group_index = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_param_group_index
+  end
+  if show.unit_sequence_index ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_unit_sequence_index then
+    show.unit_sequence_index = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_unit_sequence_index
+  end
+  if show.quote_group_index ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_group_index then
+    show.quote_group_index = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_group_index
+  end
+  if show.quote_result_group_index ~= omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_result_group_index then
+    show.quote_result_group_index = omi_cboe_futures_orderentry_boe_v1_3.prefs.show_quote_result_group_index
   end
 end
 
@@ -25990,7 +25763,7 @@ cboe_futures_orderentry_boe_v1_3.quote_result_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Quote Result Group Index
-  if quote_result_group_index ~= nil then
+  if quote_result_group_index ~= nil and show.quote_result_group_index then
     local iteration = parent:add(omi_cboe_futures_orderentry_boe_v1_3.fields.quote_result_group_index, quote_result_group_index)
     iteration:set_generated()
   end
@@ -28605,7 +28378,7 @@ cboe_futures_orderentry_boe_v1_3.quote_group.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Quote Group Index
-  if quote_group_index ~= nil then
+  if quote_group_index ~= nil and show.quote_group_index then
     local iteration = parent:add(omi_cboe_futures_orderentry_boe_v1_3.fields.quote_group_index, quote_group_index)
     iteration:set_generated()
   end
@@ -30621,7 +30394,7 @@ cboe_futures_orderentry_boe_v1_3.unit_sequence.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Unit Sequence Index
-  if unit_sequence_index ~= nil then
+  if unit_sequence_index ~= nil and show.unit_sequence_index then
     local iteration = parent:add(omi_cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()
   end
@@ -33933,7 +33706,7 @@ cboe_futures_orderentry_boe_v1_3.param_group.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Param Group Index
-  if param_group_index ~= nil then
+  if param_group_index ~= nil and show.param_group_index then
     local iteration = parent:add(omi_cboe_futures_orderentry_boe_v1_3.fields.param_group_index, param_group_index)
     iteration:set_generated()
   end

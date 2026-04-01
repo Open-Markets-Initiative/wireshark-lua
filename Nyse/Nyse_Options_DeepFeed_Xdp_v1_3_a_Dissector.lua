@@ -104,6 +104,7 @@ show.series_index_mapping_message = true
 show.stream_id_message = true
 show.underlying_index_mapping_message = true
 show.underlying_status_message = true
+show.message_index = true
 
 -- Register Nyse Options DeepFeed Xdp 1.3.a Show Options
 omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -120,72 +121,56 @@ omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message = P
 omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
 omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message = Pref.bool("Show Underlying Index Mapping Message", show.underlying_index_mapping_message, "Parse and add Underlying Index Mapping Message to protocol tree")
 omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message = Pref.bool("Show Underlying Status Message", show.underlying_status_message, "Parse and add Underlying Status Message to protocol tree")
+omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_options_deepfeed_xdp_v1_3_a.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message then
     show.message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message_header then
     show.message_header = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message_header
-    changed = true
   end
   if show.outright_market_depth_buy_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message then
     show.outright_market_depth_buy_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message
-    changed = true
   end
   if show.outright_market_depth_sell_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message then
     show.outright_market_depth_sell_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message
-    changed = true
   end
   if show.outright_series_status_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_series_status_message then
     show.outright_series_status_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_outright_series_status_message
-    changed = true
   end
   if show.packet ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_packet then
     show.packet = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_packet_header then
     show.packet_header = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_packet_header
-    changed = true
   end
   if show.refresh_outright_market_depth_buy_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message then
     show.refresh_outright_market_depth_buy_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message
-    changed = true
   end
   if show.refresh_outright_market_depth_sell_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message then
     show.refresh_outright_market_depth_sell_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message
-    changed = true
   end
   if show.sequence_number_reset_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message then
     show.sequence_number_reset_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message
-    changed = true
   end
   if show.series_index_mapping_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message then
     show.series_index_mapping_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message
-    changed = true
   end
   if show.stream_id_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message then
     show.stream_id_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message
-    changed = true
   end
   if show.underlying_index_mapping_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message then
     show.underlying_index_mapping_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message
-    changed = true
   end
   if show.underlying_status_message ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message then
     show.underlying_status_message = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message_index then
+    show.message_index = omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_message_index
   end
 end
 
@@ -2474,7 +2459,7 @@ nyse_options_deepfeed_xdp_v1_3_a.message.fields = function(buffer, offset, packe
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.message_index, message_index)
     iteration:set_generated()
   end

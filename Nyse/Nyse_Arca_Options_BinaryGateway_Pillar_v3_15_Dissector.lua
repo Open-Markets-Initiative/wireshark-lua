@@ -287,81 +287,58 @@ omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header = Pre
 
 -- Handle changed preferences
 function omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_messages then
     show.application_messages = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_application_messages
-    changed = true
   end
   if show.bulk_quote ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote then
     show.bulk_quote = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_bulk_quote
-    changed = true
   end
   if show.complex_leg ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg then
     show.complex_leg = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg
-    changed = true
   end
   if show.complex_leg_ack ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg_ack then
     show.complex_leg_ack = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_complex_leg_ack
-    changed = true
   end
   if show.covered ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered then
     show.covered = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_covered
-    changed = true
   end
   if show.exposed ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed then
     show.exposed = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_exposed
-    changed = true
   end
   if show.mpv_level_definition ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition then
     show.mpv_level_definition = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_mpv_level_definition
-    changed = true
   end
   if show.msg_header ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header then
     show.msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_msg_header
-    changed = true
   end
   if show.optional_order_add_on ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on then
     show.optional_order_add_on = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_optional_order_add_on
-    changed = true
   end
   if show.order_instructions ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions then
     show.order_instructions = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_order_instructions
-    changed = true
   end
   if show.quote_ack ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack then
     show.quote_ack = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_quote_ack
-    changed = true
   end
   if show.ref_seq_msg_id ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_ref_seq_msg_id then
     show.ref_seq_msg_id = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_ref_seq_msg_id
-    changed = true
   end
   if show.seq_msg_header ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header then
     show.seq_msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_header
-    changed = true
   end
   if show.seq_msg_id ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_id then
     show.seq_msg_id = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_seq_msg_id
-    changed = true
   end
   if show.session_messages ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_messages then
     show.session_messages = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_session_messages
-    changed = true
   end
   if show.stream_id ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id then
     show.stream_id = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id
-    changed = true
   end
   if show.sub_msg_header ~= omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header then
     show.sub_msg_header = omi_nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

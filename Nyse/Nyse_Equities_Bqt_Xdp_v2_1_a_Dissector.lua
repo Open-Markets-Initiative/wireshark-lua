@@ -144,6 +144,7 @@ show.message_header = true
 show.packet = true
 show.packet_header = true
 show.trade_session = true
+show.message_index = true
 
 -- Register Nyse Equities Bqt Xdp 2.1.a Show Options
 omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -153,44 +154,35 @@ omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_message_header = Pref.bool("Show Mes
 omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_trade_session = Pref.bool("Show Trade Session", show.trade_session, "Parse and add Trade Session to protocol tree")
+omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_equities_bqt_xdp_v2_1_a.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_application_messages then
     show.application_messages = omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_application_messages
-    changed = true
   end
   if show.close_price ~= omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_close_price then
     show.close_price = omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_close_price
-    changed = true
   end
   if show.message ~= omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_message then
     show.message = omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_message_header then
     show.message_header = omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_packet then
     show.packet = omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_packet_header then
     show.packet_header = omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_packet_header
-    changed = true
   end
   if show.trade_session ~= omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_trade_session then
     show.trade_session = omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_trade_session
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_message_index then
+    show.message_index = omi_nyse_equities_bqt_xdp_v2_1_a.prefs.show_message_index
   end
 end
 
@@ -4202,7 +4194,7 @@ nyse_equities_bqt_xdp_v2_1_a.message.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nyse_equities_bqt_xdp_v2_1_a.fields.message_index, message_index)
     iteration:set_generated()
   end

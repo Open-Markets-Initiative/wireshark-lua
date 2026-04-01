@@ -247,6 +247,13 @@ show.stream_request_message = true
 show.two_sided_quotes_group = true
 show.two_sided_quotes_groups = true
 show.unsequenced_message = true
+show.parties_group_index = true
+show.two_sided_quotes_group_index = true
+show.one_sided_quotes_group_index = true
+show.execution_allocations_group_index = true
+show.requested_allocations_group_index = true
+show.nested_parties_group_index = true
+show.reported_allocations_group_index = true
 
 -- Register Memx Options Memo Sbe 1.5.b Show Options
 omi_memx_options_memo_sbe_v1_5_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -286,164 +293,149 @@ omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_request_message = Pref.bool("
 omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_group = Pref.bool("Show Two Sided Quotes Group", show.two_sided_quotes_group, "Parse and add Two Sided Quotes Group to protocol tree")
 omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_groups = Pref.bool("Show Two Sided Quotes Groups", show.two_sided_quotes_groups, "Parse and add Two Sided Quotes Groups to protocol tree")
 omi_memx_options_memo_sbe_v1_5_b.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
+omi_memx_options_memo_sbe_v1_5_b.prefs.show_parties_group_index = Pref.bool("Show Parties Group Index", show.parties_group_index, "Show generated parties group index in protocol tree")
+omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_group_index = Pref.bool("Show Two Sided Quotes Group Index", show.two_sided_quotes_group_index, "Show generated two sided quotes group index in protocol tree")
+omi_memx_options_memo_sbe_v1_5_b.prefs.show_one_sided_quotes_group_index = Pref.bool("Show One Sided Quotes Group Index", show.one_sided_quotes_group_index, "Show generated one sided quotes group index in protocol tree")
+omi_memx_options_memo_sbe_v1_5_b.prefs.show_execution_allocations_group_index = Pref.bool("Show Execution Allocations Group Index", show.execution_allocations_group_index, "Show generated execution allocations group index in protocol tree")
+omi_memx_options_memo_sbe_v1_5_b.prefs.show_requested_allocations_group_index = Pref.bool("Show Requested Allocations Group Index", show.requested_allocations_group_index, "Show generated requested allocations group index in protocol tree")
+omi_memx_options_memo_sbe_v1_5_b.prefs.show_nested_parties_group_index = Pref.bool("Show Nested Parties Group Index", show.nested_parties_group_index, "Show generated nested parties group index in protocol tree")
+omi_memx_options_memo_sbe_v1_5_b.prefs.show_reported_allocations_group_index = Pref.bool("Show Reported Allocations Group Index", show.reported_allocations_group_index, "Show generated reported allocations group index in protocol tree")
 
 -- Handle changed preferences
 function omi_memx_options_memo_sbe_v1_5_b.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_application_messages then
     show.application_messages = omi_memx_options_memo_sbe_v1_5_b.prefs.show_application_messages
-    changed = true
   end
   if show.common_header ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_common_header then
     show.common_header = omi_memx_options_memo_sbe_v1_5_b.prefs.show_common_header
-    changed = true
   end
   if show.exec_inst ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_exec_inst then
     show.exec_inst = omi_memx_options_memo_sbe_v1_5_b.prefs.show_exec_inst
-    changed = true
   end
   if show.execution_allocations_group ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_execution_allocations_group then
     show.execution_allocations_group = omi_memx_options_memo_sbe_v1_5_b.prefs.show_execution_allocations_group
-    changed = true
   end
   if show.execution_allocations_groups ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_execution_allocations_groups then
     show.execution_allocations_groups = omi_memx_options_memo_sbe_v1_5_b.prefs.show_execution_allocations_groups
-    changed = true
   end
   if show.login_accepted_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_login_accepted_message then
     show.login_accepted_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_login_accepted_message
-    changed = true
   end
   if show.login_rejected_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_login_rejected_message then
     show.login_rejected_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_login_rejected_message
-    changed = true
   end
   if show.login_request_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_login_request_message then
     show.login_request_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_login_request_message
-    changed = true
   end
   if show.mass_cancel_inst ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_mass_cancel_inst then
     show.mass_cancel_inst = omi_memx_options_memo_sbe_v1_5_b.prefs.show_mass_cancel_inst
-    changed = true
   end
   if show.nested_parties_group ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_nested_parties_group then
     show.nested_parties_group = omi_memx_options_memo_sbe_v1_5_b.prefs.show_nested_parties_group
-    changed = true
   end
   if show.nested_parties_groups ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_nested_parties_groups then
     show.nested_parties_groups = omi_memx_options_memo_sbe_v1_5_b.prefs.show_nested_parties_groups
-    changed = true
   end
   if show.one_sided_quotes_group ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_one_sided_quotes_group then
     show.one_sided_quotes_group = omi_memx_options_memo_sbe_v1_5_b.prefs.show_one_sided_quotes_group
-    changed = true
   end
   if show.one_sided_quotes_groups ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_one_sided_quotes_groups then
     show.one_sided_quotes_groups = omi_memx_options_memo_sbe_v1_5_b.prefs.show_one_sided_quotes_groups
-    changed = true
   end
   if show.packet ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_packet then
     show.packet = omi_memx_options_memo_sbe_v1_5_b.prefs.show_packet
-    changed = true
   end
   if show.parties_group ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_parties_group then
     show.parties_group = omi_memx_options_memo_sbe_v1_5_b.prefs.show_parties_group
-    changed = true
   end
   if show.parties_groups ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_parties_groups then
     show.parties_groups = omi_memx_options_memo_sbe_v1_5_b.prefs.show_parties_groups
-    changed = true
   end
   if show.repeating_group_dimensions ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_repeating_group_dimensions then
     show.repeating_group_dimensions = omi_memx_options_memo_sbe_v1_5_b.prefs.show_repeating_group_dimensions
-    changed = true
   end
   if show.replay_all_request_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_all_request_message then
     show.replay_all_request_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_all_request_message
-    changed = true
   end
   if show.replay_begin_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_begin_message then
     show.replay_begin_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_begin_message
-    changed = true
   end
   if show.replay_complete_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_complete_message then
     show.replay_complete_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_complete_message
-    changed = true
   end
   if show.replay_rejected_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_rejected_message then
     show.replay_rejected_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_rejected_message
-    changed = true
   end
   if show.replay_request_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_request_message then
     show.replay_request_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_replay_request_message
-    changed = true
   end
   if show.reported_allocations_group ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_reported_allocations_group then
     show.reported_allocations_group = omi_memx_options_memo_sbe_v1_5_b.prefs.show_reported_allocations_group
-    changed = true
   end
   if show.reported_allocations_groups ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_reported_allocations_groups then
     show.reported_allocations_groups = omi_memx_options_memo_sbe_v1_5_b.prefs.show_reported_allocations_groups
-    changed = true
   end
   if show.requested_allocations_group ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_requested_allocations_group then
     show.requested_allocations_group = omi_memx_options_memo_sbe_v1_5_b.prefs.show_requested_allocations_group
-    changed = true
   end
   if show.requested_allocations_groups ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_requested_allocations_groups then
     show.requested_allocations_groups = omi_memx_options_memo_sbe_v1_5_b.prefs.show_requested_allocations_groups
-    changed = true
   end
   if show.sbe_header ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_sbe_header then
     show.sbe_header = omi_memx_options_memo_sbe_v1_5_b.prefs.show_sbe_header
-    changed = true
   end
   if show.sbe_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_sbe_message then
     show.sbe_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_sbe_message
-    changed = true
   end
   if show.sequenced_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_sequenced_message then
     show.sequenced_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_sequenced_message
-    changed = true
   end
   if show.start_of_session_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_start_of_session_message then
     show.start_of_session_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_start_of_session_message
-    changed = true
   end
   if show.stream_begin_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_begin_message then
     show.stream_begin_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_begin_message
-    changed = true
   end
   if show.stream_complete_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_complete_message then
     show.stream_complete_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_complete_message
-    changed = true
   end
   if show.stream_rejected_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_rejected_message then
     show.stream_rejected_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_rejected_message
-    changed = true
   end
   if show.stream_request_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_request_message then
     show.stream_request_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_stream_request_message
-    changed = true
   end
   if show.two_sided_quotes_group ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_group then
     show.two_sided_quotes_group = omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_group
-    changed = true
   end
   if show.two_sided_quotes_groups ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_groups then
     show.two_sided_quotes_groups = omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_groups
-    changed = true
   end
   if show.unsequenced_message ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_unsequenced_message then
     show.unsequenced_message = omi_memx_options_memo_sbe_v1_5_b.prefs.show_unsequenced_message
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.parties_group_index ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_parties_group_index then
+    show.parties_group_index = omi_memx_options_memo_sbe_v1_5_b.prefs.show_parties_group_index
+  end
+  if show.two_sided_quotes_group_index ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_group_index then
+    show.two_sided_quotes_group_index = omi_memx_options_memo_sbe_v1_5_b.prefs.show_two_sided_quotes_group_index
+  end
+  if show.one_sided_quotes_group_index ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_one_sided_quotes_group_index then
+    show.one_sided_quotes_group_index = omi_memx_options_memo_sbe_v1_5_b.prefs.show_one_sided_quotes_group_index
+  end
+  if show.execution_allocations_group_index ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_execution_allocations_group_index then
+    show.execution_allocations_group_index = omi_memx_options_memo_sbe_v1_5_b.prefs.show_execution_allocations_group_index
+  end
+  if show.requested_allocations_group_index ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_requested_allocations_group_index then
+    show.requested_allocations_group_index = omi_memx_options_memo_sbe_v1_5_b.prefs.show_requested_allocations_group_index
+  end
+  if show.nested_parties_group_index ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_nested_parties_group_index then
+    show.nested_parties_group_index = omi_memx_options_memo_sbe_v1_5_b.prefs.show_nested_parties_group_index
+  end
+  if show.reported_allocations_group_index ~= omi_memx_options_memo_sbe_v1_5_b.prefs.show_reported_allocations_group_index then
+    show.reported_allocations_group_index = omi_memx_options_memo_sbe_v1_5_b.prefs.show_reported_allocations_group_index
   end
 end
 
@@ -4728,7 +4720,7 @@ memx_options_memo_sbe_v1_5_b.nested_parties_group.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Nested Parties Group Index
-  if nested_parties_group_index ~= nil then
+  if nested_parties_group_index ~= nil and show.nested_parties_group_index then
     local iteration = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.nested_parties_group_index, nested_parties_group_index)
     iteration:set_generated()
   end
@@ -4892,7 +4884,7 @@ memx_options_memo_sbe_v1_5_b.reported_allocations_group.fields = function(buffer
   local index = offset
 
   -- Implicit Reported Allocations Group Index
-  if reported_allocations_group_index ~= nil then
+  if reported_allocations_group_index ~= nil and show.reported_allocations_group_index then
     local iteration = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.reported_allocations_group_index, reported_allocations_group_index)
     iteration:set_generated()
   end
@@ -5007,7 +4999,7 @@ memx_options_memo_sbe_v1_5_b.execution_allocations_group.fields = function(buffe
   local index = offset
 
   -- Implicit Execution Allocations Group Index
-  if execution_allocations_group_index ~= nil then
+  if execution_allocations_group_index ~= nil and show.execution_allocations_group_index then
     local iteration = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.execution_allocations_group_index, execution_allocations_group_index)
     iteration:set_generated()
   end
@@ -6219,7 +6211,7 @@ memx_options_memo_sbe_v1_5_b.parties_group.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Parties Group Index
-  if parties_group_index ~= nil then
+  if parties_group_index ~= nil and show.parties_group_index then
     local iteration = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.parties_group_index, parties_group_index)
     iteration:set_generated()
   end
@@ -6968,7 +6960,7 @@ memx_options_memo_sbe_v1_5_b.requested_allocations_group.fields = function(buffe
   local index = offset
 
   -- Implicit Requested Allocations Group Index
-  if requested_allocations_group_index ~= nil then
+  if requested_allocations_group_index ~= nil and show.requested_allocations_group_index then
     local iteration = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.requested_allocations_group_index, requested_allocations_group_index)
     iteration:set_generated()
   end
@@ -7423,7 +7415,7 @@ memx_options_memo_sbe_v1_5_b.one_sided_quotes_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit One Sided Quotes Group Index
-  if one_sided_quotes_group_index ~= nil then
+  if one_sided_quotes_group_index ~= nil and show.one_sided_quotes_group_index then
     local iteration = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.one_sided_quotes_group_index, one_sided_quotes_group_index)
     iteration:set_generated()
   end
@@ -7733,7 +7725,7 @@ memx_options_memo_sbe_v1_5_b.two_sided_quotes_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Two Sided Quotes Group Index
-  if two_sided_quotes_group_index ~= nil then
+  if two_sided_quotes_group_index ~= nil and show.two_sided_quotes_group_index then
     local iteration = parent:add(omi_memx_options_memo_sbe_v1_5_b.fields.two_sided_quotes_group_index, two_sided_quotes_group_index)
     iteration:set_generated()
   end

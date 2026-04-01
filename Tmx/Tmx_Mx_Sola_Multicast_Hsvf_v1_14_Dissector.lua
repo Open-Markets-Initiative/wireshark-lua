@@ -269,6 +269,11 @@ show.special_text_bulletin = true
 show.strategy_instrument_leg = true
 show.strategy_market_depth_level = true
 show.tick_entry = true
+show.market_depth_level_index = true
+show.strategy_market_depth_level_index = true
+show.strategy_instrument_leg_index = true
+show.bond_definition_index = true
+show.tick_entry_index = true
 
 -- Register Tmx Mx Sola Multicast Hsvf 1.14 Show Options
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product = Pref.bool("Show Associated Product", show.associated_product, "Parse and add Associated Product to protocol tree")
@@ -285,72 +290,72 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_special_text_bulletin = Pref.boo
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg = Pref.bool("Show Strategy Instrument Leg", show.strategy_instrument_leg, "Parse and add Strategy Instrument Leg to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level = Pref.bool("Show Strategy Market Depth Level", show.strategy_market_depth_level, "Parse and add Strategy Market Depth Level to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry = Pref.bool("Show Tick Entry", show.tick_entry, "Parse and add Tick Entry to protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level_index = Pref.bool("Show Market Depth Level Index", show.market_depth_level_index, "Show generated market depth level index in protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level_index = Pref.bool("Show Strategy Market Depth Level Index", show.strategy_market_depth_level_index, "Show generated strategy market depth level index in protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg_index = Pref.bool("Show Strategy Instrument Leg Index", show.strategy_instrument_leg_index, "Show generated strategy instrument leg index in protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition_index = Pref.bool("Show Bond Definition Index", show.bond_definition_index, "Show generated bond definition index in protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry_index = Pref.bool("Show Tick Entry Index", show.tick_entry_index, "Show generated tick entry index in protocol tree")
 
 -- Handle changed preferences
 function omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages then
     show.application_messages = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages
-    changed = true
   end
   if show.associated_product ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product then
     show.associated_product = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product
-    changed = true
   end
   if show.bond_definition ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition then
     show.bond_definition = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition
-    changed = true
   end
   if show.future_option_symbol ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_option_symbol then
     show.future_option_symbol = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_option_symbol
-    changed = true
   end
   if show.future_product ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_product then
     show.future_product = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_product
-    changed = true
   end
   if show.market_depth_level ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level then
     show.market_depth_level = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level
-    changed = true
   end
   if show.message_header ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_message_header then
     show.message_header = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_message_header
-    changed = true
   end
   if show.option_symbol ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_symbol then
     show.option_symbol = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_symbol
-    changed = true
   end
   if show.packet ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_packet then
     show.packet = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_packet
-    changed = true
   end
   if show.regular_text_bulletin ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_regular_text_bulletin then
     show.regular_text_bulletin = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_regular_text_bulletin
-    changed = true
   end
   if show.special_text_bulletin ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_special_text_bulletin then
     show.special_text_bulletin = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_special_text_bulletin
-    changed = true
   end
   if show.strategy_instrument_leg ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg then
     show.strategy_instrument_leg = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg
-    changed = true
   end
   if show.strategy_market_depth_level ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level then
     show.strategy_market_depth_level = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level
-    changed = true
   end
   if show.tick_entry ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry then
     show.tick_entry = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.market_depth_level_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level_index then
+    show.market_depth_level_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level_index
+  end
+  if show.strategy_market_depth_level_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level_index then
+    show.strategy_market_depth_level_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level_index
+  end
+  if show.strategy_instrument_leg_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg_index then
+    show.strategy_instrument_leg_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg_index
+  end
+  if show.bond_definition_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition_index then
+    show.bond_definition_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition_index
+  end
+  if show.tick_entry_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry_index then
+    show.tick_entry_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry_index
   end
 end
 
@@ -4793,7 +4798,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Tick Entry Index
-  if tick_entry_index ~= nil then
+  if tick_entry_index ~= nil and show.tick_entry_index then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_entry_index, tick_entry_index)
     iteration:set_generated()
   end
@@ -5133,7 +5138,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Bond Definition Index
-  if bond_definition_index ~= nil then
+  if bond_definition_index ~= nil and show.bond_definition_index then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bond_definition_index, bond_definition_index)
     iteration:set_generated()
   end
@@ -6767,7 +6772,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.fields = function(buffe
   local index = offset
 
   -- Implicit Strategy Instrument Leg Index
-  if strategy_instrument_leg_index ~= nil then
+  if strategy_instrument_leg_index ~= nil and show.strategy_instrument_leg_index then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_instrument_leg_index, strategy_instrument_leg_index)
     iteration:set_generated()
   end
@@ -7778,7 +7783,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.fields = function(b
   local index = offset
 
   -- Implicit Strategy Market Depth Level Index
-  if strategy_market_depth_level_index ~= nil then
+  if strategy_market_depth_level_index ~= nil and show.strategy_market_depth_level_index then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_market_depth_level_index, strategy_market_depth_level_index)
     iteration:set_generated()
   end
@@ -7931,7 +7936,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.market_depth_level.fields = function(buffer, of
   local index = offset
 
   -- Implicit Market Depth Level Index
-  if market_depth_level_index ~= nil then
+  if market_depth_level_index ~= nil and show.market_depth_level_index then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.market_depth_level_index, market_depth_level_index)
     iteration:set_generated()
   end

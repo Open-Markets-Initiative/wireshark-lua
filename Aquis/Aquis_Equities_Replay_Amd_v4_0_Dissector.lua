@@ -52,29 +52,19 @@ omi_aquis_equities_replay_amd_v4_0.prefs.show_packet = Pref.bool("Show Packet", 
 
 -- Handle changed preferences
 function omi_aquis_equities_replay_amd_v4_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_aquis_equities_replay_amd_v4_0.prefs.show_application_messages then
     show.application_messages = omi_aquis_equities_replay_amd_v4_0.prefs.show_application_messages
-    changed = true
   end
   if show.message ~= omi_aquis_equities_replay_amd_v4_0.prefs.show_message then
     show.message = omi_aquis_equities_replay_amd_v4_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_aquis_equities_replay_amd_v4_0.prefs.show_message_header then
     show.message_header = omi_aquis_equities_replay_amd_v4_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_aquis_equities_replay_amd_v4_0.prefs.show_packet then
     show.packet = omi_aquis_equities_replay_amd_v4_0.prefs.show_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

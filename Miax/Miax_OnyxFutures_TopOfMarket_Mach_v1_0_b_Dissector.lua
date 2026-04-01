@@ -94,6 +94,7 @@ show.application_messages = true
 show.instrument_leg = true
 show.message = true
 show.packet = true
+show.instrument_leg_index = true
 
 -- Register Miax OnyxFutures TopOfMarket Mach 1.0.b Show Options
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
@@ -101,36 +102,29 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages = P
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg_index = Pref.bool("Show Instrument Leg Index", show.instrument_leg_index, "Show generated instrument leg index in protocol tree")
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message then
     show.application_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message
-    changed = true
   end
   if show.application_messages ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages then
     show.application_messages = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages
-    changed = true
   end
   if show.instrument_leg ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg then
     show.instrument_leg = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg
-    changed = true
   end
   if show.message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_message then
     show.message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_message
-    changed = true
   end
   if show.packet ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet then
     show.packet = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.instrument_leg_index ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg_index then
+    show.instrument_leg_index = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg_index
   end
 end
 
@@ -1809,7 +1803,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.fields = function(buffer
   local index = offset
 
   -- Implicit Instrument Leg Index
-  if instrument_leg_index ~= nil then
+  if instrument_leg_index ~= nil and show.instrument_leg_index then
     local iteration = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg_index, instrument_leg_index)
     iteration:set_generated()
   end

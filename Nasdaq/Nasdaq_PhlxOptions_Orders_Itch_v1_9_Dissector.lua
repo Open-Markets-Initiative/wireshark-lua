@@ -104,6 +104,9 @@ show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
+show.message_index = true
+show.complex_order_strategy_leg_index = true
+show.complex_order_leg_index = true
 
 -- Register Nasdaq PhlxOptions Orders Itch 1.9 Show Options
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -114,48 +117,46 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message = Pref.bool("Show Mes
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg_index = Pref.bool("Show Complex Order Strategy Leg Index", show.complex_order_strategy_leg_index, "Show generated complex order strategy leg index in protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg_index = Pref.bool("Show Complex Order Leg Index", show.complex_order_leg_index, "Show generated complex order leg index in protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages
-    changed = true
   end
   if show.complex_order_leg ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg then
     show.complex_order_leg = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg
-    changed = true
   end
   if show.complex_order_strategy_leg ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg then
     show.complex_order_strategy_leg = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg
-    changed = true
   end
   if show.expiration ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_expiration then
     show.expiration = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_expiration
-    changed = true
   end
   if show.message ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message then
     show.message = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_header then
     show.message_header = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet then
     show.packet = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet_header then
     show.packet_header = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_packet_header
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_index then
+    show.message_index = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_index
+  end
+  if show.complex_order_strategy_leg_index ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg_index then
+    show.complex_order_strategy_leg_index = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg_index
+  end
+  if show.complex_order_leg_index ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg_index then
+    show.complex_order_leg_index = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg_index
   end
 end
 
@@ -1718,7 +1719,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.fields = function(buffer, 
   local index = offset
 
   -- Implicit Complex Order Leg Index
-  if complex_order_leg_index ~= nil then
+  if complex_order_leg_index ~= nil and show.complex_order_leg_index then
     local iteration = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg_index, complex_order_leg_index)
     iteration:set_generated()
   end
@@ -2272,7 +2273,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg.fields = function
   local index = offset
 
   -- Implicit Complex Order Strategy Leg Index
-  if complex_order_strategy_leg_index ~= nil then
+  if complex_order_strategy_leg_index ~= nil and show.complex_order_strategy_leg_index then
     local iteration = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg_index, complex_order_strategy_leg_index)
     iteration:set_generated()
   end
@@ -2659,7 +2660,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.message.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_index, message_index)
     iteration:set_generated()
   end

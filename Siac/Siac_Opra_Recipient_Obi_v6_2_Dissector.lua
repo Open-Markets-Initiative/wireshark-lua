@@ -134,6 +134,7 @@ show.packet = true
 show.short_equity_and_index_quote = true
 show.underlying_value = true
 show.application_messages = true
+show.message_index = true
 
 -- Register Siac Opra Recipient Obi 6.2 Show Options
 omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
@@ -154,88 +155,68 @@ omi_siac_opra_recipient_obi_v6_2.prefs.show_packet = Pref.bool("Show Packet", sh
 omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote = Pref.bool("Show Short Equity And Index Quote", show.short_equity_and_index_quote, "Parse and add Short Equity And Index Quote to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value = Pref.bool("Show Underlying Value", show.underlying_value, "Parse and add Underlying Value to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_siac_opra_recipient_obi_v6_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v6_2.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.administrative ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative then
     show.administrative = omi_siac_opra_recipient_obi_v6_2.prefs.show_administrative
-    changed = true
   end
   if show.application_messages ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_application_messages then
     show.application_messages = omi_siac_opra_recipient_obi_v6_2.prefs.show_application_messages
-    changed = true
   end
   if show.best_bid_and_offer_appendage ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage then
     show.best_bid_and_offer_appendage = omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_and_offer_appendage
-    changed = true
   end
   if show.best_bid_appendage ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage then
     show.best_bid_appendage = omi_siac_opra_recipient_obi_v6_2.prefs.show_best_bid_appendage
-    changed = true
   end
   if show.best_offer_appendage ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage then
     show.best_offer_appendage = omi_siac_opra_recipient_obi_v6_2.prefs.show_best_offer_appendage
-    changed = true
   end
   if show.block_header ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_block_header then
     show.block_header = omi_siac_opra_recipient_obi_v6_2.prefs.show_block_header
-    changed = true
   end
   if show.block_timestamp ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp then
     show.block_timestamp = omi_siac_opra_recipient_obi_v6_2.prefs.show_block_timestamp
-    changed = true
   end
   if show.control ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_control then
     show.control = omi_siac_opra_recipient_obi_v6_2.prefs.show_control
-    changed = true
   end
   if show.equity_and_index_end_of_day_summary ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary then
     show.equity_and_index_end_of_day_summary = omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_end_of_day_summary
-    changed = true
   end
   if show.equity_and_index_last_sale ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale then
     show.equity_and_index_last_sale = omi_siac_opra_recipient_obi_v6_2.prefs.show_equity_and_index_last_sale
-    changed = true
   end
   if show.expiration_block ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_expiration_block then
     show.expiration_block = omi_siac_opra_recipient_obi_v6_2.prefs.show_expiration_block
-    changed = true
   end
   if show.long_equity_and_index_quote ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote then
     show.long_equity_and_index_quote = omi_siac_opra_recipient_obi_v6_2.prefs.show_long_equity_and_index_quote
-    changed = true
   end
   if show.message ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_message then
     show.message = omi_siac_opra_recipient_obi_v6_2.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_message_header then
     show.message_header = omi_siac_opra_recipient_obi_v6_2.prefs.show_message_header
-    changed = true
   end
   if show.open_interest ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest then
     show.open_interest = omi_siac_opra_recipient_obi_v6_2.prefs.show_open_interest
-    changed = true
   end
   if show.packet ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_packet then
     show.packet = omi_siac_opra_recipient_obi_v6_2.prefs.show_packet
-    changed = true
   end
   if show.short_equity_and_index_quote ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote then
     show.short_equity_and_index_quote = omi_siac_opra_recipient_obi_v6_2.prefs.show_short_equity_and_index_quote
-    changed = true
   end
   if show.underlying_value ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value then
     show.underlying_value = omi_siac_opra_recipient_obi_v6_2.prefs.show_underlying_value
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_siac_opra_recipient_obi_v6_2.prefs.show_message_index then
+    show.message_index = omi_siac_opra_recipient_obi_v6_2.prefs.show_message_index
   end
 end
 
@@ -3757,7 +3738,7 @@ siac_opra_recipient_obi_v6_2.message.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_siac_opra_recipient_obi_v6_2.fields.message_index, message_index)
     iteration:set_generated()
   end

@@ -76,37 +76,25 @@ omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_stream_id = Pref.bool("Sh
 
 -- Handle changed preferences
 function omi_nyse_options_streamprotocol_pillar_v1_6.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.msg_header ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_msg_header then
     show.msg_header = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_msg_header
-    changed = true
   end
   if show.seq_msg_header ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_header then
     show.seq_msg_header = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_header
-    changed = true
   end
   if show.seq_msg_id ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_id then
     show.seq_msg_id = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_seq_msg_id
-    changed = true
   end
   if show.sequenced_message ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_sequenced_message then
     show.sequenced_message = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_sequenced_message
-    changed = true
   end
   if show.session_messages ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_session_messages then
     show.session_messages = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_session_messages
-    changed = true
   end
   if show.stream_id ~= omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_stream_id then
     show.stream_id = omi_nyse_options_streamprotocol_pillar_v1_6.prefs.show_stream_id
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

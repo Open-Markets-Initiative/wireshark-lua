@@ -85,41 +85,28 @@ omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_packet_header = Pref.bool("Sh
 
 -- Handle changed preferences
 function omi_nyse_equities_openbook_ultra_v2_1_b.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_application_messages then
     show.application_messages = omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_application_messages
-    changed = true
   end
   if show.delta_price_point ~= omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point then
     show.delta_price_point = omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_delta_price_point
-    changed = true
   end
   if show.delta_update_messages ~= omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages then
     show.delta_update_messages = omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages
-    changed = true
   end
   if show.full_price_point ~= omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point then
     show.full_price_point = omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_full_price_point
-    changed = true
   end
   if show.full_update_messages ~= omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages then
     show.full_update_messages = omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_full_update_messages
-    changed = true
   end
   if show.packet ~= omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_packet then
     show.packet = omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_packet_header then
     show.packet_header = omi_nyse_equities_openbook_ultra_v2_1_b.prefs.show_packet_header
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

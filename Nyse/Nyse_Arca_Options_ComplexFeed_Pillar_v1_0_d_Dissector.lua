@@ -147,6 +147,8 @@ show.packet = true
 show.packet_header = true
 show.send_time = true
 show.trade_condition = true
+show.message_index = true
+show.leg_definition_index = true
 
 -- Register Nyse Arca Options ComplexFeed Pillar 1.0.d Show Options
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -157,48 +159,42 @@ omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet = Pref.bool("S
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
 omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
+omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_application_messages then
     show.application_messages = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_application_messages
-    changed = true
   end
   if show.leg_definition ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_leg_definition then
     show.leg_definition = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_leg_definition
-    changed = true
   end
   if show.message ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message then
     show.message = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_header then
     show.message_header = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet then
     show.packet = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet_header then
     show.packet_header = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_packet_header
-    changed = true
   end
   if show.send_time ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_send_time then
     show.send_time = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_send_time
-    changed = true
   end
   if show.trade_condition ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_trade_condition then
     show.trade_condition = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_trade_condition
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_index then
+    show.message_index = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_message_index
+  end
+  if show.leg_definition_index ~= omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_leg_definition_index then
+    show.leg_definition_index = omi_nyse_arca_options_complexfeed_pillar_v1_0_d.prefs.show_leg_definition_index
   end
 end
 
@@ -3035,7 +3031,7 @@ nyse_arca_options_complexfeed_pillar_v1_0_d.leg_definition.fields = function(buf
   local index = offset
 
   -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil then
+  if leg_definition_index ~= nil and show.leg_definition_index then
     local iteration = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
@@ -4148,7 +4144,7 @@ nyse_arca_options_complexfeed_pillar_v1_0_d.message.fields = function(buffer, of
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_nyse_arca_options_complexfeed_pillar_v1_0_d.fields.message_index, message_index)
     iteration:set_generated()
   end

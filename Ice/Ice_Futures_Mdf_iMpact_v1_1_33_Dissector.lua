@@ -296,6 +296,11 @@ show.packet = true
 show.packet_header = true
 show.special_field = true
 show.strategy_leg_definition = true
+show.message_index = true
+show.leg_definition_index = true
+show.special_field_index = true
+show.strategy_leg_definition_index = true
+show.hedge_definition_index = true
 
 -- Register Ice Futures Mdf iMpact 1.1.33 Show Options
 omi_ice_futures_mdf_impact_v1_1_33.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -307,52 +312,57 @@ omi_ice_futures_mdf_impact_v1_1_33.prefs.show_packet = Pref.bool("Show Packet", 
 omi_ice_futures_mdf_impact_v1_1_33.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_33.prefs.show_special_field = Pref.bool("Show Special Field", show.special_field, "Parse and add Special Field to protocol tree")
 omi_ice_futures_mdf_impact_v1_1_33.prefs.show_strategy_leg_definition = Pref.bool("Show Strategy Leg Definition", show.strategy_leg_definition, "Parse and add Strategy Leg Definition to protocol tree")
+omi_ice_futures_mdf_impact_v1_1_33.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_ice_futures_mdf_impact_v1_1_33.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
+omi_ice_futures_mdf_impact_v1_1_33.prefs.show_special_field_index = Pref.bool("Show Special Field Index", show.special_field_index, "Show generated special field index in protocol tree")
+omi_ice_futures_mdf_impact_v1_1_33.prefs.show_strategy_leg_definition_index = Pref.bool("Show Strategy Leg Definition Index", show.strategy_leg_definition_index, "Show generated strategy leg definition index in protocol tree")
+omi_ice_futures_mdf_impact_v1_1_33.prefs.show_hedge_definition_index = Pref.bool("Show Hedge Definition Index", show.hedge_definition_index, "Show generated hedge definition index in protocol tree")
 
 -- Handle changed preferences
 function omi_ice_futures_mdf_impact_v1_1_33.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_application_messages then
     show.application_messages = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_application_messages
-    changed = true
   end
   if show.hedge_definition ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_hedge_definition then
     show.hedge_definition = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_hedge_definition
-    changed = true
   end
   if show.leg_definition ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_leg_definition then
     show.leg_definition = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_leg_definition
-    changed = true
   end
   if show.message ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_message then
     show.message = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_message_header then
     show.message_header = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_packet then
     show.packet = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_packet_header then
     show.packet_header = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_packet_header
-    changed = true
   end
   if show.special_field ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_special_field then
     show.special_field = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_special_field
-    changed = true
   end
   if show.strategy_leg_definition ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_strategy_leg_definition then
     show.strategy_leg_definition = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_strategy_leg_definition
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_message_index then
+    show.message_index = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_message_index
+  end
+  if show.leg_definition_index ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_leg_definition_index then
+    show.leg_definition_index = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_leg_definition_index
+  end
+  if show.special_field_index ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_special_field_index then
+    show.special_field_index = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_special_field_index
+  end
+  if show.strategy_leg_definition_index ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_strategy_leg_definition_index then
+    show.strategy_leg_definition_index = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_strategy_leg_definition_index
+  end
+  if show.hedge_definition_index ~= omi_ice_futures_mdf_impact_v1_1_33.prefs.show_hedge_definition_index then
+    show.hedge_definition_index = omi_ice_futures_mdf_impact_v1_1_33.prefs.show_hedge_definition_index
   end
 end
 
@@ -8038,7 +8048,7 @@ ice_futures_mdf_impact_v1_1_33.hedge_definition.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Hedge Definition Index
-  if hedge_definition_index ~= nil then
+  if hedge_definition_index ~= nil and show.hedge_definition_index then
     local iteration = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_definition_index, hedge_definition_index)
     iteration:set_generated()
   end
@@ -8114,7 +8124,7 @@ ice_futures_mdf_impact_v1_1_33.strategy_leg_definition.fields = function(buffer,
   local index = offset
 
   -- Implicit Strategy Leg Definition Index
-  if strategy_leg_definition_index ~= nil then
+  if strategy_leg_definition_index ~= nil and show.strategy_leg_definition_index then
     local iteration = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strategy_leg_definition_index, strategy_leg_definition_index)
     iteration:set_generated()
   end
@@ -9109,7 +9119,7 @@ ice_futures_mdf_impact_v1_1_33.special_field.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Special Field Index
-  if special_field_index ~= nil then
+  if special_field_index ~= nil and show.special_field_index then
     local iteration = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field_index, special_field_index)
     iteration:set_generated()
   end
@@ -9416,7 +9426,7 @@ ice_futures_mdf_impact_v1_1_33.leg_definition.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil then
+  if leg_definition_index ~= nil and show.leg_definition_index then
     local iteration = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
@@ -11179,7 +11189,7 @@ ice_futures_mdf_impact_v1_1_33.message.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.message_index, message_index)
     iteration:set_generated()
   end

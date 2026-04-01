@@ -135,6 +135,9 @@ show.cop_limit = true
 show.cop_order = true
 show.frame_header = true
 show.packet = true
+show.body_index = true
+show.cop_order_index = true
+show.cop_limit_index = true
 
 -- Register Tmx QuantumFeed TsxTsxvLevel2 Xmt 2.1 Show Options
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -146,52 +149,49 @@ omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_limit = Pref.bool("Sho
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_order = Pref.bool("Show Cop Order", show.cop_order, "Parse and add Cop Order to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body_index = Pref.bool("Show Body Index", show.body_index, "Show generated body index in protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_order_index = Pref.bool("Show Cop Order Index", show.cop_order_index, "Show generated cop order index in protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_limit_index = Pref.bool("Show Cop Limit Index", show.cop_limit_index, "Show generated cop limit index in protocol tree")
 
 -- Handle changed preferences
 function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_application_messages then
     show.application_messages = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_application_messages
-    changed = true
   end
   if show.body ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body then
     show.body = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body
-    changed = true
   end
   if show.body_header ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body_header then
     show.body_header = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body_header
-    changed = true
   end
   if show.body_message ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body_message then
     show.body_message = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body_message
-    changed = true
   end
   if show.business_header ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_business_header then
     show.business_header = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_business_header
-    changed = true
   end
   if show.cop_limit ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_limit then
     show.cop_limit = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_limit
-    changed = true
   end
   if show.cop_order ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_order then
     show.cop_order = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_order
-    changed = true
   end
   if show.frame_header ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_frame_header then
     show.frame_header = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_frame_header
-    changed = true
   end
   if show.packet ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_packet then
     show.packet = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_packet
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.body_index ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body_index then
+    show.body_index = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_body_index
+  end
+  if show.cop_order_index ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_order_index then
+    show.cop_order_index = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_order_index
+  end
+  if show.cop_limit_index ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_limit_index then
+    show.cop_limit_index = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_limit_index
   end
 end
 
@@ -3260,7 +3260,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.cop_limit.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Cop Limit Index
-  if cop_limit_index ~= nil then
+  if cop_limit_index ~= nil and show.cop_limit_index then
     local iteration = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.cop_limit_index, cop_limit_index)
     iteration:set_generated()
   end
@@ -3419,7 +3419,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.cop_order.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Cop Order Index
-  if cop_order_index ~= nil then
+  if cop_order_index ~= nil and show.cop_order_index then
     local iteration = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.cop_order_index, cop_order_index)
     iteration:set_generated()
   end
@@ -4000,7 +4000,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.body.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Body Index
-  if body_index ~= nil then
+  if body_index ~= nil and show.body_index then
     local iteration = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.body_index, body_index)
     iteration:set_generated()
   end

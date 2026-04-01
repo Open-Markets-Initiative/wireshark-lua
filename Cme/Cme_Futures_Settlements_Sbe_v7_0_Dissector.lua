@@ -115,6 +115,9 @@ show.packet = true
 show.settl_price_type = true
 show.strike_price = true
 show.underlying_maturity_month_year = true
+show.incremental_refresh_settle_group_index = true
+show.incremental_refresh_voi_group_index = true
+show.incremental_refresh_high_low_group_index = true
 
 -- Register Cme Futures Settlements Sbe 7.0 Show Options
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
@@ -136,92 +139,79 @@ omi_cme_futures_settlements_sbe_v7_0.prefs.show_packet = Pref.bool("Show Packet"
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
 omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year = Pref.bool("Show Underlying Maturity Month Year", show.underlying_maturity_month_year, "Parse and add Underlying Maturity Month Year to protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group_index = Pref.bool("Show Incremental Refresh Settle Group Index", show.incremental_refresh_settle_group_index, "Show generated incremental refresh settle group index in protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group_index = Pref.bool("Show Incremental Refresh Voi Group Index", show.incremental_refresh_voi_group_index, "Show generated incremental refresh voi group index in protocol tree")
+omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index = Pref.bool("Show Incremental Refresh High Low Group Index", show.incremental_refresh_high_low_group_index, "Show generated incremental refresh high low group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cme_futures_settlements_sbe_v7_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_application_messages then
     show.application_messages = omi_cme_futures_settlements_sbe_v7_0.prefs.show_application_messages
-    changed = true
   end
   if show.binary_packet_header ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_futures_settlements_sbe_v7_0.prefs.show_binary_packet_header
-    changed = true
   end
   if show.formatted_last_px ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px then
     show.formatted_last_px = omi_cme_futures_settlements_sbe_v7_0.prefs.show_formatted_last_px
-    changed = true
   end
   if show.group_size ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_group_size then
     show.group_size = omi_cme_futures_settlements_sbe_v7_0.prefs.show_group_size
-    changed = true
   end
   if show.high_px ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_high_px then
     show.high_px = omi_cme_futures_settlements_sbe_v7_0.prefs.show_high_px
-    changed = true
   end
   if show.incremental_refresh_high_low_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group then
     show.incremental_refresh_high_low_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group
-    changed = true
   end
   if show.incremental_refresh_high_low_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_groups then
     show.incremental_refresh_high_low_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_groups
-    changed = true
   end
   if show.incremental_refresh_settle_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group then
     show.incremental_refresh_settle_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group
-    changed = true
   end
   if show.incremental_refresh_settle_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_groups then
     show.incremental_refresh_settle_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_groups
-    changed = true
   end
   if show.incremental_refresh_voi_group ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group then
     show.incremental_refresh_voi_group = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group
-    changed = true
   end
   if show.incremental_refresh_voi_groups ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups then
     show.incremental_refresh_voi_groups = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups
-    changed = true
   end
   if show.low_px ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px then
     show.low_px = omi_cme_futures_settlements_sbe_v7_0.prefs.show_low_px
-    changed = true
   end
   if show.maturity_month_year ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year then
     show.maturity_month_year = omi_cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year
-    changed = true
   end
   if show.message ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_message then
     show.message = omi_cme_futures_settlements_sbe_v7_0.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_message_header then
     show.message_header = omi_cme_futures_settlements_sbe_v7_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_packet then
     show.packet = omi_cme_futures_settlements_sbe_v7_0.prefs.show_packet
-    changed = true
   end
   if show.settl_price_type ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type then
     show.settl_price_type = omi_cme_futures_settlements_sbe_v7_0.prefs.show_settl_price_type
-    changed = true
   end
   if show.strike_price ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_strike_price then
     show.strike_price = omi_cme_futures_settlements_sbe_v7_0.prefs.show_strike_price
-    changed = true
   end
   if show.underlying_maturity_month_year ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year then
     show.underlying_maturity_month_year = omi_cme_futures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.incremental_refresh_settle_group_index ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group_index then
+    show.incremental_refresh_settle_group_index = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group_index
+  end
+  if show.incremental_refresh_voi_group_index ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group_index then
+    show.incremental_refresh_voi_group_index = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group_index
+  end
+  if show.incremental_refresh_high_low_group_index ~= omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index then
+    show.incremental_refresh_high_low_group_index = omi_cme_futures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index
   end
 end
 
@@ -1735,7 +1725,7 @@ cme_futures_settlements_sbe_v7_0.incremental_refresh_high_low_group.fields = fun
   local index = offset
 
   -- Implicit Incremental Refresh High Low Group Index
-  if incremental_refresh_high_low_group_index ~= nil then
+  if incremental_refresh_high_low_group_index ~= nil and show.incremental_refresh_high_low_group_index then
     local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_group_index, incremental_refresh_high_low_group_index)
     iteration:set_generated()
   end
@@ -2007,7 +1997,7 @@ cme_futures_settlements_sbe_v7_0.incremental_refresh_voi_group.fields = function
   local index = offset
 
   -- Implicit Incremental Refresh Voi Group Index
-  if incremental_refresh_voi_group_index ~= nil then
+  if incremental_refresh_voi_group_index ~= nil and show.incremental_refresh_voi_group_index then
     local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group_index, incremental_refresh_voi_group_index)
     iteration:set_generated()
   end
@@ -2375,7 +2365,7 @@ cme_futures_settlements_sbe_v7_0.incremental_refresh_settle_group.fields = funct
   local index = offset
 
   -- Implicit Incremental Refresh Settle Group Index
-  if incremental_refresh_settle_group_index ~= nil then
+  if incremental_refresh_settle_group_index ~= nil and show.incremental_refresh_settle_group_index then
     local iteration = parent:add(omi_cme_futures_settlements_sbe_v7_0.fields.incremental_refresh_settle_group_index, incremental_refresh_settle_group_index)
     iteration:set_generated()
   end

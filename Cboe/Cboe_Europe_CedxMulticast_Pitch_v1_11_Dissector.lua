@@ -173,6 +173,8 @@ show.packet_header = true
 show.price_level_group = true
 show.summary_flags = true
 show.trade_flags = true
+show.message_index = true
+show.price_level_group_index = true
 
 -- Register Cboe Europe CedxMulticast Pitch 1.11 Show Options
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -185,56 +187,48 @@ omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_packet_header = Pref.bool("
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_price_level_group = Pref.bool("Show Price Level Group", show.price_level_group, "Parse and add Price Level Group to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_summary_flags = Pref.bool("Show Summary Flags", show.summary_flags, "Parse and add Summary Flags to protocol tree")
 omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
+omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_price_level_group_index = Pref.bool("Show Price Level Group Index", show.price_level_group_index, "Show generated price level group index in protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_application_messages then
     show.application_messages = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_application_messages
-    changed = true
   end
   if show.execution_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_execution_flags then
     show.execution_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_execution_flags
-    changed = true
   end
   if show.extended_trade_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_extended_trade_flags then
     show.extended_trade_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_extended_trade_flags
-    changed = true
   end
   if show.message ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message then
     show.message = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message
-    changed = true
   end
   if show.message_header ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message_header then
     show.message_header = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_packet then
     show.packet = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_packet
-    changed = true
   end
   if show.packet_header ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_packet_header then
     show.packet_header = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_packet_header
-    changed = true
   end
   if show.price_level_group ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_price_level_group then
     show.price_level_group = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_price_level_group
-    changed = true
   end
   if show.summary_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_summary_flags then
     show.summary_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_summary_flags
-    changed = true
   end
   if show.trade_flags ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_flags then
     show.trade_flags = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_trade_flags
-    changed = true
   end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
+  if show.message_index ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message_index then
+    show.message_index = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_message_index
+  end
+  if show.price_level_group_index ~= omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_price_level_group_index then
+    show.price_level_group_index = omi_cboe_europe_cedxmulticast_pitch_v1_11.prefs.show_price_level_group_index
   end
 end
 
@@ -3138,7 +3132,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.price_level_group.fields = function(buffer
   local index = offset
 
   -- Implicit Price Level Group Index
-  if price_level_group_index ~= nil then
+  if price_level_group_index ~= nil and show.price_level_group_index then
     local iteration = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index, price_level_group_index)
     iteration:set_generated()
   end
@@ -4900,7 +4894,7 @@ cboe_europe_cedxmulticast_pitch_v1_11.message.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil then
+  if message_index ~= nil and show.message_index then
     local iteration = parent:add(omi_cboe_europe_cedxmulticast_pitch_v1_11.fields.message_index, message_index)
     iteration:set_generated()
   end

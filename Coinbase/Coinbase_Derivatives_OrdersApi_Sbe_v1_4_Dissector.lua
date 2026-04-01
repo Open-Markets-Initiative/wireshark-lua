@@ -155,33 +155,22 @@ omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message = Pref.bool("
 
 -- Handle changed preferences
 function omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_application_messages then
     show.application_messages = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_application_messages
-    changed = true
   end
   if show.data ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data then
     show.data = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data
-    changed = true
   end
   if show.message_header ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header then
     show.message_header = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet then
     show.packet = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet
-    changed = true
   end
   if show.sbe_message ~= omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message then
     show.sbe_message = omi_coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 

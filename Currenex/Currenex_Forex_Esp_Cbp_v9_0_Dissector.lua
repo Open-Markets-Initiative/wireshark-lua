@@ -75,25 +75,16 @@ omi_currenex_forex_esp_cbp_v9_0.prefs.show_packet = Pref.bool("Show Packet", sho
 
 -- Handle changed preferences
 function omi_currenex_forex_esp_cbp_v9_0.prefs_changed()
-  local changed = false
 
   -- Check if show options have changed
   if show.application_messages ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_application_messages then
     show.application_messages = omi_currenex_forex_esp_cbp_v9_0.prefs.show_application_messages
-    changed = true
   end
   if show.message_header ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_message_header then
     show.message_header = omi_currenex_forex_esp_cbp_v9_0.prefs.show_message_header
-    changed = true
   end
   if show.packet ~= omi_currenex_forex_esp_cbp_v9_0.prefs.show_packet then
     show.packet = omi_currenex_forex_esp_cbp_v9_0.prefs.show_packet
-    changed = true
-  end
-
-  -- Reload on changed preference
-  if changed then
-    reload()
   end
 end
 
