@@ -3,17 +3,17 @@
 
 ## Hong Kong Exchanges and Clearing
 
-| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Data][Omi.Hkex.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Derivatives | [FullTick][Hkex.Derivatives.FullTick.Omd.v2.0.Dissector] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.FullTick.Omd.v2.0.Dissector] | 9/16/2025 | 5164 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Hkex.Derivatives.FullTick.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.FullTick.Omd.v2.0.Pdf] |
-| Derivatives | [FullTick][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | 10/14/2025 | 5132 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.FullTick.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.FullTick.Omd.v1.47.Pdf] |
-| Derivatives | [Lite][Hkex.Derivatives.Lite.Omd.v2.0.Dissector] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.Lite.Omd.v2.0.Dissector] | 9/16/2025 | 5528 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Lite.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.Lite.Omd.v2.0.Pdf] |
-| Derivatives | [Lite][Hkex.Derivatives.Lite.Omd.v1.47.Dissector] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.Lite.Omd.v1.47.Dissector] | 10/14/2025 | 4905 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Lite.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Lite.Omd.v1.47.Pdf] |
-| Derivatives | [Premium][Hkex.Derivatives.Premium.Omd.v2.0.Dissector] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.Premium.Omd.v2.0.Dissector] | 9/16/2025 | 5438 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Premium.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.Premium.Omd.v2.0.Pdf] |
-| Derivatives | [Premium][Hkex.Derivatives.Premium.Omd.v1.47.Dissector] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.Premium.Omd.v1.47.Dissector] | 10/14/2025 | 5468 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Premium.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Premium.Omd.v1.47.Pdf] |
-| Derivatives | [Standard][Hkex.Derivatives.Standard.Omd.v2.0.Dissector] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.Standard.Omd.v2.0.Dissector] | 9/16/2025 | 5362 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Standard.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.Standard.Omd.v2.0.Pdf] |
-| Derivatives | [Standard][Hkex.Derivatives.Standard.Omd.v1.47.Dissector] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.Standard.Omd.v1.47.Dissector] | 10/14/2025 | 4905 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Standard.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Standard.Omd.v1.47.Pdf] |
-| Orion | [Headers][Hkex.Orion.Headers.Udp.v1.0.Dissector] | [Udp][Omi.Protocol.Udp] | [1.0][Hkex.Orion.Headers.Udp.v1.0.Dissector] | 1/31/2013 | 517 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Orion.Headers.Udp.v1.0.Url] |
+| Derivatives | [FullTick][Omi.Hkex.FullTick] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.FullTick.Omd.v2.0.Dissector] | 9/16/2025 | 5164 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Hkex.Derivatives.FullTick.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.FullTick.Omd.v2.0.Pdf] |
+| Derivatives | [FullTick][Omi.Hkex.FullTick] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.FullTick.Omd.v1.47.Dissector] | 10/14/2025 | 5132 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.FullTick.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.FullTick.Omd.v1.47.Pdf] |
+| Derivatives | [Lite][Omi.Hkex.Lite] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.Lite.Omd.v2.0.Dissector] | 9/16/2025 | 5528 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Lite.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.Lite.Omd.v2.0.Pdf] |
+| Derivatives | [Lite][Omi.Hkex.Lite] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.Lite.Omd.v1.47.Dissector] | 10/14/2025 | 4905 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Lite.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Lite.Omd.v1.47.Pdf] |
+| Derivatives | [Premium][Omi.Hkex.Premium] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.Premium.Omd.v2.0.Dissector] | 9/16/2025 | 5438 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Premium.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.Premium.Omd.v2.0.Pdf] |
+| Derivatives | [Premium][Omi.Hkex.Premium] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.Premium.Omd.v1.47.Dissector] | 10/14/2025 | 5468 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Premium.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Premium.Omd.v1.47.Pdf] |
+| Derivatives | [Standard][Omi.Hkex.Standard] | [Omd][Omi.Protocol.Omd] | [2.0][Hkex.Derivatives.Standard.Omd.v2.0.Dissector] | 9/16/2025 | 5362 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Standard.Omd.v2.0.Url] - [pdf][Hkex.Derivatives.Standard.Omd.v2.0.Pdf] |
+| Derivatives | [Standard][Omi.Hkex.Standard] | [Omd][Omi.Protocol.Omd] | [1.47][Hkex.Derivatives.Standard.Omd.v1.47.Dissector] | 10/14/2025 | 4905 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Derivatives.Standard.Omd.v1.47.Url] - [pdf][Hkex.Derivatives.Standard.Omd.v1.47.Pdf] |
+| Orion | [Headers][Omi.Hkex.Headers] | [Udp][Omi.Protocol.Udp] | [1.0][Hkex.Orion.Headers.Udp.v1.0.Dissector] | 1/31/2013 | 517 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Hkex.Orion.Headers.Udp.v1.0.Url] |
 
 
 Hkex: [website](https://www.hkex.com.hk "Go to Hong Kong Exchanges and Clearing")
@@ -31,8 +31,14 @@ Hkex: [website](https://www.hkex.com.hk "Go to Hong Kong Exchanges and Clearing"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
+[Omi.Hkex.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex "Hkex Data Directory"
 [Omi.Protocol.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Protocol"
 [Omi.Protocol.Omd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Omd.md "Omd Protocol"
+[Omi.Hkex.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Headers "Hkex Headers"
+[Omi.Hkex.Lite]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Lite "Hkex Lite"
+[Omi.Hkex.Standard]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Standard "Hkex Standard"
+[Omi.Hkex.Premium]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Premium "Hkex Premium"
+[Omi.Hkex.FullTick]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/FullTick "Hkex FullTick"
 
 [Hkex.Orion.Headers.Udp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Hkex/Hkex_Orion_Headers_Udp_v1_0_Dissector.lua "Hkex Orion Headers Udp v1.0 Wireshark Dissector"
 [Hkex.Orion.Headers.Udp.v1.0.Url]: https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Reference-Materials/Technical-Documents "Hong Kong Exchanges and Clearing 1.0 Url"

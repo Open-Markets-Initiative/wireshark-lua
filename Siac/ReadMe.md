@@ -3,17 +3,17 @@
 
 ## Securities Industry Automation Corporation
 
-| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Data][Omi.Siac.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Cqs | [Output][Siac.Cqs.Output.Cta.v2.9.Dissector] | [Cta][Omi.Protocol.Cta] | [2.9][Siac.Cqs.Output.Cta.v2.9.Dissector] | 12/16/2022 | 5084 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Output.Cta.v2.9.Url] - [pdf][Siac.Cqs.Output.Cta.v2.9.Pdf] |
-| Cqs | [Output][Siac.Cqs.Output.Cta.v1.91.Dissector] | [Cta][Omi.Protocol.Cta] | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | 4876 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cqs.Output.Cta.v1.91.Url] - [pdf][Siac.Cqs.Output.Cta.v1.91.Pdf] |
-| Cqs | [Snapshot][Siac.Cqs.Snapshot.Cta.v1.0.Dissector] | [Cta][Omi.Protocol.Cta] | [1.0][Siac.Cqs.Snapshot.Cta.v1.0.Dissector] | 1/24/2022 | 3174 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Snapshot.Cta.v1.0.Url] - [pdf][Siac.Cqs.Snapshot.Cta.v1.0.Pdf] |
-| Cts | [Output][Siac.Cts.Output.Cta.v2.10.Dissector] | [Cta][Omi.Protocol.Cta] | [2.10][Siac.Cts.Output.Cta.v2.10.Dissector] | 9/30/2024 | 8479 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v2.10.Url] - [pdf][Siac.Cts.Output.Cta.v2.10.Pdf] |
-| Cts | [Output][Siac.Cts.Output.Cta.v2.9.Dissector] | [Cta][Omi.Protocol.Cta] | [2.9][Siac.Cts.Output.Cta.v2.9.Dissector] | 12/16/2022 | 6838 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cts.Output.Cta.v2.9.Url] - [pdf][Siac.Cts.Output.Cta.v2.9.Pdf] |
-| Cts | [Output][Siac.Cts.Output.Cta.v1.91.Dissector] | [Cta][Omi.Protocol.Cta] | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | 6883 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v1.91.Url] - [pdf][Siac.Cts.Output.Cta.v1.91.Pdf] |
-| Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.2.Dissector] | [Obi][Omi.Protocol.Obi] | [6.2][Siac.Opra.Recipient.Obi.v6.2.Dissector] | 12/6/2024 | 4021 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Opra.Recipient.Obi.v6.2.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.2.Pdf] |
-| Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.1.Dissector] | [Obi][Omi.Protocol.Obi] | [6.1][Siac.Opra.Recipient.Obi.v6.1.Dissector] | 3/25/2022 | 3897 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v6.1.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.1.Pdf] |
-| Opra | [Recipient][Siac.Opra.Recipient.Obi.v4.0.Dissector] | [Obi][Omi.Protocol.Obi] | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | 3818 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v4.0.Url] - [pdf][Siac.Opra.Recipient.Obi.v4.0.Pdf] |
+| Cqs | [Output][Omi.Siac.Output] | [Cta][Omi.Protocol.Cta] | [2.9][Siac.Cqs.Output.Cta.v2.9.Dissector] | 12/16/2022 | 5084 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Output.Cta.v2.9.Url] - [pdf][Siac.Cqs.Output.Cta.v2.9.Pdf] |
+| Cqs | [Output][Omi.Siac.Output] | [Cta][Omi.Protocol.Cta] | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | 4876 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cqs.Output.Cta.v1.91.Url] - [pdf][Siac.Cqs.Output.Cta.v1.91.Pdf] |
+| Cqs | [Snapshot][Omi.Siac.Snapshot] | [Cta][Omi.Protocol.Cta] | [1.0][Siac.Cqs.Snapshot.Cta.v1.0.Dissector] | 1/24/2022 | 3174 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Snapshot.Cta.v1.0.Url] - [pdf][Siac.Cqs.Snapshot.Cta.v1.0.Pdf] |
+| Cts | [Output][Omi.Siac.Output] | [Cta][Omi.Protocol.Cta] | [2.10][Siac.Cts.Output.Cta.v2.10.Dissector] | 9/30/2024 | 8479 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v2.10.Url] - [pdf][Siac.Cts.Output.Cta.v2.10.Pdf] |
+| Cts | [Output][Omi.Siac.Output] | [Cta][Omi.Protocol.Cta] | [2.9][Siac.Cts.Output.Cta.v2.9.Dissector] | 12/16/2022 | 6838 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cts.Output.Cta.v2.9.Url] - [pdf][Siac.Cts.Output.Cta.v2.9.Pdf] |
+| Cts | [Output][Omi.Siac.Output] | [Cta][Omi.Protocol.Cta] | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | 6883 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v1.91.Url] - [pdf][Siac.Cts.Output.Cta.v1.91.Pdf] |
+| Opra | [Recipient][Omi.Siac.Recipient] | [Obi][Omi.Protocol.Obi] | [6.2][Siac.Opra.Recipient.Obi.v6.2.Dissector] | 12/6/2024 | 4021 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Opra.Recipient.Obi.v6.2.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.2.Pdf] |
+| Opra | [Recipient][Omi.Siac.Recipient] | [Obi][Omi.Protocol.Obi] | [6.1][Siac.Opra.Recipient.Obi.v6.1.Dissector] | 3/25/2022 | 3897 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v6.1.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.1.Pdf] |
+| Opra | [Recipient][Omi.Siac.Recipient] | [Obi][Omi.Protocol.Obi] | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | 3818 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v4.0.Url] - [pdf][Siac.Opra.Recipient.Obi.v4.0.Pdf] |
 
 
 Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Corporation "Go to Securities Industry Automation Corporation")
@@ -31,8 +31,12 @@ Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Cor
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
+[Omi.Siac.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac "Siac Data Directory"
 [Omi.Protocol.Obi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Obi.md "Obi Protocol"
 [Omi.Protocol.Cta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cta.md "Cta Protocol"
+[Omi.Siac.Recipient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Recipient "Siac Recipient"
+[Omi.Siac.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Output "Siac Output"
+[Omi.Siac.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Snapshot "Siac Snapshot"
 
 [Siac.Opra.Recipient.Obi.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Opra_Recipient_Obi_v4_0_Dissector.lua "Siac Opra Recipient Obi v4.0 Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v4.0.Url]: https://www.opraplan.com/document-library "Securities Industry Automation Corporation 4.0 Url"

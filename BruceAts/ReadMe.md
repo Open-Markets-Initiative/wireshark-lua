@@ -3,11 +3,11 @@
 
 ## Bruce Markets
 
-| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Data][Omi.BruceAts.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [BestBidAndOffer][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1230 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf] |
-| Equities | [DepthOfBook][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1230 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf] |
-| Equities | [LastSale][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1264 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.LastSale.Itch.v1.0.Pdf] |
+| Equities | [BestBidAndOffer][Omi.BruceAts.BestBidAndOffer] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1230 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf] |
+| Equities | [DepthOfBook][Omi.BruceAts.DepthOfBook] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1230 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf] |
+| Equities | [LastSale][Omi.BruceAts.LastSale] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1264 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.LastSale.Itch.v1.0.Pdf] |
 
 
 BruceAts: [website](https://www.brucemarkets.com "Go to Bruce Markets")
@@ -25,7 +25,11 @@ BruceAts: [website](https://www.brucemarkets.com "Go to Bruce Markets")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
+[Omi.BruceAts.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts "BruceAts Data Directory"
 [Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
+[Omi.BruceAts.BestBidAndOffer]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BestBidAndOffer "BruceAts Best Bid And Offer"
+[Omi.BruceAts.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/DepthOfBook "BruceAts Depth Of Book"
+[Omi.BruceAts.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/LastSale "BruceAts Last Sale"
 
 [BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/BruceAts/BruceAts_Equities_BestBidAndOffer_Itch_v1_0_Dissector.lua "BruceAts Equities BestBidAndOffer Itch v1.0 Wireshark Dissector"
 [BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Specifications/Equities/BestBidAndOffer/Bruce.Equities.BestBidAndOffer.Itch.v1.0.pdf "Bruce Markets 1.0 Pdf"

@@ -3,10 +3,10 @@
 
 ## Texas Stock Exchange
 
-| Division | Data | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Data][Omi.Txse.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [OrderEntry][Txse.Equities.OrderEntry.Seed.v0.1.Dissector] | [Seed][Omi.Protocol.Seed] | [0.1][Txse.Equities.OrderEntry.Seed.v0.1.Dissector] | 10/14/2025 | 6778 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Equities.OrderEntry.Seed.v0.1.Url] - [pdf][Txse.Equities.OrderEntry.Seed.v0.1.Pdf] |
-| Headers | [Rake][Txse.Headers.Rake.Tcp.v1.0.Dissector] | [Tcp][Omi.Protocol.Tcp] | [1.0][Txse.Headers.Rake.Tcp.v1.0.Dissector] | 10/28/2025 | 1062 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Headers.Rake.Tcp.v1.0.Url] - [pdf][Txse.Headers.Rake.Tcp.v1.0.Pdf] |
+| Equities | [OrderEntry][Omi.Txse.OrderEntry] | [Seed][Omi.Protocol.Seed] | [0.1][Txse.Equities.OrderEntry.Seed.v0.1.Dissector] | 10/14/2025 | 6778 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Equities.OrderEntry.Seed.v0.1.Url] - [pdf][Txse.Equities.OrderEntry.Seed.v0.1.Pdf] |
+| Headers | [Rake][Omi.Txse.Rake] | [Tcp][Omi.Protocol.Tcp] | [1.0][Txse.Headers.Rake.Tcp.v1.0.Dissector] | 10/28/2025 | 1062 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Headers.Rake.Tcp.v1.0.Url] - [pdf][Txse.Headers.Rake.Tcp.v1.0.Pdf] |
 
 
 Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
@@ -24,8 +24,11 @@ Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
+[Omi.Txse.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse "Txse Data Directory"
 [Omi.Protocol.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Protocol"
 [Omi.Protocol.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Seed.md "Seed Protocol"
+[Omi.Txse.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Rake "Txse Rake"
+[Omi.Txse.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/OrderEntry "Txse Order Entry"
 
 [Txse.Headers.Rake.Tcp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_Headers_Rake_Tcp_v1_0_Dissector.lua "Txse Headers Rake Tcp v1.0 Wireshark Dissector"
 [Txse.Headers.Rake.Tcp.v1.0.Url]: https://www.txse.com/trading-membership "Texas Stock Exchange 1.0 Url"
