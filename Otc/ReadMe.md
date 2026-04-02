@@ -25,10 +25,10 @@ Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Otc.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc "Otc Data Directory"
+[Omi.Otc.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Protocols "Otc Data Directory"
 [Omi.Protocol.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Protocol"
-[Omi.Otc.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Multicast "Otc Multicast"
-[Omi.Otc.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Headers "Otc Headers"
+[Omi.Otc.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Multicast.md "Otc Multicast"
+[Omi.Otc.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Headers.md "Otc Headers"
 
 [Otc.Markets.Multicast.Ats.v4.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_Markets_Multicast_Ats_v4_3_Dissector.lua "Otc Markets Multicast Ats v4.3 Wireshark Dissector"
 [Otc.Markets.Multicast.Ats.v4.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "Otc Markets 4.3 Url"

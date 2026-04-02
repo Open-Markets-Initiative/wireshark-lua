@@ -27,9 +27,9 @@ Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Ice.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice "Ice Data Directory"
+[Omi.Ice.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols "Ice Data Directory"
 [Omi.Protocol.iMpact]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/iMpact.md "iMpact Protocol"
-[Omi.Ice.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/Mdf "Ice Multicast Data Feed"
+[Omi.Ice.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/Mdf.md "Ice Multicast Data Feed"
 
 [Ice.Futures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_Futures_Mdf_iMpact_v1_1_24_Dissector.lua "Ice Futures Mdf iMpact v1.1.24 Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Specifications/ "Intercontinental Exchange 1.1.24 Pdf"

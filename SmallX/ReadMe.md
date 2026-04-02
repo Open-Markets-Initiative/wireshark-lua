@@ -24,10 +24,10 @@ SmallX: [website](https://smallexchange.com/ "Go to The Small Exchange")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.SmallX.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX "SmallX Data Directory"
+[Omi.SmallX.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/SmallX/Protocols "SmallX Data Directory"
 [Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
-[Omi.SmallX.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/OrderBookFeed "SmallX Order Book Feed"
-[Omi.SmallX.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/Headers "SmallX Headers"
+[Omi.SmallX.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/OrderBookFeed.md "SmallX Order Book Feed"
+[Omi.SmallX.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/Headers.md "SmallX Headers"
 
 [SmallX.OrderBookFeed.Sbe.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/SmallX/SmallX_OrderBookFeed_Sbe_v2_2_Dissector.lua "SmallX OrderBookFeed Sbe v2.2 Wireshark Dissector"
 [SmallX.OrderBookFeed.Sbe.v2.2.Url]: https://smallexchange.com/reference/info-hub "The Small Exchange 2.2 Url"

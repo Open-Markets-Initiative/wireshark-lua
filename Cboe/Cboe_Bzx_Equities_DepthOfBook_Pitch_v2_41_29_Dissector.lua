@@ -970,6 +970,16 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29.time = {}
 -- Size: Time
 cboe_bzx_equities_depthofbook_pitch_v2_41_29.time.size = 4
 
+-- Store: Time
+cboe_bzx_equities_depthofbook_pitch_v2_41_29.time.store = nil
+
+-- Generated: Time
+cboe_bzx_equities_depthofbook_pitch_v2_41_29.time.generated = function(value, range, packet, parent)
+  local display = cboe_bzx_equities_depthofbook_pitch_v2_41_29.time.display(value)
+  local time = parent:add(omi_cboe_bzx_equities_depthofbook_pitch_v2_41_29.fields.time, range, value, display)
+  time:set_generated()
+end
+
 -- Display: Time
 cboe_bzx_equities_depthofbook_pitch_v2_41_29.time.display = function(value)
   return "Time: "..value
@@ -2271,6 +2281,9 @@ cboe_bzx_equities_depthofbook_pitch_v2_41_29.time_message.fields = function(buff
 
   -- Time: Binary
   index, time = cboe_bzx_equities_depthofbook_pitch_v2_41_29.time.dissect(buffer, index, packet, parent)
+
+  -- Store Time Value
+  cboe_bzx_equities_depthofbook_pitch_v2_41_29.time.store = time
 
   return index
 end

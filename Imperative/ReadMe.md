@@ -23,9 +23,9 @@ Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Imperative.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative "Imperative Data Directory"
+[Omi.Imperative.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols "Imperative Data Directory"
 [Omi.Protocol.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mdf.md "Mdf Protocol"
-[Omi.Imperative.IntelligentCross]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross "Imperative IntelligentCross"
+[Omi.Imperative.IntelligentCross]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross.md "Imperative IntelligentCross"
 
 [Imperative.IntelligentCross.Mdf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua "Imperative IntelligentCross Mdf v1.11 Wireshark Dissector"
 [Imperative.IntelligentCross.Mdf.v1.11.Url]: https://www.imperativex.com/market-data "Imperative Execution 1.11 Url"
