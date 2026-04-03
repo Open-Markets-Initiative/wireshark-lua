@@ -5,7 +5,7 @@
 
 | Division | [Data][Omi.Asx.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Securities | [Ntp][Omi.Asx.Ntp] | [Itch][Omi.Protocol.Itch] | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5140 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Asx.Securities.Ntp.Itch.v1.05.Url] - [pdf][Asx.Securities.Ntp.Itch.v1.05.Pdf] |
+| Securities | [Ntp][Omi.Asx.Ntp] | [Itch][Omi.Protocol.Itch] | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5095 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Asx.Securities.Ntp.Itch.v1.05.Url] - [pdf][Asx.Securities.Ntp.Itch.v1.05.Pdf] |
 | Securities | [T24][Omi.Asx.T24] | [Itch][Omi.Protocol.Itch] | [1.13][Asx.Securities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5515 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.Securities.T24.Itch.v1.13.Pdf] |
 | Securities | [Trade][Omi.Asx.Trade] | [Itch][Omi.Protocol.Itch] | [3.1][Asx.Securities.Trade.Itch.v3.1.Dissector] | 3/1/2023 | 3046 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.Securities.Trade.Itch.v3.1.Url] - [pdf][Asx.Securities.Trade.Itch.v3.1.Pdf] |
 | Securities | [Trade][Omi.Asx.Trade] | [Itch][Omi.Protocol.Itch] | [2.0][Asx.Securities.Trade.Itch.v2.0.Dissector] | 4/1/2015 | 3093 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.Securities.Trade.Itch.v2.0.Pdf] |

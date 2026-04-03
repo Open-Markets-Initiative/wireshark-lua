@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 435 | 4,194,638 |
+| 435 | 4,169,424 |
 
 ## Testing
 
@@ -195,7 +195,7 @@ Enjoy.
 [Omi.Nasdaq.TopComboQuoteFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TopComboQuoteFeed.md "Nasdaq Top Combo Quote Feed"
 [Omi.Nasdaq.Bono]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Bono.md "Nasdaq Best of Nasdaq Options"
 [Omi.Nasdaq.Itto]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Itto.md "Nasdaq Itch to Trade Options"
-[Omi.Nasdaq.Qbbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Qbbo.md "Nasdaq Qbbo"
+[Omi.Nasdaq.Qbbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Qbbo.md "Nasdaq Nasdaq Best Bid and Offer"
 [Omi.Nasdaq.MarketDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/MarketDepth.md "Nasdaq Depth of Market"
 [Omi.Nasdaq.Topo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Topo.md "Nasdaq Top of Phlx Options"
 [Omi.Nasdaq.Bbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Bbo.md "Nasdaq Best Bid and Offer"

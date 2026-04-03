@@ -5,9 +5,9 @@
 
 | Division | [Data][Omi.BruceAts.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [BestBidAndOffer][Omi.BruceAts.BestBidAndOffer] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1230 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf] |
-| Equities | [DepthOfBook][Omi.BruceAts.DepthOfBook] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1230 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf] |
-| Equities | [LastSale][Omi.BruceAts.LastSale] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1264 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.LastSale.Itch.v1.0.Pdf] |
+| Equities | [BestBidAndOffer][Omi.BruceAts.BestBidAndOffer] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1221 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf] |
+| Equities | [DepthOfBook][Omi.BruceAts.DepthOfBook] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1221 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf] |
+| Equities | [LastSale][Omi.BruceAts.LastSale] | [Itch][Omi.Protocol.Itch] | [1.0][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1255 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.LastSale.Itch.v1.0.Pdf] |
 
 
 BruceAts: [website](https://www.brucemarkets.com "Go to Bruce Markets")
