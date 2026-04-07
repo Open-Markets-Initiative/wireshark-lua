@@ -3,11 +3,11 @@
 
 ## Boston Options Exchange
 
-| Division | [Data][Omi.Box.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Box.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Options Sola | [Multicast][Omi.Box.Multicast] | [Hsvf][Omi.Protocol.Hsvf] | [1.9][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | 2/15/2024 | 6684 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.9.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf] |
-| Options Sola | [Multicast][Omi.Box.Multicast] | [Hsvf][Omi.Protocol.Hsvf] | [1.8][Box.Options.Sola.Multicast.Hsvf.v1.8.Dissector] | 10/17/2023 | 6633 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.8.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.8.Pdf] |
-| Options Sola | [Unicast][Omi.Box.Unicast] | [Hsvf][Omi.Protocol.Hsvf] | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 7077 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf] |
+| Options Sola | [Multicast][Omi.Box.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.9][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | 2/15/2024 | 6684 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.9.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf] |
+| Options Sola | [Multicast][Omi.Box.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.8][Box.Options.Sola.Multicast.Hsvf.v1.8.Dissector] | 10/17/2023 | 6633 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.8.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.8.Pdf] |
+| Options Sola | [Unicast][Omi.Box.Unicast] | [Hsvf][Omi.Encoding.Hsvf] | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 7077 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf] |
 
 
 Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
@@ -24,8 +24,8 @@ Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
-[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Box.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Box/Protocols "Box Data Directory"
+[Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
+[Omi.Box.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Box/Protocols "Box Protocol Directory"
 [Omi.Protocol.Hsvf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Hsvf.md "Hsvf Protocol"
 [Omi.Box.Unicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Unicast.md "Box Unicast"
 [Omi.Box.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Multicast.md "Box Multicast"

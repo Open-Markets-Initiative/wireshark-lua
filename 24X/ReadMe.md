@@ -3,12 +3,12 @@
 
 ## 24 Exchange
 
-| Division | [Data][Omi.24X.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.24X.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [Memo][Omi.24X.Memo] | [Sbe][Omi.Protocol.Sbe] | [1.13][24X.Equities.Memo.Sbe.v1.13.Dissector] | 9/1/2025 | 6953 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.Memo.Sbe.v1.13.Url] - [pdf][24X.Equities.Memo.Sbe.v1.13.Pdf] - [xml][24X.Equities.Memo.Sbe.v1.13.Xml] |
-| Equities | [MemoirDepthFeed][Omi.24X.MemoirDepthFeed] | [Sbe][Omi.Protocol.Sbe] | [1.3][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2219 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Xml] |
-| Equities | [MemoirLastSale][Omi.24X.MemoirLastSale] | [Sbe][Omi.Protocol.Sbe] | [1.3][24X.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | 9/1/2025 | 2374 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][24X.Equities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirLastSale.Sbe.v1.3.Xml] |
-| Equities | [MemoirTopOfBook][Omi.24X.MemoirTopOfBook] | [Sbe][Omi.Protocol.Sbe] | [1.3][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 9/1/2025 | 2009 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Xml] |
+| Equities | [Memo][Omi.24X.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][24X.Equities.Memo.Sbe.v1.13.Dissector] | 9/1/2025 | 6953 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.Memo.Sbe.v1.13.Url] - [pdf][24X.Equities.Memo.Sbe.v1.13.Pdf] - [xml][24X.Equities.Memo.Sbe.v1.13.Xml] |
+| Equities | [MemoirDepthFeed][Omi.24X.MemoirDepthFeed] | [Sbe][Omi.Encoding.Sbe] | [1.3][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2219 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Xml] |
+| Equities | [MemoirLastSale][Omi.24X.MemoirLastSale] | [Sbe][Omi.Encoding.Sbe] | [1.3][24X.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | 9/1/2025 | 2374 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][24X.Equities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirLastSale.Sbe.v1.3.Xml] |
+| Equities | [MemoirTopOfBook][Omi.24X.MemoirTopOfBook] | [Sbe][Omi.Encoding.Sbe] | [1.3][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 9/1/2025 | 2009 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Xml] |
 
 
 24X: [website](https://24exchange.com "Go to 24 Exchange")
@@ -25,8 +25,8 @@
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
-[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.24X.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/24X/Protocols "24X Data Directory"
+[Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
+[Omi.24X.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/24X/Protocols "24X Protocol Directory"
 [Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
 [Omi.24X.Memo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Protocols/Memo.md "24X Members Orders"
 [Omi.24X.MemoirDepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Protocols/MemoirDepthFeed.md "24X Memoir Depth Feed"

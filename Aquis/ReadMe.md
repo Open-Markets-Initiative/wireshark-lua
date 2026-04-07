@@ -3,17 +3,17 @@
 
 ## Aquis Exchange
 
-| Division | [Data][Omi.Aquis.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Aquis.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [RealTime][Omi.Aquis.RealTime] | [Amd][Omi.Protocol.Amd] | [4.1][Aquis.Equities.RealTime.Amd.v4.1.Dissector] | 1/1/2026 | 2094 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.RealTime.Amd.v4.1.Url] - [pdf][Aquis.Equities.RealTime.Amd.v4.1.Pdf] |
-| Equities | [RealTime][Omi.Aquis.RealTime] | [Amd][Omi.Protocol.Amd] | [4.0][Aquis.Equities.RealTime.Amd.v4.0.Dissector] | 8/1/2025 | 2090 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.RealTime.Amd.v4.0.Url] - [pdf][Aquis.Equities.RealTime.Amd.v4.0.Pdf] |
-| Equities | [Replay][Omi.Aquis.Replay] | [Amd][Omi.Protocol.Amd] | [4.1][Aquis.Equities.Replay.Amd.v4.1.Dissector] | 1/1/2026 | 683 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Replay.Amd.v4.1.Url] - [pdf][Aquis.Equities.Replay.Amd.v4.1.Pdf] |
-| Equities | [Replay][Omi.Aquis.Replay] | [Amd][Omi.Protocol.Amd] | [4.0][Aquis.Equities.Replay.Amd.v4.0.Dissector] | 8/1/2025 | 683 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Replay.Amd.v4.0.Url] - [pdf][Aquis.Equities.Replay.Amd.v4.0.Pdf] |
-| Equities | [Snapshot][Omi.Aquis.Snapshot] | [Amd][Omi.Protocol.Amd] | [4.1][Aquis.Equities.Snapshot.Amd.v4.1.Dissector] | 1/1/2026 | 1083 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Snapshot.Amd.v4.1.Url] - [pdf][Aquis.Equities.Snapshot.Amd.v4.1.Pdf] |
-| Equities | [Snapshot][Omi.Aquis.Snapshot] | [Amd][Omi.Protocol.Amd] | [4.0][Aquis.Equities.Snapshot.Amd.v4.0.Dissector] | 8/1/2025 | 1083 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Snapshot.Amd.v4.0.Url] - [pdf][Aquis.Equities.Snapshot.Amd.v4.0.Pdf] |
-| Equities | [UdpHeader][Omi.Aquis.UdpHeader] | [Amd][Omi.Protocol.Amd] | [1.0][Aquis.Equities.UdpHeader.Amd.v1.0.Dissector] | 8/1/2025 | 429 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.UdpHeader.Amd.v1.0.Url] |
-| Equities | [Orders][Omi.Aquis.Orders] | [Atp][Omi.Protocol.Atp] | [4.0][Aquis.Equities.Orders.Atp.v4.0.Dissector] | 8/1/2025 | 3704 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Orders.Atp.v4.0.Url] - [pdf][Aquis.Equities.Orders.Atp.v4.0.Pdf] |
-| Equities | [TcpHeader][Omi.Aquis.TcpHeader] | [Atp][Omi.Protocol.Atp] | [1.0][Aquis.Equities.TcpHeader.Atp.v1.0.Dissector] | 8/1/2025 | 372 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TcpHeader.Atp.v1.0.Url] |
+| Equities | [RealTime][Omi.Aquis.RealTime] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.Equities.RealTime.Amd.v4.1.Dissector] | 1/1/2026 | 2094 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.RealTime.Amd.v4.1.Url] - [pdf][Aquis.Equities.RealTime.Amd.v4.1.Pdf] |
+| Equities | [RealTime][Omi.Aquis.RealTime] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.Equities.RealTime.Amd.v4.0.Dissector] | 8/1/2025 | 2090 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.RealTime.Amd.v4.0.Url] - [pdf][Aquis.Equities.RealTime.Amd.v4.0.Pdf] |
+| Equities | [Replay][Omi.Aquis.Replay] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.Equities.Replay.Amd.v4.1.Dissector] | 1/1/2026 | 683 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Replay.Amd.v4.1.Url] - [pdf][Aquis.Equities.Replay.Amd.v4.1.Pdf] |
+| Equities | [Replay][Omi.Aquis.Replay] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.Equities.Replay.Amd.v4.0.Dissector] | 8/1/2025 | 683 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Replay.Amd.v4.0.Url] - [pdf][Aquis.Equities.Replay.Amd.v4.0.Pdf] |
+| Equities | [Snapshot][Omi.Aquis.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.Equities.Snapshot.Amd.v4.1.Dissector] | 1/1/2026 | 1083 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Snapshot.Amd.v4.1.Url] - [pdf][Aquis.Equities.Snapshot.Amd.v4.1.Pdf] |
+| Equities | [Snapshot][Omi.Aquis.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.Equities.Snapshot.Amd.v4.0.Dissector] | 8/1/2025 | 1083 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Snapshot.Amd.v4.0.Url] - [pdf][Aquis.Equities.Snapshot.Amd.v4.0.Pdf] |
+| Equities | [UdpHeader][Omi.Aquis.UdpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][Aquis.Equities.UdpHeader.Amd.v1.0.Dissector] | 8/1/2025 | 429 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.UdpHeader.Amd.v1.0.Url] |
+| Equities | [Orders][Omi.Aquis.Orders] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.Equities.Orders.Atp.v4.0.Dissector] | 8/1/2025 | 3704 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Orders.Atp.v4.0.Url] - [pdf][Aquis.Equities.Orders.Atp.v4.0.Pdf] |
+| Equities | [TcpHeader][Omi.Aquis.TcpHeader] | [Atp][Omi.Encoding.Atp] | [1.0][Aquis.Equities.TcpHeader.Atp.v1.0.Dissector] | 8/1/2025 | 372 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TcpHeader.Atp.v1.0.Url] |
 
 
 Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")
@@ -30,8 +30,8 @@ Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
-[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Aquis.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Aquis/Protocols "Aquis Data Directory"
+[Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
+[Omi.Aquis.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Aquis/Protocols "Aquis Protocol Directory"
 [Omi.Protocol.Amd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Amd.md "Amd Protocol"
 [Omi.Protocol.Atp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Atp.md "Atp Protocol"
 [Omi.Aquis.UdpHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Protocols/UdpHeader.md "Aquis Udp Headers"

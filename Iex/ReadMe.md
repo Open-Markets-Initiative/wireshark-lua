@@ -3,15 +3,15 @@
 
 ## Investors Exchange
 
-| Division | [Data][Omi.Iex.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Iex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [Deep][Omi.Iex.Deep] | [IexTp][Omi.Protocol.IexTp] | [1.0.8][Iex.Equities.Deep.IexTp.v1.0.8.Dissector] | 2/27/2018 | 2594 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Deep.IexTp.v1.0.8.Url] - [pdf][Iex.Equities.Deep.IexTp.v1.0.8.Pdf] |
-| Equities | [Deep][Omi.Iex.Deep] | [IexTp][Omi.Protocol.IexTp] | [1.0.6][Iex.Equities.Deep.IexTp.v1.0.6.Dissector] | 2/27/2018 | 2495 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Deep.IexTp.v1.0.6.Url] - [pdf][Iex.Equities.Deep.IexTp.v1.0.6.Pdf] |
-| Equities | [DeepPlus][Omi.Iex.DeepPlus] | [IexTp][Omi.Protocol.IexTp] | [1.0.1][Iex.Equities.DeepPlus.IexTp.v1.0.1.Dissector] | 9/30/2024 | 2347 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.DeepPlus.IexTp.v1.0.1.Url] - [pdf][Iex.Equities.DeepPlus.IexTp.v1.0.1.Pdf] |
-| Equities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Protocol.IexTp] | [1.6.6][Iex.Equities.Tops.IexTp.v1.6.6.Dissector] | 10/19/2021 | 2606 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Tops.IexTp.v1.6.6.Url] - [pdf][Iex.Equities.Tops.IexTp.v1.6.6.Pdf] |
-| Equities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Protocol.IexTp] | [1.6.4][Iex.Equities.Tops.IexTp.v1.6.4.Dissector] | 2/27/2018 | 2575 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Tops.IexTp.v1.6.4.Url] - [pdf][Iex.Equities.Tops.IexTp.v1.6.4.Pdf] |
-| Equities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Protocol.IexTp] | [1.5.6][Iex.Equities.Tops.IexTp.v1.5.6.Dissector] | 9/23/2016 | 2567 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Tops.IexTp.v1.5.6.Url] - [pdf][Iex.Equities.Tops.IexTp.v1.5.6.Pdf] |
-| Equities | [UdpHeader][Omi.Iex.UdpHeader] | [IexTp][Omi.Protocol.IexTp] | [1.0][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | 9/20/2015 | 680 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.UdpHeader.IexTp.v1.0.Url] - [pdf][Iex.Equities.UdpHeader.IexTp.v1.0.Pdf] |
+| Equities | [Deep][Omi.Iex.Deep] | [IexTp][Omi.Encoding.IexTp] | [1.0.8][Iex.Equities.Deep.IexTp.v1.0.8.Dissector] | 2/27/2018 | 2594 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Deep.IexTp.v1.0.8.Url] - [pdf][Iex.Equities.Deep.IexTp.v1.0.8.Pdf] |
+| Equities | [Deep][Omi.Iex.Deep] | [IexTp][Omi.Encoding.IexTp] | [1.0.6][Iex.Equities.Deep.IexTp.v1.0.6.Dissector] | 2/27/2018 | 2495 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Deep.IexTp.v1.0.6.Url] - [pdf][Iex.Equities.Deep.IexTp.v1.0.6.Pdf] |
+| Equities | [DeepPlus][Omi.Iex.DeepPlus] | [IexTp][Omi.Encoding.IexTp] | [1.0.1][Iex.Equities.DeepPlus.IexTp.v1.0.1.Dissector] | 9/30/2024 | 2347 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.DeepPlus.IexTp.v1.0.1.Url] - [pdf][Iex.Equities.DeepPlus.IexTp.v1.0.1.Pdf] |
+| Equities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Encoding.IexTp] | [1.6.6][Iex.Equities.Tops.IexTp.v1.6.6.Dissector] | 10/19/2021 | 2606 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Tops.IexTp.v1.6.6.Url] - [pdf][Iex.Equities.Tops.IexTp.v1.6.6.Pdf] |
+| Equities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Encoding.IexTp] | [1.6.4][Iex.Equities.Tops.IexTp.v1.6.4.Dissector] | 2/27/2018 | 2575 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Tops.IexTp.v1.6.4.Url] - [pdf][Iex.Equities.Tops.IexTp.v1.6.4.Pdf] |
+| Equities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Encoding.IexTp] | [1.5.6][Iex.Equities.Tops.IexTp.v1.5.6.Dissector] | 9/23/2016 | 2567 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Tops.IexTp.v1.5.6.Url] - [pdf][Iex.Equities.Tops.IexTp.v1.5.6.Pdf] |
+| Equities | [UdpHeader][Omi.Iex.UdpHeader] | [IexTp][Omi.Encoding.IexTp] | [1.0][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | 9/20/2015 | 680 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.UdpHeader.IexTp.v1.0.Url] - [pdf][Iex.Equities.UdpHeader.IexTp.v1.0.Pdf] |
 
 
 Iex: [website](https://www.iexexchange.io "Go to Investors Exchange")
@@ -28,8 +28,8 @@ Iex: [website](https://www.iexexchange.io "Go to Investors Exchange")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
-[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Iex.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Iex/Protocols "Iex Data Directory"
+[Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
+[Omi.Iex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Iex/Protocols "Iex Protocol Directory"
 [Omi.Protocol.IexTp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/IexTp.md "IexTp Protocol"
 [Omi.Iex.Deep]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/Deep.md "Iex Deep"
 [Omi.Iex.DeepPlus]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/DeepPlus.md "Iex DeepPlus"

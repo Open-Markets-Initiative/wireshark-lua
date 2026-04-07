@@ -3,11 +3,11 @@
 
 ## Financial Industry Regulatory Authority
 
-| Division | [Data][Omi.Finra.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Finra.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Orf | [Tdds][Omi.Finra.Tdds] | [Dfi][Omi.Protocol.Dfi] | [2.1][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3755 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.1.Pdf] |
-| Orf | [Tdds][Omi.Finra.Tdds] | [Dfi][Omi.Protocol.Dfi] | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3708 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.0.Pdf] |
-| Otc | [Bbds][Omi.Finra.Bbds] | [Dfi][Omi.Protocol.Dfi] | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2629 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Otc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.Otc.Bbds.Dfi.v2018.1A.Pdf] |
+| Orf | [Tdds][Omi.Finra.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3755 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.1.Pdf] |
+| Orf | [Tdds][Omi.Finra.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3708 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.0.Pdf] |
+| Otc | [Bbds][Omi.Finra.Bbds] | [Dfi][Omi.Encoding.Dfi] | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2629 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Otc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.Otc.Bbds.Dfi.v2018.1A.Pdf] |
 
 
 Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Authority")
@@ -24,8 +24,8 @@ Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Auth
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
-[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Finra.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols "Finra Data Directory"
+[Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
+[Omi.Finra.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols "Finra Protocol Directory"
 [Omi.Protocol.Dfi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Dfi.md "Dfi Protocol"
 [Omi.Finra.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Tdds.md "Finra Trade Data Dissemination Service"
 [Omi.Finra.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Bbds.md "Finra Bulletin Board Dissemination Service"

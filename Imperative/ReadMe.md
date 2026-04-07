@@ -3,9 +3,9 @@
 
 ## Imperative Execution
 
-| Division | [Data][Omi.Imperative.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Imperative.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [IntelligentCross][Omi.Imperative.IntelligentCross] | [Mdf][Omi.Protocol.Mdf] | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1656 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Imperative.IntelligentCross.Mdf.v1.11.Url] - [pdf][Imperative.IntelligentCross.Mdf.v1.11.Pdf] |
+|  | [IntelligentCross][Omi.Imperative.IntelligentCross] | [Mdf][Omi.Encoding.Mdf] | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1656 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Imperative.IntelligentCross.Mdf.v1.11.Url] - [pdf][Imperative.IntelligentCross.Mdf.v1.11.Pdf] |
 
 
 Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
@@ -22,8 +22,8 @@ Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
-[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Imperative.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols "Imperative Data Directory"
+[Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
+[Omi.Imperative.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols "Imperative Protocol Directory"
 [Omi.Protocol.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mdf.md "Mdf Protocol"
 [Omi.Imperative.IntelligentCross]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross.md "Imperative IntelligentCross"
 

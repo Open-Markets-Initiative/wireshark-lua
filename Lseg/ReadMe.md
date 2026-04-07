@@ -3,16 +3,16 @@
 
 ## London Stock Exchange Group
 
-| Division | [Data][Omi.Lseg.Data.Definitions] | [Protocol][Omi.Protocol.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Lseg.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Millennium | [Level2][Omi.Lseg.Level2] | [Mitch][Omi.Protocol.Mitch] | [11.9][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | 3233 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.Level2.Mitch.v11.9.Url] - [pdf][Lseg.Millennium.Level2.Mitch.v11.9.Pdf] |
-| Millennium | [UdpUnitHeader][Omi.Lseg.UdpUnitHeader] | [Mitch][Omi.Protocol.Mitch] | [1.0][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector] | 1/1/2018 | 485 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url] - [pdf][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf] |
-| TradeEcho | [Level2][Omi.Lseg.Level2] | [Gtp][Omi.Protocol.Gtp] | [24.4][Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector] | 4/24/2024 | 1887 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.TradeEcho.Level2.Gtp.v24.4.Url] - [pdf][Lseg.TradeEcho.Level2.Gtp.v24.4.Pdf] |
-| TradeEcho | [Mifid][Omi.Lseg.Mifid] | [Gtp][Omi.Protocol.Gtp] | [24.4][Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector] | 4/24/2024 | 3793 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.TradeEcho.Mifid.Gtp.v24.4.Url] - [pdf][Lseg.TradeEcho.Mifid.Gtp.v24.4.Pdf] |
-| Turquoise | [Analytics][Omi.Lseg.Analytics] | [Gtp][Omi.Protocol.Gtp] | [24.4][Lseg.Turquoise.Analytics.Gtp.v24.4.Dissector] | 4/24/2024 | 1812 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Analytics.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Analytics.Gtp.v24.4.Pdf] |
-| Turquoise | [Level1][Omi.Lseg.Level1] | [Gtp][Omi.Protocol.Gtp] | [24.4][Lseg.Turquoise.Level1.Gtp.v24.4.Dissector] | 4/24/2024 | 2856 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Level1.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Level1.Gtp.v24.4.Pdf] |
-| Turquoise | [Level2][Omi.Lseg.Level2] | [Gtp][Omi.Protocol.Gtp] | [24.4][Lseg.Turquoise.Level2.Gtp.v24.4.Dissector] | 4/24/2024 | 3437 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Level2.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Level2.Gtp.v24.4.Pdf] |
-| Turquoise | [Mifid][Omi.Lseg.Mifid] | [Gtp][Omi.Protocol.Gtp] | [24.4][Lseg.Turquoise.Mifid.Gtp.v24.4.Dissector] | 4/24/2024 | 2764 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Mifid.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Mifid.Gtp.v24.4.Pdf] |
+| Millennium | [Level2][Omi.Lseg.Level2] | [Mitch][Omi.Encoding.Mitch] | [11.9][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | 3233 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.Level2.Mitch.v11.9.Url] - [pdf][Lseg.Millennium.Level2.Mitch.v11.9.Pdf] |
+| Millennium | [UdpUnitHeader][Omi.Lseg.UdpUnitHeader] | [Mitch][Omi.Encoding.Mitch] | [1.0][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector] | 1/1/2018 | 485 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url] - [pdf][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf] |
+| TradeEcho | [Level2][Omi.Lseg.Level2] | [Gtp][Omi.Encoding.Gtp] | [24.4][Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector] | 4/24/2024 | 1887 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.TradeEcho.Level2.Gtp.v24.4.Url] - [pdf][Lseg.TradeEcho.Level2.Gtp.v24.4.Pdf] |
+| TradeEcho | [Mifid][Omi.Lseg.Mifid] | [Gtp][Omi.Encoding.Gtp] | [24.4][Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector] | 4/24/2024 | 3793 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.TradeEcho.Mifid.Gtp.v24.4.Url] - [pdf][Lseg.TradeEcho.Mifid.Gtp.v24.4.Pdf] |
+| Turquoise | [Analytics][Omi.Lseg.Analytics] | [Gtp][Omi.Encoding.Gtp] | [24.4][Lseg.Turquoise.Analytics.Gtp.v24.4.Dissector] | 4/24/2024 | 1812 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Analytics.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Analytics.Gtp.v24.4.Pdf] |
+| Turquoise | [Level1][Omi.Lseg.Level1] | [Gtp][Omi.Encoding.Gtp] | [24.4][Lseg.Turquoise.Level1.Gtp.v24.4.Dissector] | 4/24/2024 | 2856 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Level1.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Level1.Gtp.v24.4.Pdf] |
+| Turquoise | [Level2][Omi.Lseg.Level2] | [Gtp][Omi.Encoding.Gtp] | [24.4][Lseg.Turquoise.Level2.Gtp.v24.4.Dissector] | 4/24/2024 | 3437 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Level2.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Level2.Gtp.v24.4.Pdf] |
+| Turquoise | [Mifid][Omi.Lseg.Mifid] | [Gtp][Omi.Encoding.Gtp] | [24.4][Lseg.Turquoise.Mifid.Gtp.v24.4.Dissector] | 4/24/2024 | 2764 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Mifid.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Mifid.Gtp.v24.4.Pdf] |
 
 
 Lseg: [website](https://www.londonstockexchange.com "Go to London Stock Exchange Group")
@@ -29,8 +29,8 @@ Lseg: [website](https://www.londonstockexchange.com "Go to London Stock Exchange
 [Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
-[Omi.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Protocol Directory"
-[Omi.Lseg.Data.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Lseg/Protocols "Lseg Data Directory"
+[Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
+[Omi.Lseg.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Lseg/Protocols "Lseg Protocol Directory"
 [Omi.Protocol.Mitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mitch.md "Mitch Protocol"
 [Omi.Protocol.Gtp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Gtp.md "Gtp Protocol"
 [Omi.Lseg.Level2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Level2.md "Lseg Level 2"
