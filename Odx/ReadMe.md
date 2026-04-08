@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.Odx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [Pts][Omi.Odx.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.Equities.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1755 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.Equities.Pts.Itch.v2.2.Pdf] |
+| Equities | [Pts][Omi.Odx.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.Equities.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1765 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.Equities.Pts.Itch.v2.2.Pdf] |
 | SecurityToken | [Pts][Omi.Odx.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.SecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 2483 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.SecurityToken.Pts.Itch.v1.2.Pdf] |
 
 
