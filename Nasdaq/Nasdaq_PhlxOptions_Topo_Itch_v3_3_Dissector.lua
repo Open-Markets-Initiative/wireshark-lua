@@ -80,6 +80,7 @@ omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.trading_action_message = ProtoField
 
 -- Nasdaq PhlxOptions Topo Itch 3.3 generated fields
 omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.topo.itch.v3.3.messageindex", ftypes.UINT16)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.phlxoptions.topo.itch.v3.3.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -103,6 +104,19 @@ omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet = Pref.bool("Show Packet
 omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+-- Nanoseconds Display Preferences
+nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_phlxoptions_topo_itch_v3_3.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+
+local nanoseconds_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
+omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs_changed()
 
@@ -124,6 +138,14 @@ function omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs_changed()
   end
   if show.message_index ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_index then
     show.message_index = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.show_message_index
+  end
+
+  -- Check Nanoseconds preferences
+  if nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds_format ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.nanoseconds_format then
+    nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds_format = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.nanoseconds_format
+  end
+  if nasdaq_phlxoptions_topo_itch_v3_3.utc_offset_hours ~= omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.utc_offset_hours then
+    nasdaq_phlxoptions_topo_itch_v3_3.utc_offset_hours = omi_nasdaq_phlxoptions_topo_itch_v3_3.prefs.utc_offset_hours
   end
 end
 
@@ -987,6 +1009,16 @@ nasdaq_phlxoptions_topo_itch_v3_3.second = {}
 -- Size: Second
 nasdaq_phlxoptions_topo_itch_v3_3.second.size = 4
 
+-- Store: Second
+nasdaq_phlxoptions_topo_itch_v3_3.second.store = nil
+
+-- Generated: Second
+nasdaq_phlxoptions_topo_itch_v3_3.second.generated = function(value, range, packet, parent)
+  local display = nasdaq_phlxoptions_topo_itch_v3_3.second.display(value)
+  local second = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.second, range, value, display)
+  second:set_generated()
+end
+
 -- Display: Second
 nasdaq_phlxoptions_topo_itch_v3_3.second.display = function(value)
   return "Second: "..value
@@ -1332,6 +1364,63 @@ nasdaq_phlxoptions_topo_itch_v3_3.volume.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Timestamp
+nasdaq_phlxoptions_topo_itch_v3_3.timestamp = {}
+
+-- Translate: Timestamp
+nasdaq_phlxoptions_topo_itch_v3_3.timestamp.translate = function(nanoseconds, stored_second)
+  return UInt64.new(stored_second * 1000000000 + nanoseconds)
+end
+
+-- Display: Timestamp
+nasdaq_phlxoptions_topo_itch_v3_3.timestamp.display = function(nanoseconds, stored_second, packet)
+  -- Raw display mode
+  if nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds_format == 0 then
+    return "Timestamp: "..(stored_second * 1000000000 + nanoseconds)
+  end
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_phlxoptions_topo_itch_v3_3.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + stored_second
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+end
+
+-- Composite: Timestamp
+nasdaq_phlxoptions_topo_itch_v3_3.timestamp.composite = function(buffer, offset, stored_second, packet, parent)
+  local length = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.size
+  local range = buffer(offset, length)
+  local nanoseconds = range:uint()
+  local value = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.translate(nanoseconds, stored_second)
+  local display = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.display(nanoseconds, stored_second)
+  parent = parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp, range, value, display)
+
+  nasdaq_phlxoptions_topo_itch_v3_3.second.generated(stored_second, range, packet, parent)
+
+  display = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.display(nanoseconds)
+  parent:add(omi_nasdaq_phlxoptions_topo_itch_v3_3.fields.nanoseconds, range, nanoseconds, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_second = nasdaq_phlxoptions_topo_itch_v3_3.second.store
+
+  if stored_second ~= nil then
+    return nasdaq_phlxoptions_topo_itch_v3_3.timestamp.composite(buffer, offset, stored_second, packet, parent)
+  end
+
+  return nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nasdaq PhlxOptions Topo Itch 3.3
@@ -1358,7 +1447,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.broken_trade_report_message.fields = function(
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1415,7 +1504,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.trade_report_message.fields = function(buffer,
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1474,7 +1563,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_update_message.fields = function
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1530,7 +1619,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.long_best_ask_update_message.fields = function
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1586,7 +1675,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_update_message.fields = functio
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1642,7 +1731,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.short_best_ask_update_message.fields = functio
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1700,7 +1789,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.long_best_bid_and_ask_update_message.fields = 
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1764,7 +1853,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.short_best_bid_and_ask_update_message.fields =
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1824,7 +1913,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.security_open_closed_message.fields = function
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1872,7 +1961,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.trading_action_message.fields = function(buffe
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -1930,7 +2019,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.options_directory_message.fields = function(bu
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_topo_itch_v3_3.option_id.dissect(buffer, index, packet, parent)
@@ -2009,7 +2098,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.system_event_message.fields = function(buffer,
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.nanoseconds.dissect(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlxoptions_topo_itch_v3_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 8 values
   index, event_code = nasdaq_phlxoptions_topo_itch_v3_3.event_code.dissect(buffer, index, packet, parent)
@@ -2059,6 +2148,9 @@ nasdaq_phlxoptions_topo_itch_v3_3.timestamp_message.fields = function(buffer, of
 
   -- Second: 4 Byte Unsigned Fixed Width Integer
   index, second = nasdaq_phlxoptions_topo_itch_v3_3.second.dissect(buffer, index, packet, parent)
+
+  -- Store Second Value
+  nasdaq_phlxoptions_topo_itch_v3_3.second.store = second
 
   return index
 end

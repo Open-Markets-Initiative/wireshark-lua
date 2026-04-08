@@ -101,17 +101,17 @@ omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.show_packet = Pref.bool("Show Packet
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
--- Time Stamp Display Preferences
-nasdaq_nsmequities_qbbo_itch_v2_1.time_stamp_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+-- Timestamp Timestamp 6 Display Preferences
+nasdaq_nsmequities_qbbo_itch_v2_1.timestamp_timestamp_6_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 nasdaq_nsmequities_qbbo_itch_v2_1.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
 
-local time_stamp_format_enum = {
+local timestamp_timestamp_6_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "Full DateTime", 2 }
 }
 
-omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.time_stamp_format = Pref.enum("Time Stamp Format", 2, "Time Stamp display format", time_stamp_format_enum, false)
+omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.timestamp_timestamp_6_format = Pref.enum("Timestamp Timestamp 6 Format", 2, "Timestamp Timestamp 6 display format", timestamp_timestamp_6_format_enum, false)
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
 
 -- Handle changed preferences
@@ -137,9 +137,9 @@ function omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs_changed()
     show.message_index = omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.show_message_index
   end
 
-  -- Check Time Stamp preferences
-  if nasdaq_nsmequities_qbbo_itch_v2_1.time_stamp_format ~= omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.time_stamp_format then
-    nasdaq_nsmequities_qbbo_itch_v2_1.time_stamp_format = omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.time_stamp_format
+  -- Check Timestamp Timestamp 6 preferences
+  if nasdaq_nsmequities_qbbo_itch_v2_1.timestamp_timestamp_6_format ~= omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.timestamp_timestamp_6_format then
+    nasdaq_nsmequities_qbbo_itch_v2_1.timestamp_timestamp_6_format = omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.timestamp_timestamp_6_format
   end
   if nasdaq_nsmequities_qbbo_itch_v2_1.utc_offset_hours ~= omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.utc_offset_hours then
     nasdaq_nsmequities_qbbo_itch_v2_1.utc_offset_hours = omi_nasdaq_nsmequities_qbbo_itch_v2_1.prefs.utc_offset_hours
@@ -2351,7 +2351,7 @@ nasdaq_nsmequities_qbbo_itch_v2_1.system_event_message = {}
 -- Size: System Event Message
 nasdaq_nsmequities_qbbo_itch_v2_1.system_event_message.size =
   nasdaq_nsmequities_qbbo_itch_v2_1.tracking_number.size + 
-  nasdaq_nsmequities_qbbo_itch_v2_1.time_stamp.size + 
+  nasdaq_nsmequities_qbbo_itch_v2_1.timestamp_timestamp_6.size + 
   nasdaq_nsmequities_qbbo_itch_v2_1.event_code.size
 
 -- Display: System Event Message
@@ -2366,8 +2366,8 @@ nasdaq_nsmequities_qbbo_itch_v2_1.system_event_message.fields = function(buffer,
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_qbbo_itch_v2_1.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Time Stamp: Timestamp
-  index, time_stamp = nasdaq_nsmequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Timestamp 6: Timestamp
+  index, timestamp_timestamp_6 = nasdaq_nsmequities_qbbo_itch_v2_1.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
 
   -- Event Code: Alphanumeric
   index, event_code = nasdaq_nsmequities_qbbo_itch_v2_1.event_code.dissect(buffer, index, packet, parent)
