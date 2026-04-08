@@ -27,7 +27,7 @@
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.24X.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/24X/Protocols "24X Protocol Directory"
-[Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
+[Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [Omi.24X.Memo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Protocols/Memo.md "24X Members Orders"
 [Omi.24X.MemoirDepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Protocols/MemoirDepthFeed.md "24X Memoir Depth Feed"
 [Omi.24X.MemoirLastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Protocols/MemoirLastSale.md "24X Memoir Last Sale Feed"

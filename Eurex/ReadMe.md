@@ -89,7 +89,7 @@ Eurex: [website](https://www.eurex.com "Go to Eurex Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Eurex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Eurex/Protocols "Eurex Protocol Directory"
-[Omi.Protocol.T7]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/T7.md "T7 Protocol"
+[Omi.Encoding.T7]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/T7.md "T7 Encoding"
 [Omi.Eurex.Eti]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Eti.md "Eurex Enhanced Trading Interface"
 [Omi.Eurex.Eobi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Eobi.md "Eurex Enhanced Order Book Interface"
 [Omi.Eurex.Edci]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Edci.md "Eurex Enhanced Drop Copy Interface"

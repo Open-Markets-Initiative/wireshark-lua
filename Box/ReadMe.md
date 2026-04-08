@@ -26,7 +26,7 @@ Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Box.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Box/Protocols "Box Protocol Directory"
-[Omi.Protocol.Hsvf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Hsvf.md "Hsvf Protocol"
+[Omi.Encoding.Hsvf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Hsvf.md "Hsvf Encoding"
 [Omi.Box.Unicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Unicast.md "Box Unicast"
 [Omi.Box.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Multicast.md "Box Multicast"
 

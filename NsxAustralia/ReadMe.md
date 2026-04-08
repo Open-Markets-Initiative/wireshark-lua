@@ -24,7 +24,7 @@ NsxAustralia: [website](https://www.nsx.com.au "Go to National Stock Exchange of
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.NsxAustralia.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/NsxAustralia/Protocols "NsxAustralia Protocol Directory"
-[Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
+[Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.NsxAustralia.Nets]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/NsxAustralia/Protocols/Nets.md "NsxAustralia National Electronic Trading System"
 
 [NsxAustralia.Nets.Itch.v4.2.55.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/NsxAustralia/NsxAustralia_Nets_Itch_v4_2_55_Dissector.lua "NsxAustralia Nets Itch v4.2.55 Wireshark Dissector"

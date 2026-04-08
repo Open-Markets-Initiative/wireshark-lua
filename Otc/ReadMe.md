@@ -26,7 +26,7 @@ Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Otc.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Protocols "Otc Protocol Directory"
-[Omi.Protocol.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Protocol"
+[Omi.Encoding.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Encoding"
 [Omi.Otc.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Multicast.md "Otc Multicast"
 [Omi.Otc.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Headers.md "Otc Headers"
 

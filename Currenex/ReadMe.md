@@ -26,7 +26,7 @@ Currenex: [website](https://currenex.com "Go to Currenex")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Currenex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Protocols "Currenex Protocol Directory"
-[Omi.Protocol.Cbp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cbp.md "Cbp Protocol"
+[Omi.Encoding.Cbp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cbp.md "Cbp Encoding"
 [Omi.Currenex.Esp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Esp.md "Currenex Executable Streaming Prices"
 [Omi.Currenex.Now]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Now.md "Currenex Now"
 [Omi.Currenex.OrderService]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/OrderService.md "Currenex Order Service"

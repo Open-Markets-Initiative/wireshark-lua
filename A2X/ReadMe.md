@@ -26,7 +26,7 @@ A2X: [website](https://www.a2x.co.za "Go to A2X Markets")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.A2X.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/A2X/Protocols "A2X Protocol Directory"
-[Omi.Protocol.Amd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Amd.md "Amd Protocol"
+[Omi.Encoding.Amd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Amd.md "Amd Encoding"
 [Omi.A2X.UdpHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/UdpHeader.md "A2X Udp Headers"
 [Omi.A2X.Rtmdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/Rtmdf.md "A2X Real Time Market Data Feed"
 [Omi.A2X.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/Snapshot.md "A2X Snapshot Feed"

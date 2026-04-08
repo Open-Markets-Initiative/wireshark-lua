@@ -26,7 +26,7 @@ Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Auth
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Finra.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols "Finra Protocol Directory"
-[Omi.Protocol.Dfi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Dfi.md "Dfi Protocol"
+[Omi.Encoding.Dfi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Dfi.md "Dfi Encoding"
 [Omi.Finra.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Tdds.md "Finra Trade Data Dissemination Service"
 [Omi.Finra.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Bbds.md "Finra Bulletin Board Dissemination Service"
 

@@ -52,7 +52,7 @@ Memx: [website](https://memx.com "Go to Members Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Memx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Memx/Protocols "Memx Protocol Directory"
-[Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
+[Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [Omi.Memx.MemoirDepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemoirDepthFeed.md "Memx Memoir Depth Feed"
 [Omi.Memx.MemoirLastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemoirLastSale.md "Memx Memoir Last Sale Feed"
 [Omi.Memx.MemoirTopOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemoirTopOfBook.md "Memx Memoir Top Of Book"

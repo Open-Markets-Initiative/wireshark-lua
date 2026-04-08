@@ -24,7 +24,7 @@ Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Imperative.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols "Imperative Protocol Directory"
-[Omi.Protocol.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mdf.md "Mdf Protocol"
+[Omi.Encoding.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mdf.md "Mdf Encoding"
 [Omi.Imperative.IntelligentCross]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross.md "Imperative IntelligentCross"
 
 [Imperative.IntelligentCross.Mdf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua "Imperative IntelligentCross Mdf v1.11 Wireshark Dissector"

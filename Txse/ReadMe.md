@@ -25,8 +25,8 @@ Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Txse.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols "Txse Protocol Directory"
-[Omi.Protocol.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Protocol"
-[Omi.Protocol.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Seed.md "Seed Protocol"
+[Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
+[Omi.Encoding.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Seed.md "Seed Encoding"
 [Omi.Txse.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Rake.md "Txse Rake"
 [Omi.Txse.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/OrderEntry.md "Txse Order Entry"
 

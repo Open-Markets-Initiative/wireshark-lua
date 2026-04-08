@@ -25,7 +25,7 @@
 | NsmEquities | [Qbbo][Omi.Nasdaq.Qbbo] | [Itch][Omi.Encoding.Itch] | [2.1][Nasdaq.NsmEquities.Qbbo.Itch.v2.1.Dissector] | 2/19/2026 | 2622 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.NsmEquities.Qbbo.Itch.v2.1.Url] - [pdf][Nasdaq.NsmEquities.Qbbo.Itch.v2.1.Pdf] |
 | NsmEquities | [TotalView][Omi.Nasdaq.TotalView] | [Itch][Omi.Encoding.Itch] | [5.0.2017][Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.Dissector] | 9/12/2017 | 4130 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.Url] - [pdf][Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.Pdf] |
 | NsmEquities | [TotalView][Omi.Nasdaq.TotalView] | [Itch][Omi.Encoding.Itch] | [5.0][Nasdaq.NsmEquities.TotalView.Itch.v5.0.Dissector] | 2/19/2026 | 4665 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nasdaq.NsmEquities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.NsmEquities.TotalView.Itch.v5.0.Pdf] |
-| NsmEquities | [TotalView][Omi.Nasdaq.TotalView] | [Itch][Omi.Encoding.Itch] | [4.1][Nasdaq.NsmEquities.TotalView.Itch.v4.1.Dissector] | 6/12/2014 | 2670 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.NsmEquities.TotalView.Itch.v4.1.Url] - [pdf][Nasdaq.NsmEquities.TotalView.Itch.v4.1.Pdf] |
+| NsmEquities | [TotalView][Omi.Nasdaq.TotalView] | [Itch][Omi.Encoding.Itch] | [4.1][Nasdaq.NsmEquities.TotalView.Itch.v4.1.Dissector] | 6/12/2014 | 2680 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.NsmEquities.TotalView.Itch.v4.1.Url] - [pdf][Nasdaq.NsmEquities.TotalView.Itch.v4.1.Pdf] |
 | NsmEquities | [Orders][Omi.Nasdaq.Orders] | [Ouch][Omi.Encoding.Ouch] | [5.0][Nasdaq.NsmEquities.Orders.Ouch.v5.0.Dissector] | 4/1/2023 | 4747 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nasdaq.NsmEquities.Orders.Ouch.v5.0.Url] - [pdf][Nasdaq.NsmEquities.Orders.Ouch.v5.0.Pdf] |
 | NsmEquities | [Orders][Omi.Nasdaq.Orders] | [Ouch][Omi.Encoding.Ouch] | [4.2][Nasdaq.NsmEquities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3356 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.NsmEquities.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.NsmEquities.Orders.Ouch.v4.2.Pdf] |
 | NtxEquities | [Qbbo][Omi.Nasdaq.Qbbo] | [Itch][Omi.Encoding.Itch] | [2.1][Nasdaq.NtxEquities.Qbbo.Itch.v2.1.Dissector] | 8/2/2024 | 2716 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.NtxEquities.Qbbo.Itch.v2.1.Url] - [pdf][Nasdaq.NtxEquities.Qbbo.Itch.v2.1.Pdf] |
@@ -61,11 +61,11 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Nasdaq.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols "Nasdaq Protocol Directory"
-[Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
-[Omi.Protocol.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Protocol"
-[Omi.Protocol.Utp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Utp.md "Utp Protocol"
-[Omi.Protocol.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Protocol"
-[Omi.Protocol.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Protocol"
+[Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
+[Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
+[Omi.Encoding.Utp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Utp.md "Utp Encoding"
+[Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
+[Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Encoding"
 [Omi.Nasdaq.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TotalView.md "Nasdaq TotalView"
 [Omi.Nasdaq.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Orders.md "Nasdaq Orders"
 [Omi.Nasdaq.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TopOfMarket.md "Nasdaq Top Of Market"

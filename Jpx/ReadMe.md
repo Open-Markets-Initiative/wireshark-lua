@@ -25,8 +25,8 @@ Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Jpx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jpx/Protocols "Jpx Protocol Directory"
-[Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
-[Omi.Protocol.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Protocol"
+[Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
+[Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
 [Omi.Jpx.GeniumInet]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/GeniumInet.md "Jpx Genium Inet"
 
 [Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jpx/Jpx_OseDerivatives_GeniumInet_Itch_v1_1_Dissector.lua "Jpx OseDerivatives GeniumInet Itch v1.1 Wireshark Dissector"

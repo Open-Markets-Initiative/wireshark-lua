@@ -25,7 +25,7 @@ Odx: [website](https://www.odx.co.jp "Go to Osaka Digital Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Odx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols "Odx Protocol Directory"
-[Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
+[Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Odx.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Odx/Protocols/Pts.md "Odx Proprietary Trading System"
 
 [Odx.Equities.Pts.Itch.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Odx/Odx_Equities_Pts_Itch_v2_2_Dissector.lua "Odx Equities Pts Itch v2.2 Wireshark Dissector"

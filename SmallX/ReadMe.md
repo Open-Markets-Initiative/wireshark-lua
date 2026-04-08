@@ -25,7 +25,7 @@ SmallX: [website](https://smallexchange.com/ "Go to The Small Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.SmallX.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/SmallX/Protocols "SmallX Protocol Directory"
-[Omi.Protocol.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Protocol"
+[Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [Omi.SmallX.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/OrderBookFeed.md "SmallX Order Book Feed"
 [Omi.SmallX.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/Headers.md "SmallX Headers"
 

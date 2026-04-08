@@ -26,7 +26,7 @@ BruceAts: [website](https://www.brucemarkets.com "Go to Bruce Markets")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.BruceAts.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols "BruceAts Protocol Directory"
-[Omi.Protocol.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Protocol"
+[Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.BruceAts.BestBidAndOffer]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BestBidAndOffer.md "BruceAts Best Bid And Offer"
 [Omi.BruceAts.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/DepthOfBook.md "BruceAts Depth Of Book"
 [Omi.BruceAts.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/LastSale.md "BruceAts Last Sale"
