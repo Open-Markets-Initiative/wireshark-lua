@@ -45,6 +45,7 @@ omi_asx_securities_trade_itch_v3_1.fields.message_count = ProtoField.new("Messag
 omi_asx_securities_trade_itch_v3_1.fields.message_header = ProtoField.new("Message Header", "asx.securities.trade.itch.v3.1.messageheader", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.message_length = ProtoField.new("Message Length", "asx.securities.trade.itch.v3.1.messagelength", ftypes.UINT16)
 omi_asx_securities_trade_itch_v3_1.fields.message_type = ProtoField.new("Message Type", "asx.securities.trade.itch.v3.1.messagetype", ftypes.STRING)
+omi_asx_securities_trade_itch_v3_1.fields.nanoseconds = ProtoField.new("Nanoseconds", "asx.securities.trade.itch.v3.1.nanoseconds", ftypes.UINT32)
 omi_asx_securities_trade_itch_v3_1.fields.new_order_book_position = ProtoField.new("New Order Book Position", "asx.securities.trade.itch.v3.1.neworderbookposition", ftypes.UINT32)
 omi_asx_securities_trade_itch_v3_1.fields.nominal_value = ProtoField.new("Nominal Value", "asx.securities.trade.itch.v3.1.nominalvalue", ftypes.UINT64)
 omi_asx_securities_trade_itch_v3_1.fields.number_of_decimals_in_nominal_value = ProtoField.new("Number Of Decimals In Nominal Value", "asx.securities.trade.itch.v3.1.numberofdecimalsinnominalvalue", ftypes.UINT16)
@@ -76,7 +77,6 @@ omi_asx_securities_trade_itch_v3_1.fields.side = ProtoField.new("Side", "asx.sec
 omi_asx_securities_trade_itch_v3_1.fields.state_name = ProtoField.new("State Name", "asx.securities.trade.itch.v3.1.statename", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.symbol = ProtoField.new("Symbol", "asx.securities.trade.itch.v3.1.symbol", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.tick_size = ProtoField.new("Tick Size", "asx.securities.trade.itch.v3.1.ticksize", ftypes.UINT64)
-omi_asx_securities_trade_itch_v3_1.fields.timestamp = ProtoField.new("Timestamp", "asx.securities.trade.itch.v3.1.timestamp", ftypes.UINT32)
 omi_asx_securities_trade_itch_v3_1.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.itch.v3.1.tradeprice", ftypes.DOUBLE)
 omi_asx_securities_trade_itch_v3_1.fields.trading_currency = ProtoField.new("Trading Currency", "asx.securities.trade.itch.v3.1.tradingcurrency", ftypes.STRING)
 omi_asx_securities_trade_itch_v3_1.fields.undisclosed = ProtoField.new("Undisclosed", "asx.securities.trade.itch.v3.1.undisclosed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
@@ -783,6 +783,29 @@ asx_securities_trade_itch_v3_1.message_type.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Nanoseconds
+asx_securities_trade_itch_v3_1.nanoseconds = {}
+
+-- Size: Nanoseconds
+asx_securities_trade_itch_v3_1.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+asx_securities_trade_itch_v3_1.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+asx_securities_trade_itch_v3_1.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_trade_itch_v3_1.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_trade_itch_v3_1.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- New Order Book Position
 asx_securities_trade_itch_v3_1.new_order_book_position = {}
 
@@ -1414,29 +1437,6 @@ asx_securities_trade_itch_v3_1.tick_size.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Timestamp
-asx_securities_trade_itch_v3_1.timestamp = {}
-
--- Size: Timestamp
-asx_securities_trade_itch_v3_1.timestamp.size = 4
-
--- Display: Timestamp
-asx_securities_trade_itch_v3_1.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-asx_securities_trade_itch_v3_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_trade_itch_v3_1.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Price
 asx_securities_trade_itch_v3_1.trade_price = {}
 
@@ -1493,28 +1493,28 @@ end
 asx_securities_trade_itch_v3_1.timestamp = {}
 
 -- Translate: Timestamp
-asx_securities_trade_itch_v3_1.timestamp.translate = function(timestamp, stored_second)
-  return UInt64.new(stored_second * 1000000000 + timestamp)
+asx_securities_trade_itch_v3_1.timestamp.translate = function(nanoseconds, stored_second)
+  return UInt64.new(stored_second * 1000000000 + nanoseconds)
 end
 
 -- Display: Timestamp
-asx_securities_trade_itch_v3_1.timestamp.display = function(timestamp, stored_second)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_second)..string.format("%09d", timestamp)
+asx_securities_trade_itch_v3_1.timestamp.display = function(nanoseconds, stored_second)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
 asx_securities_trade_itch_v3_1.timestamp.composite = function(buffer, offset, stored_second, packet, parent)
-  local length = asx_securities_trade_itch_v3_1.timestamp.size
+  local length = asx_securities_trade_itch_v3_1.nanoseconds.size
   local range = buffer(offset, length)
-  local timestamp = range:uint()
-  local value = asx_securities_trade_itch_v3_1.timestamp.translate(timestamp, stored_second)
-  local display = asx_securities_trade_itch_v3_1.timestamp.display(timestamp, stored_second)
+  local nanoseconds = range:uint()
+  local value = asx_securities_trade_itch_v3_1.timestamp.translate(nanoseconds, stored_second)
+  local display = asx_securities_trade_itch_v3_1.timestamp.display(nanoseconds, stored_second)
   parent = parent:add(omi_asx_securities_trade_itch_v3_1.fields.timestamp, range, value, display)
 
   asx_securities_trade_itch_v3_1.second.generated(stored_second, range, packet, parent)
 
-  display = asx_securities_trade_itch_v3_1.timestamp.display(timestamp)
-  parent:add(omi_asx_securities_trade_itch_v3_1.fields.timestamp, range, timestamp, display)
+  display = asx_securities_trade_itch_v3_1.nanoseconds.display(nanoseconds)
+  parent:add(omi_asx_securities_trade_itch_v3_1.fields.nanoseconds, range, nanoseconds, display)
 
   return offset + length, value
 end
@@ -1527,7 +1527,7 @@ asx_securities_trade_itch_v3_1.timestamp.dissect = function(buffer, offset, pack
     return asx_securities_trade_itch_v3_1.timestamp.composite(buffer, offset, stored_second, packet, parent)
   end
 
-  return asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, offset, packet, parent)
+  return asx_securities_trade_itch_v3_1.nanoseconds.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -1540,7 +1540,7 @@ asx_securities_trade_itch_v3_1.equilibrium_price_update_message = {}
 
 -- Size: Equilibrium Price Update Message
 asx_securities_trade_itch_v3_1.equilibrium_price_update_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.bid_quantity.size + 
   asx_securities_trade_itch_v3_1.ask_quantity.size + 
@@ -1559,8 +1559,8 @@ end
 asx_securities_trade_itch_v3_1.equilibrium_price_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
@@ -1612,7 +1612,7 @@ asx_securities_trade_itch_v3_1.trade_message = {}
 
 -- Size: Trade Message
 asx_securities_trade_itch_v3_1.trade_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.match_id.size + 
   asx_securities_trade_itch_v3_1.side.size + 
   asx_securities_trade_itch_v3_1.quantity.size + 
@@ -1632,8 +1632,8 @@ end
 asx_securities_trade_itch_v3_1.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Match Id: Numeric
   index, match_id = asx_securities_trade_itch_v3_1.match_id.dissect(buffer, index, packet, parent)
@@ -1688,7 +1688,7 @@ asx_securities_trade_itch_v3_1.order_delete_message = {}
 
 -- Size: Order Delete Message
 asx_securities_trade_itch_v3_1.order_delete_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_id.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.side.size
@@ -1702,8 +1702,8 @@ end
 asx_securities_trade_itch_v3_1.order_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
@@ -1817,7 +1817,7 @@ asx_securities_trade_itch_v3_1.order_replace_message = {}
 
 -- Size: Order Replace Message
 asx_securities_trade_itch_v3_1.order_replace_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_id.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.side.size + 
@@ -1835,8 +1835,8 @@ end
 asx_securities_trade_itch_v3_1.order_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
@@ -1885,7 +1885,7 @@ asx_securities_trade_itch_v3_1.order_executed_with_price_message = {}
 
 -- Size: Order Executed With Price Message
 asx_securities_trade_itch_v3_1.order_executed_with_price_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_id.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.side.size + 
@@ -1906,8 +1906,8 @@ end
 asx_securities_trade_itch_v3_1.order_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
@@ -1965,7 +1965,7 @@ asx_securities_trade_itch_v3_1.order_executed_message = {}
 
 -- Size: Order Executed Message
 asx_securities_trade_itch_v3_1.order_executed_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_id.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.side.size + 
@@ -1983,8 +1983,8 @@ end
 asx_securities_trade_itch_v3_1.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
@@ -2033,7 +2033,7 @@ asx_securities_trade_itch_v3_1.add_order_participant_id_message = {}
 
 -- Size: Add Order Participant Id Message
 asx_securities_trade_itch_v3_1.add_order_participant_id_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_id.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.side.size + 
@@ -2053,8 +2053,8 @@ end
 asx_securities_trade_itch_v3_1.add_order_participant_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
@@ -2109,7 +2109,7 @@ asx_securities_trade_itch_v3_1.add_order_no_participant_id_message = {}
 
 -- Size: Add Order No Participant Id Message
 asx_securities_trade_itch_v3_1.add_order_no_participant_id_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_id.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.side.size + 
@@ -2128,8 +2128,8 @@ end
 asx_securities_trade_itch_v3_1.add_order_no_participant_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Numeric
   index, order_id = asx_securities_trade_itch_v3_1.order_id.dissect(buffer, index, packet, parent)
@@ -2181,7 +2181,7 @@ asx_securities_trade_itch_v3_1.order_book_state_message = {}
 
 -- Size: Order Book State Message
 asx_securities_trade_itch_v3_1.order_book_state_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.state_name.size
 
@@ -2194,8 +2194,8 @@ end
 asx_securities_trade_itch_v3_1.order_book_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
@@ -2229,7 +2229,7 @@ asx_securities_trade_itch_v3_1.system_event_message = {}
 
 -- Size: System Event Message
 asx_securities_trade_itch_v3_1.system_event_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.event_code.size
 
 -- Display: System Event Message
@@ -2241,8 +2241,8 @@ end
 asx_securities_trade_itch_v3_1.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: Alpha
   index, event_code = asx_securities_trade_itch_v3_1.event_code.dissect(buffer, index, packet, parent)
@@ -2273,7 +2273,7 @@ asx_securities_trade_itch_v3_1.tick_size_table_entry_message = {}
 
 -- Size: Tick Size Table Entry Message
 asx_securities_trade_itch_v3_1.tick_size_table_entry_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.tick_size.size + 
   asx_securities_trade_itch_v3_1.price_from.size + 
@@ -2288,8 +2288,8 @@ end
 asx_securities_trade_itch_v3_1.tick_size_table_entry_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
@@ -2521,7 +2521,7 @@ asx_securities_trade_itch_v3_1.combination_order_book_directory_message = {}
 
 -- Size: Combination Order Book Directory Message
 asx_securities_trade_itch_v3_1.combination_order_book_directory_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.symbol.size + 
   asx_securities_trade_itch_v3_1.long_name.size + 
@@ -2548,8 +2548,8 @@ end
 asx_securities_trade_itch_v3_1.combination_order_book_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)
@@ -2625,7 +2625,7 @@ asx_securities_trade_itch_v3_1.order_book_directory_message = {}
 
 -- Size: Order Book Directory Message
 asx_securities_trade_itch_v3_1.order_book_directory_message.size =
-  asx_securities_trade_itch_v3_1.timestamp.size + 
+  asx_securities_trade_itch_v3_1.nanoseconds.size + 
   asx_securities_trade_itch_v3_1.order_book_id.size + 
   asx_securities_trade_itch_v3_1.symbol.size + 
   asx_securities_trade_itch_v3_1.long_name.size + 
@@ -2648,8 +2648,8 @@ end
 asx_securities_trade_itch_v3_1.order_book_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Numeric
-  index, timestamp = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Numeric
+  index, nanoseconds = asx_securities_trade_itch_v3_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric
   index, order_book_id = asx_securities_trade_itch_v3_1.order_book_id.dissect(buffer, index, packet, parent)

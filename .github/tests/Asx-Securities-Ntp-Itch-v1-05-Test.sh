@@ -7,7 +7,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.AddOrderMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.AddOrderMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.AddOrderMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.AddOrderMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.AddOrderMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.AddOrderMessage.json
@@ -21,7 +21,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 grep "asx.securities.ntp.itch.v1.05.aotprice" Asx.Securities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
@@ -36,7 +36,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
@@ -53,7 +53,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
@@ -73,7 +73,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.symbolname" Asx.Securities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
@@ -90,7 +90,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradetype" Asx.Securities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
@@ -113,7 +113,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 grep "asx.securities.ntp.itch.v1.05.equilibriumprice" Asx.Securities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
@@ -126,7 +126,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.symbolname" Asx.Securities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
@@ -155,7 +155,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
@@ -169,7 +169,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
@@ -180,7 +180,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
@@ -194,7 +194,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 grep "asx.securities.ntp.itch.v1.05.openingtrade" Asx.Securities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
@@ -209,7 +209,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 grep "asx.securities.ntp.itch.v1.05.symbolname" Asx.Securities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
@@ -246,7 +246,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.OrderBookStateMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 grep "asx.securities.ntp.itch.v1.05.sessionstate" Asx.Securities.Ntp.Itch.v1.05.OrderBookStateMessage.json
@@ -256,7 +256,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.OrderDeletedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.OrderDeletedMessage.json
@@ -267,7 +267,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.OrderExecutedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.OrderExecutedMessage.json
@@ -285,7 +285,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 grep "asx.securities.ntp.itch.v1.05.side" Asx.Securities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
@@ -297,7 +297,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.TextMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.TextMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.TextMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.TextMessage.json
 grep "asx.securities.ntp.itch.v1.05.sourceid" Asx.Securities.Ntp.Itch.v1.05.TextMessage.json
 grep "asx.securities.ntp.itch.v1.05.text" Asx.Securities.Ntp.Itch.v1.05.TextMessage.json
@@ -307,7 +307,7 @@ tshark \
   -T json \
   > Asx.Securities.Ntp.Itch.v1.05.TradeExecutedMessage.json
 
-grep "asx.securities.ntp.itch.v1.05.timestamp" Asx.Securities.Ntp.Itch.v1.05.TradeExecutedMessage.json
+grep "asx.securities.ntp.itch.v1.05.nanoseconds" Asx.Securities.Ntp.Itch.v1.05.TradeExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradedate" Asx.Securities.Ntp.Itch.v1.05.TradeExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradeableinstrumentid" Asx.Securities.Ntp.Itch.v1.05.TradeExecutedMessage.json
 grep "asx.securities.ntp.itch.v1.05.tradetype" Asx.Securities.Ntp.Itch.v1.05.TradeExecutedMessage.json
