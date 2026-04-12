@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 453 | 4,222,032 |
+| 455 | 4,226,862 |
 
 ## Testing
 
@@ -99,9 +99,9 @@ Enjoy.
 [Omi.Encoding.Meo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Meo.md "Meo Encoding"
 [Omi.Encoding.Fei]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Fei.md "Fei Encoding"
 [Omi.Encoding.Utp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Utp.md "Utp Encoding"
+[Omi.Encoding.Pillar]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Pillar.md "Pillar Encoding"
 [Omi.Encoding.Ultra]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ultra.md "Ultra Encoding"
 [Omi.Encoding.Xdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Xdp.md "Xdp Encoding"
-[Omi.Encoding.Pillar]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Pillar.md "Pillar Encoding"
 [Omi.Encoding.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Encoding"
 [Omi.Encoding.Obi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Obi.md "Obi Encoding"
 [Omi.Encoding.Cta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cta.md "Cta Encoding"
@@ -214,6 +214,7 @@ Enjoy.
 [Omi.Nasdaq.SoupBin]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/SoupBin.md "Nasdaq SoupBin"
 [Omi.Nasdaq.Mold64]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Mold64.md "Nasdaq MoldUdp64"
 [Omi.NsxAustralia.Nets]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/NsxAustralia/Protocols/Nets.md "NsxAustralia National Electronic Trading System"
+[Omi.Nyse.ArcaBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaBook.md "Nyse ArcaBook"
 [Omi.Nyse.OpenBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/OpenBook.md "Nyse Open Book"
 [Omi.Nyse.Bqt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Bqt.md "Nyse Best Trade and Quote"
 [Omi.Nyse.ImbalancesFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ImbalancesFeed.md "Nyse Imbalances Feed"

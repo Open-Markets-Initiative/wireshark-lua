@@ -93,6 +93,19 @@ omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.show_packet = Pref.bool("Show Pa
 omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+-- Timestamp Display Preferences
+nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_nsmequities_noi_itch_v3_0_2017.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs_changed()
 
@@ -114,6 +127,14 @@ function omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs_changed()
   end
   if show.message_index ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.show_message_index then
     show.message_index = omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.show_message_index
+  end
+
+  -- Check Timestamp preferences
+  if nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp_format ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.timestamp_format then
+    nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp_format = omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.timestamp_format
+  end
+  if nasdaq_nsmequities_noi_itch_v3_0_2017.utc_offset_hours ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.utc_offset_hours then
+    nasdaq_nsmequities_noi_itch_v3_0_2017.utc_offset_hours = omi_nasdaq_nsmequities_noi_itch_v3_0_2017.prefs.utc_offset_hours
   end
 end
 
@@ -1301,8 +1322,28 @@ nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp = {}
 nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp.size = 6
 
 -- Display: Timestamp
-nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp.display = function(value)
-  return "Timestamp: "..value
+nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_nsmequities_noi_itch_v3_0_2017.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_nsmequities_noi_itch_v3_0_2017.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

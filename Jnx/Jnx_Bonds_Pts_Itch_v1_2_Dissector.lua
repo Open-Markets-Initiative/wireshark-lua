@@ -60,6 +60,7 @@ omi_jnx_bonds_pts_itch_v1_2.fields.trading_state_message = ProtoField.new("Tradi
 
 -- Jnx Bonds Pts Itch 1.2 generated fields
 omi_jnx_bonds_pts_itch_v1_2.fields.message_index = ProtoField.new("Message Index", "jnx.bonds.pts.itch.v1.2.messageindex", ftypes.UINT16)
+omi_jnx_bonds_pts_itch_v1_2.fields.timestamp = ProtoField.new("Timestamp", "jnx.bonds.pts.itch.v1.2.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -83,6 +84,19 @@ omi_jnx_bonds_pts_itch_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.pa
 omi_jnx_bonds_pts_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_jnx_bonds_pts_itch_v1_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+-- Timestamp Nanoseconds Display Preferences
+jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+jnx_bonds_pts_itch_v1_2.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+
+local timestamp_nanoseconds_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+omi_jnx_bonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_nanoseconds_format_enum, false)
+omi_jnx_bonds_pts_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+
 -- Handle changed preferences
 function omi_jnx_bonds_pts_itch_v1_2.prefs_changed()
 
@@ -104,6 +118,14 @@ function omi_jnx_bonds_pts_itch_v1_2.prefs_changed()
   end
   if show.message_index ~= omi_jnx_bonds_pts_itch_v1_2.prefs.show_message_index then
     show.message_index = omi_jnx_bonds_pts_itch_v1_2.prefs.show_message_index
+  end
+
+  -- Check Timestamp Nanoseconds preferences
+  if jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds_format ~= omi_jnx_bonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format then
+    jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds_format = omi_jnx_bonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format
+  end
+  if jnx_bonds_pts_itch_v1_2.utc_offset_hours ~= omi_jnx_bonds_pts_itch_v1_2.prefs.utc_offset_hours then
+    jnx_bonds_pts_itch_v1_2.utc_offset_hours = omi_jnx_bonds_pts_itch_v1_2.prefs.utc_offset_hours
   end
 end
 
@@ -761,6 +783,16 @@ jnx_bonds_pts_itch_v1_2.timestamp_seconds = {}
 -- Size: Timestamp Seconds
 jnx_bonds_pts_itch_v1_2.timestamp_seconds.size = 4
 
+-- Store: Timestamp Seconds
+jnx_bonds_pts_itch_v1_2.timestamp_seconds.store = nil
+
+-- Generated: Timestamp Seconds
+jnx_bonds_pts_itch_v1_2.timestamp_seconds.generated = function(value, range, packet, parent)
+  local display = jnx_bonds_pts_itch_v1_2.timestamp_seconds.display(value)
+  local timestamp_seconds = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds, range, value, display)
+  timestamp_seconds:set_generated()
+end
+
 -- Display: Timestamp Seconds
 jnx_bonds_pts_itch_v1_2.timestamp_seconds.display = function(value)
   return "Timestamp Seconds: "..value
@@ -837,6 +869,63 @@ jnx_bonds_pts_itch_v1_2.upper_price_limit.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Timestamp
+jnx_bonds_pts_itch_v1_2.timestamp = {}
+
+-- Translate: Timestamp
+jnx_bonds_pts_itch_v1_2.timestamp.translate = function(timestamp_nanoseconds, stored_timestamp_seconds)
+  return UInt64.new(stored_timestampseconds * 1000000000 + timestampnanoseconds)
+end
+
+-- Display: Timestamp
+jnx_bonds_pts_itch_v1_2.timestamp.display = function(timestamp_nanoseconds, stored_timestamp_seconds, packet)
+  -- Raw display mode
+  if jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds_format == 0 then
+    return "Timestamp: "..(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
+  end
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = jnx_bonds_pts_itch_v1_2.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + stored_timestamp_seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp_nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", stored_timestamp_seconds)..string.format("%09d", timestamp_nanoseconds)
+end
+
+-- Composite: Timestamp
+jnx_bonds_pts_itch_v1_2.timestamp.composite = function(buffer, offset, stored_timestamp_seconds, packet, parent)
+  local length = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.size
+  local range = buffer(offset, length)
+  local timestamp_nanoseconds = range:uint()
+  local value = jnx_bonds_pts_itch_v1_2.timestamp.translate(timestamp_nanoseconds, stored_timestamp_seconds)
+  local display = jnx_bonds_pts_itch_v1_2.timestamp.display(timestamp_nanoseconds, stored_timestamp_seconds)
+  parent = parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.timestamp, range, value, display)
+
+  jnx_bonds_pts_itch_v1_2.timestamp_seconds.generated(stored_timestamp_seconds, range, packet, parent)
+
+  display = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.display(timestamp_nanoseconds)
+  parent:add(omi_jnx_bonds_pts_itch_v1_2.fields.timestamp_nanoseconds, range, timestamp_nanoseconds, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+jnx_bonds_pts_itch_v1_2.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_timestamp_seconds = jnx_bonds_pts_itch_v1_2.timestamp_seconds.store
+
+  if stored_timestamp_seconds ~= nil then
+    return jnx_bonds_pts_itch_v1_2.timestamp.composite(buffer, offset, stored_timestamp_seconds, packet, parent)
+  end
+
+  return jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Jnx Bonds Pts Itch 1.2
@@ -863,7 +952,7 @@ jnx_bonds_pts_itch_v1_2.order_replaced_message.fields = function(buffer, offset,
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Order Number: Integer
   index, original_order_number = jnx_bonds_pts_itch_v1_2.original_order_number.dissect(buffer, index, packet, parent)
@@ -916,7 +1005,7 @@ jnx_bonds_pts_itch_v1_2.order_deleted_message.fields = function(buffer, offset, 
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = jnx_bonds_pts_itch_v1_2.order_number.dissect(buffer, index, packet, parent)
@@ -962,7 +1051,7 @@ jnx_bonds_pts_itch_v1_2.order_executed_message.fields = function(buffer, offset,
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = jnx_bonds_pts_itch_v1_2.order_number.dissect(buffer, index, packet, parent)
@@ -1017,7 +1106,7 @@ jnx_bonds_pts_itch_v1_2.order_added_message.fields = function(buffer, offset, pa
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = jnx_bonds_pts_itch_v1_2.order_number.dissect(buffer, index, packet, parent)
@@ -1078,7 +1167,7 @@ jnx_bonds_pts_itch_v1_2.trading_state_message.fields = function(buffer, offset, 
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Integer
   index, orderbook_id = jnx_bonds_pts_itch_v1_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1135,7 +1224,7 @@ jnx_bonds_pts_itch_v1_2.orderbook_directory_message.fields = function(buffer, of
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Integer
   index, orderbook_id = jnx_bonds_pts_itch_v1_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1202,7 +1291,7 @@ jnx_bonds_pts_itch_v1_2.price_tick_size_message.fields = function(buffer, offset
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Price Tick Size Table Id: Integer
   index, price_tick_size_table_id = jnx_bonds_pts_itch_v1_2.price_tick_size_table_id.dissect(buffer, index, packet, parent)
@@ -1253,7 +1342,7 @@ jnx_bonds_pts_itch_v1_2.system_event_message.fields = function(buffer, offset, p
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = jnx_bonds_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
   index, group = jnx_bonds_pts_itch_v1_2.group.dissect(buffer, index, packet, parent)
@@ -1300,6 +1389,9 @@ jnx_bonds_pts_itch_v1_2.timestamp_seconds_message.fields = function(buffer, offs
 
   -- Timestamp Seconds: Integer
   index, timestamp_seconds = jnx_bonds_pts_itch_v1_2.timestamp_seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Timestamp Seconds Value
+  jnx_bonds_pts_itch_v1_2.timestamp_seconds.store = timestamp_seconds
 
   return index
 end

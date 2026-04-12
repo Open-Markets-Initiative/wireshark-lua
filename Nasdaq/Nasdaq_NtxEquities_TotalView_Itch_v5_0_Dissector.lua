@@ -69,7 +69,7 @@ omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.price_variation_indicator = Pr
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.ntxequities.totalview.itch.v5.0.primarymarketmaker", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.printable = ProtoField.new("Printable", "nasdaq.ntxequities.totalview.itch.v5.0.printable", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.ntxequities.totalview.itch.v5.0.regshoaction", ftypes.STRING)
-omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.ntxequities.totalview.itch.v5.0.reserved", ftypes.STRING)
+omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.ntxequities.totalview.itch.v5.0.reserved1", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.ntxequities.totalview.itch.v5.0.roundlotsize", ftypes.UINT32)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.ntxequities.totalview.itch.v5.0.roundlotsonly", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.ntxequities.totalview.itch.v5.0.sequencenumber", ftypes.UINT64)
@@ -1984,25 +1984,25 @@ nasdaq_ntxequities_totalview_itch_v5_0.reg_sho_action.dissect = function(buffer,
   return offset + length, value
 end
 
--- Reserved
-nasdaq_ntxequities_totalview_itch_v5_0.reserved = {}
+-- Reserved 1
+nasdaq_ntxequities_totalview_itch_v5_0.reserved_1 = {}
 
--- Size: Reserved
-nasdaq_ntxequities_totalview_itch_v5_0.reserved.size = 1
+-- Size: Reserved 1
+nasdaq_ntxequities_totalview_itch_v5_0.reserved_1.size = 1
 
--- Display: Reserved
-nasdaq_ntxequities_totalview_itch_v5_0.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 1
+nasdaq_ntxequities_totalview_itch_v5_0.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved
-nasdaq_ntxequities_totalview_itch_v5_0.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_totalview_itch_v5_0.reserved.size
+-- Dissect: Reserved 1
+nasdaq_ntxequities_totalview_itch_v5_0.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxequities_totalview_itch_v5_0.reserved_1.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_ntxequities_totalview_itch_v5_0.reserved.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_ntxequities_totalview_itch_v5_0.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -3635,7 +3635,7 @@ nasdaq_ntxequities_totalview_itch_v5_0.stock_trading_action_message.size =
   nasdaq_ntxequities_totalview_itch_v5_0.timestamp.size + 
   nasdaq_ntxequities_totalview_itch_v5_0.stock.size + 
   nasdaq_ntxequities_totalview_itch_v5_0.trading_state.size + 
-  nasdaq_ntxequities_totalview_itch_v5_0.reserved.size + 
+  nasdaq_ntxequities_totalview_itch_v5_0.reserved_1.size + 
   nasdaq_ntxequities_totalview_itch_v5_0.trading_action_reason.size
 
 -- Display: Stock Trading Action Message
@@ -3662,8 +3662,8 @@ nasdaq_ntxequities_totalview_itch_v5_0.stock_trading_action_message.fields = fun
   -- Trading State: Alpha
   index, trading_state = nasdaq_ntxequities_totalview_itch_v5_0.trading_state.dissect(buffer, index, packet, parent)
 
-  -- Reserved: Alpha
-  index, reserved = nasdaq_ntxequities_totalview_itch_v5_0.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alpha
+  index, reserved_1 = nasdaq_ntxequities_totalview_itch_v5_0.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Trading Action Reason: Alpha
   index, trading_action_reason = nasdaq_ntxequities_totalview_itch_v5_0.trading_action_reason.dissect(buffer, index, packet, parent)

@@ -95,14 +95,14 @@ jobs:
       - name: Run Ice Futures Mdf iMpact 1.1.33 Dissector Tests
         run: bash -x .github/tests/Ice-Futures-Mdf-iMpact-v1-1-33-Test.sh
 
-      - name: Run Iex Equities Deep IexTp 1.0.6 Dissector Tests
-        run: bash -x .github/tests/Iex-Equities-Deep-IexTp-v1-0-6-Test.sh
+      - name: Run Iex IexEquities Deep IexTp 1.0.6 Dissector Tests
+        run: bash -x .github/tests/Iex-IexEquities-Deep-IexTp-v1-0-6-Test.sh
 
-      - name: Run Iex Equities Tops IexTp 1.5.6 Dissector Tests
-        run: bash -x .github/tests/Iex-Equities-Tops-IexTp-v1-5-6-Test.sh
+      - name: Run Iex IexEquities Tops IexTp 1.5.6 Dissector Tests
+        run: bash -x .github/tests/Iex-IexEquities-Tops-IexTp-v1-5-6-Test.sh
 
-      - name: Run Iex Equities Tops IexTp 1.6.4 Dissector Tests
-        run: bash -x .github/tests/Iex-Equities-Tops-IexTp-v1-6-4-Test.sh
+      - name: Run Iex IexEquities Tops IexTp 1.6.4 Dissector Tests
+        run: bash -x .github/tests/Iex-IexEquities-Tops-IexTp-v1-6-4-Test.sh
 
       - name: Run Imperative IntelligentCross Mdf 1.11 Dissector Tests
         run: bash -x .github/tests/Imperative-IntelligentCross-Mdf-v1-11-Test.sh
