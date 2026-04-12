@@ -5,7 +5,6 @@
 
 | Division | [Protocol][Omi.Iex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [UdpHeader][Omi.Iex.UdpHeader] | [IexTp][Omi.Encoding.IexTp] | [1.0][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | 9/20/2015 | 680 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.UdpHeader.IexTp.v1.0.Url] - [pdf][Iex.Equities.UdpHeader.IexTp.v1.0.Pdf] |
 | IexEquities | [Deep][Omi.Iex.Deep] | [IexTp][Omi.Encoding.IexTp] | [1.0.8][Iex.IexEquities.Deep.IexTp.v1.0.8.Dissector] | 2/27/2018 | 2594 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.IexEquities.Deep.IexTp.v1.0.8.Url] - [pdf][Iex.IexEquities.Deep.IexTp.v1.0.8.Pdf] |
 | IexEquities | [Deep][Omi.Iex.Deep] | [IexTp][Omi.Encoding.IexTp] | [1.0.6][Iex.IexEquities.Deep.IexTp.v1.0.6.Dissector] | 2/27/2018 | 2495 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.IexEquities.Deep.IexTp.v1.0.6.Url] - [pdf][Iex.IexEquities.Deep.IexTp.v1.0.6.Pdf] |
 | IexEquities | [DeepPlus][Omi.Iex.DeepPlus] | [IexTp][Omi.Encoding.IexTp] | [1.0.2][Iex.IexEquities.DeepPlus.IexTp.v1.0.2.Dissector] | 1/14/2025 | 2347 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.IexEquities.DeepPlus.IexTp.v1.0.2.Url] - [pdf][Iex.IexEquities.DeepPlus.IexTp.v1.0.2.Pdf] |
@@ -13,6 +12,7 @@
 | IexEquities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Encoding.IexTp] | [1.6.6][Iex.IexEquities.Tops.IexTp.v1.6.6.Dissector] | 10/19/2021 | 2606 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.IexEquities.Tops.IexTp.v1.6.6.Url] - [pdf][Iex.IexEquities.Tops.IexTp.v1.6.6.Pdf] |
 | IexEquities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Encoding.IexTp] | [1.6.4][Iex.IexEquities.Tops.IexTp.v1.6.4.Dissector] | 2/27/2018 | 2575 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.IexEquities.Tops.IexTp.v1.6.4.Url] - [pdf][Iex.IexEquities.Tops.IexTp.v1.6.4.Pdf] |
 | IexEquities | [Tops][Omi.Iex.Tops] | [IexTp][Omi.Encoding.IexTp] | [1.5.6][Iex.IexEquities.Tops.IexTp.v1.5.6.Dissector] | 9/23/2016 | 2567 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.IexEquities.Tops.IexTp.v1.5.6.Url] - [pdf][Iex.IexEquities.Tops.IexTp.v1.5.6.Pdf] |
+| IexEquities | [UdpHeader][Omi.Iex.UdpHeader] | [IexTp][Omi.Encoding.IexTp] | [1.0][Iex.IexEquities.UdpHeader.IexTp.v1.0.Dissector] | 9/20/2015 | 680 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.IexEquities.UdpHeader.IexTp.v1.0.Url] - [pdf][Iex.IexEquities.UdpHeader.IexTp.v1.0.Pdf] |
 
 
 Iex: [website](https://www.iexexchange.io "Go to Investors Exchange")
@@ -58,6 +58,6 @@ Iex: [website](https://www.iexexchange.io "Go to Investors Exchange")
 [Iex.IexEquities.Tops.IexTp.v1.6.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_IexEquities_Tops_IexTp_v1_6_6_Dissector.lua "Iex IexEquities Tops IexTp v1.6.6 Wireshark Dissector"
 [Iex.IexEquities.Tops.IexTp.v1.6.6.Url]: https://www.iexexchange.io/resources/trading/documents "Investors Exchange 1.6.6 Url"
 [Iex.IexEquities.Tops.IexTp.v1.6.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/Iex.IexEquities.Tops.IexTp.v1.6.6.pdf "Investors Exchange 1.6.6 Pdf"
-[Iex.Equities.UdpHeader.IexTp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_Equities_UdpHeader_IexTp_v1_0_Dissector.lua "Iex Equities UdpHeader IexTp v1.0 Wireshark Dissector"
-[Iex.Equities.UdpHeader.IexTp.v1.0.Url]: https://iextrading.com/trading/market-data/ "Investors Exchange 1.0 Url"
-[Iex.Equities.UdpHeader.IexTp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/Iex.IexEquities.IexTp.v1.0.pdf "Investors Exchange 1.0 Pdf"
+[Iex.IexEquities.UdpHeader.IexTp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_IexEquities_UdpHeader_IexTp_v1_0_Dissector.lua "Iex IexEquities UdpHeader IexTp v1.0 Wireshark Dissector"
+[Iex.IexEquities.UdpHeader.IexTp.v1.0.Url]: https://iextrading.com/trading/market-data/ "Investors Exchange 1.0 Url"
+[Iex.IexEquities.UdpHeader.IexTp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/Iex.IexEquities.IexTp.v1.0.pdf "Investors Exchange 1.0 Pdf"
