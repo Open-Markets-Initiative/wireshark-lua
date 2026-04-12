@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 455 | 4,227,099 |
+| 459 | 4,238,135 |
 
 ## Testing
 
@@ -200,6 +200,8 @@ Enjoy.
 [Omi.Nasdaq.OrderComboFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/OrderComboFeed.md "Nasdaq Order Combo Feed"
 [Omi.Nasdaq.OrderFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/OrderFeed.md "Nasdaq Order Feed"
 [Omi.Nasdaq.TopComboQuoteFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TopComboQuoteFeed.md "Nasdaq Top Combo Quote Feed"
+[Omi.Nasdaq.SpreadFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/SpreadFeed.md "Nasdaq Spread Feed"
+[Omi.Nasdaq.TradeFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TradeFeed.md "Nasdaq Trade Feed"
 [Omi.Nasdaq.Bono]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Bono.md "Nasdaq Best of Nasdaq Options"
 [Omi.Nasdaq.Itto]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Itto.md "Nasdaq Itch to Trade Options"
 [Omi.Nasdaq.Qbbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Qbbo.md "Nasdaq Nasdaq Best Bid and Offer"
