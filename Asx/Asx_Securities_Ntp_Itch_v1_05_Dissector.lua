@@ -15,46 +15,44 @@ local asx_securities_ntp_itch_v1_05 = {}
 -----------------------------------------------------------------------
 
 -- Asx Securities Ntp Itch 1.05 Fields
-omi_asx_securities_ntp_itch_v1_05.fields.aot_lower_price = ProtoField.new("Aot Lower Price", "asx.securities.ntp.itch.v1.05.aotlowerprice", ftypes.INT64)
-omi_asx_securities_ntp_itch_v1_05.fields.aot_price = ProtoField.new("Aot Price", "asx.securities.ntp.itch.v1.05.aotprice", ftypes.INT64)
-omi_asx_securities_ntp_itch_v1_05.fields.aot_upper_price = ProtoField.new("Aot Upper Price", "asx.securities.ntp.itch.v1.05.aotupperprice", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.aot_lower_price = ProtoField.new("Aot Lower Price", "asx.securities.ntp.itch.v1.05.aotlowerprice", ftypes.DOUBLE)
+omi_asx_securities_ntp_itch_v1_05.fields.aot_price = ProtoField.new("Aot Price", "asx.securities.ntp.itch.v1.05.aotprice", ftypes.DOUBLE)
+omi_asx_securities_ntp_itch_v1_05.fields.aot_upper_price = ProtoField.new("Aot Upper Price", "asx.securities.ntp.itch.v1.05.aotupperprice", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.ask_quantity = ProtoField.new("Ask Quantity", "asx.securities.ntp.itch.v1.05.askquantity", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.basis_of_quotation = ProtoField.new("Basis Of Quotation", "asx.securities.ntp.itch.v1.05.basisofquotation", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.bid_quantity = ProtoField.new("Bid Quantity", "asx.securities.ntp.itch.v1.05.bidquantity", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.block_lot_size = ProtoField.new("Block Lot Size", "asx.securities.ntp.itch.v1.05.blocklotsize", ftypes.UINT32)
-omi_asx_securities_ntp_itch_v1_05.fields.bundle_leg = ProtoField.new("Bundle Leg", "asx.securities.ntp.itch.v1.05.bundleleg", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.buyer_combination_trade_id = ProtoField.new("Buyer Combination Trade Id", "asx.securities.ntp.itch.v1.05.buyercombinationtradeid", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.buyer_order_id = ProtoField.new("Buyer Order Id", "asx.securities.ntp.itch.v1.05.buyerorderid", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.buyer_participant_id = ProtoField.new("Buyer Participant Id", "asx.securities.ntp.itch.v1.05.buyerparticipantid", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.buyer_side = ProtoField.new("Buyer Side", "asx.securities.ntp.itch.v1.05.buyerside", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.buyer_tradeable_instrument_id = ProtoField.new("Buyer Tradeable Instrument Id", "asx.securities.ntp.itch.v1.05.buyertradeableinstrumentid", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.cfi_code = ProtoField.new("Cfi Code", "asx.securities.ntp.itch.v1.05.cficode", ftypes.STRING)
-omi_asx_securities_ntp_itch_v1_05.fields.combination_leg = ProtoField.new("Combination Leg", "asx.securities.ntp.itch.v1.05.combinationleg", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.combination_trade_id = ProtoField.new("Combination Trade Id", "asx.securities.ntp.itch.v1.05.combinationtradeid", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.counter_party_id = ProtoField.new("Counter Party Id", "asx.securities.ntp.itch.v1.05.counterpartyid", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.coupon_rate = ProtoField.new("Coupon Rate", "asx.securities.ntp.itch.v1.05.couponrate", ftypes.UINT16)
 omi_asx_securities_ntp_itch_v1_05.fields.cumulative_volume = ProtoField.new("Cumulative Volume", "asx.securities.ntp.itch.v1.05.cumulativevolume", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.currency = ProtoField.new("Currency", "asx.securities.ntp.itch.v1.05.currency", ftypes.STRING)
-omi_asx_securities_ntp_itch_v1_05.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.ntp.itch.v1.05.equilibriumprice", ftypes.INT64)
-omi_asx_securities_ntp_itch_v1_05.fields.etr_lower_price = ProtoField.new("Etr Lower Price", "asx.securities.ntp.itch.v1.05.etrlowerprice", ftypes.INT64)
-omi_asx_securities_ntp_itch_v1_05.fields.etr_price = ProtoField.new("Etr Price", "asx.securities.ntp.itch.v1.05.etrprice", ftypes.INT64)
-omi_asx_securities_ntp_itch_v1_05.fields.etr_upper_price = ProtoField.new("Etr Upper Price", "asx.securities.ntp.itch.v1.05.etrupperprice", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.ntp.itch.v1.05.equilibriumprice", ftypes.DOUBLE)
+omi_asx_securities_ntp_itch_v1_05.fields.etr_lower_price = ProtoField.new("Etr Lower Price", "asx.securities.ntp.itch.v1.05.etrlowerprice", ftypes.DOUBLE)
+omi_asx_securities_ntp_itch_v1_05.fields.etr_price = ProtoField.new("Etr Price", "asx.securities.ntp.itch.v1.05.etrprice", ftypes.DOUBLE)
+omi_asx_securities_ntp_itch_v1_05.fields.etr_upper_price = ProtoField.new("Etr Upper Price", "asx.securities.ntp.itch.v1.05.etrupperprice", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.event_code = ProtoField.new("Event Code", "asx.securities.ntp.itch.v1.05.eventcode", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.exchange = ProtoField.new("Exchange", "asx.securities.ntp.itch.v1.05.exchange", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.executed_quantity = ProtoField.new("Executed Quantity", "asx.securities.ntp.itch.v1.05.executedquantity", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.expiry_date = ProtoField.new("Expiry Date", "asx.securities.ntp.itch.v1.05.expirydate", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.expiry_month = ProtoField.new("Expiry Month", "asx.securities.ntp.itch.v1.05.expirymonth", ftypes.UINT8)
 omi_asx_securities_ntp_itch_v1_05.fields.expiry_year = ProtoField.new("Expiry Year", "asx.securities.ntp.itch.v1.05.expiryyear", ftypes.UINT16)
-omi_asx_securities_ntp_itch_v1_05.fields.highest_trade = ProtoField.new("Highest Trade", "asx.securities.ntp.itch.v1.05.highesttrade", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.highest_trade = ProtoField.new("Highest Trade", "asx.securities.ntp.itch.v1.05.highesttrade", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.instrument = ProtoField.new("Instrument", "asx.securities.ntp.itch.v1.05.instrument", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.isin = ProtoField.new("Isin", "asx.securities.ntp.itch.v1.05.isin", ftypes.STRING)
-omi_asx_securities_ntp_itch_v1_05.fields.last_trade = ProtoField.new("Last Trade", "asx.securities.ntp.itch.v1.05.lasttrade", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.last_trade = ProtoField.new("Last Trade", "asx.securities.ntp.itch.v1.05.lasttrade", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.last_trading_date = ProtoField.new("Last Trading Date", "asx.securities.ntp.itch.v1.05.lasttradingdate", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.last_volume = ProtoField.new("Last Volume", "asx.securities.ntp.itch.v1.05.lastvolume", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.legs = ProtoField.new("Legs", "asx.securities.ntp.itch.v1.05.legs", ftypes.UINT8)
 omi_asx_securities_ntp_itch_v1_05.fields.long_name = ProtoField.new("Long Name", "asx.securities.ntp.itch.v1.05.longname", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.lot_size_or_face_value = ProtoField.new("Lot Size Or Face Value", "asx.securities.ntp.itch.v1.05.lotsizeorfacevalue", ftypes.UINT64)
-omi_asx_securities_ntp_itch_v1_05.fields.lowest_trade = ProtoField.new("Lowest Trade", "asx.securities.ntp.itch.v1.05.lowesttrade", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.lowest_trade = ProtoField.new("Lowest Trade", "asx.securities.ntp.itch.v1.05.lowesttrade", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.matched_quantity = ProtoField.new("Matched Quantity", "asx.securities.ntp.itch.v1.05.matchedquantity", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.maturity_value = ProtoField.new("Maturity Value", "asx.securities.ntp.itch.v1.05.maturityvalue", ftypes.UINT8)
 omi_asx_securities_ntp_itch_v1_05.fields.message = ProtoField.new("Message", "asx.securities.ntp.itch.v1.05.message", ftypes.STRING)
@@ -62,9 +60,8 @@ omi_asx_securities_ntp_itch_v1_05.fields.message_count = ProtoField.new("Message
 omi_asx_securities_ntp_itch_v1_05.fields.message_header = ProtoField.new("Message Header", "asx.securities.ntp.itch.v1.05.messageheader", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.message_length = ProtoField.new("Message Length", "asx.securities.ntp.itch.v1.05.messagelength", ftypes.UINT16)
 omi_asx_securities_ntp_itch_v1_05.fields.message_type = ProtoField.new("Message Type", "asx.securities.ntp.itch.v1.05.messagetype", ftypes.STRING)
-omi_asx_securities_ntp_itch_v1_05.fields.nanoseconds = ProtoField.new("Nanoseconds", "asx.securities.ntp.itch.v1.05.nanoseconds", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.open_interest = ProtoField.new("Open Interest", "asx.securities.ntp.itch.v1.05.openinterest", ftypes.UINT64)
-omi_asx_securities_ntp_itch_v1_05.fields.opening_trade = ProtoField.new("Opening Trade", "asx.securities.ntp.itch.v1.05.openingtrade", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.opening_trade = ProtoField.new("Opening Trade", "asx.securities.ntp.itch.v1.05.openingtrade", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.opposite_order_id = ProtoField.new("Opposite Order Id", "asx.securities.ntp.itch.v1.05.oppositeorderid", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.opposite_side = ProtoField.new("Opposite Side", "asx.securities.ntp.itch.v1.05.oppositeside", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.opposite_tradeable_instrument_id = ProtoField.new("Opposite Tradeable Instrument Id", "asx.securities.ntp.itch.v1.05.oppositetradeableinstrumentid", ftypes.UINT32)
@@ -76,18 +73,16 @@ omi_asx_securities_ntp_itch_v1_05.fields.packet_header = ProtoField.new("Packet 
 omi_asx_securities_ntp_itch_v1_05.fields.participant_id_buyer = ProtoField.new("Participant Id Buyer", "asx.securities.ntp.itch.v1.05.participantidbuyer", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.participant_id_seller = ProtoField.new("Participant Id Seller", "asx.securities.ntp.itch.v1.05.participantidseller", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.payments_per_year = ProtoField.new("Payments Per Year", "asx.securities.ntp.itch.v1.05.paymentsperyear", ftypes.UINT8)
-omi_asx_securities_ntp_itch_v1_05.fields.price = ProtoField.new("Price", "asx.securities.ntp.itch.v1.05.price", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.price = ProtoField.new("Price", "asx.securities.ntp.itch.v1.05.price", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.price_display_decimals = ProtoField.new("Price Display Decimals", "asx.securities.ntp.itch.v1.05.pricedisplaydecimals", ftypes.UINT8)
 omi_asx_securities_ntp_itch_v1_05.fields.price_fractional_denominator = ProtoField.new("Price Fractional Denominator", "asx.securities.ntp.itch.v1.05.pricefractionaldenominator", ftypes.UINT32)
-omi_asx_securities_ntp_itch_v1_05.fields.price_leg = ProtoField.new("Price Leg", "asx.securities.ntp.itch.v1.05.priceleg", ftypes.INT64)
 omi_asx_securities_ntp_itch_v1_05.fields.price_method = ProtoField.new("Price Method", "asx.securities.ntp.itch.v1.05.pricemethod", ftypes.UINT8)
 omi_asx_securities_ntp_itch_v1_05.fields.price_minimum_tick = ProtoField.new("Price Minimum Tick", "asx.securities.ntp.itch.v1.05.priceminimumtick", ftypes.UINT32)
-omi_asx_securities_ntp_itch_v1_05.fields.prior_day_settlement = ProtoField.new("Prior Day Settlement", "asx.securities.ntp.itch.v1.05.priordaysettlement", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.prior_day_settlement = ProtoField.new("Prior Day Settlement", "asx.securities.ntp.itch.v1.05.priordaysettlement", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.quantity = ProtoField.new("Quantity", "asx.securities.ntp.itch.v1.05.quantity", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "asx.securities.ntp.itch.v1.05.quantityremaining", ftypes.UINT32)
-omi_asx_securities_ntp_itch_v1_05.fields.ratio_leg = ProtoField.new("Ratio Leg", "asx.securities.ntp.itch.v1.05.ratioleg", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.rfq_side = ProtoField.new("Rfq Side", "asx.securities.ntp.itch.v1.05.rfqside", ftypes.STRING)
-omi_asx_securities_ntp_itch_v1_05.fields.seconds = ProtoField.new("Seconds", "asx.securities.ntp.itch.v1.05.seconds", ftypes.UINT32)
+omi_asx_securities_ntp_itch_v1_05.fields.second = ProtoField.new("Second", "asx.securities.ntp.itch.v1.05.second", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.seller_combination_trade_id = ProtoField.new("Seller Combination Trade Id", "asx.securities.ntp.itch.v1.05.sellercombinationtradeid", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.seller_order_id = ProtoField.new("Seller Order Id", "asx.securities.ntp.itch.v1.05.sellerorderid", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.seller_participant_id = ProtoField.new("Seller Participant Id", "asx.securities.ntp.itch.v1.05.sellerparticipantid", ftypes.STRING)
@@ -97,21 +92,20 @@ omi_asx_securities_ntp_itch_v1_05.fields.sequence_number = ProtoField.new("Seque
 omi_asx_securities_ntp_itch_v1_05.fields.session = ProtoField.new("Session", "asx.securities.ntp.itch.v1.05.session", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.session_state = ProtoField.new("Session State", "asx.securities.ntp.itch.v1.05.sessionstate", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.side = ProtoField.new("Side", "asx.securities.ntp.itch.v1.05.side", ftypes.STRING)
-omi_asx_securities_ntp_itch_v1_05.fields.side_leg = ProtoField.new("Side Leg", "asx.securities.ntp.itch.v1.05.sideleg", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.source_id = ProtoField.new("Source Id", "asx.securities.ntp.itch.v1.05.sourceid", ftypes.STRING)
-omi_asx_securities_ntp_itch_v1_05.fields.strike = ProtoField.new("Strike", "asx.securities.ntp.itch.v1.05.strike", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.strike = ProtoField.new("Strike", "asx.securities.ntp.itch.v1.05.strike", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.strike_price_decimal_position = ProtoField.new("Strike Price Decimal Position", "asx.securities.ntp.itch.v1.05.strikepricedecimalposition", ftypes.UINT8)
 omi_asx_securities_ntp_itch_v1_05.fields.strike_price_fractional_denominator = ProtoField.new("Strike Price Fractional Denominator", "asx.securities.ntp.itch.v1.05.strikepricefractionaldenominator", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.strike_price_minimum_tick = ProtoField.new("Strike Price Minimum Tick", "asx.securities.ntp.itch.v1.05.strikepriceminimumtick", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.symbol_name = ProtoField.new("Symbol Name", "asx.securities.ntp.itch.v1.05.symbolname", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.text = ProtoField.new("Text", "asx.securities.ntp.itch.v1.05.text", ftypes.STRING)
+omi_asx_securities_ntp_itch_v1_05.fields.timestamp = ProtoField.new("Timestamp", "asx.securities.ntp.itch.v1.05.timestamp", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.total_traded_volume = ProtoField.new("Total Traded Volume", "asx.securities.ntp.itch.v1.05.totaltradedvolume", ftypes.UINT64)
 omi_asx_securities_ntp_itch_v1_05.fields.trade_date = ProtoField.new("Trade Date", "asx.securities.ntp.itch.v1.05.tradedate", ftypes.UINT16)
 omi_asx_securities_ntp_itch_v1_05.fields.trade_id = ProtoField.new("Trade Id", "asx.securities.ntp.itch.v1.05.tradeid", ftypes.UINT64)
-omi_asx_securities_ntp_itch_v1_05.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.ntp.itch.v1.05.tradeprice", ftypes.INT64)
+omi_asx_securities_ntp_itch_v1_05.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.ntp.itch.v1.05.tradeprice", ftypes.DOUBLE)
 omi_asx_securities_ntp_itch_v1_05.fields.trade_type = ProtoField.new("Trade Type", "asx.securities.ntp.itch.v1.05.tradetype", ftypes.STRING)
 omi_asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id = ProtoField.new("Tradeable Instrument Id", "asx.securities.ntp.itch.v1.05.tradeableinstrumentid", ftypes.UINT32)
-omi_asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg = ProtoField.new("Tradeable Instrument Id Leg", "asx.securities.ntp.itch.v1.05.tradeableinstrumentidleg", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.underlying_tradeable_instrument_id = ProtoField.new("Underlying Tradeable Instrument Id", "asx.securities.ntp.itch.v1.05.underlyingtradeableinstrumentid", ftypes.UINT32)
 omi_asx_securities_ntp_itch_v1_05.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.securities.ntp.itch.v1.05.voitradedate", ftypes.UINT16)
 omi_asx_securities_ntp_itch_v1_05.fields.volatility = ProtoField.new("Volatility", "asx.securities.ntp.itch.v1.05.volatility", ftypes.UINT64)
@@ -158,8 +152,6 @@ local show = {}
 
 -- Asx Securities Ntp Itch 1.05 Element Dissection Options
 show.application_messages = true
-show.bundle_leg = true
-show.combination_leg = true
 show.message = true
 show.message_header = true
 show.packet = true
@@ -170,8 +162,6 @@ show.bundle_leg_index = true
 
 -- Register Asx Securities Ntp Itch 1.05 Show Options
 omi_asx_securities_ntp_itch_v1_05.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_asx_securities_ntp_itch_v1_05.prefs.show_bundle_leg = Pref.bool("Show Bundle Leg", show.bundle_leg, "Parse and add Bundle Leg to protocol tree")
-omi_asx_securities_ntp_itch_v1_05.prefs.show_combination_leg = Pref.bool("Show Combination Leg", show.combination_leg, "Parse and add Combination Leg to protocol tree")
 omi_asx_securities_ntp_itch_v1_05.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_asx_securities_ntp_itch_v1_05.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_asx_securities_ntp_itch_v1_05.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -186,12 +176,6 @@ function omi_asx_securities_ntp_itch_v1_05.prefs_changed()
   -- Check if show options have changed
   if show.application_messages ~= omi_asx_securities_ntp_itch_v1_05.prefs.show_application_messages then
     show.application_messages = omi_asx_securities_ntp_itch_v1_05.prefs.show_application_messages
-  end
-  if show.bundle_leg ~= omi_asx_securities_ntp_itch_v1_05.prefs.show_bundle_leg then
-    show.bundle_leg = omi_asx_securities_ntp_itch_v1_05.prefs.show_bundle_leg
-  end
-  if show.combination_leg ~= omi_asx_securities_ntp_itch_v1_05.prefs.show_combination_leg then
-    show.combination_leg = omi_asx_securities_ntp_itch_v1_05.prefs.show_combination_leg
   end
   if show.message ~= omi_asx_securities_ntp_itch_v1_05.prefs.show_message then
     show.message = omi_asx_securities_ntp_itch_v1_05.prefs.show_message
@@ -250,11 +234,17 @@ asx_securities_ntp_itch_v1_05.aot_lower_price.display = function(value)
   return "Aot Lower Price: "..value
 end
 
+-- Translate: Aot Lower Price
+asx_securities_ntp_itch_v1_05.aot_lower_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Aot Lower Price
 asx_securities_ntp_itch_v1_05.aot_lower_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.aot_lower_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.aot_lower_price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.aot_lower_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_lower_price, range, value, display)
@@ -273,11 +263,17 @@ asx_securities_ntp_itch_v1_05.aot_price.display = function(value)
   return "Aot Price: "..value
 end
 
+-- Translate: Aot Price
+asx_securities_ntp_itch_v1_05.aot_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Aot Price
 asx_securities_ntp_itch_v1_05.aot_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.aot_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.aot_price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.aot_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_price, range, value, display)
@@ -296,11 +292,17 @@ asx_securities_ntp_itch_v1_05.aot_upper_price.display = function(value)
   return "Aot Upper Price: "..value
 end
 
+-- Translate: Aot Upper Price
+asx_securities_ntp_itch_v1_05.aot_upper_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Aot Upper Price
 asx_securities_ntp_itch_v1_05.aot_upper_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.aot_upper_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.aot_upper_price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.aot_upper_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_upper_price, range, value, display)
@@ -671,11 +673,17 @@ asx_securities_ntp_itch_v1_05.equilibrium_price.display = function(value)
   return "Equilibrium Price: "..value
 end
 
+-- Translate: Equilibrium Price
+asx_securities_ntp_itch_v1_05.equilibrium_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Equilibrium Price
 asx_securities_ntp_itch_v1_05.equilibrium_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.equilibrium_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.equilibrium_price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.equilibrium_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.equilibrium_price, range, value, display)
@@ -694,11 +702,17 @@ asx_securities_ntp_itch_v1_05.etr_lower_price.display = function(value)
   return "Etr Lower Price: "..value
 end
 
+-- Translate: Etr Lower Price
+asx_securities_ntp_itch_v1_05.etr_lower_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Etr Lower Price
 asx_securities_ntp_itch_v1_05.etr_lower_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.etr_lower_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.etr_lower_price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.etr_lower_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_lower_price, range, value, display)
@@ -717,11 +731,17 @@ asx_securities_ntp_itch_v1_05.etr_price.display = function(value)
   return "Etr Price: "..value
 end
 
+-- Translate: Etr Price
+asx_securities_ntp_itch_v1_05.etr_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Etr Price
 asx_securities_ntp_itch_v1_05.etr_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.etr_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.etr_price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.etr_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_price, range, value, display)
@@ -740,11 +760,17 @@ asx_securities_ntp_itch_v1_05.etr_upper_price.display = function(value)
   return "Etr Upper Price: "..value
 end
 
+-- Translate: Etr Upper Price
+asx_securities_ntp_itch_v1_05.etr_upper_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Etr Upper Price
 asx_securities_ntp_itch_v1_05.etr_upper_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.etr_upper_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.etr_upper_price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.etr_upper_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_upper_price, range, value, display)
@@ -942,11 +968,17 @@ asx_securities_ntp_itch_v1_05.highest_trade.display = function(value)
   return "Highest Trade: "..value
 end
 
+-- Translate: Highest Trade
+asx_securities_ntp_itch_v1_05.highest_trade.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Highest Trade
 asx_securities_ntp_itch_v1_05.highest_trade.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.highest_trade.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.highest_trade.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.highest_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.highest_trade, range, value, display)
@@ -1011,11 +1043,17 @@ asx_securities_ntp_itch_v1_05.last_trade.display = function(value)
   return "Last Trade: "..value
 end
 
+-- Translate: Last Trade
+asx_securities_ntp_itch_v1_05.last_trade.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Last Trade
 asx_securities_ntp_itch_v1_05.last_trade.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.last_trade.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.last_trade.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.last_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.last_trade, range, value, display)
@@ -1149,11 +1187,17 @@ asx_securities_ntp_itch_v1_05.lowest_trade.display = function(value)
   return "Lowest Trade: "..value
 end
 
+-- Translate: Lowest Trade
+asx_securities_ntp_itch_v1_05.lowest_trade.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Lowest Trade
 asx_securities_ntp_itch_v1_05.lowest_trade.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.lowest_trade.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.lowest_trade.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.lowest_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.lowest_trade, range, value, display)
@@ -1355,29 +1399,6 @@ asx_securities_ntp_itch_v1_05.message_type.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Nanoseconds
-asx_securities_ntp_itch_v1_05.nanoseconds = {}
-
--- Size: Nanoseconds
-asx_securities_ntp_itch_v1_05.nanoseconds.size = 4
-
--- Display: Nanoseconds
-asx_securities_ntp_itch_v1_05.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-asx_securities_ntp_itch_v1_05.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Open Interest
 asx_securities_ntp_itch_v1_05.open_interest = {}
 
@@ -1412,11 +1433,17 @@ asx_securities_ntp_itch_v1_05.opening_trade.display = function(value)
   return "Opening Trade: "..value
 end
 
+-- Translate: Opening Trade
+asx_securities_ntp_itch_v1_05.opening_trade.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Opening Trade
 asx_securities_ntp_itch_v1_05.opening_trade.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.opening_trade.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.opening_trade.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.opening_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opening_trade, range, value, display)
@@ -1656,11 +1683,17 @@ asx_securities_ntp_itch_v1_05.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+asx_securities_ntp_itch_v1_05.price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Price
 asx_securities_ntp_itch_v1_05.price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price, range, value, display)
@@ -1710,29 +1743,6 @@ asx_securities_ntp_itch_v1_05.price_fractional_denominator.dissect = function(bu
   local display = asx_securities_ntp_itch_v1_05.price_fractional_denominator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_fractional_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Leg
-asx_securities_ntp_itch_v1_05.price_leg = {}
-
--- Size: Price Leg
-asx_securities_ntp_itch_v1_05.price_leg.size = 8
-
--- Display: Price Leg
-asx_securities_ntp_itch_v1_05.price_leg.display = function(value)
-  return "Price Leg: "..value
-end
-
--- Dissect: Price Leg
-asx_securities_ntp_itch_v1_05.price_leg.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.price_leg.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.price_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_leg, range, value, display)
 
   return offset + length, value
 end
@@ -1807,11 +1817,17 @@ asx_securities_ntp_itch_v1_05.prior_day_settlement.display = function(value)
   return "Prior Day Settlement: "..value
 end
 
+-- Translate: Prior Day Settlement
+asx_securities_ntp_itch_v1_05.prior_day_settlement.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Prior Day Settlement
 asx_securities_ntp_itch_v1_05.prior_day_settlement.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.prior_day_settlement.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.prior_day_settlement.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.prior_day_settlement.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.prior_day_settlement, range, value, display)
@@ -1865,29 +1881,6 @@ asx_securities_ntp_itch_v1_05.quantity_remaining.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Ratio Leg
-asx_securities_ntp_itch_v1_05.ratio_leg = {}
-
--- Size: Ratio Leg
-asx_securities_ntp_itch_v1_05.ratio_leg.size = 4
-
--- Display: Ratio Leg
-asx_securities_ntp_itch_v1_05.ratio_leg.display = function(value)
-  return "Ratio Leg: "..value
-end
-
--- Dissect: Ratio Leg
-asx_securities_ntp_itch_v1_05.ratio_leg.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.ratio_leg.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.ratio_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.ratio_leg, range, value, display)
-
-  return offset + length, value
-end
-
 -- Rfq Side
 asx_securities_ntp_itch_v1_05.rfq_side = {}
 
@@ -1924,35 +1917,26 @@ asx_securities_ntp_itch_v1_05.rfq_side.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Seconds
-asx_securities_ntp_itch_v1_05.seconds = {}
+-- Second
+asx_securities_ntp_itch_v1_05.second = {}
 
--- Size: Seconds
-asx_securities_ntp_itch_v1_05.seconds.size = 4
+-- Size: Second
+asx_securities_ntp_itch_v1_05.second.size = 4
 
--- Store: Seconds
-asx_securities_ntp_itch_v1_05.seconds.store = nil
-
--- Generated: Seconds
-asx_securities_ntp_itch_v1_05.seconds.generated = function(value, range, packet, parent)
-  local display = asx_securities_ntp_itch_v1_05.seconds.display(value)
-  local seconds = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seconds, range, value, display)
-  seconds:set_generated()
+-- Display: Second
+asx_securities_ntp_itch_v1_05.second.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Second: "..os.date("%Y-%m-%d %H:%M:%S.", value)
 end
 
--- Display: Seconds
-asx_securities_ntp_itch_v1_05.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-asx_securities_ntp_itch_v1_05.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.seconds.size
+-- Dissect: Second
+asx_securities_ntp_itch_v1_05.second.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.seconds.display(value, buffer, offset, packet, parent)
+  local display = asx_securities_ntp_itch_v1_05.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seconds, range, value, display)
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.second, range, value, display)
 
   return offset + length, value
 end
@@ -2213,39 +2197,6 @@ asx_securities_ntp_itch_v1_05.side.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Side Leg
-asx_securities_ntp_itch_v1_05.side_leg = {}
-
--- Size: Side Leg
-asx_securities_ntp_itch_v1_05.side_leg.size = 1
-
--- Display: Side Leg
-asx_securities_ntp_itch_v1_05.side_leg.display = function(value)
-  if value == " " then
-    return "Side Leg: Not Defined (<whitespace>)"
-  end
-  if value == "B" then
-    return "Side Leg: Buy (B)"
-  end
-  if value == "S" then
-    return "Side Leg: Sell (S)"
-  end
-
-  return "Side Leg: Unknown("..value..")"
-end
-
--- Dissect: Side Leg
-asx_securities_ntp_itch_v1_05.side_leg.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.side_leg.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.side_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.side_leg, range, value, display)
-
-  return offset + length, value
-end
-
 -- Source Id
 asx_securities_ntp_itch_v1_05.source_id = {}
 
@@ -2280,11 +2231,17 @@ asx_securities_ntp_itch_v1_05.strike.display = function(value)
   return "Strike: "..value
 end
 
+-- Translate: Strike
+asx_securities_ntp_itch_v1_05.strike.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Strike
 asx_securities_ntp_itch_v1_05.strike.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.strike.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.strike.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.strike.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike, range, value, display)
@@ -2407,6 +2364,29 @@ asx_securities_ntp_itch_v1_05.text.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
+-- Timestamp
+asx_securities_ntp_itch_v1_05.timestamp = {}
+
+-- Size: Timestamp
+asx_securities_ntp_itch_v1_05.timestamp.size = 4
+
+-- Display: Timestamp
+asx_securities_ntp_itch_v1_05.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+asx_securities_ntp_itch_v1_05.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
 -- Total Traded Volume
 asx_securities_ntp_itch_v1_05.total_traded_volume = {}
 
@@ -2487,11 +2467,17 @@ asx_securities_ntp_itch_v1_05.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+asx_securities_ntp_itch_v1_05.trade_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Trade Price
 asx_securities_ntp_itch_v1_05.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05.trade_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = asx_securities_ntp_itch_v1_05.trade_price.translate(raw)
   local display = asx_securities_ntp_itch_v1_05.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_price, range, value, display)
@@ -2582,29 +2568,6 @@ asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect = function(buffer,
   return offset + length, value
 end
 
--- Tradeable Instrument Id Leg
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg = {}
-
--- Size: Tradeable Instrument Id Leg
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size = 4
-
--- Display: Tradeable Instrument Id Leg
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.display = function(value)
-  return "Tradeable Instrument Id Leg: "..value
-end
-
--- Dissect: Tradeable Instrument Id Leg
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg, range, value, display)
-
-  return offset + length, value
-end
-
 -- Underlying Tradeable Instrument Id
 asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id = {}
 
@@ -2678,41 +2641,41 @@ end
 asx_securities_ntp_itch_v1_05.timestamp = {}
 
 -- Translate: Timestamp
-asx_securities_ntp_itch_v1_05.timestamp.translate = function(nanoseconds, stored_seconds)
-  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+asx_securities_ntp_itch_v1_05.timestamp.translate = function(timestamp, stored_second)
+  return UInt64.new(stored_second * 1000000000 + timestamp)
 end
 
 -- Display: Timestamp
-asx_securities_ntp_itch_v1_05.timestamp.display = function(nanoseconds, stored_seconds)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+asx_securities_ntp_itch_v1_05.timestamp.display = function(timestamp, stored_second)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_second)..string.format("%09d", timestamp)
 end
 
 -- Composite: Timestamp
-asx_securities_ntp_itch_v1_05.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.nanoseconds.size
+asx_securities_ntp_itch_v1_05.timestamp.composite = function(buffer, offset, stored_second, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.timestamp.size
   local range = buffer(offset, length)
-  local nanoseconds = range:uint()
-  local value = asx_securities_ntp_itch_v1_05.timestamp.translate(nanoseconds, stored_seconds)
-  local display = asx_securities_ntp_itch_v1_05.timestamp.display(nanoseconds, stored_seconds)
+  local timestamp = range:uint()
+  local value = asx_securities_ntp_itch_v1_05.timestamp.translate(timestamp, stored_second)
+  local display = asx_securities_ntp_itch_v1_05.timestamp.display(timestamp, stored_second)
   parent = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.timestamp, range, value, display)
 
-  asx_securities_ntp_itch_v1_05.seconds.generated(stored_seconds, range, packet, parent)
+  asx_securities_ntp_itch_v1_05.second.generated(stored_second, range, packet, parent)
 
-  display = asx_securities_ntp_itch_v1_05.nanoseconds.display(nanoseconds)
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.nanoseconds, range, nanoseconds, display)
+  display = asx_securities_ntp_itch_v1_05.timestamp.display(timestamp)
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.timestamp, range, timestamp, display)
 
   return offset + length, value
 end
 
 -- Dissect: Timestamp
 asx_securities_ntp_itch_v1_05.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = asx_securities_ntp_itch_v1_05.seconds.store
+  local stored_second = asx_securities_ntp_itch_v1_05.second.store
 
-  if stored_seconds ~= nil then
-    return asx_securities_ntp_itch_v1_05.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+  if stored_second ~= nil then
+    return asx_securities_ntp_itch_v1_05.timestamp.composite(buffer, offset, stored_second, packet, parent)
   end
 
-  return asx_securities_ntp_itch_v1_05.nanoseconds.dissect(buffer, offset, packet, parent)
+  return asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -2725,7 +2688,7 @@ asx_securities_ntp_itch_v1_05.volume_and_open_interest_message = {}
 
 -- Size: Volume And Open Interest Message
 asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.cumulative_volume.size + 
@@ -2741,22 +2704,22 @@ end
 asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Cumulative Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Cumulative Volume: Numeric
   index, cumulative_volume = asx_securities_ntp_itch_v1_05.cumulative_volume.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: 8 Byte Unsigned Fixed Width Integer
+  -- Open Interest: Numeric
   index, open_interest = asx_securities_ntp_itch_v1_05.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Voi Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Voi Trade Date: Numeric
   index, voi_trade_date = asx_securities_ntp_itch_v1_05.voi_trade_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -2785,7 +2748,7 @@ asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message = {}
 
 -- Size: Anomalous Order Threshold Publish Message
 asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.aot_price.size + 
@@ -2804,31 +2767,31 @@ end
 asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Aot Price: 8 Byte Signed Fixed Width Integer
+  -- Aot Price: Price
   index, aot_price = asx_securities_ntp_itch_v1_05.aot_price.dissect(buffer, index, packet, parent)
 
-  -- Aot Upper Price: 8 Byte Signed Fixed Width Integer
+  -- Aot Upper Price: Price
   index, aot_upper_price = asx_securities_ntp_itch_v1_05.aot_upper_price.dissect(buffer, index, packet, parent)
 
-  -- Aot Lower Price: 8 Byte Signed Fixed Width Integer
+  -- Aot Lower Price: Price
   index, aot_lower_price = asx_securities_ntp_itch_v1_05.aot_lower_price.dissect(buffer, index, packet, parent)
 
-  -- Etr Price: 8 Byte Signed Fixed Width Integer
+  -- Etr Price: Price
   index, etr_price = asx_securities_ntp_itch_v1_05.etr_price.dissect(buffer, index, packet, parent)
 
-  -- Etr Upper Price: 8 Byte Signed Fixed Width Integer
+  -- Etr Upper Price: Price
   index, etr_upper_price = asx_securities_ntp_itch_v1_05.etr_upper_price.dissect(buffer, index, packet, parent)
 
-  -- Etr Lower Price: 8 Byte Signed Fixed Width Integer
+  -- Etr Lower Price: Price
   index, etr_lower_price = asx_securities_ntp_itch_v1_05.etr_lower_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2857,7 +2820,7 @@ asx_securities_ntp_itch_v1_05.request_for_quote_message = {}
 
 -- Size: Request For Quote Message
 asx_securities_ntp_itch_v1_05.request_for_quote_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.rfq_side.size + 
@@ -2872,19 +2835,19 @@ end
 asx_securities_ntp_itch_v1_05.request_for_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Rfq Side: 1 Byte Ascii String Enum with 4 values
+  -- Rfq Side: Alpha
   index, rfq_side = asx_securities_ntp_itch_v1_05.rfq_side.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_ntp_itch_v1_05.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -2913,7 +2876,7 @@ asx_securities_ntp_itch_v1_05.text_message = {}
 
 -- Size: Text Message
 asx_securities_ntp_itch_v1_05.text_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.source_id.size + 
   asx_securities_ntp_itch_v1_05.text.size
@@ -2927,16 +2890,16 @@ end
 asx_securities_ntp_itch_v1_05.text_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 6 Byte Ascii String
+  -- Source Id: Alpha
   index, source_id = asx_securities_ntp_itch_v1_05.source_id.dissect(buffer, index, packet, parent)
 
-  -- Text: 100 Byte Ascii String
+  -- Text: Alpha
   index, text = asx_securities_ntp_itch_v1_05.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -2965,7 +2928,7 @@ asx_securities_ntp_itch_v1_05.market_settlement_message = {}
 
 -- Size: Market Settlement Message
 asx_securities_ntp_itch_v1_05.market_settlement_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.opening_trade.size + 
@@ -2984,31 +2947,31 @@ end
 asx_securities_ntp_itch_v1_05.market_settlement_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Opening Trade: 8 Byte Signed Fixed Width Integer
+  -- Opening Trade: Price
   index, opening_trade = asx_securities_ntp_itch_v1_05.opening_trade.dissect(buffer, index, packet, parent)
 
-  -- Highest Trade: 8 Byte Signed Fixed Width Integer
+  -- Highest Trade: Price
   index, highest_trade = asx_securities_ntp_itch_v1_05.highest_trade.dissect(buffer, index, packet, parent)
 
-  -- Lowest Trade: 8 Byte Signed Fixed Width Integer
+  -- Lowest Trade: Price
   index, lowest_trade = asx_securities_ntp_itch_v1_05.lowest_trade.dissect(buffer, index, packet, parent)
 
-  -- Last Trade: 8 Byte Signed Fixed Width Integer
+  -- Last Trade: Price
   index, last_trade = asx_securities_ntp_itch_v1_05.last_trade.dissect(buffer, index, packet, parent)
 
-  -- Last Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Last Volume: Numeric
   index, last_volume = asx_securities_ntp_itch_v1_05.last_volume.dissect(buffer, index, packet, parent)
 
-  -- Total Traded Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Total Traded Volume: Numeric
   index, total_traded_volume = asx_securities_ntp_itch_v1_05.total_traded_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -3037,7 +3000,7 @@ asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message = {}
 
 -- Size: Open High Low Last Trade Adjustment Message
 asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.opening_trade.size + 
@@ -3056,31 +3019,31 @@ end
 asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Opening Trade: 8 Byte Signed Fixed Width Integer
+  -- Opening Trade: Price
   index, opening_trade = asx_securities_ntp_itch_v1_05.opening_trade.dissect(buffer, index, packet, parent)
 
-  -- Highest Trade: 8 Byte Signed Fixed Width Integer
+  -- Highest Trade: Price
   index, highest_trade = asx_securities_ntp_itch_v1_05.highest_trade.dissect(buffer, index, packet, parent)
 
-  -- Lowest Trade: 8 Byte Signed Fixed Width Integer
+  -- Lowest Trade: Price
   index, lowest_trade = asx_securities_ntp_itch_v1_05.lowest_trade.dissect(buffer, index, packet, parent)
 
-  -- Last Trade: 8 Byte Signed Fixed Width Integer
+  -- Last Trade: Price
   index, last_trade = asx_securities_ntp_itch_v1_05.last_trade.dissect(buffer, index, packet, parent)
 
-  -- Last Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Last Volume: Numeric
   index, last_volume = asx_securities_ntp_itch_v1_05.last_volume.dissect(buffer, index, packet, parent)
 
-  -- Total Traded Volume: 8 Byte Unsigned Fixed Width Integer
+  -- Total Traded Volume: Numeric
   index, total_traded_volume = asx_securities_ntp_itch_v1_05.total_traded_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -3109,7 +3072,7 @@ asx_securities_ntp_itch_v1_05.equilibrium_price_message = {}
 
 -- Size: Equilibrium Price Message
 asx_securities_ntp_itch_v1_05.equilibrium_price_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.equilibrium_price.size + 
@@ -3126,25 +3089,25 @@ end
 asx_securities_ntp_itch_v1_05.equilibrium_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Equilibrium Price: 8 Byte Signed Fixed Width Integer
+  -- Equilibrium Price: Price
   index, equilibrium_price = asx_securities_ntp_itch_v1_05.equilibrium_price.dissect(buffer, index, packet, parent)
 
-  -- Matched Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Matched Quantity: Numeric
   index, matched_quantity = asx_securities_ntp_itch_v1_05.matched_quantity.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Quantity: Numeric
   index, bid_quantity = asx_securities_ntp_itch_v1_05.bid_quantity.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Quantity: Numeric
   index, ask_quantity = asx_securities_ntp_itch_v1_05.ask_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -3173,7 +3136,7 @@ asx_securities_ntp_itch_v1_05.trade_cancellation_message = {}
 
 -- Size: Trade Cancellation Message
 asx_securities_ntp_itch_v1_05.trade_cancellation_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.trade_id.size
@@ -3187,16 +3150,16 @@ end
 asx_securities_ntp_itch_v1_05.trade_cancellation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = asx_securities_ntp_itch_v1_05.trade_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3225,7 +3188,7 @@ asx_securities_ntp_itch_v1_05.combination_trade_executed_message = {}
 
 -- Size: Combination Trade Executed Message
 asx_securities_ntp_itch_v1_05.combination_trade_executed_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.trade_type.size + 
@@ -3252,55 +3215,55 @@ end
 asx_securities_ntp_itch_v1_05.combination_trade_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 12 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_ntp_itch_v1_05.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = asx_securities_ntp_itch_v1_05.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_ntp_itch_v1_05.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_ntp_itch_v1_05.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Buyer Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Buyer Tradeable Instrument Id: Numeric
   index, buyer_tradeable_instrument_id = asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Buyer Side: 1 Byte Ascii String Enum with 2 values
+  -- Buyer Side: Alpha
   index, buyer_side = asx_securities_ntp_itch_v1_05.buyer_side.dissect(buffer, index, packet, parent)
 
-  -- Buyer Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Buyer Order Id: Numeric
   index, buyer_order_id = asx_securities_ntp_itch_v1_05.buyer_order_id.dissect(buffer, index, packet, parent)
 
-  -- Buyer Combination Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Buyer Combination Trade Id: Numeric
   index, buyer_combination_trade_id = asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Buyer Participant Id: 3 Byte Ascii String
+  -- Buyer Participant Id: Alpha
   index, buyer_participant_id = asx_securities_ntp_itch_v1_05.buyer_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Seller Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Seller Tradeable Instrument Id: Numeric
   index, seller_tradeable_instrument_id = asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Seller Side: 1 Byte Ascii String Enum with 2 values
+  -- Seller Side: Alpha
   index, seller_side = asx_securities_ntp_itch_v1_05.seller_side.dissect(buffer, index, packet, parent)
 
-  -- Seller Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Seller Order Id: Numeric
   index, seller_order_id = asx_securities_ntp_itch_v1_05.seller_order_id.dissect(buffer, index, packet, parent)
 
-  -- Seller Combination Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Seller Combination Trade Id: Numeric
   index, seller_combination_trade_id = asx_securities_ntp_itch_v1_05.seller_combination_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Seller Participant Id: 3 Byte Ascii String
+  -- Seller Participant Id: Alpha
   index, seller_participant_id = asx_securities_ntp_itch_v1_05.seller_participant_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3329,7 +3292,7 @@ asx_securities_ntp_itch_v1_05.trade_executed_message = {}
 
 -- Size: Trade Executed Message
 asx_securities_ntp_itch_v1_05.trade_executed_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.trade_type.size + 
@@ -3349,34 +3312,34 @@ end
 asx_securities_ntp_itch_v1_05.trade_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 12 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_ntp_itch_v1_05.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = asx_securities_ntp_itch_v1_05.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_ntp_itch_v1_05.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_ntp_itch_v1_05.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Combination Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Combination Trade Id: Numeric
   index, combination_trade_id = asx_securities_ntp_itch_v1_05.combination_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Participant Id Buyer: 3 Byte Ascii String
+  -- Participant Id Buyer: Alpha
   index, participant_id_buyer = asx_securities_ntp_itch_v1_05.participant_id_buyer.dissect(buffer, index, packet, parent)
 
-  -- Participant Id Seller: 3 Byte Ascii String
+  -- Participant Id Seller: Alpha
   index, participant_id_seller = asx_securities_ntp_itch_v1_05.participant_id_seller.dissect(buffer, index, packet, parent)
 
   return index
@@ -3405,7 +3368,7 @@ asx_securities_ntp_itch_v1_05.implied_order_deleted_message = {}
 
 -- Size: Implied Order Deleted Message
 asx_securities_ntp_itch_v1_05.implied_order_deleted_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3420,19 +3383,19 @@ end
 asx_securities_ntp_itch_v1_05.implied_order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3461,7 +3424,7 @@ asx_securities_ntp_itch_v1_05.implied_order_replaced_message = {}
 
 -- Size: Implied Order Replaced Message
 asx_securities_ntp_itch_v1_05.implied_order_replaced_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3479,28 +3442,28 @@ end
 asx_securities_ntp_itch_v1_05.implied_order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_ntp_itch_v1_05.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_ntp_itch_v1_05.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_ntp_itch_v1_05.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -3529,7 +3492,7 @@ asx_securities_ntp_itch_v1_05.implied_order_added_message = {}
 
 -- Size: Implied Order Added Message
 asx_securities_ntp_itch_v1_05.implied_order_added_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3547,28 +3510,28 @@ end
 asx_securities_ntp_itch_v1_05.implied_order_added_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_ntp_itch_v1_05.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_ntp_itch_v1_05.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_ntp_itch_v1_05.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -3597,7 +3560,7 @@ asx_securities_ntp_itch_v1_05.combination_order_executed_message = {}
 
 -- Size: Combination Order Executed Message
 asx_securities_ntp_itch_v1_05.combination_order_executed_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3621,46 +3584,46 @@ end
 asx_securities_ntp_itch_v1_05.combination_order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Remaining: Numeric
   index, quantity_remaining = asx_securities_ntp_itch_v1_05.quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 12 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_ntp_itch_v1_05.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = asx_securities_ntp_itch_v1_05.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_ntp_itch_v1_05.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_ntp_itch_v1_05.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Opposite Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Opposite Tradeable Instrument Id: Numeric
   index, opposite_tradeable_instrument_id = asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Opposite Side: 1 Byte Ascii String Enum with 2 values
+  -- Opposite Side: Alpha
   index, opposite_side = asx_securities_ntp_itch_v1_05.opposite_side.dissect(buffer, index, packet, parent)
 
-  -- Opposite Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Opposite Order Id: Numeric
   index, opposite_order_id = asx_securities_ntp_itch_v1_05.opposite_order_id.dissect(buffer, index, packet, parent)
 
-  -- Combination Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Combination Trade Id: Numeric
   index, combination_trade_id = asx_securities_ntp_itch_v1_05.combination_trade_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3689,7 +3652,7 @@ asx_securities_ntp_itch_v1_05.auction_order_executed_message = {}
 
 -- Size: Auction Order Executed Message
 asx_securities_ntp_itch_v1_05.auction_order_executed_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3710,37 +3673,37 @@ end
 asx_securities_ntp_itch_v1_05.auction_order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Remaining: Numeric
   index, quantity_remaining = asx_securities_ntp_itch_v1_05.quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 12 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_ntp_itch_v1_05.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = asx_securities_ntp_itch_v1_05.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_ntp_itch_v1_05.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_ntp_itch_v1_05.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Opposite Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Opposite Order Id: Numeric
   index, opposite_order_id = asx_securities_ntp_itch_v1_05.opposite_order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3769,7 +3732,7 @@ asx_securities_ntp_itch_v1_05.order_executed_message = {}
 
 -- Size: Order Executed Message
 asx_securities_ntp_itch_v1_05.order_executed_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3791,40 +3754,40 @@ end
 asx_securities_ntp_itch_v1_05.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity Remaining: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Remaining: Numeric
   index, quantity_remaining = asx_securities_ntp_itch_v1_05.quantity_remaining.dissect(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Ascii String Enum with 12 values
+  -- Trade Type: Alpha
   index, trade_type = asx_securities_ntp_itch_v1_05.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = asx_securities_ntp_itch_v1_05.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Numeric
   index, executed_quantity = asx_securities_ntp_itch_v1_05.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Trade Price: Price
   index, trade_price = asx_securities_ntp_itch_v1_05.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Combination Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Combination Trade Id: Numeric
   index, combination_trade_id = asx_securities_ntp_itch_v1_05.combination_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Counter Party Id: 3 Byte Ascii String
+  -- Counter Party Id: Alpha
   index, counter_party_id = asx_securities_ntp_itch_v1_05.counter_party_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3853,7 +3816,7 @@ asx_securities_ntp_itch_v1_05.order_deleted_message = {}
 
 -- Size: Order Deleted Message
 asx_securities_ntp_itch_v1_05.order_deleted_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3868,19 +3831,19 @@ end
 asx_securities_ntp_itch_v1_05.order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3909,7 +3872,7 @@ asx_securities_ntp_itch_v1_05.order_volume_cancelled_message = {}
 
 -- Size: Order Volume Cancelled Message
 asx_securities_ntp_itch_v1_05.order_volume_cancelled_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3925,22 +3888,22 @@ end
 asx_securities_ntp_itch_v1_05.order_volume_cancelled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_ntp_itch_v1_05.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -3969,7 +3932,7 @@ asx_securities_ntp_itch_v1_05.add_order_message = {}
 
 -- Size: Add Order Message
 asx_securities_ntp_itch_v1_05.add_order_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.side.size + 
@@ -3987,28 +3950,28 @@ end
 asx_securities_ntp_itch_v1_05.add_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = asx_securities_ntp_itch_v1_05.side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = asx_securities_ntp_itch_v1_05.order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Book Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Order Book Priority: Numeric
   index, order_book_priority = asx_securities_ntp_itch_v1_05.order_book_priority.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = asx_securities_ntp_itch_v1_05.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = asx_securities_ntp_itch_v1_05.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -4037,7 +4000,7 @@ asx_securities_ntp_itch_v1_05.order_book_state_message = {}
 
 -- Size: Order Book State Message
 asx_securities_ntp_itch_v1_05.order_book_state_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.session_state.size
@@ -4051,16 +4014,16 @@ end
 asx_securities_ntp_itch_v1_05.order_book_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Session State: 1 Byte Ascii String Enum with 6 values
+  -- Session State: Alpha
   index, session_state = asx_securities_ntp_itch_v1_05.session_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -4084,70 +4047,12 @@ asx_securities_ntp_itch_v1_05.order_book_state_message.dissect = function(buffer
   end
 end
 
--- Bundle Leg
-asx_securities_ntp_itch_v1_05.bundle_leg = {}
-
--- Size: Bundle Leg
-asx_securities_ntp_itch_v1_05.bundle_leg.size =
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size + 
-  asx_securities_ntp_itch_v1_05.side_leg.size + 
-  asx_securities_ntp_itch_v1_05.ratio_leg.size + 
-  asx_securities_ntp_itch_v1_05.price_leg.size
-
--- Display: Bundle Leg
-asx_securities_ntp_itch_v1_05.bundle_leg.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bundle Leg
-asx_securities_ntp_itch_v1_05.bundle_leg.fields = function(buffer, offset, packet, parent, bundle_leg_index)
-  local index = offset
-
-  -- Implicit Bundle Leg Index
-  if bundle_leg_index ~= nil and show.bundle_leg_index then
-    local iteration = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.bundle_leg_index, bundle_leg_index)
-    iteration:set_generated()
-  end
-
-  -- Tradeable Instrument Id Leg: 4 Byte Unsigned Fixed Width Integer
-  index, tradeable_instrument_id_leg = asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.dissect(buffer, index, packet, parent)
-
-  -- Side Leg: 1 Byte Ascii String Enum with 3 values
-  index, side_leg = asx_securities_ntp_itch_v1_05.side_leg.dissect(buffer, index, packet, parent)
-
-  -- Ratio Leg: 4 Byte Unsigned Fixed Width Integer
-  index, ratio_leg = asx_securities_ntp_itch_v1_05.ratio_leg.dissect(buffer, index, packet, parent)
-
-  -- Price Leg: 8 Byte Signed Fixed Width Integer
-  index, price_leg = asx_securities_ntp_itch_v1_05.price_leg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bundle Leg
-asx_securities_ntp_itch_v1_05.bundle_leg.dissect = function(buffer, offset, packet, parent, bundle_leg_index)
-  if show.bundle_leg then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.bundle_leg, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05.bundle_leg.fields(buffer, offset, packet, parent, bundle_leg_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = asx_securities_ntp_itch_v1_05.bundle_leg.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05.bundle_leg.fields(buffer, offset, packet, parent, bundle_leg_index)
-  end
-end
-
 -- Bundles Symbol Directory
 asx_securities_ntp_itch_v1_05.bundles_symbol_directory = {}
 
 -- Size: Bundles Symbol Directory
 asx_securities_ntp_itch_v1_05.bundles_symbol_directory.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.symbol_name.size + 
@@ -4169,37 +4074,37 @@ end
 asx_securities_ntp_itch_v1_05.bundles_symbol_directory.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Name: 32 Byte Ascii String
+  -- Symbol Name: Alpha
   index, symbol_name = asx_securities_ntp_itch_v1_05.symbol_name.dissect(buffer, index, packet, parent)
 
-  -- Long Name: 60 Byte Ascii String
+  -- Long Name: Alpha
   index, long_name = asx_securities_ntp_itch_v1_05.long_name.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: Alpha
   index, cfi_code = asx_securities_ntp_itch_v1_05.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Price Method: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Price Method: Numeric
   index, price_method = asx_securities_ntp_itch_v1_05.price_method.dissect(buffer, index, packet, parent)
 
-  -- Price Display Decimals: 1 Byte Unsigned Fixed Width Integer
+  -- Price Display Decimals: Numeric
   index, price_display_decimals = asx_securities_ntp_itch_v1_05.price_display_decimals.dissect(buffer, index, packet, parent)
 
-  -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Price Fractional Denominator: Numeric
   index, price_fractional_denominator = asx_securities_ntp_itch_v1_05.price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Price Minimum Tick: 4 Byte Unsigned Fixed Width Integer
+  -- Price Minimum Tick: Numeric
   index, price_minimum_tick = asx_securities_ntp_itch_v1_05.price_minimum_tick.dissect(buffer, index, packet, parent)
 
-  -- Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Legs: Numeric
   index, legs = asx_securities_ntp_itch_v1_05.legs.dissect(buffer, index, packet, parent)
 
   -- Array Of: Bundle Leg
@@ -4228,70 +4133,12 @@ asx_securities_ntp_itch_v1_05.bundles_symbol_directory.dissect = function(buffer
   end
 end
 
--- Combination Leg
-asx_securities_ntp_itch_v1_05.combination_leg = {}
-
--- Size: Combination Leg
-asx_securities_ntp_itch_v1_05.combination_leg.size =
-  asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size + 
-  asx_securities_ntp_itch_v1_05.side_leg.size + 
-  asx_securities_ntp_itch_v1_05.ratio_leg.size + 
-  asx_securities_ntp_itch_v1_05.price_leg.size
-
--- Display: Combination Leg
-asx_securities_ntp_itch_v1_05.combination_leg.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Combination Leg
-asx_securities_ntp_itch_v1_05.combination_leg.fields = function(buffer, offset, packet, parent, combination_leg_index)
-  local index = offset
-
-  -- Implicit Combination Leg Index
-  if combination_leg_index ~= nil and show.combination_leg_index then
-    local iteration = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.combination_leg_index, combination_leg_index)
-    iteration:set_generated()
-  end
-
-  -- Tradeable Instrument Id Leg: 4 Byte Unsigned Fixed Width Integer
-  index, tradeable_instrument_id_leg = asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.dissect(buffer, index, packet, parent)
-
-  -- Side Leg: 1 Byte Ascii String Enum with 3 values
-  index, side_leg = asx_securities_ntp_itch_v1_05.side_leg.dissect(buffer, index, packet, parent)
-
-  -- Ratio Leg: 4 Byte Unsigned Fixed Width Integer
-  index, ratio_leg = asx_securities_ntp_itch_v1_05.ratio_leg.dissect(buffer, index, packet, parent)
-
-  -- Price Leg: 8 Byte Signed Fixed Width Integer
-  index, price_leg = asx_securities_ntp_itch_v1_05.price_leg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Combination Leg
-asx_securities_ntp_itch_v1_05.combination_leg.dissect = function(buffer, offset, packet, parent, combination_leg_index)
-  if show.combination_leg then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_asx_securities_ntp_itch_v1_05.fields.combination_leg, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05.combination_leg.fields(buffer, offset, packet, parent, combination_leg_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = asx_securities_ntp_itch_v1_05.combination_leg.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05.combination_leg.fields(buffer, offset, packet, parent, combination_leg_index)
-  end
-end
-
 -- Combination Symbol Directory Message
 asx_securities_ntp_itch_v1_05.combination_symbol_directory_message = {}
 
 -- Size: Combination Symbol Directory Message
 asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.symbol_name.size + 
@@ -4313,37 +4160,37 @@ end
 asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Name: 32 Byte Ascii String
+  -- Symbol Name: Alpha
   index, symbol_name = asx_securities_ntp_itch_v1_05.symbol_name.dissect(buffer, index, packet, parent)
 
-  -- Long Name: 60 Byte Ascii String
+  -- Long Name: Alpha
   index, long_name = asx_securities_ntp_itch_v1_05.long_name.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: Alpha
   index, cfi_code = asx_securities_ntp_itch_v1_05.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Price Method: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Price Method: Numeric
   index, price_method = asx_securities_ntp_itch_v1_05.price_method.dissect(buffer, index, packet, parent)
 
-  -- Price Display Decimals: 1 Byte Unsigned Fixed Width Integer
+  -- Price Display Decimals: Numeric
   index, price_display_decimals = asx_securities_ntp_itch_v1_05.price_display_decimals.dissect(buffer, index, packet, parent)
 
-  -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Price Fractional Denominator: Numeric
   index, price_fractional_denominator = asx_securities_ntp_itch_v1_05.price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Price Minimum Tick: 4 Byte Unsigned Fixed Width Integer
+  -- Price Minimum Tick: Numeric
   index, price_minimum_tick = asx_securities_ntp_itch_v1_05.price_minimum_tick.dissect(buffer, index, packet, parent)
 
-  -- Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Legs: Numeric
   index, legs = asx_securities_ntp_itch_v1_05.legs.dissect(buffer, index, packet, parent)
 
   -- Array Of: Combination Leg
@@ -4377,7 +4224,7 @@ asx_securities_ntp_itch_v1_05.options_symbol_directory_message = {}
 
 -- Size: Options Symbol Directory Message
 asx_securities_ntp_itch_v1_05.options_symbol_directory_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.symbol_name.size + 
@@ -4418,97 +4265,97 @@ end
 asx_securities_ntp_itch_v1_05.options_symbol_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Name: 32 Byte Ascii String
+  -- Symbol Name: Alpha
   index, symbol_name = asx_securities_ntp_itch_v1_05.symbol_name.dissect(buffer, index, packet, parent)
 
-  -- Long Name: 60 Byte Ascii String
+  -- Long Name: Alpha
   index, long_name = asx_securities_ntp_itch_v1_05.long_name.dissect(buffer, index, packet, parent)
 
-  -- Isin: 12 Byte Ascii String
+  -- Isin: Alpha
   index, isin = asx_securities_ntp_itch_v1_05.isin.dissect(buffer, index, packet, parent)
 
-  -- Exchange: 6 Byte Ascii String
+  -- Exchange: Alpha
   index, exchange = asx_securities_ntp_itch_v1_05.exchange.dissect(buffer, index, packet, parent)
 
-  -- Instrument: 6 Byte Ascii String
+  -- Instrument: Alpha
   index, instrument = asx_securities_ntp_itch_v1_05.instrument.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: Alpha
   index, cfi_code = asx_securities_ntp_itch_v1_05.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Expiry Year: 2 Byte Unsigned Fixed Width Integer
+  -- Expiry Year: Numeric
   index, expiry_year = asx_securities_ntp_itch_v1_05.expiry_year.dissect(buffer, index, packet, parent)
 
-  -- Expiry Month: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Expiry Month: Numeric
   index, expiry_month = asx_securities_ntp_itch_v1_05.expiry_month.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: Alpha
   index, option_type = asx_securities_ntp_itch_v1_05.option_type.dissect(buffer, index, packet, parent)
 
-  -- Strike: 8 Byte Signed Fixed Width Integer
+  -- Strike: Price
   index, strike = asx_securities_ntp_itch_v1_05.strike.dissect(buffer, index, packet, parent)
 
-  -- Underlying Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Tradeable Instrument Id: Numeric
   index, underlying_tradeable_instrument_id = asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price Display Decimals: 1 Byte Unsigned Fixed Width Integer
+  -- Price Display Decimals: Numeric
   index, price_display_decimals = asx_securities_ntp_itch_v1_05.price_display_decimals.dissect(buffer, index, packet, parent)
 
-  -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Price Fractional Denominator: Numeric
   index, price_fractional_denominator = asx_securities_ntp_itch_v1_05.price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Price Minimum Tick: 4 Byte Unsigned Fixed Width Integer
+  -- Price Minimum Tick: Numeric
   index, price_minimum_tick = asx_securities_ntp_itch_v1_05.price_minimum_tick.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Decimal Position: 1 Byte Unsigned Fixed Width Integer
+  -- Strike Price Decimal Position: Numeric
   index, strike_price_decimal_position = asx_securities_ntp_itch_v1_05.strike_price_decimal_position.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price Fractional Denominator: Numeric
   index, strike_price_fractional_denominator = asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Strike Price Minimum Tick: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price Minimum Tick: Numeric
   index, strike_price_minimum_tick = asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Date: 4 Byte Unsigned Fixed Width Integer
+  -- Last Trading Date: Numeric
   index, last_trading_date = asx_securities_ntp_itch_v1_05.last_trading_date.dissect(buffer, index, packet, parent)
 
-  -- Prior Day Settlement: 8 Byte Signed Fixed Width Integer
+  -- Prior Day Settlement: Price
   index, prior_day_settlement = asx_securities_ntp_itch_v1_05.prior_day_settlement.dissect(buffer, index, packet, parent)
 
-  -- Volatility: 8 Byte Unsigned Fixed Width Integer
+  -- Volatility: Numeric
   index, volatility = asx_securities_ntp_itch_v1_05.volatility.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alpha
   index, currency = asx_securities_ntp_itch_v1_05.currency.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Or Face Value: 8 Byte Unsigned Fixed Width Integer
+  -- Lot Size Or Face Value: Numeric
   index, lot_size_or_face_value = asx_securities_ntp_itch_v1_05.lot_size_or_face_value.dissect(buffer, index, packet, parent)
 
-  -- Maturity Value: 1 Byte Unsigned Fixed Width Integer
+  -- Maturity Value: Numeric
   index, maturity_value = asx_securities_ntp_itch_v1_05.maturity_value.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 2 Byte Unsigned Fixed Width Integer
+  -- Coupon Rate: Numeric
   index, coupon_rate = asx_securities_ntp_itch_v1_05.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Payments Per Year: 1 Byte Unsigned Fixed Width Integer
+  -- Payments Per Year: Numeric
   index, payments_per_year = asx_securities_ntp_itch_v1_05.payments_per_year.dissect(buffer, index, packet, parent)
 
-  -- Block Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Block Lot Size: Numeric
   index, block_lot_size = asx_securities_ntp_itch_v1_05.block_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Expiry Date: 4 Byte Unsigned Fixed Width Integer
+  -- Expiry Date: Numeric
   index, expiry_date = asx_securities_ntp_itch_v1_05.expiry_date.dissect(buffer, index, packet, parent)
 
-  -- Basis Of Quotation: 10 Byte Ascii String
+  -- Basis Of Quotation: Alpha
   index, basis_of_quotation = asx_securities_ntp_itch_v1_05.basis_of_quotation.dissect(buffer, index, packet, parent)
 
   return index
@@ -4537,7 +4384,7 @@ asx_securities_ntp_itch_v1_05.future_symbol_directory_message = {}
 
 -- Size: Future Symbol Directory Message
 asx_securities_ntp_itch_v1_05.future_symbol_directory_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size + 
   asx_securities_ntp_itch_v1_05.symbol_name.size + 
@@ -4570,73 +4417,73 @@ end
 asx_securities_ntp_itch_v1_05.future_symbol_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Tradeable Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tradeable Instrument Id: Numeric
   index, tradeable_instrument_id = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Name: 32 Byte Ascii String
+  -- Symbol Name: Alpha
   index, symbol_name = asx_securities_ntp_itch_v1_05.symbol_name.dissect(buffer, index, packet, parent)
 
-  -- Long Name: 60 Byte Ascii String
+  -- Long Name: Alpha
   index, long_name = asx_securities_ntp_itch_v1_05.long_name.dissect(buffer, index, packet, parent)
 
-  -- Isin: 12 Byte Ascii String
+  -- Isin: Alpha
   index, isin = asx_securities_ntp_itch_v1_05.isin.dissect(buffer, index, packet, parent)
 
-  -- Exchange: 6 Byte Ascii String
+  -- Exchange: Alpha
   index, exchange = asx_securities_ntp_itch_v1_05.exchange.dissect(buffer, index, packet, parent)
 
-  -- Instrument: 6 Byte Ascii String
+  -- Instrument: Alpha
   index, instrument = asx_securities_ntp_itch_v1_05.instrument.dissect(buffer, index, packet, parent)
 
-  -- Cfi Code: 6 Byte Ascii String
+  -- Cfi Code: Alpha
   index, cfi_code = asx_securities_ntp_itch_v1_05.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Expiry Year: 2 Byte Unsigned Fixed Width Integer
+  -- Expiry Year: Numeric
   index, expiry_year = asx_securities_ntp_itch_v1_05.expiry_year.dissect(buffer, index, packet, parent)
 
-  -- Expiry Month: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Expiry Month: Numeric
   index, expiry_month = asx_securities_ntp_itch_v1_05.expiry_month.dissect(buffer, index, packet, parent)
 
-  -- Price Display Decimals: 1 Byte Unsigned Fixed Width Integer
+  -- Price Display Decimals: Numeric
   index, price_display_decimals = asx_securities_ntp_itch_v1_05.price_display_decimals.dissect(buffer, index, packet, parent)
 
-  -- Price Fractional Denominator: 4 Byte Unsigned Fixed Width Integer
+  -- Price Fractional Denominator: Numeric
   index, price_fractional_denominator = asx_securities_ntp_itch_v1_05.price_fractional_denominator.dissect(buffer, index, packet, parent)
 
-  -- Price Minimum Tick: 4 Byte Unsigned Fixed Width Integer
+  -- Price Minimum Tick: Numeric
   index, price_minimum_tick = asx_securities_ntp_itch_v1_05.price_minimum_tick.dissect(buffer, index, packet, parent)
 
-  -- Last Trading Date: 4 Byte Unsigned Fixed Width Integer
+  -- Last Trading Date: Numeric
   index, last_trading_date = asx_securities_ntp_itch_v1_05.last_trading_date.dissect(buffer, index, packet, parent)
 
-  -- Prior Day Settlement: 8 Byte Signed Fixed Width Integer
+  -- Prior Day Settlement: Price
   index, prior_day_settlement = asx_securities_ntp_itch_v1_05.prior_day_settlement.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alpha
   index, currency = asx_securities_ntp_itch_v1_05.currency.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Or Face Value: 8 Byte Unsigned Fixed Width Integer
+  -- Lot Size Or Face Value: Numeric
   index, lot_size_or_face_value = asx_securities_ntp_itch_v1_05.lot_size_or_face_value.dissect(buffer, index, packet, parent)
 
-  -- Maturity Value: 1 Byte Unsigned Fixed Width Integer
+  -- Maturity Value: Numeric
   index, maturity_value = asx_securities_ntp_itch_v1_05.maturity_value.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 2 Byte Unsigned Fixed Width Integer
+  -- Coupon Rate: Numeric
   index, coupon_rate = asx_securities_ntp_itch_v1_05.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Payments Per Year: 1 Byte Unsigned Fixed Width Integer
+  -- Payments Per Year: Numeric
   index, payments_per_year = asx_securities_ntp_itch_v1_05.payments_per_year.dissect(buffer, index, packet, parent)
 
-  -- Block Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Block Lot Size: Numeric
   index, block_lot_size = asx_securities_ntp_itch_v1_05.block_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Expiry Date: 4 Byte Unsigned Fixed Width Integer
+  -- Expiry Date: Numeric
   index, expiry_date = asx_securities_ntp_itch_v1_05.expiry_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -4665,7 +4512,7 @@ asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message = {}
 
 -- Size: End Of Business Trade Date Message
 asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.size =
-  asx_securities_ntp_itch_v1_05.nanoseconds.size + 
+  asx_securities_ntp_itch_v1_05.timestamp.size + 
   asx_securities_ntp_itch_v1_05.trade_date.size + 
   asx_securities_ntp_itch_v1_05.event_code.size
 
@@ -4678,13 +4525,13 @@ end
 asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Numeric
+  index, timestamp = asx_securities_ntp_itch_v1_05.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Numeric
   index, trade_date = asx_securities_ntp_itch_v1_05.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 1 values
+  -- Event Code: Alpha
   index, event_code = asx_securities_ntp_itch_v1_05.event_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -4713,7 +4560,7 @@ asx_securities_ntp_itch_v1_05.seconds_message = {}
 
 -- Size: Seconds Message
 asx_securities_ntp_itch_v1_05.seconds_message.size =
-  asx_securities_ntp_itch_v1_05.seconds.size
+  asx_securities_ntp_itch_v1_05.second.size
 
 -- Display: Seconds Message
 asx_securities_ntp_itch_v1_05.seconds_message.display = function(packet, parent, length)
@@ -4724,11 +4571,11 @@ end
 asx_securities_ntp_itch_v1_05.seconds_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = asx_securities_ntp_itch_v1_05.seconds.dissect(buffer, index, packet, parent)
+  -- Second: Numeric
+  index, second = asx_securities_ntp_itch_v1_05.second.dissect(buffer, index, packet, parent)
 
-  -- Store Seconds Value
-  asx_securities_ntp_itch_v1_05.seconds.store = seconds
+  -- Store Second Value
+  asx_securities_ntp_itch_v1_05.second.store = second
 
   return index
 end
