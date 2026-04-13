@@ -63,6 +63,7 @@ omi_cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.fields.stock_symbol_pri
 omi_cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.fields.text = ProtoField.new("Text", "cboe.titanium.equities.depthofbook.pitchtcp.v1.15.13.text", ftypes.STRING)
 omi_cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.titanium.equities.depthofbook.pitchtcp.v1.15.13.timestamp", ftypes.STRING)
 omi_cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.titanium.equities.depthofbook.pitchtcp.v1.15.13.unsequenceddatapacket", ftypes.STRING)
+omi_cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.titanium.equities.depthofbook.pitchtcp.v1.15.13.unsequencedmessage", ftypes.BYTES)
 omi_cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.fields.username = ProtoField.new("Username", "cboe.titanium.equities.depthofbook.pitchtcp.v1.15.13.username", ftypes.STRING)
 
 -- Cboe Titanium Equities PitchTcp DepthOfBook 1.15.13 Application Messages
@@ -1314,6 +1315,29 @@ cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.timestamp.dissect = functio
   return offset + length, value
 end
 
+-- Unsequenced Message
+cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.unsequenced_message = {}
+
+-- Size: Unsequenced Message
+cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.unsequenced_message.size = 0
+
+-- Display: Unsequenced Message
+cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect: Unsequenced Message
+cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.unsequenced_message.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.unsequenced_message.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.unsequenced_message.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.fields.unsequenced_message, range, value, display)
+
+  return offset + length, value
+end
+
 -- Username
 cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.username = {}
 
@@ -1358,7 +1382,7 @@ end
 cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Unsequenced Message
+  -- Unsequenced Message: 0 Byte
   index, unsequenced_message = cboe_titanium_equities_depthofbook_pitchtcp_v1_15_13.unsequenced_message.dissect(buffer, index, packet, parent)
 
   return index

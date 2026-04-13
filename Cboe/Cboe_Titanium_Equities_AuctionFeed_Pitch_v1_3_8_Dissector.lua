@@ -47,6 +47,7 @@ omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.stock_symbol = ProtoF
 omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.text = ProtoField.new("Text", "cboe.titanium.equities.auctionfeed.pitch.v1.3.8.text", ftypes.STRING)
 omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.timestamp = ProtoField.new("Timestamp", "cboe.titanium.equities.auctionfeed.pitch.v1.3.8.timestamp", ftypes.STRING)
 omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.titanium.equities.auctionfeed.pitch.v1.3.8.unsequenceddatapacket", ftypes.STRING)
+omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.titanium.equities.auctionfeed.pitch.v1.3.8.unsequencedmessage", ftypes.BYTES)
 omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.username = ProtoField.new("Username", "cboe.titanium.equities.auctionfeed.pitch.v1.3.8.username", ftypes.STRING)
 
 -- Cboe Titanium Equities Pitch AuctionFeed 1.3.8 Application Messages
@@ -812,6 +813,29 @@ cboe_titanium_equities_auctionfeed_pitch_v1_3_8.timestamp.dissect = function(buf
   return offset + length, value
 end
 
+-- Unsequenced Message
+cboe_titanium_equities_auctionfeed_pitch_v1_3_8.unsequenced_message = {}
+
+-- Size: Unsequenced Message
+cboe_titanium_equities_auctionfeed_pitch_v1_3_8.unsequenced_message.size = 0
+
+-- Display: Unsequenced Message
+cboe_titanium_equities_auctionfeed_pitch_v1_3_8.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect: Unsequenced Message
+cboe_titanium_equities_auctionfeed_pitch_v1_3_8.unsequenced_message.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.unsequenced_message.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.unsequenced_message.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titanium_equities_auctionfeed_pitch_v1_3_8.fields.unsequenced_message, range, value, display)
+
+  return offset + length, value
+end
+
 -- Username
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.username = {}
 
@@ -856,7 +880,7 @@ end
 cboe_titanium_equities_auctionfeed_pitch_v1_3_8.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Unsequenced Message
+  -- Unsequenced Message: 0 Byte
   index, unsequenced_message = cboe_titanium_equities_auctionfeed_pitch_v1_3_8.unsequenced_message.dissect(buffer, index, packet, parent)
 
   return index
