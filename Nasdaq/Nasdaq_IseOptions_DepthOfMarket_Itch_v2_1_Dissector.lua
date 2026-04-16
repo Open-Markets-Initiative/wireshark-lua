@@ -64,7 +64,7 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.printable = ProtoField.new(
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.depthofmarket.itch.v2.1.reserved16", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.reserved_4 = ProtoField.new("Reserved 4", "nasdaq.iseoptions.depthofmarket.itch.v2.1.reserved4", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.depthofmarket.itch.v2.1.securitysymbol", ftypes.STRING)
-omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.sequencenumber", ftypes.STRING)
+omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.sequencenumber", ftypes.UINT64)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.iseoptions.depthofmarket.itch.v2.1.session", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.side = ProtoField.new("Side", "nasdaq.iseoptions.depthofmarket.itch.v2.1.side", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.side_imbalance_direction = ProtoField.new("Side Imbalance Direction", "nasdaq.iseoptions.depthofmarket.itch.v2.1.sideimbalancedirection", ftypes.STRING)
@@ -85,7 +85,6 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.add_quote_long_form_message
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.add_quote_short_form_message = ProtoField.new("Add Quote Short Form Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.addquoteshortformmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.derivative_directory_message = ProtoField.new("Derivative Directory Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.derivativedirectorymessage", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.net_order_imbalance_message = ProtoField.new("Net Order Imbalance Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.netorderimbalancemessage", ftypes.STRING)
-omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.options_trade_message = ProtoField.new("Options Trade Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.optionstrademessage", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.ordercancelmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.quotedeletemessage", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.quote_replace_long_form_message = ProtoField.new("Quote Replace Long Form Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.quotereplacelongformmessage", ftypes.STRING)
@@ -97,6 +96,7 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.single_side_replace_long_fo
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.single_side_replace_short_form_message = ProtoField.new("Single Side Replace Short Form Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.singlesidereplaceshortformmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.single_side_update_message = ProtoField.new("Single Side Update Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.singlesideupdatemessage", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.systemeventmessage", ftypes.STRING)
+omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.trademessage", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq IseOptions DepthOfMarket Itch 2.1 generated fields
@@ -1012,7 +1012,7 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1.message_type.display = function(value)
     return "Message Type: Quote Delete Message (Y)"
   end
   if value == "q" then
-    return "Message Type: Options Trade Message (q)"
+    return "Message Type: Trade Message (q)"
   end
   if value == "O" then
     return "Message Type: Net Order Imbalance Message (O)"
@@ -1434,7 +1434,7 @@ end
 nasdaq_iseoptions_depthofmarket_itch_v2_1.sequence_number = {}
 
 -- Size: Sequence Number
-nasdaq_iseoptions_depthofmarket_itch_v2_1.sequence_number.size = 20
+nasdaq_iseoptions_depthofmarket_itch_v2_1.sequence_number.size = 8
 
 -- Display: Sequence Number
 nasdaq_iseoptions_depthofmarket_itch_v2_1.sequence_number.display = function(value)
@@ -1445,7 +1445,7 @@ end
 nasdaq_iseoptions_depthofmarket_itch_v2_1.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_depthofmarket_itch_v2_1.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:uint64()
   local display = nasdaq_iseoptions_depthofmarket_itch_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.sequence_number, range, value, display)
@@ -1857,11 +1857,11 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1.net_order_imbalance_message.dissect = 
   end
 end
 
--- Options Trade Message
-nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message = {}
+-- Trade Message
+nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message = {}
 
--- Size: Options Trade Message
-nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.size =
+-- Size: Trade Message
+nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message.size =
   nasdaq_iseoptions_depthofmarket_itch_v2_1.tracking_number.size + 
   nasdaq_iseoptions_depthofmarket_itch_v2_1.timestamp.size + 
   nasdaq_iseoptions_depthofmarket_itch_v2_1.instrument_id.size + 
@@ -1877,13 +1877,13 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.size =
   nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_type.size + 
   nasdaq_iseoptions_depthofmarket_itch_v2_1.reserved_16.size
 
--- Display: Options Trade Message
-nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.display = function(packet, parent, length)
+-- Display: Trade Message
+nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Options Trade Message
-nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Message
+nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: Integer
@@ -1931,21 +1931,21 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.fields = functio
   return index
 end
 
--- Dissect: Options Trade Message
-nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Trade Message
+nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.options_trade_message, buffer(offset, 0))
-    local index = nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1.fields.trade_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.display(packet, parent, length)
+    local display = nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3178,9 +3178,9 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1.payload.dissect = function(buffer, off
   if message_type == "Y" then
     return nasdaq_iseoptions_depthofmarket_itch_v2_1.quote_delete_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Options Trade Message
+  -- Dissect Trade Message
   if message_type == "q" then
-    return nasdaq_iseoptions_depthofmarket_itch_v2_1.options_trade_message.dissect(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_depthofmarket_itch_v2_1.trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Net Order Imbalance Message
   if message_type == "O" then
@@ -3346,7 +3346,7 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1.packet_header.fields = function(buffer
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_iseoptions_depthofmarket_itch_v2_1.session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Alphanumeric
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, sequence_number = nasdaq_iseoptions_depthofmarket_itch_v2_1.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer

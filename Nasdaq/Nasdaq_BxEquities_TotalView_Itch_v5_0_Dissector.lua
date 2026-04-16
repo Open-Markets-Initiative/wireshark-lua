@@ -69,7 +69,7 @@ omi_nasdaq_bxequities_totalview_itch_v5_0.fields.price_variation_indicator = Pro
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.bxequities.totalview.itch.v5.0.primarymarketmaker", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.printable = ProtoField.new("Printable", "nasdaq.bxequities.totalview.itch.v5.0.printable", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.bxequities.totalview.itch.v5.0.regshoaction", ftypes.STRING)
-omi_nasdaq_bxequities_totalview_itch_v5_0.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.bxequities.totalview.itch.v5.0.reserved1", ftypes.STRING)
+omi_nasdaq_bxequities_totalview_itch_v5_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.bxequities.totalview.itch.v5.0.reserved", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.bxequities.totalview.itch.v5.0.roundlotsize", ftypes.UINT32)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.bxequities.totalview.itch.v5.0.roundlotsonly", ftypes.STRING)
 omi_nasdaq_bxequities_totalview_itch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.bxequities.totalview.itch.v5.0.sequencenumber", ftypes.UINT64)
@@ -133,6 +133,19 @@ omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.show_packet = Pref.bool("Show Pa
 omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+-- Timestamp Display Preferences
+nasdaq_bxequities_totalview_itch_v5_0.timestamp_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_bxequities_totalview_itch_v5_0.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+
 -- Handle changed preferences
 function omi_nasdaq_bxequities_totalview_itch_v5_0.prefs_changed()
 
@@ -154,6 +167,14 @@ function omi_nasdaq_bxequities_totalview_itch_v5_0.prefs_changed()
   end
   if show.message_index ~= omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.show_message_index then
     show.message_index = omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.show_message_index
+  end
+
+  -- Check Timestamp preferences
+  if nasdaq_bxequities_totalview_itch_v5_0.timestamp_format ~= omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.timestamp_format then
+    nasdaq_bxequities_totalview_itch_v5_0.timestamp_format = omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.timestamp_format
+  end
+  if nasdaq_bxequities_totalview_itch_v5_0.utc_offset_hours ~= omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.utc_offset_hours then
+    nasdaq_bxequities_totalview_itch_v5_0.utc_offset_hours = omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.utc_offset_hours
   end
 end
 
@@ -967,7 +988,7 @@ end
 
 -- Translate: Level 1
 nasdaq_bxequities_totalview_itch_v5_0.level_1.translate = function(raw)
-  return raw:tonumber()/10000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Level 1
@@ -996,7 +1017,7 @@ end
 
 -- Translate: Level 2
 nasdaq_bxequities_totalview_itch_v5_0.level_2.translate = function(raw)
-  return raw:tonumber()/10000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Level 2
@@ -1025,7 +1046,7 @@ end
 
 -- Translate: Level 3
 nasdaq_bxequities_totalview_itch_v5_0.level_3.translate = function(raw)
-  return raw:tonumber()/10000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Level 3
@@ -1806,25 +1827,25 @@ nasdaq_bxequities_totalview_itch_v5_0.reg_sho_action.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Reserved 1
-nasdaq_bxequities_totalview_itch_v5_0.reserved_1 = {}
+-- Reserved
+nasdaq_bxequities_totalview_itch_v5_0.reserved = {}
 
--- Size: Reserved 1
-nasdaq_bxequities_totalview_itch_v5_0.reserved_1.size = 1
+-- Size: Reserved
+nasdaq_bxequities_totalview_itch_v5_0.reserved.size = 1
 
--- Display: Reserved 1
-nasdaq_bxequities_totalview_itch_v5_0.reserved_1.display = function(value)
-  return "Reserved 1: "..value
+-- Display: Reserved
+nasdaq_bxequities_totalview_itch_v5_0.reserved.display = function(value)
+  return "Reserved: "..value
 end
 
--- Dissect: Reserved 1
-nasdaq_bxequities_totalview_itch_v5_0.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxequities_totalview_itch_v5_0.reserved_1.size
+-- Dissect: Reserved
+nasdaq_bxequities_totalview_itch_v5_0.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxequities_totalview_itch_v5_0.reserved.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_bxequities_totalview_itch_v5_0.reserved_1.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_bxequities_totalview_itch_v5_0.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_bxequities_totalview_itch_v5_0.fields.reserved_1, range, value, display)
+  parent:add(omi_nasdaq_bxequities_totalview_itch_v5_0.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -2076,8 +2097,28 @@ nasdaq_bxequities_totalview_itch_v5_0.timestamp = {}
 nasdaq_bxequities_totalview_itch_v5_0.timestamp.size = 6
 
 -- Display: Timestamp
-nasdaq_bxequities_totalview_itch_v5_0.timestamp.display = function(value)
-  return "Timestamp: "..value
+nasdaq_bxequities_totalview_itch_v5_0.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_bxequities_totalview_itch_v5_0.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_bxequities_totalview_itch_v5_0.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_bxequities_totalview_itch_v5_0.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -3376,7 +3417,7 @@ nasdaq_bxequities_totalview_itch_v5_0.stock_trading_action_message.size =
   nasdaq_bxequities_totalview_itch_v5_0.timestamp.size + 
   nasdaq_bxequities_totalview_itch_v5_0.stock.size + 
   nasdaq_bxequities_totalview_itch_v5_0.trading_state.size + 
-  nasdaq_bxequities_totalview_itch_v5_0.reserved_1.size + 
+  nasdaq_bxequities_totalview_itch_v5_0.reserved.size + 
   nasdaq_bxequities_totalview_itch_v5_0.trading_action_reason.size
 
 -- Display: Stock Trading Action Message
@@ -3403,8 +3444,8 @@ nasdaq_bxequities_totalview_itch_v5_0.stock_trading_action_message.fields = func
   -- Trading State: Alpha
   index, trading_state = nasdaq_bxequities_totalview_itch_v5_0.trading_state.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Alpha
-  index, reserved_1 = nasdaq_bxequities_totalview_itch_v5_0.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved: Alpha
+  index, reserved = nasdaq_bxequities_totalview_itch_v5_0.reserved.dissect(buffer, index, packet, parent)
 
   -- Trading Action Reason: Alpha
   index, trading_action_reason = nasdaq_bxequities_totalview_itch_v5_0.trading_action_reason.dissect(buffer, index, packet, parent)

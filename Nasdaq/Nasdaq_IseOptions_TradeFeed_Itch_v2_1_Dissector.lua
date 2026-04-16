@@ -39,7 +39,7 @@ omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet_header = ProtoField.new(
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.price", ftypes.UINT32)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.tradefeed.itch.v2.1.reserved16", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.tradefeed.itch.v2.1.securitysymbol", ftypes.STRING)
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.sequencenumber", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.sequencenumber", ftypes.UINT64)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.iseoptions.tradefeed.itch.v2.1.session", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.tradefeed.itch.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.trackingnumber", ftypes.UINT16)
@@ -687,7 +687,7 @@ end
 nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number = {}
 
 -- Size: Sequence Number
-nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.size = 20
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.size = 8
 
 -- Display: Sequence Number
 nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.display = function(value)
@@ -698,7 +698,7 @@ end
 nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:uint64()
   local display = nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequence_number, range, value, display)
@@ -1400,7 +1400,7 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.fields = function(buffer, of
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_iseoptions_tradefeed_itch_v2_1.session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Alphanumeric
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, sequence_number = nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer

@@ -55,7 +55,7 @@ omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.price = ProtoField.new("Price",
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.quantity = ProtoField.new("Quantity", "nasdaq.iseoptions.orderfeed.itch.v2.1.quantity", ftypes.UINT32)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.orderfeed.itch.v2.1.reserved16", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.orderfeed.itch.v2.1.securitysymbol", ftypes.STRING)
-omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.orderfeed.itch.v2.1.sequencenumber", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.orderfeed.itch.v2.1.sequencenumber", ftypes.UINT64)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.iseoptions.orderfeed.itch.v2.1.session", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.side = ProtoField.new("Side", "nasdaq.iseoptions.orderfeed.itch.v2.1.side", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.iseoptions.orderfeed.itch.v2.1.timeinforce", ftypes.STRING)
@@ -1182,7 +1182,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v2_1.sequence_number = {}
 
 -- Size: Sequence Number
-nasdaq_iseoptions_orderfeed_itch_v2_1.sequence_number.size = 20
+nasdaq_iseoptions_orderfeed_itch_v2_1.sequence_number.size = 8
 
 -- Display: Sequence Number
 nasdaq_iseoptions_orderfeed_itch_v2_1.sequence_number.display = function(value)
@@ -1193,7 +1193,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v2_1.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_orderfeed_itch_v2_1.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:uint64()
   local display = nasdaq_iseoptions_orderfeed_itch_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.sequence_number, range, value, display)
@@ -1993,7 +1993,7 @@ nasdaq_iseoptions_orderfeed_itch_v2_1.packet_header.fields = function(buffer, of
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_iseoptions_orderfeed_itch_v2_1.session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Alphanumeric
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, sequence_number = nasdaq_iseoptions_orderfeed_itch_v2_1.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
@@ -2097,7 +2097,7 @@ omi_nasdaq_iseoptions_orderfeed_itch_v2_1:register_heuristic("udp", omi_nasdaq_i
 -- Protocol:
 --   Organization: National Association of Securities Dealers Automated Quotations
 --   Version: 2.1
---   Date: Monday, September 15, 2025
+--   Date: Friday, February 13, 2026
 --   Specification: Options_Order_Feed_2.1.pdf
 -- 
 -- Script:
