@@ -140,14 +140,14 @@ jobs:
       - name: Run Nyse Amex Equities IntegratedFeed Xdp 2.1.g Dissector Tests
         run: bash -x .github/tests/Nyse-Amex-Equities-IntegratedFeed-Xdp-v2-1-g-Test.sh
 
-      - name: Run Nyse Arca Equities Bbo Xdp 2.4.c Dissector Tests
-        run: bash -x .github/tests/Nyse-Arca-Equities-Bbo-Xdp-v2-4-c-Test.sh
+      - name: Run Nyse ArcaEquities Bbo Xdp 2.4.c Dissector Tests
+        run: bash -x .github/tests/Nyse-ArcaEquities-Bbo-Xdp-v2-4-c-Test.sh
 
       - name: Run Nyse Arca Options TopFeed Pillar 1.2.c Dissector Tests
         run: bash -x .github/tests/Nyse-Arca-Options-TopFeed-Pillar-v1-2-c-Test.sh
 
-      - name: Run Nyse Equities Bbo Pillar 2.5.b Dissector Tests
-        run: bash -x .github/tests/Nyse-Equities-Bbo-Pillar-v2-5-b-Test.sh
+      - name: Run Nyse NyseEquities Bbo Pillar 2.5.b Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Pillar-v2-5-b-Test.sh
 
       - name: Run Nyse Equities ImbalancesFeed Xdp 2.1.f Dissector Tests
         run: bash -x .github/tests/Nyse-Equities-ImbalancesFeed-Xdp-v2-1-f-Test.sh

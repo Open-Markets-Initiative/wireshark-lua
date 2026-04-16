@@ -71,6 +71,7 @@ omi_cboe_europe_lastsale_apf_v1_7.fields.trading_date_time = ProtoField.new("Tra
 omi_cboe_europe_lastsale_apf_v1_7.fields.trading_mode = ProtoField.new("Trading Mode", "cboe.europe.lastsale.apf.v1.7.tradingmode", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.europe.lastsale.apf.v1.7.transactioncategory", ftypes.STRING)
 omi_cboe_europe_lastsale_apf_v1_7.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.europe.lastsale.apf.v1.7.unsequenceddatapacket", ftypes.STRING)
+omi_cboe_europe_lastsale_apf_v1_7.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.europe.lastsale.apf.v1.7.unsequencedmessage", ftypes.BYTES)
 omi_cboe_europe_lastsale_apf_v1_7.fields.username = ProtoField.new("Username", "cboe.europe.lastsale.apf.v1.7.username", ftypes.STRING)
 
 -- Cboe Europe Apf LastSale 1.7 Application Messages
@@ -1573,6 +1574,29 @@ cboe_europe_lastsale_apf_v1_7.transaction_category.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Unsequenced Message
+cboe_europe_lastsale_apf_v1_7.unsequenced_message = {}
+
+-- Size: Unsequenced Message
+cboe_europe_lastsale_apf_v1_7.unsequenced_message.size = 0
+
+-- Display: Unsequenced Message
+cboe_europe_lastsale_apf_v1_7.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect: Unsequenced Message
+cboe_europe_lastsale_apf_v1_7.unsequenced_message.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7.unsequenced_message.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_europe_lastsale_apf_v1_7.unsequenced_message.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_europe_lastsale_apf_v1_7.fields.unsequenced_message, range, value, display)
+
+  return offset + length, value
+end
+
 -- Username
 cboe_europe_lastsale_apf_v1_7.username = {}
 
@@ -1617,7 +1641,7 @@ end
 cboe_europe_lastsale_apf_v1_7.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Unsequenced Message
+  -- Unsequenced Message: 0 Byte
   index, unsequenced_message = cboe_europe_lastsale_apf_v1_7.unsequenced_message.dissect(buffer, index, packet, parent)
 
   return index

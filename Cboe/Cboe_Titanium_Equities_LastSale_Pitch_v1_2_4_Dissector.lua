@@ -39,6 +39,7 @@ omi_cboe_titanium_equities_lastsale_pitch_v1_2_4.fields.stock_symbol = ProtoFiel
 omi_cboe_titanium_equities_lastsale_pitch_v1_2_4.fields.text = ProtoField.new("Text", "cboe.titanium.equities.lastsale.pitch.v1.2.4.text", ftypes.STRING)
 omi_cboe_titanium_equities_lastsale_pitch_v1_2_4.fields.timestamp = ProtoField.new("Timestamp", "cboe.titanium.equities.lastsale.pitch.v1.2.4.timestamp", ftypes.STRING)
 omi_cboe_titanium_equities_lastsale_pitch_v1_2_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.titanium.equities.lastsale.pitch.v1.2.4.unsequenceddatapacket", ftypes.STRING)
+omi_cboe_titanium_equities_lastsale_pitch_v1_2_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.titanium.equities.lastsale.pitch.v1.2.4.unsequencedmessage", ftypes.BYTES)
 omi_cboe_titanium_equities_lastsale_pitch_v1_2_4.fields.username = ProtoField.new("Username", "cboe.titanium.equities.lastsale.pitch.v1.2.4.username", ftypes.STRING)
 
 -- Cboe Titanium Equities Pitch LastSale 1.2.4 Application Messages
@@ -560,6 +561,29 @@ cboe_titanium_equities_lastsale_pitch_v1_2_4.timestamp.dissect = function(buffer
   return offset + length, value
 end
 
+-- Unsequenced Message
+cboe_titanium_equities_lastsale_pitch_v1_2_4.unsequenced_message = {}
+
+-- Size: Unsequenced Message
+cboe_titanium_equities_lastsale_pitch_v1_2_4.unsequenced_message.size = 0
+
+-- Display: Unsequenced Message
+cboe_titanium_equities_lastsale_pitch_v1_2_4.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect: Unsequenced Message
+cboe_titanium_equities_lastsale_pitch_v1_2_4.unsequenced_message.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titanium_equities_lastsale_pitch_v1_2_4.unsequenced_message.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_titanium_equities_lastsale_pitch_v1_2_4.unsequenced_message.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titanium_equities_lastsale_pitch_v1_2_4.fields.unsequenced_message, range, value, display)
+
+  return offset + length, value
+end
+
 -- Username
 cboe_titanium_equities_lastsale_pitch_v1_2_4.username = {}
 
@@ -604,7 +628,7 @@ end
 cboe_titanium_equities_lastsale_pitch_v1_2_4.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Unsequenced Message
+  -- Unsequenced Message: 0 Byte
   index, unsequenced_message = cboe_titanium_equities_lastsale_pitch_v1_2_4.unsequenced_message.dissect(buffer, index, packet, parent)
 
   return index

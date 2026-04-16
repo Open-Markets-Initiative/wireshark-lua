@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 459 | 4,238,135 |
+| 486 | 4,312,359 |
 
 ## Testing
 
@@ -197,19 +197,21 @@ Enjoy.
 [Omi.Memx.MemoirDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemoirDepth.md "Memx Memoir Depth"
 [Omi.Memx.RiskControl]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/RiskControl.md "Memx Risk Control"
 [Omi.Nasdaq.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TotalView.md "Nasdaq TotalView"
-[Omi.Nasdaq.OrderComboFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/OrderComboFeed.md "Nasdaq Order Combo Feed"
 [Omi.Nasdaq.OrderFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/OrderFeed.md "Nasdaq Order Feed"
-[Omi.Nasdaq.TopComboQuoteFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TopComboQuoteFeed.md "Nasdaq Top Combo Quote Feed"
-[Omi.Nasdaq.SpreadFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/SpreadFeed.md "Nasdaq Spread Feed"
 [Omi.Nasdaq.TradeFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TradeFeed.md "Nasdaq Trade Feed"
+[Omi.Nasdaq.OrderComboFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/OrderComboFeed.md "Nasdaq Order Combo Feed"
+[Omi.Nasdaq.TopComboQuoteFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/TopComboQuoteFeed.md "Nasdaq Top Combo Quote Feed"
+[Omi.Nasdaq.SpreadDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/SpreadDepth.md "Nasdaq Spread Depth"
+[Omi.Nasdaq.SpreadFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/SpreadFeed.md "Nasdaq Spread Feed"
+[Omi.Nasdaq.SpreadTopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/SpreadTopOfMarket.md "Nasdaq Spread Top of Market"
 [Omi.Nasdaq.Bono]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Bono.md "Nasdaq Best of Nasdaq Options"
 [Omi.Nasdaq.Itto]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Itto.md "Nasdaq Itch to Trade Options"
 [Omi.Nasdaq.Qbbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Qbbo.md "Nasdaq Nasdaq Best Bid and Offer"
+[Omi.Nasdaq.NlsPlus]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NlsPlus.md "Nasdaq NlsPlus"
 [Omi.Nasdaq.MarketDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/MarketDepth.md "Nasdaq Depth of Market"
 [Omi.Nasdaq.Topo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Topo.md "Nasdaq Top of Phlx Options"
 [Omi.Nasdaq.Bbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Bbo.md "Nasdaq Best Bid and Offer"
 [Omi.Nasdaq.Aggregated]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Aggregated.md "Nasdaq Aggregated"
-[Omi.Nasdaq.NlsPlus]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NlsPlus.md "Nasdaq Nls Plus"
 [Omi.Nasdaq.Nois]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Nois.md "Nasdaq Nois"
 [Omi.Nasdaq.Noi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Noi.md "Nasdaq NOI View"
 [Omi.Nasdaq.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Output.md "Nasdaq Output"
