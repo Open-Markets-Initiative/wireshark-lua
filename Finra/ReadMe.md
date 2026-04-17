@@ -5,9 +5,9 @@
 
 | Division | [Protocol][Omi.Finra.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Orf | [Tdds][Finra.Orf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3755 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.1.Pdf] |
-| Orf | [Tdds][Finra.Orf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3708 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.0.Pdf] |
-| Otc | [Bbds][Finra.Otc.Bbds] | [Dfi][Omi.Encoding.Dfi] | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2629 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Otc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.Otc.Bbds.Dfi.v2018.1A.Pdf] |
+| FinraOrf | [Tdds][Finra.FinraOrf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.FinraOrf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3755 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.FinraOrf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.FinraOrf.Tdds.Dfi.v2.1.Pdf] |
+| FinraOrf | [Tdds][Finra.FinraOrf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.0][Finra.FinraOrf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3708 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.FinraOrf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.FinraOrf.Tdds.Dfi.v2.0.Pdf] |
+| FinraOtc | [Bbds][Finra.FinraOtc.Bbds] | [Dfi][Omi.Encoding.Dfi] | [2018.1A][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2629 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Pdf] |
 
 
 Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Authority")
@@ -27,15 +27,15 @@ Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Auth
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Finra.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols "Finra Protocol Directory"
 [Omi.Encoding.Dfi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Dfi.md "Dfi Encoding"
-[Finra.Orf.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Orf/Tdds.md "Finra Trade Data Dissemination Service"
-[Finra.Otc.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Otc/Bbds.md "Finra Bulletin Board Dissemination Service"
+[Finra.FinraOrf.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/FinraOrf/Tdds.md "Finra Trade Data Dissemination Service"
+[Finra.FinraOtc.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/FinraOtc/Bbds.md "Finra Bulletin Board Dissemination Service"
 
-[Finra.Orf.Tdds.Dfi.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_Orf_Tdds_Dfi_v2_0_Dissector.lua "Finra Orf Tdds Dfi v2.0 Wireshark Dissector"
-[Finra.Orf.Tdds.Dfi.v2.0.Url]: https://www.finra.org/filing-reporting/orf/orf-forms-and-documentation "Financial Industry Regulatory Authority 2.0 Url"
-[Finra.Orf.Tdds.Dfi.v2.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Specifications/Tdds/Finra.Orf.Tdds.Dfi.v2.0.pdf "Financial Industry Regulatory Authority 2.0 Pdf"
-[Finra.Orf.Tdds.Dfi.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_Orf_Tdds_Dfi_v2_1_Dissector.lua "Finra Orf Tdds Dfi v2.1 Wireshark Dissector"
-[Finra.Orf.Tdds.Dfi.v2.1.Url]: https://www.finra.org/filing-reporting/orf/orf-forms-and-documentation "Financial Industry Regulatory Authority 2.1 Url"
-[Finra.Orf.Tdds.Dfi.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Specifications/Tdds/Finra.Orf.Tdds.Dfi.v2.1.pdf "Financial Industry Regulatory Authority 2.1 Pdf"
-[Finra.Otc.Bbds.Dfi.v2018.1A.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_Otc_Bbds_Dfi_v2018_1A_Dissector.lua "Finra Otc Bbds Dfi v2018.1A Wireshark Dissector"
-[Finra.Otc.Bbds.Dfi.v2018.1A.Url]: https://www.finra.org/filing-reporting/otcbb/otcbb-forms-documentation "Financial Industry Regulatory Authority 2018.1A Url"
-[Finra.Otc.Bbds.Dfi.v2018.1A.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Specifications/Bbds/Finra.Otc.Bbds.Dfi.v2018.1A.pdf "Financial Industry Regulatory Authority 2018.1A Pdf"
+[Finra.FinraOrf.Tdds.Dfi.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_FinraOrf_Tdds_Dfi_v2_0_Dissector.lua "Finra FinraOrf Tdds Dfi v2.0 Wireshark Dissector"
+[Finra.FinraOrf.Tdds.Dfi.v2.0.Url]: https://www.finra.org/filing-reporting/orf/orf-forms-and-documentation "Financial Industry Regulatory Authority 2.0 Url"
+[Finra.FinraOrf.Tdds.Dfi.v2.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Specifications/Tdds/Finra.Orf.Tdds.Dfi.v2.0.pdf "Financial Industry Regulatory Authority 2.0 Pdf"
+[Finra.FinraOrf.Tdds.Dfi.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_FinraOrf_Tdds_Dfi_v2_1_Dissector.lua "Finra FinraOrf Tdds Dfi v2.1 Wireshark Dissector"
+[Finra.FinraOrf.Tdds.Dfi.v2.1.Url]: https://www.finra.org/filing-reporting/orf/orf-forms-and-documentation "Financial Industry Regulatory Authority 2.1 Url"
+[Finra.FinraOrf.Tdds.Dfi.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Specifications/Tdds/Finra.Orf.Tdds.Dfi.v2.1.pdf "Financial Industry Regulatory Authority 2.1 Pdf"
+[Finra.FinraOtc.Bbds.Dfi.v2018.1A.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_FinraOtc_Bbds_Dfi_v2018_1A_Dissector.lua "Finra FinraOtc Bbds Dfi v2018.1A Wireshark Dissector"
+[Finra.FinraOtc.Bbds.Dfi.v2018.1A.Url]: https://www.finra.org/filing-reporting/otcbb/otcbb-forms-documentation "Financial Industry Regulatory Authority 2018.1A Url"
+[Finra.FinraOtc.Bbds.Dfi.v2018.1A.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Specifications/Bbds/Finra.Otc.Bbds.Dfi.v2018.1A.pdf "Financial Industry Regulatory Authority 2018.1A Pdf"

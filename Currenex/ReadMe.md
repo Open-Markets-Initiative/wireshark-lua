@@ -5,9 +5,9 @@
 
 | Division | [Protocol][Omi.Currenex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Forex | [Esp][Currenex.Forex.Esp] | [Cbp][Omi.Encoding.Cbp] | [9.0][Currenex.Forex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1653 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Esp.Cbp.v9.0.Url] - [pdf][Currenex.Forex.Esp.Cbp.v9.0.Pdf] |
-| Forex | [Now][Currenex.Forex.Now] | [Cbp][Omi.Encoding.Cbp] | [10.0][Currenex.Forex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2299 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Now.Cbp.v10.0.Url] - [pdf][Currenex.Forex.Now.Cbp.v10.0.Pdf] |
-| Forex | [OrderService][Currenex.Forex.OrderService] | [Cbp][Omi.Encoding.Cbp] | [26.0][Currenex.Forex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2528 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.OrderService.Cbp.v26.0.Url] - [pdf][Currenex.Forex.OrderService.Cbp.v26.0.Pdf] |
+| CurrenexForex | [Esp][Currenex.CurrenexForex.Esp] | [Cbp][Omi.Encoding.Cbp] | [9.0][Currenex.CurrenexForex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1653 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.Esp.Cbp.v9.0.Url] - [pdf][Currenex.CurrenexForex.Esp.Cbp.v9.0.Pdf] |
+| CurrenexForex | [Now][Currenex.CurrenexForex.Now] | [Cbp][Omi.Encoding.Cbp] | [10.0][Currenex.CurrenexForex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2299 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.Now.Cbp.v10.0.Url] - [pdf][Currenex.CurrenexForex.Now.Cbp.v10.0.Pdf] |
+| CurrenexForex | [OrderService][Currenex.CurrenexForex.OrderService] | [Cbp][Omi.Encoding.Cbp] | [26.0][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2528 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Url] - [pdf][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Pdf] |
 
 
 Currenex: [website](https://currenex.com "Go to Currenex")
@@ -27,16 +27,16 @@ Currenex: [website](https://currenex.com "Go to Currenex")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Currenex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Protocols "Currenex Protocol Directory"
 [Omi.Encoding.Cbp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cbp.md "Cbp Encoding"
-[Currenex.Forex.Esp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Forex/Esp.md "Currenex Executable Streaming Prices"
-[Currenex.Forex.Now]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Forex/Now.md "Currenex Now"
-[Currenex.Forex.OrderService]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Forex/OrderService.md "Currenex Order Service"
+[Currenex.CurrenexForex.Esp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/CurrenexForex/Esp.md "Currenex Executable Streaming Prices"
+[Currenex.CurrenexForex.Now]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/CurrenexForex/Now.md "Currenex Now"
+[Currenex.CurrenexForex.OrderService]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/CurrenexForex/OrderService.md "Currenex Order Service"
 
-[Currenex.Forex.Esp.Cbp.v9.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_Forex_Esp_Cbp_v9_0_Dissector.lua "Currenex Forex Esp Cbp v9.0 Wireshark Dissector"
-[Currenex.Forex.Esp.Cbp.v9.0.Url]: https://www.currenex.com/support "Currenex 9.0 Url"
-[Currenex.Forex.Esp.Cbp.v9.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Specifications/Esp/Currenex.Forex.Esp.Cbp.v9.pdf "Currenex 9.0 Pdf"
-[Currenex.Forex.Now.Cbp.v10.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_Forex_Now_Cbp_v10_0_Dissector.lua "Currenex Forex Now Cbp v10.0 Wireshark Dissector"
-[Currenex.Forex.Now.Cbp.v10.0.Url]: https://www.currenex.com/support "Currenex 10.0 Url"
-[Currenex.Forex.Now.Cbp.v10.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Specifications/Now/Currenex.Forex.Now.Cbp.v10.pdf "Currenex 10.0 Pdf"
-[Currenex.Forex.OrderService.Cbp.v26.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_Forex_OrderService_Cbp_v26_0_Dissector.lua "Currenex Forex OrderService Cbp v26.0 Wireshark Dissector"
-[Currenex.Forex.OrderService.Cbp.v26.0.Url]: https://www.currenex.com/support "Currenex 26.0 Url"
-[Currenex.Forex.OrderService.Cbp.v26.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Specifications/OrderService/Currenex.Forex.OrderService.Cbp.v26.pdf "Currenex 26.0 Pdf"
+[Currenex.CurrenexForex.Esp.Cbp.v9.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_CurrenexForex_Esp_Cbp_v9_0_Dissector.lua "Currenex CurrenexForex Esp Cbp v9.0 Wireshark Dissector"
+[Currenex.CurrenexForex.Esp.Cbp.v9.0.Url]: https://www.currenex.com/support "Currenex 9.0 Url"
+[Currenex.CurrenexForex.Esp.Cbp.v9.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Specifications/Esp/Currenex.Forex.Esp.Cbp.v9.pdf "Currenex 9.0 Pdf"
+[Currenex.CurrenexForex.Now.Cbp.v10.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_CurrenexForex_Now_Cbp_v10_0_Dissector.lua "Currenex CurrenexForex Now Cbp v10.0 Wireshark Dissector"
+[Currenex.CurrenexForex.Now.Cbp.v10.0.Url]: https://www.currenex.com/support "Currenex 10.0 Url"
+[Currenex.CurrenexForex.Now.Cbp.v10.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Specifications/Now/Currenex.Forex.Now.Cbp.v10.pdf "Currenex 10.0 Pdf"
+[Currenex.CurrenexForex.OrderService.Cbp.v26.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_CurrenexForex_OrderService_Cbp_v26_0_Dissector.lua "Currenex CurrenexForex OrderService Cbp v26.0 Wireshark Dissector"
+[Currenex.CurrenexForex.OrderService.Cbp.v26.0.Url]: https://www.currenex.com/support "Currenex 26.0 Url"
+[Currenex.CurrenexForex.OrderService.Cbp.v26.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Specifications/OrderService/Currenex.Forex.OrderService.Cbp.v26.pdf "Currenex 26.0 Pdf"

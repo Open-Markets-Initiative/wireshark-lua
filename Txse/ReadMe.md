@@ -5,8 +5,8 @@
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [OrderEntry][Txse.Equities.OrderEntry] | [Seed][Omi.Encoding.Seed] | [0.1][Txse.Equities.OrderEntry.Seed.v0.1.Dissector] | 10/14/2025 | 6760 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Equities.OrderEntry.Seed.v0.1.Url] - [pdf][Txse.Equities.OrderEntry.Seed.v0.1.Pdf] |
 | Headers | [Rake][Txse.Headers.Rake] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.Headers.Rake.Tcp.v1.0.Dissector] | 10/28/2025 | 1062 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Headers.Rake.Tcp.v1.0.Url] - [pdf][Txse.Headers.Rake.Tcp.v1.0.Pdf] |
+| TxseEquities | [OrderEntry][Txse.TxseEquities.OrderEntry] | [Seed][Omi.Encoding.Seed] | [0.1][Txse.TxseEquities.OrderEntry.Seed.v0.1.Dissector] | 10/14/2025 | 6760 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.TxseEquities.OrderEntry.Seed.v0.1.Url] - [pdf][Txse.TxseEquities.OrderEntry.Seed.v0.1.Pdf] |
 
 
 Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
@@ -28,11 +28,11 @@ Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Seed.md "Seed Encoding"
 [Txse.Headers.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Headers/Rake.md "Txse Rake"
-[Txse.Equities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Equities/OrderEntry.md "Txse Order Entry"
+[Txse.TxseEquities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/OrderEntry.md "Txse Order Entry"
 
 [Txse.Headers.Rake.Tcp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_Headers_Rake_Tcp_v1_0_Dissector.lua "Txse Headers Rake Tcp v1.0 Wireshark Dissector"
 [Txse.Headers.Rake.Tcp.v1.0.Url]: https://www.txse.com/trading-membership "Texas Stock Exchange 1.0 Url"
 [Txse.Headers.Rake.Tcp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Specifications/Rake/Txse.Equities.Rake.v0.8.pdf "Texas Stock Exchange 1.0 Pdf"
-[Txse.Equities.OrderEntry.Seed.v0.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_Equities_OrderEntry_Seed_v0_1_Dissector.lua "Txse Equities OrderEntry Seed v0.1 Wireshark Dissector"
-[Txse.Equities.OrderEntry.Seed.v0.1.Url]: https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Reference-Materials/Technical-Documents "Texas Stock Exchange 0.1 Url"
-[Txse.Equities.OrderEntry.Seed.v0.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Specifications/Seed/Txse.Equities.OrderEntry.Seed.v0.1.pdf "Texas Stock Exchange 0.1 Pdf"
+[Txse.TxseEquities.OrderEntry.Seed.v0.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_TxseEquities_OrderEntry_Seed_v0_1_Dissector.lua "Txse TxseEquities OrderEntry Seed v0.1 Wireshark Dissector"
+[Txse.TxseEquities.OrderEntry.Seed.v0.1.Url]: https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Reference-Materials/Technical-Documents "Texas Stock Exchange 0.1 Url"
+[Txse.TxseEquities.OrderEntry.Seed.v0.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Specifications/Seed/Txse.Equities.OrderEntry.Seed.v0.1.pdf "Texas Stock Exchange 0.1 Pdf"
