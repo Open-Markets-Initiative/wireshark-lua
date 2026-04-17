@@ -1359,19 +1359,10 @@ jpx_osederivatives_geniuminet_itch_v1_1.seconds = {}
 -- Size: Seconds
 jpx_osederivatives_geniuminet_itch_v1_1.seconds.size = 4
 
--- Store: Seconds
-jpx_osederivatives_geniuminet_itch_v1_1.seconds.store = nil
-
--- Generated: Seconds
-jpx_osederivatives_geniuminet_itch_v1_1.seconds.generated = function(value, range, packet, parent)
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.seconds.display(value)
-  local seconds = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.seconds, range, value, display)
-  seconds:set_generated()
-end
-
 -- Display: Seconds
 jpx_osederivatives_geniuminet_itch_v1_1.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S.", value)
 end
 
 -- Dissect: Seconds
