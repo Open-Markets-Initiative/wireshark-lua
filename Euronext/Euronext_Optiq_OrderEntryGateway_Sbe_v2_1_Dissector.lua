@@ -17886,7 +17886,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1:register_heuristic("tcp", omi_euro
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 2.1
 --   Date: Monday, March 30, 2020
 -- 

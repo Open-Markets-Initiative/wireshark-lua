@@ -2161,7 +2161,7 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018:register_heuristic("udp", omi_nasdaq_p
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1.2018
 --   Date: Thursday, May 3, 2018
 --   Specification: PSXbboSpecification2.1.pdf

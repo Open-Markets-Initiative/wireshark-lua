@@ -4430,7 +4430,7 @@ omi_nasdaq_iseoptions_spreadfeed_itch_v2_1:register_heuristic("udp", omi_nasdaq_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Monday, September 15, 2025
 --   Specification: Options_Spread_Feed_2.1.pdf

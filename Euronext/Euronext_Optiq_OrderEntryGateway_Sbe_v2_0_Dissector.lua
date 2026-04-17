@@ -17811,7 +17811,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_0:register_heuristic("tcp", omi_euro
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 2.0
 --   Date: Saturday, March 9, 2019
 -- 

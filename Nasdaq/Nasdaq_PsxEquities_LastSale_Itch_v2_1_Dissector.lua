@@ -3248,7 +3248,7 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1:register_heuristic("udp", omi_nasdaq_p
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Friday, February 13, 2026
 --   Specification: PLSSpecification2.1.pdf

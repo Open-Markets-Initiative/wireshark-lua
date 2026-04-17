@@ -18396,7 +18396,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_11:register_heuristic("udp", omi_eur
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 4.11
 --   Date: Wednesday, January 19, 2022
 --   Specification: Euronext Markets - Optiq MDG Client Specifications - v4.11.0 +TC.pdf

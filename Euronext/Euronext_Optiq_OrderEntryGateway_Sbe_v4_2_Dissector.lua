@@ -17811,7 +17811,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2:register_heuristic("tcp", omi_euro
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 4.2
 --   Date: Tuesday, July 7, 2020
 --   Specification: Euronext Markets - Optiq OEG Client Specifications - SBE Interface - v4.2.2.pdf

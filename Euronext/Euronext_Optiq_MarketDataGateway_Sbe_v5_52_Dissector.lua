@@ -18954,7 +18954,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_52:register_heuristic("udp", omi_eur
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 5.52
 --   Date: Tuesday, January 14, 2025
 --   Specification: Optiq MDG Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.352.0 + TC

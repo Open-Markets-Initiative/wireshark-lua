@@ -10933,7 +10933,7 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11:register_heuristic("udp", omi_tmx_mx_sola_m
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Tmx Group
+--   Organization: TMX Group (TMX)
 --   Version: 1.11
 --   Date: Wednesday, January 23, 2019
 --   Specification: hsvf-mx-005e-mx-sola-hsvf-multicast-specifications-guide-v1-11d5.pdf

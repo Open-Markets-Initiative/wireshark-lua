@@ -2600,7 +2600,7 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0:register_heuristic("udp", omi_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.0
 --   Date: Wednesday, August 23, 2017
 --   Specification: ISEOrderComboFeedSpecification_tcm5044-41354.pdf

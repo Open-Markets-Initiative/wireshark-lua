@@ -1,16 +1,16 @@
 [![Box](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Images/Logo.png)](https://boxoptions.com)
 
 
-## Boston Options Exchange
+## Box Options Market
 
 | Division | [Protocol][Omi.Box.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Options Sola | [Multicast][Omi.Box.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.9][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | 2/15/2024 | 6684 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.9.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf] |
-| Options Sola | [Multicast][Omi.Box.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.8][Box.Options.Sola.Multicast.Hsvf.v1.8.Dissector] | 10/17/2023 | 6633 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.8.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.8.Pdf] |
-| Options Sola | [Unicast][Omi.Box.Unicast] | [Hsvf][Omi.Encoding.Hsvf] | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 7077 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf] |
+| Options Sola | [Multicast][Box.Options.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.9][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | 2/15/2024 | 6684 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.9.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf] |
+| Options Sola | [Multicast][Box.Options.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.8][Box.Options.Sola.Multicast.Hsvf.v1.8.Dissector] | 10/17/2023 | 6633 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.8.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.8.Pdf] |
+| Options Sola | [Unicast][Box.Options.Unicast] | [Hsvf][Omi.Encoding.Hsvf] | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 7077 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf] |
 
 
-Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
+Box: [website](https://boxoptions.com "Go to Box Options Market")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
@@ -31,10 +31,10 @@ Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
 [Box.Options.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Options/Multicast.md "Box Multicast"
 
 [Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box_Options_Sola_Unicast_Hsvf_v4_5_1_Dissector.lua "Box Options Sola Unicast Hsvf v4.5.1 Wireshark Dissector"
-[Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Unicast.Hsvf.v4.5.pdf "Boston Options Exchange 4.5.1 Pdf"
+[Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Unicast.Hsvf.v4.5.pdf "Box Options Market 4.5.1 Pdf"
 [Box.Options.Sola.Multicast.Hsvf.v1.8.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box_Options_Sola_Multicast_Hsvf_v1_8_Dissector.lua "Box Options Sola Multicast Hsvf v1.8 Wireshark Dissector"
-[Box.Options.Sola.Multicast.Hsvf.v1.8.Url]: https://boxoptions.com/technology/trading-interface-specifications "Boston Options Exchange 1.8 Url"
-[Box.Options.Sola.Multicast.Hsvf.v1.8.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Multicast.Hsvf.v1.8.pdf "Boston Options Exchange 1.8 Pdf"
+[Box.Options.Sola.Multicast.Hsvf.v1.8.Url]: https://boxoptions.com/technology/trading-interface-specifications "Box Options Market 1.8 Url"
+[Box.Options.Sola.Multicast.Hsvf.v1.8.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Multicast.Hsvf.v1.8.pdf "Box Options Market 1.8 Pdf"
 [Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box_Options_Sola_Multicast_Hsvf_v1_9_Dissector.lua "Box Options Sola Multicast Hsvf v1.9 Wireshark Dissector"
-[Box.Options.Sola.Multicast.Hsvf.v1.9.Url]: https://boxoptions.com/technology/trading-interface-specifications "Boston Options Exchange 1.9 Url"
-[Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Multicast.Hsvf.v1.9.pdf "Boston Options Exchange 1.9 Pdf"
+[Box.Options.Sola.Multicast.Hsvf.v1.9.Url]: https://boxoptions.com/technology/trading-interface-specifications "Box Options Market 1.9 Url"
+[Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Multicast.Hsvf.v1.9.pdf "Box Options Market 1.9 Pdf"

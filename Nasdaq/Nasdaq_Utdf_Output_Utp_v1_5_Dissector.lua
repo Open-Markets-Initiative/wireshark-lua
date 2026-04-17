@@ -5323,7 +5323,7 @@ omi_nasdaq_utdf_output_utp_v1_5:register_heuristic("udp", omi_nasdaq_utdf_output
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.5
 --   Date: Friday, May 1, 2020
 --   Specification: UtpBinaryOutputSpec.pdf

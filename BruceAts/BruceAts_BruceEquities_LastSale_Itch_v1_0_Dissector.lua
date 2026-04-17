@@ -1246,7 +1246,7 @@ omi_bruceats_bruceequities_lastsale_itch_v1_0:register_heuristic("udp", omi_bruc
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Bruce Markets
+--   Organization: Bruce ATS
 --   Version: 1.0
 --   Date: Saturday, March 1, 2025
 --   Specification: Bruce_Last_Sale.pdf

@@ -1,18 +1,18 @@
-[![Boats](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Images/Logo.png)](https://blueocean-tech.io)
+[![Boats](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Images/Logo.png)](https://blueocean-tech.io/)
 
 
-## Blue Ocean Ats
+## Blue Ocean Technologies
 
 | Division | [Protocol][Omi.Boats.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [CommonHeader][Omi.Boats.CommonHeader] | [Udp][Omi.Encoding.Udp] | [1.1][Boats.CommonHeader.Udp.v1.1.Dissector] | 1/1/2024 | 725 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.CommonHeader.Udp.v1.1.Url] |
-| Equities | [Memo][Omi.Boats.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][Boats.Equities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 6916 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Boats.Equities.Memo.Sbe.v1.13.Url] - [pdf][Boats.Equities.Memo.Sbe.v1.13.Pdf] - [xml][Boats.Equities.Memo.Sbe.v1.13.Xml] |
-| Equities | [MemoirDepthFeed][Omi.Boats.MemoirDepthFeed] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2224 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Xml] |
-| Equities | [MemoirLastSale][Omi.Boats.MemoirLastSale] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | 1/1/2024 | 2379 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.Equities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][Boats.Equities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][Boats.Equities.MemoirLastSale.Sbe.v1.3.Xml] |
-| Equities | [MemoirTopOfBook][Omi.Boats.MemoirTopOfBook] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 1/1/2024 | 2014 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Url] - [pdf][Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf] - [xml][Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Xml] |
+|  | [CommonHeader][Boats.CommonHeader] | [Udp][Omi.Encoding.Udp] | [1.1][Boats.CommonHeader.Udp.v1.1.Dissector] | 1/1/2024 | 725 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.CommonHeader.Udp.v1.1.Url] |
+| Equities | [Memo][Boats.Equities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][Boats.Equities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 6916 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Boats.Equities.Memo.Sbe.v1.13.Url] - [pdf][Boats.Equities.Memo.Sbe.v1.13.Pdf] - [xml][Boats.Equities.Memo.Sbe.v1.13.Xml] |
+| Equities | [MemoirDepthFeed][Boats.Equities.MemoirDepthFeed] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2224 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Xml] |
+| Equities | [MemoirLastSale][Boats.Equities.MemoirLastSale] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | 1/1/2024 | 2379 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.Equities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][Boats.Equities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][Boats.Equities.MemoirLastSale.Sbe.v1.3.Xml] |
+| Equities | [MemoirTopOfBook][Boats.Equities.MemoirTopOfBook] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 1/1/2024 | 2014 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Url] - [pdf][Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf] - [xml][Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Xml] |
 
 
-Boats: [website](https://blueocean-tech.io "Go to Blue Ocean Ats")
+Boats: [website](https://blueocean-tech.io/ "Go to Blue Ocean Technologies")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
@@ -34,23 +34,23 @@ Boats: [website](https://blueocean-tech.io "Go to Blue Ocean Ats")
 [Boats.Equities.MemoirDepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Protocols/Equities/MemoirDepthFeed.md "Boats Memoir Depth Feed"
 [Boats.Equities.MemoirLastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Protocols/Equities/MemoirLastSale.md "Boats Memoir Last Sale Feed"
 [Boats.Equities.MemoirTopOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Protocols/Equities/MemoirTopOfBook.md "Boats Memoir Top Of Book"
-[Boats..CommonHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Protocols/CommonHeader.md "Boats Common Header"
+[Boats.CommonHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Protocols/CommonHeader.md "Boats Common Header"
 
 [Boats.Equities.Memo.Sbe.v1.13.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Boats/Boats_Equities_Memo_Sbe_v1_13_Dissector.lua "Boats Equities Memo Sbe v1.13 Wireshark Dissector"
-[Boats.Equities.Memo.Sbe.v1.13.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Ats 1.13 Url"
-[Boats.Equities.Memo.Sbe.v1.13.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/Memo/Boats.Equities.Memo.Sbe.v1.13.pdf "Blue Ocean Ats 1.13 Pdf"
-[Boats.Equities.Memo.Sbe.v1.13.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/Memo/Boats.Equities.Memo.Sbe.v1.13.xml "Blue Ocean Ats 1.13 Xml"
+[Boats.Equities.Memo.Sbe.v1.13.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.13 Url"
+[Boats.Equities.Memo.Sbe.v1.13.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/Memo/Boats.Equities.Memo.Sbe.v1.13.pdf "Blue Ocean Technologies 1.13 Pdf"
+[Boats.Equities.Memo.Sbe.v1.13.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/Memo/Boats.Equities.Memo.Sbe.v1.13.xml "Blue Ocean Technologies 1.13 Xml"
 [Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Boats/Boats_Equities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua "Boats Equities MemoirDepthFeed Sbe v1.3 Wireshark Dissector"
-[Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Ats 1.3 Url"
-[Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirDepth/Boats.Equities.MemoirDepthFeed.Sbe.v1.3.pdf "Blue Ocean Ats 1.3 Pdf"
-[Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirDepth/Boats.Equities.MemoirDepthFeed.Sbe.v1.3.xml "Blue Ocean Ats 1.3 Xml"
+[Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.3 Url"
+[Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirDepth/Boats.Equities.MemoirDepthFeed.Sbe.v1.3.pdf "Blue Ocean Technologies 1.3 Pdf"
+[Boats.Equities.MemoirDepthFeed.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirDepth/Boats.Equities.MemoirDepthFeed.Sbe.v1.3.xml "Blue Ocean Technologies 1.3 Xml"
 [Boats.Equities.MemoirLastSale.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Boats/Boats_Equities_MemoirLastSale_Sbe_v1_3_Dissector.lua "Boats Equities MemoirLastSale Sbe v1.3 Wireshark Dissector"
-[Boats.Equities.MemoirLastSale.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Ats 1.3 Url"
-[Boats.Equities.MemoirLastSale.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirLastSale/Boats.Equities.MemoirLastSale.Sbe.v1.3.pdf "Blue Ocean Ats 1.3 Pdf"
-[Boats.Equities.MemoirLastSale.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirLastSale/Boats.Equities.MemoirLastSale.Sbe.v1.3.xml "Blue Ocean Ats 1.3 Xml"
+[Boats.Equities.MemoirLastSale.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.3 Url"
+[Boats.Equities.MemoirLastSale.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirLastSale/Boats.Equities.MemoirLastSale.Sbe.v1.3.pdf "Blue Ocean Technologies 1.3 Pdf"
+[Boats.Equities.MemoirLastSale.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirLastSale/Boats.Equities.MemoirLastSale.Sbe.v1.3.xml "Blue Ocean Technologies 1.3 Xml"
 [Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Boats/Boats_Equities_MemoirTopOfBook_Sbe_v1_3_Dissector.lua "Boats Equities MemoirTopOfBook Sbe v1.3 Wireshark Dissector"
-[Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Ats 1.3 Url"
-[Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirTop/Boats.Equities.MemoirTopOfBook.Sbe.v1.3.pdf "Blue Ocean Ats 1.3 Pdf"
-[Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirTop/Boats.Equities.MemoirTopOfBook.Sbe.v1.3.xml "Blue Ocean Ats 1.3 Xml"
+[Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.3 Url"
+[Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirTop/Boats.Equities.MemoirTopOfBook.Sbe.v1.3.pdf "Blue Ocean Technologies 1.3 Pdf"
+[Boats.Equities.MemoirTopOfBook.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Boats/Specifications/Equities/MemoirTop/Boats.Equities.MemoirTopOfBook.Sbe.v1.3.xml "Blue Ocean Technologies 1.3 Xml"
 [Boats.CommonHeader.Udp.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Boats/Boats_CommonHeader_Udp_v1_1_Dissector.lua "Boats CommonHeader Udp v1.1 Wireshark Dissector"
-[Boats.CommonHeader.Udp.v1.1.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Ats 1.1 Url"
+[Boats.CommonHeader.Udp.v1.1.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.1 Url"

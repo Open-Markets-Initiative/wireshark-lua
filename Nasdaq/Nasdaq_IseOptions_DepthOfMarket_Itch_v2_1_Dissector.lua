@@ -3448,7 +3448,7 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1:register_heuristic("udp", omi_nasd
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Friday, February 13, 2026
 --   Specification: Options_Depth_of_Market_Feed_2.1.pdf

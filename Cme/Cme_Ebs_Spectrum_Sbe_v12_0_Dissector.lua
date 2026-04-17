@@ -2046,7 +2046,7 @@ omi_cme_ebs_spectrum_sbe_v12_0:register_heuristic("udp", omi_cme_ebs_spectrum_sb
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Chicago Mercantile Exchange
+--   Organization: CME Group
 --   Version: 12.0
 --   Date: Friday, April 8, 2022
 -- 

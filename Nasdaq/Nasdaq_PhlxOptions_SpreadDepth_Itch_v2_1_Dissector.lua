@@ -2235,7 +2235,7 @@ omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1:register_heuristic("tcp", omi_nasda
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Thursday, October 2, 2025
 --   Specification: Options_Depth_of_Market_Spread_Glimpse_Feed.pdf

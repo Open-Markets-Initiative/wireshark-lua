@@ -6907,7 +6907,7 @@ omi_boats_equities_memo_sbe_v1_13:register_heuristic("tcp", omi_boats_equities_m
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Blue Ocean Ats
+--   Organization: Blue Ocean Technologies
 --   Version: 1.13
 --   Date: Monday, January 1, 2024
 --   Specification: MEMO SBE (v1.13) BOATS.pdf

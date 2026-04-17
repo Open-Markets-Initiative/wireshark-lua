@@ -3047,7 +3047,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0:register_heuristic("tcp", omi_jpx_os
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japan Exchange Group
+--   Organization: Japan Exchange Group (JPX)
 --   Version: 5.0
 --   Date: Wednesday, September 16, 2020
 --   Specification: OUCH_ProtSpec_OSE_va2656.pdf

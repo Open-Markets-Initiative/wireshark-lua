@@ -4158,7 +4158,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2017:register_heuristic("udp", omi_na
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 5.0.2017
 --   Date: Tuesday, September 12, 2017
 --   Specification: NQTVITCHSpecification.pdf

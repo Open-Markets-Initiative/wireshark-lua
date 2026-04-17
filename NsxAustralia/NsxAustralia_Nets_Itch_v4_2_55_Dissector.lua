@@ -3991,7 +3991,7 @@ omi_nsxaustralia_nets_itch_v4_2_55:register_heuristic("tcp", omi_nsxaustralia_ne
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Stock Exchange of Australia
+--   Organization: Nation Stock Exchange of Australia
 --   Version: 4.2.55
 --   Date: Monday, April 6, 2026
 -- 

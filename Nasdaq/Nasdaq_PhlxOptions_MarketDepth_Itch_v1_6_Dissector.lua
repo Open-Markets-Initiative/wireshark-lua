@@ -3960,7 +3960,7 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_6:register_heuristic("udp", omi_nasda
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.6
 --   Date: Thursday, March 8, 2018
 --   Specification: phlxdepth.pdf

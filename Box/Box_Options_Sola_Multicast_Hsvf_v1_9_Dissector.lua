@@ -6666,7 +6666,7 @@ omi_box_options_sola_multicast_hsvf_v1_9:register_heuristic("udp", omi_box_optio
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Boston Options Exchange
+--   Organization: Box Options Market
 --   Version: 1.9
 --   Date: Thursday, February 15, 2024
 --   Specification: HSVF-BX-002E-BOX-SOLA-HSVF-Multicast-Specifications-Guide-v1.9.pdf

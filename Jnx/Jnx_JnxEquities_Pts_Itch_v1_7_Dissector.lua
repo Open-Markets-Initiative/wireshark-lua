@@ -1967,7 +1967,7 @@ omi_jnx_jnxequities_pts_itch_v1_7:register_heuristic("udp", omi_jnx_jnxequities_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japannext
+--   Organization: Japannext Securities (JNX)
 --   Version: 1.7
 --   Date: Wednesday, November 1, 2023
 --   Specification: Japannext_PTS_ITCH_Equities_v1.7.pdf

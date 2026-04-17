@@ -2591,7 +2591,7 @@ omi_jnx_jnxequities_pts_ouch_v1_11:register_heuristic("tcp", omi_jnx_jnxequities
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japannext
+--   Organization: Japannext Securities (JNX)
 --   Version: 1.11
 --   Date: Thursday, March 9, 2023
 --   Specification: Japannext_PTS_OUCH_Equities_v1.11.pdf

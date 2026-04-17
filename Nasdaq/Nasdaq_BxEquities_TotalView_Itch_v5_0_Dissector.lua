@@ -3978,7 +3978,7 @@ omi_nasdaq_bxequities_totalview_itch_v5_0:register_heuristic("udp", omi_nasdaq_b
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 5.0
 --   Date: Friday, July 15, 2022
 --   Specification: bxtvitchspecification.pdf

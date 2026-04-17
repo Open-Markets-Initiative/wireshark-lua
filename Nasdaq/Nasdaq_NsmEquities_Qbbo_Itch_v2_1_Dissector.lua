@@ -2700,7 +2700,7 @@ omi_nasdaq_nsmequities_qbbo_itch_v2_1:register_heuristic("udp", omi_nasdaq_nsmeq
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Thursday, February 19, 2026
 --   Specification: Nasdaq.NsmEquities.Bbo.Itch.v2.1.20260219.pdf

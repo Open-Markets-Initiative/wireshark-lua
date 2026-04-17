@@ -17335,7 +17335,7 @@ omi_cme_futures_ilink3_sbe_v8_4:register_heuristic("tcp", omi_cme_futures_ilink3
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Chicago Mercantile Exchange
+--   Organization: CME Group
 --   Version: 8.4
 --   Date: Tuesday, February 11, 2020
 -- 

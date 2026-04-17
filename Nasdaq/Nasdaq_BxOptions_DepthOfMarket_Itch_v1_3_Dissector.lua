@@ -3866,7 +3866,7 @@ omi_nasdaq_bxoptions_depthofmarket_itch_v1_3:register_heuristic("udp", omi_nasda
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.3
 --   Date: Thursday, November 2, 2017
 --   Specification: BXOptions_DepthofMarket.pdf

@@ -1212,7 +1212,7 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0:register_heuristic("udp", o
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Bruce Markets
+--   Organization: Bruce ATS
 --   Version: 1.0
 --   Date: Saturday, March 1, 2025
 --   Specification: Bruce_Best_Bid_And_Offer.pdf

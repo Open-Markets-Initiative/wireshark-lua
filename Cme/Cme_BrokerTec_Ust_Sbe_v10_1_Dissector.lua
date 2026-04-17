@@ -1530,7 +1530,7 @@ omi_cme_brokertec_ust_sbe_v10_1:register_heuristic("udp", omi_cme_brokertec_ust_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Chicago Mercantile Exchange
+--   Organization: CME Group
 --   Version: 10.1
 --   Date: Thursday, April 13, 2023
 -- 

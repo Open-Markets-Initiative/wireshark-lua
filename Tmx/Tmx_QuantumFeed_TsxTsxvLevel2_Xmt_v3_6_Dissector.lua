@@ -4213,7 +4213,7 @@ omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6:register_heuristic("udp", omi_tmx_qua
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Tmx Group
+--   Organization: TMX Group (TMX)
 --   Version: 3.6
 --   Date: Tuesday, October 20, 2020
 --   Specification: tsx_tsxv_level_2_quantumfeed_business_message_specifications-v3-6-0.pdf

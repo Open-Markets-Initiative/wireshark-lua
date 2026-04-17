@@ -3215,7 +3215,7 @@ omi_lseg_millennium_level2_mitch_v11_9:register_heuristic("udp", omi_lseg_millen
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: London Stock Exchange Group
+--   Organization: London Stock Exchange (LSE)
 --   Version: 11.9
 --   Date: Tuesday, August 28, 2018
 --   Specification: mit303issue119.pdf

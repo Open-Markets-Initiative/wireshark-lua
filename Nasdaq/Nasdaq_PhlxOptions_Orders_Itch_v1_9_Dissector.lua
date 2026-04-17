@@ -2822,7 +2822,7 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9:register_heuristic("udp", omi_nasdaq_phl
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.9
 --   Date: Monday, August 10, 2015
 --   Specification: topoplusorders.pdf

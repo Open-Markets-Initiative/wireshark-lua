@@ -1502,7 +1502,7 @@ omi_nasdaq_phlxoptions_tradefeed_itch_v2_1:register_heuristic("udp", omi_nasdaq_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Friday, February 13, 2026
 --   Specification: Options_Trade_Feed_2.1.pdf

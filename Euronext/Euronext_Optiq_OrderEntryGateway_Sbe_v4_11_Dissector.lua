@@ -19059,7 +19059,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_11:register_heuristic("tcp", omi_eur
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 4.11
 --   Date: Wednesday, January 19, 2022
 -- 

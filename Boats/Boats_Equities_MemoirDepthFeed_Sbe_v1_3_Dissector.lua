@@ -2206,7 +2206,7 @@ omi_boats_equities_memoirdepthfeed_sbe_v1_3:register_heuristic("udp", omi_boats_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Blue Ocean Ats
+--   Organization: Blue Ocean Technologies
 --   Version: 1.3
 --   Date: Monday, September 1, 2025
 --   Specification: MEMOIR Depth Feed (v1.3).pdf

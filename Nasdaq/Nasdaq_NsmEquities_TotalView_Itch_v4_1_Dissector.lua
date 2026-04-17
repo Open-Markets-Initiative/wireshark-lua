@@ -2720,7 +2720,7 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1:register_heuristic("udp", omi_nasdaq_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 4.1
 --   Date: Thursday, June 12, 2014
 --   Specification: NQTV-ITCH-V4_1.pdf

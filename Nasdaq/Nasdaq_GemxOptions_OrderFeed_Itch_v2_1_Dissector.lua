@@ -2095,7 +2095,7 @@ omi_nasdaq_gemxoptions_orderfeed_itch_v2_1:register_heuristic("udp", omi_nasdaq_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Friday, February 13, 2026
 --   Specification: Options_Order_Feed_2.1.pdf

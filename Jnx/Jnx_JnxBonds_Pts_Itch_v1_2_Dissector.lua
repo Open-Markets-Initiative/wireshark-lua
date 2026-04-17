@@ -1717,7 +1717,7 @@ omi_jnx_jnxbonds_pts_itch_v1_2:register_heuristic("udp", omi_jnx_jnxbonds_pts_it
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japannext
+--   Organization: Japannext Securities (JNX)
 --   Version: 1.2
 --   Date: Wednesday, April 1, 2020
 --   Specification: Japannext_PTS_ITCH_Bonds_v1.2.pdf

@@ -3190,7 +3190,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1:register_heuristic("udp", omi_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Holdings
+--   Organization: Miami International Holdings (MIAX)
 --   Version: 1.1
 --   Date: Friday, July 15, 2016
 --   Specification: Complex_Top_Of_Market_Feed_cToM_v1_1.pdf

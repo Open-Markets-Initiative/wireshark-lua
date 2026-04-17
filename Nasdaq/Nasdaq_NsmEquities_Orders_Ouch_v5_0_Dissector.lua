@@ -4738,7 +4738,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0:register_heuristic("tcp", omi_nasdaq_nsm
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 5.0
 --   Date: Saturday, April 1, 2023
 --   Specification: OUCH5.0.pdf

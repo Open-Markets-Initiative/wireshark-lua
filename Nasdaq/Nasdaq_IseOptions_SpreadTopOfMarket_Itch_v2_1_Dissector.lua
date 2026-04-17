@@ -2660,7 +2660,7 @@ omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1:register_heuristic("tcp", omi_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Wednesday, May 7, 2025
 --   Specification: Options_Spread_Top_of_Market_Glimpse_Feed.pdf

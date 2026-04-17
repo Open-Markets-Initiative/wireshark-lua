@@ -486,7 +486,7 @@ omi_cme_headers_mdp_udp_v1_0:register_heuristic("udp", omi_cme_headers_mdp_udp_v
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Chicago Mercantile Exchange
+--   Organization: CME Group
 --   Version: 1.0
 --   Date: Friday, July 26, 2019
 -- 

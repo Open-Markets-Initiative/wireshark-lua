@@ -18396,7 +18396,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_12:register_heuristic("udp", omi_eur
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 4.12
 --   Date: Friday, January 21, 2022
 -- 

@@ -5976,7 +5976,7 @@ omi_memx_equities_memo_sbe_v1_8:register_heuristic("tcp", omi_memx_equities_memo
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Members Exchange
+--   Organization: The Members Exchange (MEMX)
 --   Version: 1.8
 --   Date: Thursday, November 17, 2022
 --   Specification: MEMO SBE-v1_8-revC.pdf

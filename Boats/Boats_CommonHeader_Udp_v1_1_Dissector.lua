@@ -708,7 +708,7 @@ omi_boats_commonheader_udp_v1_1:register_heuristic("udp", omi_boats_commonheader
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Blue Ocean Ats
+--   Organization: Blue Ocean Technologies
 --   Version: 1.1
 --   Date: Monday, January 1, 2024
 -- 

@@ -491,7 +491,7 @@ omi_nasdaq_common_mold64_udp_v1_0:register_heuristic("udp", omi_nasdaq_common_mo
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.0
 --   Date: Wednesday, February 22, 2017
 --   Specification: moldudp64.pdf

@@ -2141,7 +2141,7 @@ omi_nasdaq_nsmequities_noi_itch_v3_0_2017:register_heuristic("udp", omi_nasdaq_n
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.0.2017
 --   Date: Tuesday, September 12, 2017
 --   Specification: NOIViewSpecification.pdf

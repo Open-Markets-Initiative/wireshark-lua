@@ -15741,7 +15741,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v3_1:register_heuristic("udp", omi_euro
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 3.1
 --   Date: Tuesday, March 3, 2020
 -- 

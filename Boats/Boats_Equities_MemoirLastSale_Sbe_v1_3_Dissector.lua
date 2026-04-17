@@ -2361,7 +2361,7 @@ omi_boats_equities_memoirlastsale_sbe_v1_3:register_heuristic("udp", omi_boats_e
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Blue Ocean Ats
+--   Organization: Blue Ocean Technologies
 --   Version: 1.3
 --   Date: Monday, January 1, 2024
 --   Specification: MEMOIR Last Sale Feed (v1.3).pdf

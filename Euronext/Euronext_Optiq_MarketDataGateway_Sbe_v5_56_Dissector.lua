@@ -19420,7 +19420,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_56:register_heuristic("udp", omi_eur
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 5.56
 --   Date: Wednesday, June 4, 2025
 --   Specification: optiq-mdg-messages-interface-specification-euronext-cash-and-derivatives-markets-external-v53561-tc

@@ -12553,7 +12553,7 @@ omi_cme_futures_mdp3_sbe_v1_10:register_heuristic("udp", omi_cme_futures_mdp3_sb
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Chicago Mercantile Exchange
+--   Organization: CME Group
 --   Version: 1.10
 --   Date: Friday, July 26, 2019
 -- 

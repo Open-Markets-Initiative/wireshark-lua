@@ -2806,7 +2806,7 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v2_2:register_heuristic("udp", omi_nasdaq
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.2
 --   Date: Friday, August 30, 2024
 --   Specification: Nasdaq_Texas_Options_Top_of_Market.pdf

@@ -2036,7 +2036,7 @@ omi_cme_futures_derived_sbe_v12_0:register_heuristic("udp", omi_cme_futures_deri
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Chicago Mercantile Exchange
+--   Organization: CME Group
 --   Version: 12.0
 --   Date: Saturday, January 4, 2020
 -- 

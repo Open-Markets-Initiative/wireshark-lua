@@ -6944,7 +6944,7 @@ omi_n24x_24xequities_memo_sbe_v1_13:register_heuristic("tcp", omi_n24x_24xequiti
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: 24 Exchange
+--   Organization: 24 National Exchange
 --   Version: 1.13
 --   Date: Monday, September 1, 2025
 --   Specification: memo-sbe-us-equities-v1.13a

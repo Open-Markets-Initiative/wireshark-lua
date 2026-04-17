@@ -3614,7 +3614,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0:register_heuristic("udp", omi_nasdaq_nomopt
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 4.0
 --   Date: Thursday, February 8, 2018
 --   Specification: itto_spec40.pdf

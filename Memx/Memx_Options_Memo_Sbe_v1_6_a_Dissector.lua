@@ -9143,7 +9143,7 @@ omi_memx_options_memo_sbe_v1_6_a:register_heuristic("tcp", omi_memx_options_memo
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Members Exchange
+--   Organization: The Members Exchange (MEMX)
 --   Version: 1.6.a
 --   Date: Monday, November 13, 2023
 --   Specification: MEMO for US Options - SBE-v1_6b

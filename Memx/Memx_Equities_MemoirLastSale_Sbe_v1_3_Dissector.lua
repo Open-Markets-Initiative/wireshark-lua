@@ -2370,7 +2370,7 @@ omi_memx_equities_memoirlastsale_sbe_v1_3:register_heuristic("udp", omi_memx_equ
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Members Exchange
+--   Organization: The Members Exchange (MEMX)
 --   Version: 1.3
 --   Date: Monday, April 5, 2021
 --   Specification: MEMOIR Last Sale Feed-v1_3.pdf

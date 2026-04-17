@@ -3325,7 +3325,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0:register_heuristic("udp", omi_nasdaq_ns
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 4.0
 --   Date: Thursday, February 19, 2026
 --   Specification: NLS4.0_02132026.pdf

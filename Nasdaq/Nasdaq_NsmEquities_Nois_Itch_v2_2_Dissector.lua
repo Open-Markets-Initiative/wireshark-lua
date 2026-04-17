@@ -1449,7 +1449,7 @@ omi_nasdaq_nsmequities_nois_itch_v2_2:register_heuristic("udp", omi_nasdaq_nsmeq
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.2
 --   Date: Monday, June 23, 2025
 --   Specification: NOIS_v2.2.pdf

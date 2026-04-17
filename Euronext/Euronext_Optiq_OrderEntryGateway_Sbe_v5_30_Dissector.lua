@@ -19382,7 +19382,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_30:register_heuristic("tcp", omi_eur
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 5.30
 --   Date: Thursday, November 16, 2023
 --   Specification: Optiq OEG SBE Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.30.0 +TC.pdf

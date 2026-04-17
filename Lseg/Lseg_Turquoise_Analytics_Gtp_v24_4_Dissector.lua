@@ -1821,7 +1821,7 @@ omi_lseg_turquoise_analytics_gtp_v24_4:register_heuristic("udp", omi_lseg_turquo
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: London Stock Exchange Group
+--   Organization: London Stock Exchange (LSE)
 --   Version: 24.4
 --   Date: Wednesday, April 24, 2024
 --   Specification: gtp-002-technical-guide-turquoise-issue-24-4.pdf

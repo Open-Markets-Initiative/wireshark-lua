@@ -1212,7 +1212,7 @@ omi_bruceats_bruceequities_depthofbook_itch_v1_0:register_heuristic("udp", omi_b
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Bruce Markets
+--   Organization: Bruce ATS
 --   Version: 1.0
 --   Date: Saturday, March 1, 2025
 --   Specification: Bruce_Depth_Of_Book.pdf

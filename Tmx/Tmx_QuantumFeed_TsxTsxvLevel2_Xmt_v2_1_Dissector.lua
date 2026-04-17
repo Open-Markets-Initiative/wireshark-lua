@@ -4193,7 +4193,7 @@ omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1:register_heuristic("udp", omi_tmx_qua
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Tmx Group
+--   Organization: TMX Group (TMX)
 --   Version: 2.1
 --   Date: Tuesday, October 20, 2015
 -- 

@@ -2483,7 +2483,7 @@ omi_nasdaq_nomoptions_bono_itch_v3_2:register_heuristic("udp", omi_nasdaq_nomopt
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.2
 --   Date: Thursday, November 2, 2017
 --   Specification: http://www.nasdaqtrader.com/content/productsservices/trading/optionsmarket/BONO_spec.pdf

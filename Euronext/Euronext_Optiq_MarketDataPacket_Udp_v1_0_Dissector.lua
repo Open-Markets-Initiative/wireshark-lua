@@ -686,7 +686,7 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0:register_heuristic("udp", omi_euron
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 1.0
 --   Date: Tuesday, May 16, 2023
 -- 

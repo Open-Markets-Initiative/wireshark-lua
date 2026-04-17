@@ -1481,7 +1481,7 @@ omi_miax_pearlequities_esesm_v1_0_a:register_heuristic("tcp", omi_miax_pearlequi
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Holdings
+--   Organization: Miami International Holdings (MIAX)
 --   Version: 1.0.a
 --   Date: Friday, June 26, 2020
 --   Specification: TcpSessionMgmt_eSesM_v1.0.a.updated.pdf.pdf

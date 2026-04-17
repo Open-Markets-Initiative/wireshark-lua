@@ -12089,7 +12089,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3:register_heuristic("tcp", omi_euro
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: European New Exchange Technology
+--   Organization: Euronext
 --   Version: 1.3
 --   Date: Thursday, August 20, 2020
 -- 

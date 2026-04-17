@@ -3000,7 +3000,7 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1:register_heuristic("udp", omi_jpx_os
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japan Exchange Group
+--   Organization: Japan Exchange Group (JPX)
 --   Version: 1.1
 --   Date: Wednesday, May 8, 2024
 --   Specification: ITCH_ProtSpec_OSE_va70.pdf

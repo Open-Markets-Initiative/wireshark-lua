@@ -3111,7 +3111,7 @@ omi_nasdaq_bxequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_bxeq
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 4.2
 --   Date: Monday, July 8, 2019
 --   Specification: NQBXOUCH42.pdf

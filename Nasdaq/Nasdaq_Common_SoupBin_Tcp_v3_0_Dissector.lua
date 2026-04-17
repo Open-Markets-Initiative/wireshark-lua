@@ -955,7 +955,7 @@ omi_nasdaq_common_soupbin_tcp_v3_0:register_heuristic("tcp", omi_nasdaq_common_s
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.0
 --   Date: Wednesday, February 22, 2017
 --   Specification: soupbintcp.pdf

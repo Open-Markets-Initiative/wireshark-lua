@@ -3752,7 +3752,7 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2:register_heuristic("udp", omi_nasd
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.2
 --   Date: Thursday, December 18, 2025
 --   Specification: Nasdaq_Texas_Options_Depth_of_Market.pdf

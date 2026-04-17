@@ -2005,7 +2005,7 @@ omi_memx_equities_memoirtopofbook_sbe_v1_1:register_heuristic("udp", omi_memx_eq
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Members Exchange
+--   Organization: The Members Exchange (MEMX)
 --   Version: 1.1
 --   Date: Monday, July 27, 2020
 --   Specification: MEMOIR Top of Book Feed-v1_1.pdf

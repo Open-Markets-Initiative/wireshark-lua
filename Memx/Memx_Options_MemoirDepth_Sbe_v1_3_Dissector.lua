@@ -2527,7 +2527,7 @@ omi_memx_options_memoirdepth_sbe_v1_3:register_heuristic("udp", omi_memx_options
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Members Exchange
+--   Organization: The Members Exchange (MEMX)
 --   Version: 1.3
 --   Date: Thursday, June 29, 2023
 --   Specification: MEMOIR Depth for US Options-v1_3.pdf

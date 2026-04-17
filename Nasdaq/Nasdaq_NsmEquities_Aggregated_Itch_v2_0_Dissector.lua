@@ -3673,7 +3673,7 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0:register_heuristic("udp", omi_nasdaq
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.0
 --   Date: Thursday, February 19, 2026
 --   Specification: TVAggSpecification.pdf

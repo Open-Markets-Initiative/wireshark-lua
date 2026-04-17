@@ -2476,7 +2476,7 @@ omi_nasdaq_bxoptions_topofmarket_itch_v1_2:register_heuristic("udp", omi_nasdaq_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.2
 --   Date: Thursday, November 2, 2017
 --   Specification: BXOptions_TopofMarket.pdf

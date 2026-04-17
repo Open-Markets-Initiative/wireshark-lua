@@ -5979,7 +5979,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6:register_heuristic("tcp", omi_miax
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Holdings
+--   Organization: Miami International Holdings (MIAX)
 --   Version: 2.6
 --   Date: Monday, September 25, 2023
 --   Specification: miax_express_orders_meo.pdf

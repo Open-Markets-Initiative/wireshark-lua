@@ -9694,7 +9694,7 @@ omi_cme_futures_mdp3_sbe_v1_6:register_heuristic("udp", omi_cme_futures_mdp3_sbe
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Chicago Mercantile Exchange
+--   Organization: CME Group
 --   Version: 1.6
 --   Date: Saturday, January 9, 2016
 -- 

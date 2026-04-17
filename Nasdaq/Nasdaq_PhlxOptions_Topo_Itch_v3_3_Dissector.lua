@@ -2492,7 +2492,7 @@ omi_nasdaq_phlxoptions_topo_itch_v3_3:register_heuristic("udp", omi_nasdaq_phlxo
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: National Association of Securities Dealers Automated Quotations
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.3
 --   Date: Thursday, November 2, 2017
 --   Specification: topofphlx.pdf

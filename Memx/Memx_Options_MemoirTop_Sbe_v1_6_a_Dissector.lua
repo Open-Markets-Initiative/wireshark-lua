@@ -2713,7 +2713,7 @@ omi_memx_options_memoirtop_sbe_v1_6_a:register_heuristic("udp", omi_memx_options
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Members Exchange
+--   Organization: The Members Exchange (MEMX)
 --   Version: 1.6.a
 --   Date: Monday, November 13, 2023
 --   Specification: MEMOIR Top for US Options-v1_6a.pdf

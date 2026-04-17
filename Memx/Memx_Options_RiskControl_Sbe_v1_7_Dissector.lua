@@ -10708,7 +10708,7 @@ omi_memx_options_riskcontrol_sbe_v1_7:register_heuristic("tcp", omi_memx_options
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Members Exchange
+--   Organization: The Members Exchange (MEMX)
 --   Version: 1.7
 --   Date: Wednesday, April 17, 2024
 --   Specification: Risk Control for US Options SBE-v1_7a.pdf

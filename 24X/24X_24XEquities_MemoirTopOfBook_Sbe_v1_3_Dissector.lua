@@ -2000,7 +2000,7 @@ omi_n24x_24xequities_memoirtopofbook_sbe_v1_3:register_heuristic("udp", omi_n24x
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: 24 Exchange
+--   Organization: 24 National Exchange
 --   Version: 1.3
 --   Date: Monday, September 1, 2025
 --   Specification: memoir-top-of-book-feed-v1_3.pdf
