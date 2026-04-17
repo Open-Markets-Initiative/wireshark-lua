@@ -92,9 +92,9 @@ Euronext: [website](https://www.euronext.com "Go to European New Exchange Techno
 [Omi.Euronext.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Euronext/Protocols "Euronext Protocol Directory"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Encoding"
-[Omi.Euronext.OrderEntryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/OrderEntryGateway.md "Euronext Order Entry Gateway"
-[Omi.Euronext.MarketDataGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/MarketDataGateway.md "Euronext Market Data Gateway"
-[Omi.Euronext.MarketDataPacket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/MarketDataPacket.md "Euronext Market Data Packet"
+[Euronext.Optiq.OrderEntryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/Optiq/OrderEntryGateway.md "Euronext Order Entry Gateway"
+[Euronext.Optiq.MarketDataGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/Optiq/MarketDataGateway.md "Euronext Market Data Gateway"
+[Euronext.Optiq.MarketDataPacket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/Optiq/MarketDataPacket.md "Euronext Market Data Packet"
 
 [Euronext.Optiq.OrderEntryGateway.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Euronext/Euronext_Optiq_OrderEntryGateway_Sbe_v1_3_Dissector.lua "Euronext Optiq OrderEntryGateway Sbe v1.3 Wireshark Dissector"
 [Euronext.Optiq.OrderEntryGateway.Sbe.v1.3.Url]: https://connect2.euronext.com "European New Exchange Technology 1.3 Url"

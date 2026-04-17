@@ -38,9 +38,9 @@ B3: [website](https://www.b3.com.br/en_us "Go to Brasil, Bolsa, Balcão")
 [Omi.B3.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/B3/Protocols "B3 Protocol Directory"
 [Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Encoding"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
-[Omi.B3.BinaryPacketHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/BinaryPacketHeader.md "B3 Binary Packet Header"
-[Omi.B3.BinaryUmdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/BinaryUmdf.md "B3 Binary Umdf"
-[Omi.B3.BinaryEntryPoint]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/BinaryEntryPoint.md "B3 Binary Entry Point"
+[B3.Securities.BinaryPacketHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/Securities/BinaryPacketHeader.md "B3 Binary Packet Header"
+[B3.Equities.BinaryUmdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/Equities/BinaryUmdf.md "B3 Binary Umdf"
+[B3.Equities.BinaryEntryPoint]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/Equities/BinaryEntryPoint.md "B3 Binary Entry Point"
 
 [B3.Securities.BinaryPacketHeader.Udp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3_Securities_BinaryPacketHeader_Udp_v1_0_Dissector.lua "B3 Securities BinaryPacketHeader Udp v1.0 Wireshark Dissector"
 [B3.Securities.BinaryPacketHeader.Udp.v1.0.Url]: https://www.b3.com.br/en_us/solutions/platforms/puma-trading-system/for-developers-and-vendors/binary-umdf "Brasil, Bolsa, Balcão 1.0 Url"

@@ -29,7 +29,7 @@ Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Ice.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols "Ice Protocol Directory"
 [Omi.Encoding.iMpact]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/iMpact.md "iMpact Encoding"
-[Omi.Ice.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/Mdf.md "Ice Multicast Data Feed"
+[Ice.Futures.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/Futures/Mdf.md "Ice Multicast Data Feed"
 
 [Ice.Futures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_Futures_Mdf_iMpact_v1_1_24_Dissector.lua "Ice Futures Mdf iMpact v1.1.24 Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Specifications/ "Intercontinental Exchange 1.1.24 Pdf"

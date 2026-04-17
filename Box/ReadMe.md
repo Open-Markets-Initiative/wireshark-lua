@@ -27,8 +27,8 @@ Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Box.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Box/Protocols "Box Protocol Directory"
 [Omi.Encoding.Hsvf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Hsvf.md "Hsvf Encoding"
-[Omi.Box.Unicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Unicast.md "Box Unicast"
-[Omi.Box.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Multicast.md "Box Multicast"
+[Box.Options.Unicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Options/Unicast.md "Box Unicast"
+[Box.Options.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Options/Multicast.md "Box Multicast"
 
 [Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box_Options_Sola_Unicast_Hsvf_v4_5_1_Dissector.lua "Box Options Sola Unicast Hsvf v4.5.1 Wireshark Dissector"
 [Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Unicast.Hsvf.v4.5.pdf "Boston Options Exchange 4.5.1 Pdf"

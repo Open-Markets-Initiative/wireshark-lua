@@ -27,8 +27,8 @@ Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
 [Omi.Txse.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols "Txse Protocol Directory"
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Seed.md "Seed Encoding"
-[Omi.Txse.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Rake.md "Txse Rake"
-[Omi.Txse.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/OrderEntry.md "Txse Order Entry"
+[Txse.Headers.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Headers/Rake.md "Txse Rake"
+[Txse.Equities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Equities/OrderEntry.md "Txse Order Entry"
 
 [Txse.Headers.Rake.Tcp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_Headers_Rake_Tcp_v1_0_Dissector.lua "Txse Headers Rake Tcp v1.0 Wireshark Dissector"
 [Txse.Headers.Rake.Tcp.v1.0.Url]: https://www.txse.com/trading-membership "Texas Stock Exchange 1.0 Url"

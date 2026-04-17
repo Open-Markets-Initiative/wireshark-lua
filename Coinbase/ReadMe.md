@@ -36,9 +36,9 @@ Coinbase: [website](https://www.coinbase.com/ "Go to Coinbase")
 [Omi.Coinbase.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Coinbase/Protocols "Coinbase Protocol Directory"
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
-[Omi.Coinbase.Session]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/Session.md "Coinbase Tcp Session"
-[Omi.Coinbase.MarketDataApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/MarketDataApi.md "Coinbase Market Data Api"
-[Omi.Coinbase.OrdersApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/OrdersApi.md "Coinbase Order Api"
+[Coinbase.Derivatives.Session]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/Derivatives/Session.md "Coinbase Tcp Session"
+[Coinbase.Derivatives.MarketDataApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/Derivatives/MarketDataApi.md "Coinbase Market Data Api"
+[Coinbase.Derivatives.OrdersApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/Derivatives/OrdersApi.md "Coinbase Order Api"
 
 [Coinbase.Derivatives.Session.Tcp.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase_Derivatives_Session_Tcp_v1_2_Dissector.lua "Coinbase Derivatives Session Tcp v1.2 Wireshark Dissector"
 [Coinbase.Derivatives.Session.Tcp.v1.2.Url]: https://docs.cdp.coinbase.com/derivatives/introduction/downloads "Coinbase 1.2 Url"

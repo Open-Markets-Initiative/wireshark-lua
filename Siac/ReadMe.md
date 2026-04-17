@@ -34,9 +34,10 @@ Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Cor
 [Omi.Siac.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols "Siac Protocol Directory"
 [Omi.Encoding.Obi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Obi.md "Obi Encoding"
 [Omi.Encoding.Cta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cta.md "Cta Encoding"
-[Omi.Siac.Recipient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Recipient.md "Siac Recipient"
-[Omi.Siac.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Output.md "Siac Output"
-[Omi.Siac.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Snapshot.md "Siac Snapshot"
+[Siac.Opra.Recipient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Recipient.md "Siac Recipient"
+[Siac.Cts.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cts/Output.md "Siac Output"
+[Siac.Cqs.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Output.md "Siac Output"
+[Siac.Cqs.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Snapshot.md "Siac Snapshot"
 
 [Siac.Opra.Recipient.Obi.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Opra_Recipient_Obi_v4_0_Dissector.lua "Siac Opra Recipient Obi v4.0 Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v4.0.Url]: https://www.opraplan.com/document-library "Securities Industry Automation Corporation 4.0 Url"

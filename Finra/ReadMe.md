@@ -27,8 +27,8 @@ Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Auth
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Finra.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols "Finra Protocol Directory"
 [Omi.Encoding.Dfi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Dfi.md "Dfi Encoding"
-[Omi.Finra.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Tdds.md "Finra Trade Data Dissemination Service"
-[Omi.Finra.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Bbds.md "Finra Bulletin Board Dissemination Service"
+[Finra.Orf.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Orf/Tdds.md "Finra Trade Data Dissemination Service"
+[Finra.Otc.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Otc/Bbds.md "Finra Bulletin Board Dissemination Service"
 
 [Finra.Orf.Tdds.Dfi.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_Orf_Tdds_Dfi_v2_0_Dissector.lua "Finra Orf Tdds Dfi v2.0 Wireshark Dissector"
 [Finra.Orf.Tdds.Dfi.v2.0.Url]: https://www.finra.org/filing-reporting/orf/orf-forms-and-documentation "Financial Industry Regulatory Authority 2.0 Url"

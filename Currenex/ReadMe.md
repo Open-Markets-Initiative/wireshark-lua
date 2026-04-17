@@ -27,9 +27,9 @@ Currenex: [website](https://currenex.com "Go to Currenex")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Currenex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Protocols "Currenex Protocol Directory"
 [Omi.Encoding.Cbp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cbp.md "Cbp Encoding"
-[Omi.Currenex.Esp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Esp.md "Currenex Executable Streaming Prices"
-[Omi.Currenex.Now]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Now.md "Currenex Now"
-[Omi.Currenex.OrderService]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/OrderService.md "Currenex Order Service"
+[Currenex.Forex.Esp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Forex/Esp.md "Currenex Executable Streaming Prices"
+[Currenex.Forex.Now]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Forex/Now.md "Currenex Now"
+[Currenex.Forex.OrderService]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/Forex/OrderService.md "Currenex Order Service"
 
 [Currenex.Forex.Esp.Cbp.v9.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_Forex_Esp_Cbp_v9_0_Dissector.lua "Currenex Forex Esp Cbp v9.0 Wireshark Dissector"
 [Currenex.Forex.Esp.Cbp.v9.0.Url]: https://www.currenex.com/support "Currenex 9.0 Url"

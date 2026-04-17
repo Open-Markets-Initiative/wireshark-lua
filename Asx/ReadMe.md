@@ -31,9 +31,9 @@ Asx: [website](https://www.asx.com.au "Go to Australian Securities Exchange")
 [Omi.Asx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Protocols "Asx Protocol Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
-[Omi.Asx.T24]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/T24.md "Asx Trade 24"
-[Omi.Asx.Ntp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/Ntp.md "Asx New Trading Platform"
-[Omi.Asx.Trade]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/Trade.md "Asx Asx Trade"
+[Asx.Securities.T24]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/Securities/T24.md "Asx Trade 24"
+[Asx.Securities.Ntp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/Securities/Ntp.md "Asx New Trading Platform"
+[Asx.Securities.Trade]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/Securities/Trade.md "Asx Asx Trade"
 
 [Asx.Securities.T24.Itch.v1.13.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx_Securities_T24_Itch_v1_13_Dissector.lua "Asx Securities T24 Itch v1.13 Wireshark Dissector"
 [Asx.Securities.T24.Itch.v1.13.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Specifications/T24/Asx.Securities.T24.Itch.v1.13.pdf "Australian Securities Exchange 1.13 Pdf"

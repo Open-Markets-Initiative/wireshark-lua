@@ -27,9 +27,9 @@ A2X: [website](https://www.a2x.co.za "Go to A2X Markets")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.A2X.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/A2X/Protocols "A2X Protocol Directory"
 [Omi.Encoding.Amd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Amd.md "Amd Encoding"
-[Omi.A2X.UdpHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/UdpHeader.md "A2X Udp Headers"
-[Omi.A2X.Rtmdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/Rtmdf.md "A2X Real Time Market Data Feed"
-[Omi.A2X.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/Snapshot.md "A2X Snapshot Feed"
+[A2X.Equities.UdpHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/Equities/UdpHeader.md "A2X Udp Headers"
+[A2X.Equities.Rtmdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/Equities/Rtmdf.md "A2X Real Time Market Data Feed"
+[A2X.Equities.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/A2X/Protocols/Equities/Snapshot.md "A2X Snapshot Feed"
 
 [A2X.Equities.UdpHeader.Amd.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/A2X/A2X_Equities_UdpHeader_Amd_v1_0_Dissector.lua "A2X Equities UdpHeader Amd v1.0 Wireshark Dissector"
 [A2X.Equities.UdpHeader.Amd.v1.0.Url]: https://www.a2x.co.za/?page_id=734/#a2xtech "A2X Markets 1.0 Url"

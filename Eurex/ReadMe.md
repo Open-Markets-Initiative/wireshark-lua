@@ -90,9 +90,10 @@ Eurex: [website](https://www.eurex.com "Go to Eurex Exchange")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Eurex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Eurex/Protocols "Eurex Protocol Directory"
 [Omi.Encoding.T7]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/T7.md "T7 Encoding"
-[Omi.Eurex.Eti]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Eti.md "Eurex Enhanced Trading Interface"
-[Omi.Eurex.Eobi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Eobi.md "Eurex Enhanced Order Book Interface"
-[Omi.Eurex.Edci]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Edci.md "Eurex Enhanced Drop Copy Interface"
+[Eurex.Derivatives.Eti]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Derivatives/Eti.md "Eurex Enhanced Trading Interface"
+[Eurex.Derivatives.Eobi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Derivatives/Eobi.md "Eurex Enhanced Order Book Interface"
+[Eurex.Cash.Eti]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Cash/Eti.md "Eurex Enhanced Trading Interface"
+[Eurex.Derivatives.Edci]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Derivatives/Edci.md "Eurex Enhanced Drop Copy Interface"
 
 [Eurex.Derivatives.Eti.T7.v2.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Derivatives_Eti_T7_v2_5_Dissector.lua "Eurex Derivatives Eti T7 v2.5 Wireshark Dissector"
 [Eurex.Derivatives.Eti.T7.v2.5.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 2.5 Url"

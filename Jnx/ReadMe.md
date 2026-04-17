@@ -32,7 +32,8 @@ Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext")
 [Omi.Jnx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols "Jnx Protocol Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
-[Omi.Jnx.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/Pts.md "Jnx Proprietary Trading System"
+[Jnx.JnxBonds.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxBonds/Pts.md "Jnx Proprietary Trading System"
+[Jnx.JnxEquities.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxEquities/Pts.md "Jnx Proprietary Trading System"
 
 [Jnx.JnxBonds.Pts.Itch.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_JnxBonds_Pts_Itch_v1_2_Dissector.lua "Jnx JnxBonds Pts Itch v1.2 Wireshark Dissector"
 [Jnx.JnxBonds.Pts.Itch.v1.2.Url]: https://www.japannext.co.jp/library "Japannext 1.2 Url"
