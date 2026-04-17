@@ -17,12 +17,12 @@ local nyse_arcaequities_arcabook_pillar_v2_1 = {}
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 Fields
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_time = ProtoField.new("Auction Time", "nyse.arcaequities.arcabook.pillar.v2.1.auctiontime", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_type = ProtoField.new("Auction Type", "nyse.arcaequities.arcabook.pillar.v2.1.auctiontype", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.arcaequities.arcabook.pillar.v2.1.closingonlyclearingprice", ftypes.UINT32)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arcaequities.arcabook.pillar.v2.1.continuousbookclearingprice", ftypes.UINT32)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.arcaequities.arcabook.pillar.v2.1.closingonlyclearingprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arcaequities.arcabook.pillar.v2.1.continuousbookclearingprice", ftypes.DOUBLE)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arcaequities.arcabook.pillar.v2.1.deliveryflag", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.firm_id = ProtoField.new("Firm Id", "nyse.arcaequities.arcabook.pillar.v2.1.firmid", ftypes.BYTES)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arcaequities.arcabook.pillar.v2.1.imbalanceside", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arcaequities.arcabook.pillar.v2.1.indicativematchprice", ftypes.UINT32)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arcaequities.arcabook.pillar.v2.1.indicativematchprice", ftypes.DOUBLE)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arcaequities.arcabook.pillar.v2.1.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message = ProtoField.new("Message", "nyse.arcaequities.arcabook.pillar.v2.1.message", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.arcabook.pillar.v2.1.messageheader", ftypes.STRING)
@@ -36,7 +36,7 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet = ProtoField.new("Packe
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.arcabook.pillar.v2.1.packetheader", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arcaequities.arcabook.pillar.v2.1.pairedqty", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaequities.arcabook.pillar.v2.1.pktsize", ftypes.UINT16)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price = ProtoField.new("Price", "nyse.arcaequities.arcabook.pillar.v2.1.price", ftypes.UINT32)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price = ProtoField.new("Price", "nyse.arcaequities.arcabook.pillar.v2.1.price", ftypes.DOUBLE)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.reason_code = ProtoField.new("Reason Code", "nyse.arcaequities.arcabook.pillar.v2.1.reasoncode", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.STRING)
@@ -44,7 +44,7 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seq_num = ProtoField.new("Seq 
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.side = ProtoField.new("Side", "nyse.arcaequities.arcabook.pillar.v2.1.side", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetime", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetimens", ftypes.UINT32)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.arcabook.pillar.v2.1.ssrfilingprice", ftypes.UINT32)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.arcabook.pillar.v2.1.ssrfilingprice", ftypes.DOUBLE)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arcaequities.arcabook.pillar.v2.1.symbolindex", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arcaequities.arcabook.pillar.v2.1.symbolseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.arcaequities.arcabook.pillar.v2.1.totalimbalanceqty", ftypes.UINT32)
@@ -191,11 +191,17 @@ nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.display = fun
   return "Closing Only Clearing Price: "..value
 end
 
+-- Translate: Closing Only Clearing Price
+nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.translate = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Closing Only Clearing Price
 nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_int()
+  local value = nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.translate(raw)
   local display = nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.closing_only_clearing_price, range, value, display)
@@ -214,11 +220,17 @@ nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.display = 
   return "Continuous Book Clearing Price: "..value
 end
 
+-- Translate: Continuous Book Clearing Price
+nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.translate = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Continuous Book Clearing Price
 nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_int()
+  local value = nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.translate(raw)
   local display = nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.continuous_book_clearing_price, range, value, display)
@@ -340,11 +352,17 @@ nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.display = function
   return "Indicative Match Price: "..value
 end
 
+-- Translate: Indicative Match Price
+nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.translate = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Indicative Match Price
 nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_int()
+  local value = nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.translate(raw)
   local display = nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.indicative_match_price, range, value, display)
@@ -602,11 +620,17 @@ nyse_arcaequities_arcabook_pillar_v2_1.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+nyse_arcaequities_arcabook_pillar_v2_1.price.translate = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Price
 nyse_arcaequities_arcabook_pillar_v2_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_int()
+  local value = nyse_arcaequities_arcabook_pillar_v2_1.price.translate(raw)
   local display = nyse_arcaequities_arcabook_pillar_v2_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price, range, value, display)
@@ -770,11 +794,17 @@ nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.display = function(value
   return "Ssr Filing Price: "..value
 end
 
+-- Translate: Ssr Filing Price
+nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.translate = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Ssr Filing Price
 nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_int()
+  local value = nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.translate(raw)
   local display = nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.ssr_filing_price, range, value, display)
@@ -970,37 +1000,37 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.attributed_add_order_refresh_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaequities_arcabook_pillar_v2_1.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_arcabook_pillar_v2_1.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_arcabook_pillar_v2_1.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_arcabook_pillar_v2_1.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: Integer
+  -- Order Id: Binary
   index, order_id = nyse_arcaequities_arcabook_pillar_v2_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: Integer
+  -- Price: Binary
   index, price = nyse_arcaequities_arcabook_pillar_v2_1.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: Integer
+  -- Volume: Binary
   index, volume = nyse_arcaequities_arcabook_pillar_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Side: Alphanumeric
+  -- Side: ASCII
   index, side = nyse_arcaequities_arcabook_pillar_v2_1.side.dissect(buffer, index, packet, parent)
 
-  -- Order Idgtc Indicator: Integer
+  -- Order Idgtc Indicator: Binary
   index, order_idgtc_indicator = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Session: Integer
+  -- Trade Session: Binary
   index, trade_session = nyse_arcaequities_arcabook_pillar_v2_1.trade_session.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: Integer
+  -- Firm Id: Binary
   index, firm_id = nyse_arcaequities_arcabook_pillar_v2_1.firm_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1049,34 +1079,34 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.attributed_add_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_arcabook_pillar_v2_1.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_arcabook_pillar_v2_1.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_arcabook_pillar_v2_1.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: Integer
+  -- Order Id: Binary
   index, order_id = nyse_arcaequities_arcabook_pillar_v2_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: Integer
+  -- Price: Binary
   index, price = nyse_arcaequities_arcabook_pillar_v2_1.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: Integer
+  -- Volume: Binary
   index, volume = nyse_arcaequities_arcabook_pillar_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Side: Alphanumeric
+  -- Side: ASCII
   index, side = nyse_arcaequities_arcabook_pillar_v2_1.side.dissect(buffer, index, packet, parent)
 
-  -- Order Idgtc Indicator: Integer
+  -- Order Idgtc Indicator: Binary
   index, order_idgtc_indicator = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Session: Integer
+  -- Trade Session: Binary
   index, trade_session = nyse_arcaequities_arcabook_pillar_v2_1.trade_session.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: Integer
+  -- Firm Id: Binary
   index, firm_id = nyse_arcaequities_arcabook_pillar_v2_1.firm_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1125,34 +1155,34 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.add_order_refresh_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaequities_arcabook_pillar_v2_1.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_arcabook_pillar_v2_1.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_arcabook_pillar_v2_1.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_arcabook_pillar_v2_1.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: Integer
+  -- Order Id: Binary
   index, order_id = nyse_arcaequities_arcabook_pillar_v2_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: Integer
+  -- Price: Binary
   index, price = nyse_arcaequities_arcabook_pillar_v2_1.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: Integer
+  -- Volume: Binary
   index, volume = nyse_arcaequities_arcabook_pillar_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Side: Alphanumeric
+  -- Side: ASCII
   index, side = nyse_arcaequities_arcabook_pillar_v2_1.side.dissect(buffer, index, packet, parent)
 
-  -- Order Idgtc Indicator: Integer
+  -- Order Idgtc Indicator: Binary
   index, order_idgtc_indicator = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Session: Integer
+  -- Trade Session: Binary
   index, trade_session = nyse_arcaequities_arcabook_pillar_v2_1.trade_session.dissect(buffer, index, packet, parent)
 
   return index
@@ -1205,46 +1235,46 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.imbalance_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaequities_arcabook_pillar_v2_1.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_arcabook_pillar_v2_1.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_arcabook_pillar_v2_1.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_arcabook_pillar_v2_1.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Indicative Match Price: Integer
+  -- Indicative Match Price: Binary
   index, indicative_match_price = nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.dissect(buffer, index, packet, parent)
 
-  -- Paired Qty: Integer
+  -- Paired Qty: Binary
   index, paired_qty = nyse_arcaequities_arcabook_pillar_v2_1.paired_qty.dissect(buffer, index, packet, parent)
 
-  -- Total Imbalance Qty: Integer
+  -- Total Imbalance Qty: Binary
   index, total_imbalance_qty = nyse_arcaequities_arcabook_pillar_v2_1.total_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Market Imbalance Qty: Integer
+  -- Market Imbalance Qty: Binary
   index, market_imbalance_qty = nyse_arcaequities_arcabook_pillar_v2_1.market_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Auction Time: Integer
+  -- Auction Time: Binary
   index, auction_time = nyse_arcaequities_arcabook_pillar_v2_1.auction_time.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: Alphanumeric
+  -- Auction Type: ASCII
   index, auction_type = nyse_arcaequities_arcabook_pillar_v2_1.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Side: Alphanumeric
+  -- Imbalance Side: ASCII
   index, imbalance_side = nyse_arcaequities_arcabook_pillar_v2_1.imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Continuous Book Clearing Price: Integer
+  -- Continuous Book Clearing Price: Binary
   index, continuous_book_clearing_price = nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Closing Only Clearing Price: Integer
+  -- Closing Only Clearing Price: Binary
   index, closing_only_clearing_price = nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Ssr Filing Price: Integer
+  -- Ssr Filing Price: Binary
   index, ssr_filing_price = nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1292,31 +1322,31 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_arcabook_pillar_v2_1.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_arcabook_pillar_v2_1.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_arcabook_pillar_v2_1.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: Integer
+  -- Order Id: Binary
   index, order_id = nyse_arcaequities_arcabook_pillar_v2_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: Integer
+  -- Price: Binary
   index, price = nyse_arcaequities_arcabook_pillar_v2_1.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: Integer
+  -- Volume: Binary
   index, volume = nyse_arcaequities_arcabook_pillar_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Order Idgtc Indicator: Integer
+  -- Order Idgtc Indicator: Binary
   index, order_idgtc_indicator = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: Integer
+  -- Reason Code: Binary
   index, reason_code = nyse_arcaequities_arcabook_pillar_v2_1.reason_code.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_arcaequities_arcabook_pillar_v2_1.trade_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1362,25 +1392,25 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_arcabook_pillar_v2_1.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_arcabook_pillar_v2_1.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_arcabook_pillar_v2_1.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: Integer
+  -- Order Id: Binary
   index, order_id = nyse_arcaequities_arcabook_pillar_v2_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: Alphanumeric
+  -- Side: ASCII
   index, side = nyse_arcaequities_arcabook_pillar_v2_1.side.dissect(buffer, index, packet, parent)
 
-  -- Order Idgtc Indicator: Integer
+  -- Order Idgtc Indicator: Binary
   index, order_idgtc_indicator = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: Integer
+  -- Reason Code: Binary
   index, reason_code = nyse_arcaequities_arcabook_pillar_v2_1.reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -1428,31 +1458,31 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.modify_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_arcabook_pillar_v2_1.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_arcabook_pillar_v2_1.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_arcabook_pillar_v2_1.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: Integer
+  -- Order Id: Binary
   index, order_id = nyse_arcaequities_arcabook_pillar_v2_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: Integer
+  -- Price: Binary
   index, price = nyse_arcaequities_arcabook_pillar_v2_1.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: Integer
+  -- Volume: Binary
   index, volume = nyse_arcaequities_arcabook_pillar_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Side: Alphanumeric
+  -- Side: ASCII
   index, side = nyse_arcaequities_arcabook_pillar_v2_1.side.dissect(buffer, index, packet, parent)
 
-  -- Order Idgtc Indicator: Integer
+  -- Order Idgtc Indicator: Binary
   index, order_idgtc_indicator = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: Integer
+  -- Reason Code: Binary
   index, reason_code = nyse_arcaequities_arcabook_pillar_v2_1.reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -1500,31 +1530,31 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.add_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_arcabook_pillar_v2_1.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_arcabook_pillar_v2_1.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_arcabook_pillar_v2_1.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: Integer
+  -- Order Id: Binary
   index, order_id = nyse_arcaequities_arcabook_pillar_v2_1.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: Integer
+  -- Price: Binary
   index, price = nyse_arcaequities_arcabook_pillar_v2_1.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: Integer
+  -- Volume: Binary
   index, volume = nyse_arcaequities_arcabook_pillar_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Side: Alphanumeric
+  -- Side: ASCII
   index, side = nyse_arcaequities_arcabook_pillar_v2_1.side.dissect(buffer, index, packet, parent)
 
-  -- Order Idgtc Indicator: Integer
+  -- Order Idgtc Indicator: Binary
   index, order_idgtc_indicator = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.dissect(buffer, index, packet, parent)
 
-  -- Trade Session: Integer
+  -- Trade Session: Binary
   index, trade_session = nyse_arcaequities_arcabook_pillar_v2_1.trade_session.dissect(buffer, index, packet, parent)
 
   return index
