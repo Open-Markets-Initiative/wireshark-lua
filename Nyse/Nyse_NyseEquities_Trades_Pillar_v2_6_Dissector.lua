@@ -52,8 +52,8 @@ omi_nyse_nyseequities_trades_pillar_v2_6.fields.prev_close_volume = ProtoField.n
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.price = ProtoField.new("Price", "nyse.nyseequities.trades.pillar.v2.6.price", ftypes.DOUBLE)
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.price_1 = ProtoField.new("Price 1", "nyse.nyseequities.trades.pillar.v2.6.price1", ftypes.DOUBLE)
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.price_2 = ProtoField.new("Price 2", "nyse.nyseequities.trades.pillar.v2.6.price2", ftypes.DOUBLE)
-omi_nyse_nyseequities_trades_pillar_v2_6.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.nyseequities.trades.pillar.v2.6.priceresolution", ftypes.DOUBLE)
-omi_nyse_nyseequities_trades_pillar_v2_6.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.nyseequities.trades.pillar.v2.6.pricescalecode", ftypes.DOUBLE)
+omi_nyse_nyseequities_trades_pillar_v2_6.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.nyseequities.trades.pillar.v2.6.priceresolution", ftypes.UINT8)
+omi_nyse_nyseequities_trades_pillar_v2_6.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.nyseequities.trades.pillar.v2.6.pricescalecode", ftypes.UINT8)
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.prior_day_time = ProtoField.new("Prior Day Time", "nyse.nyseequities.trades.pillar.v2.6.priordaytime", ftypes.UINT32)
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.prior_day_time_ns = ProtoField.new("Prior Day Time Ns", "nyse.nyseequities.trades.pillar.v2.6.priordaytimens", ftypes.UINT32)
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.product_id = ProtoField.new("Product Id", "nyse.nyseequities.trades.pillar.v2.6.productid", ftypes.UINT8)
@@ -1195,17 +1195,11 @@ nyse_nyseequities_trades_pillar_v2_6.price_resolution.display = function(value)
   return "Price Resolution: "..value
 end
 
--- Translate: Price Resolution
-nyse_nyseequities_trades_pillar_v2_6.price_resolution.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Resolution
 nyse_nyseequities_trades_pillar_v2_6.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_trades_pillar_v2_6.price_resolution.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nyseequities_trades_pillar_v2_6.price_resolution.translate(raw)
+  local value = range:le_uint()
   local display = nyse_nyseequities_trades_pillar_v2_6.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_trades_pillar_v2_6.fields.price_resolution, range, value, display)
@@ -1224,17 +1218,11 @@ nyse_nyseequities_trades_pillar_v2_6.price_scale_code.display = function(value)
   return "Price Scale Code: "..value
 end
 
--- Translate: Price Scale Code
-nyse_nyseequities_trades_pillar_v2_6.price_scale_code.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Scale Code
 nyse_nyseequities_trades_pillar_v2_6.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_trades_pillar_v2_6.price_scale_code.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nyseequities_trades_pillar_v2_6.price_scale_code.translate(raw)
+  local value = range:le_uint()
   local display = nyse_nyseequities_trades_pillar_v2_6.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_trades_pillar_v2_6.fields.price_scale_code, range, value, display)

@@ -47,8 +47,8 @@ omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.prev_close_price = ProtoField
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nationalequities.bbo.pillar.v2.5.d.prevclosevolume", ftypes.UINT32)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_1 = ProtoField.new("Price 1", "nyse.nationalequities.bbo.pillar.v2.5.d.price1", ftypes.DOUBLE)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_2 = ProtoField.new("Price 2", "nyse.nationalequities.bbo.pillar.v2.5.d.price2", ftypes.DOUBLE)
-omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.nationalequities.bbo.pillar.v2.5.d.priceresolution", ftypes.DOUBLE)
-omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.nationalequities.bbo.pillar.v2.5.d.pricescalecode", ftypes.DOUBLE)
+omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.nationalequities.bbo.pillar.v2.5.d.priceresolution", ftypes.UINT8)
+omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.nationalequities.bbo.pillar.v2.5.d.pricescalecode", ftypes.UINT8)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.product_id = ProtoField.new("Product Id", "nyse.nationalequities.bbo.pillar.v2.5.d.productid", ftypes.UINT8)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.nationalequities.bbo.pillar.v2.5.d.quotecondition", ftypes.STRING)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.nationalequities.bbo.pillar.v2.5.d.requestseqnum", ftypes.UINT32)
@@ -1030,17 +1030,11 @@ nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.display = function(valu
   return "Price Resolution: "..value
 end
 
--- Translate: Price Resolution
-nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Resolution
 nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.translate(raw)
+  local value = range:le_uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_resolution, range, value, display)
@@ -1059,17 +1053,11 @@ nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.display = function(valu
   return "Price Scale Code: "..value
 end
 
--- Translate: Price Scale Code
-nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Scale Code
 nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.translate(raw)
+  local value = range:le_uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_scale_code, range, value, display)

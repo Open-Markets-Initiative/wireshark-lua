@@ -5,8 +5,8 @@
 
 | Division | [Protocol][Omi.Odx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| OdxSecurityToken | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.OdxSecurityToken.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1765 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v2.2.Pdf] |
-| OdxSecurityToken | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.OdxSecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 2483 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v1.2.Pdf] |
+| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.OdxSecurityToken.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1765 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v2.2.Pdf] |
+| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.OdxSecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 2483 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v1.2.Pdf] |
 
 
 Odx: [website](https://www.odx.co.jp/en "Go to Osaka Digital Exchange")
@@ -26,6 +26,7 @@ Odx: [website](https://www.odx.co.jp/en "Go to Osaka Digital Exchange")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Odx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols "Odx Protocol Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
+[OdxSecurityToken.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols/OdxSecurityToken "Odx OdxSecurityToken"
 [Odx.OdxSecurityToken.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Odx/Protocols/OdxSecurityToken/Pts.md "Odx Proprietary Trading System"
 
 [Odx.OdxSecurityToken.Pts.Itch.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Odx/Odx_OdxSecurityToken_Pts_Itch_v2_2_Dissector.lua "Odx OdxSecurityToken Pts Itch v2.2 Wireshark Dissector"

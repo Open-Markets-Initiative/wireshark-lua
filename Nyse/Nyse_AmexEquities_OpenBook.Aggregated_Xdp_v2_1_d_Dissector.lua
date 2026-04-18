@@ -46,7 +46,7 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.prev_close_price = Pr
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.prevclosevolume", ftypes.UINT32)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_1 = ProtoField.new("Price 1", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.price1", ftypes.DOUBLE)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_2 = ProtoField.new("Price 2", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.price2", ftypes.DOUBLE)
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.priceresolution", ftypes.DOUBLE)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.priceresolution", ftypes.UINT8)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.pricescalecode", ftypes.UINT8)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.productid", ftypes.UINT8)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.remaining_count = ProtoField.new("Remaining Count", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.remainingcount", ftypes.UINT16)
@@ -982,17 +982,11 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.display = funct
   return "Price Resolution: "..value
 end
 
--- Translate: Price Resolution
-nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Resolution
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_resolution, range, value, display)

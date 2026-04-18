@@ -5,9 +5,9 @@
 
 | Division | [Protocol][Omi.Otc.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Markets | [Headers][Otc.Markets.Headers] | [Ats][Omi.Encoding.Ats] | [1.0][Otc.Markets.Headers.Ats.v1.0.Dissector] | 12/11/2019 | 567 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Headers.Ats.v1.0.Url] - [pdf][Otc.Markets.Headers.Ats.v1.0.Pdf] |
-| Markets | [Multicast][Otc.Markets.Multicast] | [Ats][Omi.Encoding.Ats] | [4.5][Otc.Markets.Multicast.Ats.v4.5.Dissector] | 7/28/2022 | 4008 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.Markets.Multicast.Ats.v4.5.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.5.Pdf] |
-| Markets | [Multicast][Otc.Markets.Multicast] | [Ats][Omi.Encoding.Ats] | [4.3][Otc.Markets.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | 3999 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Multicast.Ats.v4.3.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.3.Pdf] |
+| [Markets][Markets] | [Headers][Otc.Markets.Headers] | [Ats][Omi.Encoding.Ats] | [1.0][Otc.Markets.Headers.Ats.v1.0.Dissector] | 12/11/2019 | 567 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Headers.Ats.v1.0.Url] - [pdf][Otc.Markets.Headers.Ats.v1.0.Pdf] |
+| [Markets][Markets] | [Multicast][Otc.Markets.Multicast] | [Ats][Omi.Encoding.Ats] | [4.5][Otc.Markets.Multicast.Ats.v4.5.Dissector] | 7/28/2022 | 4008 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.Markets.Multicast.Ats.v4.5.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.5.Pdf] |
+| [Markets][Markets] | [Multicast][Otc.Markets.Multicast] | [Ats][Omi.Encoding.Ats] | [4.3][Otc.Markets.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | 3999 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Multicast.Ats.v4.3.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.3.Pdf] |
 
 
 Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
@@ -27,6 +27,7 @@ Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Otc.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Protocols "Otc Protocol Directory"
 [Omi.Encoding.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Encoding"
+[Markets]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Protocols/Markets "Otc Markets"
 [Otc.Markets.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Multicast.md "Otc Multicast"
 [Otc.Markets.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Headers.md "Otc Headers"
 

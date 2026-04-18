@@ -66,8 +66,8 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.prev_close_volume = Pr
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price = ProtoField.new("Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price", ftypes.DOUBLE)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_1 = ProtoField.new("Price 1", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price1", ftypes.DOUBLE)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_2 = ProtoField.new("Price 2", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price2", ftypes.DOUBLE)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.integratedfeed.pillar.v2.5.g.priceresolution", ftypes.DOUBLE)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.integratedfeed.pillar.v2.5.g.pricescalecode", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.integratedfeed.pillar.v2.5.g.priceresolution", ftypes.UINT8)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.integratedfeed.pillar.v2.5.g.pricescalecode", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.printable_flag = ProtoField.new("Printable Flag", "nyse.amexequities.integratedfeed.pillar.v2.5.g.printableflag", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.productid", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reference_price = ProtoField.new("Reference Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.referenceprice", ftypes.DOUBLE)
@@ -1650,17 +1650,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.price_resolution.display = functi
   return "Price Resolution: "..value
 end
 
--- Translate: Price Resolution
-nyse_amexequities_integratedfeed_pillar_v2_5_g.price_resolution.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Resolution
 nyse_amexequities_integratedfeed_pillar_v2_5_g.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_resolution.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_resolution.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_resolution, range, value, display)
@@ -1679,17 +1673,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.price_scale_code.display = functi
   return "Price Scale Code: "..value
 end
 
--- Translate: Price Scale Code
-nyse_amexequities_integratedfeed_pillar_v2_5_g.price_scale_code.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Scale Code
 nyse_amexequities_integratedfeed_pillar_v2_5_g.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_scale_code.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_scale_code.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_scale_code, range, value, display)

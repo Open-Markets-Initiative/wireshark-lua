@@ -55,8 +55,8 @@ omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.prev_close_price = Pr
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.prevclosevolume", ftypes.UINT32)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_1 = ProtoField.new("Price 1", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.price1", ftypes.DOUBLE)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_2 = ProtoField.new("Price 2", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.price2", ftypes.DOUBLE)
-omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.priceresolution", ftypes.DOUBLE)
-omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.pricescalecode", ftypes.DOUBLE)
+omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.priceresolution", ftypes.UINT8)
+omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.pricescalecode", ftypes.UINT8)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.product_id = ProtoField.new("Product Id", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.productid", ftypes.UINT8)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reference_price = ProtoField.new("Reference Price", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.referenceprice", ftypes.DOUBLE)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.requestseqnum", ftypes.UINT32)
@@ -1281,17 +1281,11 @@ nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_resolution.display = funct
   return "Price Resolution: "..value
 end
 
--- Translate: Price Resolution
-nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_resolution.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Resolution
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_resolution.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_resolution.translate(raw)
+  local value = range:le_uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_resolution, range, value, display)
@@ -1310,17 +1304,11 @@ nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_scale_code.display = funct
   return "Price Scale Code: "..value
 end
 
--- Translate: Price Scale Code
-nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_scale_code.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Scale Code
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_scale_code.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_scale_code.translate(raw)
+  local value = range:le_uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_scale_code, range, value, display)

@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 522 | 4,478,907 |
+| 528 | 4,510,343 |
 
 ## Testing
 
@@ -348,6 +348,12 @@ Enjoy.
 [Nyse.Arca.TopFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Arca/TopFeed.md "Nyse Top Of Book Feed"
 [Nyse.Arca.ComplexFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Arca/ComplexFeed.md "Nyse Complex Feed"
 [Nyse.Arca.Feed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Arca/Feed.md "Nyse Deep Of Book Feed"
+[Nyse.AmexOptions.ComplexFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexOptions/ComplexFeed.md "Nyse Complex Feed"
+[Nyse.ArcaOptions.ComplexFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/ComplexFeed.md "Nyse Complex Feed"
+[Nyse.AmexOptions.DeepFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexOptions/DeepFeed.md "Nyse Deep Feed"
+[Nyse.ArcaOptions.DeepFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/DeepFeed.md "Nyse Deep Feed"
+[Nyse.AmexOptions.TopFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexOptions/TopFeed.md "Nyse Top Of Book Feed"
+[Nyse.ArcaOptions.TopFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/TopFeed.md "Nyse Top Of Book Feed"
 [Nyse.Arca.BinaryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Arca/BinaryGateway.md "Nyse Binary Gateway"
 [Nyse.Options.CommonClient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Options/CommonClient.md "Nyse Common Client"
 [Nyse.Options.StreamProtocol]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Options/StreamProtocol.md "Nyse Stream Protocol"

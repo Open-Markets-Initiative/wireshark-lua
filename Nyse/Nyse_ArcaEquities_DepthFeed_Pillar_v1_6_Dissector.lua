@@ -60,8 +60,8 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price = ProtoField.new("Price
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_1 = ProtoField.new("Price 1", "nyse.arcaequities.depthfeed.pillar.v1.6.price1", ftypes.DOUBLE)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_2 = ProtoField.new("Price 2", "nyse.arcaequities.depthfeed.pillar.v1.6.price2", ftypes.DOUBLE)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_point = ProtoField.new("Price Point", "nyse.arcaequities.depthfeed.pillar.v1.6.pricepoint", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arcaequities.depthfeed.pillar.v1.6.priceresolution", ftypes.DOUBLE)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arcaequities.depthfeed.pillar.v1.6.pricescalecode", ftypes.DOUBLE)
+omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arcaequities.depthfeed.pillar.v1.6.priceresolution", ftypes.UINT8)
+omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arcaequities.depthfeed.pillar.v1.6.pricescalecode", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.product_id = ProtoField.new("Product Id", "nyse.arcaequities.depthfeed.pillar.v1.6.productid", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.reference_price = ProtoField.new("Reference Price", "nyse.arcaequities.depthfeed.pillar.v1.6.referenceprice", ftypes.DOUBLE)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.requestseqnum", ftypes.UINT32)
@@ -1401,20 +1401,24 @@ nyse_arcaequities_depthfeed_pillar_v1_6.price_resolution.size = 1
 
 -- Display: Price Resolution
 nyse_arcaequities_depthfeed_pillar_v1_6.price_resolution.display = function(value)
-  return "Price Resolution: "..value
-end
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
 
--- Translate: Price Resolution
-nyse_arcaequities_depthfeed_pillar_v1_6.price_resolution.translate = function(raw)
-  return raw/100000000
+  return "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
 nyse_arcaequities_depthfeed_pillar_v1_6.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeed_pillar_v1_6.price_resolution.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_depthfeed_pillar_v1_6.price_resolution.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_depthfeed_pillar_v1_6.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_resolution, range, value, display)
@@ -1433,17 +1437,11 @@ nyse_arcaequities_depthfeed_pillar_v1_6.price_scale_code.display = function(valu
   return "Price Scale Code: "..value
 end
 
--- Translate: Price Scale Code
-nyse_arcaequities_depthfeed_pillar_v1_6.price_scale_code.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Scale Code
 nyse_arcaequities_depthfeed_pillar_v1_6.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeed_pillar_v1_6.price_scale_code.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_depthfeed_pillar_v1_6.price_scale_code.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_depthfeed_pillar_v1_6.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_scale_code, range, value, display)

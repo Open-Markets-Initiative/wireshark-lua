@@ -45,7 +45,7 @@ omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.lot_size = ProtoField.new("Lot Size"
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.market_id = ProtoField.new("Market Id", "nyse.amexequities.bqt.xdp.v2.4.a.marketid", ftypes.UINT16)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.market_id_of_best_ask = ProtoField.new("Market Id Of Best Ask", "nyse.amexequities.bqt.xdp.v2.4.a.marketidofbestask", ftypes.UINT16)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.market_id_of_best_bid = ProtoField.new("Market Id Of Best Bid", "nyse.amexequities.bqt.xdp.v2.4.a.marketidofbestbid", ftypes.UINT16)
-omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.amexequities.bqt.xdp.v2.4.a.marketidofopenprice", ftypes.DOUBLE)
+omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.amexequities.bqt.xdp.v2.4.a.marketidofopenprice", ftypes.UINT16)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.market_state = ProtoField.new("Market State", "nyse.amexequities.bqt.xdp.v2.4.a.marketstate", ftypes.STRING)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.message = ProtoField.new("Message", "nyse.amexequities.bqt.xdp.v2.4.a.message", ftypes.STRING)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.message_count = ProtoField.new("Message Count", "nyse.amexequities.bqt.xdp.v2.4.a.messagecount", ftypes.UINT8)
@@ -55,11 +55,11 @@ omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.message_type = ProtoField.new("Messa
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.mpv = ProtoField.new("Mpv", "nyse.amexequities.bqt.xdp.v2.4.a.mpv", ftypes.UINT16)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.amexequities.bqt.xdp.v2.4.a.nanoseconds", ftypes.UINT32)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.amexequities.bqt.xdp.v2.4.a.nextsourceseqnum", ftypes.UINT32)
-omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.num_close_prices = ProtoField.new("Num Close Prices", "nyse.amexequities.bqt.xdp.v2.4.a.numcloseprices", ftypes.DOUBLE)
+omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.num_close_prices = ProtoField.new("Num Close Prices", "nyse.amexequities.bqt.xdp.v2.4.a.numcloseprices", ftypes.UINT8)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_high_price = ProtoField.new("Nyse Group High Price", "nyse.amexequities.bqt.xdp.v2.4.a.nysegrouphighprice", ftypes.DOUBLE)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_low_price = ProtoField.new("Nyse Group Low Price", "nyse.amexequities.bqt.xdp.v2.4.a.nysegrouplowprice", ftypes.DOUBLE)
-omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_high_price = ProtoField.new("Nyse Group Market Id Of High Price", "nyse.amexequities.bqt.xdp.v2.4.a.nysegroupmarketidofhighprice", ftypes.DOUBLE)
-omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_low_price = ProtoField.new("Nyse Group Market Id Of Low Price", "nyse.amexequities.bqt.xdp.v2.4.a.nysegroupmarketidoflowprice", ftypes.DOUBLE)
+omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_high_price = ProtoField.new("Nyse Group Market Id Of High Price", "nyse.amexequities.bqt.xdp.v2.4.a.nysegroupmarketidofhighprice", ftypes.UINT16)
+omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_low_price = ProtoField.new("Nyse Group Market Id Of Low Price", "nyse.amexequities.bqt.xdp.v2.4.a.nysegroupmarketidoflowprice", ftypes.UINT16)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_the_close = ProtoField.new("Nyse Group Market Id Of The Close", "nyse.amexequities.bqt.xdp.v2.4.a.nysegroupmarketidoftheclose", ftypes.UINT16)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.amexequities.bqt.xdp.v2.4.a.originaltradeid", ftypes.UINT32)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.packet = ProtoField.new("Packet", "nyse.amexequities.bqt.xdp.v2.4.a.packet", ftypes.STRING)
@@ -70,8 +70,8 @@ omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.prev_close_volume = ProtoField.new("
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price = ProtoField.new("Price", "nyse.amexequities.bqt.xdp.v2.4.a.price", ftypes.DOUBLE)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price_1 = ProtoField.new("Price 1", "nyse.amexequities.bqt.xdp.v2.4.a.price1", ftypes.DOUBLE)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price_2 = ProtoField.new("Price 2", "nyse.amexequities.bqt.xdp.v2.4.a.price2", ftypes.DOUBLE)
-omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.bqt.xdp.v2.4.a.priceresolution", ftypes.DOUBLE)
-omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.bqt.xdp.v2.4.a.pricescalecode", ftypes.DOUBLE)
+omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.bqt.xdp.v2.4.a.priceresolution", ftypes.UINT8)
+omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.bqt.xdp.v2.4.a.pricescalecode", ftypes.UINT8)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_close_price = ProtoField.new("Primary Listing Market Official Close Price", "nyse.amexequities.bqt.xdp.v2.4.a.primarylistingmarketofficialcloseprice", ftypes.DOUBLE)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_open_price = ProtoField.new("Primary Listing Market Official Open Price", "nyse.amexequities.bqt.xdp.v2.4.a.primarylistingmarketofficialopenprice", ftypes.DOUBLE)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.prior_day_time = ProtoField.new("Prior Day Time", "nyse.amexequities.bqt.xdp.v2.4.a.priordaytime", ftypes.UINT32)
@@ -1131,17 +1131,11 @@ nyse_amexequities_bqt_xdp_v2_4_a.market_id_of_open_price.display = function(valu
   return "Market Id Of Open Price: "..value
 end
 
--- Translate: Market Id Of Open Price
-nyse_amexequities_bqt_xdp_v2_4_a.market_id_of_open_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Market Id Of Open Price
 nyse_amexequities_bqt_xdp_v2_4_a.market_id_of_open_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bqt_xdp_v2_4_a.market_id_of_open_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bqt_xdp_v2_4_a.market_id_of_open_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bqt_xdp_v2_4_a.market_id_of_open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.market_id_of_open_price, range, value, display)
@@ -1407,17 +1401,11 @@ nyse_amexequities_bqt_xdp_v2_4_a.num_close_prices.display = function(value)
   return "Num Close Prices: "..value
 end
 
--- Translate: Num Close Prices
-nyse_amexequities_bqt_xdp_v2_4_a.num_close_prices.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Num Close Prices
 nyse_amexequities_bqt_xdp_v2_4_a.num_close_prices.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bqt_xdp_v2_4_a.num_close_prices.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bqt_xdp_v2_4_a.num_close_prices.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bqt_xdp_v2_4_a.num_close_prices.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.num_close_prices, range, value, display)
@@ -1494,17 +1482,11 @@ nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_high_price.display = fu
   return "Nyse Group Market Id Of High Price: "..value
 end
 
--- Translate: Nyse Group Market Id Of High Price
-nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_high_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Nyse Group Market Id Of High Price
 nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_high_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_high_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_high_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_high_price, range, value, display)
@@ -1523,17 +1505,11 @@ nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_low_price.display = fun
   return "Nyse Group Market Id Of Low Price: "..value
 end
 
--- Translate: Nyse Group Market Id Of Low Price
-nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_low_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Nyse Group Market Id Of Low Price
 nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_low_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_low_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_low_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_low_price, range, value, display)
@@ -1757,20 +1733,24 @@ nyse_amexequities_bqt_xdp_v2_4_a.price_resolution.size = 1
 
 -- Display: Price Resolution
 nyse_amexequities_bqt_xdp_v2_4_a.price_resolution.display = function(value)
-  return "Price Resolution: "..value
-end
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
 
--- Translate: Price Resolution
-nyse_amexequities_bqt_xdp_v2_4_a.price_resolution.translate = function(raw)
-  return raw/100000000
+  return "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
 nyse_amexequities_bqt_xdp_v2_4_a.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bqt_xdp_v2_4_a.price_resolution.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bqt_xdp_v2_4_a.price_resolution.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bqt_xdp_v2_4_a.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price_resolution, range, value, display)
@@ -1789,17 +1769,11 @@ nyse_amexequities_bqt_xdp_v2_4_a.price_scale_code.display = function(value)
   return "Price Scale Code: "..value
 end
 
--- Translate: Price Scale Code
-nyse_amexequities_bqt_xdp_v2_4_a.price_scale_code.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price Scale Code
 nyse_amexequities_bqt_xdp_v2_4_a.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bqt_xdp_v2_4_a.price_scale_code.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bqt_xdp_v2_4_a.price_scale_code.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bqt_xdp_v2_4_a.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.price_scale_code, range, value, display)

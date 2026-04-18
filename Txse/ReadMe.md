@@ -5,8 +5,8 @@
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Headers | [Rake][Txse.Headers.Rake] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.Headers.Rake.Tcp.v1.0.Dissector] | 10/28/2025 | 1062 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Headers.Rake.Tcp.v1.0.Url] - [pdf][Txse.Headers.Rake.Tcp.v1.0.Pdf] |
-| TxseEquities | [OrderEntry][Txse.TxseEquities.OrderEntry] | [Seed][Omi.Encoding.Seed] | [0.1][Txse.TxseEquities.OrderEntry.Seed.v0.1.Dissector] | 10/14/2025 | 6760 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.TxseEquities.OrderEntry.Seed.v0.1.Url] - [pdf][Txse.TxseEquities.OrderEntry.Seed.v0.1.Pdf] |
+| [Headers][Headers] | [Rake][Txse.Headers.Rake] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.Headers.Rake.Tcp.v1.0.Dissector] | 10/28/2025 | 1062 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.Headers.Rake.Tcp.v1.0.Url] - [pdf][Txse.Headers.Rake.Tcp.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [OrderEntry][Txse.TxseEquities.OrderEntry] | [Seed][Omi.Encoding.Seed] | [0.1][Txse.TxseEquities.OrderEntry.Seed.v0.1.Dissector] | 10/14/2025 | 6760 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Txse.TxseEquities.OrderEntry.Seed.v0.1.Url] - [pdf][Txse.TxseEquities.OrderEntry.Seed.v0.1.Pdf] |
 
 
 Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
@@ -27,6 +27,8 @@ Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
 [Omi.Txse.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols "Txse Protocol Directory"
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Seed.md "Seed Encoding"
+[Headers]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols/Headers "Txse Headers"
+[TxseEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols/TxseEquities "Txse TxseEquities"
 [Txse.Headers.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Headers/Rake.md "Txse Rake"
 [Txse.TxseEquities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/OrderEntry.md "Txse Order Entry"
 

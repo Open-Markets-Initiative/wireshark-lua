@@ -5,13 +5,13 @@
 
 | Division | [Protocol][Omi.Jnx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| JnxBonds | [Pts][Jnx.JnxBonds.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Jnx.JnxBonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | 1653 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxBonds.Pts.Itch.v1.2.Url] - [pdf][Jnx.JnxBonds.Pts.Itch.v1.2.Pdf] |
-| JnxBonds | [Pts][Jnx.JnxBonds.Pts] | [Ouch][Omi.Encoding.Ouch] | [1.4][Jnx.JnxBonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | 2601 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxBonds.Pts.Ouch.v1.4.Url] - [pdf][Jnx.JnxBonds.Pts.Ouch.v1.4.Pdf] |
-| JnxEquities | [Pts][Jnx.JnxEquities.Pts] | [Itch][Omi.Encoding.Itch] | [2.0][Jnx.JnxEquities.Pts.Itch.v2.0.Dissector] | 9/17/2025 | 1922 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxEquities.Pts.Itch.v2.0.Url] - [pdf][Jnx.JnxEquities.Pts.Itch.v2.0.Pdf] |
-| JnxEquities | [Pts][Jnx.JnxEquities.Pts] | [Itch][Omi.Encoding.Itch] | [1.7][Jnx.JnxEquities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | 1903 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxEquities.Pts.Itch.v1.7.Url] - [pdf][Jnx.JnxEquities.Pts.Itch.v1.7.Pdf] |
-| JnxEquities | [Pts][Jnx.JnxEquities.Pts] | [Itch][Omi.Encoding.Itch] | [1.6][Jnx.JnxEquities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | 1903 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.JnxEquities.Pts.Itch.v1.6.Url] - [pdf][Jnx.JnxEquities.Pts.Itch.v1.6.Pdf] |
-| JnxEquities | [Pts][Jnx.JnxEquities.Pts] | [Ouch][Omi.Encoding.Ouch] | [1.12][Jnx.JnxEquities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | 2609 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.JnxEquities.Pts.Ouch.v1.12.Url] - [pdf][Jnx.JnxEquities.Pts.Ouch.v1.12.Pdf] |
-| JnxEquities | [Pts][Jnx.JnxEquities.Pts] | [Ouch][Omi.Encoding.Ouch] | [1.11][Jnx.JnxEquities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | 2609 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxEquities.Pts.Ouch.v1.11.Url] - [pdf][Jnx.JnxEquities.Pts.Ouch.v1.11.Pdf] |
+| [JnxBonds][JnxBonds.Exchange] | [Pts][Jnx.JnxBonds.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Jnx.JnxBonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | 1653 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxBonds.Pts.Itch.v1.2.Url] - [pdf][Jnx.JnxBonds.Pts.Itch.v1.2.Pdf] |
+| [JnxBonds][JnxBonds.Exchange] | [Pts][Jnx.JnxBonds.Pts] | [Ouch][Omi.Encoding.Ouch] | [1.4][Jnx.JnxBonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | 2601 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxBonds.Pts.Ouch.v1.4.Url] - [pdf][Jnx.JnxBonds.Pts.Ouch.v1.4.Pdf] |
+| [JnxEquities][JnxEquities.Exchange] | [Pts][Jnx.JnxEquities.Pts] | [Itch][Omi.Encoding.Itch] | [2.0][Jnx.JnxEquities.Pts.Itch.v2.0.Dissector] | 9/17/2025 | 1922 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxEquities.Pts.Itch.v2.0.Url] - [pdf][Jnx.JnxEquities.Pts.Itch.v2.0.Pdf] |
+| [JnxEquities][JnxEquities.Exchange] | [Pts][Jnx.JnxEquities.Pts] | [Itch][Omi.Encoding.Itch] | [1.7][Jnx.JnxEquities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | 1903 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxEquities.Pts.Itch.v1.7.Url] - [pdf][Jnx.JnxEquities.Pts.Itch.v1.7.Pdf] |
+| [JnxEquities][JnxEquities.Exchange] | [Pts][Jnx.JnxEquities.Pts] | [Itch][Omi.Encoding.Itch] | [1.6][Jnx.JnxEquities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | 1903 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.JnxEquities.Pts.Itch.v1.6.Url] - [pdf][Jnx.JnxEquities.Pts.Itch.v1.6.Pdf] |
+| [JnxEquities][JnxEquities.Exchange] | [Pts][Jnx.JnxEquities.Pts] | [Ouch][Omi.Encoding.Ouch] | [1.12][Jnx.JnxEquities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | 2609 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.JnxEquities.Pts.Ouch.v1.12.Url] - [pdf][Jnx.JnxEquities.Pts.Ouch.v1.12.Pdf] |
+| [JnxEquities][JnxEquities.Exchange] | [Pts][Jnx.JnxEquities.Pts] | [Ouch][Omi.Encoding.Ouch] | [1.11][Jnx.JnxEquities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | 2609 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.JnxEquities.Pts.Ouch.v1.11.Url] - [pdf][Jnx.JnxEquities.Pts.Ouch.v1.11.Pdf] |
 
 
 Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext Securities (JNX)")
@@ -32,6 +32,8 @@ Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext Securities (JNX)"
 [Omi.Jnx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols "Jnx Protocol Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
+[JnxBonds.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols/JnxBonds "Jnx JnxBonds"
+[JnxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols/JnxEquities "Jnx JnxEquities"
 [Jnx.JnxBonds.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxBonds/Pts.md "Jnx Proprietary Trading System"
 [Jnx.JnxEquities.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxEquities/Pts.md "Jnx Proprietary Trading System"
 
