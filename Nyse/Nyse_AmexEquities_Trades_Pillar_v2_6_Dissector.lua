@@ -22,6 +22,9 @@ omi_nyse_amexequities_trades_pillar_v2_6.fields.current_refresh_pkt = ProtoField
 omi_nyse_amexequities_trades_pillar_v2_6.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.amexequities.trades.pillar.v2.6.deliveryflag", ftypes.UINT8)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.amexequities.trades.pillar.v2.6.endseqnum", ftypes.UINT32)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.amexequities.trades.pillar.v2.6.exchangecode", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.exec_day_time = ProtoField.new("Exec Day Time", "nyse.amexequities.trades.pillar.v2.6.execdaytime", ftypes.UINT32)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.exec_day_time_ns = ProtoField.new("Exec Day Time Ns", "nyse.amexequities.trades.pillar.v2.6.execdaytimens", ftypes.UINT32)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.fractional_volume = ProtoField.new("Fractional Volume", "nyse.amexequities.trades.pillar.v2.6.fractionalvolume", ftypes.UINT64)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.amexequities.trades.pillar.v2.6.haltcondition", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.high_price = ProtoField.new("High Price", "nyse.amexequities.trades.pillar.v2.6.highprice", ftypes.DOUBLE)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.id = ProtoField.new("Id", "nyse.amexequities.trades.pillar.v2.6.id", ftypes.UINT32)
@@ -51,6 +54,8 @@ omi_nyse_amexequities_trades_pillar_v2_6.fields.price_1 = ProtoField.new("Price 
 omi_nyse_amexequities_trades_pillar_v2_6.fields.price_2 = ProtoField.new("Price 2", "nyse.amexequities.trades.pillar.v2.6.price2", ftypes.DOUBLE)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.trades.pillar.v2.6.priceresolution", ftypes.UINT8)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.trades.pillar.v2.6.pricescalecode", ftypes.UINT8)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.prior_day_time = ProtoField.new("Prior Day Time", "nyse.amexequities.trades.pillar.v2.6.priordaytime", ftypes.UINT32)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.prior_day_time_ns = ProtoField.new("Prior Day Time Ns", "nyse.amexequities.trades.pillar.v2.6.priordaytimens", ftypes.UINT32)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.trades.pillar.v2.6.productid", ftypes.UINT8)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.amexequities.trades.pillar.v2.6.requestseqnum", ftypes.UINT32)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.trades.pillar.v2.6.reserved1", ftypes.UINT8)
@@ -103,6 +108,11 @@ omi_nyse_amexequities_trades_pillar_v2_6.fields.symbol_index_mapping_request_mes
 omi_nyse_amexequities_trades_pillar_v2_6.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nyse.amexequities.trades.pillar.v2.6.tradecancelmessage", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nyse.amexequities.trades.pillar.v2.6.tradecorrectionmessage", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.trade_message = ProtoField.new("Trade Message", "nyse.amexequities.trades.pillar.v2.6.trademessage", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_fractional_prior_day_trade_cancel_message = ProtoField.new("Trf Fractional Prior Day Trade Cancel Message", "nyse.amexequities.trades.pillar.v2.6.trffractionalpriordaytradecancelmessage", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_fractional_prior_day_trade_message = ProtoField.new("Trf Fractional Prior Day Trade Message", "nyse.amexequities.trades.pillar.v2.6.trffractionalpriordaytrademessage", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_fractional_trade_correction_message = ProtoField.new("Trf Fractional Trade Correction Message", "nyse.amexequities.trades.pillar.v2.6.trffractionaltradecorrectionmessage", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_fractional_trade_message = ProtoField.new("Trf Fractional Trade Message", "nyse.amexequities.trades.pillar.v2.6.trffractionaltrademessage", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_trade_cancel_message = ProtoField.new("Trf Trade Cancel Message", "nyse.amexequities.trades.pillar.v2.6.trftradecancelmessage", ftypes.STRING)
 
 -- Nyse AmexEquities Trades Pillar 2.6 generated fields
 omi_nyse_amexequities_trades_pillar_v2_6.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.trades.pillar.v2.6.messageindex", ftypes.UINT16)
@@ -379,6 +389,75 @@ nyse_amexequities_trades_pillar_v2_6.exchange_code.dissect = function(buffer, of
   local display = nyse_amexequities_trades_pillar_v2_6.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.exchange_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Day Time
+nyse_amexequities_trades_pillar_v2_6.exec_day_time = {}
+
+-- Size: Exec Day Time
+nyse_amexequities_trades_pillar_v2_6.exec_day_time.size = 4
+
+-- Display: Exec Day Time
+nyse_amexequities_trades_pillar_v2_6.exec_day_time.display = function(value)
+  return "Exec Day Time: "..value
+end
+
+-- Dissect: Exec Day Time
+nyse_amexequities_trades_pillar_v2_6.exec_day_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_trades_pillar_v2_6.exec_day_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_trades_pillar_v2_6.exec_day_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.exec_day_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Day Time Ns
+nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns = {}
+
+-- Size: Exec Day Time Ns
+nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.size = 4
+
+-- Display: Exec Day Time Ns
+nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.display = function(value)
+  return "Exec Day Time Ns: "..value
+end
+
+-- Dissect: Exec Day Time Ns
+nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.exec_day_time_ns, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fractional Volume
+nyse_amexequities_trades_pillar_v2_6.fractional_volume = {}
+
+-- Size: Fractional Volume
+nyse_amexequities_trades_pillar_v2_6.fractional_volume.size = 8
+
+-- Display: Fractional Volume
+nyse_amexequities_trades_pillar_v2_6.fractional_volume.display = function(value)
+  return "Fractional Volume: "..value
+end
+
+-- Dissect: Fractional Volume
+nyse_amexequities_trades_pillar_v2_6.fractional_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_trades_pillar_v2_6.fractional_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amexequities_trades_pillar_v2_6.fractional_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.fractional_volume, range, value, display)
 
   return offset + length, value
 end
@@ -774,6 +853,21 @@ nyse_amexequities_trades_pillar_v2_6.message_type.display = function(value)
   if value == 223 then
     return "Message Type: Stock Summary Message (223)"
   end
+  if value == 210 then
+    return "Message Type: Trf Fractional Trade Message (210)"
+  end
+  if value == 216 then
+    return "Message Type: Trf Trade Cancel Message (216)"
+  end
+  if value == 212 then
+    return "Message Type: Trf Fractional Trade Correction Message (212)"
+  end
+  if value == 213 then
+    return "Message Type: Trf Fractional Prior Day Trade Message (213)"
+  end
+  if value == 214 then
+    return "Message Type: Trf Fractional Prior Day Trade Cancel Message (214)"
+  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -1132,6 +1226,52 @@ nyse_amexequities_trades_pillar_v2_6.price_scale_code.dissect = function(buffer,
   local display = nyse_amexequities_trades_pillar_v2_6.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.price_scale_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prior Day Time
+nyse_amexequities_trades_pillar_v2_6.prior_day_time = {}
+
+-- Size: Prior Day Time
+nyse_amexequities_trades_pillar_v2_6.prior_day_time.size = 4
+
+-- Display: Prior Day Time
+nyse_amexequities_trades_pillar_v2_6.prior_day_time.display = function(value)
+  return "Prior Day Time: "..value
+end
+
+-- Dissect: Prior Day Time
+nyse_amexequities_trades_pillar_v2_6.prior_day_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_trades_pillar_v2_6.prior_day_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_trades_pillar_v2_6.prior_day_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.prior_day_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prior Day Time Ns
+nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns = {}
+
+-- Size: Prior Day Time Ns
+nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.size = 4
+
+-- Display: Prior Day Time Ns
+nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.display = function(value)
+  return "Prior Day Time Ns: "..value
+end
+
+-- Dissect: Prior Day Time Ns
+nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.prior_day_time_ns, range, value, display)
 
   return offset + length, value
 end
@@ -2202,6 +2342,402 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nyse AmexEquities Trades Pillar 2.6
 -----------------------------------------------------------------------
+
+-- Trf Fractional Prior Day Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message = {}
+
+-- Size: Trf Fractional Prior Day Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message.size =
+  nyse_amexequities_trades_pillar_v2_6.source_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.source_time_ns.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_index.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_id.size + 
+  nyse_amexequities_trades_pillar_v2_6.price.size + 
+  nyse_amexequities_trades_pillar_v2_6.fractional_volume.size + 
+  nyse_amexequities_trades_pillar_v2_6.prior_day_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.size
+
+-- Display: Trf Fractional Prior Day Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Fractional Prior Day Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_amexequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_amexequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_amexequities_trades_pillar_v2_6.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_amexequities_trades_pillar_v2_6.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_amexequities_trades_pillar_v2_6.price.dissect(buffer, index, packet, parent)
+
+  -- Fractional Volume: Binary
+  index, fractional_volume = nyse_amexequities_trades_pillar_v2_6.fractional_volume.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Time: Binary
+  index, prior_day_time = nyse_amexequities_trades_pillar_v2_6.prior_day_time.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Time Ns: Binary
+  index, prior_day_time_ns = nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Fractional Prior Day Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_fractional_prior_day_trade_cancel_message, buffer(offset, 0))
+    local index = nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trf Fractional Prior Day Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message = {}
+
+-- Size: Trf Fractional Prior Day Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.size =
+  nyse_amexequities_trades_pillar_v2_6.source_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.source_time_ns.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_index.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_id.size + 
+  nyse_amexequities_trades_pillar_v2_6.price.size + 
+  nyse_amexequities_trades_pillar_v2_6.fractional_volume.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_1.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_2.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_3.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_4.size + 
+  nyse_amexequities_trades_pillar_v2_6.prior_day_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.size
+
+-- Display: Trf Fractional Prior Day Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Fractional Prior Day Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_amexequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_amexequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_amexequities_trades_pillar_v2_6.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_amexequities_trades_pillar_v2_6.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_amexequities_trades_pillar_v2_6.price.dissect(buffer, index, packet, parent)
+
+  -- Fractional Volume: Binary
+  index, fractional_volume = nyse_amexequities_trades_pillar_v2_6.fractional_volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 1: ASCII
+  index, trade_cond_1 = nyse_amexequities_trades_pillar_v2_6.trade_cond_1.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 2: ASCII
+  index, trade_cond_2 = nyse_amexequities_trades_pillar_v2_6.trade_cond_2.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 3: ASCII
+  index, trade_cond_3 = nyse_amexequities_trades_pillar_v2_6.trade_cond_3.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 4: ASCII
+  index, trade_cond_4 = nyse_amexequities_trades_pillar_v2_6.trade_cond_4.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Time: Binary
+  index, prior_day_time = nyse_amexequities_trades_pillar_v2_6.prior_day_time.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Time Ns: Binary
+  index, prior_day_time_ns = nyse_amexequities_trades_pillar_v2_6.prior_day_time_ns.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Fractional Prior Day Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_fractional_prior_day_trade_message, buffer(offset, 0))
+    local index = nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trf Fractional Trade Correction Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message = {}
+
+-- Size: Trf Fractional Trade Correction Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.size =
+  nyse_amexequities_trades_pillar_v2_6.source_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.source_time_ns.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_index.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.size + 
+  nyse_amexequities_trades_pillar_v2_6.original_trade_id.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_id.size + 
+  nyse_amexequities_trades_pillar_v2_6.price.size + 
+  nyse_amexequities_trades_pillar_v2_6.fractional_volume.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_1.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_2.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_3.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_4.size + 
+  nyse_amexequities_trades_pillar_v2_6.exec_day_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.size
+
+-- Display: Trf Fractional Trade Correction Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Fractional Trade Correction Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_amexequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_amexequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_amexequities_trades_pillar_v2_6.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Original Trade Id: Binary
+  index, original_trade_id = nyse_amexequities_trades_pillar_v2_6.original_trade_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_amexequities_trades_pillar_v2_6.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_amexequities_trades_pillar_v2_6.price.dissect(buffer, index, packet, parent)
+
+  -- Fractional Volume: Binary
+  index, fractional_volume = nyse_amexequities_trades_pillar_v2_6.fractional_volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 1: ASCII
+  index, trade_cond_1 = nyse_amexequities_trades_pillar_v2_6.trade_cond_1.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 2: ASCII
+  index, trade_cond_2 = nyse_amexequities_trades_pillar_v2_6.trade_cond_2.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 3: ASCII
+  index, trade_cond_3 = nyse_amexequities_trades_pillar_v2_6.trade_cond_3.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 4: ASCII
+  index, trade_cond_4 = nyse_amexequities_trades_pillar_v2_6.trade_cond_4.dissect(buffer, index, packet, parent)
+
+  -- Exec Day Time: Binary
+  index, exec_day_time = nyse_amexequities_trades_pillar_v2_6.exec_day_time.dissect(buffer, index, packet, parent)
+
+  -- Exec Day Time Ns: Binary
+  index, exec_day_time_ns = nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Fractional Trade Correction Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_fractional_trade_correction_message, buffer(offset, 0))
+    local index = nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trf Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message = {}
+
+-- Size: Trf Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message.size =
+  nyse_amexequities_trades_pillar_v2_6.source_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.source_time_ns.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_index.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.size + 
+  nyse_amexequities_trades_pillar_v2_6.original_trade_id.size
+
+-- Display: Trf Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_amexequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_amexequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_amexequities_trades_pillar_v2_6.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Original Trade Id: Binary
+  index, original_trade_id = nyse_amexequities_trades_pillar_v2_6.original_trade_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Trade Cancel Message
+nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_trade_cancel_message, buffer(offset, 0))
+    local index = nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trf Fractional Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message = {}
+
+-- Size: Trf Fractional Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message.size =
+  nyse_amexequities_trades_pillar_v2_6.source_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.source_time_ns.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_index.size + 
+  nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_id.size + 
+  nyse_amexequities_trades_pillar_v2_6.price.size + 
+  nyse_amexequities_trades_pillar_v2_6.fractional_volume.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_1.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_2.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_3.size + 
+  nyse_amexequities_trades_pillar_v2_6.trade_cond_4.size + 
+  nyse_amexequities_trades_pillar_v2_6.exec_day_time.size + 
+  nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.size
+
+-- Display: Trf Fractional Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Fractional Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_amexequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_amexequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_amexequities_trades_pillar_v2_6.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_amexequities_trades_pillar_v2_6.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_amexequities_trades_pillar_v2_6.price.dissect(buffer, index, packet, parent)
+
+  -- Fractional Volume: Binary
+  index, fractional_volume = nyse_amexequities_trades_pillar_v2_6.fractional_volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 1: ASCII
+  index, trade_cond_1 = nyse_amexequities_trades_pillar_v2_6.trade_cond_1.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 2: ASCII
+  index, trade_cond_2 = nyse_amexequities_trades_pillar_v2_6.trade_cond_2.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 3: ASCII
+  index, trade_cond_3 = nyse_amexequities_trades_pillar_v2_6.trade_cond_3.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 4: ASCII
+  index, trade_cond_4 = nyse_amexequities_trades_pillar_v2_6.trade_cond_4.dissect(buffer, index, packet, parent)
+
+  -- Exec Day Time: Binary
+  index, exec_day_time = nyse_amexequities_trades_pillar_v2_6.exec_day_time.dissect(buffer, index, packet, parent)
+
+  -- Exec Day Time Ns: Binary
+  index, exec_day_time_ns = nyse_amexequities_trades_pillar_v2_6.exec_day_time_ns.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Fractional Trade Message
+nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_trades_pillar_v2_6.fields.trf_fractional_trade_message, buffer(offset, 0))
+    local index = nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Stock Summary Message
 nyse_amexequities_trades_pillar_v2_6.stock_summary_message = {}
@@ -3280,6 +3816,26 @@ nyse_amexequities_trades_pillar_v2_6.payload.dissect = function(buffer, offset, 
   if message_type == 223 then
     return nyse_amexequities_trades_pillar_v2_6.stock_summary_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Trf Fractional Trade Message
+  if message_type == 210 then
+    return nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trf Trade Cancel Message
+  if message_type == 216 then
+    return nyse_amexequities_trades_pillar_v2_6.trf_trade_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trf Fractional Trade Correction Message
+  if message_type == 212 then
+    return nyse_amexequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trf Fractional Prior Day Trade Message
+  if message_type == 213 then
+    return nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trf Fractional Prior Day Trade Cancel Message
+  if message_type == 214 then
+    return nyse_amexequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_message.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -3304,7 +3860,7 @@ nyse_amexequities_trades_pillar_v2_6.message_header.fields = function(buffer, of
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
   index, message_size = nyse_amexequities_trades_pillar_v2_6.message_size.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
+  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 21 values
   index, message_type = nyse_amexequities_trades_pillar_v2_6.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3352,7 +3908,7 @@ nyse_amexequities_trades_pillar_v2_6.message.fields = function(buffer, offset, p
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 16 branches
+  -- Payload: Runtime Type with 21 branches
   index = nyse_amexequities_trades_pillar_v2_6.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
