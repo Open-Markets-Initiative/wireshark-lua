@@ -25,7 +25,7 @@ NsxAustralia: [website](https://www.nsx.com.au "Go to Nation Stock Exchange of A
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.NsxAustralia.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/NsxAustralia/Protocols "NsxAustralia Protocol Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
-[NsxAustralia.Nets]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/NsxAustralia/Protocols/Nets.md "NsxAustralia National Electronic Trading System"
+[NsxAustralia.Nets]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/NsxAustralia/Protocols/Nets.md "National Electronic Trading System"
 
 [NsxAustralia.Nets.Itch.v4.2.55.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/NsxAustralia/NsxAustralia_Nets_Itch_v4_2_55_Dissector.lua "NsxAustralia Nets Itch v4.2.55 Wireshark Dissector"
 [NsxAustralia.Nets.Itch.v4.2.55.Url]: https://docs.nsx.com.au/ncd/nsx-itch-specification "Nation Stock Exchange of Australia 4.2.55 Url"

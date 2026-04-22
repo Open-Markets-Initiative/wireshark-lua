@@ -28,7 +28,7 @@ Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group (JPX)")
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
 [OseDerivatives]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jpx/Protocols/OseDerivatives "Jpx OseDerivatives"
-[Jpx.OseDerivatives.GeniumInet]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/OseDerivatives/GeniumInet.md "Jpx Genium Inet"
+[Jpx.OseDerivatives.GeniumInet]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/OseDerivatives/GeniumInet.md "Genium Inet"
 
 [Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jpx/Jpx_OseDerivatives_GeniumInet_Itch_v1_1_Dissector.lua "Jpx OseDerivatives GeniumInet Itch v1.1 Wireshark Dissector"
 [Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Specifications/OseDerivatives\Itch\Jpx.OseDerivatives.GeniumInet.Itch.v1.1.pdf "Japan Exchange Group (JPX) 1.1 Pdf"

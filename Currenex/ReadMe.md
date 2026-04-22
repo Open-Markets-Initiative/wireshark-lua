@@ -29,7 +29,7 @@ Currenex: [website](https://currenex.com "Go to Currenex")
 [Omi.Encoding.Cbp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cbp.md "Cbp Encoding"
 [CurrenexForex.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Protocols/CurrenexForex "Currenex CurrenexForex"
 [Currenex.CurrenexForex.Esp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/CurrenexForex/Esp.md "Currenex Executable Streaming Prices"
-[Currenex.CurrenexForex.Now]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/CurrenexForex/Now.md "Currenex Now"
+[Currenex.CurrenexForex.Now]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/CurrenexForex/Now.md "Currenex Now Forex Market Data"
 [Currenex.CurrenexForex.OrderService]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/CurrenexForex/OrderService.md "Currenex Order Service"
 
 [Currenex.CurrenexForex.Esp.Cbp.v9.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_CurrenexForex_Esp_Cbp_v9_0_Dissector.lua "Currenex CurrenexForex Esp Cbp v9.0 Wireshark Dissector"

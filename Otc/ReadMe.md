@@ -28,8 +28,8 @@ Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
 [Omi.Otc.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Protocols "Otc Protocol Directory"
 [Omi.Encoding.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Encoding"
 [Markets]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Protocols/Markets "Otc Markets"
-[Otc.Markets.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Multicast.md "Otc Multicast"
-[Otc.Markets.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Headers.md "Otc Headers"
+[Otc.Markets.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Multicast.md "Multicast"
+[Otc.Markets.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Headers.md "Headers"
 
 [Otc.Markets.Multicast.Ats.v4.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_Markets_Multicast_Ats_v4_3_Dissector.lua "Otc Markets Multicast Ats v4.3 Wireshark Dissector"
 [Otc.Markets.Multicast.Ats.v4.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "Otc Markets 4.3 Url"

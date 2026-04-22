@@ -47,8 +47,8 @@ jobs:
       - name: Run Cboe ByxEquities DepthOfBook Pitch 2.41.29 Dissector Tests
         run: bash -x .github/tests/Cboe-ByxEquities-DepthOfBook-Pitch-v2-41-29-Test.sh
 
-      - name: Run Cboe BzxOptions OrderEntry Boe 2.10 Dissector Tests
-        run: bash -x .github/tests/Cboe-BzxOptions-OrderEntry-Boe-v2-10-Test.sh
+      - name: Run Cboe BzxOptions OrderEntry Boe3 2.10 Dissector Tests
+        run: bash -x .github/tests/Cboe-BzxOptions-OrderEntry-Boe3-v2-10-Test.sh
 
       - name: Run Cboe CfeFutures DepthOfBook Pitch 1.1.6 Dissector Tests
         run: bash -x .github/tests/Cboe-CfeFutures-DepthOfBook-Pitch-v1-1-6-Test.sh
@@ -137,11 +137,11 @@ jobs:
       - name: Run Nasdaq Uqdf Output Utp 1.5 Dissector Tests
         run: bash -x .github/tests/Nasdaq-Uqdf-Output-Utp-v1-5-Test.sh
 
-      - name: Run Nyse AmexEquities IntegratedFeed Xdp 2.1.g Dissector Tests
-        run: bash -x .github/tests/Nyse-AmexEquities-IntegratedFeed-Xdp-v2-1-g-Test.sh
+      - name: Run Nyse AmexEquities IntegratedFeed Pillar 2.1.g Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexEquities-IntegratedFeed-Pillar-v2-1-g-Test.sh
 
-      - name: Run Nyse ArcaEquities Bbo Xdp 2.4.c Dissector Tests
-        run: bash -x .github/tests/Nyse-ArcaEquities-Bbo-Xdp-v2-4-c-Test.sh
+      - name: Run Nyse ArcaEquities Bbo Pillar 2.4.c Dissector Tests
+        run: bash -x .github/tests/Nyse-ArcaEquities-Bbo-Pillar-v2-4-c-Test.sh
 
       - name: Run Nyse ArcaOptions TopFeed Pillar 1.2.c Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaOptions-TopFeed-Pillar-v1-2-c-Test.sh
@@ -149,8 +149,8 @@ jobs:
       - name: Run Nyse NyseEquities Bbo Pillar 2.5.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Pillar-v2-5-b-Test.sh
 
-      - name: Run Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Dissector Tests
-        run: bash -x .github/tests/Nyse-NyseEquities-ImbalancesFeed-Xdp-v2-1-f-Test.sh
+      - name: Run Nyse NyseEquities ImbalancesFeed Pillar 2.1.f Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-ImbalancesFeed-Pillar-v2-1-f-Test.sh
 
       - name: Run Nyse NyseEquities IntegratedFeed Pillar 2.5.a Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Pillar-v2-5-a-Test.sh

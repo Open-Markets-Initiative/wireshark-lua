@@ -28,9 +28,9 @@ BruceAts: [website](https://www.brucemarkets.com "Go to Bruce ATS")
 [Omi.BruceAts.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols "BruceAts Protocol Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [BruceEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols/BruceEquities "BruceAts BruceEquities"
-[BruceAts.BruceEquities.BestBidAndOffer]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/BestBidAndOffer.md "BruceAts Best Bid And Offer"
-[BruceAts.BruceEquities.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/DepthOfBook.md "BruceAts Depth Of Book"
-[BruceAts.BruceEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/LastSale.md "BruceAts Last Sale"
+[BruceAts.BruceEquities.BestBidAndOffer]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/BestBidAndOffer.md "Bruce Best Bid And Offer"
+[BruceAts.BruceEquities.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/DepthOfBook.md "Bruce Depth Of Book"
+[BruceAts.BruceEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/LastSale.md "Bruce Last Sale"
 
 [BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/BruceAts/BruceAts_BruceEquities_BestBidAndOffer_Itch_v1_0_Dissector.lua "BruceAts BruceEquities BestBidAndOffer Itch v1.0 Wireshark Dissector"
 [BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Specifications/Equities/BestBidAndOffer/Bruce.Equities.BestBidAndOffer.Itch.v1.0.pdf "Bruce ATS 1.0 Pdf"

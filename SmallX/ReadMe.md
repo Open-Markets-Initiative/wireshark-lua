@@ -26,8 +26,8 @@ SmallX: [website](https://www.thesmallexchange.com "Go to The Small Exchange")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.SmallX.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/SmallX/Protocols "SmallX Protocol Directory"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
-[SmallX.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/OrderBookFeed.md "SmallX Order Book Feed"
-[SmallX.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/Headers.md "SmallX Headers"
+[SmallX.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/OrderBookFeed.md "Order Book Feed"
+[SmallX.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/Headers.md "Headers"
 
 [SmallX.OrderBookFeed.Sbe.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/SmallX/SmallX_OrderBookFeed_Sbe_v2_2_Dissector.lua "SmallX OrderBookFeed Sbe v2.2 Wireshark Dissector"
 [SmallX.OrderBookFeed.Sbe.v2.2.Url]: https://smallexchange.com/reference/info-hub "The Small Exchange 2.2 Url"

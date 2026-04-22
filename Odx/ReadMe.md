@@ -27,7 +27,7 @@ Odx: [website](https://www.odx.co.jp/en "Go to Osaka Digital Exchange")
 [Omi.Odx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols "Odx Protocol Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [OdxSecurityToken.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols/OdxSecurityToken "Odx OdxSecurityToken"
-[Odx.OdxSecurityToken.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Odx/Protocols/OdxSecurityToken/Pts.md "Odx Proprietary Trading System"
+[Odx.OdxSecurityToken.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Odx/Protocols/OdxSecurityToken/Pts.md "Odx Security Token Proprietary Trading System"
 
 [Odx.OdxSecurityToken.Pts.Itch.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Odx/Odx_OdxSecurityToken_Pts_Itch_v2_2_Dissector.lua "Odx OdxSecurityToken Pts Itch v2.2 Wireshark Dissector"
 [Odx.OdxSecurityToken.Pts.Itch.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Odx/Specifications/Odx.Equities.Pts.Itch.v2.2.pdf "Osaka Digital Exchange 2.2 Pdf"
