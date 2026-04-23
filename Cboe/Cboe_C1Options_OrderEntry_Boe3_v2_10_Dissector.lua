@@ -1270,7 +1270,7 @@ omi_cboe_c1options_orderentry_boe3_v2_10.fields.user_modify_rejected_routing_fir
 omi_cboe_c1options_orderentry_boe3_v2_10.fields.username = ProtoField.new("Username", "cboe.c1options.orderentry.boe3.v2.10.username", ftypes.STRING)
 omi_cboe_c1options_orderentry_boe3_v2_10.fields.working_price = ProtoField.new("Working Price", "cboe.c1options.orderentry.boe3.v2.10.workingprice", ftypes.UINT64)
 
--- Cboe C1Options Boe3 OrderEntry 2.10 Application Messages
+-- Cboe C1Options OrderEntry 2.10 Application Messages
 omi_cboe_c1options_orderentry_boe3_v2_10.fields.add_floor_trade_message = ProtoField.new("Add Floor Trade Message", "cboe.c1options.orderentry.boe3.v2.10.addfloortrademessage", ftypes.STRING)
 omi_cboe_c1options_orderentry_boe3_v2_10.fields.add_floor_trade_rejected_message = ProtoField.new("Add Floor Trade Rejected Message", "cboe.c1options.orderentry.boe3.v2.10.addfloortraderejectedmessage", ftypes.STRING)
 omi_cboe_c1options_orderentry_boe3_v2_10.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.c1options.orderentry.boe3.v2.10.cancelordermessage", ftypes.STRING)

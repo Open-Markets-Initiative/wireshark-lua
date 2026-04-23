@@ -742,7 +742,7 @@ omi_cboe_cfefutures_orderentry_boe3_v1_3.fields.variance_restatement_time_in_for
 omi_cboe_cfefutures_orderentry_boe3_v1_3.fields.variance_restatement_trade_date_exists = ProtoField.new("Variance Restatement Trade Date Exists", "cboe.cfefutures.orderentry.boe3.v1.3.variancerestatementtradedateexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_orderentry_boe3_v1_3.fields.working_price = ProtoField.new("Working Price", "cboe.cfefutures.orderentry.boe3.v1.3.workingprice", ftypes.UINT64)
 
--- Cboe CfeFutures Boe3 OrderEntry 1.3 Application Messages
+-- Cboe CfeFutures OrderEntry 1.3 Application Messages
 omi_cboe_cfefutures_orderentry_boe3_v1_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.cfefutures.orderentry.boe3.v1.3.cancelordermessage", ftypes.STRING)
 omi_cboe_cfefutures_orderentry_boe3_v1_3.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.cfefutures.orderentry.boe3.v1.3.cancelrejectedmessage", ftypes.STRING)
 omi_cboe_cfefutures_orderentry_boe3_v1_3.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.cfefutures.orderentry.boe3.v1.3.loginrequestmessage", ftypes.STRING)

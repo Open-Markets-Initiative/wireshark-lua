@@ -120,7 +120,7 @@ omi_nyse_nationalequities_bqt_pillar_v2_4_a.fields.trade_id = ProtoField.new("Tr
 omi_nyse_nationalequities_bqt_pillar_v2_4_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nationalequities.bqt.pillar.v2.4.a.unitoftrade", ftypes.UINT16)
 omi_nyse_nationalequities_bqt_pillar_v2_4_a.fields.volume = ProtoField.new("Volume", "nyse.nationalequities.bqt.pillar.v2.4.a.volume", ftypes.UINT32)
 
--- Nyse NationalEquities Pillar Bqt 2.4.a Application Messages
+-- Nyse NationalEquities Bqt 2.4.a Application Messages
 omi_nyse_nationalequities_bqt_pillar_v2_4_a.fields.best_quotes_message = ProtoField.new("Best Quotes Message", "nyse.nationalequities.bqt.pillar.v2.4.a.bestquotesmessage", ftypes.STRING)
 omi_nyse_nationalequities_bqt_pillar_v2_4_a.fields.consolidated_fractional_stock_summary_message = ProtoField.new("Consolidated Fractional Stock Summary Message", "nyse.nationalequities.bqt.pillar.v2.4.a.consolidatedfractionalstocksummarymessage", ftypes.STRING)
 omi_nyse_nationalequities_bqt_pillar_v2_4_a.fields.consolidated_fractional_volume_message = ProtoField.new("Consolidated Fractional Volume Message", "nyse.nationalequities.bqt.pillar.v2.4.a.consolidatedfractionalvolumemessage", ftypes.STRING)

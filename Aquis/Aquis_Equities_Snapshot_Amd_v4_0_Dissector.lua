@@ -42,7 +42,7 @@ omi_aquis_equities_snapshot_amd_v4_0.fields.timestamp = ProtoField.new("Timestam
 omi_aquis_equities_snapshot_amd_v4_0.fields.trading = ProtoField.new("Trading", "aquis.equities.snapshot.amd.v4.0.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_aquis_equities_snapshot_amd_v4_0.fields.trading_status = ProtoField.new("Trading Status", "aquis.equities.snapshot.amd.v4.0.tradingstatus", ftypes.UINT8)
 
--- Aquis Equities Amd Snapshot 4.0 Application Messages
+-- Aquis Equities Snapshot 4.0 Application Messages
 omi_aquis_equities_snapshot_amd_v4_0.fields.book_entry_message = ProtoField.new("Book Entry Message", "aquis.equities.snapshot.amd.v4.0.bookentrymessage", ftypes.STRING)
 omi_aquis_equities_snapshot_amd_v4_0.fields.book_status_message = ProtoField.new("Book Status Message", "aquis.equities.snapshot.amd.v4.0.bookstatusmessage", ftypes.STRING)
 omi_aquis_equities_snapshot_amd_v4_0.fields.ma_c_book_entry_message = ProtoField.new("Ma C Book Entry Message", "aquis.equities.snapshot.amd.v4.0.macbookentrymessage", ftypes.STRING)

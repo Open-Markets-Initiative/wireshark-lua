@@ -125,7 +125,7 @@ omi_asx_asxsecurities_t24_itch_v1_13.fields.underlying_contract_number = ProtoFi
 omi_asx_asxsecurities_t24_itch_v1_13.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.asxsecurities.t24.itch.v1.13.voitradedate", ftypes.UINT16)
 omi_asx_asxsecurities_t24_itch_v1_13.fields.volatility = ProtoField.new("Volatility", "asx.asxsecurities.t24.itch.v1.13.volatility", ftypes.UINT32)
 
--- Asx AsxSecurities Itch T24 1.13 Application Messages
+-- Asx AsxSecurities T24 1.13 Application Messages
 omi_asx_asxsecurities_t24_itch_v1_13.fields.ad_hoc_text_message = ProtoField.new("Ad Hoc Text Message", "asx.asxsecurities.t24.itch.v1.13.adhoctextmessage", ftypes.STRING)
 omi_asx_asxsecurities_t24_itch_v1_13.fields.anomalous_order_threshold_publish_message = ProtoField.new("Anomalous Order Threshold Publish Message", "asx.asxsecurities.t24.itch.v1.13.anomalousorderthresholdpublishmessage", ftypes.STRING)
 omi_asx_asxsecurities_t24_itch_v1_13.fields.custom_market_executed_message = ProtoField.new("Custom Market Executed Message", "asx.asxsecurities.t24.itch.v1.13.custommarketexecutedmessage", ftypes.STRING)

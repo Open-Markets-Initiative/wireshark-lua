@@ -74,7 +74,7 @@ omi_cboe_cboeeurope_lastsale_pitch_v1_7.fields.unsequenced_data_packet = ProtoFi
 omi_cboe_cboeeurope_lastsale_pitch_v1_7.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.cboeeurope.lastsale.pitch.v1.7.unsequencedmessage", ftypes.BYTES)
 omi_cboe_cboeeurope_lastsale_pitch_v1_7.fields.username = ProtoField.new("Username", "cboe.cboeeurope.lastsale.pitch.v1.7.username", ftypes.STRING)
 
--- Cboe CboeEurope Pitch LastSale 1.7 Application Messages
+-- Cboe CboeEurope LastSale 1.7 Application Messages
 omi_cboe_cboeeurope_lastsale_pitch_v1_7.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.cboeeurope.lastsale.pitch.v1.7.lastsaleeuropemessage", ftypes.STRING)
 omi_cboe_cboeeurope_lastsale_pitch_v1_7.fields.last_sale_europe_message_new = ProtoField.new("Last Sale Europe Message New", "cboe.cboeeurope.lastsale.pitch.v1.7.lastsaleeuropemessagenew", ftypes.STRING)
 

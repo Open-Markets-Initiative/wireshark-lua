@@ -62,7 +62,7 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.fields.timestamp = ProtoField.new("Times
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.psxequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.username = ProtoField.new("Username", "nasdaq.psxequities.orders.ouch.v4.2.username", ftypes.STRING)
 
--- Nasdaq PsxEquities Ouch Orders 4.2 Application Messages
+-- Nasdaq PsxEquities Orders 4.2 Application Messages
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.accepted_message = ProtoField.new("Accepted Message", "nasdaq.psxequities.orders.ouch.v4.2.acceptedmessage", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.aiq_canceled_message = ProtoField.new("Aiq Canceled Message", "nasdaq.psxequities.orders.ouch.v4.2.aiqcanceledmessage", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.psxequities.orders.ouch.v4.2.brokentrademessage", ftypes.STRING)
@@ -80,7 +80,7 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.fields.replace_order_message = ProtoFiel
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.replaced_message = ProtoField.new("Replaced Message", "nasdaq.psxequities.orders.ouch.v4.2.replacedmessage", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psxequities.orders.ouch.v4.2.systemeventmessage", ftypes.STRING)
 
--- Nasdaq PsxEquities Ouch Orders 4.2 Session Messages
+-- Nasdaq PsxEquities Orders 4.2 Session Messages
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.psxequities.orders.ouch.v4.2.debugpacket", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.psxequities.orders.ouch.v4.2.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.psxequities.orders.ouch.v4.2.loginrejectedpacket", ftypes.STRING)

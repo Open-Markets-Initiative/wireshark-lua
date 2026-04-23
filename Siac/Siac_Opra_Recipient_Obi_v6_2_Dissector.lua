@@ -94,7 +94,7 @@ omi_siac_opra_recipient_obi_v6_2.fields.underlying_value_message_type = ProtoFie
 omi_siac_opra_recipient_obi_v6_2.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v6.2.version", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v6_2.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v6.2.volume", ftypes.UINT32)
 
--- Siac Opra Obi Recipient 6.2 Application Messages
+-- Siac Opra Recipient 6.2 Application Messages
 omi_siac_opra_recipient_obi_v6_2.fields.administrative = ProtoField.new("Administrative", "siac.opra.recipient.obi.v6.2.administrative", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.control = ProtoField.new("Control", "siac.opra.recipient.obi.v6.2.control", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_2.fields.equity_and_index_end_of_day_summary = ProtoField.new("Equity And Index End Of Day Summary", "siac.opra.recipient.obi.v6.2.equityandindexendofdaysummary", ftypes.STRING)

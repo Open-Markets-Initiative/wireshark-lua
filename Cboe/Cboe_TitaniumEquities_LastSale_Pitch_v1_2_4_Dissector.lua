@@ -42,7 +42,7 @@ omi_cboe_titaniumequities_lastsale_pitch_v1_2_4.fields.unsequenced_data_packet =
 omi_cboe_titaniumequities_lastsale_pitch_v1_2_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.titaniumequities.lastsale.pitch.v1.2.4.unsequencedmessage", ftypes.BYTES)
 omi_cboe_titaniumequities_lastsale_pitch_v1_2_4.fields.username = ProtoField.new("Username", "cboe.titaniumequities.lastsale.pitch.v1.2.4.username", ftypes.STRING)
 
--- Cboe TitaniumEquities Pitch LastSale 1.2.4 Application Messages
+-- Cboe TitaniumEquities LastSale 1.2.4 Application Messages
 omi_cboe_titaniumequities_lastsale_pitch_v1_2_4.fields.last_sale_extended_message = ProtoField.new("Last Sale Extended Message", "cboe.titaniumequities.lastsale.pitch.v1.2.4.lastsaleextendedmessage", ftypes.STRING)
 omi_cboe_titaniumequities_lastsale_pitch_v1_2_4.fields.last_sale_message = ProtoField.new("Last Sale Message", "cboe.titaniumequities.lastsale.pitch.v1.2.4.lastsalemessage", ftypes.STRING)
 omi_cboe_titaniumequities_lastsale_pitch_v1_2_4.fields.trade_break_message = ProtoField.new("Trade Break Message", "cboe.titaniumequities.lastsale.pitch.v1.2.4.tradebreakmessage", ftypes.STRING)

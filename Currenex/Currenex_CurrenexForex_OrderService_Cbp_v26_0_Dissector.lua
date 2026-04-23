@@ -59,7 +59,7 @@ omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.transact_time = ProtoFi
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.type = ProtoField.new("Type", "currenex.currenexforex.orderservice.cbp.v26.0.type", ftypes.INT16)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.orderservice.cbp.v26.0.userid", ftypes.STRING)
 
--- Currenex CurrenexForex Cbp OrderService 26.0 Application Messages
+-- Currenex CurrenexForex OrderService 26.0 Application Messages
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.gap_fill = ProtoField.new("Gap Fill", "currenex.currenexforex.orderservice.cbp.v26.0.gapfill", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.heartbeat = ProtoField.new("Heartbeat", "currenex.currenexforex.orderservice.cbp.v26.0.heartbeat", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.currenexforex.orderservice.cbp.v26.0.instrumentinfo", ftypes.STRING)

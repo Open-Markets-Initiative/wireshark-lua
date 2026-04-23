@@ -257,7 +257,7 @@ omi_cme_cmefutures_streamlined_sbe_v5_8.fields.year = ProtoField.new("Year", "cm
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.yield = ProtoField.new("Yield", "cme.cmefutures.streamlined.sbe.v5.8.yield", ftypes.STRING)
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.yield_type = ProtoField.new("Yield Type", "cme.cmefutures.streamlined.sbe.v5.8.yieldtype", ftypes.STRING)
 
--- Cme CmeFutures Sbe Streamlined 5.8 Application Messages
+-- Cme CmeFutures Streamlined 5.8 Application Messages
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.admin_login = ProtoField.new("Admin Login", "cme.cmefutures.streamlined.sbe.v5.8.adminlogin", ftypes.STRING)
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.admin_logout = ProtoField.new("Admin Logout", "cme.cmefutures.streamlined.sbe.v5.8.adminlogout", ftypes.STRING)
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.md_incremental_refresh_eris_351 = ProtoField.new("Md Incremental Refresh Eris 351", "cme.cmefutures.streamlined.sbe.v5.8.mdincrementalrefresheris351", ftypes.STRING)

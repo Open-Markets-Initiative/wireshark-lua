@@ -194,7 +194,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.version = ProtoFiel
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.amexoptions.binarygateway.pillarstream.v3.25.workingawayfromdisplay", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.working_price = ProtoField.new("Working Price", "nyse.amexoptions.binarygateway.pillarstream.v3.25.workingprice", ftypes.DOUBLE)
 
--- Nyse AmexOptions PillarStream BinaryGateway 3.25 Application Messages
+-- Nyse AmexOptions BinaryGateway 3.25 Application Messages
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.applicationlayerrejectmessage", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.bulk_cancel_request_type_223_message = ProtoField.new("Bulk Cancel Request Type 223 Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.bulkcancelrequesttype223message", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.bulk_cancel_request_type_224_message = ProtoField.new("Bulk Cancel Request Type 224 Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.bulkcancelrequesttype224message", ftypes.STRING)
@@ -226,7 +226,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.session_configurati
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.trade_bust_correct_message = ProtoField.new("Trade Bust Correct Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.tradebustcorrectmessage", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.underlying_symbol_reference_data_message = ProtoField.new("Underlying Symbol Reference Data Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.underlyingsymbolreferencedatamessage", ftypes.STRING)
 
--- Nyse AmexOptions PillarStream BinaryGateway 3.25 Session Messages
+-- Nyse AmexOptions BinaryGateway 3.25 Session Messages
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.close = ProtoField.new("Close", "nyse.amexoptions.binarygateway.pillarstream.v3.25.close", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.close_response = ProtoField.new("Close Response", "nyse.amexoptions.binarygateway.pillarstream.v3.25.closeresponse", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amexoptions.binarygateway.pillarstream.v3.25.heartbeat", ftypes.STRING)

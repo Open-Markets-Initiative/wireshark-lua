@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 527 | 4,506,004 |
+| 521 | 4,490,899 |
 
 ## Testing
 
@@ -161,7 +161,6 @@ Enjoy.
 [Cboe.CfeFutures.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/OrderEntry.md "Cboe Futures Order Entry"
 [Cboe.CboeEurope.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CboeEurope/LastSale.md "Cboe Europe Last Sale"
 [Cboe.CboeEurope.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CboeEurope/DepthOfBook.md "Cboe Europe Depth Of Book"
-[Cboe.Pitch.SequencedUnitHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/Pitch/SequencedUnitHeader.md "Cboe Pitch Sequenced Unit Header"
 [Cboe.C1Options.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketDataFeed.md "Cboe Market Data Feed"
 [Cboe.C1Options.MarketLevel2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketLevel2.md "Cboe Market Level 2 Feed"
 [Cboe.C1Options.OpeningAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/OpeningAuction.md "Cboe Options Opening Auction Feed"
@@ -264,7 +263,6 @@ Enjoy.
 [Nasdaq.NomOptions.Bono]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NomOptions/Bono.md "Nom Binary Order Entry"
 [Nasdaq.NomOptions.Itto]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NomOptions/Itto.md "Nom Itto Top Order Market Data"
 [Nasdaq.NtxEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxEquities/TotalView.md "Nasdaq TX TotalView Itch"
-[Nasdaq.NtxEquities.Qbbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxEquities/Qbbo.md "Nasdaq Ntx Equities Quoted Best Bid And Offer"
 [Nasdaq.NtxEquities.NlsPlus]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxEquities/NlsPlus.md "Nasdaq Texas Last Sale Plus"
 [Nasdaq.NtxOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/TopOfMarket.md "Nasdaq Ntx Options Top Of Market"
 [Nasdaq.NtxOptions.TradeFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/TradeFeed.md "Nasdaq Ntx Options Trade Feed"
@@ -290,7 +288,6 @@ Enjoy.
 [Nasdaq.NsmEquities.Nois]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Nois.md "Net Order Imbalance Snapshot"
 [Nasdaq.NsmEquities.Noi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Noi.md "Nasdaq Nsm Equities Net Order Imbalance"
 [Nasdaq.NsmEquities.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Orders.md "Nasdaq Orders"
-[Nasdaq.NsmEquities.Qbbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Qbbo.md "Nasdaq Nsm Equities Quoted Best Bid And Offer"
 [Nasdaq.NsmEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/TotalView.md "Nasdaq TotalView Itch"
 [Nasdaq.Uqdf.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Uqdf/Output.md "Output"
 [Nasdaq.Utdf.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Utdf/Output.md "Output"
@@ -354,7 +351,6 @@ Enjoy.
 [Siac.Cqs.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Output.md "Output"
 [Siac.Cqs.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Snapshot.md "Snapshot"
 [SmallX.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/OrderBookFeed.md "Order Book Feed"
-[SmallX.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/Headers.md "Headers"
 [Tmx.Mx.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Protocols/Mx/Multicast.md "Multicast"
 [Tmx.QuantumFeed.AlphaLevel1]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Protocols/QuantumFeed/AlphaLevel1.md "Alpha Level 1"
 [Tmx.QuantumFeed.AlphaLevel2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Protocols/QuantumFeed/AlphaLevel2.md "Alpha Level 2"

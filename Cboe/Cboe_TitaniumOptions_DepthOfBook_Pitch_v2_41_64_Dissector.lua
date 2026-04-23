@@ -86,7 +86,7 @@ omi_cboe_titaniumoptions_depthofbook_pitch_v2_41_64.fields.unit = ProtoField.new
 omi_cboe_titaniumoptions_depthofbook_pitch_v2_41_64.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.titaniumoptions.depthofbook.pitch.v2.41.64.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_titaniumoptions_depthofbook_pitch_v2_41_64.fields.width_type = ProtoField.new("Width Type", "cboe.titaniumoptions.depthofbook.pitch.v2.41.64.widthtype", ftypes.STRING)
 
--- Cboe TitaniumOptions Pitch DepthOfBook 2.41.64 Application Messages
+-- Cboe TitaniumOptions DepthOfBook 2.41.64 Application Messages
 omi_cboe_titaniumoptions_depthofbook_pitch_v2_41_64.fields.ox_add_order_expanded_message = ProtoField.new("Ox Add Order Expanded Message", "cboe.titaniumoptions.depthofbook.pitch.v2.41.64.oxaddorderexpandedmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_depthofbook_pitch_v2_41_64.fields.ox_add_order_long_message = ProtoField.new("Ox Add Order Long Message", "cboe.titaniumoptions.depthofbook.pitch.v2.41.64.oxaddorderlongmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_depthofbook_pitch_v2_41_64.fields.ox_add_order_short_message = ProtoField.new("Ox Add Order Short Message", "cboe.titaniumoptions.depthofbook.pitch.v2.41.64.oxaddordershortmessage", ftypes.STRING)

@@ -704,7 +704,7 @@ omi_cboe_bzxequities_orderentry_boe3_v2_3.fields.user_modify_rejected_sub_liquid
 omi_cboe_bzxequities_orderentry_boe3_v2_3.fields.username = ProtoField.new("Username", "cboe.bzxequities.orderentry.boe3.v2.3.username", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe3_v2_3.fields.working_price = ProtoField.new("Working Price", "cboe.bzxequities.orderentry.boe3.v2.3.workingprice", ftypes.INT64)
 
--- Cboe BzxEquities Boe3 OrderEntry 2.3 Application Messages
+-- Cboe BzxEquities OrderEntry 2.3 Application Messages
 omi_cboe_bzxequities_orderentry_boe3_v2_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.bzxequities.orderentry.boe3.v2.3.cancelordermessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe3_v2_3.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.bzxequities.orderentry.boe3.v2.3.cancelrejectedmessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe3_v2_3.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.bzxequities.orderentry.boe3.v2.3.loginrequestmessage", ftypes.STRING)

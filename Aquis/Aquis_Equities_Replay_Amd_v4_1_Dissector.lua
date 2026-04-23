@@ -27,7 +27,7 @@ omi_aquis_equities_replay_amd_v4_1.fields.response_code = ProtoField.new("Respon
 omi_aquis_equities_replay_amd_v4_1.fields.seq_no = ProtoField.new("Seq No", "aquis.equities.replay.amd.v4.1.seqno", ftypes.UINT32)
 omi_aquis_equities_replay_amd_v4_1.fields.username = ProtoField.new("Username", "aquis.equities.replay.amd.v4.1.username", ftypes.STRING)
 
--- Aquis Equities Amd Replay 4.1 Application Messages
+-- Aquis Equities Replay 4.1 Application Messages
 omi_aquis_equities_replay_amd_v4_1.fields.login_message = ProtoField.new("Login Message", "aquis.equities.replay.amd.v4.1.loginmessage", ftypes.STRING)
 omi_aquis_equities_replay_amd_v4_1.fields.replay_request_message = ProtoField.new("Replay Request Message", "aquis.equities.replay.amd.v4.1.replayrequestmessage", ftypes.STRING)
 omi_aquis_equities_replay_amd_v4_1.fields.replay_response_message = ProtoField.new("Replay Response Message", "aquis.equities.replay.amd.v4.1.replayresponsemessage", ftypes.STRING)

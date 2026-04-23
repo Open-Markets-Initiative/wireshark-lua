@@ -53,7 +53,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.ne
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused = ProtoField.new("Unused", "miax.pearlequities.depthofmarket.mach.v1.3.a.unused", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Miax PearlEquities Mach DepthOfMarket 1.3.a Application Messages
+-- Miax PearlEquities DepthOfMarket 1.3.a Application Messages
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.add_order_message = ProtoField.new("Add Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.addordermessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.delete_order_message = ProtoField.new("Delete Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.deleteordermessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.modify_order_message = ProtoField.new("Modify Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.modifyordermessage", ftypes.STRING)

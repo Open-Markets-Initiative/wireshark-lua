@@ -1228,7 +1228,7 @@ omi_cboe_edgxoptions_orderentry_boe3_v2_10.fields.user_modify_rejected_routing_f
 omi_cboe_edgxoptions_orderentry_boe3_v2_10.fields.username = ProtoField.new("Username", "cboe.edgxoptions.orderentry.boe3.v2.10.username", ftypes.STRING)
 omi_cboe_edgxoptions_orderentry_boe3_v2_10.fields.working_price = ProtoField.new("Working Price", "cboe.edgxoptions.orderentry.boe3.v2.10.workingprice", ftypes.UINT64)
 
--- Cboe EdgxOptions Boe3 OrderEntry 2.10 Application Messages
+-- Cboe EdgxOptions OrderEntry 2.10 Application Messages
 omi_cboe_edgxoptions_orderentry_boe3_v2_10.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.edgxoptions.orderentry.boe3.v2.10.cancelordermessage", ftypes.STRING)
 omi_cboe_edgxoptions_orderentry_boe3_v2_10.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.edgxoptions.orderentry.boe3.v2.10.cancelrejectedmessage", ftypes.STRING)
 omi_cboe_edgxoptions_orderentry_boe3_v2_10.fields.complex_instrument_accepted_message = ProtoField.new("Complex Instrument Accepted Message", "cboe.edgxoptions.orderentry.boe3.v2.10.complexinstrumentacceptedmessage", ftypes.STRING)

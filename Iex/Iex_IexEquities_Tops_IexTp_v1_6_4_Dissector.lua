@@ -81,7 +81,7 @@ omi_iex_iexequities_tops_iextp_v1_6_4.fields.upper_auction_collar = ProtoField.n
 omi_iex_iexequities_tops_iextp_v1_6_4.fields.version = ProtoField.new("Version", "iex.iexequities.tops.iextp.v1.6.4.version", ftypes.UINT8)
 omi_iex_iexequities_tops_iextp_v1_6_4.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.tops.iextp.v1.6.4.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
--- Iex IexEquities IexTp Tops 1.6.4 Application Messages
+-- Iex IexEquities Tops 1.6.4 Application Messages
 omi_iex_iexequities_tops_iextp_v1_6_4.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.iexequities.tops.iextp.v1.6.4.auctioninformationmessage", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_6_4.fields.official_price_message = ProtoField.new("Official Price Message", "iex.iexequities.tops.iextp.v1.6.4.officialpricemessage", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_6_4.fields.operational_halt_status_message = ProtoField.new("Operational Halt Status Message", "iex.iexequities.tops.iextp.v1.6.4.operationalhaltstatusmessage", ftypes.STRING)

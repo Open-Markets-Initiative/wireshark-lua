@@ -50,7 +50,7 @@ omi_cboe_titaniumequities_auctionfeed_pitch_v1_3_8.fields.unsequenced_data_packe
 omi_cboe_titaniumequities_auctionfeed_pitch_v1_3_8.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.titaniumequities.auctionfeed.pitch.v1.3.8.unsequencedmessage", ftypes.BYTES)
 omi_cboe_titaniumequities_auctionfeed_pitch_v1_3_8.fields.username = ProtoField.new("Username", "cboe.titaniumequities.auctionfeed.pitch.v1.3.8.username", ftypes.STRING)
 
--- Cboe TitaniumEquities Pitch AuctionFeed 1.3.8 Application Messages
+-- Cboe TitaniumEquities AuctionFeed 1.3.8 Application Messages
 omi_cboe_titaniumequities_auctionfeed_pitch_v1_3_8.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.titaniumequities.auctionfeed.pitch.v1.3.8.auctionsummarymessage", ftypes.STRING)
 omi_cboe_titaniumequities_auctionfeed_pitch_v1_3_8.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.titaniumequities.auctionfeed.pitch.v1.3.8.auctionupdatemessage", ftypes.STRING)
 omi_cboe_titaniumequities_auctionfeed_pitch_v1_3_8.fields.extended_auction_summary_message = ProtoField.new("Extended Auction Summary Message", "cboe.titaniumequities.auctionfeed.pitch.v1.3.8.extendedauctionsummarymessage", ftypes.STRING)

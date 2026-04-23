@@ -74,7 +74,7 @@ omi_cboe_cboeeurope_depthofbook_pitch_v6_49.fields.trading_status = ProtoField.n
 omi_cboe_cboeeurope_depthofbook_pitch_v6_49.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.cboeeurope.depthofbook.pitch.v6.49.transactioncategory", ftypes.STRING)
 omi_cboe_cboeeurope_depthofbook_pitch_v6_49.fields.unit = ProtoField.new("Unit", "cboe.cboeeurope.depthofbook.pitch.v6.49.unit", ftypes.UINT8)
 
--- Cboe CboeEurope Pitch DepthOfBook 6.49 Application Messages
+-- Cboe CboeEurope DepthOfBook 6.49 Application Messages
 omi_cboe_cboeeurope_depthofbook_pitch_v6_49.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.cboeeurope.depthofbook.pitch.v6.49.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_cboeeurope_depthofbook_pitch_v6_49.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.cboeeurope.depthofbook.pitch.v6.49.addorderlongmessage", ftypes.STRING)
 omi_cboe_cboeeurope_depthofbook_pitch_v6_49.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.cboeeurope.depthofbook.pitch.v6.49.addordershortmessage", ftypes.STRING)

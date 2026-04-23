@@ -93,7 +93,7 @@ omi_cboe_titaniumoptions_complextop_pitch_v1_1_54.fields.underlying = ProtoField
 omi_cboe_titaniumoptions_complextop_pitch_v1_1_54.fields.unit = ProtoField.new("Unit", "cboe.titaniumoptions.complextop.pitch.v1.1.54.unit", ftypes.UINT8)
 omi_cboe_titaniumoptions_complextop_pitch_v1_1_54.fields.username = ProtoField.new("Username", "cboe.titaniumoptions.complextop.pitch.v1.1.54.username", ftypes.STRING)
 
--- Cboe TitaniumOptions Pitch ComplexTop 1.1.54 Application Messages
+-- Cboe TitaniumOptions ComplexTop 1.1.54 Application Messages
 omi_cboe_titaniumoptions_complextop_pitch_v1_1_54.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.titaniumoptions.complextop.pitch.v1.1.54.auctionsummarymessage", ftypes.STRING)
 omi_cboe_titaniumoptions_complextop_pitch_v1_1_54.fields.complex_instrument_definition_expanded_message = ProtoField.new("Complex Instrument Definition Expanded Message", "cboe.titaniumoptions.complextop.pitch.v1.1.54.complexinstrumentdefinitionexpandedmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_complextop_pitch_v1_1_54.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.titaniumoptions.complextop.pitch.v1.1.54.endofsessionmessage", ftypes.STRING)

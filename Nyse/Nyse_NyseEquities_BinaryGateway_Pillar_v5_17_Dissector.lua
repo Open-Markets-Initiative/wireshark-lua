@@ -203,7 +203,7 @@ omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.version = ProtoField.new
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.nyseequities.binarygateway.pillar.v5.17.workingawayfromdisplay", ftypes.UINT8)
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.working_price = ProtoField.new("Working Price", "nyse.nyseequities.binarygateway.pillar.v5.17.workingprice", ftypes.DOUBLE)
 
--- Nyse NyseEquities Pillar BinaryGateway 5.17 Application Messages
+-- Nyse NyseEquities BinaryGateway 5.17 Application Messages
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "nyse.nyseequities.binarygateway.pillar.v5.17.applicationlayerrejectmessage", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.auction_price_data_message = ProtoField.new("Auction Price Data Message", "nyse.nyseequities.binarygateway.pillar.v5.17.auctionpricedatamessage", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.auction_request_message = ProtoField.new("Auction Request Message", "nyse.nyseequities.binarygateway.pillar.v5.17.auctionrequestmessage", ftypes.STRING)
@@ -235,7 +235,7 @@ omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.symbol_subscription_ackn
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.symbol_subscription_request_message = ProtoField.new("Symbol Subscription Request Message", "nyse.nyseequities.binarygateway.pillar.v5.17.symbolsubscriptionrequestmessage", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.trade_bust_correct_message = ProtoField.new("Trade Bust Correct Message", "nyse.nyseequities.binarygateway.pillar.v5.17.tradebustcorrectmessage", ftypes.STRING)
 
--- Nyse NyseEquities Pillar BinaryGateway 5.17 Session Messages
+-- Nyse NyseEquities BinaryGateway 5.17 Session Messages
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.close = ProtoField.new("Close", "nyse.nyseequities.binarygateway.pillar.v5.17.close", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.close_response = ProtoField.new("Close Response", "nyse.nyseequities.binarygateway.pillar.v5.17.closeresponse", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillar_v5_17.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.binarygateway.pillar.v5.17.heartbeat", ftypes.STRING)

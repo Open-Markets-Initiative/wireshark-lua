@@ -108,7 +108,7 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.underlying_symbol = ProtoF
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.volume = ProtoField.new("Volume", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.volume", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.workingprice", ftypes.DOUBLE)
 
--- Nyse ArcaOptions Pillar ComplexFeed 1.0.h Application Messages
+-- Nyse ArcaOptions ComplexFeed 1.0.h Application Messages
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.complex_series_index_mapping_message = ProtoField.new("Complex Series Index Mapping Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.complexseriesindexmappingmessage", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.messageunavailablemessage", ftypes.STRING)

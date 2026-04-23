@@ -57,7 +57,7 @@ omi_cboe_byxequities_topofbook_pitch_v1_3_2.fields.timestamp = ProtoField.new("T
 omi_cboe_byxequities_topofbook_pitch_v1_3_2.fields.unit = ProtoField.new("Unit", "cboe.byxequities.topofbook.pitch.v1.3.2.unit", ftypes.UINT8)
 omi_cboe_byxequities_topofbook_pitch_v1_3_2.fields.username = ProtoField.new("Username", "cboe.byxequities.topofbook.pitch.v1.3.2.username", ftypes.STRING)
 
--- Cboe ByxEquities Pitch TopOfBook 1.3.2 Application Messages
+-- Cboe ByxEquities TopOfBook 1.3.2 Application Messages
 omi_cboe_byxequities_topofbook_pitch_v1_3_2.fields.expanded_ask_update_message = ProtoField.new("Expanded Ask Update Message", "cboe.byxequities.topofbook.pitch.v1.3.2.expandedaskupdatemessage", ftypes.STRING)
 omi_cboe_byxequities_topofbook_pitch_v1_3_2.fields.expanded_bid_update_message = ProtoField.new("Expanded Bid Update Message", "cboe.byxequities.topofbook.pitch.v1.3.2.expandedbidupdatemessage", ftypes.STRING)
 omi_cboe_byxequities_topofbook_pitch_v1_3_2.fields.expanded_spin_message = ProtoField.new("Expanded Spin Message", "cboe.byxequities.topofbook.pitch.v1.3.2.expandedspinmessage", ftypes.STRING)

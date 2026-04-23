@@ -59,7 +59,7 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.shares = ProtoField.new("Share
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.itch.v4.1.side", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.itch.v4.1.stock", ftypes.STRING)
 
--- Nasdaq NsmEquities Itch TotalView 4.1 Application Messages
+-- Nasdaq NsmEquities TotalView 4.1 Application Messages
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.nsmequities.totalview.itch.v4.1.addordermessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.add_order_with_mpid_message = ProtoField.new("Add Order With Mpid Message", "nasdaq.nsmequities.totalview.itch.v4.1.addorderwithmpidmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nsmequities.totalview.itch.v4.1.brokentrademessage", ftypes.STRING)

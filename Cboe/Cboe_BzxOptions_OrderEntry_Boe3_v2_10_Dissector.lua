@@ -794,7 +794,7 @@ omi_cboe_bzxoptions_orderentry_boe3_v2_10.fields.user_modify_rejected_return_bit
 omi_cboe_bzxoptions_orderentry_boe3_v2_10.fields.username = ProtoField.new("Username", "cboe.bzxoptions.orderentry.boe3.v2.10.username", ftypes.STRING)
 omi_cboe_bzxoptions_orderentry_boe3_v2_10.fields.working_price = ProtoField.new("Working Price", "cboe.bzxoptions.orderentry.boe3.v2.10.workingprice", ftypes.UINT64)
 
--- Cboe BzxOptions Boe3 OrderEntry 2.10 Application Messages
+-- Cboe BzxOptions OrderEntry 2.10 Application Messages
 omi_cboe_bzxoptions_orderentry_boe3_v2_10.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.bzxoptions.orderentry.boe3.v2.10.cancelordermessage", ftypes.STRING)
 omi_cboe_bzxoptions_orderentry_boe3_v2_10.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.bzxoptions.orderentry.boe3.v2.10.cancelrejectedmessage", ftypes.STRING)
 omi_cboe_bzxoptions_orderentry_boe3_v2_10.fields.cross_order_rejected_message = ProtoField.new("Cross Order Rejected Message", "cboe.bzxoptions.orderentry.boe3.v2.10.crossorderrejectedmessage", ftypes.STRING)

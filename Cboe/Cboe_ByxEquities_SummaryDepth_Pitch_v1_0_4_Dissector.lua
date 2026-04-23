@@ -59,7 +59,7 @@ omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.transaction_time = ProtoFi
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.unit = ProtoField.new("Unit", "cboe.byxequities.summarydepth.pitch.v1.0.4.unit", ftypes.UINT8)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.unused = ProtoField.new("Unused", "cboe.byxequities.summarydepth.pitch.v1.0.4.unused", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- Cboe ByxEquities Pitch SummaryDepth 1.0.4 Application Messages
+-- Cboe ByxEquities SummaryDepth 1.0.4 Application Messages
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.adap_message = ProtoField.new("Adap Message", "cboe.byxequities.summarydepth.pitch.v1.0.4.adapmessage", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.byxequities.summarydepth.pitch.v1.0.4.cboemarketstatusmessage", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.clear_quote_message = ProtoField.new("Clear Quote Message", "cboe.byxequities.summarydepth.pitch.v1.0.4.clearquotemessage", ftypes.STRING)

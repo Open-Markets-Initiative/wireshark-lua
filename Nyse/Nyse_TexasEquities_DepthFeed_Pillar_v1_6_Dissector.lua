@@ -98,7 +98,7 @@ omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.update_count = ProtoField.ne
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.texasequities.depthfeed.pillar.v1.6.uppercollar", ftypes.UINT32)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.volume = ProtoField.new("Volume", "nyse.texasequities.depthfeed.pillar.v1.6.volume", ftypes.UINT32)
 
--- Nyse TexasEquities Pillar DepthFeed 1.6 Application Messages
+-- Nyse TexasEquities DepthFeed 1.6 Application Messages
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.delta_message = ProtoField.new("Delta Message", "nyse.texasequities.depthfeed.pillar.v1.6.deltamessage", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.texasequities.depthfeed.pillar.v1.6.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.texasequities.depthfeed.pillar.v1.6.imbalancemessage", ftypes.STRING)

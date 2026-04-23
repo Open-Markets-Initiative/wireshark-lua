@@ -85,7 +85,7 @@ omi_asx_asxsecurities_trade_itch_v2_0.fields.trade_price = ProtoField.new("Trade
 omi_asx_asxsecurities_trade_itch_v2_0.fields.trading_currency = ProtoField.new("Trading Currency", "asx.asxsecurities.trade.itch.v2.0.tradingcurrency", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.undisclosed = ProtoField.new("Undisclosed", "asx.asxsecurities.trade.itch.v2.0.undisclosed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 
--- Asx AsxSecurities Itch Trade 2.0 Application Messages
+-- Asx AsxSecurities Trade 2.0 Application Messages
 omi_asx_asxsecurities_trade_itch_v2_0.fields.add_order_no_participant_id_message = ProtoField.new("Add Order No Participant Id Message", "asx.asxsecurities.trade.itch.v2.0.addordernoparticipantidmessage", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.add_order_participant_id_message = ProtoField.new("Add Order Participant Id Message", "asx.asxsecurities.trade.itch.v2.0.addorderparticipantidmessage", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.combination_order_book_directory_message = ProtoField.new("Combination Order Book Directory Message", "asx.asxsecurities.trade.itch.v2.0.combinationorderbookdirectorymessage", ftypes.STRING)

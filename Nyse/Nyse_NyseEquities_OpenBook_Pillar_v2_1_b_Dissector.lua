@@ -54,7 +54,7 @@ omi_nyse_nyseequities_openbook_pillar_v2_1_b.fields.trading_status = ProtoField.
 omi_nyse_nyseequities_openbook_pillar_v2_1_b.fields.update_size = ProtoField.new("Update Size", "nyse.nyseequities.openbook.pillar.v2.1.b.updatesize", ftypes.INT16)
 omi_nyse_nyseequities_openbook_pillar_v2_1_b.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.openbook.pillar.v2.1.b.volume", ftypes.INT32)
 
--- Nyse NyseEquities Pillar OpenBook 2.1.b Application Messages
+-- Nyse NyseEquities OpenBook 2.1.b Application Messages
 omi_nyse_nyseequities_openbook_pillar_v2_1_b.fields.delta_update_message = ProtoField.new("Delta Update Message", "nyse.nyseequities.openbook.pillar.v2.1.b.deltaupdatemessage", ftypes.STRING)
 omi_nyse_nyseequities_openbook_pillar_v2_1_b.fields.full_update_message = ProtoField.new("Full Update Message", "nyse.nyseequities.openbook.pillar.v2.1.b.fullupdatemessage", ftypes.STRING)
 omi_nyse_nyseequities_openbook_pillar_v2_1_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.nyseequities.openbook.pillar.v2.1.b.sequencenumberresetmessage", ftypes.STRING)

@@ -116,7 +116,7 @@ omi_asx_asxsecurities_ntp_itch_v1_05.fields.underlying_tradeable_instrument_id =
 omi_asx_asxsecurities_ntp_itch_v1_05.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.asxsecurities.ntp.itch.v1.05.voitradedate", ftypes.UINT16)
 omi_asx_asxsecurities_ntp_itch_v1_05.fields.volatility = ProtoField.new("Volatility", "asx.asxsecurities.ntp.itch.v1.05.volatility", ftypes.UINT64)
 
--- Asx AsxSecurities Itch Ntp 1.05 Application Messages
+-- Asx AsxSecurities Ntp 1.05 Application Messages
 omi_asx_asxsecurities_ntp_itch_v1_05.fields.add_order_message = ProtoField.new("Add Order Message", "asx.asxsecurities.ntp.itch.v1.05.addordermessage", ftypes.STRING)
 omi_asx_asxsecurities_ntp_itch_v1_05.fields.anomalous_order_threshold_publish_message = ProtoField.new("Anomalous Order Threshold Publish Message", "asx.asxsecurities.ntp.itch.v1.05.anomalousorderthresholdpublishmessage", ftypes.STRING)
 omi_asx_asxsecurities_ntp_itch_v1_05.fields.auction_order_executed_message = ProtoField.new("Auction Order Executed Message", "asx.asxsecurities.ntp.itch.v1.05.auctionorderexecutedmessage", ftypes.STRING)

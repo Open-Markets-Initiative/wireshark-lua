@@ -121,7 +121,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.upper_collar = ProtoField.new
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.volume = ProtoField.new("Volume", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.volume", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.workingprice", ftypes.INT32)
 
--- Nyse ArcaOptions Pillar DeepFeed 1.2.f Application Messages
+-- Nyse ArcaOptions DeepFeed 1.2.f Application Messages
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.messageunavailablemessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_add_order_message = ProtoField.new("Options Add Order Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsaddordermessage", ftypes.STRING)

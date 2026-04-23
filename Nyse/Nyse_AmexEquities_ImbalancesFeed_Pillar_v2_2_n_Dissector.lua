@@ -91,7 +91,7 @@ omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_qty = ProtoFi
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.amexequities.imbalancesfeed.pillar.v2.2.n.unpairedside", ftypes.STRING)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_n.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.amexequities.imbalancesfeed.pillar.v2.2.n.uppercollar", ftypes.UINT32)
 
--- Nyse AmexEquities Pillar ImbalancesFeed 2.2.n Application Messages
+-- Nyse AmexEquities ImbalancesFeed 2.2.n Application Messages
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_n.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.imbalancesfeed.pillar.v2.2.n.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_n.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.amexequities.imbalancesfeed.pillar.v2.2.n.imbalancemessage", ftypes.STRING)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_n.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.imbalancesfeed.pillar.v2.2.n.messageunavailablemessage", ftypes.STRING)

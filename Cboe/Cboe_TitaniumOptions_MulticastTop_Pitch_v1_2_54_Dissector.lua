@@ -89,7 +89,7 @@ omi_cboe_titaniumoptions_multicasttop_pitch_v1_2_54.fields.upper_strike_price = 
 omi_cboe_titaniumoptions_multicasttop_pitch_v1_2_54.fields.username = ProtoField.new("Username", "cboe.titaniumoptions.multicasttop.pitch.v1.2.54.username", ftypes.STRING)
 omi_cboe_titaniumoptions_multicasttop_pitch_v1_2_54.fields.width_type = ProtoField.new("Width Type", "cboe.titaniumoptions.multicasttop.pitch.v1.2.54.widthtype", ftypes.STRING)
 
--- Cboe TitaniumOptions Pitch MulticastTop 1.2.54 Application Messages
+-- Cboe TitaniumOptions MulticastTop 1.2.54 Application Messages
 omi_cboe_titaniumoptions_multicasttop_pitch_v1_2_54.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.titaniumoptions.multicasttop.pitch.v1.2.54.auctionsummarymessage", ftypes.STRING)
 omi_cboe_titaniumoptions_multicasttop_pitch_v1_2_54.fields.constituent_symbol_mapping_message = ProtoField.new("Constituent Symbol Mapping Message", "cboe.titaniumoptions.multicasttop.pitch.v1.2.54.constituentsymbolmappingmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_multicasttop_pitch_v1_2_54.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.titaniumoptions.multicasttop.pitch.v1.2.54.endofsessionmessage", ftypes.STRING)

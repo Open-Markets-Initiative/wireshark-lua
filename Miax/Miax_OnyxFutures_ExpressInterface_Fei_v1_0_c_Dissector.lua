@@ -111,7 +111,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.update_status = ProtoFie
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username = ProtoField.new("Username", "miax.onyxfutures.expressinterface.fei.v1.0.c.username", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.version = ProtoField.new("Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.version", ftypes.STRING)
 
--- Miax OnyxFutures Fei ExpressInterface 1.0.c Application Messages
+-- Miax OnyxFutures ExpressInterface 1.0.c Application Messages
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message = ProtoField.new("Cancel Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderrequestmessage", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response = ProtoField.new("Cancel Order Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderresponse", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification = ProtoField.new("Cancel Reduce Size Order Notification", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelreducesizeordernotification", ftypes.STRING)
