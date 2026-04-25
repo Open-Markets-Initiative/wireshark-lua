@@ -85,7 +85,7 @@ omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.trading_action_reason = ProtoF
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.ntxequities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.ntxequities.totalview.itch.v5.0.upperauctioncollarprice", ftypes.DOUBLE)
 
--- Nasdaq NtxEquities TotalView 5.0 Application Messages
+-- Nasdaq NtxEquities Itch TotalView 5.0 Application Messages
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.add_order_mpid_attribution_message = ProtoField.new("Add Order Mpid Attribution Message", "nasdaq.ntxequities.totalview.itch.v5.0.addordermpidattributionmessage", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message = ProtoField.new("Add Order No Mpid Attribution Message", "nasdaq.ntxequities.totalview.itch.v5.0.addordernompidattributionmessage", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.ntxequities.totalview.itch.v5.0.brokentrademessage", ftypes.STRING)

@@ -95,7 +95,7 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_message_type = ProtoField.
 omi_nsxaustralia_nets_itch_v4_2_55.fields.username = ProtoField.new("Username", "nsxaustralia.nets.itch.v4.2.55.username", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.weight = ProtoField.new("Weight", "nsxaustralia.nets.itch.v4.2.55.weight", ftypes.UINT64)
 
--- NsxAustralia Nets 4.2.55 Application Messages
+-- NsxAustralia Itch Nets 4.2.55 Application Messages
 omi_nsxaustralia_nets_itch_v4_2_55.fields.add_order_message = ProtoField.new("Add Order Message", "nsxaustralia.nets.itch.v4.2.55.addordermessage", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nsxaustralia.nets.itch.v4.2.55.brokentrademessage", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.firm_directory_message = ProtoField.new("Firm Directory Message", "nsxaustralia.nets.itch.v4.2.55.firmdirectorymessage", ftypes.STRING)
@@ -116,7 +116,7 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.system_event_message = ProtoField.new(
 omi_nsxaustralia_nets_itch_v4_2_55.fields.timestamp_message = ProtoField.new("Timestamp Message", "nsxaustralia.nets.itch.v4.2.55.timestampmessage", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.trade_message = ProtoField.new("Trade Message", "nsxaustralia.nets.itch.v4.2.55.trademessage", ftypes.STRING)
 
--- NsxAustralia Nets 4.2.55 Session Messages
+-- NsxAustralia Itch Nets 4.2.55 Session Messages
 omi_nsxaustralia_nets_itch_v4_2_55.fields.debug_packet = ProtoField.new("Debug Packet", "nsxaustralia.nets.itch.v4.2.55.debugpacket", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nsxaustralia.nets.itch.v4.2.55.loginacceptedpacket", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nsxaustralia.nets.itch.v4.2.55.loginrejectedpacket", ftypes.STRING)

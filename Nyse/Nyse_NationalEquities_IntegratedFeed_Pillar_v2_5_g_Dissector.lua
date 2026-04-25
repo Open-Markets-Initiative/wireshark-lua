@@ -112,7 +112,7 @@ omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.unpaired_side = Pr
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.uppercollar", ftypes.UINT32)
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.volume = ProtoField.new("Volume", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.volume", ftypes.UINT32)
 
--- Nyse NationalEquities IntegratedFeed 2.5.g Application Messages
+-- Nyse NationalEquities Pillar IntegratedFeed 2.5.g Application Messages
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.addordermessage", ftypes.STRING)
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.addorderrefreshmessage", ftypes.STRING)
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.cross_correction_message = ProtoField.new("Cross Correction Message", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.crosscorrectionmessage", ftypes.STRING)

@@ -64,7 +64,7 @@ omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.tracking_number = ProtoField.ne
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.orderfeed.itch.v2.1.tradable", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.orderfeed.itch.v2.1.underlyingsymbol", ftypes.STRING)
 
--- Nasdaq IseOptions OrderFeed 2.1 Application Messages
+-- Nasdaq IseOptions Itch OrderFeed 2.1 Application Messages
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.iseoptions.orderfeed.itch.v2.1.addordermessage", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.auction_message = ProtoField.new("Auction Message", "nasdaq.iseoptions.orderfeed.itch.v2.1.auctionmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.derivative_directory_message = ProtoField.new("Derivative Directory Message", "nasdaq.iseoptions.orderfeed.itch.v2.1.derivativedirectorymessage", ftypes.STRING)

@@ -70,7 +70,7 @@ omi_cboe_titaniumoptions_oneoptions_pitch_v1_0_10.fields.underlying = ProtoField
 omi_cboe_titaniumoptions_oneoptions_pitch_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.titaniumoptions.oneoptions.pitch.v1.0.10.unit", ftypes.UINT8)
 omi_cboe_titaniumoptions_oneoptions_pitch_v1_0_10.fields.username = ProtoField.new("Username", "cboe.titaniumoptions.oneoptions.pitch.v1.0.10.username", ftypes.STRING)
 
--- Cboe TitaniumOptions OneOptions 1.0.10 Application Messages
+-- Cboe TitaniumOptions Pitch OneOptions 1.0.10 Application Messages
 omi_cboe_titaniumoptions_oneoptions_pitch_v1_0_10.fields.best_quote_update_message = ProtoField.new("Best Quote Update Message", "cboe.titaniumoptions.oneoptions.pitch.v1.0.10.bestquoteupdatemessage", ftypes.STRING)
 omi_cboe_titaniumoptions_oneoptions_pitch_v1_0_10.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.titaniumoptions.oneoptions.pitch.v1.0.10.cboemarketstatusmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_oneoptions_pitch_v1_0_10.fields.gap_request_message = ProtoField.new("Gap Request Message", "cboe.titaniumoptions.oneoptions.pitch.v1.0.10.gaprequestmessage", ftypes.STRING)

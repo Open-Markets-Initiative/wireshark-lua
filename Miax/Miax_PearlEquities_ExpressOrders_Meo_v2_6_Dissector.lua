@@ -141,7 +141,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_5 = ProtoField.new("
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.username = ProtoField.new("Username", "miax.pearlequities.expressorders.meo.v2.6.username", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.working_price = ProtoField.new("Working Price", "miax.pearlequities.expressorders.meo.v2.6.workingprice", ftypes.DOUBLE)
 
--- Miax PearlEquities ExpressOrders 2.6 Application Messages
+-- Miax PearlEquities Meo ExpressOrders 2.6 Application Messages
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_by_exchange_order_id_request = ProtoField.new("Cancel Order By Exchange Order Id Request", "miax.pearlequities.expressorders.meo.v2.6.cancelorderbyexchangeorderidrequest", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_by_exchange_order_id_response_message = ProtoField.new("Cancel Order By Exchange Order Id Response Message", "miax.pearlequities.expressorders.meo.v2.6.cancelorderbyexchangeorderidresponsemessage", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_request = ProtoField.new("Cancel Order Request", "miax.pearlequities.expressorders.meo.v2.6.cancelorderrequest", ftypes.STRING)

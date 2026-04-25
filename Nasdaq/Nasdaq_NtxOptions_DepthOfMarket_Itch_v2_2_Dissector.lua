@@ -92,7 +92,7 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_long = ProtoField.ne
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_notation = ProtoField.new("Volume Notation", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.volumenotation", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.volumeshort", ftypes.UINT16)
 
--- Nasdaq NtxOptions DepthOfMarket 2.2 Application Messages
+-- Nasdaq NtxOptions Itch DepthOfMarket 2.2 Application Messages
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.add_order_long_form_message = ProtoField.new("Add Order Long Form Message", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.addorderlongformmessage", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.add_order_short_form_message = ProtoField.new("Add Order Short Form Message", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.addordershortformmessage", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.add_quote_long_form_message = ProtoField.new("Add Quote Long Form Message", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.addquotelongformmessage", ftypes.STRING)

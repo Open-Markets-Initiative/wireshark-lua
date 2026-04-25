@@ -80,7 +80,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_control_number = ProtoFiel
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradeprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradesize", ftypes.DOUBLE)
 
--- Nasdaq NsmEquities NlsPlus 4.0 Application Messages
+-- Nasdaq NsmEquities Itch NlsPlus 4.0 Application Messages
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.adjusted_closing_price_message = ProtoField.new("Adjusted Closing Price Message", "nasdaq.nsmequities.nlsplus.itch.v4.0.adjustedclosingpricemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.end_of_day_trade_summary_message = ProtoField.new("End Of Day Trade Summary Message", "nasdaq.nsmequities.nlsplus.itch.v4.0.endofdaytradesummarymessage", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.ipo_information_message = ProtoField.new("Ipo Information Message", "nasdaq.nsmequities.nlsplus.itch.v4.0.ipoinformationmessage", ftypes.STRING)

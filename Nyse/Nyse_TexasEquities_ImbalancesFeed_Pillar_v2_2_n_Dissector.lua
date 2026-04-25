@@ -91,7 +91,7 @@ omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_qty = ProtoF
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.unpairedside", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.uppercollar", ftypes.UINT32)
 
--- Nyse TexasEquities ImbalancesFeed 2.2.n Application Messages
+-- Nyse TexasEquities Pillar ImbalancesFeed 2.2.n Application Messages
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.imbalancemessage", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.messageunavailablemessage", ftypes.STRING)

@@ -93,7 +93,7 @@ omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.unit = ProtoField.new("Uni
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.unit_timestamp = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicasttop.pitch.v1.2.20.unittimestamp", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "cboe.cfefutures.multicasttop.pitch.v1.2.20.upperpricelimit", ftypes.UINT64)
 
--- Cboe CfeFutures MulticastTop 1.2.20 Application Messages
+-- Cboe CfeFutures Pitch MulticastTop 1.2.20 Application Messages
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.end_of_day_summary_message = ProtoField.new("End Of Day Summary Message", "cboe.cfefutures.multicasttop.pitch.v1.2.20.endofdaysummarymessage", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.cfefutures.multicasttop.pitch.v1.2.20.endofsessionmessage", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.futures_instrument_definition_message = ProtoField.new("Futures Instrument Definition Message", "cboe.cfefutures.multicasttop.pitch.v1.2.20.futuresinstrumentdefinitionmessage", ftypes.STRING)

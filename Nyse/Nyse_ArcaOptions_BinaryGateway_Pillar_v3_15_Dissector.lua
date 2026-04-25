@@ -201,7 +201,7 @@ omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.version = ProtoField.new(
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.arcaoptions.binarygateway.pillar.v3.15.workingawayfromdisplay", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.binarygateway.pillar.v3.15.workingprice", ftypes.DOUBLE)
 
--- Nyse ArcaOptions BinaryGateway 3.15 Application Messages
+-- Nyse ArcaOptions Pillar BinaryGateway 3.15 Application Messages
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.application_layer_reject = ProtoField.new("Application Layer Reject", "nyse.arcaoptions.binarygateway.pillar.v3.15.applicationlayerreject", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.bulk_cancel_request = ProtoField.new("Bulk Cancel Request", "nyse.arcaoptions.binarygateway.pillar.v3.15.bulkcancelrequest", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment = ProtoField.new("Bulk Quote Acknowledgment", "nyse.arcaoptions.binarygateway.pillar.v3.15.bulkquoteacknowledgment", ftypes.STRING)
@@ -230,7 +230,7 @@ omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.session_configuration_req
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.trade_bust_or_correct = ProtoField.new("Trade Bust Or Correct", "nyse.arcaoptions.binarygateway.pillar.v3.15.tradebustorcorrect", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.underlying_symbol_reference_data = ProtoField.new("Underlying Symbol Reference Data", "nyse.arcaoptions.binarygateway.pillar.v3.15.underlyingsymbolreferencedata", ftypes.STRING)
 
--- Nyse ArcaOptions BinaryGateway 3.15 Session Messages
+-- Nyse ArcaOptions Pillar BinaryGateway 3.15 Session Messages
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.close = ProtoField.new("Close", "nyse.arcaoptions.binarygateway.pillar.v3.15.close", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.close_response = ProtoField.new("Close Response", "nyse.arcaoptions.binarygateway.pillar.v3.15.closeresponse", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillar_v3_15.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaoptions.binarygateway.pillar.v3.15.heartbeat", ftypes.STRING)

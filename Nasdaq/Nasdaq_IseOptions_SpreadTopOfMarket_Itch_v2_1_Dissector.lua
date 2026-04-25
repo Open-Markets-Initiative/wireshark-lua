@@ -73,7 +73,7 @@ omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.underlying_symbol = Pro
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.username", ftypes.STRING)
 
--- Nasdaq IseOptions SpreadTopOfMarket 2.1 Application Messages
+-- Nasdaq IseOptions Itch SpreadTopOfMarket 2.1 Application Messages
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.best_ask_update_message = ProtoField.new("Best Ask Update Message", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.bestaskupdatemessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.best_bid_and_ask_update_message = ProtoField.new("Best Bid And Ask Update Message", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.bestbidandaskupdatemessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.best_bid_update_message = ProtoField.new("Best Bid Update Message", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.bestbidupdatemessage", ftypes.STRING)
@@ -82,7 +82,7 @@ omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.snapshot_message = Prot
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.strategytradingactionmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.systemeventmessage", ftypes.STRING)
 
--- Nasdaq IseOptions SpreadTopOfMarket 2.1 Session Messages
+-- Nasdaq IseOptions Itch SpreadTopOfMarket 2.1 Session Messages
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.debugpacket", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.loginrejectedpacket", ftypes.STRING)

@@ -91,7 +91,7 @@ omi_nyse_arcaequities_trades_pillar_v2_6.fields.trade_id = ProtoField.new("Trade
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.arcaequities.trades.pillar.v2.6.unitoftrade", ftypes.UINT16)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.volume = ProtoField.new("Volume", "nyse.arcaequities.trades.pillar.v2.6.volume", ftypes.UINT32)
 
--- Nyse ArcaEquities Trades 2.6 Application Messages
+-- Nyse ArcaEquities Pillar Trades 2.6 Application Messages
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaequities.trades.pillar.v2.6.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaequities.trades.pillar.v2.6.messageunavailablemessage", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.arcaequities.trades.pillar.v2.6.refreshheadermessage", ftypes.STRING)

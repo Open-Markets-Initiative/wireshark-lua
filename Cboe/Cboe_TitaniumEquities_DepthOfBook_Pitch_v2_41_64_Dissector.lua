@@ -63,7 +63,7 @@ omi_cboe_titaniumequities_depthofbook_pitch_v2_41_64.fields.timestamp = ProtoFie
 omi_cboe_titaniumequities_depthofbook_pitch_v2_41_64.fields.trading_status = ProtoField.new("Trading Status", "cboe.titaniumequities.depthofbook.pitch.v2.41.64.tradingstatus", ftypes.STRING)
 omi_cboe_titaniumequities_depthofbook_pitch_v2_41_64.fields.unit = ProtoField.new("Unit", "cboe.titaniumequities.depthofbook.pitch.v2.41.64.unit", ftypes.UINT8)
 
--- Cboe TitaniumEquities DepthOfBook 2.41.64 Application Messages
+-- Cboe TitaniumEquities Pitch DepthOfBook 2.41.64 Application Messages
 omi_cboe_titaniumequities_depthofbook_pitch_v2_41_64.fields.eq_add_order_expanded_message = ProtoField.new("Eq Add Order Expanded Message", "cboe.titaniumequities.depthofbook.pitch.v2.41.64.eqaddorderexpandedmessage", ftypes.STRING)
 omi_cboe_titaniumequities_depthofbook_pitch_v2_41_64.fields.eq_add_order_long_message = ProtoField.new("Eq Add Order Long Message", "cboe.titaniumequities.depthofbook.pitch.v2.41.64.eqaddorderlongmessage", ftypes.STRING)
 omi_cboe_titaniumequities_depthofbook_pitch_v2_41_64.fields.eq_add_order_short_message = ProtoField.new("Eq Add Order Short Message", "cboe.titaniumequities.depthofbook.pitch.v2.41.64.eqaddordershortmessage", ftypes.STRING)

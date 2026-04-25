@@ -67,7 +67,7 @@ omi_aquis_equities_realtime_amd_v4_1.fields.trading_status = ProtoField.new("Tra
 omi_aquis_equities_realtime_amd_v4_1.fields.umtf = ProtoField.new("Umtf", "aquis.equities.realtime.amd.v4.1.umtf", ftypes.STRING)
 omi_aquis_equities_realtime_amd_v4_1.fields.unrestricted_liquidity_indicator = ProtoField.new("Unrestricted Liquidity Indicator", "aquis.equities.realtime.amd.v4.1.unrestrictedliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- Aquis Equities RealTime 4.1 Application Messages
+-- Aquis Equities Amd RealTime 4.1 Application Messages
 omi_aquis_equities_realtime_amd_v4_1.fields.ao_d_update_message = ProtoField.new("Ao D Update Message", "aquis.equities.realtime.amd.v4.1.aodupdatemessage", ftypes.STRING)
 omi_aquis_equities_realtime_amd_v4_1.fields.ma_c_update_message = ProtoField.new("Ma C Update Message", "aquis.equities.realtime.amd.v4.1.macupdatemessage", ftypes.STRING)
 omi_aquis_equities_realtime_amd_v4_1.fields.order_add = ProtoField.new("Order Add", "aquis.equities.realtime.amd.v4.1.orderadd", ftypes.STRING)

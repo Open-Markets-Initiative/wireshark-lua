@@ -85,7 +85,7 @@ omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.wide_offer_size = Prot
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.wide_price = ProtoField.new("Wide Price", "miax.pearloptions.complextopofmarket.mach.v1.1.wideprice", ftypes.DOUBLE)
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.wide_size = ProtoField.new("Wide Size", "miax.pearloptions.complextopofmarket.mach.v1.1.widesize", ftypes.UINT32)
 
--- Miax PearlOptions ComplexTopOfMarket 1.1 Application Messages
+-- Miax PearlOptions Mach ComplexTopOfMarket 1.1 Application Messages
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.compact_complex_double_sided_top_of_market_message = ProtoField.new("Compact Complex Double Sided Top Of Market Message", "miax.pearloptions.complextopofmarket.mach.v1.1.compactcomplexdoublesidedtopofmarketmessage", ftypes.STRING)
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.compact_complex_top_of_market_bid_message = ProtoField.new("Compact Complex Top Of Market Bid Message", "miax.pearloptions.complextopofmarket.mach.v1.1.compactcomplextopofmarketbidmessage", ftypes.STRING)
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.compact_complex_top_of_market_offer_message = ProtoField.new("Compact Complex Top Of Market Offer Message", "miax.pearloptions.complextopofmarket.mach.v1.1.compactcomplextopofmarketoffermessage", ftypes.STRING)

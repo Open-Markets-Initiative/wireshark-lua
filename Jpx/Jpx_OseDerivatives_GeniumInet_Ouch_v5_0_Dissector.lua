@@ -57,7 +57,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.underlying_id = ProtoField.ne
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.username = ProtoField.new("Username", "jpx.osederivatives.geniuminet.ouch.v5.0.username", ftypes.STRING)
 
--- Jpx OseDerivatives GeniumInet 5.0 Application Messages
+-- Jpx OseDerivatives Ouch GeniumInet 5.0 Application Messages
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id = ProtoField.new("Cancel By Order Id", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelbyorderid", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order = ProtoField.new("Cancel Order", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelorder", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_mm_order = ProtoField.new("Enter Mm Order", "jpx.osederivatives.geniuminet.ouch.v5.0.entermmorder", ftypes.STRING)
@@ -71,7 +71,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_rejected = ProtoField.n
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced = ProtoField.new("Order Replaced", "jpx.osederivatives.geniuminet.ouch.v5.0.orderreplaced", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order = ProtoField.new("Replace Order", "jpx.osederivatives.geniuminet.ouch.v5.0.replaceorder", ftypes.STRING)
 
--- Jpx OseDerivatives GeniumInet 5.0 Session Messages
+-- Jpx OseDerivatives Ouch GeniumInet 5.0 Session Messages
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.debugpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrejectedpacket", ftypes.STRING)

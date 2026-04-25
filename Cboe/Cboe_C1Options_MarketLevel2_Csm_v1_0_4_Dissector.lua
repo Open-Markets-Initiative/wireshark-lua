@@ -93,7 +93,7 @@ omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.underlying_type_length = Proto
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.c1options.marketlevel2.csm.v1.0.4.underlyingtypetext", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.version = ProtoField.new("Version", "cboe.c1options.marketlevel2.csm.v1.0.4.version", ftypes.UINT8)
 
--- Cboe C1Options MarketLevel2 1.0.4 Application Messages
+-- Cboe C1Options Csm MarketLevel2 1.0.4 Application Messages
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_message = ProtoField.new("Incremental Refresh Message", "cboe.c1options.marketlevel2.csm.v1.0.4.incrementalrefreshmessage", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.c1options.marketlevel2.csm.v1.0.4.securitydefinitionmessage", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_status_message = ProtoField.new("Security Status Message", "cboe.c1options.marketlevel2.csm.v1.0.4.securitystatusmessage", ftypes.STRING)

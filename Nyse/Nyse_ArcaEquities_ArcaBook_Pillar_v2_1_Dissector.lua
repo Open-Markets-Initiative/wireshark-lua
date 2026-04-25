@@ -52,7 +52,7 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.trade_id = ProtoField.new("Tra
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.trade_session = ProtoField.new("Trade Session", "nyse.arcaequities.arcabook.pillar.v2.1.tradesession", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.volume = ProtoField.new("Volume", "nyse.arcaequities.arcabook.pillar.v2.1.volume", ftypes.UINT32)
 
--- Nyse ArcaEquities ArcaBook 2.1 Application Messages
+-- Nyse ArcaEquities Pillar ArcaBook 2.1 Application Messages
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.arcaequities.arcabook.pillar.v2.1.addordermessage", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.arcaequities.arcabook.pillar.v2.1.addorderrefreshmessage", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.attributed_add_order_message = ProtoField.new("Attributed Add Order Message", "nyse.arcaequities.arcabook.pillar.v2.1.attributedaddordermessage", ftypes.STRING)

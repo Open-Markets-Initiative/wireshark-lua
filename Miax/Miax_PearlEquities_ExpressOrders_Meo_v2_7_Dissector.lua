@@ -146,7 +146,7 @@ omi_miax_pearlequities_expressorders_meo_v2_7.fields.unused_5 = ProtoField.new("
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.username = ProtoField.new("Username", "miax.pearlequities.expressorders.meo.v2.7.username", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.working_price = ProtoField.new("Working Price", "miax.pearlequities.expressorders.meo.v2.7.workingprice", ftypes.DOUBLE)
 
--- Miax PearlEquities ExpressOrders 2.7 Application Messages
+-- Miax PearlEquities Meo ExpressOrders 2.7 Application Messages
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.aggressive_side_purge_request = ProtoField.new("Aggressive Side Purge Request", "miax.pearlequities.expressorders.meo.v2.7.aggressivesidepurgerequest", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.aggressive_side_purge_response = ProtoField.new("Aggressive Side Purge Response", "miax.pearlequities.expressorders.meo.v2.7.aggressivesidepurgeresponse", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_by_exchange_order_id_request = ProtoField.new("Cancel Order By Exchange Order Id Request", "miax.pearlequities.expressorders.meo.v2.7.cancelorderbyexchangeorderidrequest", ftypes.STRING)

@@ -91,7 +91,7 @@ omi_cboe_titaniumoptions_complex_pitch_v2_1_61.fields.underlying = ProtoField.ne
 omi_cboe_titaniumoptions_complex_pitch_v2_1_61.fields.unit = ProtoField.new("Unit", "cboe.titaniumoptions.complex.pitch.v2.1.61.unit", ftypes.UINT8)
 omi_cboe_titaniumoptions_complex_pitch_v2_1_61.fields.username = ProtoField.new("Username", "cboe.titaniumoptions.complex.pitch.v2.1.61.username", ftypes.STRING)
 
--- Cboe TitaniumOptions Complex 2.1.61 Application Messages
+-- Cboe TitaniumOptions Pitch Complex 2.1.61 Application Messages
 omi_cboe_titaniumoptions_complex_pitch_v2_1_61.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.titaniumoptions.complex.pitch.v2.1.61.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_complex_pitch_v2_1_61.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.titaniumoptions.complex.pitch.v2.1.61.addorderlongmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_complex_pitch_v2_1_61.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.titaniumoptions.complex.pitch.v2.1.61.addordershortmessage", ftypes.STRING)

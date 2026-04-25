@@ -68,7 +68,7 @@ omi_asx_asxsecurities_trade_ouch_v2_0.fields.traded_quantity = ProtoField.new("T
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.asxsecurities.trade.ouch.v2.0.unsequencedmessagetype", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.username = ProtoField.new("Username", "asx.asxsecurities.trade.ouch.v2.0.username", ftypes.STRING)
 
--- Asx AsxSecurities Trade 2.0 Application Messages
+-- Asx AsxSecurities Ouch Trade 2.0 Application Messages
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "asx.asxsecurities.trade.ouch.v2.0.cancelbyorderidmessage", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "asx.asxsecurities.trade.ouch.v2.0.cancelordermessage", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.enter_order_message = ProtoField.new("Enter Order Message", "asx.asxsecurities.trade.ouch.v2.0.enterordermessage", ftypes.STRING)
@@ -79,7 +79,7 @@ omi_asx_asxsecurities_trade_ouch_v2_0.fields.order_rejected_message = ProtoField
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "asx.asxsecurities.trade.ouch.v2.0.orderreplacedmessage", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.asxsecurities.trade.ouch.v2.0.replaceordermessage", ftypes.STRING)
 
--- Asx AsxSecurities Trade 2.0 Session Messages
+-- Asx AsxSecurities Ouch Trade 2.0 Session Messages
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "asx.asxsecurities.trade.ouch.v2.0.debugpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.asxsecurities.trade.ouch.v2.0.loginacceptedpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.asxsecurities.trade.ouch.v2.0.loginrejectedpacket", ftypes.STRING)

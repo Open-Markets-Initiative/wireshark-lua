@@ -126,7 +126,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.vwap_price_option
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.week_of_month = ProtoField.new("Week Of Month", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.weekofmonth", ftypes.INT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.year = ProtoField.new("Year", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.year", ftypes.INT16)
 
--- Coinbase CoinbaseDerivatives MarketDataApi 1.7 Application Messages
+-- Coinbase CoinbaseDerivatives Sbe MarketDataApi 1.7 Application Messages
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.end_of_cycle_message = ProtoField.new("End Of Cycle Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.endofcyclemessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.endofsnapshotmessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.impliedorderupdatemessage", ftypes.STRING)

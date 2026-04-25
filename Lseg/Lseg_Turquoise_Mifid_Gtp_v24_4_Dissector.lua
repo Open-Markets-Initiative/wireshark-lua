@@ -87,7 +87,7 @@ omi_lseg_turquoise_mifid_gtp_v24_4.fields.unused_4 = ProtoField.new("Unused 4", 
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid.gtp.v24.4.venueinstrumentid", ftypes.STRING)
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.turquoise.mifid.gtp.v24.4.venueofexecution", ftypes.STRING)
 
--- Lseg Turquoise Mifid 24.4 Application Messages
+-- Lseg Turquoise Gtp Mifid 24.4 Application Messages
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message = ProtoField.new("Mi Fid Ii Trade Cross Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitradecrossmessage", ftypes.STRING)

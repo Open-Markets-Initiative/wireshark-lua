@@ -442,7 +442,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_16.fields.volatility_trade = ProtoFi
 omi_euronext_optiq_marketdatagateway_sbe_v5_16.fields.volume = ProtoField.new("Volume", "euronext.optiq.marketdatagateway.sbe.v5.16.volume", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_euronext_optiq_marketdatagateway_sbe_v5_16.fields.wholesale_allowed = ProtoField.new("Wholesale Allowed", "euronext.optiq.marketdatagateway.sbe.v5.16.wholesaleallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 
--- Euronext Optiq MarketDataGateway 5.16 Application Messages
+-- Euronext Optiq Sbe MarketDataGateway 5.16 Application Messages
 omi_euronext_optiq_marketdatagateway_sbe_v5_16.fields.apa_full_trade_information_message = ProtoField.new("Apa Full Trade Information Message", "euronext.optiq.marketdatagateway.sbe.v5.16.apafulltradeinformationmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_16.fields.apa_quotes_message = ProtoField.new("Apa Quotes Message", "euronext.optiq.marketdatagateway.sbe.v5.16.apaquotesmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_16.fields.apa_standing_data_message = ProtoField.new("Apa Standing Data Message", "euronext.optiq.marketdatagateway.sbe.v5.16.apastandingdatamessage", ftypes.STRING)

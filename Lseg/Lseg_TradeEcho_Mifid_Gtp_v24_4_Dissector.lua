@@ -129,7 +129,7 @@ omi_lseg_tradeecho_mifid_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("V
 omi_lseg_tradeecho_mifid_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid.gtp.v24.4.vwap", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg TradeEcho Mifid 24.4 Application Messages
+-- Lseg TradeEcho Gtp Mifid 24.4 Application Messages
 omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.mifid.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.mifid.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report_message = ProtoField.new("Mifid Ii Trade Report Message", "lseg.tradeecho.mifid.gtp.v24.4.mifidiitradereportmessage", ftypes.STRING)

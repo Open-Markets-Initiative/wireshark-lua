@@ -54,7 +54,7 @@ omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new(
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "memx.memxequities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.memxequities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
--- Memx MemxEquities MemoirDepthFeed 1.3 Application Messages
+-- Memx MemxEquities Sbe MemoirDepthFeed 1.3 Application Messages
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.memxequities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.memxequities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "memx.memxequities.memoirdepthfeed.sbe.v1.3.correctedtrademessage", ftypes.STRING)

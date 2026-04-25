@@ -5,8 +5,9 @@
 
 | Division | [Protocol][Omi.Cme.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BrokerTec][BrokerTec] | [Ust][Cme.BrokerTec.Ust] | [Sbe][Omi.Encoding.Sbe] | [10.1][Cme.BrokerTec.Ust.Sbe.v10.1.Dissector] | 4/13/2023 | 1529 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Cme.BrokerTec.Ust.Sbe.v10.1.Url] - [xml][Cme.BrokerTec.Ust.Sbe.v10.1.Xml] |
+| [CmeFutures][CmeFutures.Exchange] | [BrokerTecUst][Cme.CmeFutures.BrokerTecUst] | [Sbe][Omi.Encoding.Sbe] | [10.1][Cme.CmeFutures.BrokerTecUst.Sbe.v10.1.Dissector] | 4/13/2023 | 1529 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Cme.CmeFutures.BrokerTecUst.Sbe.v10.1.Url] - [xml][Cme.CmeFutures.BrokerTecUst.Sbe.v10.1.Xml] |
 | [CmeFutures][CmeFutures.Exchange] | [Derived][Cme.CmeFutures.Derived] | [Sbe][Omi.Encoding.Sbe] | [12.0][Cme.CmeFutures.Derived.Sbe.v12.0.Dissector] | 1/4/2020 | 2026 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.CmeFutures.Derived.Sbe.v12.0.Url] - [xml][Cme.CmeFutures.Derived.Sbe.v12.0.Xml] |
+| [CmeFutures][CmeFutures.Exchange] | [EbsSpectrum][Cme.CmeFutures.EbsSpectrum] | [Sbe][Omi.Encoding.Sbe] | [12.0][Cme.CmeFutures.EbsSpectrum.Sbe.v12.0.Dissector] | 4/8/2022 | 2036 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.CmeFutures.EbsSpectrum.Sbe.v12.0.Url] - [xml][Cme.CmeFutures.EbsSpectrum.Sbe.v12.0.Xml] |
 | [CmeFutures][CmeFutures.Exchange] | [iLink3][Cme.CmeFutures.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.9][Cme.CmeFutures.iLink3.Sbe.v8.9.Dissector] | 5/31/2025 | 20866 | [Future][Omi.Glossary.Status.Future] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.CmeFutures.iLink3.Sbe.v8.9.Url] - [xml][Cme.CmeFutures.iLink3.Sbe.v8.9.Xml] |
 | [CmeFutures][CmeFutures.Exchange] | [iLink3][Cme.CmeFutures.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.8][Cme.CmeFutures.iLink3.Sbe.v8.8.Dissector] | 5/31/2022 | 19210 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.CmeFutures.iLink3.Sbe.v8.8.Url] - [xml][Cme.CmeFutures.iLink3.Sbe.v8.8.Xml] |
 | [CmeFutures][CmeFutures.Exchange] | [iLink3][Cme.CmeFutures.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.7][Cme.CmeFutures.iLink3.Sbe.v8.7.Dissector] | 1/6/2021 | 18359 | [Future][Omi.Glossary.Status.Future] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.CmeFutures.iLink3.Sbe.v8.7.Url] - [xml][Cme.CmeFutures.iLink3.Sbe.v8.7.Xml] |
@@ -26,7 +27,6 @@
 | [CmeFutures][CmeFutures.Exchange] | [Settlements][Cme.CmeFutures.Settlements] | [Sbe][Omi.Encoding.Sbe] | [7.0][Cme.CmeFutures.Settlements.Sbe.v7.0.Dissector] | 12/3/2018 | 2846 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.CmeFutures.Settlements.Sbe.v7.0.Url] - [xml][Cme.CmeFutures.Settlements.Sbe.v7.0.Xml] |
 | [CmeFutures][CmeFutures.Exchange] | [Streamlined][Cme.CmeFutures.Streamlined] | [Sbe][Omi.Encoding.Sbe] | [5.9][Cme.CmeFutures.Streamlined.Sbe.v5.9.Dissector] | 4/4/2018 | 13460 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.CmeFutures.Streamlined.Sbe.v5.9.Url] - [xml][Cme.CmeFutures.Streamlined.Sbe.v5.9.Xml] |
 | [CmeFutures][CmeFutures.Exchange] | [Streamlined][Cme.CmeFutures.Streamlined] | [Sbe][Omi.Encoding.Sbe] | [5.8][Cme.CmeFutures.Streamlined.Sbe.v5.8.Dissector] | 6/2/2017 | 12295 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.CmeFutures.Streamlined.Sbe.v5.8.Url] - [xml][Cme.CmeFutures.Streamlined.Sbe.v5.8.Xml] |
-| [Ebs][Ebs] | [Spectrum][Cme.Ebs.Spectrum] | [Sbe][Omi.Encoding.Sbe] | [12.0][Cme.Ebs.Spectrum.Sbe.v12.0.Dissector] | 4/8/2022 | 2036 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Ebs.Spectrum.Sbe.v12.0.Url] - [xml][Cme.Ebs.Spectrum.Sbe.v12.0.Xml] |
 | [Headers][Headers] | [Mdp][Cme.Headers.Mdp] | [Udp][Omi.Encoding.Udp] | [1.0][Cme.Headers.Mdp.Udp.v1.0.Dissector] | 7/26/2019 | 494 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Headers.Mdp.Udp.v1.0.Url] |
 
 
@@ -50,16 +50,14 @@ Cme: [website](http://www.cmegroup.com "Go to CME Group")
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [Headers]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/Headers "Cme Headers"
 [CmeFutures.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/CmeFutures "Cme CmeFutures"
-[BrokerTec]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/BrokerTec "Cme BrokerTec"
-[Ebs]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/Ebs "Cme Ebs"
 [Cme.Headers.Mdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Headers/Mdp.md "Market Data Protocol"
 [Cme.CmeFutures.Mdp3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Mdp3.md "Cme Market Data Platform 3"
 [Cme.CmeFutures.Streamlined]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Streamlined.md "Cme Streamlined Market Data"
 [Cme.CmeFutures.Settlements]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Settlements.md "Cme Settlements"
 [Cme.CmeFutures.iLink3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/iLink3.md "Cme iLink 3"
-[Cme.BrokerTec.Ust]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/BrokerTec/Ust.md "Us Treasuries"
+[Cme.CmeFutures.BrokerTecUst]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/BrokerTecUst.md "BrokerTec Us Treasuries"
 [Cme.CmeFutures.Derived]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Derived.md "Derived Market Data"
-[Cme.Ebs.Spectrum]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Ebs/Spectrum.md "Spectrum Market Data"
+[Cme.CmeFutures.EbsSpectrum]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/EbsSpectrum.md "Ebs Spectrum Market Data"
 
 [Cme.Headers.Mdp.Udp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_Headers_Mdp_Udp_v1_0_Dissector.lua "Cme Headers Mdp Udp v1.0 Wireshark Dissector"
 [Cme.Headers.Mdp.Udp.v1.0.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/CME+MDP+3.0+Market+Data "CME Group 1.0 Url"
@@ -120,12 +118,12 @@ Cme: [website](http://www.cmegroup.com "Go to CME Group")
 [Cme.CmeFutures.iLink3.Sbe.v8.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_CmeFutures_iLink3_Sbe_v8_9_Dissector.lua "Cme CmeFutures iLink3 Sbe v8.9 Wireshark Dissector"
 [Cme.CmeFutures.iLink3.Sbe.v8.9.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/iLink+3+-+Simple+Binary+Encoding "CME Group 8.9 Url"
 [Cme.CmeFutures.iLink3.Sbe.v8.9.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Specifications/iLink3/Cme.Futures.iLink3.Sbe.v8.9.xml "CME Group 8.9 Xml"
-[Cme.BrokerTec.Ust.Sbe.v10.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_BrokerTec_Ust_Sbe_v10_1_Dissector.lua "Cme BrokerTec Ust Sbe v10.1 Wireshark Dissector"
-[Cme.BrokerTec.Ust.Sbe.v10.1.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/BrokerTec+U.S.+Treasury+Market+Data "CME Group 10.1 Url"
-[Cme.BrokerTec.Ust.Sbe.v10.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Specifications/Cme.BrokerTec.Ust.Sbe.v10.1.xml "CME Group 10.1 Xml"
+[Cme.CmeFutures.BrokerTecUst.Sbe.v10.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_CmeFutures_BrokerTecUst_Sbe_v10_1_Dissector.lua "Cme CmeFutures BrokerTecUst Sbe v10.1 Wireshark Dissector"
+[Cme.CmeFutures.BrokerTecUst.Sbe.v10.1.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/BrokerTec+U.S.+Treasury+Market+Data "CME Group 10.1 Url"
+[Cme.CmeFutures.BrokerTecUst.Sbe.v10.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Specifications/Cme.CmeFutures.BrokerTecUst.Sbe.v10.1.xml "CME Group 10.1 Xml"
 [Cme.CmeFutures.Derived.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_CmeFutures_Derived_Sbe_v12_0_Dissector.lua "Cme CmeFutures Derived Sbe v12.0 Wireshark Dissector"
 [Cme.CmeFutures.Derived.Sbe.v12.0.Url]: https://www.cmegroup.com/market-data/derived-data.html "CME Group 12.0 Url"
 [Cme.CmeFutures.Derived.Sbe.v12.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Specifications/Cme.Futures.Derived.Sbe.v12.0.xml "CME Group 12.0 Xml"
-[Cme.Ebs.Spectrum.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_Ebs_Spectrum_Sbe_v12_0_Dissector.lua "Cme Ebs Spectrum Sbe v12.0 Wireshark Dissector"
-[Cme.Ebs.Spectrum.Sbe.v12.0.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/EBS+Spectrum+Market+Data "CME Group 12.0 Url"
-[Cme.Ebs.Spectrum.Sbe.v12.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Specifications/Cme.Ebs.Spectrum.Sbe.v12.0.xml "CME Group 12.0 Xml"
+[Cme.CmeFutures.EbsSpectrum.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_CmeFutures_EbsSpectrum_Sbe_v12_0_Dissector.lua "Cme CmeFutures EbsSpectrum Sbe v12.0 Wireshark Dissector"
+[Cme.CmeFutures.EbsSpectrum.Sbe.v12.0.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/EBS+Spectrum+Market+Data "CME Group 12.0 Url"
+[Cme.CmeFutures.EbsSpectrum.Sbe.v12.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Specifications/Cme.CmeFutures.EbsSpectrum.Sbe.v12.0.xml "CME Group 12.0 Xml"

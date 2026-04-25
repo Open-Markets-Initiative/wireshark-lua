@@ -62,7 +62,7 @@ omi_cboe_byxequities_depthofbook_pitch_v2_41_29.fields.timestamp = ProtoField.ne
 omi_cboe_byxequities_depthofbook_pitch_v2_41_29.fields.trading_status = ProtoField.new("Trading Status", "cboe.byxequities.depthofbook.pitch.v2.41.29.tradingstatus", ftypes.STRING)
 omi_cboe_byxequities_depthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.byxequities.depthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
 
--- Cboe ByxEquities DepthOfBook 2.41.29 Application Messages
+-- Cboe ByxEquities Pitch DepthOfBook 2.41.29 Application Messages
 omi_cboe_byxequities_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.byxequities.depthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_byxequities_depthofbook_pitch_v2_41_29.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.byxequities.depthofbook.pitch.v2.41.29.addorderlongmessage", ftypes.STRING)
 omi_cboe_byxequities_depthofbook_pitch_v2_41_29.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.byxequities.depthofbook.pitch.v2.41.29.addordershortmessage", ftypes.STRING)

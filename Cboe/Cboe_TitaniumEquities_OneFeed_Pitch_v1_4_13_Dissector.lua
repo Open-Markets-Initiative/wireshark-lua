@@ -77,7 +77,7 @@ omi_cboe_titaniumequities_onefeed_pitch_v1_4_13.fields.trading_status = ProtoFie
 omi_cboe_titaniumequities_onefeed_pitch_v1_4_13.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumequities.onefeed.pitch.v1.4.13.transactiontime", ftypes.UINT64)
 omi_cboe_titaniumequities_onefeed_pitch_v1_4_13.fields.unit = ProtoField.new("Unit", "cboe.titaniumequities.onefeed.pitch.v1.4.13.unit", ftypes.UINT8)
 
--- Cboe TitaniumEquities OneFeed 1.4.13 Application Messages
+-- Cboe TitaniumEquities Pitch OneFeed 1.4.13 Application Messages
 omi_cboe_titaniumequities_onefeed_pitch_v1_4_13.fields.adap_message = ProtoField.new("Adap Message", "cboe.titaniumequities.onefeed.pitch.v1.4.13.adapmessage", ftypes.STRING)
 omi_cboe_titaniumequities_onefeed_pitch_v1_4_13.fields.best_quote_update_message = ProtoField.new("Best Quote Update Message", "cboe.titaniumequities.onefeed.pitch.v1.4.13.bestquoteupdatemessage", ftypes.STRING)
 omi_cboe_titaniumequities_onefeed_pitch_v1_4_13.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.titaniumequities.onefeed.pitch.v1.4.13.cboemarketstatusmessage", ftypes.STRING)

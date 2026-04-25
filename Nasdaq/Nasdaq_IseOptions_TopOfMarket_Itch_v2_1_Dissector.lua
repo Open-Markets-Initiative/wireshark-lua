@@ -72,7 +72,7 @@ omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.tracking_number = ProtoField.
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.topofmarket.itch.v2.1.tradable", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.topofmarket.itch.v2.1.underlyingsymbol", ftypes.STRING)
 
--- Nasdaq IseOptions TopOfMarket 2.1 Application Messages
+-- Nasdaq IseOptions Itch TopOfMarket 2.1 Application Messages
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.best_ask_update_long_form_message = ProtoField.new("Best Ask Update Long Form Message", "nasdaq.iseoptions.topofmarket.itch.v2.1.bestaskupdatelongformmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.best_ask_update_short_form_message = ProtoField.new("Best Ask Update Short Form Message", "nasdaq.iseoptions.topofmarket.itch.v2.1.bestaskupdateshortformmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.best_bid_and_ask_update_long_form_message = ProtoField.new("Best Bid And Ask Update Long Form Message", "nasdaq.iseoptions.topofmarket.itch.v2.1.bestbidandaskupdatelongformmessage", ftypes.STRING)

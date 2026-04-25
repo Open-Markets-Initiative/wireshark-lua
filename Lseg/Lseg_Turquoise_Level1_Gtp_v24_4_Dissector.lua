@@ -87,7 +87,7 @@ omi_lseg_turquoise_level1_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("
 omi_lseg_turquoise_level1_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.level1.gtp.v24.4.vwap", ftypes.DOUBLE)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.level1.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Turquoise Level1 24.4 Application Messages
+-- Lseg Turquoise Gtp Level1 24.4 Application Messages
 omi_lseg_turquoise_level1_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.level1.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.level1.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lseg.turquoise.level1.gtp.v24.4.orderbookclearmessage", ftypes.STRING)

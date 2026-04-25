@@ -61,7 +61,7 @@ omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7.fields.trade_flags = ProtoFi
 omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumequities.summarydepth.pitch.v1.0.7.transactiontime", ftypes.UINT64)
 omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7.fields.unit = ProtoField.new("Unit", "cboe.titaniumequities.summarydepth.pitch.v1.0.7.unit", ftypes.UINT8)
 
--- Cboe TitaniumEquities SummaryDepth 1.0.7 Application Messages
+-- Cboe TitaniumEquities Pitch SummaryDepth 1.0.7 Application Messages
 omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7.fields.adap_message = ProtoField.new("Adap Message", "cboe.titaniumequities.summarydepth.pitch.v1.0.7.adapmessage", ftypes.STRING)
 omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.titaniumequities.summarydepth.pitch.v1.0.7.cboemarketstatusmessage", ftypes.STRING)
 omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7.fields.clear_quote_message = ProtoField.new("Clear Quote Message", "cboe.titaniumequities.summarydepth.pitch.v1.0.7.clearquotemessage", ftypes.STRING)

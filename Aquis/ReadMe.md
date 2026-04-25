@@ -12,8 +12,8 @@
 | [Equities][Equities] | [Snapshot][Aquis.Equities.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.1][Aquis.Equities.Snapshot.Amd.v4.1.Dissector] | 1/1/2026 | 1083 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Snapshot.Amd.v4.1.Url] - [pdf][Aquis.Equities.Snapshot.Amd.v4.1.Pdf] |
 | [Equities][Equities] | [Snapshot][Aquis.Equities.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.Equities.Snapshot.Amd.v4.0.Dissector] | 8/1/2025 | 1083 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Snapshot.Amd.v4.0.Url] - [pdf][Aquis.Equities.Snapshot.Amd.v4.0.Pdf] |
 | [Equities][Equities] | [UdpHeader][Aquis.Equities.UdpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][Aquis.Equities.UdpHeader.Amd.v1.0.Dissector] | 8/1/2025 | 429 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.UdpHeader.Amd.v1.0.Url] |
-| [Equities][Equities] | [Orders][Aquis.Equities.Orders] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.Equities.Orders.Atp.v4.0.Dissector] | 8/1/2025 | 3704 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Orders.Atp.v4.0.Url] - [pdf][Aquis.Equities.Orders.Atp.v4.0.Pdf] |
 | [Equities][Equities] | [TcpHeader][Aquis.Equities.TcpHeader] | [Atp][Omi.Encoding.Atp] | [1.0][Aquis.Equities.TcpHeader.Atp.v1.0.Dissector] | 8/1/2025 | 372 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TcpHeader.Atp.v1.0.Url] |
+| [Equities][Equities] | [TradingProtocol][Aquis.Equities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.Equities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3704 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.Equities.TradingProtocol.Atp.v4.0.Pdf] |
 
 
 Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")
@@ -37,7 +37,7 @@ Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")
 [Equities]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Aquis/Protocols/Equities "Aquis Equities"
 [Aquis.Equities.UdpHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Protocols/Equities/UdpHeader.md "Udp Headers"
 [Aquis.Equities.TcpHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Protocols/Equities/TcpHeader.md "Tcp Headers"
-[Aquis.Equities.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Protocols/Equities/Orders.md "Orders"
+[Aquis.Equities.TradingProtocol]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Protocols/Equities/TradingProtocol.md "Aquis Trading Protocol"
 [Aquis.Equities.RealTime]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Protocols/Equities/RealTime.md "Real Time Market Data Feed"
 [Aquis.Equities.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Protocols/Equities/Snapshot.md "Aquis Market Data Snapshot"
 [Aquis.Equities.Replay]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Protocols/Equities/Replay.md "Market Data Replay"
@@ -46,9 +46,9 @@ Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")
 [Aquis.Equities.UdpHeader.Amd.v1.0.Url]: https://www.aquis.eu/technologies "Aquis Exchange 1.0 Url"
 [Aquis.Equities.TcpHeader.Atp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Aquis/Aquis_Equities_TcpHeader_Atp_v1_0_Dissector.lua "Aquis Equities TcpHeader Atp v1.0 Wireshark Dissector"
 [Aquis.Equities.TcpHeader.Atp.v1.0.Url]: https://www.aquis.eu/technologies "Aquis Exchange 1.0 Url"
-[Aquis.Equities.Orders.Atp.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Aquis/Aquis_Equities_Orders_Atp_v4_0_Dissector.lua "Aquis Equities Orders Atp v4.0 Wireshark Dissector"
-[Aquis.Equities.Orders.Atp.v4.0.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.0 Url"
-[Aquis.Equities.Orders.Atp.v4.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Specifications/Atp/Aquis.Equities.TradingProtocol.Atp.v4.0.pdf "Aquis Exchange 4.0 Pdf"
+[Aquis.Equities.TradingProtocol.Atp.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Aquis/Aquis_Equities_TradingProtocol_Atp_v4_0_Dissector.lua "Aquis Equities TradingProtocol Atp v4.0 Wireshark Dissector"
+[Aquis.Equities.TradingProtocol.Atp.v4.0.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.0 Url"
+[Aquis.Equities.TradingProtocol.Atp.v4.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Specifications/Atp/Aquis.Equities.TradingProtocol.Atp.v4.0.pdf "Aquis Exchange 4.0 Pdf"
 [Aquis.Equities.RealTime.Amd.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Aquis/Aquis_Equities_RealTime_Amd_v4_0_Dissector.lua "Aquis Equities RealTime Amd v4.0 Wireshark Dissector"
 [Aquis.Equities.RealTime.Amd.v4.0.Url]: https://www.aquis.eu/markets/documents "Aquis Exchange 4.0 Url"
 [Aquis.Equities.RealTime.Amd.v4.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Aquis/Specifications/ "Aquis Exchange 4.0 Pdf"

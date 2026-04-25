@@ -129,7 +129,7 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.upper_collar = ProtoField.new
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.volume = ProtoField.new("Volume", "nyse.amexoptions.deepfeed.pillar.v1.2.l.volume", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.working_price = ProtoField.new("Working Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.workingprice", ftypes.DOUBLE)
 
--- Nyse AmexOptions DeepFeed 1.2.l Application Messages
+-- Nyse AmexOptions Pillar DeepFeed 1.2.l Application Messages
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.complex_series_index_mapping_message = ProtoField.new("Complex Series Index Mapping Message", "nyse.amexoptions.deepfeed.pillar.v1.2.l.complexseriesindexmappingmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexoptions.deepfeed.pillar.v1.2.l.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexoptions.deepfeed.pillar.v1.2.l.messageunavailablemessage", ftypes.STRING)

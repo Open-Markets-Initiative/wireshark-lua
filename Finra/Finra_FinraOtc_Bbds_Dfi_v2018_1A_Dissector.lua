@@ -69,7 +69,7 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.unsolicited_indicator = ProtoField.n
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.wanted_indicator = ProtoField.new("Wanted Indicator", "finra.finraotc.bbds.dfi.v2018.1a.wantedindicator", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.year = ProtoField.new("Year", "finra.finraotc.bbds.dfi.v2018.1a.year", ftypes.STRING)
 
--- Finra FinraOtc Bbds 2018.1A Application Messages
+-- Finra FinraOtc Dfi Bbds 2018.1A Application Messages
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.end_of_day_message = ProtoField.new("End Of Day Message", "finra.finraotc.bbds.dfi.v2018.1a.endofdaymessage", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.end_of_retransmission_requests_message = ProtoField.new("End Of Retransmission Requests Message", "finra.finraotc.bbds.dfi.v2018.1a.endofretransmissionrequestsmessage", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "finra.finraotc.bbds.dfi.v2018.1a.endoftradereportingmessage", ftypes.STRING)

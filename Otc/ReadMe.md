@@ -1,7 +1,7 @@
-[![Otc](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Images/Logo.png)](https://www.Otcmarkets.com)
+[![Otc](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Images/Logo.png)](https://www.otcmarkets.com)
 
 
-## Otc Markets
+## OTC Markets Group (OTC)
 
 | Division | [Protocol][Omi.Otc.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
@@ -10,7 +10,7 @@
 | [Markets][Markets] | [Multicast][Otc.Markets.Multicast] | [Ats][Omi.Encoding.Ats] | [4.3][Otc.Markets.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | 3999 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Multicast.Ats.v4.3.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.3.Pdf] |
 
 
-Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
+Otc: [website](https://www.otcmarkets.com "Go to Otc Markets")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"

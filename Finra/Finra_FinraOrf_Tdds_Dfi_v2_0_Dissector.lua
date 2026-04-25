@@ -86,7 +86,7 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price_short = ProtoField.new("Trad
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.finraorf.tdds.dfi.v2.0.tradesummaryinformation", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.year = ProtoField.new("Year", "finra.finraorf.tdds.dfi.v2.0.year", ftypes.STRING)
 
--- Finra FinraOrf Tdds 2.0 Application Messages
+-- Finra FinraOrf Dfi Tdds 2.0 Application Messages
 omi_finra_finraorf_tdds_dfi_v2_0.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "finra.finraorf.tdds.dfi.v2.0.closingtradesummaryreportmessage", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.end_of_day_message = ProtoField.new("End Of Day Message", "finra.finraorf.tdds.dfi.v2.0.endofdaymessage", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.end_of_retransmission_requests_message = ProtoField.new("End Of Retransmission Requests Message", "finra.finraorf.tdds.dfi.v2.0.endofretransmissionrequestsmessage", ftypes.STRING)

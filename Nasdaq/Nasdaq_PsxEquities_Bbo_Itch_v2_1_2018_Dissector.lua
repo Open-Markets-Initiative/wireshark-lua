@@ -58,7 +58,7 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.stock = ProtoField.new("Stock",
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.itch.v2.1.2018.timestamp", ftypes.UINT64)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psxequities.bbo.itch.v2.1.2018.trackingnumber", ftypes.UINT16)
 
--- Nasdaq PsxEquities Bbo 2.1.2018 Application Messages
+-- Nasdaq PsxEquities Itch Bbo 2.1.2018 Application Messages
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.mwcbdeclinelevelmessage", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.mwcb_status_message = ProtoField.new("Mwcb Status Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.mwcbstatusmessage", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.next_shares_quotation_message = ProtoField.new("Next Shares Quotation Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.nextsharesquotationmessage", ftypes.STRING)

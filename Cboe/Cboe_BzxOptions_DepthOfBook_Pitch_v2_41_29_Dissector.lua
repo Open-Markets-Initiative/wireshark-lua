@@ -72,7 +72,7 @@ omi_cboe_bzxoptions_depthofbook_pitch_v2_41_29.fields.underlying = ProtoField.ne
 omi_cboe_bzxoptions_depthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.bzxoptions.depthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
 omi_cboe_bzxoptions_depthofbook_pitch_v2_41_29.fields.width_type = ProtoField.new("Width Type", "cboe.bzxoptions.depthofbook.pitch.v2.41.29.widthtype", ftypes.STRING)
 
--- Cboe BzxOptions DepthOfBook 2.41.29 Application Messages
+-- Cboe BzxOptions Pitch DepthOfBook 2.41.29 Application Messages
 omi_cboe_bzxoptions_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bzxoptions.depthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_bzxoptions_depthofbook_pitch_v2_41_29.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bzxoptions.depthofbook.pitch.v2.41.29.addorderlongmessage", ftypes.STRING)
 omi_cboe_bzxoptions_depthofbook_pitch_v2_41_29.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.bzxoptions.depthofbook.pitch.v2.41.29.addordershortmessage", ftypes.STRING)

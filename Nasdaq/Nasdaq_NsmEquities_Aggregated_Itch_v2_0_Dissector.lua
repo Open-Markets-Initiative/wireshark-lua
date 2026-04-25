@@ -82,7 +82,7 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.trading_state = ProtoField.ne
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.nsmequities.aggregated.itch.v2.0.upperauctioncollarprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.upper_price_range_collar = ProtoField.new("Upper Price Range Collar", "nasdaq.nsmequities.aggregated.itch.v2.0.upperpricerangecollar", ftypes.DOUBLE)
 
--- Nasdaq NsmEquities Aggregated 2.0 Application Messages
+-- Nasdaq NsmEquities Itch Aggregated 2.0 Application Messages
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.direct_listing_with_capital_raise_price_discovery_message = ProtoField.new("Direct Listing With Capital Raise Price Discovery Message", "nasdaq.nsmequities.aggregated.itch.v2.0.directlistingwithcapitalraisepricediscoverymessage", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.aggregated.itch.v2.0.ipoquotingperiodupdatemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.luld_auction_collar_message = ProtoField.new("Luld Auction Collar Message", "nasdaq.nsmequities.aggregated.itch.v2.0.luldauctioncollarmessage", ftypes.STRING)

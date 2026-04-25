@@ -60,7 +60,7 @@ omi_jnx_jnxequities_pts_ouch_v1_11.fields.timestamp = ProtoField.new("Timestamp"
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxequities.pts.ouch.v1.11.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.ouch.v1.11.username", ftypes.STRING)
 
--- Jnx JnxEquities Pts 1.11 Application Messages
+-- Jnx JnxEquities Ouch Pts 1.11 Application Messages
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.jnxequities.pts.ouch.v1.11.cancelordermessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.jnxequities.pts.ouch.v1.11.enterordermessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.jnxequities.pts.ouch.v1.11.orderacceptedmessage", ftypes.STRING)
@@ -72,7 +72,7 @@ omi_jnx_jnxequities_pts_ouch_v1_11.fields.order_replaced_message = ProtoField.ne
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.jnxequities.pts.ouch.v1.11.replaceordermessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxequities.pts.ouch.v1.11.systemeventmessage", ftypes.STRING)
 
--- Jnx JnxEquities Pts 1.11 Session Messages
+-- Jnx JnxEquities Ouch Pts 1.11 Session Messages
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.ouch.v1.11.debugpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.ouch.v1.11.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.ouch.v1.11.loginrejectedpacket", ftypes.STRING)

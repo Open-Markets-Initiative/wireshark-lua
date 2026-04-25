@@ -98,7 +98,7 @@ omi_cboe_c1options_openingauction_csm_v1_0.fields.underlying_type_length = Proto
 omi_cboe_c1options_openingauction_csm_v1_0.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.c1options.openingauction.csm.v1.0.underlyingtypetext", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.version = ProtoField.new("Version", "cboe.c1options.openingauction.csm.v1.0.version", ftypes.UINT8)
 
--- Cboe C1Options OpeningAuction 1.0 Application Messages
+-- Cboe C1Options Csm OpeningAuction 1.0 Application Messages
 omi_cboe_c1options_openingauction_csm_v1_0.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.c1options.openingauction.csm.v1.0.currentmarketupdatemessage", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.c1options.openingauction.csm.v1.0.expectedopeningpriceandsizemessage", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.c1options.openingauction.csm.v1.0.marketdatarefreshmessage", ftypes.STRING)

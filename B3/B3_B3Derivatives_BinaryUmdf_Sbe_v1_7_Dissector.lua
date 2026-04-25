@@ -240,7 +240,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.vwap_px = ProtoField.new("Vwap P
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.week = ProtoField.new("Week", "b3.b3derivatives.binaryumdf.sbe.v1.7.week", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.year = ProtoField.new("Year", "b3.b3derivatives.binaryumdf.sbe.v1.7.year", ftypes.UINT16)
 
--- B3 B3Derivatives BinaryUmdf 1.7 Application Messages
+-- B3 B3Derivatives Sbe BinaryUmdf 1.7 Application Messages
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.auction_imbalance_19_message = ProtoField.new("Auction Imbalance 19 Message", "b3.b3derivatives.binaryumdf.sbe.v1.7.auctionimbalance19message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.channel_reset_11_message = ProtoField.new("Channel Reset 11 Message", "b3.b3derivatives.binaryumdf.sbe.v1.7.channelreset11message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.closing_price_17_message = ProtoField.new("Closing Price 17 Message", "b3.b3derivatives.binaryumdf.sbe.v1.7.closingprice17message", ftypes.STRING)

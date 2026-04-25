@@ -98,7 +98,7 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.update_count = ProtoField.new
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.arcaequities.depthfeed.pillar.v1.6.uppercollar", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.volume = ProtoField.new("Volume", "nyse.arcaequities.depthfeed.pillar.v1.6.volume", ftypes.UINT32)
 
--- Nyse ArcaEquities DepthFeed 1.6 Application Messages
+-- Nyse ArcaEquities Pillar DepthFeed 1.6 Application Messages
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.delta_message = ProtoField.new("Delta Message", "nyse.arcaequities.depthfeed.pillar.v1.6.deltamessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaequities.depthfeed.pillar.v1.6.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.arcaequities.depthfeed.pillar.v1.6.imbalancemessage", ftypes.STRING)

@@ -94,7 +94,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message_type = ProtoF
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.user_ref_num = ProtoField.new("User Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.orders.ouch.v5.0.username", ftypes.STRING)
 
--- Nasdaq NsmEquities Orders 5.0 Application Messages
+-- Nasdaq NsmEquities Ouch Orders 5.0 Application Messages
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_message = ProtoField.new("Account Query Response Message", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryresponsemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_message = ProtoField.new("Aiq Canceled Message", "nasdaq.nsmequities.orders.ouch.v5.0.aiqcanceledmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nsmequities.orders.ouch.v5.0.brokentrademessage", ftypes.STRING)
@@ -115,7 +115,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message = ProtoField.new
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.orders.ouch.v5.0.systemeventmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.orders.ouch.v5.0.tradecorrectionmessage", ftypes.STRING)
 
--- Nasdaq NsmEquities Orders 5.0 Session Messages
+-- Nasdaq NsmEquities Ouch Orders 5.0 Session Messages
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.orders.ouch.v5.0.debugpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginrejectedpacket", ftypes.STRING)

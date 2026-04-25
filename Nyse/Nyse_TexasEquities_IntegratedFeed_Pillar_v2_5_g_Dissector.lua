@@ -112,7 +112,7 @@ omi_nyse_texasequities_integratedfeed_pillar_v2_5_g.fields.unpaired_side = Proto
 omi_nyse_texasequities_integratedfeed_pillar_v2_5_g.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.texasequities.integratedfeed.pillar.v2.5.g.uppercollar", ftypes.UINT32)
 omi_nyse_texasequities_integratedfeed_pillar_v2_5_g.fields.volume = ProtoField.new("Volume", "nyse.texasequities.integratedfeed.pillar.v2.5.g.volume", ftypes.UINT32)
 
--- Nyse TexasEquities IntegratedFeed 2.5.g Application Messages
+-- Nyse TexasEquities Pillar IntegratedFeed 2.5.g Application Messages
 omi_nyse_texasequities_integratedfeed_pillar_v2_5_g.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.texasequities.integratedfeed.pillar.v2.5.g.addordermessage", ftypes.STRING)
 omi_nyse_texasequities_integratedfeed_pillar_v2_5_g.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.texasequities.integratedfeed.pillar.v2.5.g.addorderrefreshmessage", ftypes.STRING)
 omi_nyse_texasequities_integratedfeed_pillar_v2_5_g.fields.cross_correction_message = ProtoField.new("Cross Correction Message", "nyse.texasequities.integratedfeed.pillar.v2.5.g.crosscorrectionmessage", ftypes.STRING)

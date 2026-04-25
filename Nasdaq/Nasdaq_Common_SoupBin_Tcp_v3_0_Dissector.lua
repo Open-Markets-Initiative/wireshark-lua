@@ -33,7 +33,7 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message = ProtoField.new("
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.common.soupbin.tcp.v3.0.username", ftypes.STRING)
 
--- Nasdaq Common SoupBin 3.0 Session Messages
+-- Nasdaq Common Tcp SoupBin 3.0 Session Messages
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbin.tcp.v3.0.debugpacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.common.soupbin.tcp.v3.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrejectedpacket", ftypes.STRING)

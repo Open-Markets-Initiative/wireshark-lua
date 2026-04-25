@@ -83,7 +83,7 @@ omi_cboe_cfefutures_depthofbook_pitch_v1_2_19.fields.unit = ProtoField.new("Unit
 omi_cboe_cfefutures_depthofbook_pitch_v1_2_19.fields.unit_timestamp = ProtoField.new("Unit Timestamp", "cboe.cfefutures.depthofbook.pitch.v1.2.19.unittimestamp", ftypes.UINT32)
 omi_cboe_cfefutures_depthofbook_pitch_v1_2_19.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "cboe.cfefutures.depthofbook.pitch.v1.2.19.upperpricelimit", ftypes.UINT64)
 
--- Cboe CfeFutures DepthOfBook 1.2.19 Application Messages
+-- Cboe CfeFutures Pitch DepthOfBook 1.2.19 Application Messages
 omi_cboe_cfefutures_depthofbook_pitch_v1_2_19.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.cfefutures.depthofbook.pitch.v1.2.19.addorderlongmessage", ftypes.STRING)
 omi_cboe_cfefutures_depthofbook_pitch_v1_2_19.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.cfefutures.depthofbook.pitch.v1.2.19.addordershortmessage", ftypes.STRING)
 omi_cboe_cfefutures_depthofbook_pitch_v1_2_19.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.cfefutures.depthofbook.pitch.v1.2.19.deleteordermessage", ftypes.STRING)

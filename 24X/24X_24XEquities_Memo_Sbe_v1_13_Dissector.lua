@@ -126,7 +126,7 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("Trd
 omi_n24x_24xequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "24x.24xequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "24x.24xequities.memo.sbe.v1.13.version", ftypes.UINT16)
 
--- 24X 24XEquities Memo 1.13 Application Messages
+-- 24X 24XEquities Sbe Memo 1.13 Application Messages
 omi_n24x_24xequities_memo_sbe_v1_13.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "24x.24xequities.memo.sbe.v1.13.executionreportcanceledmessage", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "24x.24xequities.memo.sbe.v1.13.executionreportnewmessage", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.execution_report_pending_cancel_message = ProtoField.new("Execution Report Pending Cancel Message", "24x.24xequities.memo.sbe.v1.13.executionreportpendingcancelmessage", ftypes.STRING)

@@ -80,7 +80,7 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.ultra_last_seq_num = 
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.unitoftrade", ftypes.UINT16)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.update_count = ProtoField.new("Update Count", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.updatecount", ftypes.UINT8)
 
--- Nyse AmexEquities OpenBook.Aggregated 2.1.d Application Messages
+-- Nyse AmexEquities Xdp OpenBook.Aggregated 2.1.d Application Messages
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.messageunavailablemessage", ftypes.STRING)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.orderbook_delta_update_message = ProtoField.new("Orderbook Delta Update Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.orderbookdeltaupdatemessage", ftypes.STRING)

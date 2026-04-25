@@ -96,7 +96,7 @@ omi_cboe_titaniumoptions_flex_pitch_v1_1_30.fields.unit = ProtoField.new("Unit",
 omi_cboe_titaniumoptions_flex_pitch_v1_1_30.fields.username = ProtoField.new("Username", "cboe.titaniumoptions.flex.pitch.v1.1.30.username", ftypes.STRING)
 omi_cboe_titaniumoptions_flex_pitch_v1_1_30.fields.year = ProtoField.new("Year", "cboe.titaniumoptions.flex.pitch.v1.1.30.year", ftypes.STRING)
 
--- Cboe TitaniumOptions Flex 1.1.30 Application Messages
+-- Cboe TitaniumOptions Pitch Flex 1.1.30 Application Messages
 omi_cboe_titaniumoptions_flex_pitch_v1_1_30.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.titaniumoptions.flex.pitch.v1.1.30.auctioncancelmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_flex_pitch_v1_1_30.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.titaniumoptions.flex.pitch.v1.1.30.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_titaniumoptions_flex_pitch_v1_1_30.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.titaniumoptions.flex.pitch.v1.1.30.auctiontrademessage", ftypes.STRING)

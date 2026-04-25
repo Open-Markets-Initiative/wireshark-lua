@@ -52,7 +52,7 @@ omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.n
 omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "boats.boatsequities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "boats.boatsequities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16)
 
--- Boats BoatsEquities MemoirTopOfBook 1.3 Application Messages
+-- Boats BoatsEquities Sbe MemoirTopOfBook 1.3 Application Messages
 omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "boats.boatsequities.memoirtopofbook.sbe.v1.3.bestbidmessage", ftypes.STRING)
 omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "boats.boatsequities.memoirtopofbook.sbe.v1.3.bestbidoffermessage", ftypes.STRING)
 omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "boats.boatsequities.memoirtopofbook.sbe.v1.3.bestbidshortmessage", ftypes.STRING)

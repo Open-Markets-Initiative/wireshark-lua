@@ -125,7 +125,7 @@ omi_boats_boatsequities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("
 omi_boats_boatsequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "boats.boatsequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 omi_boats_boatsequities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "boats.boatsequities.memo.sbe.v1.13.version", ftypes.UINT16)
 
--- Boats BoatsEquities Memo 1.13 Application Messages
+-- Boats BoatsEquities Sbe Memo 1.13 Application Messages
 omi_boats_boatsequities_memo_sbe_v1_13.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "boats.boatsequities.memo.sbe.v1.13.executionreportcanceledmessage", ftypes.STRING)
 omi_boats_boatsequities_memo_sbe_v1_13.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "boats.boatsequities.memo.sbe.v1.13.executionreportnewmessage", ftypes.STRING)
 omi_boats_boatsequities_memo_sbe_v1_13.fields.execution_report_pending_cancel_message = ProtoField.new("Execution Report Pending Cancel Message", "boats.boatsequities.memo.sbe.v1.13.executionreportpendingcancelmessage", ftypes.STRING)

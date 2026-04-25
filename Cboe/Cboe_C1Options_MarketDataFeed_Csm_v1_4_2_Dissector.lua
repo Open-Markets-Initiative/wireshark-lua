@@ -114,7 +114,7 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.underlying_type_length = Pro
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.c1options.marketdatafeed.csm.v1.4.2.underlyingtypetext", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.version = ProtoField.new("Version", "cboe.c1options.marketdatafeed.csm.v1.4.2.version", ftypes.UINT8)
 
--- Cboe C1Options MarketDataFeed 1.4.2 Application Messages
+-- Cboe C1Options Csm MarketDataFeed 1.4.2 Application Messages
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.current_market_refresh_message = ProtoField.new("Current Market Refresh Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.currentmarketrefreshmessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.currentmarketupdatemessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.expectedopeningpriceandsizemessage", ftypes.STRING)

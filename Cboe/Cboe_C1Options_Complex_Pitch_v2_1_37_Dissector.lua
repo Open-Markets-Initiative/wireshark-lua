@@ -79,7 +79,7 @@ omi_cboe_c1options_complex_pitch_v2_1_37.fields.underlying = ProtoField.new("Und
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.unit = ProtoField.new("Unit", "cboe.c1options.complex.pitch.v2.1.37.unit", ftypes.UINT8)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.unused = ProtoField.new("Unused", "cboe.c1options.complex.pitch.v2.1.37.unused", ftypes.BYTES)
 
--- Cboe C1Options Complex 2.1.37 Application Messages
+-- Cboe C1Options Pitch Complex 2.1.37 Application Messages
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.c1options.complex.pitch.v2.1.37.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.c1options.complex.pitch.v2.1.37.addorderlongmessage", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.c1options.complex.pitch.v2.1.37.addordershortmessage", ftypes.STRING)

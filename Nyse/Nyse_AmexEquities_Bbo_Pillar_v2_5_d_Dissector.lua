@@ -79,7 +79,7 @@ omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.time = ProtoField.new("Time", "ny
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.amexequities.bbo.pillar.v2.5.d.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.amexequities.bbo.pillar.v2.5.d.unitoftrade", ftypes.UINT16)
 
--- Nyse AmexEquities Bbo 2.5.d Application Messages
+-- Nyse AmexEquities Pillar Bbo 2.5.d Application Messages
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.bbo.pillar.v2.5.d.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.bbo.pillar.v2.5.d.messageunavailablemessage", ftypes.STRING)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.quote_message = ProtoField.new("Quote Message", "nyse.amexequities.bbo.pillar.v2.5.d.quotemessage", ftypes.STRING)

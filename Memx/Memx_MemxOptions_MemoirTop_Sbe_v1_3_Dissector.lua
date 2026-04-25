@@ -70,7 +70,7 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.trading_session = ProtoField.new(
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.underlier = ProtoField.new("Underlier", "memx.memxoptions.memoirtop.sbe.v1.3.underlier", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.memxoptions.memoirtop.sbe.v1.3.version", ftypes.UINT16)
 
--- Memx MemxOptions MemoirTop 1.3 Application Messages
+-- Memx MemxOptions Sbe MemoirTop 1.3 Application Messages
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "memx.memxoptions.memoirtop.sbe.v1.3.bestbidmessage", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "memx.memxoptions.memoirtop.sbe.v1.3.bestbidoffermessage", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "memx.memxoptions.memoirtop.sbe.v1.3.bestbidshortmessage", ftypes.STRING)

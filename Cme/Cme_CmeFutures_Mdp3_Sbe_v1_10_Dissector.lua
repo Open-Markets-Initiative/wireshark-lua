@@ -281,7 +281,7 @@ omi_cme_cmefutures_mdp3_sbe_v1_10.fields.workup_trading_status = ProtoField.new(
 omi_cme_cmefutures_mdp3_sbe_v1_10.fields.year = ProtoField.new("Year", "cme.cmefutures.mdp3.sbe.v1.10.year", ftypes.UINT16)
 omi_cme_cmefutures_mdp3_sbe_v1_10.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.cmefutures.mdp3.sbe.v1.10.zeropriceoutrighteligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 
--- Cme CmeFutures Mdp3 1.10 Application Messages
+-- Cme CmeFutures Sbe Mdp3 1.10 Application Messages
 omi_cme_cmefutures_mdp3_sbe_v1_10.fields.admin_login = ProtoField.new("Admin Login", "cme.cmefutures.mdp3.sbe.v1.10.adminlogin", ftypes.STRING)
 omi_cme_cmefutures_mdp3_sbe_v1_10.fields.admin_logout = ProtoField.new("Admin Logout", "cme.cmefutures.mdp3.sbe.v1.10.adminlogout", ftypes.STRING)
 omi_cme_cmefutures_mdp3_sbe_v1_10.fields.channel_reset = ProtoField.new("Channel Reset", "cme.cmefutures.mdp3.sbe.v1.10.channelreset", ftypes.STRING)

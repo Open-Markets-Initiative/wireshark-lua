@@ -62,7 +62,7 @@ omi_cboe_titaniumequities_topofbook_pitch_v1_3_9.fields.timestamp = ProtoField.n
 omi_cboe_titaniumequities_topofbook_pitch_v1_3_9.fields.unit = ProtoField.new("Unit", "cboe.titaniumequities.topofbook.pitch.v1.3.9.unit", ftypes.UINT8)
 omi_cboe_titaniumequities_topofbook_pitch_v1_3_9.fields.username = ProtoField.new("Username", "cboe.titaniumequities.topofbook.pitch.v1.3.9.username", ftypes.STRING)
 
--- Cboe TitaniumEquities TopOfBook 1.3.9 Application Messages
+-- Cboe TitaniumEquities Pitch TopOfBook 1.3.9 Application Messages
 omi_cboe_titaniumequities_topofbook_pitch_v1_3_9.fields.expanded_ask_update_message = ProtoField.new("Expanded Ask Update Message", "cboe.titaniumequities.topofbook.pitch.v1.3.9.expandedaskupdatemessage", ftypes.STRING)
 omi_cboe_titaniumequities_topofbook_pitch_v1_3_9.fields.expanded_bid_update_message = ProtoField.new("Expanded Bid Update Message", "cboe.titaniumequities.topofbook.pitch.v1.3.9.expandedbidupdatemessage", ftypes.STRING)
 omi_cboe_titaniumequities_topofbook_pitch_v1_3_9.fields.expanded_spin_message = ProtoField.new("Expanded Spin Message", "cboe.titaniumequities.topofbook.pitch.v1.3.9.expandedspinmessage", ftypes.STRING)

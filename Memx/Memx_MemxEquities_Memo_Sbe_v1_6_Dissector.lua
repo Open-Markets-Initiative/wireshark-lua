@@ -113,7 +113,7 @@ omi_memx_memxequities_memo_sbe_v1_6.fields.trd_matching_id = ProtoField.new("Trd
 omi_memx_memxequities_memo_sbe_v1_6.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxequities.memo.sbe.v1.6.unsequencedmessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_6.fields.version = ProtoField.new("Version", "memx.memxequities.memo.sbe.v1.6.version", ftypes.UINT16)
 
--- Memx MemxEquities Memo 1.6 Application Messages
+-- Memx MemxEquities Sbe Memo 1.6 Application Messages
 omi_memx_memxequities_memo_sbe_v1_6.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "memx.memxequities.memo.sbe.v1.6.executionreportcanceledmessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_6.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "memx.memxequities.memo.sbe.v1.6.executionreportnewmessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_6.fields.execution_report_pending_cancel_message = ProtoField.new("Execution Report Pending Cancel Message", "memx.memxequities.memo.sbe.v1.6.executionreportpendingcancelmessage", ftypes.STRING)

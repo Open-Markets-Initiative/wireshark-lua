@@ -131,7 +131,7 @@ omi_otc_markets_multicast_ats_v4_5.fields.trading_flat = ProtoField.new("Trading
 omi_otc_markets_multicast_ats_v4_5.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otc.markets.multicast.ats.v4.5.unsolicitedonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otc_markets_multicast_ats_v4_5.fields.update_side = ProtoField.new("Update Side", "otc.markets.multicast.ats.v4.5.updateside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- Otc Markets Multicast 4.5 Application Messages
+-- Otc Markets Ats Multicast 4.5 Application Messages
 omi_otc_markets_multicast_ats_v4_5.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otc.markets.multicast.ats.v4.5.endofspinmessage", ftypes.STRING)
 omi_otc_markets_multicast_ats_v4_5.fields.extended_security_message = ProtoField.new("Extended Security Message", "otc.markets.multicast.ats.v4.5.extendedsecuritymessage", ftypes.STRING)
 omi_otc_markets_multicast_ats_v4_5.fields.extended_security_no_cusip_message = ProtoField.new("Extended Security No Cusip Message", "otc.markets.multicast.ats.v4.5.extendedsecuritynocusipmessage", ftypes.STRING)

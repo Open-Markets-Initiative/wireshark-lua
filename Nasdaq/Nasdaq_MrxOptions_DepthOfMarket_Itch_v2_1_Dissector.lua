@@ -78,7 +78,7 @@ omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1.fields.underlying_symbol = ProtoFi
 omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.mrxoptions.depthofmarket.itch.v2.1.volumelong", ftypes.UINT32)
 omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.mrxoptions.depthofmarket.itch.v2.1.volumeshort", ftypes.UINT16)
 
--- Nasdaq MrxOptions DepthOfMarket 2.1 Application Messages
+-- Nasdaq MrxOptions Itch DepthOfMarket 2.1 Application Messages
 omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1.fields.add_order_long_form_message = ProtoField.new("Add Order Long Form Message", "nasdaq.mrxoptions.depthofmarket.itch.v2.1.addorderlongformmessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1.fields.add_order_short_form_message = ProtoField.new("Add Order Short Form Message", "nasdaq.mrxoptions.depthofmarket.itch.v2.1.addordershortformmessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1.fields.add_quote_long_form_message = ProtoField.new("Add Quote Long Form Message", "nasdaq.mrxoptions.depthofmarket.itch.v2.1.addquotelongformmessage", ftypes.STRING)

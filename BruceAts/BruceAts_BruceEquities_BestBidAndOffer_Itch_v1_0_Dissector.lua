@@ -38,7 +38,7 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.stock_locate = Proto
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.timestamp", ftypes.UINT64)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.trading_state = ProtoField.new("Trading State", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.tradingstate", ftypes.STRING)
 
--- BruceAts BruceEquities BestBidAndOffer 1.0 Application Messages
+-- BruceAts BruceEquities Itch BestBidAndOffer 1.0 Application Messages
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.quotation_message = ProtoField.new("Quotation Message", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.quotationmessage", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.reg_sho_short_sale_price_test_restricted_indicator = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.regshoshortsalepricetestrestrictedindicator", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.stock_directory = ProtoField.new("Stock Directory", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.stockdirectory", ftypes.STRING)

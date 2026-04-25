@@ -48,7 +48,7 @@ omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.trade_condition = ProtoField.ne
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.mrxoptions.tradefeed.itch.v2.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.volume = ProtoField.new("Volume", "nasdaq.mrxoptions.tradefeed.itch.v2.1.volume", ftypes.UINT32)
 
--- Nasdaq MrxOptions TradeFeed 2.1 Application Messages
+-- Nasdaq MrxOptions Itch TradeFeed 2.1 Application Messages
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.mrxoptions.tradefeed.itch.v2.1.brokentradereportmessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.derivative_directory_message = ProtoField.new("Derivative Directory Message", "nasdaq.mrxoptions.tradefeed.itch.v2.1.derivativedirectorymessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.mrxoptions.tradefeed.itch.v2.1.systemeventmessage", ftypes.STRING)
