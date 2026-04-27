@@ -5638,7 +5638,7 @@ udp_table:add(65333, omi_smallx_orderbookfeed_sbe_v2_2)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 smallx_orderbookfeed_sbe_v2_2.packet.requiredsize = function(buffer)
 
   return true
@@ -5668,8 +5668,8 @@ smallx_orderbookfeed_sbe_v2_2.version.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for SmallX OrderBookFeed Sbe 2.2
-local function omi_smallx_orderbookfeed_sbe_v2_2_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for SmallX OrderBookFeed Sbe 2.2 (Udp)
+local function omi_smallx_orderbookfeed_sbe_v2_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not smallx_orderbookfeed_sbe_v2_2.packet.requiredsize(buffer) then return false end
 
@@ -5687,7 +5687,7 @@ local function omi_smallx_orderbookfeed_sbe_v2_2_heuristic(buffer, packet, paren
 end
 
 -- Register Heuristic for SmallX OrderBookFeed Sbe 2.2
-omi_smallx_orderbookfeed_sbe_v2_2:register_heuristic("udp", omi_smallx_orderbookfeed_sbe_v2_2_heuristic)
+omi_smallx_orderbookfeed_sbe_v2_2:register_heuristic("udp", omi_smallx_orderbookfeed_sbe_v2_2_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

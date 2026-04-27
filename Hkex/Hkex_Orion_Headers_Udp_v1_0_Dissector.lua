@@ -473,14 +473,14 @@ udp_table:add(65333, omi_hkex_orion_headers_udp_v1_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 hkex_orion_headers_udp_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Hkex Orion Headers Udp 1.0
-local function omi_hkex_orion_headers_udp_v1_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Hkex Orion Headers Udp 1.0 (Udp)
+local function omi_hkex_orion_headers_udp_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not hkex_orion_headers_udp_v1_0.packet.requiredsize(buffer) then return false end
 
@@ -492,7 +492,7 @@ local function omi_hkex_orion_headers_udp_v1_0_heuristic(buffer, packet, parent)
 end
 
 -- Register Heuristic for Hkex Orion Headers Udp 1.0
-omi_hkex_orion_headers_udp_v1_0:register_heuristic("udp", omi_hkex_orion_headers_udp_v1_0_heuristic)
+omi_hkex_orion_headers_udp_v1_0:register_heuristic("udp", omi_hkex_orion_headers_udp_v1_0_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

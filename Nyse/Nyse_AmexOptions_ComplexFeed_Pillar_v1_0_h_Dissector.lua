@@ -4519,14 +4519,14 @@ udp_table:add(65333, omi_nyse_amexoptions_complexfeed_pillar_v1_0_h)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nyse_amexoptions_complexfeed_pillar_v1_0_h.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse AmexOptions ComplexFeed Pillar 1.0.h
-local function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse AmexOptions ComplexFeed Pillar 1.0.h (Udp)
+local function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_amexoptions_complexfeed_pillar_v1_0_h.packet.requiredsize(buffer) then return false end
 
@@ -4538,7 +4538,7 @@ local function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h_heuristic(buffer, 
 end
 
 -- Register Heuristic for Nyse AmexOptions ComplexFeed Pillar 1.0.h
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h:register_heuristic("udp", omi_nyse_amexoptions_complexfeed_pillar_v1_0_h_heuristic)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h:register_heuristic("udp", omi_nyse_amexoptions_complexfeed_pillar_v1_0_h_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

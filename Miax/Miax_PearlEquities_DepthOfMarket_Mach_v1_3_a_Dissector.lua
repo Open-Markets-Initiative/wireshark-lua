@@ -1953,14 +1953,14 @@ udp_table:add(65333, omi_miax_pearlequities_depthofmarket_mach_v1_3_a)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 miax_pearlequities_depthofmarket_mach_v1_3_a.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Miax PearlEquities DepthOfMarket Mach 1.3.a
-local function omi_miax_pearlequities_depthofmarket_mach_v1_3_a_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Miax PearlEquities DepthOfMarket Mach 1.3.a (Udp)
+local function omi_miax_pearlequities_depthofmarket_mach_v1_3_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_depthofmarket_mach_v1_3_a.packet.requiredsize(buffer) then return false end
 
@@ -1972,7 +1972,7 @@ local function omi_miax_pearlequities_depthofmarket_mach_v1_3_a_heuristic(buffer
 end
 
 -- Register Heuristic for Miax PearlEquities DepthOfMarket Mach 1.3.a
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a:register_heuristic("udp", omi_miax_pearlequities_depthofmarket_mach_v1_3_a_heuristic)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a:register_heuristic("udp", omi_miax_pearlequities_depthofmarket_mach_v1_3_a_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

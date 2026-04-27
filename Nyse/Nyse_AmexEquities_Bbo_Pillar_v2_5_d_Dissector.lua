@@ -3082,14 +3082,14 @@ udp_table:add(65333, omi_nyse_amexequities_bbo_pillar_v2_5_d)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nyse_amexequities_bbo_pillar_v2_5_d.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse AmexEquities Bbo Pillar 2.5.d
-local function omi_nyse_amexequities_bbo_pillar_v2_5_d_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse AmexEquities Bbo Pillar 2.5.d (Udp)
+local function omi_nyse_amexequities_bbo_pillar_v2_5_d_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_amexequities_bbo_pillar_v2_5_d.packet.requiredsize(buffer) then return false end
 
@@ -3101,7 +3101,7 @@ local function omi_nyse_amexequities_bbo_pillar_v2_5_d_heuristic(buffer, packet,
 end
 
 -- Register Heuristic for Nyse AmexEquities Bbo Pillar 2.5.d
-omi_nyse_amexequities_bbo_pillar_v2_5_d:register_heuristic("udp", omi_nyse_amexequities_bbo_pillar_v2_5_d_heuristic)
+omi_nyse_amexequities_bbo_pillar_v2_5_d:register_heuristic("udp", omi_nyse_amexequities_bbo_pillar_v2_5_d_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

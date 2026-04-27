@@ -4186,14 +4186,14 @@ udp_table:add(65333, omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6
-local function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6 (Udp)
+local function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.packet.requiredsize(buffer) then return false end
 
@@ -4205,7 +4205,7 @@ local function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_heuristic(buffer, pack
 end
 
 -- Register Heuristic for Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6
-omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6:register_heuristic("udp", omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_heuristic)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6:register_heuristic("udp", omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -2208,14 +2208,14 @@ tcp_table:add(65333, omi_nasdaq_iseoptions_spreaddepth_itch_v2_1)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 nasdaq_iseoptions_spreaddepth_itch_v2_1.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq IseOptions SpreadDepth Itch 2.1
-local function omi_nasdaq_iseoptions_spreaddepth_itch_v2_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq IseOptions SpreadDepth Itch 2.1 (Tcp)
+local function omi_nasdaq_iseoptions_spreaddepth_itch_v2_1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_iseoptions_spreaddepth_itch_v2_1.packet.requiredsize(buffer) then return false end
 
@@ -2227,7 +2227,7 @@ local function omi_nasdaq_iseoptions_spreaddepth_itch_v2_1_heuristic(buffer, pac
 end
 
 -- Register Heuristic for Nasdaq IseOptions SpreadDepth Itch 2.1
-omi_nasdaq_iseoptions_spreaddepth_itch_v2_1:register_heuristic("tcp", omi_nasdaq_iseoptions_spreaddepth_itch_v2_1_heuristic)
+omi_nasdaq_iseoptions_spreaddepth_itch_v2_1:register_heuristic("tcp", omi_nasdaq_iseoptions_spreaddepth_itch_v2_1_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

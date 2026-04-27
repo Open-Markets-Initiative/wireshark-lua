@@ -2730,14 +2730,14 @@ tcp_table:add(65333, omi_asx_asxsecurities_trade_ouch_v3_6)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 asx_asxsecurities_trade_ouch_v3_6.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Asx AsxSecurities Trade Ouch 3.6
-local function omi_asx_asxsecurities_trade_ouch_v3_6_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Asx AsxSecurities Trade Ouch 3.6 (Tcp)
+local function omi_asx_asxsecurities_trade_ouch_v3_6_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not asx_asxsecurities_trade_ouch_v3_6.packet.requiredsize(buffer) then return false end
 
@@ -2749,7 +2749,7 @@ local function omi_asx_asxsecurities_trade_ouch_v3_6_heuristic(buffer, packet, p
 end
 
 -- Register Heuristic for Asx AsxSecurities Trade Ouch 3.6
-omi_asx_asxsecurities_trade_ouch_v3_6:register_heuristic("tcp", omi_asx_asxsecurities_trade_ouch_v3_6_heuristic)
+omi_asx_asxsecurities_trade_ouch_v3_6:register_heuristic("tcp", omi_asx_asxsecurities_trade_ouch_v3_6_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

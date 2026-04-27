@@ -7704,14 +7704,14 @@ tcp_table:add(65333, omi_cboe_cfefutures_orderentry_boe3_v1_1_18)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 cboe_cfefutures_orderentry_boe3_v1_1_18.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Cboe CfeFutures OrderEntry Boe3 1.1.18
-local function omi_cboe_cfefutures_orderentry_boe3_v1_1_18_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cboe CfeFutures OrderEntry Boe3 1.1.18 (Tcp)
+local function omi_cboe_cfefutures_orderentry_boe3_v1_1_18_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cfefutures_orderentry_boe3_v1_1_18.packet.requiredsize(buffer) then return false end
 
@@ -7723,7 +7723,7 @@ local function omi_cboe_cfefutures_orderentry_boe3_v1_1_18_heuristic(buffer, pac
 end
 
 -- Register Heuristic for Cboe CfeFutures OrderEntry Boe3 1.1.18
-omi_cboe_cfefutures_orderentry_boe3_v1_1_18:register_heuristic("tcp", omi_cboe_cfefutures_orderentry_boe3_v1_1_18_heuristic)
+omi_cboe_cfefutures_orderentry_boe3_v1_1_18:register_heuristic("tcp", omi_cboe_cfefutures_orderentry_boe3_v1_1_18_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

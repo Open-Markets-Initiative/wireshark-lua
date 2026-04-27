@@ -3663,14 +3663,14 @@ udp_table:add(65333, omi_finra_finraorf_tdds_dfi_v2_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 finra_finraorf_tdds_dfi_v2_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Finra FinraOrf Tdds Dfi 2.0
-local function omi_finra_finraorf_tdds_dfi_v2_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Finra FinraOrf Tdds Dfi 2.0 (Udp)
+local function omi_finra_finraorf_tdds_dfi_v2_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not finra_finraorf_tdds_dfi_v2_0.packet.requiredsize(buffer) then return false end
 
@@ -3682,7 +3682,7 @@ local function omi_finra_finraorf_tdds_dfi_v2_0_heuristic(buffer, packet, parent
 end
 
 -- Register Heuristic for Finra FinraOrf Tdds Dfi 2.0
-omi_finra_finraorf_tdds_dfi_v2_0:register_heuristic("udp", omi_finra_finraorf_tdds_dfi_v2_0_heuristic)
+omi_finra_finraorf_tdds_dfi_v2_0:register_heuristic("udp", omi_finra_finraorf_tdds_dfi_v2_0_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

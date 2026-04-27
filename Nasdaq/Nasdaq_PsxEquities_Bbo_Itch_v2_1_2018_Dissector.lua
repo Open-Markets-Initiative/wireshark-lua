@@ -2134,14 +2134,14 @@ udp_table:add(65333, omi_nasdaq_psxequities_bbo_itch_v2_1_2018)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nasdaq_psxequities_bbo_itch_v2_1_2018.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq PsxEquities Bbo Itch 2.1.2018
-local function omi_nasdaq_psxequities_bbo_itch_v2_1_2018_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq PsxEquities Bbo Itch 2.1.2018 (Udp)
+local function omi_nasdaq_psxequities_bbo_itch_v2_1_2018_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_psxequities_bbo_itch_v2_1_2018.packet.requiredsize(buffer) then return false end
 
@@ -2153,7 +2153,7 @@ local function omi_nasdaq_psxequities_bbo_itch_v2_1_2018_heuristic(buffer, packe
 end
 
 -- Register Heuristic for Nasdaq PsxEquities Bbo Itch 2.1.2018
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018:register_heuristic("udp", omi_nasdaq_psxequities_bbo_itch_v2_1_2018_heuristic)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018:register_heuristic("udp", omi_nasdaq_psxequities_bbo_itch_v2_1_2018_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

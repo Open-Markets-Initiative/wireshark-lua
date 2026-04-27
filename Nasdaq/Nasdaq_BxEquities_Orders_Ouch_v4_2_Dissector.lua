@@ -3084,14 +3084,14 @@ tcp_table:add(65333, omi_nasdaq_bxequities_orders_ouch_v4_2)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 nasdaq_bxequities_orders_ouch_v4_2.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq BxEquities Orders Ouch 4.2
-local function omi_nasdaq_bxequities_orders_ouch_v4_2_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq BxEquities Orders Ouch 4.2 (Tcp)
+local function omi_nasdaq_bxequities_orders_ouch_v4_2_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_bxequities_orders_ouch_v4_2.packet.requiredsize(buffer) then return false end
 
@@ -3103,7 +3103,7 @@ local function omi_nasdaq_bxequities_orders_ouch_v4_2_heuristic(buffer, packet, 
 end
 
 -- Register Heuristic for Nasdaq BxEquities Orders Ouch 4.2
-omi_nasdaq_bxequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_bxequities_orders_ouch_v4_2_heuristic)
+omi_nasdaq_bxequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_bxequities_orders_ouch_v4_2_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

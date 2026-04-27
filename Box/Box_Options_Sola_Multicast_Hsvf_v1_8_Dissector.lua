@@ -6573,7 +6573,7 @@ udp_table:add(65333, omi_box_options_sola_multicast_hsvf_v1_8)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 box_options_sola_multicast_hsvf_v1_8.packet.requiredsize = function(buffer)
 
   return true
@@ -6591,8 +6591,8 @@ box_options_sola_multicast_hsvf_v1_8.hsvf_stx.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Box Options Sola Multicast Hsvf 1.8
-local function omi_box_options_sola_multicast_hsvf_v1_8_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Box Options Sola Multicast Hsvf 1.8 (Udp)
+local function omi_box_options_sola_multicast_hsvf_v1_8_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not box_options_sola_multicast_hsvf_v1_8.packet.requiredsize(buffer) then return false end
 
@@ -6607,7 +6607,7 @@ local function omi_box_options_sola_multicast_hsvf_v1_8_heuristic(buffer, packet
 end
 
 -- Register Heuristic for Box Options Sola Multicast Hsvf 1.8
-omi_box_options_sola_multicast_hsvf_v1_8:register_heuristic("udp", omi_box_options_sola_multicast_hsvf_v1_8_heuristic)
+omi_box_options_sola_multicast_hsvf_v1_8:register_heuristic("udp", omi_box_options_sola_multicast_hsvf_v1_8_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

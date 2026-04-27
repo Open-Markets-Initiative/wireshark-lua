@@ -9777,14 +9777,14 @@ tcp_table:add(65333, omi_nyse_nationalequities_binarygateway_pillarstream_v5_17)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 nyse_nationalequities_binarygateway_pillarstream_v5_17.pillar_stream_message.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse NationalEquities BinaryGateway PillarStream 5.17
-local function omi_nyse_nationalequities_binarygateway_pillarstream_v5_17_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse NationalEquities BinaryGateway PillarStream 5.17 (Tcp)
+local function omi_nyse_nationalequities_binarygateway_pillarstream_v5_17_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_nationalequities_binarygateway_pillarstream_v5_17.pillar_stream_message.requiredsize(buffer) then return false end
 
@@ -9796,7 +9796,7 @@ local function omi_nyse_nationalequities_binarygateway_pillarstream_v5_17_heuris
 end
 
 -- Register Heuristic for Nyse NationalEquities BinaryGateway PillarStream 5.17
-omi_nyse_nationalequities_binarygateway_pillarstream_v5_17:register_heuristic("tcp", omi_nyse_nationalequities_binarygateway_pillarstream_v5_17_heuristic)
+omi_nyse_nationalequities_binarygateway_pillarstream_v5_17:register_heuristic("tcp", omi_nyse_nationalequities_binarygateway_pillarstream_v5_17_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

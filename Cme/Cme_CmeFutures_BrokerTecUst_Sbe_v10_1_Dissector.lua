@@ -1473,7 +1473,7 @@ udp_table:add(65333, omi_cme_cmefutures_brokertecust_sbe_v10_1)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 cme_cmefutures_brokertecust_sbe_v10_1.packet.requiredsize = function(buffer)
 
   return true
@@ -1503,8 +1503,8 @@ cme_cmefutures_brokertecust_sbe_v10_1.version.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Cme CmeFutures BrokerTecUst Sbe 10.1
-local function omi_cme_cmefutures_brokertecust_sbe_v10_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cme CmeFutures BrokerTecUst Sbe 10.1 (Udp)
+local function omi_cme_cmefutures_brokertecust_sbe_v10_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cme_cmefutures_brokertecust_sbe_v10_1.packet.requiredsize(buffer) then return false end
 
@@ -1522,7 +1522,7 @@ local function omi_cme_cmefutures_brokertecust_sbe_v10_1_heuristic(buffer, packe
 end
 
 -- Register Heuristic for Cme CmeFutures BrokerTecUst Sbe 10.1
-omi_cme_cmefutures_brokertecust_sbe_v10_1:register_heuristic("udp", omi_cme_cmefutures_brokertecust_sbe_v10_1_heuristic)
+omi_cme_cmefutures_brokertecust_sbe_v10_1:register_heuristic("udp", omi_cme_cmefutures_brokertecust_sbe_v10_1_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

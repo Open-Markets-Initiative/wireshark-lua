@@ -4131,14 +4131,14 @@ udp_table:add(65333, omi_nasdaq_nsmequities_totalview_itch_v5_0_2017)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nasdaq_nsmequities_totalview_itch_v5_0_2017.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq NsmEquities TotalView Itch 5.0.2017
-local function omi_nasdaq_nsmequities_totalview_itch_v5_0_2017_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq NsmEquities TotalView Itch 5.0.2017 (Udp)
+local function omi_nasdaq_nsmequities_totalview_itch_v5_0_2017_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_nsmequities_totalview_itch_v5_0_2017.packet.requiredsize(buffer) then return false end
 
@@ -4150,7 +4150,7 @@ local function omi_nasdaq_nsmequities_totalview_itch_v5_0_2017_heuristic(buffer,
 end
 
 -- Register Heuristic for Nasdaq NsmEquities TotalView Itch 5.0.2017
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017:register_heuristic("udp", omi_nasdaq_nsmequities_totalview_itch_v5_0_2017_heuristic)
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2017:register_heuristic("udp", omi_nasdaq_nsmequities_totalview_itch_v5_0_2017_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

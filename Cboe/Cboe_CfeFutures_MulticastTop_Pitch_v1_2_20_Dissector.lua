@@ -3399,14 +3399,14 @@ udp_table:add(65333, omi_cboe_cfefutures_multicasttop_pitch_v1_2_20)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 cboe_cfefutures_multicasttop_pitch_v1_2_20.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Cboe CfeFutures MulticastTop Pitch 1.2.20
-local function omi_cboe_cfefutures_multicasttop_pitch_v1_2_20_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cboe CfeFutures MulticastTop Pitch 1.2.20 (Udp)
+local function omi_cboe_cfefutures_multicasttop_pitch_v1_2_20_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cfefutures_multicasttop_pitch_v1_2_20.packet.requiredsize(buffer) then return false end
 
@@ -3418,7 +3418,7 @@ local function omi_cboe_cfefutures_multicasttop_pitch_v1_2_20_heuristic(buffer, 
 end
 
 -- Register Heuristic for Cboe CfeFutures MulticastTop Pitch 1.2.20
-omi_cboe_cfefutures_multicasttop_pitch_v1_2_20:register_heuristic("udp", omi_cboe_cfefutures_multicasttop_pitch_v1_2_20_heuristic)
+omi_cboe_cfefutures_multicasttop_pitch_v1_2_20:register_heuristic("udp", omi_cboe_cfefutures_multicasttop_pitch_v1_2_20_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

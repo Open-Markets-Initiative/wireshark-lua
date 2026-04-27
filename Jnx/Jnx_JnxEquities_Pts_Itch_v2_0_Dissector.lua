@@ -1011,7 +1011,7 @@ jnx_jnxequities_pts_itch_v2_0.timestamp = {}
 
 -- Translate: Timestamp
 jnx_jnxequities_pts_itch_v2_0.timestamp.translate = function(timestamp_nanoseconds, stored_timestamp_seconds)
-  return UInt64.new(stored_timestampseconds * 1000000000 + timestampnanoseconds)
+  return UInt64.new(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
 end
 
 -- Display: Timestamp
@@ -1959,14 +1959,14 @@ udp_table:add(65333, omi_jnx_jnxequities_pts_itch_v2_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 jnx_jnxequities_pts_itch_v2_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Jnx JnxEquities Pts Itch 2.0
-local function omi_jnx_jnxequities_pts_itch_v2_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Jnx JnxEquities Pts Itch 2.0 (Udp)
+local function omi_jnx_jnxequities_pts_itch_v2_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not jnx_jnxequities_pts_itch_v2_0.packet.requiredsize(buffer) then return false end
 
@@ -1978,7 +1978,7 @@ local function omi_jnx_jnxequities_pts_itch_v2_0_heuristic(buffer, packet, paren
 end
 
 -- Register Heuristic for Jnx JnxEquities Pts Itch 2.0
-omi_jnx_jnxequities_pts_itch_v2_0:register_heuristic("udp", omi_jnx_jnxequities_pts_itch_v2_0_heuristic)
+omi_jnx_jnxequities_pts_itch_v2_0:register_heuristic("udp", omi_jnx_jnxequities_pts_itch_v2_0_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

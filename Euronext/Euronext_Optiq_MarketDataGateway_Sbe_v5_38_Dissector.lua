@@ -19182,7 +19182,7 @@ udp_table:add(65333, omi_euronext_optiq_marketdatagateway_sbe_v5_38)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 euronext_optiq_marketdatagateway_sbe_v5_38.packet.requiredsize = function(buffer)
 
   return true
@@ -19212,8 +19212,8 @@ euronext_optiq_marketdatagateway_sbe_v5_38.version.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Euronext Optiq MarketDataGateway Sbe 5.38
-local function omi_euronext_optiq_marketdatagateway_sbe_v5_38_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Euronext Optiq MarketDataGateway Sbe 5.38 (Udp)
+local function omi_euronext_optiq_marketdatagateway_sbe_v5_38_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not euronext_optiq_marketdatagateway_sbe_v5_38.packet.requiredsize(buffer) then return false end
 
@@ -19231,7 +19231,7 @@ local function omi_euronext_optiq_marketdatagateway_sbe_v5_38_heuristic(buffer, 
 end
 
 -- Register Heuristic for Euronext Optiq MarketDataGateway Sbe 5.38
-omi_euronext_optiq_marketdatagateway_sbe_v5_38:register_heuristic("udp", omi_euronext_optiq_marketdatagateway_sbe_v5_38_heuristic)
+omi_euronext_optiq_marketdatagateway_sbe_v5_38:register_heuristic("udp", omi_euronext_optiq_marketdatagateway_sbe_v5_38_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

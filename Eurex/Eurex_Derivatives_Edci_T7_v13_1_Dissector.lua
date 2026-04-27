@@ -4653,14 +4653,14 @@ tcp_table:add(65333, omi_eurex_derivatives_edci_t7_v13_1)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 eurex_derivatives_edci_t7_v13_1.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Eurex Derivatives Edci T7 13.1
-local function omi_eurex_derivatives_edci_t7_v13_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Eurex Derivatives Edci T7 13.1 (Tcp)
+local function omi_eurex_derivatives_edci_t7_v13_1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not eurex_derivatives_edci_t7_v13_1.packet.requiredsize(buffer) then return false end
 
@@ -4672,7 +4672,7 @@ local function omi_eurex_derivatives_edci_t7_v13_1_heuristic(buffer, packet, par
 end
 
 -- Register Heuristic for Eurex Derivatives Edci T7 13.1
-omi_eurex_derivatives_edci_t7_v13_1:register_heuristic("tcp", omi_eurex_derivatives_edci_t7_v13_1_heuristic)
+omi_eurex_derivatives_edci_t7_v13_1:register_heuristic("tcp", omi_eurex_derivatives_edci_t7_v13_1_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

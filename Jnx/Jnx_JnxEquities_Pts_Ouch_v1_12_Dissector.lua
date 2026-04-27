@@ -2564,14 +2564,14 @@ tcp_table:add(65333, omi_jnx_jnxequities_pts_ouch_v1_12)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 jnx_jnxequities_pts_ouch_v1_12.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Jnx JnxEquities Pts Ouch 1.12
-local function omi_jnx_jnxequities_pts_ouch_v1_12_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Jnx JnxEquities Pts Ouch 1.12 (Tcp)
+local function omi_jnx_jnxequities_pts_ouch_v1_12_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not jnx_jnxequities_pts_ouch_v1_12.packet.requiredsize(buffer) then return false end
 
@@ -2583,7 +2583,7 @@ local function omi_jnx_jnxequities_pts_ouch_v1_12_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for Jnx JnxEquities Pts Ouch 1.12
-omi_jnx_jnxequities_pts_ouch_v1_12:register_heuristic("tcp", omi_jnx_jnxequities_pts_ouch_v1_12_heuristic)
+omi_jnx_jnxequities_pts_ouch_v1_12:register_heuristic("tcp", omi_jnx_jnxequities_pts_ouch_v1_12_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

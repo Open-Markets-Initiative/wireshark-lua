@@ -2928,14 +2928,14 @@ udp_table:add(65333, omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse NyseEquities ImbalancesFeed Xdp 2.1.f
-local function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse NyseEquities ImbalancesFeed Xdp 2.1.f (Udp)
+local function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet.requiredsize(buffer) then return false end
 
@@ -2947,7 +2947,7 @@ local function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f_heuristic(buffer,
 end
 
 -- Register Heuristic for Nyse NyseEquities ImbalancesFeed Xdp 2.1.f
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f:register_heuristic("udp", omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f_heuristic)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f:register_heuristic("udp", omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

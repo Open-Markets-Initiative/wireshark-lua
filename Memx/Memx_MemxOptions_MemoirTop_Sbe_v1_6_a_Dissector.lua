@@ -2686,14 +2686,14 @@ udp_table:add(65333, omi_memx_memxoptions_memoirtop_sbe_v1_6_a)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 memx_memxoptions_memoirtop_sbe_v1_6_a.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Memx MemxOptions MemoirTop Sbe 1.6.a
-local function omi_memx_memxoptions_memoirtop_sbe_v1_6_a_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Memx MemxOptions MemoirTop Sbe 1.6.a (Udp)
+local function omi_memx_memxoptions_memoirtop_sbe_v1_6_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not memx_memxoptions_memoirtop_sbe_v1_6_a.packet.requiredsize(buffer) then return false end
 
@@ -2705,7 +2705,7 @@ local function omi_memx_memxoptions_memoirtop_sbe_v1_6_a_heuristic(buffer, packe
 end
 
 -- Register Heuristic for Memx MemxOptions MemoirTop Sbe 1.6.a
-omi_memx_memxoptions_memoirtop_sbe_v1_6_a:register_heuristic("udp", omi_memx_memxoptions_memoirtop_sbe_v1_6_a_heuristic)
+omi_memx_memxoptions_memoirtop_sbe_v1_6_a:register_heuristic("udp", omi_memx_memxoptions_memoirtop_sbe_v1_6_a_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

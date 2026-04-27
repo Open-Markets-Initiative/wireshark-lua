@@ -2546,14 +2546,14 @@ udp_table:add(65333, omi_iex_iexequities_tops_iextp_v1_5_6)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 iex_iexequities_tops_iextp_v1_5_6.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Iex IexEquities Tops IexTp 1.5.6
-local function omi_iex_iexequities_tops_iextp_v1_5_6_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Iex IexEquities Tops IexTp 1.5.6 (Udp)
+local function omi_iex_iexequities_tops_iextp_v1_5_6_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not iex_iexequities_tops_iextp_v1_5_6.packet.requiredsize(buffer) then return false end
 
@@ -2565,7 +2565,7 @@ local function omi_iex_iexequities_tops_iextp_v1_5_6_heuristic(buffer, packet, p
 end
 
 -- Register Heuristic for Iex IexEquities Tops IexTp 1.5.6
-omi_iex_iexequities_tops_iextp_v1_5_6:register_heuristic("udp", omi_iex_iexequities_tops_iextp_v1_5_6_heuristic)
+omi_iex_iexequities_tops_iextp_v1_5_6:register_heuristic("udp", omi_iex_iexequities_tops_iextp_v1_5_6_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

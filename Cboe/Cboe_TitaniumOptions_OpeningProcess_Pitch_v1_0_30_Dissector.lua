@@ -1758,14 +1758,14 @@ udp_table:add(65333, omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 cboe_titaniumoptions_openingprocess_pitch_v1_0_30.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Cboe TitaniumOptions OpeningProcess Pitch 1.0.30
-local function omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cboe TitaniumOptions OpeningProcess Pitch 1.0.30 (Udp)
+local function omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_titaniumoptions_openingprocess_pitch_v1_0_30.packet.requiredsize(buffer) then return false end
 
@@ -1777,7 +1777,7 @@ local function omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30_heuristic(b
 end
 
 -- Register Heuristic for Cboe TitaniumOptions OpeningProcess Pitch 1.0.30
-omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30:register_heuristic("udp", omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30_heuristic)
+omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30:register_heuristic("udp", omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -2449,14 +2449,14 @@ udp_table:add(65333, omi_nasdaq_bxoptions_topofmarket_itch_v1_2)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nasdaq_bxoptions_topofmarket_itch_v1_2.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq BxOptions TopOfMarket Itch 1.2
-local function omi_nasdaq_bxoptions_topofmarket_itch_v1_2_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq BxOptions TopOfMarket Itch 1.2 (Udp)
+local function omi_nasdaq_bxoptions_topofmarket_itch_v1_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_bxoptions_topofmarket_itch_v1_2.packet.requiredsize(buffer) then return false end
 
@@ -2468,7 +2468,7 @@ local function omi_nasdaq_bxoptions_topofmarket_itch_v1_2_heuristic(buffer, pack
 end
 
 -- Register Heuristic for Nasdaq BxOptions TopOfMarket Itch 1.2
-omi_nasdaq_bxoptions_topofmarket_itch_v1_2:register_heuristic("udp", omi_nasdaq_bxoptions_topofmarket_itch_v1_2_heuristic)
+omi_nasdaq_bxoptions_topofmarket_itch_v1_2:register_heuristic("udp", omi_nasdaq_bxoptions_topofmarket_itch_v1_2_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

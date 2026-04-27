@@ -8877,14 +8877,14 @@ tcp_table:add(65333, omi_memx_memxoptions_memo_sbe_v1_3)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 memx_memxoptions_memo_sbe_v1_3.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Memx MemxOptions Memo Sbe 1.3
-local function omi_memx_memxoptions_memo_sbe_v1_3_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Memx MemxOptions Memo Sbe 1.3 (Tcp)
+local function omi_memx_memxoptions_memo_sbe_v1_3_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not memx_memxoptions_memo_sbe_v1_3.packet.requiredsize(buffer) then return false end
 
@@ -8896,7 +8896,7 @@ local function omi_memx_memxoptions_memo_sbe_v1_3_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for Memx MemxOptions Memo Sbe 1.3
-omi_memx_memxoptions_memo_sbe_v1_3:register_heuristic("tcp", omi_memx_memxoptions_memo_sbe_v1_3_heuristic)
+omi_memx_memxoptions_memo_sbe_v1_3:register_heuristic("tcp", omi_memx_memxoptions_memo_sbe_v1_3_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

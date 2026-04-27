@@ -2438,14 +2438,14 @@ tcp_table:add(65333, omi_odx_odxsecuritytoken_pts_itch_v1_2)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 odx_odxsecuritytoken_pts_itch_v1_2.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Odx OdxSecurityToken Pts Itch 1.2
-local function omi_odx_odxsecuritytoken_pts_itch_v1_2_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Odx OdxSecurityToken Pts Itch 1.2 (Tcp)
+local function omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not odx_odxsecuritytoken_pts_itch_v1_2.packet.requiredsize(buffer) then return false end
 
@@ -2457,7 +2457,7 @@ local function omi_odx_odxsecuritytoken_pts_itch_v1_2_heuristic(buffer, packet, 
 end
 
 -- Register Heuristic for Odx OdxSecurityToken Pts Itch 1.2
-omi_odx_odxsecuritytoken_pts_itch_v1_2:register_heuristic("tcp", omi_odx_odxsecuritytoken_pts_itch_v1_2_heuristic)
+omi_odx_odxsecuritytoken_pts_itch_v1_2:register_heuristic("tcp", omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

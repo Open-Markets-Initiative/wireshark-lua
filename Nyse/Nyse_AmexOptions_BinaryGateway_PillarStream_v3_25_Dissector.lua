@@ -10367,14 +10367,14 @@ tcp_table:add(65333, omi_nyse_amexoptions_binarygateway_pillarstream_v3_25)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse AmexOptions BinaryGateway PillarStream 3.25
-local function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse AmexOptions BinaryGateway PillarStream 3.25 (Tcp)
+local function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message.requiredsize(buffer) then return false end
 
@@ -10386,7 +10386,7 @@ local function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25_heuristic(b
 end
 
 -- Register Heuristic for Nyse AmexOptions BinaryGateway PillarStream 3.25
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25:register_heuristic("tcp", omi_nyse_amexoptions_binarygateway_pillarstream_v3_25_heuristic)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25:register_heuristic("tcp", omi_nyse_amexoptions_binarygateway_pillarstream_v3_25_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -620,14 +620,14 @@ udp_table:add(65333, omi_b3_securities_binarypacketheader_udp_v1_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 b3_securities_binarypacketheader_udp_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for B3 Securities BinaryPacketHeader Udp 1.0
-local function omi_b3_securities_binarypacketheader_udp_v1_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for B3 Securities BinaryPacketHeader Udp 1.0 (Udp)
+local function omi_b3_securities_binarypacketheader_udp_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not b3_securities_binarypacketheader_udp_v1_0.packet.requiredsize(buffer) then return false end
 
@@ -639,7 +639,7 @@ local function omi_b3_securities_binarypacketheader_udp_v1_0_heuristic(buffer, p
 end
 
 -- Register Heuristic for B3 Securities BinaryPacketHeader Udp 1.0
-omi_b3_securities_binarypacketheader_udp_v1_0:register_heuristic("udp", omi_b3_securities_binarypacketheader_udp_v1_0_heuristic)
+omi_b3_securities_binarypacketheader_udp_v1_0:register_heuristic("udp", omi_b3_securities_binarypacketheader_udp_v1_0_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

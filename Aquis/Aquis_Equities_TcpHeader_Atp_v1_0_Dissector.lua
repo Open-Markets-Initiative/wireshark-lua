@@ -328,14 +328,14 @@ tcp_table:add(65333, omi_aquis_equities_tcpheader_atp_v1_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 aquis_equities_tcpheader_atp_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Aquis Equities TcpHeader Atp 1.0
-local function omi_aquis_equities_tcpheader_atp_v1_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Aquis Equities TcpHeader Atp 1.0 (Tcp)
+local function omi_aquis_equities_tcpheader_atp_v1_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not aquis_equities_tcpheader_atp_v1_0.packet.requiredsize(buffer) then return false end
 
@@ -347,7 +347,7 @@ local function omi_aquis_equities_tcpheader_atp_v1_0_heuristic(buffer, packet, p
 end
 
 -- Register Heuristic for Aquis Equities TcpHeader Atp 1.0
-omi_aquis_equities_tcpheader_atp_v1_0:register_heuristic("tcp", omi_aquis_equities_tcpheader_atp_v1_0_heuristic)
+omi_aquis_equities_tcpheader_atp_v1_0:register_heuristic("tcp", omi_aquis_equities_tcpheader_atp_v1_0_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

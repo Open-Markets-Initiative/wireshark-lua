@@ -781,14 +781,14 @@ udp_table:add(65333, omi_tmx_quantumfeed_xmtheader_udp_v1_1)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 tmx_quantumfeed_xmtheader_udp_v1_1.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Tmx QuantumFeed XmtHeader Udp 1.1
-local function omi_tmx_quantumfeed_xmtheader_udp_v1_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Tmx QuantumFeed XmtHeader Udp 1.1 (Udp)
+local function omi_tmx_quantumfeed_xmtheader_udp_v1_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not tmx_quantumfeed_xmtheader_udp_v1_1.packet.requiredsize(buffer) then return false end
 
@@ -800,7 +800,7 @@ local function omi_tmx_quantumfeed_xmtheader_udp_v1_1_heuristic(buffer, packet, 
 end
 
 -- Register Heuristic for Tmx QuantumFeed XmtHeader Udp 1.1
-omi_tmx_quantumfeed_xmtheader_udp_v1_1:register_heuristic("udp", omi_tmx_quantumfeed_xmtheader_udp_v1_1_heuristic)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1:register_heuristic("udp", omi_tmx_quantumfeed_xmtheader_udp_v1_1_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

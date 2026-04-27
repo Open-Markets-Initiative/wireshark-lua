@@ -440,14 +440,14 @@ udp_table:add(65333, omi_lseg_millennium_udpunitheader_mitch_v1_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 lseg_millennium_udpunitheader_mitch_v1_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Lseg Millennium UdpUnitHeader Mitch 1.0
-local function omi_lseg_millennium_udpunitheader_mitch_v1_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Lseg Millennium UdpUnitHeader Mitch 1.0 (Udp)
+local function omi_lseg_millennium_udpunitheader_mitch_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_millennium_udpunitheader_mitch_v1_0.packet.requiredsize(buffer) then return false end
 
@@ -459,7 +459,7 @@ local function omi_lseg_millennium_udpunitheader_mitch_v1_0_heuristic(buffer, pa
 end
 
 -- Register Heuristic for Lseg Millennium UdpUnitHeader Mitch 1.0
-omi_lseg_millennium_udpunitheader_mitch_v1_0:register_heuristic("udp", omi_lseg_millennium_udpunitheader_mitch_v1_0_heuristic)
+omi_lseg_millennium_udpunitheader_mitch_v1_0:register_heuristic("udp", omi_lseg_millennium_udpunitheader_mitch_v1_0_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

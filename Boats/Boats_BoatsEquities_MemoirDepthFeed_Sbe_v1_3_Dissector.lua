@@ -2179,14 +2179,14 @@ udp_table:add(65333, omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 boats_boatsequities_memoirdepthfeed_sbe_v1_3.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Boats BoatsEquities MemoirDepthFeed Sbe 1.3
-local function omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Boats BoatsEquities MemoirDepthFeed Sbe 1.3 (Udp)
+local function omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not boats_boatsequities_memoirdepthfeed_sbe_v1_3.packet.requiredsize(buffer) then return false end
 
@@ -2198,7 +2198,7 @@ local function omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3_heuristic(buffer
 end
 
 -- Register Heuristic for Boats BoatsEquities MemoirDepthFeed Sbe 1.3
-omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3:register_heuristic("udp", omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3_heuristic)
+omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3:register_heuristic("udp", omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -639,14 +639,14 @@ tcp_table:add(65333, omi_aquis_equities_replay_amd_v4_1)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 aquis_equities_replay_amd_v4_1.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Aquis Equities Replay Amd 4.1
-local function omi_aquis_equities_replay_amd_v4_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Aquis Equities Replay Amd 4.1 (Tcp)
+local function omi_aquis_equities_replay_amd_v4_1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not aquis_equities_replay_amd_v4_1.packet.requiredsize(buffer) then return false end
 
@@ -658,7 +658,7 @@ local function omi_aquis_equities_replay_amd_v4_1_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for Aquis Equities Replay Amd 4.1
-omi_aquis_equities_replay_amd_v4_1:register_heuristic("tcp", omi_aquis_equities_replay_amd_v4_1_heuristic)
+omi_aquis_equities_replay_amd_v4_1:register_heuristic("tcp", omi_aquis_equities_replay_amd_v4_1_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -12438,14 +12438,14 @@ udp_table:add(65333, omi_ice_futures_mdf_impact_v1_1_51)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 ice_futures_mdf_impact_v1_1_51.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Ice Futures Mdf iMpact 1.1.51
-local function omi_ice_futures_mdf_impact_v1_1_51_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Ice Futures Mdf iMpact 1.1.51 (Udp)
+local function omi_ice_futures_mdf_impact_v1_1_51_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not ice_futures_mdf_impact_v1_1_51.packet.requiredsize(buffer) then return false end
 
@@ -12457,7 +12457,7 @@ local function omi_ice_futures_mdf_impact_v1_1_51_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for Ice Futures Mdf iMpact 1.1.51
-omi_ice_futures_mdf_impact_v1_1_51:register_heuristic("udp", omi_ice_futures_mdf_impact_v1_1_51_heuristic)
+omi_ice_futures_mdf_impact_v1_1_51:register_heuristic("udp", omi_ice_futures_mdf_impact_v1_1_51_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

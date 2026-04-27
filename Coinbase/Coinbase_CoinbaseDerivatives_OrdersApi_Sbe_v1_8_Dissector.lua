@@ -5223,7 +5223,7 @@ tcp_table:add(65333, omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.packet.requiredsize = function(buffer)
 
   return true
@@ -5261,8 +5261,8 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.verify = function(buffer
   return false
 end
 
--- Dissector Heuristic for Coinbase CoinbaseDerivatives OrdersApi Sbe 1.8
-local function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Coinbase CoinbaseDerivatives OrdersApi Sbe 1.8 (Tcp)
+local function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.packet.requiredsize(buffer) then return false end
 
@@ -5280,7 +5280,7 @@ local function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_heuristic(buf
 end
 
 -- Register Heuristic for Coinbase CoinbaseDerivatives OrdersApi Sbe 1.8
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8:register_heuristic("tcp", omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_heuristic)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8:register_heuristic("tcp", omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

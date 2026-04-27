@@ -3964,14 +3964,14 @@ tcp_table:add(65333, omi_nsxaustralia_nets_itch_v4_2_55)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 nsxaustralia_nets_itch_v4_2_55.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for NsxAustralia Nets Itch 4.2.55
-local function omi_nsxaustralia_nets_itch_v4_2_55_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for NsxAustralia Nets Itch 4.2.55 (Tcp)
+local function omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nsxaustralia_nets_itch_v4_2_55.packet.requiredsize(buffer) then return false end
 
@@ -3983,7 +3983,7 @@ local function omi_nsxaustralia_nets_itch_v4_2_55_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for NsxAustralia Nets Itch 4.2.55
-omi_nsxaustralia_nets_itch_v4_2_55:register_heuristic("tcp", omi_nsxaustralia_nets_itch_v4_2_55_heuristic)
+omi_nsxaustralia_nets_itch_v4_2_55:register_heuristic("tcp", omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

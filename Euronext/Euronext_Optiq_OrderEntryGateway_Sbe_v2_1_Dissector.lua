@@ -17829,7 +17829,7 @@ tcp_table:add(65333, omi_euronext_optiq_orderentrygateway_sbe_v2_1)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 euronext_optiq_orderentrygateway_sbe_v2_1.packet.requiredsize = function(buffer)
 
   return true
@@ -17859,8 +17859,8 @@ euronext_optiq_orderentrygateway_sbe_v2_1.version.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Euronext Optiq OrderEntryGateway Sbe 2.1
-local function omi_euronext_optiq_orderentrygateway_sbe_v2_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Euronext Optiq OrderEntryGateway Sbe 2.1 (Tcp)
+local function omi_euronext_optiq_orderentrygateway_sbe_v2_1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not euronext_optiq_orderentrygateway_sbe_v2_1.packet.requiredsize(buffer) then return false end
 
@@ -17878,7 +17878,7 @@ local function omi_euronext_optiq_orderentrygateway_sbe_v2_1_heuristic(buffer, p
 end
 
 -- Register Heuristic for Euronext Optiq OrderEntryGateway Sbe 2.1
-omi_euronext_optiq_orderentrygateway_sbe_v2_1:register_heuristic("tcp", omi_euronext_optiq_orderentrygateway_sbe_v2_1_heuristic)
+omi_euronext_optiq_orderentrygateway_sbe_v2_1:register_heuristic("tcp", omi_euronext_optiq_orderentrygateway_sbe_v2_1_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

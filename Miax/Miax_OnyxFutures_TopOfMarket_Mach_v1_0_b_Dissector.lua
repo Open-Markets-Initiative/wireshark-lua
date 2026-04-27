@@ -2355,14 +2355,14 @@ udp_table:add(65333, omi_miax_onyxfutures_topofmarket_mach_v1_0_b)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 miax_onyxfutures_topofmarket_mach_v1_0_b.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Miax OnyxFutures TopOfMarket Mach 1.0.b
-local function omi_miax_onyxfutures_topofmarket_mach_v1_0_b_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Miax OnyxFutures TopOfMarket Mach 1.0.b (Udp)
+local function omi_miax_onyxfutures_topofmarket_mach_v1_0_b_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_onyxfutures_topofmarket_mach_v1_0_b.packet.requiredsize(buffer) then return false end
 
@@ -2374,7 +2374,7 @@ local function omi_miax_onyxfutures_topofmarket_mach_v1_0_b_heuristic(buffer, pa
 end
 
 -- Register Heuristic for Miax OnyxFutures TopOfMarket Mach 1.0.b
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b:register_heuristic("udp", omi_miax_onyxfutures_topofmarket_mach_v1_0_b_heuristic)
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b:register_heuristic("udp", omi_miax_onyxfutures_topofmarket_mach_v1_0_b_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

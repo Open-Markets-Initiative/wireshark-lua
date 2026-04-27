@@ -4643,7 +4643,7 @@ udp_table:add(65333, omi_eurex_derivatives_eobi_t7_v6_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 eurex_derivatives_eobi_t7_v6_0.packet.requiredsize = function(buffer)
 
   return true
@@ -4661,8 +4661,8 @@ eurex_derivatives_eobi_t7_v6_0.packet_id.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Eurex Derivatives Eobi T7 6.0
-local function omi_eurex_derivatives_eobi_t7_v6_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Eurex Derivatives Eobi T7 6.0 (Udp)
+local function omi_eurex_derivatives_eobi_t7_v6_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not eurex_derivatives_eobi_t7_v6_0.packet.requiredsize(buffer) then return false end
 
@@ -4677,7 +4677,7 @@ local function omi_eurex_derivatives_eobi_t7_v6_0_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for Eurex Derivatives Eobi T7 6.0
-omi_eurex_derivatives_eobi_t7_v6_0:register_heuristic("udp", omi_eurex_derivatives_eobi_t7_v6_0_heuristic)
+omi_eurex_derivatives_eobi_t7_v6_0:register_heuristic("udp", omi_eurex_derivatives_eobi_t7_v6_0_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

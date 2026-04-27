@@ -942,14 +942,14 @@ udp_table:add(65333, omi_a2x_equities_snapshot_amd_v1_3_2)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 a2x_equities_snapshot_amd_v1_3_2.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for A2X Equities Snapshot Amd 1.3.2
-local function omi_a2x_equities_snapshot_amd_v1_3_2_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for A2X Equities Snapshot Amd 1.3.2 (Udp)
+local function omi_a2x_equities_snapshot_amd_v1_3_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not a2x_equities_snapshot_amd_v1_3_2.packet.requiredsize(buffer) then return false end
 
@@ -961,7 +961,7 @@ local function omi_a2x_equities_snapshot_amd_v1_3_2_heuristic(buffer, packet, pa
 end
 
 -- Register Heuristic for A2X Equities Snapshot Amd 1.3.2
-omi_a2x_equities_snapshot_amd_v1_3_2:register_heuristic("udp", omi_a2x_equities_snapshot_amd_v1_3_2_heuristic)
+omi_a2x_equities_snapshot_amd_v1_3_2:register_heuristic("udp", omi_a2x_equities_snapshot_amd_v1_3_2_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

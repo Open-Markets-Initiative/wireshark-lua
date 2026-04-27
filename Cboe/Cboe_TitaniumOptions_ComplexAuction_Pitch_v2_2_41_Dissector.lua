@@ -2128,14 +2128,14 @@ udp_table:add(65333, omi_cboe_titaniumoptions_complexauction_pitch_v2_2_41)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 cboe_titaniumoptions_complexauction_pitch_v2_2_41.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Cboe TitaniumOptions ComplexAuction Pitch 2.2.41
-local function omi_cboe_titaniumoptions_complexauction_pitch_v2_2_41_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cboe TitaniumOptions ComplexAuction Pitch 2.2.41 (Udp)
+local function omi_cboe_titaniumoptions_complexauction_pitch_v2_2_41_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_titaniumoptions_complexauction_pitch_v2_2_41.packet.requiredsize(buffer) then return false end
 
@@ -2147,7 +2147,7 @@ local function omi_cboe_titaniumoptions_complexauction_pitch_v2_2_41_heuristic(b
 end
 
 -- Register Heuristic for Cboe TitaniumOptions ComplexAuction Pitch 2.2.41
-omi_cboe_titaniumoptions_complexauction_pitch_v2_2_41:register_heuristic("udp", omi_cboe_titaniumoptions_complexauction_pitch_v2_2_41_heuristic)
+omi_cboe_titaniumoptions_complexauction_pitch_v2_2_41:register_heuristic("udp", omi_cboe_titaniumoptions_complexauction_pitch_v2_2_41_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -5087,14 +5087,14 @@ udp_table:add(65333, omi_hkex_derivatives_fulltick_omd_v1_47)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 hkex_derivatives_fulltick_omd_v1_47.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Hkex Derivatives FullTick Omd 1.47
-local function omi_hkex_derivatives_fulltick_omd_v1_47_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Hkex Derivatives FullTick Omd 1.47 (Udp)
+local function omi_hkex_derivatives_fulltick_omd_v1_47_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not hkex_derivatives_fulltick_omd_v1_47.packet.requiredsize(buffer) then return false end
 
@@ -5106,7 +5106,7 @@ local function omi_hkex_derivatives_fulltick_omd_v1_47_heuristic(buffer, packet,
 end
 
 -- Register Heuristic for Hkex Derivatives FullTick Omd 1.47
-omi_hkex_derivatives_fulltick_omd_v1_47:register_heuristic("udp", omi_hkex_derivatives_fulltick_omd_v1_47_heuristic)
+omi_hkex_derivatives_fulltick_omd_v1_47:register_heuristic("udp", omi_hkex_derivatives_fulltick_omd_v1_47_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

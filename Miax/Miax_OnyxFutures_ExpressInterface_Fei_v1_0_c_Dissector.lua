@@ -4611,14 +4611,14 @@ tcp_table:add(65333, omi_miax_onyxfutures_expressinterface_fei_v1_0_c)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Miax OnyxFutures ExpressInterface Fei 1.0.c
-local function omi_miax_onyxfutures_expressinterface_fei_v1_0_c_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Miax OnyxFutures ExpressInterface Fei 1.0.c (Tcp)
+local function omi_miax_onyxfutures_expressinterface_fei_v1_0_c_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_onyxfutures_expressinterface_fei_v1_0_c.packet.requiredsize(buffer) then return false end
 
@@ -4630,7 +4630,7 @@ local function omi_miax_onyxfutures_expressinterface_fei_v1_0_c_heuristic(buffer
 end
 
 -- Register Heuristic for Miax OnyxFutures ExpressInterface Fei 1.0.c
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c:register_heuristic("tcp", omi_miax_onyxfutures_expressinterface_fei_v1_0_c_heuristic)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c:register_heuristic("tcp", omi_miax_onyxfutures_expressinterface_fei_v1_0_c_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

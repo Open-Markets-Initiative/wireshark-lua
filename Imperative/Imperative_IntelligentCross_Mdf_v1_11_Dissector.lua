@@ -1620,14 +1620,14 @@ udp_table:add(65333, omi_imperative_intelligentcross_mdf_v1_11)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 imperative_intelligentcross_mdf_v1_11.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Imperative IntelligentCross Mdf 1.11
-local function omi_imperative_intelligentcross_mdf_v1_11_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Imperative IntelligentCross Mdf 1.11 (Udp)
+local function omi_imperative_intelligentcross_mdf_v1_11_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not imperative_intelligentcross_mdf_v1_11.packet.requiredsize(buffer) then return false end
 
@@ -1639,7 +1639,7 @@ local function omi_imperative_intelligentcross_mdf_v1_11_heuristic(buffer, packe
 end
 
 -- Register Heuristic for Imperative IntelligentCross Mdf 1.11
-omi_imperative_intelligentcross_mdf_v1_11:register_heuristic("udp", omi_imperative_intelligentcross_mdf_v1_11_heuristic)
+omi_imperative_intelligentcross_mdf_v1_11:register_heuristic("udp", omi_imperative_intelligentcross_mdf_v1_11_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

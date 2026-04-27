@@ -10,7 +10,7 @@
 | [Markets][Markets] | [Multicast][Otc.Markets.Multicast] | [Ats][Omi.Encoding.Ats] | [4.3][Otc.Markets.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | 3999 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Multicast.Ats.v4.3.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.3.Pdf] |
 
 
-Otc: [website](https://www.otcmarkets.com "Go to Otc Markets")
+Otc: [website](https://www.otcmarkets.com "Go to OTC Markets Group (OTC)")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"

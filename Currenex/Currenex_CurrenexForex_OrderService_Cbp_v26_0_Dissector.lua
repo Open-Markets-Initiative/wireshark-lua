@@ -2468,7 +2468,7 @@ tcp_table:add(65333, omi_currenex_currenexforex_orderservice_cbp_v26_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 currenex_currenexforex_orderservice_cbp_v26_0.packet.requiredsize = function(buffer)
 
   return true
@@ -2486,8 +2486,8 @@ currenex_currenexforex_orderservice_cbp_v26_0.soh.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Currenex CurrenexForex OrderService Cbp 26.0
-local function omi_currenex_currenexforex_orderservice_cbp_v26_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Currenex CurrenexForex OrderService Cbp 26.0 (Tcp)
+local function omi_currenex_currenexforex_orderservice_cbp_v26_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not currenex_currenexforex_orderservice_cbp_v26_0.packet.requiredsize(buffer) then return false end
 
@@ -2502,7 +2502,7 @@ local function omi_currenex_currenexforex_orderservice_cbp_v26_0_heuristic(buffe
 end
 
 -- Register Heuristic for Currenex CurrenexForex OrderService Cbp 26.0
-omi_currenex_currenexforex_orderservice_cbp_v26_0:register_heuristic("tcp", omi_currenex_currenexforex_orderservice_cbp_v26_0_heuristic)
+omi_currenex_currenexforex_orderservice_cbp_v26_0:register_heuristic("tcp", omi_currenex_currenexforex_orderservice_cbp_v26_0_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

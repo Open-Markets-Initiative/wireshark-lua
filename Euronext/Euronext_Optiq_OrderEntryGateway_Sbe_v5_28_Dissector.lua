@@ -19319,7 +19319,7 @@ tcp_table:add(65333, omi_euronext_optiq_orderentrygateway_sbe_v5_28)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 euronext_optiq_orderentrygateway_sbe_v5_28.packet.requiredsize = function(buffer)
 
   return true
@@ -19349,8 +19349,8 @@ euronext_optiq_orderentrygateway_sbe_v5_28.version.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Euronext Optiq OrderEntryGateway Sbe 5.28
-local function omi_euronext_optiq_orderentrygateway_sbe_v5_28_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Euronext Optiq OrderEntryGateway Sbe 5.28 (Tcp)
+local function omi_euronext_optiq_orderentrygateway_sbe_v5_28_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not euronext_optiq_orderentrygateway_sbe_v5_28.packet.requiredsize(buffer) then return false end
 
@@ -19368,7 +19368,7 @@ local function omi_euronext_optiq_orderentrygateway_sbe_v5_28_heuristic(buffer, 
 end
 
 -- Register Heuristic for Euronext Optiq OrderEntryGateway Sbe 5.28
-omi_euronext_optiq_orderentrygateway_sbe_v5_28:register_heuristic("tcp", omi_euronext_optiq_orderentrygateway_sbe_v5_28_heuristic)
+omi_euronext_optiq_orderentrygateway_sbe_v5_28:register_heuristic("tcp", omi_euronext_optiq_orderentrygateway_sbe_v5_28_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

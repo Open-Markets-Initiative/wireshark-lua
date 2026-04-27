@@ -5179,14 +5179,14 @@ udp_table:add(65333, omi_asx_asxsecurities_ntp_itch_v1_05)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 asx_asxsecurities_ntp_itch_v1_05.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Asx AsxSecurities Ntp Itch 1.05
-local function omi_asx_asxsecurities_ntp_itch_v1_05_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Asx AsxSecurities Ntp Itch 1.05 (Udp)
+local function omi_asx_asxsecurities_ntp_itch_v1_05_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not asx_asxsecurities_ntp_itch_v1_05.packet.requiredsize(buffer) then return false end
 
@@ -5198,7 +5198,7 @@ local function omi_asx_asxsecurities_ntp_itch_v1_05_heuristic(buffer, packet, pa
 end
 
 -- Register Heuristic for Asx AsxSecurities Ntp Itch 1.05
-omi_asx_asxsecurities_ntp_itch_v1_05:register_heuristic("udp", omi_asx_asxsecurities_ntp_itch_v1_05_heuristic)
+omi_asx_asxsecurities_ntp_itch_v1_05:register_heuristic("udp", omi_asx_asxsecurities_ntp_itch_v1_05_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

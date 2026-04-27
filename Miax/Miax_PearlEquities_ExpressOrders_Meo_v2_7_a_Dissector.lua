@@ -6363,14 +6363,14 @@ tcp_table:add(65333, omi_miax_pearlequities_expressorders_meo_v2_7_a)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 miax_pearlequities_expressorders_meo_v2_7_a.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Miax PearlEquities ExpressOrders Meo 2.7.a
-local function omi_miax_pearlequities_expressorders_meo_v2_7_a_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Miax PearlEquities ExpressOrders Meo 2.7.a (Tcp)
+local function omi_miax_pearlequities_expressorders_meo_v2_7_a_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_expressorders_meo_v2_7_a.packet.requiredsize(buffer) then return false end
 
@@ -6382,7 +6382,7 @@ local function omi_miax_pearlequities_expressorders_meo_v2_7_a_heuristic(buffer,
 end
 
 -- Register Heuristic for Miax PearlEquities ExpressOrders Meo 2.7.a
-omi_miax_pearlequities_expressorders_meo_v2_7_a:register_heuristic("tcp", omi_miax_pearlequities_expressorders_meo_v2_7_a_heuristic)
+omi_miax_pearlequities_expressorders_meo_v2_7_a:register_heuristic("tcp", omi_miax_pearlequities_expressorders_meo_v2_7_a_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

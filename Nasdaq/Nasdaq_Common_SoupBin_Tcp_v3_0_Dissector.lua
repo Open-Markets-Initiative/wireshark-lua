@@ -928,14 +928,14 @@ tcp_table:add(65333, omi_nasdaq_common_soupbin_tcp_v3_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 nasdaq_common_soupbin_tcp_v3_0.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq Common SoupBin Tcp 3.0
-local function omi_nasdaq_common_soupbin_tcp_v3_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq Common SoupBin Tcp 3.0 (Tcp)
+local function omi_nasdaq_common_soupbin_tcp_v3_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_common_soupbin_tcp_v3_0.packet.requiredsize(buffer) then return false end
 
@@ -947,7 +947,7 @@ local function omi_nasdaq_common_soupbin_tcp_v3_0_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for Nasdaq Common SoupBin Tcp 3.0
-omi_nasdaq_common_soupbin_tcp_v3_0:register_heuristic("tcp", omi_nasdaq_common_soupbin_tcp_v3_0_heuristic)
+omi_nasdaq_common_soupbin_tcp_v3_0:register_heuristic("tcp", omi_nasdaq_common_soupbin_tcp_v3_0_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

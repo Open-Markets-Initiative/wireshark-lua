@@ -5081,14 +5081,14 @@ udp_table:add(65333, omi_nyse_arcaoptions_topfeed_pillar_v1_2_c)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nyse_arcaoptions_topfeed_pillar_v1_2_c.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse ArcaOptions TopFeed Pillar 1.2.c
-local function omi_nyse_arcaoptions_topfeed_pillar_v1_2_c_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse ArcaOptions TopFeed Pillar 1.2.c (Udp)
+local function omi_nyse_arcaoptions_topfeed_pillar_v1_2_c_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_arcaoptions_topfeed_pillar_v1_2_c.packet.requiredsize(buffer) then return false end
 
@@ -5100,7 +5100,7 @@ local function omi_nyse_arcaoptions_topfeed_pillar_v1_2_c_heuristic(buffer, pack
 end
 
 -- Register Heuristic for Nyse ArcaOptions TopFeed Pillar 1.2.c
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c:register_heuristic("udp", omi_nyse_arcaoptions_topfeed_pillar_v1_2_c_heuristic)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c:register_heuristic("udp", omi_nyse_arcaoptions_topfeed_pillar_v1_2_c_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

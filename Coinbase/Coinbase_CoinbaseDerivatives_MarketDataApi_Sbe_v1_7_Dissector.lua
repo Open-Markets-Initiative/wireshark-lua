@@ -5296,7 +5296,7 @@ udp_table:add(65333, omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.packet.requiredsize = function(buffer)
 
   return true
@@ -5326,8 +5326,8 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.version.verify = function(bu
   return false
 end
 
--- Dissector Heuristic for Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7
-local function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7 (Udp)
+local function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.packet.requiredsize(buffer) then return false end
 
@@ -5345,7 +5345,7 @@ local function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7_heuristic
 end
 
 -- Register Heuristic for Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7:register_heuristic("udp", omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7_heuristic)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7:register_heuristic("udp", omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

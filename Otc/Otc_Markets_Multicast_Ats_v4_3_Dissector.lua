@@ -3963,14 +3963,14 @@ udp_table:add(65333, omi_otc_markets_multicast_ats_v4_3)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 otc_markets_multicast_ats_v4_3.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Otc Markets Multicast Ats 4.3
-local function omi_otc_markets_multicast_ats_v4_3_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Otc Markets Multicast Ats 4.3 (Udp)
+local function omi_otc_markets_multicast_ats_v4_3_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not otc_markets_multicast_ats_v4_3.packet.requiredsize(buffer) then return false end
 
@@ -3982,7 +3982,7 @@ local function omi_otc_markets_multicast_ats_v4_3_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for Otc Markets Multicast Ats 4.3
-omi_otc_markets_multicast_ats_v4_3:register_heuristic("udp", omi_otc_markets_multicast_ats_v4_3_heuristic)
+omi_otc_markets_multicast_ats_v4_3:register_heuristic("udp", omi_otc_markets_multicast_ats_v4_3_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

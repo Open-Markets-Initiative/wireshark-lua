@@ -1416,14 +1416,14 @@ udp_table:add(65333, omi_nasdaq_nsmequities_nois_itch_v2_2_2022)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nasdaq_nsmequities_nois_itch_v2_2_2022.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nasdaq NsmEquities Nois Itch 2.2.2022
-local function omi_nasdaq_nsmequities_nois_itch_v2_2_2022_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq NsmEquities Nois Itch 2.2.2022 (Udp)
+local function omi_nasdaq_nsmequities_nois_itch_v2_2_2022_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_nsmequities_nois_itch_v2_2_2022.packet.requiredsize(buffer) then return false end
 
@@ -1435,7 +1435,7 @@ local function omi_nasdaq_nsmequities_nois_itch_v2_2_2022_heuristic(buffer, pack
 end
 
 -- Register Heuristic for Nasdaq NsmEquities Nois Itch 2.2.2022
-omi_nasdaq_nsmequities_nois_itch_v2_2_2022:register_heuristic("udp", omi_nasdaq_nsmequities_nois_itch_v2_2_2022_heuristic)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2022:register_heuristic("udp", omi_nasdaq_nsmequities_nois_itch_v2_2_2022_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

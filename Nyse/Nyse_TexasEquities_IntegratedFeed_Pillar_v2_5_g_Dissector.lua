@@ -5014,14 +5014,14 @@ udp_table:add(65333, omi_nyse_texasequities_integratedfeed_pillar_v2_5_g)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nyse_texasequities_integratedfeed_pillar_v2_5_g.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse TexasEquities IntegratedFeed Pillar 2.5.g
-local function omi_nyse_texasequities_integratedfeed_pillar_v2_5_g_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse TexasEquities IntegratedFeed Pillar 2.5.g (Udp)
+local function omi_nyse_texasequities_integratedfeed_pillar_v2_5_g_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_texasequities_integratedfeed_pillar_v2_5_g.packet.requiredsize(buffer) then return false end
 
@@ -5033,7 +5033,7 @@ local function omi_nyse_texasequities_integratedfeed_pillar_v2_5_g_heuristic(buf
 end
 
 -- Register Heuristic for Nyse TexasEquities IntegratedFeed Pillar 2.5.g
-omi_nyse_texasequities_integratedfeed_pillar_v2_5_g:register_heuristic("udp", omi_nyse_texasequities_integratedfeed_pillar_v2_5_g_heuristic)
+omi_nyse_texasequities_integratedfeed_pillar_v2_5_g:register_heuristic("udp", omi_nyse_texasequities_integratedfeed_pillar_v2_5_g_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

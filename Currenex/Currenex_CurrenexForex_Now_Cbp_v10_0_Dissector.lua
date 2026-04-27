@@ -2239,7 +2239,7 @@ udp_table:add(65333, omi_currenex_currenexforex_now_cbp_v10_0)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 currenex_currenexforex_now_cbp_v10_0.packet.requiredsize = function(buffer)
 
   return true
@@ -2257,8 +2257,8 @@ currenex_currenexforex_now_cbp_v10_0.itch_soh.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Currenex CurrenexForex Now Cbp 10.0
-local function omi_currenex_currenexforex_now_cbp_v10_0_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Currenex CurrenexForex Now Cbp 10.0 (Udp)
+local function omi_currenex_currenexforex_now_cbp_v10_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not currenex_currenexforex_now_cbp_v10_0.packet.requiredsize(buffer) then return false end
 
@@ -2273,7 +2273,7 @@ local function omi_currenex_currenexforex_now_cbp_v10_0_heuristic(buffer, packet
 end
 
 -- Register Heuristic for Currenex CurrenexForex Now Cbp 10.0
-omi_currenex_currenexforex_now_cbp_v10_0:register_heuristic("udp", omi_currenex_currenexforex_now_cbp_v10_0_heuristic)
+omi_currenex_currenexforex_now_cbp_v10_0:register_heuristic("udp", omi_currenex_currenexforex_now_cbp_v10_0_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

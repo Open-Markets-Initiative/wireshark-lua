@@ -9383,7 +9383,7 @@ udp_table:add(65333, omi_b3_b3derivatives_binaryumdf_sbe_v2_2)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 b3_b3derivatives_binaryumdf_sbe_v2_2.packet.requiredsize = function(buffer)
 
   return true
@@ -9413,8 +9413,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.version.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for B3 B3Derivatives BinaryUmdf Sbe 2.2
-local function omi_b3_b3derivatives_binaryumdf_sbe_v2_2_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for B3 B3Derivatives BinaryUmdf Sbe 2.2 (Udp)
+local function omi_b3_b3derivatives_binaryumdf_sbe_v2_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not b3_b3derivatives_binaryumdf_sbe_v2_2.packet.requiredsize(buffer) then return false end
 
@@ -9432,7 +9432,7 @@ local function omi_b3_b3derivatives_binaryumdf_sbe_v2_2_heuristic(buffer, packet
 end
 
 -- Register Heuristic for B3 B3Derivatives BinaryUmdf Sbe 2.2
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2:register_heuristic("udp", omi_b3_b3derivatives_binaryumdf_sbe_v2_2_heuristic)
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2:register_heuristic("udp", omi_b3_b3derivatives_binaryumdf_sbe_v2_2_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -2728,14 +2728,14 @@ udp_table:add(65333, omi_lseg_turquoise_mifid_gtp_v24_4)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 lseg_turquoise_mifid_gtp_v24_4.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Lseg Turquoise Mifid Gtp 24.4
-local function omi_lseg_turquoise_mifid_gtp_v24_4_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Lseg Turquoise Mifid Gtp 24.4 (Udp)
+local function omi_lseg_turquoise_mifid_gtp_v24_4_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_turquoise_mifid_gtp_v24_4.packet.requiredsize(buffer) then return false end
 
@@ -2747,7 +2747,7 @@ local function omi_lseg_turquoise_mifid_gtp_v24_4_heuristic(buffer, packet, pare
 end
 
 -- Register Heuristic for Lseg Turquoise Mifid Gtp 24.4
-omi_lseg_turquoise_mifid_gtp_v24_4:register_heuristic("udp", omi_lseg_turquoise_mifid_gtp_v24_4_heuristic)
+omi_lseg_turquoise_mifid_gtp_v24_4:register_heuristic("udp", omi_lseg_turquoise_mifid_gtp_v24_4_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

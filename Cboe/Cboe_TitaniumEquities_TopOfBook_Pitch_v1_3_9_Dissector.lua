@@ -2877,14 +2877,14 @@ udp_table:add(65333, omi_cboe_titaniumequities_topofbook_pitch_v1_3_9)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 cboe_titaniumequities_topofbook_pitch_v1_3_9.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Cboe TitaniumEquities TopOfBook Pitch 1.3.9
-local function omi_cboe_titaniumequities_topofbook_pitch_v1_3_9_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cboe TitaniumEquities TopOfBook Pitch 1.3.9 (Udp)
+local function omi_cboe_titaniumequities_topofbook_pitch_v1_3_9_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_titaniumequities_topofbook_pitch_v1_3_9.packet.requiredsize(buffer) then return false end
 
@@ -2896,7 +2896,7 @@ local function omi_cboe_titaniumequities_topofbook_pitch_v1_3_9_heuristic(buffer
 end
 
 -- Register Heuristic for Cboe TitaniumEquities TopOfBook Pitch 1.3.9
-omi_cboe_titaniumequities_topofbook_pitch_v1_3_9:register_heuristic("udp", omi_cboe_titaniumequities_topofbook_pitch_v1_3_9_heuristic)
+omi_cboe_titaniumequities_topofbook_pitch_v1_3_9:register_heuristic("udp", omi_cboe_titaniumequities_topofbook_pitch_v1_3_9_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

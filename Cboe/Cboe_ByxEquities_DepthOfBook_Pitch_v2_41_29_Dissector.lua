@@ -2679,14 +2679,14 @@ udp_table:add(65333, omi_cboe_byxequities_depthofbook_pitch_v2_41_29)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 cboe_byxequities_depthofbook_pitch_v2_41_29.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Cboe ByxEquities DepthOfBook Pitch 2.41.29
-local function omi_cboe_byxequities_depthofbook_pitch_v2_41_29_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cboe ByxEquities DepthOfBook Pitch 2.41.29 (Udp)
+local function omi_cboe_byxequities_depthofbook_pitch_v2_41_29_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_byxequities_depthofbook_pitch_v2_41_29.packet.requiredsize(buffer) then return false end
 
@@ -2698,7 +2698,7 @@ local function omi_cboe_byxequities_depthofbook_pitch_v2_41_29_heuristic(buffer,
 end
 
 -- Register Heuristic for Cboe ByxEquities DepthOfBook Pitch 2.41.29
-omi_cboe_byxequities_depthofbook_pitch_v2_41_29:register_heuristic("udp", omi_cboe_byxequities_depthofbook_pitch_v2_41_29_heuristic)
+omi_cboe_byxequities_depthofbook_pitch_v2_41_29:register_heuristic("udp", omi_cboe_byxequities_depthofbook_pitch_v2_41_29_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

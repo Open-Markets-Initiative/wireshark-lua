@@ -2231,7 +2231,7 @@ udp_table:add(65333, omi_nyse_amexequities_openbook_ultra_v2_1_k)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nyse_amexequities_openbook_ultra_v2_1_k.packet.requiredsize = function(buffer)
 
   return true
@@ -2249,8 +2249,8 @@ nyse_amexequities_openbook_ultra_v2_1_k.product_id.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Nyse AmexEquities OpenBook Ultra 2.1.k
-local function omi_nyse_amexequities_openbook_ultra_v2_1_k_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse AmexEquities OpenBook Ultra 2.1.k (Udp)
+local function omi_nyse_amexequities_openbook_ultra_v2_1_k_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_amexequities_openbook_ultra_v2_1_k.packet.requiredsize(buffer) then return false end
 
@@ -2265,7 +2265,7 @@ local function omi_nyse_amexequities_openbook_ultra_v2_1_k_heuristic(buffer, pac
 end
 
 -- Register Heuristic for Nyse AmexEquities OpenBook Ultra 2.1.k
-omi_nyse_amexequities_openbook_ultra_v2_1_k:register_heuristic("udp", omi_nyse_amexequities_openbook_ultra_v2_1_k_heuristic)
+omi_nyse_amexequities_openbook_ultra_v2_1_k:register_heuristic("udp", omi_nyse_amexequities_openbook_ultra_v2_1_k_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

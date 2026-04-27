@@ -4825,14 +4825,14 @@ udp_table:add(65333, omi_nyse_amexequities_integratedfeed_xdp_v2_1_g)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 nyse_amexequities_integratedfeed_xdp_v2_1_g.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Nyse AmexEquities IntegratedFeed Xdp 2.1.g
-local function omi_nyse_amexequities_integratedfeed_xdp_v2_1_g_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nyse AmexEquities IntegratedFeed Xdp 2.1.g (Udp)
+local function omi_nyse_amexequities_integratedfeed_xdp_v2_1_g_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_amexequities_integratedfeed_xdp_v2_1_g.packet.requiredsize(buffer) then return false end
 
@@ -4844,7 +4844,7 @@ local function omi_nyse_amexequities_integratedfeed_xdp_v2_1_g_heuristic(buffer,
 end
 
 -- Register Heuristic for Nyse AmexEquities IntegratedFeed Xdp 2.1.g
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g:register_heuristic("udp", omi_nyse_amexequities_integratedfeed_xdp_v2_1_g_heuristic)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g:register_heuristic("udp", omi_nyse_amexequities_integratedfeed_xdp_v2_1_g_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

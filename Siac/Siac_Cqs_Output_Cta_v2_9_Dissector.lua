@@ -5039,14 +5039,14 @@ udp_table:add(65333, omi_siac_cqs_output_cta_v2_9)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Udp packet
 siac_cqs_output_cta_v2_9.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Siac Cqs Output Cta 2.9
-local function omi_siac_cqs_output_cta_v2_9_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Siac Cqs Output Cta 2.9 (Udp)
+local function omi_siac_cqs_output_cta_v2_9_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cqs_output_cta_v2_9.packet.requiredsize(buffer) then return false end
 
@@ -5058,7 +5058,7 @@ local function omi_siac_cqs_output_cta_v2_9_heuristic(buffer, packet, parent)
 end
 
 -- Register Heuristic for Siac Cqs Output Cta 2.9
-omi_siac_cqs_output_cta_v2_9:register_heuristic("udp", omi_siac_cqs_output_cta_v2_9_heuristic)
+omi_siac_cqs_output_cta_v2_9:register_heuristic("udp", omi_siac_cqs_output_cta_v2_9_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

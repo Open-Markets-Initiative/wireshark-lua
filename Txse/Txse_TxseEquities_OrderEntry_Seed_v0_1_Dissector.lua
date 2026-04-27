@@ -6733,14 +6733,14 @@ tcp_table:add(65333, omi_txse_txseequities_orderentry_seed_v0_1)
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify size of packet
+-- Verify size of Tcp packet
 txse_txseequities_orderentry_seed_v0_1.packet.requiredsize = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Txse TxseEquities OrderEntry Seed 0.1
-local function omi_txse_txseequities_orderentry_seed_v0_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Txse TxseEquities OrderEntry Seed 0.1 (Tcp)
+local function omi_txse_txseequities_orderentry_seed_v0_1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not txse_txseequities_orderentry_seed_v0_1.packet.requiredsize(buffer) then return false end
 
@@ -6752,7 +6752,7 @@ local function omi_txse_txseequities_orderentry_seed_v0_1_heuristic(buffer, pack
 end
 
 -- Register Heuristic for Txse TxseEquities OrderEntry Seed 0.1
-omi_txse_txseequities_orderentry_seed_v0_1:register_heuristic("tcp", omi_txse_txseequities_orderentry_seed_v0_1_heuristic)
+omi_txse_txseequities_orderentry_seed_v0_1:register_heuristic("tcp", omi_txse_txseequities_orderentry_seed_v0_1_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
