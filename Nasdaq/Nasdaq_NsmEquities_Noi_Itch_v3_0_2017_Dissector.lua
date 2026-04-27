@@ -2069,10 +2069,9 @@ end
 -- Packet
 nasdaq_nsmequities_noi_itch_v3_0_2017.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_nsmequities_noi_itch_v3_0_2017.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_nsmequities_noi_itch_v3_0_2017.packet_header.size
 end
 
 -- Dissect Packet

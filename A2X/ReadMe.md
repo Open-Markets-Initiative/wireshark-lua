@@ -5,9 +5,9 @@
 
 | Division | [Protocol][Omi.A2X.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Equities][Equities] | [Rtmdf][A2X.Equities.Rtmdf] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1796 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Pdf] |
-| [Equities][Equities] | [Snapshot][A2X.Equities.Snapshot] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 987 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Snapshot.Amd.v1.3.2.Pdf] |
-| [Equities][Equities] | [UdpHeader][A2X.Equities.UdpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][A2X.Equities.UdpHeader.Amd.v1.0.Dissector] | 9/1/2017 | 380 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.UdpHeader.Amd.v1.0.Url] |
+| [Equities][Equities] | [Rtmdf][A2X.Equities.Rtmdf] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1795 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Pdf] |
+| [Equities][Equities] | [Snapshot][A2X.Equities.Snapshot] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 986 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Snapshot.Amd.v1.3.2.Pdf] |
+| [Equities][Equities] | [UdpHeader][A2X.Equities.UdpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][A2X.Equities.UdpHeader.Amd.v1.0.Dissector] | 9/1/2017 | 379 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.UdpHeader.Amd.v1.0.Url] |
 
 
 A2X: [website](https://www.a2x.co.za "Go to A2X Markets")

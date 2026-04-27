@@ -3794,10 +3794,9 @@ end
 -- Packet
 nasdaq_bxoptions_depthofmarket_itch_v1_3.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_bxoptions_depthofmarket_itch_v1_3.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_bxoptions_depthofmarket_itch_v1_3.packet_header.size
 end
 
 -- Dissect Packet

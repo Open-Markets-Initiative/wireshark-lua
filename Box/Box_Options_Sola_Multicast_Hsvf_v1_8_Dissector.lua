@@ -6516,10 +6516,9 @@ end
 -- Packet
 box_options_sola_multicast_hsvf_v1_8.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 box_options_sola_multicast_hsvf_v1_8.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= box_options_sola_multicast_hsvf_v1_8.hsvf_stx.size + box_options_sola_multicast_hsvf_v1_8.message_header.size
 end
 
 -- Dissect Packet

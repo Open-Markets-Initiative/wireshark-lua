@@ -3429,10 +3429,9 @@ end
 -- Packet
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_texasequities_imbalancesfeed_pillar_v2_2_n.packet_header.size
 end
 
 -- Dissect Packet

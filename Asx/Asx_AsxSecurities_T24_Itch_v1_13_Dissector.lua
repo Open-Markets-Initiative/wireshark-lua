@@ -5471,10 +5471,9 @@ end
 -- Packet
 asx_asxsecurities_t24_itch_v1_13.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 asx_asxsecurities_t24_itch_v1_13.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= asx_asxsecurities_t24_itch_v1_13.packet_header.size
 end
 
 -- Dissect Packet

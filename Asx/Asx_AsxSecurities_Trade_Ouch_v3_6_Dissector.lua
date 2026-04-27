@@ -2674,10 +2674,9 @@ end
 -- Packet
 asx_asxsecurities_trade_ouch_v3_6.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 asx_asxsecurities_trade_ouch_v3_6.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= asx_asxsecurities_trade_ouch_v3_6.packet_header.size
 end
 
 -- Dissect Packet

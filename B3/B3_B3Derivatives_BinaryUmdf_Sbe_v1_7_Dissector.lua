@@ -9846,10 +9846,9 @@ end
 -- Packet
 b3_b3derivatives_binaryumdf_sbe_v1_7.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 b3_b3derivatives_binaryumdf_sbe_v1_7.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= b3_b3derivatives_binaryumdf_sbe_v1_7.packet_header.size + b3_b3derivatives_binaryumdf_sbe_v1_7.framing_header.size + b3_b3derivatives_binaryumdf_sbe_v1_7.message_header.size
 end
 
 -- Dissect Packet

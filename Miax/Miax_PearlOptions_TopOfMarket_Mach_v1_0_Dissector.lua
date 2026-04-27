@@ -2792,10 +2792,9 @@ end
 -- Packet
 miax_pearloptions_topofmarket_mach_v1_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 miax_pearloptions_topofmarket_mach_v1_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= miax_pearloptions_topofmarket_mach_v1_0.sequence_number.size + miax_pearloptions_topofmarket_mach_v1_0.packet_length.size + miax_pearloptions_topofmarket_mach_v1_0.packet_type.size + miax_pearloptions_topofmarket_mach_v1_0.session_number.size
 end
 
 -- Dissect Packet

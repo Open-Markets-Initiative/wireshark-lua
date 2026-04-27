@@ -3353,10 +3353,9 @@ end
 -- Packet
 cboe_cfefutures_depthofbook_pitch_v1_1_12.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cboe_cfefutures_depthofbook_pitch_v1_1_12.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_cfefutures_depthofbook_pitch_v1_1_12.packet_header.size
 end
 
 -- Dissect Packet

@@ -3908,10 +3908,9 @@ end
 -- Packet
 nsxaustralia_nets_itch_v4_2_55.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 nsxaustralia_nets_itch_v4_2_55.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nsxaustralia_nets_itch_v4_2_55.packet_header.size
 end
 
 -- Dissect Packet

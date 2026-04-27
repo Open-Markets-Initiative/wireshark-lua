@@ -3255,10 +3255,9 @@ end
 -- Packet
 nasdaq_nsmequities_orders_ouch_v4_2.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 nasdaq_nsmequities_orders_ouch_v4_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_nsmequities_orders_ouch_v4_2.packet_header.size
 end
 
 -- Dissect Packet

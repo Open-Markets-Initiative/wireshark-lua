@@ -2259,10 +2259,9 @@ end
 -- Packet
 nasdaq_iseoptions_orderfeed_itch_v1_1.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_iseoptions_orderfeed_itch_v1_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_iseoptions_orderfeed_itch_v1_1.packet_header.size
 end
 
 -- Dissect Packet

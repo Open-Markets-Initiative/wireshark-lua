@@ -5584,10 +5584,9 @@ end
 -- Packet
 smallx_orderbookfeed_sbe_v2_2.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 smallx_orderbookfeed_sbe_v2_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= smallx_orderbookfeed_sbe_v2_2.packet_header.size + smallx_orderbookfeed_sbe_v2_2.frame_length.size + smallx_orderbookfeed_sbe_v2_2.message_header.size
 end
 
 -- Dissect Packet

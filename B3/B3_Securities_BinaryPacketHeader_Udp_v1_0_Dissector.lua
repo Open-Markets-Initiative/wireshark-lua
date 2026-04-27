@@ -566,10 +566,9 @@ end
 -- Packet
 b3_securities_binarypacketheader_udp_v1_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 b3_securities_binarypacketheader_udp_v1_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= b3_securities_binarypacketheader_udp_v1_0.packet_header.size + b3_securities_binarypacketheader_udp_v1_0.framing_header.size + b3_securities_binarypacketheader_udp_v1_0.message_header.size + b3_securities_binarypacketheader_udp_v1_0.payload.size
 end
 
 -- Dissect Packet

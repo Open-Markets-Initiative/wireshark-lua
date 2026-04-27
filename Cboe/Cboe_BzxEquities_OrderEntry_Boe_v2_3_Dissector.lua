@@ -30620,10 +30620,9 @@ end
 -- Packet
 cboe_bzxequities_orderentry_boe_v2_3.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 cboe_bzxequities_orderentry_boe_v2_3.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_bzxequities_orderentry_boe_v2_3.message_header.size
 end
 
 -- Dissect Packet

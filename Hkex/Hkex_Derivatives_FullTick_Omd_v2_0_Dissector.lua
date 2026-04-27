@@ -5067,10 +5067,9 @@ end
 -- Packet
 hkex_derivatives_fulltick_omd_v2_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 hkex_derivatives_fulltick_omd_v2_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= hkex_derivatives_fulltick_omd_v2_0.packet_header.size
 end
 
 -- Dissect Packet

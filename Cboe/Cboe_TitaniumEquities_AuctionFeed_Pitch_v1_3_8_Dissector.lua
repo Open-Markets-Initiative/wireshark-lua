@@ -1473,10 +1473,9 @@ end
 -- Packet
 cboe_titaniumequities_auctionfeed_pitch_v1_3_8.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 cboe_titaniumequities_auctionfeed_pitch_v1_3_8.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_titaniumequities_auctionfeed_pitch_v1_3_8.packet_type.size
 end
 
 -- Dissect Packet

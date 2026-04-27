@@ -5027,10 +5027,9 @@ end
 -- Packet
 nyse_arcaoptions_topfeed_pillar_v1_2_c.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_arcaoptions_topfeed_pillar_v1_2_c.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_arcaoptions_topfeed_pillar_v1_2_c.packet_header.size
 end
 
 -- Dissect Packet

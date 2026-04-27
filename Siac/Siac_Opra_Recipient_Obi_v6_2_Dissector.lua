@@ -3881,10 +3881,9 @@ end
 -- Packet
 siac_opra_recipient_obi_v6_2.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 siac_opra_recipient_obi_v6_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= siac_opra_recipient_obi_v6_2.block_header.size
 end
 
 -- Dissect Packet

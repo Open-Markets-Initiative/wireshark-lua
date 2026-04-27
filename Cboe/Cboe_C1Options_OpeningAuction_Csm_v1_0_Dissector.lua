@@ -3192,10 +3192,9 @@ end
 -- Packet
 cboe_c1options_openingauction_csm_v1_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cboe_c1options_openingauction_csm_v1_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_c1options_openingauction_csm_v1_0.packet_header.size
 end
 
 -- Dissect Packet

@@ -3265,10 +3265,9 @@ end
 -- Packet
 cboe_titaniumequities_onefeed_pitch_v1_4_13.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cboe_titaniumequities_onefeed_pitch_v1_4_13.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_titaniumequities_onefeed_pitch_v1_4_13.packet_header.size
 end
 
 -- Dissect Packet

@@ -3584,10 +3584,9 @@ end
 -- Packet
 cboe_c1options_complex_pitch_v2_1_37.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cboe_c1options_complex_pitch_v2_1_37.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_c1options_complex_pitch_v2_1_37.packet_header.size
 end
 
 -- Dissect Packet

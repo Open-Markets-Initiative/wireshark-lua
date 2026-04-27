@@ -4748,10 +4748,9 @@ end
 -- Packet
 coinbase_coinbasederivatives_ordersapi_sbe_v1_5.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 coinbase_coinbasederivatives_ordersapi_sbe_v1_5.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= coinbase_coinbasederivatives_ordersapi_sbe_v1_5.message_header.size
 end
 
 -- Dissect Packet

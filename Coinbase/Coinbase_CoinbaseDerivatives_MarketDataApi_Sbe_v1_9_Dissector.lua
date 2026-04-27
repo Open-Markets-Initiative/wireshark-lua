@@ -5882,10 +5882,9 @@ end
 -- Packet
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.packet_header.size + coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.message_header.size
 end
 
 -- Dissect Packet

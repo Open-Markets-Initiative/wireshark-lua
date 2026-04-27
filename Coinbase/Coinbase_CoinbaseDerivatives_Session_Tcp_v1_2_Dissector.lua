@@ -1393,10 +1393,9 @@ end
 -- Packet
 coinbase_coinbasederivatives_session_tcp_v1_2.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 coinbase_coinbasederivatives_session_tcp_v1_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= coinbase_coinbasederivatives_session_tcp_v1_2.message_header.size
 end
 
 -- Dissect Packet

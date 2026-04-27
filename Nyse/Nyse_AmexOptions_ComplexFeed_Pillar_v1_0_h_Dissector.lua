@@ -4465,10 +4465,9 @@ end
 -- Packet
 nyse_amexoptions_complexfeed_pillar_v1_0_h.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_amexoptions_complexfeed_pillar_v1_0_h.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_amexoptions_complexfeed_pillar_v1_0_h.packet_header.size
 end
 
 -- Dissect Packet

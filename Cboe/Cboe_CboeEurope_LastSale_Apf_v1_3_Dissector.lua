@@ -1456,10 +1456,9 @@ end
 -- Packet
 cboe_cboeeurope_lastsale_apf_v1_3.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 cboe_cboeeurope_lastsale_apf_v1_3.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_cboeeurope_lastsale_apf_v1_3.packet_type.size
 end
 
 -- Dissect Packet

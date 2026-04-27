@@ -4555,10 +4555,9 @@ end
 -- Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.size
 end
 
 -- Dissect Packet

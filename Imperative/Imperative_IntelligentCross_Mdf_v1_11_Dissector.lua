@@ -1571,10 +1571,9 @@ end
 -- Packet
 imperative_intelligentcross_mdf_v1_11.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 imperative_intelligentcross_mdf_v1_11.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= imperative_intelligentcross_mdf_v1_11.packet_header.size
 end
 
 -- Dissect Packet

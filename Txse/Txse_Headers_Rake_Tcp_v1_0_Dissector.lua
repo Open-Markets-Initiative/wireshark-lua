@@ -961,10 +961,9 @@ end
 -- Packet
 txse_headers_rake_tcp_v1_0.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 txse_headers_rake_tcp_v1_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= txse_headers_rake_tcp_v1_0.rake_message_header.size
 end
 
 -- Dissect Packet

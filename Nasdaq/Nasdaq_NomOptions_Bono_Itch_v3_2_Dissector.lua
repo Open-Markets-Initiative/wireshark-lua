@@ -2411,10 +2411,9 @@ end
 -- Packet
 nasdaq_nomoptions_bono_itch_v3_2.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_nomoptions_bono_itch_v3_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_nomoptions_bono_itch_v3_2.packet_header.size
 end
 
 -- Dissect Packet

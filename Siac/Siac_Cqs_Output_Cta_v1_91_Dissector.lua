@@ -4770,10 +4770,9 @@ end
 -- Packet
 siac_cqs_output_cta_v1_91.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 siac_cqs_output_cta_v1_91.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= siac_cqs_output_cta_v1_91.block_header.size
 end
 
 -- Dissect Packet

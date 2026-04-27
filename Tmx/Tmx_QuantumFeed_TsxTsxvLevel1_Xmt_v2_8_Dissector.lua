@@ -2699,10 +2699,9 @@ end
 -- Packet
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.frame_header.size
 end
 
 -- Dissect Packet

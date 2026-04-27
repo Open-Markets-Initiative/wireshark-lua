@@ -1811,10 +1811,9 @@ end
 -- Packet
 lseg_tradeecho_level2_gtp_v24_4.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 lseg_tradeecho_level2_gtp_v24_4.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= lseg_tradeecho_level2_gtp_v24_4.unit_header.size
 end
 
 -- Dissect Packet

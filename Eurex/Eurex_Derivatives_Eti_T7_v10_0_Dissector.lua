@@ -34897,10 +34897,9 @@ end
 -- Packet
 eurex_derivatives_eti_t7_v10_0.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 eurex_derivatives_eti_t7_v10_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= eurex_derivatives_eti_t7_v10_0.message_header.size
 end
 
 -- Dissect Packet

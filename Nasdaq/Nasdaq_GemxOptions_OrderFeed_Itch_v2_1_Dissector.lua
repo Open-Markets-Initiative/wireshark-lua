@@ -2023,10 +2023,9 @@ end
 -- Packet
 nasdaq_gemxoptions_orderfeed_itch_v2_1.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_gemxoptions_orderfeed_itch_v2_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_gemxoptions_orderfeed_itch_v2_1.packet_header.size
 end
 
 -- Dissect Packet

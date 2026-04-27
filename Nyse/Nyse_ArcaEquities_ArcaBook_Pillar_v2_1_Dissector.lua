@@ -1830,10 +1830,9 @@ end
 -- Packet
 nyse_arcaequities_arcabook_pillar_v2_1.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_arcaequities_arcabook_pillar_v2_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_arcaequities_arcabook_pillar_v2_1.packet_header.size
 end
 
 -- Dissect Packet

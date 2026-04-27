@@ -1907,10 +1907,9 @@ end
 -- Packet
 miax_pearlequities_depthofmarket_mach_v1_3_a.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 miax_pearlequities_depthofmarket_mach_v1_3_a.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= miax_pearlequities_depthofmarket_mach_v1_3_a.sequence_number.size + miax_pearlequities_depthofmarket_mach_v1_3_a.packet_length.size + miax_pearlequities_depthofmarket_mach_v1_3_a.packet_type.size + miax_pearlequities_depthofmarket_mach_v1_3_a.session_number.size
 end
 
 -- Dissect Packet

@@ -9701,10 +9701,9 @@ end
 -- Pillar Stream Message
 nyse_nationalequities_binarygateway_pillarstream_v5_17.pillar_stream_message = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 nyse_nationalequities_binarygateway_pillarstream_v5_17.pillar_stream_message.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_nationalequities_binarygateway_pillarstream_v5_17.login_message.size + nyse_nationalequities_binarygateway_pillarstream_v5_17.login_response.size + nyse_nationalequities_binarygateway_pillarstream_v5_17.stream_avail.size + nyse_nationalequities_binarygateway_pillarstream_v5_17.heartbeat.size + nyse_nationalequities_binarygateway_pillarstream_v5_17.open.size + nyse_nationalequities_binarygateway_pillarstream_v5_17.open_response.size + nyse_nationalequities_binarygateway_pillarstream_v5_17.close.size + nyse_nationalequities_binarygateway_pillarstream_v5_17.close_response.size + nyse_nationalequities_binarygateway_pillarstream_v5_17.seq_msg.size
 end
 
 -- Dissect Pillar Stream Message

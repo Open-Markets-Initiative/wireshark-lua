@@ -19123,10 +19123,9 @@ end
 -- Packet
 euronext_optiq_orderentrygateway_sbe_v5_18.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 euronext_optiq_orderentrygateway_sbe_v5_18.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= euronext_optiq_orderentrygateway_sbe_v5_18.frame.size + euronext_optiq_orderentrygateway_sbe_v5_18.message_header.size
 end
 
 -- Dissect Packet

@@ -6307,10 +6307,9 @@ end
 -- Packet
 miax_pearlequities_expressorders_meo_v2_7_a.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 miax_pearlequities_expressorders_meo_v2_7_a.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= miax_pearlequities_expressorders_meo_v2_7_a.packet_header.size
 end
 
 -- Dissect Packet

@@ -6960,10 +6960,9 @@ end
 -- Packet
 box_options_sola_unicast_hsvf_v4_5_1.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 box_options_sola_unicast_hsvf_v4_5_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= box_options_sola_unicast_hsvf_v4_5_1.hsvf_stx.size + box_options_sola_unicast_hsvf_v4_5_1.message_header.size
 end
 
 -- Dissect Packet

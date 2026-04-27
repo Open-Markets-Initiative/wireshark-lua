@@ -3909,10 +3909,9 @@ end
 -- Packet
 otc_markets_multicast_ats_v4_5.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 otc_markets_multicast_ats_v4_5.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= otc_markets_multicast_ats_v4_5.packet_header.size
 end
 
 -- Dissect Packet

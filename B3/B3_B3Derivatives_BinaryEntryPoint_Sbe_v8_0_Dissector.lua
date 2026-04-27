@@ -13774,10 +13774,9 @@ end
 -- Packet
 b3_b3derivatives_binaryentrypoint_sbe_v8_0.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 b3_b3derivatives_binaryentrypoint_sbe_v8_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= b3_b3derivatives_binaryentrypoint_sbe_v8_0.simple_open_framing_header.size + b3_b3derivatives_binaryentrypoint_sbe_v8_0.message_header.size
 end
 
 -- Dissect Packet

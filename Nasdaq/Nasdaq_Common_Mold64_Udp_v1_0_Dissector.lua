@@ -419,10 +419,9 @@ end
 -- Packet
 nasdaq_common_mold64_udp_v1_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_common_mold64_udp_v1_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_common_mold64_udp_v1_0.packet_header.size
 end
 
 -- Dissect Packet

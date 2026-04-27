@@ -2382,10 +2382,9 @@ end
 -- Packet
 odx_odxsecuritytoken_pts_itch_v1_2.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 odx_odxsecuritytoken_pts_itch_v1_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= odx_odxsecuritytoken_pts_itch_v1_2.packet_header.size
 end
 
 -- Dissect Packet

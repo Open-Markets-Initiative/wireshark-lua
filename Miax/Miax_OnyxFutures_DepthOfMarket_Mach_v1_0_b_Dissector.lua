@@ -2932,10 +2932,9 @@ end
 -- Packet
 miax_onyxfutures_depthofmarket_mach_v1_0_b.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 miax_onyxfutures_depthofmarket_mach_v1_0_b.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.size + miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length.size + miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type.size + miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.size
 end
 
 -- Dissect Packet

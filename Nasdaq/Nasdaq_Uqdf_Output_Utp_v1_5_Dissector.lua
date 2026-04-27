@@ -4703,10 +4703,9 @@ end
 -- Packet
 nasdaq_uqdf_output_utp_v1_5.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_uqdf_output_utp_v1_5.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_uqdf_output_utp_v1_5.packet_header.size
 end
 
 -- Dissect Packet

@@ -2528,10 +2528,9 @@ end
 -- Packet
 iex_iexequities_deep_iextp_v1_0_8.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 iex_iexequities_deep_iextp_v1_0_8.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= iex_iexequities_deep_iextp_v1_0_8.iextp_header.size
 end
 
 -- Dissect Packet

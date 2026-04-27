@@ -1914,10 +1914,9 @@ end
 -- Packet
 jnx_jnxequities_pts_itch_v2_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 jnx_jnxequities_pts_itch_v2_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= jnx_jnxequities_pts_itch_v2_0.packet_header.size
 end
 
 -- Dissect Packet

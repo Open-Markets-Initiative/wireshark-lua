@@ -4421,10 +4421,9 @@ end
 -- Packet
 cboe_c1options_marketdatafeed_csm_v1_4_2.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cboe_c1options_marketdatafeed_csm_v1_4_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_c1options_marketdatafeed_csm_v1_4_2.packet_header.size
 end
 
 -- Dissect Packet

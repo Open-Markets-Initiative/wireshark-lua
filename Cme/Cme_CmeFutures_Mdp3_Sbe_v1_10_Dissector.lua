@@ -12442,10 +12442,9 @@ end
 -- Packet
 cme_cmefutures_mdp3_sbe_v1_10.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cme_cmefutures_mdp3_sbe_v1_10.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cme_cmefutures_mdp3_sbe_v1_10.binary_packet_header.size + cme_cmefutures_mdp3_sbe_v1_10.message_size.size + cme_cmefutures_mdp3_sbe_v1_10.message_header.size
 end
 
 -- Dissect Packet

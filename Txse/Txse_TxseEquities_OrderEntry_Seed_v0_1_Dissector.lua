@@ -6677,10 +6677,9 @@ end
 -- Packet
 txse_txseequities_orderentry_seed_v0_1.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 txse_txseequities_orderentry_seed_v0_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= txse_txseequities_orderentry_seed_v0_1.rake_message_header.size
 end
 
 -- Dissect Packet

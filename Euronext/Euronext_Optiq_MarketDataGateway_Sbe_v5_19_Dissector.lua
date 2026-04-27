@@ -18696,10 +18696,9 @@ end
 -- Packet
 euronext_optiq_marketdatagateway_sbe_v5_19.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 euronext_optiq_marketdatagateway_sbe_v5_19.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= euronext_optiq_marketdatagateway_sbe_v5_19.market_data_packet_header.size + euronext_optiq_marketdatagateway_sbe_v5_19.frame.size + euronext_optiq_marketdatagateway_sbe_v5_19.message_header.size
 end
 
 -- Dissect Packet

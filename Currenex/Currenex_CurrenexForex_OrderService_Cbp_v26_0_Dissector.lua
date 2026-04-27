@@ -2411,10 +2411,9 @@ end
 -- Packet
 currenex_currenexforex_orderservice_cbp_v26_0.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 currenex_currenexforex_orderservice_cbp_v26_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= currenex_currenexforex_orderservice_cbp_v26_0.soh.size + currenex_currenexforex_orderservice_cbp_v26_0.message_header.size
 end
 
 -- Dissect Packet

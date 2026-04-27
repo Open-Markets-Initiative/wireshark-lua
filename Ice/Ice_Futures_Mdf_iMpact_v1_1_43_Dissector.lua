@@ -12302,10 +12302,9 @@ end
 -- Packet
 ice_futures_mdf_impact_v1_1_43.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 ice_futures_mdf_impact_v1_1_43.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= ice_futures_mdf_impact_v1_1_43.packet_header.size
 end
 
 -- Dissect Packet

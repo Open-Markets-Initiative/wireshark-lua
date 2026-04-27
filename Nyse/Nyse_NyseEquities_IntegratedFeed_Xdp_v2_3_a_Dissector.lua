@@ -4783,10 +4783,9 @@ end
 -- Packet
 nyse_nyseequities_integratedfeed_xdp_v2_3_a.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_nyseequities_integratedfeed_xdp_v2_3_a.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_nyseequities_integratedfeed_xdp_v2_3_a.packet_header.size
 end
 
 -- Dissect Packet

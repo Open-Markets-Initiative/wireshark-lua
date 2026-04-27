@@ -1757,10 +1757,9 @@ end
 -- Packet
 odx_odxsecuritytoken_pts_itch_v2_2.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 odx_odxsecuritytoken_pts_itch_v2_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= odx_odxsecuritytoken_pts_itch_v2_2.packet_header.size
 end
 
 -- Dissect Packet

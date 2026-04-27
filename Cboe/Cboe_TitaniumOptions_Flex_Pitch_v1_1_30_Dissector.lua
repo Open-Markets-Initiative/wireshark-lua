@@ -3990,10 +3990,9 @@ end
 -- Packet
 cboe_titaniumoptions_flex_pitch_v1_1_30.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cboe_titaniumoptions_flex_pitch_v1_1_30.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_titaniumoptions_flex_pitch_v1_1_30.packet_header.size
 end
 
 -- Dissect Packet

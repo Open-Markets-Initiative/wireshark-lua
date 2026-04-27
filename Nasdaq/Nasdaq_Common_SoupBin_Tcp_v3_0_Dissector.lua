@@ -872,10 +872,9 @@ end
 -- Packet
 nasdaq_common_soupbin_tcp_v3_0.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 nasdaq_common_soupbin_tcp_v3_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_common_soupbin_tcp_v3_0.packet_header.size
 end
 
 -- Dissect Packet

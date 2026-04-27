@@ -2279,10 +2279,9 @@ end
 -- Udp Packet
 jnx_jnxequities_pts_itch_v1_7.udp_packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 jnx_jnxequities_pts_itch_v1_7.udp_packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= jnx_jnxequities_pts_itch_v1_7.udp_packet_header.size
 end
 
 -- Dissect Udp Packet
@@ -2788,10 +2787,9 @@ end
 -- Tcp Packet
 jnx_jnxequities_pts_itch_v1_7.tcp_packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 jnx_jnxequities_pts_itch_v1_7.tcp_packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.size
 end
 
 -- Dissect Tcp Packet

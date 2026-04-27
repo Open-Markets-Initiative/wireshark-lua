@@ -5,9 +5,9 @@
 
 | Division | [Protocol][Omi.Finra.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [FinraOrf][FinraOrf.Exchange] | [Tdds][Finra.FinraOrf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.FinraOrf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3755 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.FinraOrf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.FinraOrf.Tdds.Dfi.v2.1.Pdf] |
-| [FinraOrf][FinraOrf.Exchange] | [Tdds][Finra.FinraOrf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.0][Finra.FinraOrf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3708 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.FinraOrf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.FinraOrf.Tdds.Dfi.v2.0.Pdf] |
-| [FinraOtc][FinraOtc.Exchange] | [Bbds][Finra.FinraOtc.Bbds] | [Dfi][Omi.Encoding.Dfi] | [2018.1A][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2629 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Pdf] |
+| [FinraOrf][FinraOrf.Exchange] | [Tdds][Finra.FinraOrf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.FinraOrf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3754 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.FinraOrf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.FinraOrf.Tdds.Dfi.v2.1.Pdf] |
+| [FinraOrf][FinraOrf.Exchange] | [Tdds][Finra.FinraOrf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.0][Finra.FinraOrf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3707 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.FinraOrf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.FinraOrf.Tdds.Dfi.v2.0.Pdf] |
+| [FinraOtc][FinraOtc.Exchange] | [Bbds][Finra.FinraOtc.Bbds] | [Dfi][Omi.Encoding.Dfi] | [2018.1A][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2628 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Pdf] |
 
 
 Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Authority")

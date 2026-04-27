@@ -1807,10 +1807,9 @@ end
 -- Packet
 cboe_titaniumequities_summarydepth_pitch_v1_0_7.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cboe_titaniumequities_summarydepth_pitch_v1_0_7.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_titaniumequities_summarydepth_pitch_v1_0_7.packet_header.size
 end
 
 -- Dissect Packet

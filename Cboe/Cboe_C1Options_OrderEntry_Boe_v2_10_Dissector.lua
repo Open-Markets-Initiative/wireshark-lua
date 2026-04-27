@@ -48932,10 +48932,9 @@ end
 -- Packet
 cboe_c1options_orderentry_boe_v2_10.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 cboe_c1options_orderentry_boe_v2_10.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_c1options_orderentry_boe_v2_10.message_header.size
 end
 
 -- Dissect Packet

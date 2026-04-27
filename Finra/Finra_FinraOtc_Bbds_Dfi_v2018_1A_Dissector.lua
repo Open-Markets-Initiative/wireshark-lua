@@ -2535,10 +2535,9 @@ end
 -- Packet
 finra_finraotc_bbds_dfi_v2018_1a.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 finra_finraotc_bbds_dfi_v2018_1a.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= finra_finraotc_bbds_dfi_v2018_1a.block_soh.size + finra_finraotc_bbds_dfi_v2018_1a.message_category.size
 end
 
 -- Dissect Packet

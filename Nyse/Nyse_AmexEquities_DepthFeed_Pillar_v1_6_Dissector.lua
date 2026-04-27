@@ -3856,10 +3856,9 @@ end
 -- Packet
 nyse_amexequities_depthfeed_pillar_v1_6.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_amexequities_depthfeed_pillar_v1_6.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_amexequities_depthfeed_pillar_v1_6.packet_header.size
 end
 
 -- Dissect Packet

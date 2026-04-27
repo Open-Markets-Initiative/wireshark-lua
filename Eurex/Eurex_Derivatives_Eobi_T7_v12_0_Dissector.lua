@@ -6964,10 +6964,9 @@ end
 -- Packet
 eurex_derivatives_eobi_t7_v12_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 eurex_derivatives_eobi_t7_v12_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= eurex_derivatives_eobi_t7_v12_0.packet_header.size + eurex_derivatives_eobi_t7_v12_0.message_header_comp.size
 end
 
 -- Dissect Packet

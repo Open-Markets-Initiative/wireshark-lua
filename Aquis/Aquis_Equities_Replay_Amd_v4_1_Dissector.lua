@@ -580,10 +580,9 @@ end
 -- Packet
 aquis_equities_replay_amd_v4_1.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 aquis_equities_replay_amd_v4_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= aquis_equities_replay_amd_v4_1.message_count.size + aquis_equities_replay_amd_v4_1.message_header.size
 end
 
 -- Dissect Packet

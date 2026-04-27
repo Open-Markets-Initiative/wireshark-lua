@@ -3002,10 +3002,9 @@ end
 -- Packet
 nyse_arcaequities_bbo_xdp_v2_4_c.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_arcaequities_bbo_xdp_v2_4_c.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_arcaequities_bbo_xdp_v2_4_c.packet_header.size
 end
 
 -- Dissect Packet

@@ -3892,10 +3892,9 @@ end
 -- Packet
 nasdaq_phlxoptions_marketdepth_itch_v1_5.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_phlxoptions_marketdepth_itch_v1_5.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.size
 end
 
 -- Dissect Packet

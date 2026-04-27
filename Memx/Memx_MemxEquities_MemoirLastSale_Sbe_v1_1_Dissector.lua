@@ -2298,10 +2298,9 @@ end
 -- Packet
 memx_memxequities_memoirlastsale_sbe_v1_1.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 memx_memxequities_memoirlastsale_sbe_v1_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= memx_memxequities_memoirlastsale_sbe_v1_1.common_header.size
 end
 
 -- Dissect Packet

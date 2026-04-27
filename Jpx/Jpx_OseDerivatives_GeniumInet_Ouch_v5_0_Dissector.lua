@@ -2964,10 +2964,9 @@ end
 -- Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 jpx_osederivatives_geniuminet_ouch_v5_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.size
 end
 
 -- Dissect Packet

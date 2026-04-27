@@ -25397,10 +25397,9 @@ end
 -- Packet
 eurex_cash_eti_t7_v8_0.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 eurex_cash_eti_t7_v8_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= eurex_cash_eti_t7_v8_0.message_header.size
 end
 
 -- Dissect Packet

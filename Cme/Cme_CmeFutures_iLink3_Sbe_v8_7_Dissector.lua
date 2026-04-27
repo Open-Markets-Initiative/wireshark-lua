@@ -18256,10 +18256,9 @@ end
 -- Packet
 cme_cmefutures_ilink3_sbe_v8_7.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 cme_cmefutures_ilink3_sbe_v8_7.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cme_cmefutures_ilink3_sbe_v8_7.simple_open_framing_header.size + cme_cmefutures_ilink3_sbe_v8_7.message_header.size
 end
 
 -- Dissect Packet

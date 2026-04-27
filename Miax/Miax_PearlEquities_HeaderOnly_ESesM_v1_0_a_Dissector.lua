@@ -1398,10 +1398,9 @@ end
 -- Packet
 miax_pearlequities_headeronly_esesm_v1_0_a.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 miax_pearlequities_headeronly_esesm_v1_0_a.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= miax_pearlequities_headeronly_esesm_v1_0_a.packet_header.size
 end
 
 -- Dissect Packet

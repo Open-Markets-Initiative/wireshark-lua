@@ -3445,10 +3445,9 @@ end
 -- Packet
 cboe_cboeeurope_depthofbook_pitch_v6_49.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 cboe_cboeeurope_depthofbook_pitch_v6_49.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_cboeeurope_depthofbook_pitch_v6_49.packet_header.size
 end
 
 -- Dissect Packet

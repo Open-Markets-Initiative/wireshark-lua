@@ -1129,10 +1129,9 @@ end
 -- Packet
 cboe_titaniumequities_lastsale_pitch_v1_2_4.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 cboe_titaniumequities_lastsale_pitch_v1_2_4.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= cboe_titaniumequities_lastsale_pitch_v1_2_4.packet_type.size
 end
 
 -- Dissect Packet

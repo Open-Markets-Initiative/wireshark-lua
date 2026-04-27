@@ -540,10 +540,9 @@ end
 -- Packet
 nyse_nyseoptions_commonclient_pillar_v2_6.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_nyseoptions_commonclient_pillar_v2_6.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_nyseoptions_commonclient_pillar_v2_6.packet_header.size
 end
 
 -- Dissect Packet

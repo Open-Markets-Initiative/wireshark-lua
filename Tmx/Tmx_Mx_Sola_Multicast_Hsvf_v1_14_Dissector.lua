@@ -9504,10 +9504,9 @@ end
 -- Packet
 tmx_mx_sola_multicast_hsvf_v1_14.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 tmx_mx_sola_multicast_hsvf_v1_14.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.size + tmx_mx_sola_multicast_hsvf_v1_14.message_header.size
 end
 
 -- Dissect Packet

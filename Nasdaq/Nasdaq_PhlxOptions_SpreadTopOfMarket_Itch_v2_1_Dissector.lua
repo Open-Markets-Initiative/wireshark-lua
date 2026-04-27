@@ -2577,10 +2577,9 @@ end
 -- Packet
 nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.packet_header.size
 end
 
 -- Dissect Packet

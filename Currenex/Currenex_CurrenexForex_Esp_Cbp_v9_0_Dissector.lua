@@ -1536,10 +1536,9 @@ end
 -- Packet
 currenex_currenexforex_esp_cbp_v9_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 currenex_currenexforex_esp_cbp_v9_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= currenex_currenexforex_esp_cbp_v9_0.itch_soh.size + currenex_currenexforex_esp_cbp_v9_0.message_header.size
 end
 
 -- Dissect Packet

@@ -5625,10 +5625,9 @@ end
 -- Packet
 memx_memxequities_memo_sbe_v1_1.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 memx_memxequities_memo_sbe_v1_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= memx_memxequities_memo_sbe_v1_1.common_header.size
 end
 
 -- Dissect Packet

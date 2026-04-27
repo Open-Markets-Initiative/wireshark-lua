@@ -272,10 +272,9 @@ end
 -- Packet
 aquis_equities_tcpheader_atp_v1_0.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 aquis_equities_tcpheader_atp_v1_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= aquis_equities_tcpheader_atp_v1_0.message_header.size + aquis_equities_tcpheader_atp_v1_0.payload.size
 end
 
 -- Dissect Packet

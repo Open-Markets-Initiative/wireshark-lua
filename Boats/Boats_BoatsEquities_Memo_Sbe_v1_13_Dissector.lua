@@ -6835,10 +6835,9 @@ end
 -- Packet
 boats_boatsequities_memo_sbe_v1_13.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 boats_boatsequities_memo_sbe_v1_13.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= boats_boatsequities_memo_sbe_v1_13.common_header.size
 end
 
 -- Dissect Packet

@@ -6872,10 +6872,9 @@ end
 -- Packet
 n24x_24xequities_memo_sbe_v1_13.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 n24x_24xequities_memo_sbe_v1_13.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= n24x_24xequities_memo_sbe_v1_13.common_header.size
 end
 
 -- Dissect Packet

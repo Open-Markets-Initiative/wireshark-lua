@@ -2420,10 +2420,9 @@ end
 -- Packet
 nasdaq_phlxoptions_topo_itch_v3_3.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nasdaq_phlxoptions_topo_itch_v3_3.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nasdaq_phlxoptions_topo_itch_v3_3.packet_header.size
 end
 
 -- Dissect Packet

@@ -333,10 +333,9 @@ end
 -- Packet
 aquis_equities_udpheader_amd_v1_0.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 aquis_equities_udpheader_amd_v1_0.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= aquis_equities_udpheader_amd_v1_0.packet_header.size
 end
 
 -- Dissect Packet

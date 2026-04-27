@@ -9442,10 +9442,9 @@ end
 -- Packet
 memx_memxoptions_memo_sbe_v1_8.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 memx_memxoptions_memo_sbe_v1_8.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= memx_memxoptions_memo_sbe_v1_8.common_header.size
 end
 
 -- Dissect Packet

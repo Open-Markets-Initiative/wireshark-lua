@@ -10109,10 +10109,9 @@ end
 -- Pillar Stream Message
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.pillar_stream_message = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.pillar_stream_message.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_arcaoptions_binarygateway_pillarstream_v3_15.login_message.size + nyse_arcaoptions_binarygateway_pillarstream_v3_15.login_response.size + nyse_arcaoptions_binarygateway_pillarstream_v3_15.stream_avail.size + nyse_arcaoptions_binarygateway_pillarstream_v3_15.heartbeat.size + nyse_arcaoptions_binarygateway_pillarstream_v3_15.open.size + nyse_arcaoptions_binarygateway_pillarstream_v3_15.open_response.size + nyse_arcaoptions_binarygateway_pillarstream_v3_15.close.size + nyse_arcaoptions_binarygateway_pillarstream_v3_15.close_response.size + nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg.size
 end
 
 -- Dissect Pillar Stream Message

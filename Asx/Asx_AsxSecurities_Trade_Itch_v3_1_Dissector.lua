@@ -3002,10 +3002,9 @@ end
 -- Packet
 asx_asxsecurities_trade_itch_v3_1.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 asx_asxsecurities_trade_itch_v3_1.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= asx_asxsecurities_trade_itch_v3_1.packet_header.size
 end
 
 -- Dissect Packet

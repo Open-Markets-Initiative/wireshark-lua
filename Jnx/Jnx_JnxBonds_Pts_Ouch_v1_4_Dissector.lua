@@ -2500,10 +2500,9 @@ end
 -- Packet
 jnx_jnxbonds_pts_ouch_v1_4.packet = {}
 
--- Verify size of Tcp packet
+-- Verify required size of Tcp packet
 jnx_jnxbonds_pts_ouch_v1_4.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= jnx_jnxbonds_pts_ouch_v1_4.packet_header.size
 end
 
 -- Dissect Packet

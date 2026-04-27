@@ -1702,10 +1702,9 @@ end
 -- Packet
 a2x_equities_rtmdf_amd_v1_3_2.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 a2x_equities_rtmdf_amd_v1_3_2.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= a2x_equities_rtmdf_amd_v1_3_2.message_count.size
 end
 
 -- Dissect Packet

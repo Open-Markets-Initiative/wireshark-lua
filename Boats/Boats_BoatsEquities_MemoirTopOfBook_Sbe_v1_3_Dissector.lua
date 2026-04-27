@@ -1924,10 +1924,9 @@ end
 -- Packet
 boats_boatsequities_memoirtopofbook_sbe_v1_3.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 boats_boatsequities_memoirtopofbook_sbe_v1_3.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= boats_boatsequities_memoirtopofbook_sbe_v1_3.common_header.size
 end
 
 -- Dissect Packet

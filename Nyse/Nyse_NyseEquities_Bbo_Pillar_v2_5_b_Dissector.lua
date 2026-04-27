@@ -2900,10 +2900,9 @@ end
 -- Packet
 nyse_nyseequities_bbo_pillar_v2_5_b.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 nyse_nyseequities_bbo_pillar_v2_5_b.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= nyse_nyseequities_bbo_pillar_v2_5_b.packet_header.size
 end
 
 -- Dissect Packet

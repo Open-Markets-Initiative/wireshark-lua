@@ -3139,10 +3139,9 @@ end
 -- Packet
 lseg_millennium_level2_mitch_v11_9.packet = {}
 
--- Verify size of Udp packet
+-- Verify required size of Udp packet
 lseg_millennium_level2_mitch_v11_9.packet.requiredsize = function(buffer)
-
-  return true
+  return buffer:len() >= lseg_millennium_level2_mitch_v11_9.unit_header.size
 end
 
 -- Dissect Packet
