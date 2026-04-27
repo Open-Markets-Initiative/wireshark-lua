@@ -2228,6 +2228,12 @@ end
 -- Packet
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.packet = {}
 
+-- Verify size of Udp packet
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2272,12 +2278,6 @@ udp_table:add(65333, omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nasdaq IseOptions OrderComboFeed Itch 1.1 (Udp)
 local function omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1_udp_heuristic(buffer, packet, parent)

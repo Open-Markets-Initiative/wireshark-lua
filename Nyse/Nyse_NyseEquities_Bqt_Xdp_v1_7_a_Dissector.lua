@@ -4392,6 +4392,12 @@ end
 -- Packet
 nyse_nyseequities_bqt_xdp_v1_7_a.packet = {}
 
+-- Verify size of Udp packet
+nyse_nyseequities_bqt_xdp_v1_7_a.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_nyseequities_bqt_xdp_v1_7_a.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -4445,12 +4451,6 @@ udp_table:add(65333, omi_nyse_nyseequities_bqt_xdp_v1_7_a)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_nyseequities_bqt_xdp_v1_7_a.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse NyseEquities Bqt Xdp 1.7.a (Udp)
 local function omi_nyse_nyseequities_bqt_xdp_v1_7_a_udp_heuristic(buffer, packet, parent)

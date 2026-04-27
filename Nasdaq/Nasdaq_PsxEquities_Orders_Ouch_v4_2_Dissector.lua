@@ -2965,6 +2965,12 @@ end
 -- Packet
 nasdaq_psxequities_orders_ouch_v4_2.packet = {}
 
+-- Verify size of Tcp packet
+nasdaq_psxequities_orders_ouch_v4_2.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nasdaq_psxequities_orders_ouch_v4_2.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3020,12 +3026,6 @@ tcp_table:add(65333, omi_nasdaq_psxequities_orders_ouch_v4_2)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-nasdaq_psxequities_orders_ouch_v4_2.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nasdaq PsxEquities Orders Ouch 4.2 (Tcp)
 local function omi_nasdaq_psxequities_orders_ouch_v4_2_tcp_heuristic(buffer, packet, parent)

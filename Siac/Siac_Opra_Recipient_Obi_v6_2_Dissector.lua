@@ -3881,6 +3881,12 @@ end
 -- Packet
 siac_opra_recipient_obi_v6_2.packet = {}
 
+-- Verify size of Udp packet
+siac_opra_recipient_obi_v6_2.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 siac_opra_recipient_obi_v6_2.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3936,12 +3942,6 @@ udp_table:add(65333, omi_siac_opra_recipient_obi_v6_2)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-siac_opra_recipient_obi_v6_2.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Version Field
 siac_opra_recipient_obi_v6_2.version.verify = function(buffer)

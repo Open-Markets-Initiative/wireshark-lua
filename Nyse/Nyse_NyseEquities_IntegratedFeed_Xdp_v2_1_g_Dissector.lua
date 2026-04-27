@@ -4783,6 +4783,12 @@ end
 -- Packet
 nyse_nyseequities_integratedfeed_xdp_v2_1_g.packet = {}
 
+-- Verify size of Udp packet
+nyse_nyseequities_integratedfeed_xdp_v2_1_g.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_nyseequities_integratedfeed_xdp_v2_1_g.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -4836,12 +4842,6 @@ udp_table:add(65333, omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_nyseequities_integratedfeed_xdp_v2_1_g.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse NyseEquities IntegratedFeed Xdp 2.1.g (Udp)
 local function omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g_udp_heuristic(buffer, packet, parent)

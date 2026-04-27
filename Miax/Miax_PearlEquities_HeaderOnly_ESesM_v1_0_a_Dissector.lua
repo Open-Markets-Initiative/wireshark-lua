@@ -1398,6 +1398,12 @@ end
 -- Packet
 miax_pearlequities_headeronly_esesm_v1_0_a.packet = {}
 
+-- Verify size of Tcp packet
+miax_pearlequities_headeronly_esesm_v1_0_a.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 miax_pearlequities_headeronly_esesm_v1_0_a.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1453,12 +1459,6 @@ tcp_table:add(65333, omi_miax_pearlequities_headeronly_esesm_v1_0_a)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-miax_pearlequities_headeronly_esesm_v1_0_a.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Miax PearlEquities HeaderOnly ESesM 1.0.a (Tcp)
 local function omi_miax_pearlequities_headeronly_esesm_v1_0_a_tcp_heuristic(buffer, packet, parent)

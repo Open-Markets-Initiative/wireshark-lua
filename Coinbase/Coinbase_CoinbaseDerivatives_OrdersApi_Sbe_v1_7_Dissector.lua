@@ -4979,6 +4979,12 @@ end
 -- Packet
 coinbase_coinbasederivatives_ordersapi_sbe_v1_7.packet = {}
 
+-- Verify size of Tcp packet
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 coinbase_coinbasederivatives_ordersapi_sbe_v1_7.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -5034,12 +5040,6 @@ tcp_table:add(65333, omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-coinbase_coinbasederivatives_ordersapi_sbe_v1_7.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Schema Id Field
 coinbase_coinbasederivatives_ordersapi_sbe_v1_7.schema_id.verify = function(buffer)

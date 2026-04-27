@@ -1444,6 +1444,12 @@ end
 -- Packet
 nyse_amexequities_openbook_ultra_v2_1_b.packet = {}
 
+-- Verify size of Udp packet
+nyse_amexequities_openbook_ultra_v2_1_b.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_amexequities_openbook_ultra_v2_1_b.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1488,12 +1494,6 @@ udp_table:add(65333, omi_nyse_amexequities_openbook_ultra_v2_1_b)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_amexequities_openbook_ultra_v2_1_b.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Product Id Field
 nyse_amexequities_openbook_ultra_v2_1_b.product_id.verify = function(buffer)

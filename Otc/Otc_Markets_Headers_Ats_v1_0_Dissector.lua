@@ -468,6 +468,12 @@ end
 -- Packet
 otc_markets_headers_ats_v1_0.packet = {}
 
+-- Verify size of Udp packet
+otc_markets_headers_ats_v1_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 otc_markets_headers_ats_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -521,12 +527,6 @@ udp_table:add(65333, omi_otc_markets_headers_ats_v1_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-otc_markets_headers_ats_v1_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Otc Markets Headers Ats 1.0 (Udp)
 local function omi_otc_markets_headers_ats_v1_0_udp_heuristic(buffer, packet, parent)

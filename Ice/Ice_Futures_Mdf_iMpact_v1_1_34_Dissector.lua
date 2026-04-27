@@ -11516,6 +11516,12 @@ end
 -- Packet
 ice_futures_mdf_impact_v1_1_34.packet = {}
 
+-- Verify size of Udp packet
+ice_futures_mdf_impact_v1_1_34.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 ice_futures_mdf_impact_v1_1_34.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -11562,12 +11568,6 @@ udp_table:add(65333, omi_ice_futures_mdf_impact_v1_1_34)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-ice_futures_mdf_impact_v1_1_34.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Ice Futures Mdf iMpact 1.1.34 (Udp)
 local function omi_ice_futures_mdf_impact_v1_1_34_udp_heuristic(buffer, packet, parent)

@@ -3430,6 +3430,12 @@ end
 -- Packet
 cboe_c1options_complex_pitch_v2_1_18.packet = {}
 
+-- Verify size of Udp packet
+cboe_c1options_complex_pitch_v2_1_18.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_c1options_complex_pitch_v2_1_18.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3483,12 +3489,6 @@ udp_table:add(65333, omi_cboe_c1options_complex_pitch_v2_1_18)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-cboe_c1options_complex_pitch_v2_1_18.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Cboe C1Options Complex Pitch 2.1.18 (Udp)
 local function omi_cboe_c1options_complex_pitch_v2_1_18_udp_heuristic(buffer, packet, parent)

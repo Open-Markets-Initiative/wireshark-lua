@@ -2715,6 +2715,12 @@ end
 -- Packet
 nasdaq_nsmequities_noi_itch_v3_0_2026.packet = {}
 
+-- Verify size of Udp packet
+nasdaq_nsmequities_noi_itch_v3_0_2026.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nasdaq_nsmequities_noi_itch_v3_0_2026.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2759,12 +2765,6 @@ udp_table:add(65333, omi_nasdaq_nsmequities_noi_itch_v3_0_2026)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nasdaq_nsmequities_noi_itch_v3_0_2026.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nasdaq NsmEquities Noi Itch 3.0.2026 (Udp)
 local function omi_nasdaq_nsmequities_noi_itch_v3_0_2026_udp_heuristic(buffer, packet, parent)

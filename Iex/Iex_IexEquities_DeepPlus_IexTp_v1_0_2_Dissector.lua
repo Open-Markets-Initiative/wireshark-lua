@@ -2275,6 +2275,12 @@ end
 -- Packet
 iex_iexequities_deepplus_iextp_v1_0_2.packet = {}
 
+-- Verify size of Udp packet
+iex_iexequities_deepplus_iextp_v1_0_2.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 iex_iexequities_deepplus_iextp_v1_0_2.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2319,12 +2325,6 @@ udp_table:add(65333, omi_iex_iexequities_deepplus_iextp_v1_0_2)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-iex_iexequities_deepplus_iextp_v1_0_2.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Iex IexEquities DeepPlus IexTp 1.0.2 (Udp)
 local function omi_iex_iexequities_deepplus_iextp_v1_0_2_udp_heuristic(buffer, packet, parent)

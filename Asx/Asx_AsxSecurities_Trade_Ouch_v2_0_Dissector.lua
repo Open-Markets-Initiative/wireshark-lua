@@ -2651,6 +2651,12 @@ end
 -- Packet
 asx_asxsecurities_trade_ouch_v2_0.packet = {}
 
+-- Verify size of Tcp packet
+asx_asxsecurities_trade_ouch_v2_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 asx_asxsecurities_trade_ouch_v2_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2706,12 +2712,6 @@ tcp_table:add(65333, omi_asx_asxsecurities_trade_ouch_v2_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-asx_asxsecurities_trade_ouch_v2_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Asx AsxSecurities Trade Ouch 2.0 (Tcp)
 local function omi_asx_asxsecurities_trade_ouch_v2_0_tcp_heuristic(buffer, packet, parent)

@@ -4589,6 +4589,12 @@ end
 -- Packet
 eurex_derivatives_eobi_t7_v6_0.packet = {}
 
+-- Verify size of Udp packet
+eurex_derivatives_eobi_t7_v6_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 eurex_derivatives_eobi_t7_v6_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -4642,12 +4648,6 @@ udp_table:add(65333, omi_eurex_derivatives_eobi_t7_v6_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-eurex_derivatives_eobi_t7_v6_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Packet Id Field
 eurex_derivatives_eobi_t7_v6_0.packet_id.verify = function(buffer)

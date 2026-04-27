@@ -3139,6 +3139,12 @@ end
 -- Packet
 lseg_millennium_level2_mitch_v11_9.packet = {}
 
+-- Verify size of Udp packet
+lseg_millennium_level2_mitch_v11_9.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 lseg_millennium_level2_mitch_v11_9.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3187,12 +3193,6 @@ udp_table:add(65333, omi_lseg_millennium_level2_mitch_v11_9)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-lseg_millennium_level2_mitch_v11_9.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Lseg Millennium Level2 Mitch 11.9 (Udp)
 local function omi_lseg_millennium_level2_mitch_v11_9_udp_heuristic(buffer, packet, parent)

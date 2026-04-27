@@ -1745,6 +1745,12 @@ end
 -- Packet
 lseg_turquoise_analytics_gtp_v24_4.packet = {}
 
+-- Verify size of Udp packet
+lseg_turquoise_analytics_gtp_v24_4.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 lseg_turquoise_analytics_gtp_v24_4.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1793,12 +1799,6 @@ udp_table:add(65333, omi_lseg_turquoise_analytics_gtp_v24_4)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-lseg_turquoise_analytics_gtp_v24_4.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Lseg Turquoise Analytics Gtp 24.4 (Udp)
 local function omi_lseg_turquoise_analytics_gtp_v24_4_udp_heuristic(buffer, packet, parent)

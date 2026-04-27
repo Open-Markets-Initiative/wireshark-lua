@@ -32015,6 +32015,12 @@ end
 -- Packet
 cboe_bzxoptions_orderentry_boe_v2_10.packet = {}
 
+-- Verify size of Tcp packet
+cboe_bzxoptions_orderentry_boe_v2_10.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_bzxoptions_orderentry_boe_v2_10.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -32059,12 +32065,6 @@ tcp_table:add(65333, omi_cboe_bzxoptions_orderentry_boe_v2_10)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-cboe_bzxoptions_orderentry_boe_v2_10.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Cboe BzxOptions OrderEntry Boe 2.10 (Tcp)
 local function omi_cboe_bzxoptions_orderentry_boe_v2_10_tcp_heuristic(buffer, packet, parent)

@@ -7577,6 +7577,12 @@ end
 -- Packet
 cboe_cfefutures_orderentry_boe3_v1_1_20.packet = {}
 
+-- Verify size of Tcp packet
+cboe_cfefutures_orderentry_boe3_v1_1_20.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_cfefutures_orderentry_boe3_v1_1_20.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -7621,12 +7627,6 @@ tcp_table:add(65333, omi_cboe_cfefutures_orderentry_boe3_v1_1_20)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-cboe_cfefutures_orderentry_boe3_v1_1_20.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Cboe CfeFutures OrderEntry Boe3 1.1.20 (Tcp)
 local function omi_cboe_cfefutures_orderentry_boe3_v1_1_20_tcp_heuristic(buffer, packet, parent)

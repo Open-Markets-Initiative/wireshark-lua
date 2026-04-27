@@ -15722,6 +15722,12 @@ end
 -- Packet
 eurex_cash_eti_t7_v5_0.packet = {}
 
+-- Verify size of Tcp packet
+eurex_cash_eti_t7_v5_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 eurex_cash_eti_t7_v5_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -15777,12 +15783,6 @@ tcp_table:add(65333, omi_eurex_cash_eti_t7_v5_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-eurex_cash_eti_t7_v5_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Eurex Cash Eti T7 5.0 (Tcp)
 local function omi_eurex_cash_eti_t7_v5_0_tcp_heuristic(buffer, packet, parent)

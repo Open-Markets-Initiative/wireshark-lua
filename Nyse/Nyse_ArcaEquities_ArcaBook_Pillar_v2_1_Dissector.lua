@@ -1830,6 +1830,12 @@ end
 -- Packet
 nyse_arcaequities_arcabook_pillar_v2_1.packet = {}
 
+-- Verify size of Udp packet
+nyse_arcaequities_arcabook_pillar_v2_1.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_arcaequities_arcabook_pillar_v2_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1883,12 +1889,6 @@ udp_table:add(65333, omi_nyse_arcaequities_arcabook_pillar_v2_1)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_arcaequities_arcabook_pillar_v2_1.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse ArcaEquities ArcaBook Pillar 2.1 (Udp)
 local function omi_nyse_arcaequities_arcabook_pillar_v2_1_udp_heuristic(buffer, packet, parent)

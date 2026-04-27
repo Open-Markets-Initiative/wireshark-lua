@@ -2964,6 +2964,12 @@ end
 -- Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.packet = {}
 
+-- Verify size of Tcp packet
+jpx_osederivatives_geniuminet_ouch_v5_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3019,12 +3025,6 @@ tcp_table:add(65333, omi_jpx_osederivatives_geniuminet_ouch_v5_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-jpx_osederivatives_geniuminet_ouch_v5_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Jpx OseDerivatives GeniumInet Ouch 5.0 (Tcp)
 local function omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic(buffer, packet, parent)

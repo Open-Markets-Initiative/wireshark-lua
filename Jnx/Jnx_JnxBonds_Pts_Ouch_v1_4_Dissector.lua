@@ -2500,6 +2500,12 @@ end
 -- Packet
 jnx_jnxbonds_pts_ouch_v1_4.packet = {}
 
+-- Verify size of Tcp packet
+jnx_jnxbonds_pts_ouch_v1_4.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 jnx_jnxbonds_pts_ouch_v1_4.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2555,12 +2561,6 @@ tcp_table:add(65333, omi_jnx_jnxbonds_pts_ouch_v1_4)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-jnx_jnxbonds_pts_ouch_v1_4.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Jnx JnxBonds Pts Ouch 1.4 (Tcp)
 local function omi_jnx_jnxbonds_pts_ouch_v1_4_tcp_heuristic(buffer, packet, parent)

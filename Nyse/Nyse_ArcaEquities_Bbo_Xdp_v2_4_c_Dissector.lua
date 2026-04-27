@@ -3002,6 +3002,12 @@ end
 -- Packet
 nyse_arcaequities_bbo_xdp_v2_4_c.packet = {}
 
+-- Verify size of Udp packet
+nyse_arcaequities_bbo_xdp_v2_4_c.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_arcaequities_bbo_xdp_v2_4_c.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3055,12 +3061,6 @@ udp_table:add(65333, omi_nyse_arcaequities_bbo_xdp_v2_4_c)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_arcaequities_bbo_xdp_v2_4_c.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse ArcaEquities Bbo Xdp 2.4.c (Udp)
 local function omi_nyse_arcaequities_bbo_xdp_v2_4_c_udp_heuristic(buffer, packet, parent)

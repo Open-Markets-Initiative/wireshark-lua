@@ -3117,6 +3117,12 @@ end
 -- Packet
 miax_pearloptions_complextopofmarket_mach_v1_1.packet = {}
 
+-- Verify size of Udp packet
+miax_pearloptions_complextopofmarket_mach_v1_1.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 miax_pearloptions_complextopofmarket_mach_v1_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3162,12 +3168,6 @@ udp_table:add(65333, omi_miax_pearloptions_complextopofmarket_mach_v1_1)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-miax_pearloptions_complextopofmarket_mach_v1_1.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Miax PearlOptions ComplexTopOfMarket Mach 1.1 (Udp)
 local function omi_miax_pearloptions_complextopofmarket_mach_v1_1_udp_heuristic(buffer, packet, parent)

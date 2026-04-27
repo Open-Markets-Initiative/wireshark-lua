@@ -1419,6 +1419,12 @@ end
 -- Packet
 cme_cmefutures_brokertecust_sbe_v10_1.packet = {}
 
+-- Verify size of Udp packet
+cme_cmefutures_brokertecust_sbe_v10_1.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cme_cmefutures_brokertecust_sbe_v10_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1472,12 +1478,6 @@ udp_table:add(65333, omi_cme_cmefutures_brokertecust_sbe_v10_1)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-cme_cmefutures_brokertecust_sbe_v10_1.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Schema Id Field
 cme_cmefutures_brokertecust_sbe_v10_1.schema_id.verify = function(buffer)

@@ -636,6 +636,12 @@ end
 -- Packet
 boats_commonheader_udp_v1_1.packet = {}
 
+-- Verify size of Udp packet
+boats_commonheader_udp_v1_1.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 boats_commonheader_udp_v1_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -680,12 +686,6 @@ udp_table:add(65333, omi_boats_commonheader_udp_v1_1)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-boats_commonheader_udp_v1_1.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Boats CommonHeader Udp 1.1 (Udp)
 local function omi_boats_commonheader_udp_v1_1_udp_heuristic(buffer, packet, parent)

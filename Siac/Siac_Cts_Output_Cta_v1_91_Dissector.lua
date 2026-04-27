@@ -6777,6 +6777,12 @@ end
 -- Packet
 siac_cts_output_cta_v1_91.packet = {}
 
+-- Verify size of Udp packet
+siac_cts_output_cta_v1_91.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 siac_cts_output_cta_v1_91.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -6837,12 +6843,6 @@ udp_table:add(65333, omi_siac_cts_output_cta_v1_91)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-siac_cts_output_cta_v1_91.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Siac Cts Output Cta 1.91 (Udp)
 local function omi_siac_cts_output_cta_v1_91_udp_heuristic(buffer, packet, parent)

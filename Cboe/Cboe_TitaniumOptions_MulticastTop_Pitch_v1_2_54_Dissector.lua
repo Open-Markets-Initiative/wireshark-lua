@@ -3723,6 +3723,12 @@ end
 -- Packet
 cboe_titaniumoptions_multicasttop_pitch_v1_2_54.packet = {}
 
+-- Verify size of Udp packet
+cboe_titaniumoptions_multicasttop_pitch_v1_2_54.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_titaniumoptions_multicasttop_pitch_v1_2_54.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3776,12 +3782,6 @@ udp_table:add(65333, omi_cboe_titaniumoptions_multicasttop_pitch_v1_2_54)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-cboe_titaniumoptions_multicasttop_pitch_v1_2_54.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Cboe TitaniumOptions MulticastTop Pitch 1.2.54 (Udp)
 local function omi_cboe_titaniumoptions_multicasttop_pitch_v1_2_54_udp_heuristic(buffer, packet, parent)

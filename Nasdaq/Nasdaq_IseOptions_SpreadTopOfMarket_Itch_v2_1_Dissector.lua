@@ -2577,6 +2577,12 @@ end
 -- Packet
 nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.packet = {}
 
+-- Verify size of Tcp packet
+nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2632,12 +2638,6 @@ tcp_table:add(65333, omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nasdaq IseOptions SpreadTopOfMarket Itch 2.1 (Tcp)
 local function omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1_tcp_heuristic(buffer, packet, parent)

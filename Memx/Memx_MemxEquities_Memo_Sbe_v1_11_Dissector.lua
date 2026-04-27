@@ -6194,6 +6194,12 @@ end
 -- Packet
 memx_memxequities_memo_sbe_v1_11.packet = {}
 
+-- Verify size of Tcp packet
+memx_memxequities_memo_sbe_v1_11.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 memx_memxequities_memo_sbe_v1_11.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -6238,12 +6244,6 @@ tcp_table:add(65333, omi_memx_memxequities_memo_sbe_v1_11)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-memx_memxequities_memo_sbe_v1_11.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Memx MemxEquities Memo Sbe 1.11 (Tcp)
 local function omi_memx_memxequities_memo_sbe_v1_11_tcp_heuristic(buffer, packet, parent)

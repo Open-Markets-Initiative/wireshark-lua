@@ -1704,6 +1704,12 @@ end
 -- Packet
 cboe_titaniumoptions_openingprocess_pitch_v1_0_30.packet = {}
 
+-- Verify size of Udp packet
+cboe_titaniumoptions_openingprocess_pitch_v1_0_30.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_titaniumoptions_openingprocess_pitch_v1_0_30.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1757,12 +1763,6 @@ udp_table:add(65333, omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-cboe_titaniumoptions_openingprocess_pitch_v1_0_30.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Cboe TitaniumOptions OpeningProcess Pitch 1.0.30 (Udp)
 local function omi_cboe_titaniumoptions_openingprocess_pitch_v1_0_30_udp_heuristic(buffer, packet, parent)

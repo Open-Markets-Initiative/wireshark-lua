@@ -6835,6 +6835,12 @@ end
 -- Packet
 boats_boatsequities_memo_sbe_v1_13.packet = {}
 
+-- Verify size of Tcp packet
+boats_boatsequities_memo_sbe_v1_13.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 boats_boatsequities_memo_sbe_v1_13.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -6879,12 +6885,6 @@ tcp_table:add(65333, omi_boats_boatsequities_memo_sbe_v1_13)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-boats_boatsequities_memo_sbe_v1_13.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Boats BoatsEquities Memo Sbe 1.13 (Tcp)
 local function omi_boats_boatsequities_memo_sbe_v1_13_tcp_heuristic(buffer, packet, parent)

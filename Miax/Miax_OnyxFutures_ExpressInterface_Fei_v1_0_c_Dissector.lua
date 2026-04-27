@@ -4555,6 +4555,12 @@ end
 -- Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.packet = {}
 
+-- Verify size of Tcp packet
+miax_onyxfutures_expressinterface_fei_v1_0_c.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -4610,12 +4616,6 @@ tcp_table:add(65333, omi_miax_onyxfutures_expressinterface_fei_v1_0_c)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Miax OnyxFutures ExpressInterface Fei 1.0.c (Tcp)
 local function omi_miax_onyxfutures_expressinterface_fei_v1_0_c_tcp_heuristic(buffer, packet, parent)

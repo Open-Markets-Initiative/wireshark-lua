@@ -10834,6 +10834,12 @@ end
 -- Packet
 tmx_mx_sola_multicast_hsvf_v1_11.packet = {}
 
+-- Verify size of Udp packet
+tmx_mx_sola_multicast_hsvf_v1_11.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 tmx_mx_sola_multicast_hsvf_v1_11.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -10890,12 +10896,6 @@ udp_table:add(65333, omi_tmx_mx_sola_multicast_hsvf_v1_11)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-tmx_mx_sola_multicast_hsvf_v1_11.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Hsvf Stx Field
 tmx_mx_sola_multicast_hsvf_v1_11.hsvf_stx.verify = function(buffer)

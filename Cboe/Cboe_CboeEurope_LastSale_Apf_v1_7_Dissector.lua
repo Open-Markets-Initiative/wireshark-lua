@@ -2282,6 +2282,12 @@ end
 -- Packet
 cboe_cboeeurope_lastsale_apf_v1_7.packet = {}
 
+-- Verify size of Tcp packet
+cboe_cboeeurope_lastsale_apf_v1_7.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_cboeeurope_lastsale_apf_v1_7.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2332,12 +2338,6 @@ tcp_table:add(65333, omi_cboe_cboeeurope_lastsale_apf_v1_7)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-cboe_cboeeurope_lastsale_apf_v1_7.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Soup Lf Field
 cboe_cboeeurope_lastsale_apf_v1_7.soup_lf.verify = function(buffer)

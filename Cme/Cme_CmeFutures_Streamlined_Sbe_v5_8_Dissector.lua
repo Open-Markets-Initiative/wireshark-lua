@@ -12203,6 +12203,12 @@ end
 -- Packet
 cme_cmefutures_streamlined_sbe_v5_8.packet = {}
 
+-- Verify size of Udp packet
+cme_cmefutures_streamlined_sbe_v5_8.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cme_cmefutures_streamlined_sbe_v5_8.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -12256,12 +12262,6 @@ udp_table:add(65333, omi_cme_cmefutures_streamlined_sbe_v5_8)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-cme_cmefutures_streamlined_sbe_v5_8.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Schema Id Field
 cme_cmefutures_streamlined_sbe_v5_8.schema_id.verify = function(buffer)

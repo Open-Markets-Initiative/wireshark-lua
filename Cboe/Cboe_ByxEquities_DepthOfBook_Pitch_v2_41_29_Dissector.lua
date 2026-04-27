@@ -2625,6 +2625,12 @@ end
 -- Packet
 cboe_byxequities_depthofbook_pitch_v2_41_29.packet = {}
 
+-- Verify size of Udp packet
+cboe_byxequities_depthofbook_pitch_v2_41_29.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_byxequities_depthofbook_pitch_v2_41_29.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2678,12 +2684,6 @@ udp_table:add(65333, omi_cboe_byxequities_depthofbook_pitch_v2_41_29)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-cboe_byxequities_depthofbook_pitch_v2_41_29.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Cboe ByxEquities DepthOfBook Pitch 2.41.29 (Udp)
 local function omi_cboe_byxequities_depthofbook_pitch_v2_41_29_udp_heuristic(buffer, packet, parent)

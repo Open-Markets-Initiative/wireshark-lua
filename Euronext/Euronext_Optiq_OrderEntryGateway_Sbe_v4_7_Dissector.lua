@@ -18956,6 +18956,12 @@ end
 -- Packet
 euronext_optiq_orderentrygateway_sbe_v4_7.packet = {}
 
+-- Verify size of Tcp packet
+euronext_optiq_orderentrygateway_sbe_v4_7.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 euronext_optiq_orderentrygateway_sbe_v4_7.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -19001,12 +19007,6 @@ tcp_table:add(65333, omi_euronext_optiq_orderentrygateway_sbe_v4_7)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-euronext_optiq_orderentrygateway_sbe_v4_7.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Schema Id Field
 euronext_optiq_orderentrygateway_sbe_v4_7.schema_id.verify = function(buffer)

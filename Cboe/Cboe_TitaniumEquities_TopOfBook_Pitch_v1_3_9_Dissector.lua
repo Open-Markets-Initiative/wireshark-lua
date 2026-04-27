@@ -2823,6 +2823,12 @@ end
 -- Packet
 cboe_titaniumequities_topofbook_pitch_v1_3_9.packet = {}
 
+-- Verify size of Udp packet
+cboe_titaniumequities_topofbook_pitch_v1_3_9.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_titaniumequities_topofbook_pitch_v1_3_9.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2876,12 +2882,6 @@ udp_table:add(65333, omi_cboe_titaniumequities_topofbook_pitch_v1_3_9)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-cboe_titaniumequities_topofbook_pitch_v1_3_9.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Cboe TitaniumEquities TopOfBook Pitch 1.3.9 (Udp)
 local function omi_cboe_titaniumequities_topofbook_pitch_v1_3_9_udp_heuristic(buffer, packet, parent)

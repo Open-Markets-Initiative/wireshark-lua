@@ -10291,6 +10291,12 @@ end
 -- Pillar Stream Message
 nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message = {}
 
+-- Verify size of Tcp packet
+nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Pillar Stream Message
 nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message.dissect = function(buffer, packet, parent)
   local offset = 0
@@ -10366,12 +10372,6 @@ tcp_table:add(65333, omi_nyse_amexoptions_binarygateway_pillarstream_v3_25)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse AmexOptions BinaryGateway PillarStream 3.25 (Tcp)
 local function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25_tcp_heuristic(buffer, packet, parent)

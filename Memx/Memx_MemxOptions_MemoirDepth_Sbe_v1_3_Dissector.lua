@@ -2455,6 +2455,12 @@ end
 -- Packet
 memx_memxoptions_memoirdepth_sbe_v1_3.packet = {}
 
+-- Verify size of Udp packet
+memx_memxoptions_memoirdepth_sbe_v1_3.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 memx_memxoptions_memoirdepth_sbe_v1_3.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2499,12 +2505,6 @@ udp_table:add(65333, omi_memx_memxoptions_memoirdepth_sbe_v1_3)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-memx_memxoptions_memoirdepth_sbe_v1_3.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Memx MemxOptions MemoirDepth Sbe 1.3 (Udp)
 local function omi_memx_memxoptions_memoirdepth_sbe_v1_3_udp_heuristic(buffer, packet, parent)

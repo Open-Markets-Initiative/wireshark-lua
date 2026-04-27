@@ -5355,6 +5355,12 @@ end
 -- Packet
 nyse_amexoptions_topfeed_pillar_v1_2_j.packet = {}
 
+-- Verify size of Udp packet
+nyse_amexoptions_topfeed_pillar_v1_2_j.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_amexoptions_topfeed_pillar_v1_2_j.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -5408,12 +5414,6 @@ udp_table:add(65333, omi_nyse_amexoptions_topfeed_pillar_v1_2_j)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_amexoptions_topfeed_pillar_v1_2_j.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse AmexOptions TopFeed Pillar 1.2.j (Udp)
 local function omi_nyse_amexoptions_topfeed_pillar_v1_2_j_udp_heuristic(buffer, packet, parent)

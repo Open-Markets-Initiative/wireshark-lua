@@ -2725,6 +2725,12 @@ end
 -- Packet
 nasdaq_nsmequities_level2_itch_v2_0.packet = {}
 
+-- Verify size of Udp packet
+nasdaq_nsmequities_level2_itch_v2_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nasdaq_nsmequities_level2_itch_v2_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2769,12 +2775,6 @@ udp_table:add(65333, omi_nasdaq_nsmequities_level2_itch_v2_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nasdaq_nsmequities_level2_itch_v2_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nasdaq NsmEquities Level2 Itch 2.0 (Udp)
 local function omi_nasdaq_nsmequities_level2_itch_v2_0_udp_heuristic(buffer, packet, parent)

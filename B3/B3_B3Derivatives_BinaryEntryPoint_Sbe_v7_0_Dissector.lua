@@ -14017,6 +14017,12 @@ end
 -- Packet
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.packet = {}
 
+-- Verify size of Tcp packet
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -14072,12 +14078,6 @@ tcp_table:add(65333, omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Schema Id Field
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.schema_id.verify = function(buffer)

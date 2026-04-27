@@ -6872,6 +6872,12 @@ end
 -- Packet
 n24x_24xequities_memo_sbe_v1_13.packet = {}
 
+-- Verify size of Tcp packet
+n24x_24xequities_memo_sbe_v1_13.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 n24x_24xequities_memo_sbe_v1_13.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -6916,12 +6922,6 @@ tcp_table:add(65333, omi_n24x_24xequities_memo_sbe_v1_13)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-n24x_24xequities_memo_sbe_v1_13.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for 24X 24XEquities Memo Sbe 1.13 (Tcp)
 local function omi_n24x_24xequities_memo_sbe_v1_13_tcp_heuristic(buffer, packet, parent)

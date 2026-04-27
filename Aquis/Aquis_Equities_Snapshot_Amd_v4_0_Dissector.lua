@@ -987,6 +987,12 @@ end
 -- Packet
 aquis_equities_snapshot_amd_v4_0.packet = {}
 
+-- Verify size of Udp packet
+aquis_equities_snapshot_amd_v4_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 aquis_equities_snapshot_amd_v4_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1038,12 +1044,6 @@ udp_table:add(65333, omi_aquis_equities_snapshot_amd_v4_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-aquis_equities_snapshot_amd_v4_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Aquis Equities Snapshot Amd 4.0 (Udp)
 local function omi_aquis_equities_snapshot_amd_v4_0_udp_heuristic(buffer, packet, parent)

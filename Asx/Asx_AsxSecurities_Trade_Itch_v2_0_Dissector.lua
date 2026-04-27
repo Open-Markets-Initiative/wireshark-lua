@@ -3049,6 +3049,12 @@ end
 -- Packet
 asx_asxsecurities_trade_itch_v2_0.packet = {}
 
+-- Verify size of Udp packet
+asx_asxsecurities_trade_itch_v2_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 asx_asxsecurities_trade_itch_v2_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3093,12 +3099,6 @@ udp_table:add(65333, omi_asx_asxsecurities_trade_itch_v2_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-asx_asxsecurities_trade_itch_v2_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Asx AsxSecurities Trade Itch 2.0 (Udp)
 local function omi_asx_asxsecurities_trade_itch_v2_0_udp_heuristic(buffer, packet, parent)

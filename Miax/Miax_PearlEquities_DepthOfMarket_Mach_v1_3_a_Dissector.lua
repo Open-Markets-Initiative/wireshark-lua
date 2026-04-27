@@ -1907,6 +1907,12 @@ end
 -- Packet
 miax_pearlequities_depthofmarket_mach_v1_3_a.packet = {}
 
+-- Verify size of Udp packet
+miax_pearlequities_depthofmarket_mach_v1_3_a.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 miax_pearlequities_depthofmarket_mach_v1_3_a.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1952,12 +1958,6 @@ udp_table:add(65333, omi_miax_pearlequities_depthofmarket_mach_v1_3_a)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-miax_pearlequities_depthofmarket_mach_v1_3_a.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Miax PearlEquities DepthOfMarket Mach 1.3.a (Udp)
 local function omi_miax_pearlequities_depthofmarket_mach_v1_3_a_udp_heuristic(buffer, packet, parent)

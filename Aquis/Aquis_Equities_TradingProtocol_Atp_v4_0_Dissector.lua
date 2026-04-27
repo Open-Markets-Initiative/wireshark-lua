@@ -3612,6 +3612,12 @@ end
 -- Packet
 aquis_equities_tradingprotocol_atp_v4_0.packet = {}
 
+-- Verify size of Tcp packet
+aquis_equities_tradingprotocol_atp_v4_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 aquis_equities_tradingprotocol_atp_v4_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3667,12 +3673,6 @@ tcp_table:add(65333, omi_aquis_equities_tradingprotocol_atp_v4_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-aquis_equities_tradingprotocol_atp_v4_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Aquis Equities TradingProtocol Atp 4.0 (Tcp)
 local function omi_aquis_equities_tradingprotocol_atp_v4_0_tcp_heuristic(buffer, packet, parent)

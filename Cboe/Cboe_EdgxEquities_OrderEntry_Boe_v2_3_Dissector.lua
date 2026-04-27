@@ -30605,6 +30605,12 @@ end
 -- Packet
 cboe_edgxequities_orderentry_boe_v2_3.packet = {}
 
+-- Verify size of Tcp packet
+cboe_edgxequities_orderentry_boe_v2_3.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cboe_edgxequities_orderentry_boe_v2_3.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -30649,12 +30655,6 @@ tcp_table:add(65333, omi_cboe_edgxequities_orderentry_boe_v2_3)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-cboe_edgxequities_orderentry_boe_v2_3.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Cboe EdgxEquities OrderEntry Boe 2.3 (Tcp)
 local function omi_cboe_edgxequities_orderentry_boe_v2_3_tcp_heuristic(buffer, packet, parent)

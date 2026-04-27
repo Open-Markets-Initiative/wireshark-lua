@@ -3162,6 +3162,12 @@ end
 -- Packet
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet = {}
 
+-- Verify size of Udp packet
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3215,12 +3221,6 @@ udp_table:add(65333, omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d (Udp)
 local function omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d_udp_heuristic(buffer, packet, parent)

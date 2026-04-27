@@ -2411,6 +2411,12 @@ end
 -- Packet
 currenex_currenexforex_orderservice_cbp_v26_0.packet = {}
 
+-- Verify size of Tcp packet
+currenex_currenexforex_orderservice_cbp_v26_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 currenex_currenexforex_orderservice_cbp_v26_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2467,12 +2473,6 @@ tcp_table:add(65333, omi_currenex_currenexforex_orderservice_cbp_v26_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-currenex_currenexforex_orderservice_cbp_v26_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Soh Field
 currenex_currenexforex_orderservice_cbp_v26_0.soh.verify = function(buffer)

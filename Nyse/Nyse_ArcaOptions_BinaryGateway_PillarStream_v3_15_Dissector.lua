@@ -10109,6 +10109,12 @@ end
 -- Pillar Stream Message
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.pillar_stream_message = {}
 
+-- Verify size of Tcp packet
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.pillar_stream_message.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Pillar Stream Message
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.pillar_stream_message.dissect = function(buffer, packet, parent)
   local offset = 0
@@ -10184,12 +10190,6 @@ tcp_table:add(65333, omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-nyse_arcaoptions_binarygateway_pillarstream_v3_15.pillar_stream_message.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse ArcaOptions BinaryGateway PillarStream 3.15 (Tcp)
 local function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15_tcp_heuristic(buffer, packet, parent)

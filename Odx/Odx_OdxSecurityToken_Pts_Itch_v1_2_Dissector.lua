@@ -2382,6 +2382,12 @@ end
 -- Packet
 odx_odxsecuritytoken_pts_itch_v1_2.packet = {}
 
+-- Verify size of Tcp packet
+odx_odxsecuritytoken_pts_itch_v1_2.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 odx_odxsecuritytoken_pts_itch_v1_2.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2437,12 +2443,6 @@ tcp_table:add(65333, omi_odx_odxsecuritytoken_pts_itch_v1_2)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-odx_odxsecuritytoken_pts_itch_v1_2.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Odx OdxSecurityToken Pts Itch 1.2 (Tcp)
 local function omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_heuristic(buffer, packet, parent)

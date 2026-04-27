@@ -566,6 +566,12 @@ end
 -- Packet
 b3_securities_binarypacketheader_udp_v1_0.packet = {}
 
+-- Verify size of Udp packet
+b3_securities_binarypacketheader_udp_v1_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 b3_securities_binarypacketheader_udp_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -619,12 +625,6 @@ udp_table:add(65333, omi_b3_securities_binarypacketheader_udp_v1_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-b3_securities_binarypacketheader_udp_v1_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for B3 Securities BinaryPacketHeader Udp 1.0 (Udp)
 local function omi_b3_securities_binarypacketheader_udp_v1_0_udp_heuristic(buffer, packet, parent)

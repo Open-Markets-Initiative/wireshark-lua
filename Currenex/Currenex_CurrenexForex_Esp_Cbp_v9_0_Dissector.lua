@@ -1536,6 +1536,12 @@ end
 -- Packet
 currenex_currenexforex_esp_cbp_v9_0.packet = {}
 
+-- Verify size of Udp packet
+currenex_currenexforex_esp_cbp_v9_0.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 currenex_currenexforex_esp_cbp_v9_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -1592,12 +1598,6 @@ udp_table:add(65333, omi_currenex_currenexforex_esp_cbp_v9_0)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-currenex_currenexforex_esp_cbp_v9_0.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Itch Soh Field
 currenex_currenexforex_esp_cbp_v9_0.itch_soh.verify = function(buffer)

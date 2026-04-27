@@ -2281,6 +2281,12 @@ end
 -- Packet
 nyse_amexoptions_complexfeed_xdp_v1_3_a.packet = {}
 
+-- Verify size of Udp packet
+nyse_amexoptions_complexfeed_xdp_v1_3_a.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_amexoptions_complexfeed_xdp_v1_3_a.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2334,12 +2340,6 @@ udp_table:add(65333, omi_nyse_amexoptions_complexfeed_xdp_v1_3_a)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_amexoptions_complexfeed_xdp_v1_3_a.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse AmexOptions ComplexFeed Xdp 1.3.a (Udp)
 local function omi_nyse_amexoptions_complexfeed_xdp_v1_3_a_udp_heuristic(buffer, packet, parent)

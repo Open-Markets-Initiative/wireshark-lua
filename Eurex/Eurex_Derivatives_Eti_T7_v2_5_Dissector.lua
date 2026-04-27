@@ -17380,6 +17380,12 @@ end
 -- Packet
 eurex_derivatives_eti_t7_v2_5.packet = {}
 
+-- Verify size of Tcp packet
+eurex_derivatives_eti_t7_v2_5.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 eurex_derivatives_eti_t7_v2_5.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -17435,12 +17441,6 @@ tcp_table:add(65333, omi_eurex_derivatives_eti_t7_v2_5)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-eurex_derivatives_eti_t7_v2_5.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Eurex Derivatives Eti T7 2.5 (Tcp)
 local function omi_eurex_derivatives_eti_t7_v2_5_tcp_heuristic(buffer, packet, parent)

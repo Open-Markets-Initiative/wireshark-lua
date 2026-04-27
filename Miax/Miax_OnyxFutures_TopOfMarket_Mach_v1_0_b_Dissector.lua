@@ -2309,6 +2309,12 @@ end
 -- Packet
 miax_onyxfutures_topofmarket_mach_v1_0_b.packet = {}
 
+-- Verify size of Udp packet
+miax_onyxfutures_topofmarket_mach_v1_0_b.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 miax_onyxfutures_topofmarket_mach_v1_0_b.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2354,12 +2360,6 @@ udp_table:add(65333, omi_miax_onyxfutures_topofmarket_mach_v1_0_b)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-miax_onyxfutures_topofmarket_mach_v1_0_b.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Miax OnyxFutures TopOfMarket Mach 1.0.b (Udp)
 local function omi_miax_onyxfutures_topofmarket_mach_v1_0_b_udp_heuristic(buffer, packet, parent)

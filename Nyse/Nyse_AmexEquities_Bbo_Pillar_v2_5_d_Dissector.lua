@@ -3028,6 +3028,12 @@ end
 -- Packet
 nyse_amexequities_bbo_pillar_v2_5_d.packet = {}
 
+-- Verify size of Udp packet
+nyse_amexequities_bbo_pillar_v2_5_d.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_amexequities_bbo_pillar_v2_5_d.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3081,12 +3087,6 @@ udp_table:add(65333, omi_nyse_amexequities_bbo_pillar_v2_5_d)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_amexequities_bbo_pillar_v2_5_d.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse AmexEquities Bbo Pillar 2.5.d (Udp)
 local function omi_nyse_amexequities_bbo_pillar_v2_5_d_udp_heuristic(buffer, packet, parent)

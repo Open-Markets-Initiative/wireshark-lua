@@ -9846,6 +9846,12 @@ end
 -- Packet
 b3_b3derivatives_binaryumdf_sbe_v1_7.packet = {}
 
+-- Verify size of Udp packet
+b3_b3derivatives_binaryumdf_sbe_v1_7.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 b3_b3derivatives_binaryumdf_sbe_v1_7.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -9899,12 +9905,6 @@ udp_table:add(65333, omi_b3_b3derivatives_binaryumdf_sbe_v1_7)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-b3_b3derivatives_binaryumdf_sbe_v1_7.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Schema Id Field
 b3_b3derivatives_binaryumdf_sbe_v1_7.schema_id.verify = function(buffer)

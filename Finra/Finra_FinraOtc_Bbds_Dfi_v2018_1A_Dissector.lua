@@ -2535,6 +2535,12 @@ end
 -- Packet
 finra_finraotc_bbds_dfi_v2018_1a.packet = {}
 
+-- Verify size of Udp packet
+finra_finraotc_bbds_dfi_v2018_1a.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 finra_finraotc_bbds_dfi_v2018_1a.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -2583,12 +2589,6 @@ udp_table:add(65333, omi_finra_finraotc_bbds_dfi_v2018_1a)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-finra_finraotc_bbds_dfi_v2018_1a.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Finra FinraOtc Bbds Dfi 2018.1A (Udp)
 local function omi_finra_finraotc_bbds_dfi_v2018_1a_udp_heuristic(buffer, packet, parent)

@@ -4298,6 +4298,12 @@ end
 -- Packet
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet = {}
 
+-- Verify size of Udp packet
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -4351,12 +4357,6 @@ udp_table:add(65333, omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse ArcaOptions ComplexFeed Pillar 1.0.d (Udp)
 local function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d_udp_heuristic(buffer, packet, parent)

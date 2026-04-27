@@ -6677,6 +6677,12 @@ end
 -- Packet
 txse_txseequities_orderentry_seed_v0_1.packet = {}
 
+-- Verify size of Tcp packet
+txse_txseequities_orderentry_seed_v0_1.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 txse_txseequities_orderentry_seed_v0_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -6732,12 +6738,6 @@ tcp_table:add(65333, omi_txse_txseequities_orderentry_seed_v0_1)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-txse_txseequities_orderentry_seed_v0_1.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Txse TxseEquities OrderEntry Seed 0.1 (Tcp)
 local function omi_txse_txseequities_orderentry_seed_v0_1_tcp_heuristic(buffer, packet, parent)

@@ -3372,6 +3372,12 @@ end
 -- Packet
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.packet = {}
 
+-- Verify size of Udp packet
+nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -3425,12 +3431,6 @@ udp_table:add(65333, omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Udp packet
-nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Dissector Heuristic for Nyse NyseEquities ImbalancesFeed Pillar 2.2.h (Udp)
 local function omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h_udp_heuristic(buffer, packet, parent)

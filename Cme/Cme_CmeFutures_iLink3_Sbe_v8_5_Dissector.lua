@@ -17308,6 +17308,12 @@ end
 -- Packet
 cme_cmefutures_ilink3_sbe_v8_5.packet = {}
 
+-- Verify size of Tcp packet
+cme_cmefutures_ilink3_sbe_v8_5.packet.requiredsize = function(buffer)
+
+  return true
+end
+
 -- Dissect Packet
 cme_cmefutures_ilink3_sbe_v8_5.packet.dissect = function(buffer, packet, parent)
   local index = 0
@@ -17363,12 +17369,6 @@ tcp_table:add(65333, omi_cme_cmefutures_ilink3_sbe_v8_5)
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
-
--- Verify size of Tcp packet
-cme_cmefutures_ilink3_sbe_v8_5.packet.requiredsize = function(buffer)
-
-  return true
-end
 
 -- Verify Schema Id Field
 cme_cmefutures_ilink3_sbe_v8_5.schema_id.verify = function(buffer)
