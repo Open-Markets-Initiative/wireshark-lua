@@ -5869,10 +5869,6 @@ function omi_memx_memxequities_memo_sbe_v1_6.dissector(buffer, packet, parent)
   return memx_memxequities_memo_sbe_v1_6.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_memx_memxequities_memo_sbe_v1_6)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

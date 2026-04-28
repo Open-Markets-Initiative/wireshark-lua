@@ -2873,10 +2873,6 @@ function omi_cboe_titaniumequities_topofbook_pitch_v1_3_9.dissector(buffer, pack
   return cboe_titaniumequities_topofbook_pitch_v1_3_9.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_titaniumequities_topofbook_pitch_v1_3_9)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

@@ -18998,10 +18998,6 @@ function omi_euronext_optiq_orderentrygateway_sbe_v4_7.dissector(buffer, packet,
   return euronext_optiq_orderentrygateway_sbe_v4_7.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_euronext_optiq_orderentrygateway_sbe_v4_7)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

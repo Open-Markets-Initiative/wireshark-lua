@@ -15992,10 +15992,6 @@ function omi_cme_cmefutures_mdp3_sbe_v1_13.dissector(buffer, packet, parent)
   return cme_cmefutures_mdp3_sbe_v1_13.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cme_cmefutures_mdp3_sbe_v1_13)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

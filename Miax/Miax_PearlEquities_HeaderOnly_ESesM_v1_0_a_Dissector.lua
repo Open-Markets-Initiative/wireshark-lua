@@ -1450,10 +1450,6 @@ function omi_miax_pearlequities_headeronly_esesm_v1_0_a.dissector(buffer, packet
   return miax_pearlequities_headeronly_esesm_v1_0_a.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_miax_pearlequities_headeronly_esesm_v1_0_a)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

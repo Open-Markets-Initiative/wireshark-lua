@@ -14197,10 +14197,6 @@ function omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.dissector(buffer, packet
   return b3_b3derivatives_binaryentrypoint_sbe_v7_1.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

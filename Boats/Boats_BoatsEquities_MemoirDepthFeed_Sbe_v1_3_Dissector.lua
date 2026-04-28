@@ -2175,10 +2175,6 @@ function omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3.dissector(buffer, pack
   return boats_boatsequities_memoirdepthfeed_sbe_v1_3.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

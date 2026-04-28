@@ -3078,10 +3078,6 @@ function omi_nyse_nationalequities_bbo_pillar_v2_5_d.dissector(buffer, packet, p
   return nyse_nationalequities_bbo_pillar_v2_5_d.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_nationalequities_bbo_pillar_v2_5_d)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

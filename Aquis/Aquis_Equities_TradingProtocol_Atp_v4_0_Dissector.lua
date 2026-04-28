@@ -3664,10 +3664,6 @@ function omi_aquis_equities_tradingprotocol_atp_v4_0.dissector(buffer, packet, p
   return aquis_equities_tradingprotocol_atp_v4_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_aquis_equities_tradingprotocol_atp_v4_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

@@ -3397,10 +3397,6 @@ function omi_nasdaq_ntxequities_nlsplus_itch_v4_0.dissector(buffer, packet, pare
   return nasdaq_ntxequities_nlsplus_itch_v4_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_ntxequities_nlsplus_itch_v4_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

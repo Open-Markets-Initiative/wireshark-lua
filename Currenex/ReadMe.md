@@ -5,9 +5,9 @@
 
 | Division | [Protocol][Omi.Currenex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [CurrenexForex][CurrenexForex.Exchange] | [Esp][Currenex.CurrenexForex.Esp] | [Cbp][Omi.Encoding.Cbp] | [9.0][Currenex.CurrenexForex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1652 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.Esp.Cbp.v9.0.Url] - [pdf][Currenex.CurrenexForex.Esp.Cbp.v9.0.Pdf] |
-| [CurrenexForex][CurrenexForex.Exchange] | [Now][Currenex.CurrenexForex.Now] | [Cbp][Omi.Encoding.Cbp] | [10.0][Currenex.CurrenexForex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2298 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.Now.Cbp.v10.0.Url] - [pdf][Currenex.CurrenexForex.Now.Cbp.v10.0.Pdf] |
-| [CurrenexForex][CurrenexForex.Exchange] | [OrderService][Currenex.CurrenexForex.OrderService] | [Cbp][Omi.Encoding.Cbp] | [26.0][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2527 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Url] - [pdf][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Pdf] |
+| [CurrenexForex][CurrenexForex.Exchange] | [Esp][Currenex.CurrenexForex.Esp] | [Cbp][Omi.Encoding.Cbp] | [9.0][Currenex.CurrenexForex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1648 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.Esp.Cbp.v9.0.Url] - [pdf][Currenex.CurrenexForex.Esp.Cbp.v9.0.Pdf] |
+| [CurrenexForex][CurrenexForex.Exchange] | [Now][Currenex.CurrenexForex.Now] | [Cbp][Omi.Encoding.Cbp] | [10.0][Currenex.CurrenexForex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2294 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.Now.Cbp.v10.0.Url] - [pdf][Currenex.CurrenexForex.Now.Cbp.v10.0.Pdf] |
+| [CurrenexForex][CurrenexForex.Exchange] | [OrderService][Currenex.CurrenexForex.OrderService] | [Cbp][Omi.Encoding.Cbp] | [26.0][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2523 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Url] - [pdf][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Pdf] |
 
 
 Currenex: [website](https://currenex.com "Go to Currenex")

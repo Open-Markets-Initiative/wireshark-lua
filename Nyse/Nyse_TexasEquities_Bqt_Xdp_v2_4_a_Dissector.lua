@@ -5181,10 +5181,6 @@ function omi_nyse_texasequities_bqt_xdp_v2_4_a.dissector(buffer, packet, parent)
   return nyse_texasequities_bqt_xdp_v2_4_a.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_texasequities_bqt_xdp_v2_4_a)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

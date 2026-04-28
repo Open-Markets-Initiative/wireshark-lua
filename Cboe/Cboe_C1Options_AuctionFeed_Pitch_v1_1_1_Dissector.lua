@@ -1845,10 +1845,6 @@ function omi_cboe_c1options_auctionfeed_pitch_v1_1_1.dissector(buffer, packet, p
   return cboe_c1options_auctionfeed_pitch_v1_1_1.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_c1options_auctionfeed_pitch_v1_1_1)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

@@ -17195,10 +17195,6 @@ function omi_cme_cmefutures_ilink3_sbe_v8_3.dissector(buffer, packet, parent)
   return cme_cmefutures_ilink3_sbe_v8_3.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_cme_cmefutures_ilink3_sbe_v8_3)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

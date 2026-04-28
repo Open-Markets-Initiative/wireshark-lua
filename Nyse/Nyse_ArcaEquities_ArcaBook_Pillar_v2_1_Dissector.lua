@@ -1880,10 +1880,6 @@ function omi_nyse_arcaequities_arcabook_pillar_v2_1.dissector(buffer, packet, pa
   return nyse_arcaequities_arcabook_pillar_v2_1.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_arcaequities_arcabook_pillar_v2_1)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

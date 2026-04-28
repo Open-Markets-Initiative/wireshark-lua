@@ -1445,10 +1445,6 @@ function omi_coinbase_coinbasederivatives_session_tcp_v1_2.dissector(buffer, pac
   return coinbase_coinbasederivatives_session_tcp_v1_2.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_coinbase_coinbasederivatives_session_tcp_v1_2)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

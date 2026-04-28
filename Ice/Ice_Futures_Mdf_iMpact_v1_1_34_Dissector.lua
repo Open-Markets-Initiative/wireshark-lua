@@ -11559,10 +11559,6 @@ function omi_ice_futures_mdf_impact_v1_1_34.dissector(buffer, packet, parent)
   return ice_futures_mdf_impact_v1_1_34.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_ice_futures_mdf_impact_v1_1_34)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

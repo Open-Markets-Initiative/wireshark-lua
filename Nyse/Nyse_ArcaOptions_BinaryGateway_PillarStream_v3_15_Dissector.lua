@@ -10181,10 +10181,6 @@ function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.dissector(buffer,
   return nyse_arcaoptions_binarygateway_pillarstream_v3_15.pillar_stream_message.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

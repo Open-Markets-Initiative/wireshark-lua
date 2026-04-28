@@ -460,10 +460,6 @@ function omi_nasdaq_common_mold64_udp_v1_0.dissector(buffer, packet, parent)
   return nasdaq_common_mold64_udp_v1_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_common_mold64_udp_v1_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

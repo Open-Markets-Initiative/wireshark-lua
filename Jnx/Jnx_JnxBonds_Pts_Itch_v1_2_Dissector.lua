@@ -131,6 +131,29 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- Per-flow state attached to packet.conversation
+jnx_jnxbonds_pts_itch_v1_2.conversation = {}
+
+-- Get-or-create our protocol's data record on the current packet's conversation
+jnx_jnxbonds_pts_itch_v1_2.conversation.data = function(packet)
+  local conversation = packet.conversation
+  local data = conversation[omi_jnx_jnxbonds_pts_itch_v1_2]
+  if data == nil then
+    data = { timestamp_seconds = { last = nil, frames = {} } }
+    conversation[omi_jnx_jnxbonds_pts_itch_v1_2] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+jnx_jnxbonds_pts_itch_v1_2.conversation.current = nil
+
+
+-----------------------------------------------------------------------
 -- Protocol Functions
 -----------------------------------------------------------------------
 
@@ -784,7 +807,7 @@ jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds = {}
 jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.size = 4
 
 -- Store: Timestamp Seconds
-jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.store = nil
+jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.current = nil
 
 -- Generated: Timestamp Seconds
 jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.generated = function(value, range, packet, parent)
@@ -917,7 +940,7 @@ end
 
 -- Dissect: Timestamp
 jnx_jnxbonds_pts_itch_v1_2.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_timestamp_seconds = jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.store
+  local stored_timestamp_seconds = jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.current
 
   if stored_timestamp_seconds ~= nil then
     return jnx_jnxbonds_pts_itch_v1_2.timestamp.composite(buffer, offset, stored_timestamp_seconds, packet, parent)
@@ -1391,7 +1414,11 @@ jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds_message.fields = function(buffer, o
   index, timestamp_seconds = jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.dissect(buffer, index, packet, parent)
 
   -- Store Timestamp Seconds Value
-  jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.store = timestamp_seconds
+  jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.current = timestamp_seconds
+
+  if not packet.visited then
+    jnx_jnxbonds_pts_itch_v1_2.conversation.current.timestamp_seconds.last = timestamp_seconds
+  end
 
   return index
 end
@@ -1652,6 +1679,14 @@ end
 
 -- Dissect Packet
 jnx_jnxbonds_pts_itch_v1_2.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = jnx_jnxbonds_pts_itch_v1_2.conversation.data(packet)
+  if not packet.visited then
+    data.timestamp_seconds.frames[packet.number] = data.timestamp_seconds.last
+  end
+  jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.current = data.timestamp_seconds.frames[packet.number]
+  jnx_jnxbonds_pts_itch_v1_2.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 3 fields
@@ -1673,6 +1708,8 @@ end
 
 -- Initialize Dissector
 function omi_jnx_jnxbonds_pts_itch_v1_2.init()
+  jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.current = nil
+  jnx_jnxbonds_pts_itch_v1_2.conversation.current = nil
 end
 
 -- Dissector for Jnx JnxBonds Pts Itch 1.2
@@ -1685,10 +1722,6 @@ function omi_jnx_jnxbonds_pts_itch_v1_2.dissector(buffer, packet, parent)
   local protocol = parent:add(omi_jnx_jnxbonds_pts_itch_v1_2, buffer(), omi_jnx_jnxbonds_pts_itch_v1_2.description, "("..buffer:len().." Bytes)")
   return jnx_jnxbonds_pts_itch_v1_2.packet.dissect(buffer, packet, protocol)
 end
-
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_jnx_jnxbonds_pts_itch_v1_2)
 
 
 -----------------------------------------------------------------------

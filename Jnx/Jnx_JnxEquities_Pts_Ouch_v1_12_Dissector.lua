@@ -2560,10 +2560,6 @@ function omi_jnx_jnxequities_pts_ouch_v1_12.dissector(buffer, packet, parent)
   return jnx_jnxequities_pts_ouch_v1_12.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_jnx_jnxequities_pts_ouch_v1_12)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

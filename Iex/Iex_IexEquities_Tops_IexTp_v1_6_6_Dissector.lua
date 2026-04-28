@@ -2566,10 +2566,6 @@ function omi_iex_iexequities_tops_iextp_v1_6_6.dissector(buffer, packet, parent)
   return iex_iexequities_tops_iextp_v1_6_6.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_iex_iexequities_tops_iextp_v1_6_6)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

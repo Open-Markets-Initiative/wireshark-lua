@@ -2775,10 +2775,6 @@ function omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.dissector(buffer, packet, p
   return nasdaq_ntxoptions_topofmarket_itch_v2_2.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_ntxoptions_topofmarket_itch_v2_2)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

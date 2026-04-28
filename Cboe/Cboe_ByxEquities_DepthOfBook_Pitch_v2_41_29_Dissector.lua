@@ -2675,10 +2675,6 @@ function omi_cboe_byxequities_depthofbook_pitch_v2_41_29.dissector(buffer, packe
   return cboe_byxequities_depthofbook_pitch_v2_41_29.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_byxequities_depthofbook_pitch_v2_41_29)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

@@ -2580,10 +2580,6 @@ function omi_finra_finraotc_bbds_dfi_v2018_1a.dissector(buffer, packet, parent)
   return finra_finraotc_bbds_dfi_v2018_1a.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_finra_finraotc_bbds_dfi_v2018_1a)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

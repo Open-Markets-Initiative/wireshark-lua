@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.NsxAustralia.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [Nets][NsxAustralia.Nets] | [Itch][Omi.Encoding.Itch] | [4.2.55][NsxAustralia.Nets.Itch.v4.2.55.Dissector] | 4/6/2026 | 4007 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][NsxAustralia.Nets.Itch.v4.2.55.Url] |
+|  | [Nets][NsxAustralia.Nets] | [Itch][Omi.Encoding.Itch] | [4.2.55][NsxAustralia.Nets.Itch.v4.2.55.Dissector] | 4/6/2026 | 4003 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][NsxAustralia.Nets.Itch.v4.2.55.Url] |
 
 
 NsxAustralia: [website](https://www.nsx.com.au "Go to Nation Stock Exchange of Australia")

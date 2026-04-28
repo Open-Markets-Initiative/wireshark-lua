@@ -18397,10 +18397,6 @@ function omi_euronext_optiq_marketdatagateway_sbe_v4_13.dissector(buffer, packet
   return euronext_optiq_marketdatagateway_sbe_v4_13.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_euronext_optiq_marketdatagateway_sbe_v4_13)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

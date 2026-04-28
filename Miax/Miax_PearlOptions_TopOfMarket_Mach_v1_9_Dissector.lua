@@ -2788,10 +2788,6 @@ function omi_miax_pearloptions_topofmarket_mach_v1_9.dissector(buffer, packet, p
   return miax_pearloptions_topofmarket_mach_v1_9.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_miax_pearloptions_topofmarket_mach_v1_9)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

@@ -3184,10 +3184,6 @@ function omi_lseg_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent
   return lseg_millennium_level2_mitch_v11_9.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_lseg_millennium_level2_mitch_v11_9)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

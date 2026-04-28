@@ -10887,10 +10887,6 @@ function omi_tmx_mx_sola_multicast_hsvf_v1_11.dissector(buffer, packet, parent)
   return tmx_mx_sola_multicast_hsvf_v1_11.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_tmx_mx_sola_multicast_hsvf_v1_11)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

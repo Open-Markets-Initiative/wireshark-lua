@@ -6620,10 +6620,6 @@ function omi_box_options_sola_multicast_hsvf_v1_9.dissector(buffer, packet, pare
   return box_options_sola_multicast_hsvf_v1_9.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_box_options_sola_multicast_hsvf_v1_9)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

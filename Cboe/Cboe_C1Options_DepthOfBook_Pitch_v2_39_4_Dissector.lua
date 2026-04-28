@@ -3162,10 +3162,6 @@ function omi_cboe_c1options_depthofbook_pitch_v2_39_4.dissector(buffer, packet, 
   return cboe_c1options_depthofbook_pitch_v2_39_4.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_c1options_depthofbook_pitch_v2_39_4)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

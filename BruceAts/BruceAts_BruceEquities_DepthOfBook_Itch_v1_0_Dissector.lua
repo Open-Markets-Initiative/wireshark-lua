@@ -1181,10 +1181,6 @@ function omi_bruceats_bruceequities_depthofbook_itch_v1_0.dissector(buffer, pack
   return bruceats_bruceequities_depthofbook_itch_v1_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_bruceats_bruceequities_depthofbook_itch_v1_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

@@ -1176,10 +1176,6 @@ function omi_cboe_titaniumequities_lastsale_pitch_v1_2_4.dissector(buffer, packe
   return cboe_titaniumequities_lastsale_pitch_v1_2_4.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_cboe_titaniumequities_lastsale_pitch_v1_2_4)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

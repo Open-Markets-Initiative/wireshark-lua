@@ -1479,10 +1479,6 @@ function omi_nyse_nyseequities_openbook_ultra_v2_1_b.dissector(buffer, packet, p
   return nyse_nyseequities_openbook_ultra_v2_1_b.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_nyseequities_openbook_ultra_v2_1_b)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

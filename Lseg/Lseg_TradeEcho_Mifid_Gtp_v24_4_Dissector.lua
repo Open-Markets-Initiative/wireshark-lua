@@ -3753,10 +3753,6 @@ function omi_lseg_tradeecho_mifid_gtp_v24_4.dissector(buffer, packet, parent)
   return lseg_tradeecho_mifid_gtp_v24_4.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_lseg_tradeecho_mifid_gtp_v24_4)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

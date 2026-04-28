@@ -2674,10 +2674,6 @@ function omi_memx_memxoptions_memoirtop_sbe_v1_3.dissector(buffer, packet, paren
   return memx_memxoptions_memoirtop_sbe_v1_3.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_memx_memxoptions_memoirtop_sbe_v1_3)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

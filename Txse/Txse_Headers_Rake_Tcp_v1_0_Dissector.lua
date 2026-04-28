@@ -1013,10 +1013,6 @@ function omi_txse_headers_rake_tcp_v1_0.dissector(buffer, packet, parent)
   return txse_headers_rake_tcp_v1_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_txse_headers_rake_tcp_v1_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

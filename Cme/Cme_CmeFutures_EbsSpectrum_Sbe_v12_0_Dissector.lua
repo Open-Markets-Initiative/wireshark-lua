@@ -1985,10 +1985,6 @@ function omi_cme_cmefutures_ebsspectrum_sbe_v12_0.dissector(buffer, packet, pare
   return cme_cmefutures_ebsspectrum_sbe_v12_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cme_cmefutures_ebsspectrum_sbe_v12_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

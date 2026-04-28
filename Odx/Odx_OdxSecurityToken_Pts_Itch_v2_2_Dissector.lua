@@ -133,6 +133,29 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- Per-flow state attached to packet.conversation
+odx_odxsecuritytoken_pts_itch_v2_2.conversation = {}
+
+-- Get-or-create our protocol's data record on the current packet's conversation
+odx_odxsecuritytoken_pts_itch_v2_2.conversation.data = function(packet)
+  local conversation = packet.conversation
+  local data = conversation[omi_odx_odxsecuritytoken_pts_itch_v2_2]
+  if data == nil then
+    data = { second = { last = nil, frames = {} } }
+    conversation[omi_odx_odxsecuritytoken_pts_itch_v2_2] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+odx_odxsecuritytoken_pts_itch_v2_2.conversation.current = nil
+
+
+-----------------------------------------------------------------------
 -- Protocol Functions
 -----------------------------------------------------------------------
 
@@ -706,7 +729,7 @@ odx_odxsecuritytoken_pts_itch_v2_2.second = {}
 odx_odxsecuritytoken_pts_itch_v2_2.second.size = 4
 
 -- Store: Second
-odx_odxsecuritytoken_pts_itch_v2_2.second.store = nil
+odx_odxsecuritytoken_pts_itch_v2_2.second.current = nil
 
 -- Generated: Second
 odx_odxsecuritytoken_pts_itch_v2_2.second.generated = function(value, range, packet, parent)
@@ -973,7 +996,7 @@ end
 
 -- Dissect: Timestamp
 odx_odxsecuritytoken_pts_itch_v2_2.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_second = odx_odxsecuritytoken_pts_itch_v2_2.second.store
+  local stored_second = odx_odxsecuritytoken_pts_itch_v2_2.second.current
 
   if stored_second ~= nil then
     return odx_odxsecuritytoken_pts_itch_v2_2.timestamp.composite(buffer, offset, stored_second, packet, parent)
@@ -1499,7 +1522,11 @@ odx_odxsecuritytoken_pts_itch_v2_2.timestamp_seconds_message.fields = function(b
   index, second = odx_odxsecuritytoken_pts_itch_v2_2.second.dissect(buffer, index, packet, parent)
 
   -- Store Second Value
-  odx_odxsecuritytoken_pts_itch_v2_2.second.store = second
+  odx_odxsecuritytoken_pts_itch_v2_2.second.current = second
+
+  if not packet.visited then
+    odx_odxsecuritytoken_pts_itch_v2_2.conversation.current.second.last = second
+  end
 
   return index
 end
@@ -1764,6 +1791,14 @@ end
 
 -- Dissect Packet
 odx_odxsecuritytoken_pts_itch_v2_2.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = odx_odxsecuritytoken_pts_itch_v2_2.conversation.data(packet)
+  if not packet.visited then
+    data.second.frames[packet.number] = data.second.last
+  end
+  odx_odxsecuritytoken_pts_itch_v2_2.second.current = data.second.frames[packet.number]
+  odx_odxsecuritytoken_pts_itch_v2_2.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 3 fields
@@ -1785,6 +1820,8 @@ end
 
 -- Initialize Dissector
 function omi_odx_odxsecuritytoken_pts_itch_v2_2.init()
+  odx_odxsecuritytoken_pts_itch_v2_2.second.current = nil
+  odx_odxsecuritytoken_pts_itch_v2_2.conversation.current = nil
 end
 
 -- Dissector for Odx OdxSecurityToken Pts Itch 2.2
@@ -1797,10 +1834,6 @@ function omi_odx_odxsecuritytoken_pts_itch_v2_2.dissector(buffer, packet, parent
   local protocol = parent:add(omi_odx_odxsecuritytoken_pts_itch_v2_2, buffer(), omi_odx_odxsecuritytoken_pts_itch_v2_2.description, "("..buffer:len().." Bytes)")
   return odx_odxsecuritytoken_pts_itch_v2_2.packet.dissect(buffer, packet, protocol)
 end
-
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_odx_odxsecuritytoken_pts_itch_v2_2)
 
 
 -----------------------------------------------------------------------

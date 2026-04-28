@@ -10363,10 +10363,6 @@ function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.dissector(buffer,
   return nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_nyse_amexoptions_binarygateway_pillarstream_v3_25)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

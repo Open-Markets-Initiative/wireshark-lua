@@ -5292,10 +5292,6 @@ function omi_nasdaq_utdf_output_utp_v1_5.dissector(buffer, packet, parent)
   return nasdaq_utdf_output_utp_v1_5.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_utdf_output_utp_v1_5)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

@@ -2703,10 +2703,6 @@ function omi_asx_asxsecurities_trade_ouch_v2_0.dissector(buffer, packet, parent)
   return asx_asxsecurities_trade_ouch_v2_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_asx_asxsecurities_trade_ouch_v2_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

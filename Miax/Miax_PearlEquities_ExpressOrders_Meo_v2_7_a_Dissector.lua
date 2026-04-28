@@ -6359,10 +6359,6 @@ function omi_miax_pearlequities_expressorders_meo_v2_7_a.dissector(buffer, packe
   return miax_pearlequities_expressorders_meo_v2_7_a.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_miax_pearlequities_expressorders_meo_v2_7_a)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

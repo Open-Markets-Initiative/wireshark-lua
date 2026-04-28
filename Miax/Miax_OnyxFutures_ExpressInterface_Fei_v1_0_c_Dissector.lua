@@ -4607,10 +4607,6 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.dissector(buffer, pack
   return miax_onyxfutures_expressinterface_fei_v1_0_c.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_miax_onyxfutures_expressinterface_fei_v1_0_c)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

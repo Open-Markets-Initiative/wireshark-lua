@@ -9773,10 +9773,6 @@ function omi_nyse_texasequities_binarygateway_pillarstream_v5_17.dissector(buffe
   return nyse_texasequities_binarygateway_pillarstream_v5_17.pillar_stream_message.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_nyse_texasequities_binarygateway_pillarstream_v5_17)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

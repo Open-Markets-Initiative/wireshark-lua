@@ -5093,10 +5093,6 @@ function omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.dissector(buffer, packet, p
   return nyse_arcaoptions_deepfeed_pillar_v1_2_f.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

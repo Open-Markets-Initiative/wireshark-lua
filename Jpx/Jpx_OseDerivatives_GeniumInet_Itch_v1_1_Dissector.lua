@@ -157,6 +157,29 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- Per-flow state attached to packet.conversation
+jpx_osederivatives_geniuminet_itch_v1_1.conversation = {}
+
+-- Get-or-create our protocol's data record on the current packet's conversation
+jpx_osederivatives_geniuminet_itch_v1_1.conversation.data = function(packet)
+  local conversation = packet.conversation
+  local data = conversation[omi_jpx_osederivatives_geniuminet_itch_v1_1]
+  if data == nil then
+    data = { seconds = { last = nil, frames = {} } }
+    conversation[omi_jpx_osederivatives_geniuminet_itch_v1_1] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+jpx_osederivatives_geniuminet_itch_v1_1.conversation.current = nil
+
+
+-----------------------------------------------------------------------
 -- Protocol Functions
 -----------------------------------------------------------------------
 
@@ -1359,6 +1382,16 @@ jpx_osederivatives_geniuminet_itch_v1_1.seconds = {}
 -- Size: Seconds
 jpx_osederivatives_geniuminet_itch_v1_1.seconds.size = 4
 
+-- Store: Seconds
+jpx_osederivatives_geniuminet_itch_v1_1.seconds.current = nil
+
+-- Generated: Seconds
+jpx_osederivatives_geniuminet_itch_v1_1.seconds.generated = function(value, range, packet, parent)
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.seconds.display(value)
+  local seconds = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
 -- Display: Seconds
 jpx_osederivatives_geniuminet_itch_v1_1.seconds.display = function(value)
   -- Parse unix seconds timestamp
@@ -1662,7 +1695,7 @@ end
 
 -- Dissect: Timestamp
 jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = jpx_osederivatives_geniuminet_itch_v1_1.seconds.store
+  local stored_seconds = jpx_osederivatives_geniuminet_itch_v1_1.seconds.current
 
   if stored_seconds ~= nil then
     return jpx_osederivatives_geniuminet_itch_v1_1.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
@@ -2654,7 +2687,11 @@ jpx_osederivatives_geniuminet_itch_v1_1.seconds_message.fields = function(buffer
   index, seconds = jpx_osederivatives_geniuminet_itch_v1_1.seconds.dissect(buffer, index, packet, parent)
 
   -- Store Seconds Value
-  jpx_osederivatives_geniuminet_itch_v1_1.seconds.store = seconds
+  jpx_osederivatives_geniuminet_itch_v1_1.seconds.current = seconds
+
+  if not packet.visited then
+    jpx_osederivatives_geniuminet_itch_v1_1.conversation.current.seconds.last = seconds
+  end
 
   return index
 end
@@ -2935,6 +2972,14 @@ end
 
 -- Dissect Packet
 jpx_osederivatives_geniuminet_itch_v1_1.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = jpx_osederivatives_geniuminet_itch_v1_1.conversation.data(packet)
+  if not packet.visited then
+    data.seconds.frames[packet.number] = data.seconds.last
+  end
+  jpx_osederivatives_geniuminet_itch_v1_1.seconds.current = data.seconds.frames[packet.number]
+  jpx_osederivatives_geniuminet_itch_v1_1.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 3 fields
@@ -2956,6 +3001,8 @@ end
 
 -- Initialize Dissector
 function omi_jpx_osederivatives_geniuminet_itch_v1_1.init()
+  jpx_osederivatives_geniuminet_itch_v1_1.seconds.current = nil
+  jpx_osederivatives_geniuminet_itch_v1_1.conversation.current = nil
 end
 
 -- Dissector for Jpx OseDerivatives GeniumInet Itch 1.1
@@ -2968,10 +3015,6 @@ function omi_jpx_osederivatives_geniuminet_itch_v1_1.dissector(buffer, packet, p
   local protocol = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1, buffer(), omi_jpx_osederivatives_geniuminet_itch_v1_1.description, "("..buffer:len().." Bytes)")
   return jpx_osederivatives_geniuminet_itch_v1_1.packet.dissect(buffer, packet, protocol)
 end
-
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_jpx_osederivatives_geniuminet_itch_v1_1)
 
 
 -----------------------------------------------------------------------

@@ -7618,10 +7618,6 @@ function omi_cboe_cfefutures_orderentry_boe3_v1_1_20.dissector(buffer, packet, p
   return cboe_cfefutures_orderentry_boe3_v1_1_20.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_cboe_cfefutures_orderentry_boe3_v1_1_20)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

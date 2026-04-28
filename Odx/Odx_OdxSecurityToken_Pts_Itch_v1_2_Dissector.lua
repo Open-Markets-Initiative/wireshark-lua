@@ -2434,10 +2434,6 @@ function omi_odx_odxsecuritytoken_pts_itch_v1_2.dissector(buffer, packet, parent
   return odx_odxsecuritytoken_pts_itch_v1_2.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_odx_odxsecuritytoken_pts_itch_v1_2)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

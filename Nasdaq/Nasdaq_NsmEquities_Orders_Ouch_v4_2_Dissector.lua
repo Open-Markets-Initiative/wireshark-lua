@@ -3307,10 +3307,6 @@ function omi_nasdaq_nsmequities_orders_ouch_v4_2.dissector(buffer, packet, paren
   return nasdaq_nsmequities_orders_ouch_v4_2.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_nasdaq_nsmequities_orders_ouch_v4_2)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

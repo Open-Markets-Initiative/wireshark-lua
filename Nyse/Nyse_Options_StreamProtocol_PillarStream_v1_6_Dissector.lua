@@ -1493,10 +1493,6 @@ function omi_nyse_options_streamprotocol_pillarstream_v1_6.dissector(buffer, pac
   return nyse_options_streamprotocol_pillarstream_v1_6.pillar_stream_message.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_nyse_options_streamprotocol_pillarstream_v1_6)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

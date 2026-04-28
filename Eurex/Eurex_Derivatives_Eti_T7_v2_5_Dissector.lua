@@ -17432,10 +17432,6 @@ function omi_eurex_derivatives_eti_t7_v2_5.dissector(buffer, packet, parent)
   return eurex_derivatives_eti_t7_v2_5.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_eurex_derivatives_eti_t7_v2_5)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

@@ -175,6 +175,29 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- Per-flow state attached to packet.conversation
+asx_asxsecurities_trade_itch_v3_1.conversation = {}
+
+-- Get-or-create our protocol's data record on the current packet's conversation
+asx_asxsecurities_trade_itch_v3_1.conversation.data = function(packet)
+  local conversation = packet.conversation
+  local data = conversation[omi_asx_asxsecurities_trade_itch_v3_1]
+  if data == nil then
+    data = { second = { last = nil, frames = {} } }
+    conversation[omi_asx_asxsecurities_trade_itch_v3_1] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+asx_asxsecurities_trade_itch_v3_1.conversation.current = nil
+
+
+-----------------------------------------------------------------------
 -- Protocol Functions
 -----------------------------------------------------------------------
 
@@ -1258,6 +1281,16 @@ asx_asxsecurities_trade_itch_v3_1.second = {}
 -- Size: Second
 asx_asxsecurities_trade_itch_v3_1.second.size = 4
 
+-- Store: Second
+asx_asxsecurities_trade_itch_v3_1.second.current = nil
+
+-- Generated: Second
+asx_asxsecurities_trade_itch_v3_1.second.generated = function(value, range, packet, parent)
+  local display = asx_asxsecurities_trade_itch_v3_1.second.display(value)
+  local second = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.second, range, value, display)
+  second:set_generated()
+end
+
 -- Display: Second
 asx_asxsecurities_trade_itch_v3_1.second.display = function(value)
   -- Parse unix seconds timestamp
@@ -1521,7 +1554,7 @@ end
 
 -- Dissect: Timestamp
 asx_asxsecurities_trade_itch_v3_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_second = asx_asxsecurities_trade_itch_v3_1.second.store
+  local stored_second = asx_asxsecurities_trade_itch_v3_1.second.current
 
   if stored_second ~= nil then
     return asx_asxsecurities_trade_itch_v3_1.timestamp.composite(buffer, offset, stored_second, packet, parent)
@@ -2728,7 +2761,11 @@ asx_asxsecurities_trade_itch_v3_1.seconds_message.fields = function(buffer, offs
   index, second = asx_asxsecurities_trade_itch_v3_1.second.dissect(buffer, index, packet, parent)
 
   -- Store Second Value
-  asx_asxsecurities_trade_itch_v3_1.second.store = second
+  asx_asxsecurities_trade_itch_v3_1.second.current = second
+
+  if not packet.visited then
+    asx_asxsecurities_trade_itch_v3_1.conversation.current.second.last = second
+  end
 
   return index
 end
@@ -3009,6 +3046,14 @@ end
 
 -- Dissect Packet
 asx_asxsecurities_trade_itch_v3_1.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = asx_asxsecurities_trade_itch_v3_1.conversation.data(packet)
+  if not packet.visited then
+    data.second.frames[packet.number] = data.second.last
+  end
+  asx_asxsecurities_trade_itch_v3_1.second.current = data.second.frames[packet.number]
+  asx_asxsecurities_trade_itch_v3_1.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 3 fields
@@ -3030,6 +3075,8 @@ end
 
 -- Initialize Dissector
 function omi_asx_asxsecurities_trade_itch_v3_1.init()
+  asx_asxsecurities_trade_itch_v3_1.second.current = nil
+  asx_asxsecurities_trade_itch_v3_1.conversation.current = nil
 end
 
 -- Dissector for Asx AsxSecurities Trade Itch 3.1
@@ -3042,10 +3089,6 @@ function omi_asx_asxsecurities_trade_itch_v3_1.dissector(buffer, packet, parent)
   local protocol = parent:add(omi_asx_asxsecurities_trade_itch_v3_1, buffer(), omi_asx_asxsecurities_trade_itch_v3_1.description, "("..buffer:len().." Bytes)")
   return asx_asxsecurities_trade_itch_v3_1.packet.dissect(buffer, packet, protocol)
 end
-
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_asx_asxsecurities_trade_itch_v3_1)
 
 
 -----------------------------------------------------------------------

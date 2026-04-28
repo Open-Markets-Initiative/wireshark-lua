@@ -166,6 +166,29 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- Per-flow state attached to packet.conversation
+cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation = {}
+
+-- Get-or-create our protocol's data record on the current packet's conversation
+cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.data = function(packet)
+  local conversation = packet.conversation
+  local data = conversation[omi_cboe_bzxequities_depthofbook_pitch_v2_41_29]
+  if data == nil then
+    data = { time = { last = nil, frames = {} } }
+    conversation[omi_cboe_bzxequities_depthofbook_pitch_v2_41_29] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.current = nil
+
+
+-----------------------------------------------------------------------
 -- Protocol Functions
 -----------------------------------------------------------------------
 
@@ -993,7 +1016,7 @@ cboe_bzxequities_depthofbook_pitch_v2_41_29.time = {}
 cboe_bzxequities_depthofbook_pitch_v2_41_29.time.size = 4
 
 -- Store: Time
-cboe_bzxequities_depthofbook_pitch_v2_41_29.time.store = nil
+cboe_bzxequities_depthofbook_pitch_v2_41_29.time.current = nil
 
 -- Generated: Time
 cboe_bzxequities_depthofbook_pitch_v2_41_29.time.generated = function(value, range, packet, parent)
@@ -1175,7 +1198,7 @@ end
 
 -- Dissect: Timestamp
 cboe_bzxequities_depthofbook_pitch_v2_41_29.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_time = cboe_bzxequities_depthofbook_pitch_v2_41_29.time.store
+  local stored_time = cboe_bzxequities_depthofbook_pitch_v2_41_29.time.current
 
   if stored_time ~= nil then
     return cboe_bzxequities_depthofbook_pitch_v2_41_29.timestamp.composite(buffer, offset, stored_time, packet, parent)
@@ -2362,7 +2385,11 @@ cboe_bzxequities_depthofbook_pitch_v2_41_29.time_message.fields = function(buffe
   index, time = cboe_bzxequities_depthofbook_pitch_v2_41_29.time.dissect(buffer, index, packet, parent)
 
   -- Store Time Value
-  cboe_bzxequities_depthofbook_pitch_v2_41_29.time.store = time
+  cboe_bzxequities_depthofbook_pitch_v2_41_29.time.current = time
+
+  if not packet.visited then
+    cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.current.time.last = time
+  end
 
   return index
 end
@@ -2631,6 +2658,14 @@ end
 
 -- Dissect Packet
 cboe_bzxequities_depthofbook_pitch_v2_41_29.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.data(packet)
+  if not packet.visited then
+    data.time.frames[packet.number] = data.time.last
+  end
+  cboe_bzxequities_depthofbook_pitch_v2_41_29.time.current = data.time.frames[packet.number]
+  cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 4 fields
@@ -2661,6 +2696,8 @@ end
 
 -- Initialize Dissector
 function omi_cboe_bzxequities_depthofbook_pitch_v2_41_29.init()
+  cboe_bzxequities_depthofbook_pitch_v2_41_29.time.current = nil
+  cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.current = nil
 end
 
 -- Dissector for Cboe BzxEquities DepthOfBook Pitch 2.41.29
@@ -2673,10 +2710,6 @@ function omi_cboe_bzxequities_depthofbook_pitch_v2_41_29.dissector(buffer, packe
   local protocol = parent:add(omi_cboe_bzxequities_depthofbook_pitch_v2_41_29, buffer(), omi_cboe_bzxequities_depthofbook_pitch_v2_41_29.description, "("..buffer:len().." Bytes)")
   return cboe_bzxequities_depthofbook_pitch_v2_41_29.packet.dissect(buffer, packet, protocol)
 end
-
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_bzxequities_depthofbook_pitch_v2_41_29)
 
 
 -----------------------------------------------------------------------

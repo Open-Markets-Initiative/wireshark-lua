@@ -30661,10 +30661,6 @@ function omi_cboe_bzxequities_orderentry_boe_v2_3.dissector(buffer, packet, pare
   return cboe_bzxequities_orderentry_boe_v2_3.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_cboe_bzxequities_orderentry_boe_v2_3)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

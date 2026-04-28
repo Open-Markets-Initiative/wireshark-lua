@@ -4101,10 +4101,6 @@ function omi_nyse_nationalequities_trades_pillar_v2_6.dissector(buffer, packet, 
   return nyse_nationalequities_trades_pillar_v2_6.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_nationalequities_trades_pillar_v2_6)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

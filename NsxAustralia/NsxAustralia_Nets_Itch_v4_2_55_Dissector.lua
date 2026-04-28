@@ -3960,10 +3960,6 @@ function omi_nsxaustralia_nets_itch_v4_2_55.dissector(buffer, packet, parent)
   return nsxaustralia_nets_itch_v4_2_55.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_nsxaustralia_nets_itch_v4_2_55)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

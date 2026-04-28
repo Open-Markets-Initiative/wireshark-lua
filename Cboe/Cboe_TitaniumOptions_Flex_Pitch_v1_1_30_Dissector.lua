@@ -4040,10 +4040,6 @@ function omi_cboe_titaniumoptions_flex_pitch_v1_1_30.dissector(buffer, packet, p
   return cboe_titaniumoptions_flex_pitch_v1_1_30.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_titaniumoptions_flex_pitch_v1_1_30)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

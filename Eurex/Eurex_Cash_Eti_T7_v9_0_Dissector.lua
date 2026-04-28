@@ -24976,10 +24976,6 @@ function omi_eurex_cash_eti_t7_v9_0.dissector(buffer, packet, parent)
   return eurex_cash_eti_t7_v9_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_eurex_cash_eti_t7_v9_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

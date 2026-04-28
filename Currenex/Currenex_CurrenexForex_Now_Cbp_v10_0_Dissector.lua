@@ -2235,10 +2235,6 @@ function omi_currenex_currenexforex_now_cbp_v10_0.dissector(buffer, packet, pare
   return currenex_currenexforex_now_cbp_v10_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_currenex_currenexforex_now_cbp_v10_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

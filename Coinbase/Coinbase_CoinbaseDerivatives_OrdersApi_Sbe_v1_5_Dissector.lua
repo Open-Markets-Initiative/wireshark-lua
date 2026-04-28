@@ -4800,10 +4800,6 @@ function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.dissector(buffer, p
   return coinbase_coinbasederivatives_ordersapi_sbe_v1_5.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

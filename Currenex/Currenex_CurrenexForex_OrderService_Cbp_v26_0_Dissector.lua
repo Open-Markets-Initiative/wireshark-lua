@@ -2464,10 +2464,6 @@ function omi_currenex_currenexforex_orderservice_cbp_v26_0.dissector(buffer, pac
   return currenex_currenexforex_orderservice_cbp_v26_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_currenex_currenexforex_orderservice_cbp_v26_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

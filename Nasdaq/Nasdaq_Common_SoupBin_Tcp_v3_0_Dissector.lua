@@ -924,10 +924,6 @@ function omi_nasdaq_common_soupbin_tcp_v3_0.dissector(buffer, packet, parent)
   return nasdaq_common_soupbin_tcp_v3_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_nasdaq_common_soupbin_tcp_v3_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

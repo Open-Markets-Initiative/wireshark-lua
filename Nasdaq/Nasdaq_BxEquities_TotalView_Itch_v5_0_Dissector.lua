@@ -3947,10 +3947,6 @@ function omi_nasdaq_bxequities_totalview_itch_v5_0.dissector(buffer, packet, par
   return nasdaq_bxequities_totalview_itch_v5_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_bxequities_totalview_itch_v5_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

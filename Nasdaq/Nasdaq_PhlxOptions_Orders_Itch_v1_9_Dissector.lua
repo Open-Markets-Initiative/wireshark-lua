@@ -2791,10 +2791,6 @@ function omi_nasdaq_phlxoptions_orders_itch_v1_9.dissector(buffer, packet, paren
   return nasdaq_phlxoptions_orders_itch_v1_9.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_phlxoptions_orders_itch_v1_9)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

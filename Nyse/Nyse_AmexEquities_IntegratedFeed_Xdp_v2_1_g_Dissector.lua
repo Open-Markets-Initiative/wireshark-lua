@@ -4821,10 +4821,6 @@ function omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.dissector(buffer, packe
   return nyse_amexequities_integratedfeed_xdp_v2_1_g.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_amexequities_integratedfeed_xdp_v2_1_g)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

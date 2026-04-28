@@ -635,10 +635,6 @@ function omi_aquis_equities_replay_amd_v4_0.dissector(buffer, packet, parent)
   return aquis_equities_replay_amd_v4_0.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_aquis_equities_replay_amd_v4_0)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

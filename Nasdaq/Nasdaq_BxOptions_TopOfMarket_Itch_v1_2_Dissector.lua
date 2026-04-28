@@ -151,6 +151,29 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- Per-flow state attached to packet.conversation
+nasdaq_bxoptions_topofmarket_itch_v1_2.conversation = {}
+
+-- Get-or-create our protocol's data record on the current packet's conversation
+nasdaq_bxoptions_topofmarket_itch_v1_2.conversation.data = function(packet)
+  local conversation = packet.conversation
+  local data = conversation[omi_nasdaq_bxoptions_topofmarket_itch_v1_2]
+  if data == nil then
+    data = { second = { last = nil, frames = {} } }
+    conversation[omi_nasdaq_bxoptions_topofmarket_itch_v1_2] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nasdaq_bxoptions_topofmarket_itch_v1_2.conversation.current = nil
+
+
+-----------------------------------------------------------------------
 -- Protocol Functions
 -----------------------------------------------------------------------
 
@@ -994,7 +1017,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.second = {}
 nasdaq_bxoptions_topofmarket_itch_v1_2.second.size = 4
 
 -- Store: Second
-nasdaq_bxoptions_topofmarket_itch_v1_2.second.store = nil
+nasdaq_bxoptions_topofmarket_itch_v1_2.second.current = nil
 
 -- Generated: Second
 nasdaq_bxoptions_topofmarket_itch_v1_2.second.generated = function(value, range, packet, parent)
@@ -1396,7 +1419,7 @@ end
 
 -- Dissect: Timestamp
 nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_second = nasdaq_bxoptions_topofmarket_itch_v1_2.second.store
+  local stored_second = nasdaq_bxoptions_topofmarket_itch_v1_2.second.current
 
   if stored_second ~= nil then
     return nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp.composite(buffer, offset, stored_second, packet, parent)
@@ -2134,7 +2157,11 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.timestamp_message.fields = function(buffe
   index, second = nasdaq_bxoptions_topofmarket_itch_v1_2.second.dissect(buffer, index, packet, parent)
 
   -- Store Second Value
-  nasdaq_bxoptions_topofmarket_itch_v1_2.second.store = second
+  nasdaq_bxoptions_topofmarket_itch_v1_2.second.current = second
+
+  if not packet.visited then
+    nasdaq_bxoptions_topofmarket_itch_v1_2.conversation.current.second.last = second
+  end
 
   return index
 end
@@ -2411,6 +2438,14 @@ end
 
 -- Dissect Packet
 nasdaq_bxoptions_topofmarket_itch_v1_2.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_bxoptions_topofmarket_itch_v1_2.conversation.data(packet)
+  if not packet.visited then
+    data.second.frames[packet.number] = data.second.last
+  end
+  nasdaq_bxoptions_topofmarket_itch_v1_2.second.current = data.second.frames[packet.number]
+  nasdaq_bxoptions_topofmarket_itch_v1_2.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 3 fields
@@ -2432,6 +2467,8 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_bxoptions_topofmarket_itch_v1_2.init()
+  nasdaq_bxoptions_topofmarket_itch_v1_2.second.current = nil
+  nasdaq_bxoptions_topofmarket_itch_v1_2.conversation.current = nil
 end
 
 -- Dissector for Nasdaq BxOptions TopOfMarket Itch 1.2
@@ -2444,10 +2481,6 @@ function omi_nasdaq_bxoptions_topofmarket_itch_v1_2.dissector(buffer, packet, pa
   local protocol = parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2, buffer(), omi_nasdaq_bxoptions_topofmarket_itch_v1_2.description, "("..buffer:len().." Bytes)")
   return nasdaq_bxoptions_topofmarket_itch_v1_2.packet.dissect(buffer, packet, protocol)
 end
-
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_bxoptions_topofmarket_itch_v1_2)
 
 
 -----------------------------------------------------------------------

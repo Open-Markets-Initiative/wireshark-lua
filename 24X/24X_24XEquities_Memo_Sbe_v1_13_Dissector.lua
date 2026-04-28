@@ -6913,10 +6913,6 @@ function omi_n24x_24xequities_memo_sbe_v1_13.dissector(buffer, packet, parent)
   return n24x_24xequities_memo_sbe_v1_13.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Tcp Table
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, omi_n24x_24xequities_memo_sbe_v1_13)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

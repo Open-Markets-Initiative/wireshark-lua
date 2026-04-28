@@ -179,6 +179,29 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- Per-flow state attached to packet.conversation
+jnx_jnxequities_pts_itch_v1_7.conversation = {}
+
+-- Get-or-create our protocol's data record on the current packet's conversation
+jnx_jnxequities_pts_itch_v1_7.conversation.data = function(packet)
+  local conversation = packet.conversation
+  local data = conversation[omi_jnx_jnxequities_pts_itch_v1_7]
+  if data == nil then
+    data = { timestamp_seconds = { last = nil, frames = {} } }
+    conversation[omi_jnx_jnxequities_pts_itch_v1_7] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+jnx_jnxequities_pts_itch_v1_7.conversation.current = nil
+
+
+-----------------------------------------------------------------------
 -- Protocol Functions
 -----------------------------------------------------------------------
 
@@ -1178,7 +1201,7 @@ jnx_jnxequities_pts_itch_v1_7.timestamp_seconds = {}
 jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.size = 4
 
 -- Store: Timestamp Seconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.store = nil
+jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = nil
 
 -- Generated: Timestamp Seconds
 jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.generated = function(value, range, packet, parent)
@@ -1419,7 +1442,7 @@ end
 
 -- Dissect: Timestamp
 jnx_jnxequities_pts_itch_v1_7.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_timestamp_seconds = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.store
+  local stored_timestamp_seconds = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current
 
   if stored_timestamp_seconds ~= nil then
     return jnx_jnxequities_pts_itch_v1_7.timestamp.composite(buffer, offset, stored_timestamp_seconds, packet, parent)
@@ -2017,7 +2040,11 @@ jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.fields = function(buffer
   index, timestamp_seconds = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.dissect(buffer, index, packet, parent)
 
   -- Store Timestamp Seconds Value
-  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.store = timestamp_seconds
+  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = timestamp_seconds
+
+  if not packet.visited then
+    jnx_jnxequities_pts_itch_v1_7.conversation.current.timestamp_seconds.last = timestamp_seconds
+  end
 
   return index
 end
@@ -2286,6 +2313,14 @@ end
 
 -- Dissect Udp Packet
 jnx_jnxequities_pts_itch_v1_7.udp_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = jnx_jnxequities_pts_itch_v1_7.conversation.data(packet)
+  if not packet.visited then
+    data.timestamp_seconds.frames[packet.number] = data.timestamp_seconds.last
+  end
+  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = data.timestamp_seconds.frames[packet.number]
+  jnx_jnxequities_pts_itch_v1_7.conversation.current = data
+
   local index = 0
 
   -- Udp Packet Header: Struct of 3 fields
@@ -2794,6 +2829,14 @@ end
 
 -- Dissect Tcp Packet
 jnx_jnxequities_pts_itch_v1_7.tcp_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = jnx_jnxequities_pts_itch_v1_7.conversation.data(packet)
+  if not packet.visited then
+    data.timestamp_seconds.frames[packet.number] = data.timestamp_seconds.last
+  end
+  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = data.timestamp_seconds.frames[packet.number]
+  jnx_jnxequities_pts_itch_v1_7.conversation.current = data
+
   local index = 0
 
   -- Dependency for Soup Bin Tcp Packet
@@ -2826,6 +2869,8 @@ end
 
 -- Initialize Dissector
 function omi_jnx_jnxequities_pts_itch_v1_7.init()
+  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = nil
+  jnx_jnxequities_pts_itch_v1_7.conversation.current = nil
 end
 
 -- Dissector for Jnx JnxEquities Pts Itch 1.7
@@ -2838,63 +2883,63 @@ function omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
   local protocol = parent:add(omi_jnx_jnxequities_pts_itch_v1_7, buffer(), omi_jnx_jnxequities_pts_itch_v1_7.description, "("..buffer:len().." Bytes)")
   if packet.port_type == 2 then
     return jnx_jnxequities_pts_itch_v1_7.tcp_packet.dissect(buffer, packet, protocol)
-  elseif packet.port_type == 3 then
-    return jnx_jnxequities_pts_itch_v1_7.udp_packet.dissect(buffer, packet, protocol)
+    if packet.port_type == 3 then
+      return jnx_jnxequities_pts_itch_v1_7.udp_packet.dissect(buffer, packet, protocol)
+    end
   end
-end
 
 
------------------------------------------------------------------------
--- Protocol Heuristics
------------------------------------------------------------------------
+  -----------------------------------------------------------------------
+  -- Protocol Heuristics
+  -----------------------------------------------------------------------
 
--- Dissector Heuristic for Jnx JnxEquities Pts Itch 1.7 (Tcp)
-local function omi_jnx_jnxequities_pts_itch_v1_7_tcp_heuristic(buffer, packet, parent)
-  -- Verify packet length
-  if not jnx_jnxequities_pts_itch_v1_7.tcp_packet.requiredsize(buffer) then return false end
+  -- Dissector Heuristic for Jnx JnxEquities Pts Itch 1.7 (Tcp)
+  local function omi_jnx_jnxequities_pts_itch_v1_7_tcp_heuristic(buffer, packet, parent)
+    -- Verify packet length
+    if not jnx_jnxequities_pts_itch_v1_7.tcp_packet.requiredsize(buffer) then return false end
 
-  -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = omi_jnx_jnxequities_pts_itch_v1_7
-  omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
+    -- Protocol is valid, set conversation and dissect this packet
+    packet.conversation = omi_jnx_jnxequities_pts_itch_v1_7
+    omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
 
-  return true
-end
+    return true
+  end
 
--- Dissector Heuristic for Jnx JnxEquities Pts Itch 1.7 (Udp)
-local function omi_jnx_jnxequities_pts_itch_v1_7_udp_heuristic(buffer, packet, parent)
-  -- Verify packet length
-  if not jnx_jnxequities_pts_itch_v1_7.udp_packet.requiredsize(buffer) then return false end
+  -- Dissector Heuristic for Jnx JnxEquities Pts Itch 1.7 (Udp)
+  local function omi_jnx_jnxequities_pts_itch_v1_7_udp_heuristic(buffer, packet, parent)
+    -- Verify packet length
+    if not jnx_jnxequities_pts_itch_v1_7.udp_packet.requiredsize(buffer) then return false end
 
-  -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = omi_jnx_jnxequities_pts_itch_v1_7
-  omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
+    -- Protocol is valid, set conversation and dissect this packet
+    packet.conversation = omi_jnx_jnxequities_pts_itch_v1_7
+    omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
 
-  return true
-end
+    return true
+  end
 
--- Register Heuristics for Jnx JnxEquities Pts Itch 1.7
-omi_jnx_jnxequities_pts_itch_v1_7:register_heuristic("tcp", omi_jnx_jnxequities_pts_itch_v1_7_tcp_heuristic)
-omi_jnx_jnxequities_pts_itch_v1_7:register_heuristic("udp", omi_jnx_jnxequities_pts_itch_v1_7_udp_heuristic)
+  -- Register Heuristics for Jnx JnxEquities Pts Itch 1.7
+  omi_jnx_jnxequities_pts_itch_v1_7:register_heuristic("tcp", omi_jnx_jnxequities_pts_itch_v1_7_tcp_heuristic)
+  omi_jnx_jnxequities_pts_itch_v1_7:register_heuristic("udp", omi_jnx_jnxequities_pts_itch_v1_7_udp_heuristic)
 
------------------------------------------------------------------------
--- Lua dissectors are an easily edited and modified cross-platform dissection solution.
--- Feel free to modify. Enjoy.
------------------------------------------------------------------------
--- 
--- Protocol:
---   Organization: Japannext Securities (JNX)
---   Version: 1.7
---   Date: Wednesday, November 1, 2023
---   Specification: Japannext_PTS_ITCH_Equities_v1.7.pdf
--- 
--- Script:
---   Generator: 1.5.0.0
---   Compiler: 2.0
---   License: Public/GPLv3
---   Authors: Omi Developers
--- 
--- This dissector script was generated by The Open Markets Initiative (Omi).
--- 
--- For full Omi information:
--- https://github.com/Open-Markets-Initiative/Directory
------------------------------------------------------------------------
+  -----------------------------------------------------------------------
+  -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+  -- Feel free to modify. Enjoy.
+  -----------------------------------------------------------------------
+  -- 
+  -- Protocol:
+  --   Organization: Japannext Securities (JNX)
+  --   Version: 1.7
+  --   Date: Wednesday, November 1, 2023
+  --   Specification: Japannext_PTS_ITCH_Equities_v1.7.pdf
+  -- 
+  -- Script:
+  --   Generator: 1.5.0.0
+  --   Compiler: 2.0
+  --   License: Public/GPLv3
+  --   Authors: Omi Developers
+  -- 
+  -- This dissector script was generated by The Open Markets Initiative (Omi).
+  -- 
+  -- For full Omi information:
+  -- https://github.com/Open-Markets-Initiative/Directory
+  -----------------------------------------------------------------------

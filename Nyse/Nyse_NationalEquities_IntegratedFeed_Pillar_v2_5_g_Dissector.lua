@@ -5010,10 +5010,6 @@ function omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.dissector(buffer
   return nyse_nationalequities_integratedfeed_pillar_v2_5_g.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics

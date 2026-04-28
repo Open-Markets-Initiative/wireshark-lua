@@ -3052,10 +3052,6 @@ function omi_nyse_arcaequities_bbo_xdp_v2_4_c.dissector(buffer, packet, parent)
   return nyse_arcaequities_bbo_xdp_v2_4_c.packet.dissect(buffer, packet, protocol)
 end
 
--- Register With Udp Table
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_arcaequities_bbo_xdp_v2_4_c)
-
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics
