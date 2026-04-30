@@ -10,6 +10,7 @@
 | [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.34][Ice.IceFutures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | 11468 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Ice.IceFutures.Mdf.iMpact.v1.1.34.Pdf] |
 | [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.33][Ice.IceFutures.Mdf.iMpact.v1.1.33.Dissector] | 8/6/2018 | 11240 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Ice.IceFutures.Mdf.iMpact.v1.1.33.Pdf] |
 | [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.24][Ice.IceFutures.Mdf.iMpact.v1.1.24.Dissector] | 3/30/2016 | 9853 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Ice.IceFutures.Mdf.iMpact.v1.1.24.Pdf] |
+| [IceFutures][IceFutures.Exchange] | [Bgw][Ice.IceFutures.Bgw] | [Sbe][Omi.Encoding.Sbe] | [7.0][Ice.IceFutures.Bgw.Sbe.v7.0.Dissector] | 10/24/2025 | 16605 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Ice.IceFutures.Bgw.Sbe.v7.0.Url] - [pdf][Ice.IceFutures.Bgw.Sbe.v7.0.Pdf] |
 
 
 Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
@@ -29,8 +30,10 @@ Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Ice.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols "Ice Protocol Directory"
 [Omi.Encoding.iMpact]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/iMpact.md "iMpact Encoding"
+[Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [IceFutures.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols/IceFutures "Ice IceFutures"
 [Ice.IceFutures.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Mdf.md "Multicast Data Feed"
+[Ice.IceFutures.Bgw]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Bgw.md "IceFutures Binary Order Gateway"
 
 [Ice.IceFutures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua "Ice IceFutures Mdf iMpact v1.1.24 Wireshark Dissector"
 [Ice.IceFutures.Mdf.iMpact.v1.1.24.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Specifications/ "Intercontinental Exchange 1.1.24 Pdf"
@@ -42,3 +45,6 @@ Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 [Ice.IceFutures.Mdf.iMpact.v1.1.43.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Specifications/ "Intercontinental Exchange 1.1.43 Pdf"
 [Ice.IceFutures.Mdf.iMpact.v1.1.51.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_IceFutures_Mdf_iMpact_v1_1_51_Dissector.lua "Ice IceFutures Mdf iMpact v1.1.51 Wireshark Dissector"
 [Ice.IceFutures.Mdf.iMpact.v1.1.51.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Specifications/ "Intercontinental Exchange 1.1.51 Pdf"
+[Ice.IceFutures.Bgw.Sbe.v7.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_IceFutures_Bgw_Sbe_v7_0_Dissector.lua "Ice IceFutures Bgw Sbe v7.0 Wireshark Dissector"
+[Ice.IceFutures.Bgw.Sbe.v7.0.Url]: https://service.ice.com/s/article/Binary-Order-API "Intercontinental Exchange 7.0 Url"
+[Ice.IceFutures.Bgw.Sbe.v7.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Specifications/ "Intercontinental Exchange 7.0 Pdf"

@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 521 | 4,489,994 |
+| 522 | 4,506,599 |
 
 ## Testing
 
@@ -205,6 +205,7 @@ Enjoy.
 [Hkex.Derivatives.Premium]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Derivatives/Premium.md "Premium"
 [Hkex.Derivatives.FullTick]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Derivatives/FullTick.md "FullTick"
 [Ice.IceFutures.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Mdf.md "Multicast Data Feed"
+[Ice.IceFutures.Bgw]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Bgw.md "IceFutures Binary Order Gateway"
 [Iex.IexEquities.Deep]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexEquities/Deep.md "Iex Depth Of Book"
 [Iex.IexEquities.DeepPlus]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexEquities/DeepPlus.md "DeepPlus"
 [Iex.IexEquities.Tops]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexEquities/Tops.md "Iex Top Of Book"
