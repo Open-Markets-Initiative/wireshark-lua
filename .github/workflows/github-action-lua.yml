@@ -89,11 +89,11 @@ jobs:
       - name: Run Eurex Derivatives Eobi T7 6.0 Dissector Tests
         run: bash -x .github/tests/Eurex-Derivatives-Eobi-T7-v6-0-Test.sh
 
-      - name: Run Ice Futures Mdf iMpact 1.1.24 Dissector Tests
-        run: bash -x .github/tests/Ice-Futures-Mdf-iMpact-v1-1-24-Test.sh
+      - name: Run Ice IceFutures Mdf iMpact 1.1.24 Dissector Tests
+        run: bash -x .github/tests/Ice-IceFutures-Mdf-iMpact-v1-1-24-Test.sh
 
-      - name: Run Ice Futures Mdf iMpact 1.1.33 Dissector Tests
-        run: bash -x .github/tests/Ice-Futures-Mdf-iMpact-v1-1-33-Test.sh
+      - name: Run Ice IceFutures Mdf iMpact 1.1.33 Dissector Tests
+        run: bash -x .github/tests/Ice-IceFutures-Mdf-iMpact-v1-1-33-Test.sh
 
       - name: Run Iex IexEquities Deep IexTp 1.0.6 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-Deep-IexTp-v1-0-6-Test.sh
