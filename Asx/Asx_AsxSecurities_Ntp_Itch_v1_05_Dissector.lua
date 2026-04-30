@@ -221,10 +221,10 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state attached to packet.conversation
+-- State attached to packet.conversation
 asx_asxsecurities_ntp_itch_v1_05.conversation = {}
 
--- Get-or-create our protocol's data record on the current packet's conversation
+-- Get/create our protocol's data record on the current packet's conversation
 asx_asxsecurities_ntp_itch_v1_05.conversation.data = function(packet)
   local conversation = packet.conversation
   local data = conversation[omi_asx_asxsecurities_ntp_itch_v1_05]

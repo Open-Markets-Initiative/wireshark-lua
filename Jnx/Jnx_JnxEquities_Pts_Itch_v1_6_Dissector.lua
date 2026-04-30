@@ -139,10 +139,10 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state attached to packet.conversation
+-- State attached to packet.conversation
 jnx_jnxequities_pts_itch_v1_6.conversation = {}
 
--- Get-or-create our protocol's data record on the current packet's conversation
+-- Get/create our protocol's data record on the current packet's conversation
 jnx_jnxequities_pts_itch_v1_6.conversation.data = function(packet)
   local conversation = packet.conversation
   local data = conversation[omi_jnx_jnxequities_pts_itch_v1_6]
@@ -1999,7 +1999,7 @@ omi_jnx_jnxequities_pts_itch_v1_6:register_heuristic("udp", omi_jnx_jnxequities_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japannext Securities (JNX)
+--   Organization: Japannext Securities
 --   Version: 1.6
 --   Date: Thursday, March 9, 2023
 --   Specification: Japannext_PTS_ITCH_Equities_v1.6.pdf

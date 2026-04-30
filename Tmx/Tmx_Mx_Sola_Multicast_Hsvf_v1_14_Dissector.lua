@@ -9598,7 +9598,7 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14:register_heuristic("udp", omi_tmx_mx_sola_m
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: TMX Group (TMX)
+--   Organization: TMX Group
 --   Version: 1.14
 --   Date: Monday, February 5, 2024
 --   Specification: hsvf-mx-005e-mx-sola-hsvf-multicast-specifications-guide-v1-14.pdf

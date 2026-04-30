@@ -4853,7 +4853,7 @@ omi_siac_cqs_output_cta_v1_91:register_heuristic("udp", omi_siac_cqs_output_cta_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Securities Industry Automation Corporation (SIAC)
+--   Organization: The Securities Industry Automation Corporation
 --   Version: 1.91
 --   Date: Thursday, January 2, 2020
 --   Specification: CQS_BINARY_OUTPUT_SPECIFICATION.pdf

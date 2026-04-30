@@ -2767,7 +2767,7 @@ omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6:register_heuristic("udp", omi_tmx_qua
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: TMX Group (TMX)
+--   Organization: TMX Group
 --   Version: 2.6
 --   Date: Tuesday, October 20, 2020
 --   Specification: tsx_tsxv_level_1_quantumfeed_business_message_specification-v2-6-0.pdf

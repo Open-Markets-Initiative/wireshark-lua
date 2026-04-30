@@ -160,10 +160,10 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state attached to packet.conversation
+-- State attached to packet.conversation
 jpx_osederivatives_geniuminet_itch_v1_1.conversation = {}
 
--- Get-or-create our protocol's data record on the current packet's conversation
+-- Get/create our protocol's data record on the current packet's conversation
 jpx_osederivatives_geniuminet_itch_v1_1.conversation.data = function(packet)
   local conversation = packet.conversation
   local data = conversation[omi_jpx_osederivatives_geniuminet_itch_v1_1]
@@ -3042,7 +3042,7 @@ omi_jpx_osederivatives_geniuminet_itch_v1_1:register_heuristic("udp", omi_jpx_os
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japan Exchange Group (JPX)
+--   Organization: Japan Exchange Group
 --   Version: 1.1
 --   Date: Wednesday, May 8, 2024
 --   Specification: ITCH_ProtSpec_OSE_va70.pdf

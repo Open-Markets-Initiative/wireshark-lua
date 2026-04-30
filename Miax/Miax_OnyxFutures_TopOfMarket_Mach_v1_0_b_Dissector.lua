@@ -2377,7 +2377,7 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b:register_heuristic("udp", omi_miax_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Holdings (MIAX)
+--   Organization: Miami International Holdings
 --   Version: 1.0.b
 --   Date: Tuesday, March 25, 2025
 --   Specification: onyx_tom_feed_v1.0b.pdf

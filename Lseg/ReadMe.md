@@ -1,7 +1,7 @@
 [![Lseg](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Images/Logo.png)](https://www.lseg.com)
 
 
-## London Stock Exchange (LSE)
+## London Stock Exchange
 
 | Division | [Protocol][Omi.Lseg.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
@@ -15,7 +15,7 @@
 | [Turquoise][Turquoise] | [Mifid][Lseg.Turquoise.Mifid] | [Gtp][Omi.Encoding.Gtp] | [24.4][Lseg.Turquoise.Mifid.Gtp.v24.4.Dissector] | 4/24/2024 | 2759 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Turquoise.Mifid.Gtp.v24.4.Url] - [pdf][Lseg.Turquoise.Mifid.Gtp.v24.4.Pdf] |
 
 
-Lseg: [website](https://www.lseg.com "Go to London Stock Exchange (LSE)")
+Lseg: [website](https://www.lseg.com "Go to London Stock Exchange")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
@@ -46,26 +46,26 @@ Lseg: [website](https://www.lseg.com "Go to London Stock Exchange (LSE)")
 [Lseg.Turquoise.Analytics]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Turquoise/Analytics.md "Analytics"
 
 [Lseg.Millennium.Level2.Mitch.v11.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Millennium_Level2_Mitch_v11_9_Dissector.lua "Lseg Millennium Level2 Mitch v11.9 Wireshark Dissector"
-[Lseg.Millennium.Level2.Mitch.v11.9.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange (LSE) 11.9 Url"
-[Lseg.Millennium.Level2.Mitch.v11.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lse.Millennium.Level2.Mitch.v11.9.pdf "London Stock Exchange (LSE) 11.9 Pdf"
+[Lseg.Millennium.Level2.Mitch.v11.9.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange 11.9 Url"
+[Lseg.Millennium.Level2.Mitch.v11.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lse.Millennium.Level2.Mitch.v11.9.pdf "London Stock Exchange 11.9 Pdf"
 [Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Millennium_UdpUnitHeader_Mitch_v1_0_Dissector.lua "Lseg Millennium UdpUnitHeader Mitch v1.0 Wireshark Dissector"
-[Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange (LSE) 1.0 Url"
-[Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Millennium.Level2.Mitch.v11.9.pdf "London Stock Exchange (LSE) 1.0 Pdf"
+[Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange 1.0 Url"
+[Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Millennium.Level2.Mitch.v11.9.pdf "London Stock Exchange 1.0 Pdf"
 [Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_TradeEcho_Level2_Gtp_v24_4_Dissector.lua "Lseg TradeEcho Level2 Gtp v24.4 Wireshark Dissector"
-[Lseg.TradeEcho.Level2.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange (LSE) 24.4 Url"
-[Lseg.TradeEcho.Level2.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.TradeEcho.Gtp.v24.4.pdf "London Stock Exchange (LSE) 24.4 Pdf"
+[Lseg.TradeEcho.Level2.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 24.4 Url"
+[Lseg.TradeEcho.Level2.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.TradeEcho.Gtp.v24.4.pdf "London Stock Exchange 24.4 Pdf"
 [Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_TradeEcho_Mifid_Gtp_v24_4_Dissector.lua "Lseg TradeEcho Mifid Gtp v24.4 Wireshark Dissector"
-[Lseg.TradeEcho.Mifid.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange (LSE) 24.4 Url"
-[Lseg.TradeEcho.Mifid.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.TradeEcho.Gtp.v24.4.pdf "London Stock Exchange (LSE) 24.4 Pdf"
+[Lseg.TradeEcho.Mifid.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 24.4 Url"
+[Lseg.TradeEcho.Mifid.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.TradeEcho.Gtp.v24.4.pdf "London Stock Exchange 24.4 Pdf"
 [Lseg.Turquoise.Level1.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Turquoise_Level1_Gtp_v24_4_Dissector.lua "Lseg Turquoise Level1 Gtp v24.4 Wireshark Dissector"
-[Lseg.Turquoise.Level1.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange (LSE) 24.4 Url"
-[Lseg.Turquoise.Level1.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Turquoise.Gtp.v24.4.pdf "London Stock Exchange (LSE) 24.4 Pdf"
+[Lseg.Turquoise.Level1.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 24.4 Url"
+[Lseg.Turquoise.Level1.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Turquoise.Gtp.v24.4.pdf "London Stock Exchange 24.4 Pdf"
 [Lseg.Turquoise.Level2.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Turquoise_Level2_Gtp_v24_4_Dissector.lua "Lseg Turquoise Level2 Gtp v24.4 Wireshark Dissector"
-[Lseg.Turquoise.Level2.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange (LSE) 24.4 Url"
-[Lseg.Turquoise.Level2.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Turquoise.Gtp.v24.4.pdf "London Stock Exchange (LSE) 24.4 Pdf"
+[Lseg.Turquoise.Level2.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 24.4 Url"
+[Lseg.Turquoise.Level2.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Turquoise.Gtp.v24.4.pdf "London Stock Exchange 24.4 Pdf"
 [Lseg.Turquoise.Mifid.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Turquoise_Mifid_Gtp_v24_4_Dissector.lua "Lseg Turquoise Mifid Gtp v24.4 Wireshark Dissector"
-[Lseg.Turquoise.Mifid.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange (LSE) 24.4 Url"
-[Lseg.Turquoise.Mifid.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Turquoise.Gtp.v24.4.pdf "London Stock Exchange (LSE) 24.4 Pdf"
+[Lseg.Turquoise.Mifid.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 24.4 Url"
+[Lseg.Turquoise.Mifid.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Turquoise.Gtp.v24.4.pdf "London Stock Exchange 24.4 Pdf"
 [Lseg.Turquoise.Analytics.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Turquoise_Analytics_Gtp_v24_4_Dissector.lua "Lseg Turquoise Analytics Gtp v24.4 Wireshark Dissector"
-[Lseg.Turquoise.Analytics.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange (LSE) 24.4 Url"
-[Lseg.Turquoise.Analytics.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Turquoise.Gtp.v24.4.pdf "London Stock Exchange (LSE) 24.4 Pdf"
+[Lseg.Turquoise.Analytics.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 24.4 Url"
+[Lseg.Turquoise.Analytics.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Turquoise.Gtp.v24.4.pdf "London Stock Exchange 24.4 Pdf"

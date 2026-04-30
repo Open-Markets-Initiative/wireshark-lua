@@ -2210,7 +2210,7 @@ omi_memx_memxequities_memoirdepthfeed_sbe_v1_3:register_heuristic("udp", omi_mem
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Members Exchange (MEMX)
+--   Organization: The Members Exchange
 --   Version: 1.3
 --   Date: Monday, April 5, 2021
 --   Specification: MEMOIR Depth Feed-v1_3.pdf

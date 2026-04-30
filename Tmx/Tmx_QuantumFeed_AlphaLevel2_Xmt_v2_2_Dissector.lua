@@ -2855,7 +2855,7 @@ omi_tmx_quantumfeed_alphalevel2_xmt_v2_2:register_heuristic("udp", omi_tmx_quant
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: TMX Group (TMX)
+--   Organization: TMX Group
 --   Version: 2.2
 --   Date: Monday, April 17, 2023
 --   Specification: alpha_level_2_tmx_quantumfeed_business_message_specifications-v2-2-0.pdf

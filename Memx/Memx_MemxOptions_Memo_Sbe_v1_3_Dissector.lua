@@ -8899,7 +8899,7 @@ omi_memx_memxoptions_memo_sbe_v1_3:register_heuristic("tcp", omi_memx_memxoption
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Members Exchange (MEMX)
+--   Organization: The Members Exchange
 --   Version: 1.3
 --   Date: Thursday, June 29, 2023
 --   Specification: MEMO SBE for Options-v1_3

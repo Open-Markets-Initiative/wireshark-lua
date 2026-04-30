@@ -3795,7 +3795,7 @@ omi_siac_opra_recipient_obi_v4_0:register_heuristic("udp", omi_siac_opra_recipie
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Securities Industry Automation Corporation (SIAC)
+--   Organization: The Securities Industry Automation Corporation
 --   Version: 4.0
 --   Date: Friday, January 17, 2020
 --   Specification: 5e21df9b4c5acfe5355bd118_OPRA_Binary_DR_Spec_Version_4.0_01172020_v1.pdf

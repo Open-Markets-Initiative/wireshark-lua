@@ -9509,7 +9509,7 @@ omi_memx_memxoptions_memo_sbe_v1_8:register_heuristic("tcp", omi_memx_memxoption
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Members Exchange (MEMX)
+--   Organization: The Members Exchange
 --   Version: 1.8
 --   Date: Friday, August 2, 2024
 --   Specification: MEMO for US Options - SBE-v1_8.pdf

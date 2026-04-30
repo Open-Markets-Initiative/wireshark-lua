@@ -6815,7 +6815,7 @@ omi_siac_cts_output_cta_v2_9:register_heuristic("udp", omi_siac_cts_output_cta_v
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Securities Industry Automation Corporation (SIAC)
+--   Organization: The Securities Industry Automation Corporation
 --   Version: 2.9
 --   Date: Friday, December 16, 2022
 --   Specification: CTS_Pillar_Output_Specification.pdf

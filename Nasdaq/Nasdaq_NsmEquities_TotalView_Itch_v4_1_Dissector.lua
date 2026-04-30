@@ -154,10 +154,10 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state attached to packet.conversation
+-- State attached to packet.conversation
 nasdaq_nsmequities_totalview_itch_v4_1.conversation = {}
 
--- Get-or-create our protocol's data record on the current packet's conversation
+-- Get/create our protocol's data record on the current packet's conversation
 nasdaq_nsmequities_totalview_itch_v4_1.conversation.data = function(packet)
   local conversation = packet.conversation
   local data = conversation[omi_nasdaq_nsmequities_totalview_itch_v4_1]

@@ -1,7 +1,7 @@
 [![Tmx](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Images/Logo.png)](https://www.tmx.com/)
 
 
-## TMX Group (TMX)
+## TMX Group
 
 | Division | [Protocol][Omi.Tmx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
@@ -18,7 +18,7 @@
 | [QuantumFeed][QuantumFeed] | [TsxTsxvLevel2][Tmx.QuantumFeed.TsxTsxvLevel2] | [Xmt][Omi.Encoding.Xmt] | [2.1][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.Dissector] | 10/20/2015 | 4187 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.Url] |
 
 
-Tmx: [website](https://www.tmx.com/ "Go to TMX Group (TMX)")
+Tmx: [website](https://www.tmx.com/ "Go to TMX Group")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
@@ -47,34 +47,34 @@ Tmx: [website](https://www.tmx.com/ "Go to TMX Group (TMX)")
 [Tmx.QuantumFeed.XmtHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Protocols/QuantumFeed/XmtHeader.md "Xmt Header"
 
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_11_Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.11 Wireshark Dissector"
-[Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Url]: https://www.tmxwebstore.com/ "TMX Group (TMX) 1.11 Url"
-[Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 1.11 Pdf"
+[Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Url]: https://www.tmxwebstore.com/ "TMX Group 1.11 Url"
+[Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 1.11 Pdf"
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.14 Wireshark Dissector"
-[Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Url]: https://www.tmxwebstore.com "TMX Group (TMX) 1.14 Url"
-[Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 1.14 Pdf"
+[Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Url]: https://www.tmxwebstore.com "TMX Group 1.14 Url"
+[Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 1.14 Pdf"
 [Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_AlphaLevel1_Xmt_v2_1_Dissector.lua "Tmx QuantumFeed AlphaLevel1 Xmt v2.1 Wireshark Dissector"
-[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Url]: https://www.tmxwebstore.com/ "TMX Group (TMX) 2.1 Url"
-[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 2.1 Pdf"
+[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Url]: https://www.tmxwebstore.com/ "TMX Group 2.1 Url"
+[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.1 Pdf"
 [Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_AlphaLevel1_Xmt_v2_2_Dissector.lua "Tmx QuantumFeed AlphaLevel1 Xmt v2.2 Wireshark Dissector"
-[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.2.Url]: https://www.tmxwebstore.com/ "TMX Group (TMX) 2.2 Url"
-[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 2.2 Pdf"
+[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.2.Url]: https://www.tmxwebstore.com/ "TMX Group 2.2 Url"
+[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.2 Pdf"
 [Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_AlphaLevel2_Xmt_v2_1_Dissector.lua "Tmx QuantumFeed AlphaLevel2 Xmt v2.1 Wireshark Dissector"
-[Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Url]: https://www.tmxwebstore.com/ "TMX Group (TMX) 2.1 Url"
-[Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 2.1 Pdf"
+[Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Url]: https://www.tmxwebstore.com/ "TMX Group 2.1 Url"
+[Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.1 Pdf"
 [Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_AlphaLevel2_Xmt_v2_2_Dissector.lua "Tmx QuantumFeed AlphaLevel2 Xmt v2.2 Wireshark Dissector"
-[Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.2.Url]: https://www.tmxwebstore.com/ "TMX Group (TMX) 2.2 Url"
-[Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 2.2 Pdf"
+[Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.2.Url]: https://www.tmxwebstore.com/ "TMX Group 2.2 Url"
+[Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.2 Pdf"
 [Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_TsxTsxvLevel1_Xmt_v2_6_Dissector.lua "Tmx QuantumFeed TsxTsxvLevel1 Xmt v2.6 Wireshark Dissector"
-[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Url]: https://www.tmxwebstore.com/ "TMX Group (TMX) 2.6 Url"
-[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 2.6 Pdf"
+[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Url]: https://www.tmxwebstore.com/ "TMX Group 2.6 Url"
+[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.6 Pdf"
 [Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_TsxTsxvLevel1_Xmt_v2_8_Dissector.lua "Tmx QuantumFeed TsxTsxvLevel1 Xmt v2.8 Wireshark Dissector"
-[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Url]: https://www.tmxwebstore.com/ "TMX Group (TMX) 2.8 Url"
-[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 2.8 Pdf"
+[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Url]: https://www.tmxwebstore.com/ "TMX Group 2.8 Url"
+[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.8 Pdf"
 [Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_TsxTsxvLevel2_Xmt_v2_1_Dissector.lua "Tmx QuantumFeed TsxTsxvLevel2 Xmt v2.1 Wireshark Dissector"
-[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.Url]: https://www.tmxwebstore.com "TMX Group (TMX) 2.1 Url"
+[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.Url]: https://www.tmxwebstore.com "TMX Group 2.1 Url"
 [Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_TsxTsxvLevel2_Xmt_v3_6_Dissector.lua "Tmx QuantumFeed TsxTsxvLevel2 Xmt v3.6 Wireshark Dissector"
-[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Url]: https://www.tmxwebstore.com/ "TMX Group (TMX) 3.6 Url"
-[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 3.6 Pdf"
+[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Url]: https://www.tmxwebstore.com/ "TMX Group 3.6 Url"
+[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 3.6 Pdf"
 [Tmx.QuantumFeed.XmtHeader.Udp.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_XmtHeader_Udp_v1_1_Dissector.lua "Tmx QuantumFeed XmtHeader Udp v1.1 Wireshark Dissector"
-[Tmx.QuantumFeed.XmtHeader.Udp.v1.1.Url]: https://www.tmxwebstore.com "TMX Group (TMX) 1.1 Url"
-[Tmx.QuantumFeed.XmtHeader.Udp.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group (TMX) 1.1 Pdf"
+[Tmx.QuantumFeed.XmtHeader.Udp.v1.1.Url]: https://www.tmxwebstore.com "TMX Group 1.1 Url"
+[Tmx.QuantumFeed.XmtHeader.Udp.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Specifications/ "TMX Group 1.1 Pdf"

@@ -169,10 +169,10 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state attached to packet.conversation
+-- State attached to packet.conversation
 cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation = {}
 
--- Get-or-create our protocol's data record on the current packet's conversation
+-- Get/create our protocol's data record on the current packet's conversation
 cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.data = function(packet)
   local conversation = packet.conversation
   local data = conversation[omi_cboe_bzxequities_depthofbook_pitch_v2_41_29]

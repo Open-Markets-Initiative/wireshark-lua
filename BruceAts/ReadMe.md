@@ -28,7 +28,7 @@ BruceAts: [website](https://www.brucemarkets.com "Go to Bruce ATS")
 [Omi.BruceAts.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols "BruceAts Protocol Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [BruceEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols/BruceEquities "BruceAts BruceEquities"
-[BruceAts.BruceEquities.BestBidAndOffer]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/BestBidAndOffer.md "Bruce Best Bid And Offer"
+[BruceAts.BruceEquities.BestBidAndOffer]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/BestBidAndOffer.md "Best Bid And Offer"
 [BruceAts.BruceEquities.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/DepthOfBook.md "Bruce Depth Of Book"
 [BruceAts.BruceEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/LastSale.md "Bruce Last Sale"
 

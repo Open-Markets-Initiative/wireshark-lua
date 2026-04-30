@@ -4633,7 +4633,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c:register_heuristic("tcp", omi_m
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Holdings (MIAX)
+--   Organization: Miami International Holdings
 --   Version: 1.0.c
 --   Date: Thursday, May 22, 2025
 --   Specification: onyx_futures_express_interface_fei_v1.0c.pdf

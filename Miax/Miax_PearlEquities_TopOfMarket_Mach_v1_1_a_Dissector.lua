@@ -1670,7 +1670,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a:register_heuristic("udp", omi_mia
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Holdings (MIAX)
+--   Organization: Miami International Holdings
 --   Version: 1.1.a
 --   Date: Thursday, November 5, 2020
 --   Specification: MIAX_PEARL_Equities_ToM_Feed_v1.1a.pdf

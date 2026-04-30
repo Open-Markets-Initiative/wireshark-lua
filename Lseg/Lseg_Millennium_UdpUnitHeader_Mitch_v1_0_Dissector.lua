@@ -462,7 +462,7 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0:register_heuristic("udp", omi_lseg_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: London Stock Exchange (LSE)
+--   Organization: London Stock Exchange
 --   Version: 1.0
 --   Date: Monday, January 1, 2018
 --   Specification: mit303issue119.pdf

@@ -28,6 +28,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.message_count = ProtoField.new("Message
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_header = ProtoField.new("Message Header", "jnx.jnxequities.pts.itch.v1.7.messageheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_length = ProtoField.new("Message Length", "jnx.jnxequities.pts.itch.v1.7.messagelength", ftypes.UINT16)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_type = ProtoField.new("Message Type", "jnx.jnxequities.pts.itch.v1.7.messagetype", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "jnx.jnxequities.pts.itch.v1.7.moldudp64packet", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.new_order_number = ProtoField.new("New Order Number", "jnx.jnxequities.pts.itch.v1.7.newordernumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_number = ProtoField.new("Order Number", "jnx.jnxequities.pts.itch.v1.7.ordernumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_type = ProtoField.new("Order Type", "jnx.jnxequities.pts.itch.v1.7.ordertype", ftypes.STRING)
@@ -57,7 +58,6 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.text = ProtoField.new("Text", "jnx.jnxe
 omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jnx.jnxequities.pts.itch.v1.7.timestampnanoseconds", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "jnx.jnxequities.pts.itch.v1.7.timestampseconds", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.itch.v1.7.tradingstate", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet = ProtoField.new("Udp Packet", "jnx.jnxequities.pts.itch.v1.7.udppacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "jnx.jnxequities.pts.itch.v1.7.udppacketheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "jnx.jnxequities.pts.itch.v1.7.udpsequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_session = ProtoField.new("Udp Session", "jnx.jnxequities.pts.itch.v1.7.udpsession", ftypes.STRING)
@@ -100,11 +100,11 @@ local show = {}
 show.session_messages = true
 show.message = true
 show.message_header = true
+show.mold_udp_64_packet = true
 show.application_messages = true
 show.soup_bin_tcp_packet = true
 show.tcp_packet = true
 show.tcp_packet_header = true
-show.udp_packet = true
 show.udp_packet_header = true
 show.message_index = true
 
@@ -112,11 +112,11 @@ show.message_index = true
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_mold_udp_64_packet = Pref.bool("Show Mold Udp 64 Packet", show.mold_udp_64_packet, "Parse and add Mold Udp 64 Packet to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_tcp_packet = Pref.bool("Show Tcp Packet", show.tcp_packet, "Parse and add Tcp Packet to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_tcp_packet_header = Pref.bool("Show Tcp Packet Header", show.tcp_packet_header, "Parse and add Tcp Packet Header to protocol tree")
-omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_udp_packet = Pref.bool("Show Udp Packet", show.udp_packet, "Parse and add Udp Packet to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_udp_packet_header = Pref.bool("Show Udp Packet Header", show.udp_packet_header, "Parse and add Udp Packet Header to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
@@ -146,6 +146,9 @@ function omi_jnx_jnxequities_pts_itch_v1_7.prefs_changed()
   if show.message_header ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_message_header then
     show.message_header = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_message_header
   end
+  if show.mold_udp_64_packet ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_mold_udp_64_packet then
+    show.mold_udp_64_packet = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_mold_udp_64_packet
+  end
   if show.session_messages ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages then
     show.session_messages = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages
   end
@@ -157,9 +160,6 @@ function omi_jnx_jnxequities_pts_itch_v1_7.prefs_changed()
   end
   if show.tcp_packet_header ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_tcp_packet_header then
     show.tcp_packet_header = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_tcp_packet_header
-  end
-  if show.udp_packet ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_udp_packet then
-    show.udp_packet = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_udp_packet
   end
   if show.udp_packet_header ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_udp_packet_header then
     show.udp_packet_header = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_udp_packet_header
@@ -182,10 +182,10 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state attached to packet.conversation
+-- State attached to packet.conversation
 jnx_jnxequities_pts_itch_v1_7.conversation = {}
 
--- Get-or-create our protocol's data record on the current packet's conversation
+-- Get/create our protocol's data record on the current packet's conversation
 jnx_jnxequities_pts_itch_v1_7.conversation.data = function(packet)
   local conversation = packet.conversation
   local data = conversation[omi_jnx_jnxequities_pts_itch_v1_7]
@@ -2303,16 +2303,16 @@ jnx_jnxequities_pts_itch_v1_7.udp_packet_header.dissect = function(buffer, offse
   end
 end
 
--- Udp Packet
-jnx_jnxequities_pts_itch_v1_7.udp_packet = {}
+-- Mold Udp 64 Packet
+jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet = {}
 
 -- Verify required size of Udp packet
-jnx_jnxequities_pts_itch_v1_7.udp_packet.requiredsize = function(buffer)
+jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet.requiredsize = function(buffer)
   return buffer:len() >= jnx_jnxequities_pts_itch_v1_7.udp_packet_header.size
 end
 
--- Dissect Udp Packet
-jnx_jnxequities_pts_itch_v1_7.udp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Mold Udp 64 Packet
+jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet.dissect = function(buffer, packet, parent)
   -- establish frame context from the conversation's stored values
   local data = jnx_jnxequities_pts_itch_v1_7.conversation.data(packet)
   if not packet.visited then
@@ -2885,7 +2885,7 @@ function omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
     return jnx_jnxequities_pts_itch_v1_7.tcp_packet.dissect(buffer, packet, protocol)
   end
   if packet.port_type == 3 then
-    return jnx_jnxequities_pts_itch_v1_7.udp_packet.dissect(buffer, packet, protocol)
+    return jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet.dissect(buffer, packet, protocol)
   end
 end
 
@@ -2909,7 +2909,7 @@ end
 -- Dissector Heuristic for Jnx JnxEquities Pts Itch 1.7 (Udp)
 local function omi_jnx_jnxequities_pts_itch_v1_7_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not jnx_jnxequities_pts_itch_v1_7.udp_packet.requiredsize(buffer) then return false end
+  if not jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jnx_jnxequities_pts_itch_v1_7
@@ -2928,7 +2928,7 @@ omi_jnx_jnxequities_pts_itch_v1_7:register_heuristic("udp", omi_jnx_jnxequities_
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japannext Securities (JNX)
+--   Organization: Japannext Securities
 --   Version: 1.7
 --   Date: Wednesday, November 1, 2023
 --   Specification: Japannext_PTS_ITCH_Equities_v1.7.pdf

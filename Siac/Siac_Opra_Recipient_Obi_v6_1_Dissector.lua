@@ -3874,7 +3874,7 @@ omi_siac_opra_recipient_obi_v6_1:register_heuristic("udp", omi_siac_opra_recipie
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Securities Industry Automation Corporation (SIAC)
+--   Organization: The Securities Industry Automation Corporation
 --   Version: 6.1
 --   Date: Friday, March 25, 2022
 --   Specification: 624057bbf5a8f4821840340e_OPRA Pillar Output Specification.pdf

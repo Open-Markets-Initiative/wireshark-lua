@@ -136,10 +136,10 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state attached to packet.conversation
+-- State attached to packet.conversation
 odx_odxsecuritytoken_pts_itch_v2_2.conversation = {}
 
--- Get-or-create our protocol's data record on the current packet's conversation
+-- Get/create our protocol's data record on the current packet's conversation
 odx_odxsecuritytoken_pts_itch_v2_2.conversation.data = function(packet)
   local conversation = packet.conversation
   local data = conversation[omi_odx_odxsecuritytoken_pts_itch_v2_2]

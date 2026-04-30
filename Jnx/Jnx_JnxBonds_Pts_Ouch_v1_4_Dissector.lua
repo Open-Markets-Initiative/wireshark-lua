@@ -2578,7 +2578,7 @@ omi_jnx_jnxbonds_pts_ouch_v1_4:register_heuristic("tcp", omi_jnx_jnxbonds_pts_ou
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Japannext Securities (JNX)
+--   Organization: Japannext Securities
 --   Version: 1.4
 --   Date: Wednesday, April 1, 2020
 --   Specification: Japannext_PTS_OUCH_Bonds_v1.4.pdf

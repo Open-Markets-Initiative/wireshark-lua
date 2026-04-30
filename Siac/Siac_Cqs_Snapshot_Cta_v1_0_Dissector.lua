@@ -3151,7 +3151,7 @@ omi_siac_cqs_snapshot_cta_v1_0:register_heuristic("udp", omi_siac_cqs_snapshot_c
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Securities Industry Automation Corporation (SIAC)
+--   Organization: The Securities Industry Automation Corporation
 --   Version: 1.0
 --   Date: Monday, January 24, 2022
 --   Specification: CQS_Pillar_Snapshot_Specification.pdf

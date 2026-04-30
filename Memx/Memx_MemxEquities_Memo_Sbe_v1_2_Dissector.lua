@@ -5821,7 +5821,7 @@ omi_memx_memxequities_memo_sbe_v1_2:register_heuristic("tcp", omi_memx_memxequit
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Members Exchange (MEMX)
+--   Organization: The Members Exchange
 --   Version: 1.2
 --   Date: Wednesday, September 23, 2020
 --   Specification: MEMO SBE-v1_1.pdf

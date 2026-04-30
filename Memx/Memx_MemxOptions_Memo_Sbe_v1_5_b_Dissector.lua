@@ -9204,7 +9204,7 @@ omi_memx_memxoptions_memo_sbe_v1_5_b:register_heuristic("tcp", omi_memx_memxopti
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: The Members Exchange (MEMX)
+--   Organization: The Members Exchange
 --   Version: 1.5.b
 --   Date: Friday, February 2, 2024
 --   Specification: MEMO SBE for Options-v1_5b

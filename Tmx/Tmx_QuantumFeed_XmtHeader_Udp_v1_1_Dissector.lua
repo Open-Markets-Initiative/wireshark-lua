@@ -803,7 +803,7 @@ omi_tmx_quantumfeed_xmtheader_udp_v1_1:register_heuristic("udp", omi_tmx_quantum
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: TMX Group (TMX)
+--   Organization: TMX Group
 --   Version: 1.1
 --   Date: Tuesday, October 20, 2020
 --   Specification: htmx-xmt-protocol-spec-v1-1-0.pdf

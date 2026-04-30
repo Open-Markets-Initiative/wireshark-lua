@@ -424,7 +424,7 @@ omi_miax_onyxfutures_headeronly_mach_v1_0:register_heuristic("udp", omi_miax_ony
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Holdings (MIAX)
+--   Organization: Miami International Holdings
 --   Version: 1.0
 --   Date: Friday, June 26, 2020
 --   Specification: TcpSessionMgmt_eSesM_v1.0.a.updated.pdf.pdf

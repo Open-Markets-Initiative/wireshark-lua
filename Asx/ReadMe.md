@@ -33,7 +33,7 @@ Asx: [website](https://www.asx.com.au "Go to Australian Securities Exchange")
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
 [AsxSecurities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Protocols/AsxSecurities "Asx AsxSecurities"
 [Asx.AsxSecurities.T24]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/AsxSecurities/T24.md "Asx 24 Itch"
-[Asx.AsxSecurities.Ntp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/AsxSecurities/Ntp.md "New Trading Platform Itch"
+[Asx.AsxSecurities.Ntp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/AsxSecurities/Ntp.md "New Trading Platform"
 [Asx.AsxSecurities.Trade]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/AsxSecurities/Trade.md "Asx Trade"
 
 [Asx.AsxSecurities.T24.Itch.v1.13.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx_AsxSecurities_T24_Itch_v1_13_Dissector.lua "Asx AsxSecurities T24 Itch v1.13 Wireshark Dissector"
