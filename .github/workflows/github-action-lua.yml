@@ -18,10 +18,10 @@ jobs:
         run: sudo apt-get install -y lua5.4
 
       - name: Install tshark
-        run: sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tshark
+        run: sudo snap install wireshark && sudo snap alias wireshark.tshark tshark
 
       - name: Set Environment Variables
-        run: export PATH=/usr/local/bin:$PATH
+        run: export PATH=/snap/bin:/usr/local/bin:$PATH
 
       - name: Lua Syntax Check
         run: find . -name '*.lua' | xargs -n 1 luac5.4 -p
