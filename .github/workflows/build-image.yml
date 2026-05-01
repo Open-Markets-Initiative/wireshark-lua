@@ -3,11 +3,7 @@ name: Build Image
 on:
   push:
     branches: [ main ]
-    paths:
-      - - '.github/docker/tshark-test.Dockerfile':
-          - - '.github/workflows/build-image.yml':
-
-workflow_dispatch:
+    paths: [ '.github/docker/tshark-test.Dockerfile' ]
 
 jobs:
   build:
@@ -16,17 +12,16 @@ jobs:
       contents: read
       packages: write
 
+    steps:
+      - uses: actions/checkout@v5
 
-steps:
-  - uses: actions/checkout@v5
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-  - name: Log in to GHCR
-    run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build image
+        run: docker build -t ghcr.io/open-markets-initiative/wireshark-lua-tshark:latest -f .github/docker/tshark-test.Dockerfile .
 
-  - name: Build image
-    run: docker build -t ghcr.io/open-markets-initiative/wireshark-lua-tshark:latest -f .github/docker/tshark-test.Dockerfile .
-
-  - name: Push image
-    run: docker push ghcr.io/open-markets-initiative/wireshark-lua-tshark:latest
+      - name: Push image
+        run: docker push ghcr.io/open-markets-initiative/wireshark-lua-tshark:latest
 
 
