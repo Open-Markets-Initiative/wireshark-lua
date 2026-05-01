@@ -5244,7 +5244,7 @@ omi_asx_asxsecurities_ntp_itch_v1_05:register_heuristic("udp", omi_asx_asxsecuri
 
 -- Register Asx AsxSecurities Ntp Itch 1.05 on default port
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_asx_asxsecurities_ntp_itch_v1_05)
+udp_table:add(17510, omi_asx_asxsecurities_ntp_itch_v1_05)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
