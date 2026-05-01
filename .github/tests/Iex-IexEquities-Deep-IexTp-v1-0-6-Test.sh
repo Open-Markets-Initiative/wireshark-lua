@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelBuyUpdateMessag
 tshark \
   -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelBuyUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Deep_IexTp_v1_0_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.deep.iextp.v1.0.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.deep.iextp.v1.0.6.lua" \
   -T json \
   > Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelBuyUpdateMessage.json 2> Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelBuyUpdateMessage.json.stderr \
@@ -21,7 +20,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelSellUpdateMessa
 tshark \
   -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelSellUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Deep_IexTp_v1_0_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.deep.iextp.v1.0.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.deep.iextp.v1.0.6.lua" \
   -T json \
   > Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelSellUpdateMessage.json 2> Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelSellUpdateMessage.json.stderr \

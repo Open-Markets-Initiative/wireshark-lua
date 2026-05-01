@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrateg
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyAuctionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json.stderr \
@@ -32,7 +31,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrateg
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyDirectoryMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json.stderr \
@@ -49,7 +47,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrateg
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyOrderOnBookMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json.stderr \
@@ -72,7 +69,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyOpenCl
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyOpenClosedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json.stderr \
@@ -86,7 +82,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyTradin
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyTradingActionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json.stderr \

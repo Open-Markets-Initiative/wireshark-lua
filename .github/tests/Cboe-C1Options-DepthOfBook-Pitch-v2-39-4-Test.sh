@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/AddOrd
 tshark \
   -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/AddOrderLongMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_DepthOfBook_Pitch_v2_39_4_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.depthofbook.pitch.v2.39.4.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.depthofbook.pitch.v2.39.4.lua" \
   -T json \
   > Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json 2> Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json.stderr \
@@ -23,7 +22,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/Delete
 tshark \
   -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/DeleteOrderMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_DepthOfBook_Pitch_v2_39_4_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.depthofbook.pitch.v2.39.4.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.depthofbook.pitch.v2.39.4.lua" \
   -T json \
   > Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json 2> Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json.stderr \
@@ -36,7 +34,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/Modify
 tshark \
   -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/ModifyOrderLongMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_DepthOfBook_Pitch_v2_39_4_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.depthofbook.pitch.v2.39.4.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.depthofbook.pitch.v2.39.4.lua" \
   -T json \
   > Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json 2> Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json.stderr \

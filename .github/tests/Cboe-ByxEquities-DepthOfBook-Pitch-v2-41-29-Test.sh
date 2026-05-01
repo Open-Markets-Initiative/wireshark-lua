@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/Add
 tshark \
   -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/AddOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_ByxEquities_DepthOfBook_Pitch_v2_41_29_Dissector.lua" \
-  --enable-heuristic "cboe.byxequities.depthofbook.pitch.v2.41.29.lua_udp" \
   -d "udp.port==${PORT},cboe.byxequities.depthofbook.pitch.v2.41.29.lua" \
   -T json \
   > Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json 2> Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json.stderr \
@@ -23,7 +22,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/Mod
 tshark \
   -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/ModifyOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_ByxEquities_DepthOfBook_Pitch_v2_41_29_Dissector.lua" \
-  --enable-heuristic "cboe.byxequities.depthofbook.pitch.v2.41.29.lua_udp" \
   -d "udp.port==${PORT},cboe.byxequities.depthofbook.pitch.v2.41.29.lua" \
   -T json \
   > Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json 2> Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json.stderr \

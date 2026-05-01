@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderAddedMess
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderAddedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
-  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -d "udp.port==${PORT},memx.memxequities.memoirdepthfeed.sbe.v1.3.lua" \
   -T json \
   > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json.stderr \
@@ -22,7 +21,6 @@ PORT=$(tshark -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderDeletedMe
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderDeletedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
-  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -d "udp.port==${PORT},memx.memxequities.memoirdepthfeed.sbe.v1.3.lua" \
   -T json \
   > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json.stderr \
@@ -36,7 +34,6 @@ PORT=$(tshark -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderExecutedM
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderExecutedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
-  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -d "udp.port==${PORT},memx.memxequities.memoirdepthfeed.sbe.v1.3.lua" \
   -T json \
   > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json.stderr \
@@ -53,7 +50,6 @@ PORT=$(tshark -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderReducedMe
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderReducedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
-  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -d "udp.port==${PORT},memx.memxequities.memoirdepthfeed.sbe.v1.3.lua" \
   -T json \
   > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json.stderr \
@@ -68,7 +64,6 @@ PORT=$(tshark -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/SecurityTradin
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/SecurityTradingStatusMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
-  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -d "udp.port==${PORT},memx.memxequities.memoirdepthfeed.sbe.v1.3.lua" \
   -T json \
   > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json.stderr \
@@ -83,7 +78,6 @@ PORT=$(tshark -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/TradingSession
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/TradingSessionStatusMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
-  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -d "udp.port==${PORT},memx.memxequities.memoirdepthfeed.sbe.v1.3.lua" \
   -T json \
   > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json.stderr \

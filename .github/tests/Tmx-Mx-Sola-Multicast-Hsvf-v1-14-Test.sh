@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Tmx/Mx.Sola.1.14/OptionMarketDepthMessage.pca
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/OptionMarketDepthMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
-  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -d "udp.port==${PORT},tmx.mx.sola.multicast.hsvf.v1.14.lua" \
   -T json \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr \
@@ -19,7 +18,6 @@ PORT=$(tshark -r "omi-data-packets/Tmx/Mx.Sola.1.14/OptionTradeMessage.pcap" -Y 
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/OptionTradeMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
-  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -d "udp.port==${PORT},tmx.mx.sola.multicast.hsvf.v1.14.lua" \
   -T json \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json.stderr \
@@ -40,7 +38,6 @@ PORT=$(tshark -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyAuctionBeginningMess
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyAuctionBeginningMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
-  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -d "udp.port==${PORT},tmx.mx.sola.multicast.hsvf.v1.14.lua" \
   -T json \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json.stderr \
@@ -61,7 +58,6 @@ PORT=$(tshark -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyMarketDepthMessage.p
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyMarketDepthMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
-  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -d "udp.port==${PORT},tmx.mx.sola.multicast.hsvf.v1.14.lua" \
   -T json \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr \
@@ -76,7 +72,6 @@ PORT=$(tshark -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyTradeMessage.pcap" -
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyTradeMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
-  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -d "udp.port==${PORT},tmx.mx.sola.multicast.hsvf.v1.14.lua" \
   -T json \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json.stderr \

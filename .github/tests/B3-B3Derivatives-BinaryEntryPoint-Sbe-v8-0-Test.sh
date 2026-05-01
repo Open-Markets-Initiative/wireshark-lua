@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/NegotiateRejectMessa
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/NegotiateRejectMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_0_Dissector.lua" \
-  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.0.lua_udp" \
   -d "udp.port==${PORT},b3.b3derivatives.binaryentrypoint.sbe.v8.0.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json.stderr \
@@ -23,7 +22,6 @@ PORT=$(tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/TerminateMessage.pca
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/TerminateMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_0_Dissector.lua" \
-  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.0.lua_udp" \
   -d "udp.port==${PORT},b3.b3derivatives.binaryentrypoint.sbe.v8.0.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json.stderr \

@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/EstablishMessage.pca
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/EstablishMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -d "udp.port==${PORT},b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json.stderr \
@@ -24,7 +23,6 @@ PORT=$(tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMe
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -d "udp.port==${PORT},b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json.stderr \
@@ -66,7 +64,6 @@ PORT=$(tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportTrade
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportTradeMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -d "udp.port==${PORT},b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json.stderr \
@@ -111,7 +108,6 @@ PORT=$(tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/NegotiateMessage.pca
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/NegotiateMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -d "udp.port==${PORT},b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json.stderr \
@@ -127,7 +123,6 @@ PORT=$(tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleModifyOrderMes
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleModifyOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -d "udp.port==${PORT},b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json.stderr \
@@ -154,7 +149,6 @@ PORT=$(tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleNewOrderMessag
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleNewOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -d "udp.port==${PORT},b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json.stderr \

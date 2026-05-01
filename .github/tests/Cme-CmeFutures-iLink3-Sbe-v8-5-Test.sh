@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/iLink3.Sbe.8.5/ExecutionReportStatus.pcap
 tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/ExecutionReportStatus.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_iLink3_Sbe_v8_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.ilink3.sbe.v8.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.ilink3.sbe.v8.5.lua" \
   -T json \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr \
@@ -54,7 +53,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/iLink3.Sbe.8.5/QuoteCancel.pcap" -Y udp -
 tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/QuoteCancel.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_iLink3_Sbe_v8_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.ilink3.sbe.v8.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.ilink3.sbe.v8.5.lua" \
   -T json \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr \
@@ -74,7 +72,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/iLink3.Sbe.8.5/QuoteCancelAck.pcap" -Y ud
 tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/QuoteCancelAck.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_iLink3_Sbe_v8_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.ilink3.sbe.v8.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.ilink3.sbe.v8.5.lua" \
   -T json \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr \
@@ -107,7 +104,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/iLink3.Sbe.8.5/Sequence.pcap" -Y udp -T f
 tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/Sequence.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_iLink3_Sbe_v8_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.ilink3.sbe.v8.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.ilink3.sbe.v8.5.lua" \
   -T json \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr \

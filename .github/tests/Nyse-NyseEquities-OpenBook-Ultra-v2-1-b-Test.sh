@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/Delta
 tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/DeltaUpdateMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.openbook.ultra.v2.1.b.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.openbook.ultra.v2.1.b.lua" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json.stderr \
@@ -25,7 +24,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullU
 tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullUpdateMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.openbook.ultra.v2.1.b.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.openbook.ultra.v2.1.b.lua" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json.stderr \
@@ -48,7 +46,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/Heart
 tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/HeartbeatMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.openbook.ultra.v2.1.b.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.openbook.ultra.v2.1.b.lua" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json.stderr \
@@ -59,7 +56,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/Seque
 tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.openbook.ultra.v2.1.b.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.openbook.ultra.v2.1.b.lua" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json.stderr \

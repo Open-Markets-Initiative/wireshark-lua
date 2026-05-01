@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/AddOrModifyOrderMessag
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/AddOrModifyOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.24.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json.stderr \
@@ -27,7 +26,6 @@ PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/MarketStateChangeMessa
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/MarketStateChangeMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.24.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json.stderr \
@@ -41,7 +39,6 @@ PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/NewOptionsStrategyDefi
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/NewOptionsStrategyDefinitionMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.24.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json.stderr \
@@ -66,7 +63,6 @@ PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/OpenPriceMessage.pcap"
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/OpenPriceMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.24.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json.stderr \
@@ -80,7 +76,6 @@ PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/PreOpenPriceIndicatorM
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/PreOpenPriceIndicatorMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.24.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json.stderr \

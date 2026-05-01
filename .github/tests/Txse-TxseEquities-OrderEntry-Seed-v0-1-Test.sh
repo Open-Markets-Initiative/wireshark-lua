@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/DefineSymbolMessage
 tshark \
   -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/DefineSymbolMessage.pcap" \
   -X "lua_script:Txse/Txse_TxseEquities_OrderEntry_Seed_v0_1_Dissector.lua" \
-  --enable-heuristic "txse.txseequities.orderentry.seed.v0.1.lua_udp" \
   -d "udp.port==${PORT},txse.txseequities.orderentry.seed.v0.1.lua" \
   -T json \
   > Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json 2> Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json.stderr \
@@ -23,7 +22,6 @@ PORT=$(tshark -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/LimitOrderMessage.p
 tshark \
   -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/LimitOrderMessage.pcap" \
   -X "lua_script:Txse/Txse_TxseEquities_OrderEntry_Seed_v0_1_Dissector.lua" \
-  --enable-heuristic "txse.txseequities.orderentry.seed.v0.1.lua_udp" \
   -d "udp.port==${PORT},txse.txseequities.orderentry.seed.v0.1.lua" \
   -T json \
   > Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json 2> Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json.stderr \

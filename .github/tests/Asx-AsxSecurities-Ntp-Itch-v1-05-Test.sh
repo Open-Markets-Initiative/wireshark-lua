@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" -Y u
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr \
@@ -24,7 +23,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AnomalousOrderThresholdPub
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AnomalousOrderThresholdPublishMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr \
@@ -44,7 +42,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AuctionOrderExecutedMessag
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AuctionOrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr \
@@ -66,7 +63,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationOrderExecutedMe
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationOrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr \
@@ -91,7 +87,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationSymbolDirectory
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr \
@@ -113,7 +108,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationTradeExecutedMe
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationTradeExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr \
@@ -141,7 +135,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/EquilibriumPriceMessage.pc
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/EquilibriumPriceMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr \
@@ -159,7 +152,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/FutureSymbolDirectoryMessa
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/FutureSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr \
@@ -193,7 +185,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderAddedMessage.p
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderAddedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr \
@@ -212,7 +203,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderDeletedMessage
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderDeletedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr \
@@ -228,7 +218,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderReplacedMessag
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderReplacedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr \
@@ -247,7 +236,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OpenHighLowLastTradeAdjust
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OpenHighLowLastTradeAdjustmentMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr \
@@ -267,7 +255,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OptionsSymbolDirectoryMess
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OptionsSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr \
@@ -309,7 +296,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderBookStateMessage.pcap
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderBookStateMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr \
@@ -324,7 +310,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderDeletedMessage.pcap" 
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderDeletedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr \
@@ -340,7 +325,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderExecutedMessage.pcap"
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr \
@@ -363,7 +347,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderVolumeCancelledMessag
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderVolumeCancelledMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr \
@@ -380,7 +363,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TextMessage.pcap" -Y udp -
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TextMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json.stderr \
@@ -395,7 +377,6 @@ PORT=$(tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TradeExecutedMessage.pcap"
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TradeExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
-  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -d "udp.port==${PORT},asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr \

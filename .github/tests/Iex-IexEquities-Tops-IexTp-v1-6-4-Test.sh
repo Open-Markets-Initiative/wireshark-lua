@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.6/QuoteUpdateMessage.pcap" 
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.6/QuoteUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_6_4_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.6.4.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.6.4.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json.stderr \

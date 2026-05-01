@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" -Y
 tshark \
   -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" \
   -X "lua_script:Eurex/Eurex_Cash_Eti_T7_v10_0_Dissector.lua" \
-  --enable-heuristic "eurex.cash.eti.t7.v10.0.lua_udp" \
   -d "udp.port==${PORT},eurex.cash.eti.t7.v10.0.lua" \
   -T json \
   > Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json 2> Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr \

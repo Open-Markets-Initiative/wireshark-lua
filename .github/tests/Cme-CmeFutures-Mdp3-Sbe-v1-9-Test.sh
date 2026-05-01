@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshBook.pc
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshBook.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_9_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr \
@@ -19,7 +18,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshOrderBo
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshOrderBook.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_9_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr \
@@ -33,7 +31,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshTradeSu
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_9_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr \
@@ -47,7 +44,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshVolume.
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshVolume.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_9_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr \

@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoMessage.
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoMessage.json.stderr \
@@ -23,7 +22,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoRequestM
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoRequestMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoRequestMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoRequestMessage.json.stderr \
@@ -35,7 +33,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderAckMess
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderAckMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderAckMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderAckMessage.json.stderr \
@@ -52,7 +49,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderMessage
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderMessage.json.stderr \
@@ -69,7 +65,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/NewOrderMessage.pcap" 
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/NewOrderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.NewOrderMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.NewOrderMessage.json.stderr \
@@ -86,7 +81,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderFilledMessage.pca
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderFilledMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderFilledMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderFilledMessage.json.stderr \
@@ -110,7 +104,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderReplacedMessage.p
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderReplacedMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderReplacedMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderReplacedMessage.json.stderr \
@@ -130,7 +123,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/ReplaceOrderMessage.pc
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/ReplaceOrderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.ReplaceOrderMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.ReplaceOrderMessage.json.stderr \
@@ -146,7 +138,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAccountMessage.pcap
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAccountMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAccountMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAccountMessage.json.stderr \
@@ -159,7 +150,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAckMessage.pcap" -Y
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAckMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAckMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAckMessage.json.stderr \
@@ -171,7 +161,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetTraderMessage.pcap"
 tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetTraderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetTraderMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetTraderMessage.json.stderr \

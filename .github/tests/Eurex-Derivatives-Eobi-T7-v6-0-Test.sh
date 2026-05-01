@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ExecutionSummary.pcap" -Y 
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ExecutionSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json.stderr \
@@ -27,7 +26,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/FullOrderExecution.pcap" -
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/FullOrderExecution.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json 2> Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json.stderr \
@@ -48,7 +46,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/Heartbeat.pcap" -Y udp -T 
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/Heartbeat.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json 2> Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json.stderr \
@@ -61,7 +58,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/InstrumentSummary.pcap" -Y
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/InstrumentSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json.stderr \
@@ -82,7 +78,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderAdd.pcap" -Y udp -T f
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderAdd.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json 2> Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json.stderr \
@@ -95,7 +90,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderModify.pcap" -Y udp -
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderModify.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json 2> Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json.stderr \
@@ -112,7 +106,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/PartialOrderExecution.pcap
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/PartialOrderExecution.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json 2> Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json.stderr \
@@ -133,7 +126,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ProductSummary.pcap" -Y ud
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ProductSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json.stderr \
@@ -151,7 +143,6 @@ PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/SnapshotOrder.pcap" -Y udp
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/SnapshotOrder.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v6.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json 2> Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json.stderr \

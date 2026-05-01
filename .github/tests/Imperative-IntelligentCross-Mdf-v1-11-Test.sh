@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Imperative/IntelligentCross.Mdf.v1.11/OrderEx
 tshark \
   -r "omi-data-packets/Imperative/IntelligentCross.Mdf.v1.11/OrderExecutedMessage.pcap" \
   -X "lua_script:Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua" \
-  --enable-heuristic "imperative.intelligentcross.mdf.v1.11.lua_udp" \
   -d "udp.port==${PORT},imperative.intelligentcross.mdf.v1.11.lua" \
   -T json \
   > Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json 2> Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json.stderr \
@@ -23,7 +22,6 @@ PORT=$(tshark -r "omi-data-packets/Imperative/IntelligentCross.Mdf.v1.11/TradeMe
 tshark \
   -r "omi-data-packets/Imperative/IntelligentCross.Mdf.v1.11/TradeMessage.pcap" \
   -X "lua_script:Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua" \
-  --enable-heuristic "imperative.intelligentcross.mdf.v1.11.lua_udp" \
   -d "udp.port==${PORT},imperative.intelligentcross.mdf.v1.11.lua" \
   -T json \
   > Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json 2> Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json.stderr \

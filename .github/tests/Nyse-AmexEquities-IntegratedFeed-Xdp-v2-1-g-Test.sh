@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/AddOrderMessage.
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/AddOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr \
@@ -25,7 +24,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ImbalanceMessage
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr \
@@ -56,7 +54,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/OrderExecutionMe
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/OrderExecutionMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr \
@@ -77,7 +74,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ReplaceOrderMess
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ReplaceOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr \
@@ -97,7 +93,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SecurityStatusMe
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr \
@@ -123,7 +118,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SourceTimeRefere
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr \
@@ -137,7 +131,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SymbolIndexMappi
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr \

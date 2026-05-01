@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pc
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.5.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json.stderr \
@@ -19,7 +18,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshSession
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.5.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json.stderr \
@@ -33,7 +31,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSu
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.5.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json.stderr \
@@ -47,7 +44,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.5.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json.stderr \
@@ -61,7 +57,6 @@ PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdInstrumentDefinitionSprea
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.5.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.5.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json.stderr \

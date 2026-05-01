@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderDeletedMes
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderDeletedMessage.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.itch.v1.6.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.itch.v1.6.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.OrderDeletedMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.OrderDeletedMessage.json.stderr \
@@ -18,7 +17,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderExecutedMe
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderExecutedMessage.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.itch.v1.6.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.itch.v1.6.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.OrderExecutedMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.OrderExecutedMessage.json.stderr \
@@ -33,7 +31,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderReplacedMe
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderReplacedMessage.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.itch.v1.6.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.itch.v1.6.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.OrderReplacedMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.OrderReplacedMessage.json.stderr \
@@ -49,7 +46,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/ShortSellingPri
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/ShortSellingPriceRestrictionStateMessage.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.itch.v1.6.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.itch.v1.6.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.ShortSellingPriceRestrictionStateMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.ShortSellingPriceRestrictionStateMessage.json.stderr \
@@ -64,7 +60,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/TimestampSecond
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/TimestampSecondsMessage.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.itch.v1.6.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.itch.v1.6.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.TimestampSecondsMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.TimestampSecondsMessage.json.stderr \

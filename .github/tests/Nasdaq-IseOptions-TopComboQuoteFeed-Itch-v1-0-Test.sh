@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/ComplexStra
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/ComplexStrategyDirectoryMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua" \
   -T json \
   > Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.ComplexStrategyDirectoryMessage.json 2> Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.ComplexStrategyDirectoryMessage.json.stderr \
@@ -22,7 +21,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/ComplexStra
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/ComplexStrategyTickerMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua" \
   -T json \
   > Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.ComplexStrategyTickerMessage.json 2> Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.ComplexStrategyTickerMessage.json.stderr \
@@ -42,7 +40,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyBes
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyBestAskUpdate.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua" \
   -T json \
   > Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyBestAskUpdate.json 2> Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyBestAskUpdate.json.stderr \
@@ -63,7 +60,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyBes
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyBestBidAndAskUpdate.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua" \
   -T json \
   > Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyBestBidAndAskUpdate.json 2> Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyBestBidAndAskUpdate.json.stderr \
@@ -91,7 +87,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyBes
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyBestBidUpdate.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua" \
   -T json \
   > Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyBestBidUpdate.json 2> Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyBestBidUpdate.json.stderr \
@@ -112,7 +107,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyOpe
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyOpenClosedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua" \
   -T json \
   > Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyOpenClosedMessage.json 2> Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyOpenClosedMessage.json.stderr \
@@ -126,7 +120,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyTra
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.TopComboQuoteFeed.v1.0/StrategyTradingActionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.lua" \
   -T json \
   > Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyTradingActionMessage.json 2> Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.StrategyTradingActionMessage.json.stderr \

@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/Ad
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/AddOrderNoMpidAttributionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.totalview.itch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json.stderr \
@@ -24,7 +23,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/Ma
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/MarketParticipantPositionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.totalview.itch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json.stderr \
@@ -43,7 +41,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/Ne
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/NetOrderImbalanceIndicatorMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.totalview.itch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json.stderr \
@@ -66,7 +63,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/Or
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/OrderDeleteMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.totalview.itch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json.stderr \
@@ -81,7 +77,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/Or
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/OrderExecutedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.totalview.itch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json.stderr \
@@ -98,7 +93,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/Or
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/OrderReplaceMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.totalview.itch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json.stderr \
@@ -116,7 +110,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/St
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/StockTradingActionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.totalview.itch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json.stderr \

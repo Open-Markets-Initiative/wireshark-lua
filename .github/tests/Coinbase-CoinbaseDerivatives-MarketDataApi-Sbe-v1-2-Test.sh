@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderDeleteMessag
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderDeleteMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json.stderr \
@@ -17,7 +16,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderPutMessage.p
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderPutMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json.stderr \
@@ -31,7 +29,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderSnapshotMess
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json.stderr \
@@ -47,7 +44,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/StartOfOutrightIn
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/StartOfOutrightInstrumentSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json.stderr \
@@ -74,7 +70,6 @@ PORT=$(tshark -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/StartOfSpreadInst
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/StartOfSpreadInstrumentSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
-  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -d "udp.port==${PORT},coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json.stderr \

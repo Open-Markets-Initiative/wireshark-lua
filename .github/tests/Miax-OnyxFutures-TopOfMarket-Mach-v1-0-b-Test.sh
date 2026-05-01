@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/OnyxFutures.ToM.v1.0/BestBidAndOfferMess
 tshark \
   -r "omi-data-packets/Miax/OnyxFutures.ToM.v1.0/BestBidAndOfferMessage.pcap" \
   -X "lua_script:Miax/Miax_OnyxFutures_TopOfMarket_Mach_v1_0_b_Dissector.lua" \
-  --enable-heuristic "miax.onyxfutures.topofmarket.mach.v1.0.b.lua_udp" \
   -d "udp.port==${PORT},miax.onyxfutures.topofmarket.mach.v1.0.b.lua" \
   -T json \
   > Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json 2> Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json.stderr \
@@ -22,7 +21,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/OnyxFutures.ToM.v1.0/InstrumentTradingSt
 tshark \
   -r "omi-data-packets/Miax/OnyxFutures.ToM.v1.0/InstrumentTradingStatusNotificationMessage.pcap" \
   -X "lua_script:Miax/Miax_OnyxFutures_TopOfMarket_Mach_v1_0_b_Dissector.lua" \
-  --enable-heuristic "miax.onyxfutures.topofmarket.mach.v1.0.b.lua_udp" \
   -d "udp.port==${PORT},miax.onyxfutures.topofmarket.mach.v1.0.b.lua" \
   -T json \
   > Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json 2> Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json.stderr \
@@ -37,7 +35,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/OnyxFutures.ToM.v1.0/SystemStateMessage.
 tshark \
   -r "omi-data-packets/Miax/OnyxFutures.ToM.v1.0/SystemStateMessage.pcap" \
   -X "lua_script:Miax/Miax_OnyxFutures_TopOfMarket_Mach_v1_0_b_Dissector.lua" \
-  --enable-heuristic "miax.onyxfutures.topofmarket.mach.v1.0.b.lua_udp" \
   -d "udp.port==${PORT},miax.onyxfutures.topofmarket.mach.v1.0.b.lua" \
   -T json \
   > Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json 2> Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json.stderr \

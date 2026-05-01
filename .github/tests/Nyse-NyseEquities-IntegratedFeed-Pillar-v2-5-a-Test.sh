@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/AddOrderMessa
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/AddOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr \
@@ -25,7 +24,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/CrossTradeMes
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/CrossTradeMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr \
@@ -43,7 +41,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/DeleteOrderMe
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/DeleteOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr \
@@ -59,7 +56,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ImbalanceMess
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr \
@@ -93,7 +89,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/OrderExecutio
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/OrderExecutionMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr \
@@ -117,7 +112,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ReplaceOrderM
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ReplaceOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr \
@@ -137,7 +131,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SecurityStatu
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr \
@@ -163,7 +156,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SourceTimeRef
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr \
@@ -177,7 +169,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/StockSummaryM
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/StockSummaryMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr \

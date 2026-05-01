@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/ImbalancesFeed.Xdp.v2.1.f/ImbalanceMessa
 tshark \
   -r "omi-data-packets/Nyse/ImbalancesFeed.Xdp.v2.1.f/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_1_f_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.lua" \
   -T json \
   > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json.stderr \

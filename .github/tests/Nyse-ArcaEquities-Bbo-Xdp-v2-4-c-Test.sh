@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/QuoteMessage.pcap" -Y udp 
 tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
-  --enable-heuristic "nyse.arcaequities.bbo.xdp.v2.4.c.lua_udp" \
   -d "udp.port==${PORT},nyse.arcaequities.bbo.xdp.v2.4.c.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json.stderr \
@@ -26,7 +25,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SequenceNumberResetMessage
 tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
-  --enable-heuristic "nyse.arcaequities.bbo.xdp.v2.4.c.lua_udp" \
   -d "udp.port==${PORT},nyse.arcaequities.bbo.xdp.v2.4.c.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json.stderr \
@@ -41,7 +39,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SymbolIndexMappingMessage.
 tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
-  --enable-heuristic "nyse.arcaequities.bbo.xdp.v2.4.c.lua_udp" \
   -d "udp.port==${PORT},nyse.arcaequities.bbo.xdp.v2.4.c.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json.stderr \

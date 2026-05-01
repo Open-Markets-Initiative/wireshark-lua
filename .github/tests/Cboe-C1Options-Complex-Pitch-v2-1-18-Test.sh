@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/AuctionCancelMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr \
@@ -18,7 +17,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/AuctionNotificationMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr \
@@ -40,7 +38,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/AuctionUpdateMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr \
@@ -62,7 +59,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/ComplexInstrumentDefinitionExpandedMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr \
@@ -77,7 +73,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/DeleteOrderMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr \
@@ -90,7 +85,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/ModifyOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr \
@@ -106,7 +100,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/OrderExecutedMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr \
@@ -122,7 +115,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/SymbolMappingMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json.stderr \
@@ -137,7 +129,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18
 tshark \
   -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/TimeMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
-  --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json.stderr \

@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" 
 tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
-  --enable-heuristic "siac.cts.output.cta.v2.9.lua_udp" \
   -d "udp.port==${PORT},siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json 2> Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr \
@@ -20,7 +19,6 @@ PORT=$(tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" -Y u
 tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
-  --enable-heuristic "siac.cts.output.cta.v2.9.lua_udp" \
   -d "udp.port==${PORT},siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json 2> Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr \
@@ -49,7 +47,6 @@ PORT=$(tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" 
 tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
-  --enable-heuristic "siac.cts.output.cta.v2.9.lua_udp" \
   -d "udp.port==${PORT},siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json 2> Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr \

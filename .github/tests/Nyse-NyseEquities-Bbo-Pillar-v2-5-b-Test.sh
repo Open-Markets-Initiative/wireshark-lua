@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteM
 tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.bbo.pillar.v2.5.b.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.bbo.pillar.v2.5.b.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr \
@@ -25,7 +24,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/Refres
 tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.bbo.pillar.v2.5.b.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.bbo.pillar.v2.5.b.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr \
@@ -40,7 +38,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/Securi
 tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.bbo.pillar.v2.5.b.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.bbo.pillar.v2.5.b.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr \
@@ -66,7 +63,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/Source
 tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
-  --enable-heuristic "nyse.nyseequities.bbo.pillar.v2.5.b.lua_udp" \
   -d "udp.port==${PORT},nyse.nyseequities.bbo.pillar.v2.5.b.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr \

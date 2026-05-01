@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/EnterOrderMess
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/EnterOrderMessage.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.ouch.v1.11.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.ouch.v1.11.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.EnterOrderMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.EnterOrderMessage.json.stderr \
@@ -30,7 +29,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/LoginAcceptedP
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/LoginAcceptedPacket.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.ouch.v1.11.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.ouch.v1.11.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json.stderr \
@@ -43,7 +41,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/LoginRequestPa
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/LoginRequestPacket.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.ouch.v1.11.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.ouch.v1.11.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.LoginRequestPacket.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.LoginRequestPacket.json.stderr \
@@ -58,7 +55,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/OrderAcceptedM
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/OrderAcceptedMessage.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.ouch.v1.11.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.ouch.v1.11.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.OrderAcceptedMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.OrderAcceptedMessage.json.stderr \
@@ -86,7 +82,6 @@ PORT=$(tshark -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/ReplaceOrderMe
 tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/ReplaceOrderMessage.pcap" \
   -X "lua_script:Jnx/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
-  --enable-heuristic "jnx.jnxequities.pts.ouch.v1.11.lua_udp" \
   -d "udp.port==${PORT},jnx.jnxequities.pts.ouch.v1.11.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.ReplaceOrderMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.ReplaceOrderMessage.json.stderr \

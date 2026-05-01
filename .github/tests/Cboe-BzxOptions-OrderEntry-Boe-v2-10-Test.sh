@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/CancelOrd
 tshark \
   -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/CancelOrderMessage.pcap" \
   -X "lua_script:Cboe/Cboe_BzxOptions_OrderEntry_Boe_v2_10_Dissector.lua" \
-  --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
   > Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json.stderr \
@@ -17,7 +16,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/LoginRequ
 tshark \
   -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/LoginRequestMessage.pcap" \
   -X "lua_script:Cboe/Cboe_BzxOptions_OrderEntry_Boe_v2_10_Dissector.lua" \
-  --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
   > Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json.stderr \
@@ -32,7 +30,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/LoginResp
 tshark \
   -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/LoginResponseMessage.pcap" \
   -X "lua_script:Cboe/Cboe_BzxOptions_OrderEntry_Boe_v2_10_Dissector.lua" \
-  --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
   > Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json.stderr \
@@ -49,7 +46,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/ModifyOrd
 tshark \
   -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/ModifyOrderMessage.pcap" \
   -X "lua_script:Cboe/Cboe_BzxOptions_OrderEntry_Boe_v2_10_Dissector.lua" \
-  --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
   > Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json.stderr \
@@ -62,7 +58,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/NewOrderM
 tshark \
   -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/NewOrderMessage.pcap" \
   -X "lua_script:Cboe/Cboe_BzxOptions_OrderEntry_Boe_v2_10_Dissector.lua" \
-  --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
   > Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json.stderr \
@@ -76,7 +71,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/OrderCanc
 tshark \
   -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/OrderCancelledMessage.pcap" \
   -X "lua_script:Cboe/Cboe_BzxOptions_OrderEntry_Boe_v2_10_Dissector.lua" \
-  --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
   > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json.stderr \
@@ -91,7 +85,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/OrderModi
 tshark \
   -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/OrderModifiedMessage.pcap" \
   -X "lua_script:Cboe/Cboe_BzxOptions_OrderEntry_Boe_v2_10_Dissector.lua" \
-  --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
   > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json.stderr \
@@ -106,7 +99,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/OrderReje
 tshark \
   -r "omi-data-packets/Cboe/Options.OrderEntry.Boe.v2.10.5/OrderRejectedMessage.pcap" \
   -X "lua_script:Cboe/Cboe_BzxOptions_OrderEntry_Boe_v2_10_Dissector.lua" \
-  --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
   > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json.stderr \

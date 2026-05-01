@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/Option
 tshark \
   -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/OptionsQuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
-  --enable-heuristic "nyse.arcaoptions.topfeed.pillar.v1.2.c.lua_udp" \
   -d "udp.port==${PORT},nyse.arcaoptions.topfeed.pillar.v1.2.c.lua" \
   -T json \
   > Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json 2> Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json.stderr \
@@ -27,7 +26,6 @@ PORT=$(tshark -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/Sequen
 tshark \
   -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
-  --enable-heuristic "nyse.arcaoptions.topfeed.pillar.v1.2.c.lua_udp" \
   -d "udp.port==${PORT},nyse.arcaoptions.topfeed.pillar.v1.2.c.lua" \
   -T json \
   > Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json 2> Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json.stderr \

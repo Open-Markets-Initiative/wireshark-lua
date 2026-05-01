@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/CancelOrderReques
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/CancelOrderRequest.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
-  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr \
@@ -22,7 +21,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/CancelOrderRespon
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/CancelOrderResponse.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
-  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr \
@@ -42,7 +40,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/LoginRequest.pcap
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/LoginRequest.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
-  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr \
@@ -59,7 +56,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/LoginResponse.pca
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/LoginResponse.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
-  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr \
@@ -74,7 +70,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/NewOrderNotificat
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/NewOrderNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
-  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr \
@@ -111,7 +106,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/OrderPriceUpdateN
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/OrderPriceUpdateNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
-  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr \
@@ -128,7 +122,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/SymbolUpdate.pcap
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/SymbolUpdate.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
-  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr \
@@ -150,7 +143,6 @@ PORT=$(tshark -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/SystemStateNotifi
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/SystemStateNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
-  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr \

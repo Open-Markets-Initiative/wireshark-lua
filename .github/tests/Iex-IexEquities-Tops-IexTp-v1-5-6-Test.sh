@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/AuctionInformationMessage
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/AuctionInformationMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json.stderr \
@@ -30,7 +29,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OfficialPriceMessage.pcap
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OfficialPriceMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json.stderr \
@@ -45,7 +43,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OperationalHaltStatusMess
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OperationalHaltStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json.stderr \
@@ -59,7 +56,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/QuoteUpdateMessage.pcap" 
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/QuoteUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json.stderr \
@@ -77,7 +73,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SecurityDirectoryMessage.
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SecurityDirectoryMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json.stderr \
@@ -94,7 +89,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/ShortSalePriceTestStatusM
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/ShortSalePriceTestStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json.stderr \
@@ -109,7 +103,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SystemEventMessage.pcap" 
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SystemEventMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json.stderr \
@@ -122,7 +115,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradeReportMessage.pcap" 
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradeReportMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json.stderr \
@@ -139,7 +131,6 @@ PORT=$(tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradingStatusMessage.pcap
 tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradingStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json.stderr \

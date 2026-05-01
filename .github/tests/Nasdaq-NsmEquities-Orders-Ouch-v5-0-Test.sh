@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CancelOrderMessag
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CancelOrderMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.orders.ouch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.orders.ouch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json 2> Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json.stderr \
@@ -18,7 +17,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CanceledMessage.p
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CanceledMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.orders.ouch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.orders.ouch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json 2> Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json.stderr \
@@ -33,7 +31,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/EnterOrderMessage
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/EnterOrderMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.orders.ouch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.orders.ouch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json 2> Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json.stderr \
@@ -56,7 +53,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/OrderAcceptedMess
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/OrderAcceptedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
-  --enable-heuristic "nasdaq.nsmequities.orders.ouch.v5.0.lua_udp" \
   -d "udp.port==${PORT},nasdaq.nsmequities.orders.ouch.v5.0.lua" \
   -T json \
   > Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json 2> Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json.stderr \

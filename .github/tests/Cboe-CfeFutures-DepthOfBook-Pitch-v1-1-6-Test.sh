@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/AddOrde
 tshark \
   -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/AddOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_DepthOfBook_Pitch_v1_1_6_Dissector.lua" \
-  --enable-heuristic "cboe.cfefutures.depthofbook.pitch.v1.1.6.lua_udp" \
   -d "udp.port==${PORT},cboe.cfefutures.depthofbook.pitch.v1.1.6.lua" \
   -T json \
   > Cboe.CfeFutures.DepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json 2> Cboe.CfeFutures.DepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json.stderr \
@@ -22,7 +21,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/ModifyO
 tshark \
   -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/ModifyOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_DepthOfBook_Pitch_v1_1_6_Dissector.lua" \
-  --enable-heuristic "cboe.cfefutures.depthofbook.pitch.v1.1.6.lua_udp" \
   -d "udp.port==${PORT},cboe.cfefutures.depthofbook.pitch.v1.1.6.lua" \
   -T json \
   > Cboe.CfeFutures.DepthOfBook.Pitch.v1.1.6.ModifyOrderShortMessage.json 2> Cboe.CfeFutures.DepthOfBook.Pitch.v1.1.6.ModifyOrderShortMessage.json.stderr \
@@ -37,7 +35,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/TimeMes
 tshark \
   -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/TimeMessage.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_DepthOfBook_Pitch_v1_1_6_Dissector.lua" \
-  --enable-heuristic "cboe.cfefutures.depthofbook.pitch.v1.1.6.lua_udp" \
   -d "udp.port==${PORT},cboe.cfefutures.depthofbook.pitch.v1.1.6.lua" \
   -T json \
   > Cboe.CfeFutures.DepthOfBook.Pitch.v1.1.6.TimeMessage.json 2> Cboe.CfeFutures.DepthOfBook.Pitch.v1.1.6.TimeMessage.json.stderr \
@@ -50,7 +47,6 @@ PORT=$(tshark -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/Trading
 tshark \
   -r "omi-data-packets/Cboe/Futures.DepthOfBook.Pitch.v1.1.6/TradingStatusMessage.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_DepthOfBook_Pitch_v1_1_6_Dissector.lua" \
-  --enable-heuristic "cboe.cfefutures.depthofbook.pitch.v1.1.6.lua_udp" \
   -d "udp.port==${PORT},cboe.cfefutures.depthofbook.pitch.v1.1.6.lua" \
   -T json \
   > Cboe.CfeFutures.DepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json 2> Cboe.CfeFutures.DepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json.stderr \

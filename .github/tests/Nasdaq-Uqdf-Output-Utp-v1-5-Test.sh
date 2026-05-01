@@ -5,7 +5,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/LimitUpLimitDownP
 tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/LimitUpLimitDownPriceBandMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
-  --enable-heuristic "nasdaq.uqdf.output.utp.v1.5.lua_udp" \
   -d "udp.port==${PORT},nasdaq.uqdf.output.utp.v1.5.lua" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json.stderr \
@@ -21,7 +20,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteLongFormMess
 tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteLongFormMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
-  --enable-heuristic "nasdaq.uqdf.output.utp.v1.5.lua_udp" \
   -d "udp.port==${PORT},nasdaq.uqdf.output.utp.v1.5.lua" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json.stderr \
@@ -45,7 +43,6 @@ PORT=$(tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteShortFormMes
 tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteShortFormMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
-  --enable-heuristic "nasdaq.uqdf.output.utp.v1.5.lua_udp" \
   -d "udp.port==${PORT},nasdaq.uqdf.output.utp.v1.5.lua" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json.stderr \
