@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/ExecutionReportStatus.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_iLink3_Sbe_v8_5_Dissector.lua" \
+  --enable-heuristic "cme.cmefutures.ilink3.sbe.v8.5.lua_udp" \
   -T json \
-  > Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
+  > Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr
+if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr ]; then echo "--- tshark stderr (ExecutionReportStatus) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr; fi
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.seqnum" Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
@@ -48,8 +50,10 @@ grep "cme.cmefutures.ilink3.sbe.v8.5.shortsaletype" Cme.CmeFutures.iLink3.Sbe.v8
 tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/QuoteCancel.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_iLink3_Sbe_v8_5_Dissector.lua" \
+  --enable-heuristic "cme.cmefutures.ilink3.sbe.v8.5.lua_udp" \
   -T json \
-  > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json
+  > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr
+if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr ]; then echo "--- tshark stderr (QuoteCancel) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr; fi
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.partydetailslistreqid" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.sendingtimeepoch" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json
@@ -63,8 +67,10 @@ grep "cme.cmefutures.ilink3.sbe.v8.5.liquidityflag" Cme.CmeFutures.iLink3.Sbe.v8
 tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/QuoteCancelAck.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_iLink3_Sbe_v8_5_Dissector.lua" \
+  --enable-heuristic "cme.cmefutures.ilink3.sbe.v8.5.lua_udp" \
   -T json \
-  > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json
+  > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr
+if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr ]; then echo "--- tshark stderr (QuoteCancelAck) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr; fi
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.seqnum" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json
@@ -91,8 +97,10 @@ grep "cme.cmefutures.ilink3.sbe.v8.5.delaytotime" Cme.CmeFutures.iLink3.Sbe.v8.5
 tshark \
   -r "omi-data-packets/Cme/iLink3.Sbe.8.5/Sequence.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_iLink3_Sbe_v8_5_Dissector.lua" \
+  --enable-heuristic "cme.cmefutures.ilink3.sbe.v8.5.lua_udp" \
   -T json \
-  > Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json
+  > Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr
+if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr ]; then echo "--- tshark stderr (Sequence) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr; fi
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.nextseqno" Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json

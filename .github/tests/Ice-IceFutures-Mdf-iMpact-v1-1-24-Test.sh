@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/AddOrModifyOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
+  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -T json \
-  > Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json
+  > Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json.stderr
+if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json.stderr ]; then echo "--- tshark stderr (AddOrModifyOrderMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json.stderr; fi
 
 grep "ice.icefutures.mdf.impact.v1.1.24.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.orderid" Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json
@@ -21,8 +23,10 @@ grep "ice.icefutures.mdf.impact.v1.1.24.sequencewithinmillis" Ice.IceFutures.Mdf
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/MarketStateChangeMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
+  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -T json \
-  > Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json
+  > Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json.stderr
+if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json.stderr ]; then echo "--- tshark stderr (MarketStateChangeMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json.stderr; fi
 
 grep "ice.icefutures.mdf.impact.v1.1.24.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.tradingstatus" Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json
@@ -30,8 +34,10 @@ grep "ice.icefutures.mdf.impact.v1.1.24.messagedatetime" Ice.IceFutures.Mdf.iMpa
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/NewOptionsStrategyDefinitionMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
+  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -T json \
-  > Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json
+  > Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json.stderr
+if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json.stderr ]; then echo "--- tshark stderr (NewOptionsStrategyDefinitionMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json.stderr; fi
 
 grep "ice.icefutures.mdf.impact.v1.1.24.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.underlyingmarketid" Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json
@@ -50,8 +56,10 @@ grep "ice.icefutures.mdf.impact.v1.1.24.gtallowed" Ice.IceFutures.Mdf.iMpact.v1.
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/OpenPriceMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
+  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -T json \
-  > Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json
+  > Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json.stderr
+if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json.stderr ]; then echo "--- tshark stderr (OpenPriceMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json.stderr; fi
 
 grep "ice.icefutures.mdf.impact.v1.1.24.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.openprice" Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json
@@ -59,8 +67,10 @@ grep "ice.icefutures.mdf.impact.v1.1.24.messagedatetime" Ice.IceFutures.Mdf.iMpa
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/PreOpenPriceIndicatorMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
+  --enable-heuristic "ice.icefutures.mdf.impact.v1.1.24.lua_udp" \
   -T json \
-  > Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json
+  > Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json.stderr
+if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json.stderr ]; then echo "--- tshark stderr (PreOpenPriceIndicatorMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json.stderr; fi
 
 grep "ice.icefutures.mdf.impact.v1.1.24.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.preopenprice" Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json

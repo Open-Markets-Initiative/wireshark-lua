@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderAddedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -T json \
-  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json.stderr
+if [ -s Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json.stderr ]; then echo "--- tshark stderr (OrderAddedMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json.stderr; fi
 
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json
@@ -16,8 +18,10 @@ grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.price" Memx.MemxEquities.Memoir
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderDeletedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -T json \
-  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json.stderr
+if [ -s Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json.stderr ]; then echo "--- tshark stderr (OrderDeletedMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json.stderr; fi
 
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json
@@ -25,8 +29,10 @@ grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.orderid" Memx.MemxEquities.Memo
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderExecutedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -T json \
-  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json.stderr
+if [ -s Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutedMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json.stderr; fi
 
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json
@@ -37,8 +43,10 @@ grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.price" Memx.MemxEquities.Memoir
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/OrderReducedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -T json \
-  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json.stderr
+if [ -s Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json.stderr ]; then echo "--- tshark stderr (OrderReducedMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json.stderr; fi
 
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json
@@ -47,8 +55,10 @@ grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.quantity" Memx.MemxEquities.Mem
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/SecurityTradingStatusMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -T json \
-  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json.stderr
+if [ -s Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json.stderr ]; then echo "--- tshark stderr (SecurityTradingStatusMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json.stderr; fi
 
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json
@@ -57,8 +67,10 @@ grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securitytradingstatusreason" Me
 tshark \
   -r "omi-data-packets/Memx/Equities.MemiorDepth.v1.3/TradingSessionStatusMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  --enable-heuristic "memx.memxequities.memoirdepthfeed.sbe.v1.3.lua_udp" \
   -T json \
-  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json.stderr
+if [ -s Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json.stderr ]; then echo "--- tshark stderr (TradingSessionStatusMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json.stderr; fi
 
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.tradingsession" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradingSessionStatusMessage.json

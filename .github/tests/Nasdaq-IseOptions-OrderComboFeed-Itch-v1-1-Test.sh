@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyAuctionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
+  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -T json \
-  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json
+  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json.stderr
+if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json.stderr ]; then echo "--- tshark stderr (ComplexStrategyAuctionMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json.stderr; fi
 
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json
@@ -26,8 +28,10 @@ grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.numberofresponses" Nasdaq.IseOp
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyDirectoryMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
+  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -T json \
-  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json
+  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json.stderr
+if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (ComplexStrategyDirectoryMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json.stderr; fi
 
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json
@@ -38,8 +42,10 @@ grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.numberoflegs" Nasdaq.IseOptions
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyOrderOnBookMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
+  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -T json \
-  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json
+  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json.stderr
+if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json.stderr ]; then echo "--- tshark stderr (ComplexStrategyOrderOnBookMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json.stderr; fi
 
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json
@@ -56,8 +62,10 @@ grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.cmta" Nasdaq.IseOptions.OrderCo
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyOpenClosedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
+  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -T json \
-  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json
+  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json.stderr
+if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json.stderr ]; then echo "--- tshark stderr (StrategyOpenClosedMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json.stderr; fi
 
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json
@@ -65,8 +73,10 @@ grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.openstate" Nasdaq.IseOptions.Or
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyTradingActionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
+  --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
   -T json \
-  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json
+  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json.stderr
+if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json.stderr ]; then echo "--- tshark stderr (StrategyTradingActionMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json.stderr; fi
 
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json

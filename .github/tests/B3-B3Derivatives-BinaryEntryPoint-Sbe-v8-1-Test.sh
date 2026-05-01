@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/EstablishMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
+  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -T json \
-  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json
+  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json.stderr
+if [ -s B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json.stderr ]; then echo "--- tshark stderr (EstablishMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json.stderr; fi
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sessionverid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json
@@ -18,8 +20,10 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.codtimeoutwindow" B3.B3Derivati
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
+  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -T json \
-  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json
+  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json.stderr
+if [ -s B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json.stderr ]; then echo "--- tshark stderr (ExecutionReportNewMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json.stderr; fi
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.side" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.ordstatus" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json
@@ -55,8 +59,10 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.strategyid" B3.B3Derivatives.Bi
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportTradeMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
+  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -T json \
-  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json
+  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json.stderr
+if [ -s B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json.stderr ]; then echo "--- tshark stderr (ExecutionReportTradeMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json.stderr; fi
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.side" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.ordstatus" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json
@@ -95,8 +101,10 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.strategyid" B3.B3Derivatives.Bi
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/NegotiateMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
+  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -T json \
-  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json
+  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json.stderr
+if [ -s B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json.stderr ]; then echo "--- tshark stderr (NegotiateMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json.stderr; fi
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sessionverid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json
@@ -106,8 +114,10 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.onbehalffirm" B3.B3Derivatives.
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleModifyOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
+  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -T json \
-  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json
+  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json.stderr
+if [ -s B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json.stderr ]; then echo "--- tshark stderr (SimpleModifyOrderMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json.stderr; fi
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json
@@ -128,8 +138,10 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.origclordid" B3.B3Derivatives.B
 tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleNewOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
+  --enable-heuristic "b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua_udp" \
   -T json \
-  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json
+  > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json.stderr
+if [ -s B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json.stderr ]; then echo "--- tshark stderr (SimpleNewOrderMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json.stderr; fi
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json

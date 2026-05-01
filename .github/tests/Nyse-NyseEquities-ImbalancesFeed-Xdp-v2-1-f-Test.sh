@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Nyse/ImbalancesFeed.Xdp.v2.1.f/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_1_f_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json
+  > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json.stderr
+if [ -s Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json.stderr ]; then echo "--- tshark stderr (ImbalanceMessage) ---"; cat Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json.stderr; fi
 
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sourcetime" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sourcetimens" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json

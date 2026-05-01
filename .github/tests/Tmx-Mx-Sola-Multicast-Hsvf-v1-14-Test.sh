@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/OptionMarketDepthMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
+  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -T json \
-  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json
+  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr
+if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr ]; then echo "--- tshark stderr (OptionMarketDepthMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr; fi
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.instrumentstatusmarker" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json
@@ -13,8 +15,10 @@ grep "tmx.mx.sola.multicast.hsvf.v1.14.numberoflevels" Tmx.Mx.Sola.Multicast.Hsv
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/OptionTradeMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
+  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -T json \
-  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
+  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json.stderr
+if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json.stderr ]; then echo "--- tshark stderr (OptionTradeMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json.stderr; fi
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.volume" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
@@ -29,8 +33,10 @@ grep "tmx.mx.sola.multicast.hsvf.v1.14.auctionid" Tmx.Mx.Sola.Multicast.Hsvf.v1.
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyAuctionBeginningMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
+  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -T json \
-  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json
+  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json.stderr
+if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json.stderr ]; then echo "--- tshark stderr (StrategyAuctionBeginningMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json.stderr; fi
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.strategysymbol" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json
@@ -45,8 +51,10 @@ grep "tmx.mx.sola.multicast.hsvf.v1.14.initialquantityassured" Tmx.Mx.Sola.Multi
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyMarketDepthMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
+  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -T json \
-  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json
+  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr
+if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr ]; then echo "--- tshark stderr (StrategyMarketDepthMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr; fi
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.symbol" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json
@@ -55,8 +63,10 @@ grep "tmx.mx.sola.multicast.hsvf.v1.14.numberoflevels" Tmx.Mx.Sola.Multicast.Hsv
 tshark \
   -r "omi-data-packets/Tmx/Mx.Sola.1.14/StrategyTradeMessage.pcap" \
   -X "lua_script:Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_14_Dissector.lua" \
+  --enable-heuristic "tmx.mx.sola.multicast.hsvf.v1.14.lua_udp" \
   -T json \
-  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
+  > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json.stderr
+if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json.stderr ]; then echo "--- tshark stderr (StrategyTradeMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json.stderr; fi
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.symbol" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json

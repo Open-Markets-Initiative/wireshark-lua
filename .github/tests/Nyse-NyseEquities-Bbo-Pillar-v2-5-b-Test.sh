@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.bbo.pillar.v2.5.b.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
+  > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr
+if [ -s Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr ]; then echo "--- tshark stderr (QuoteMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr; fi
 
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sourcetimens" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.symbolindex" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
@@ -19,8 +21,10 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.rpiindicator" Nyse.NyseEquities.Bbo.Pi
 tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.bbo.pillar.v2.5.b.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
+  > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr
+if [ -s Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr ]; then echo "--- tshark stderr (RefreshHeaderMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr; fi
 
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.currentrefreshpkt" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.totalrefreshpkts" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
@@ -29,8 +33,10 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.lastsymbolseqnum" Nyse.NyseEquities.Bb
 tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.bbo.pillar.v2.5.b.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
+  > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr
+if [ -s Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr ]; then echo "--- tshark stderr (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr; fi
 
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sourcetime" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sourcetimens" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
@@ -50,8 +56,10 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.sessionstate" Nyse.NyseEquities.Bbo.Pi
 tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.bbo.pillar.v2.5.b.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json
+  > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr
+if [ -s Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr ]; then echo "--- tshark stderr (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr; fi
 
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.id" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.symbolseqnum" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json

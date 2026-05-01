@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/CancelOrderRequest.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr
+if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr ]; then echo "--- tshark stderr (CancelOrderRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved8" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
 grep "miax.pearlequities.expressorders.meo.v2.6.mpid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
@@ -16,8 +18,10 @@ grep "miax.pearlequities.expressorders.meo.v2.6.reserved10" Miax.PearlEquities.E
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/CancelOrderResponse.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr
+if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr ]; then echo "--- tshark stderr (CancelOrderResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
 grep "miax.pearlequities.expressorders.meo.v2.6.mpid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
@@ -31,8 +35,10 @@ grep "miax.pearlequities.expressorders.meo.v2.6.reserved10" Miax.PearlEquities.E
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/LoginRequest.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr
+if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr ]; then echo "--- tshark stderr (LoginRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.esesmversion" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
 grep "miax.pearlequities.expressorders.meo.v2.6.username" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
@@ -43,8 +49,10 @@ grep "miax.pearlequities.expressorders.meo.v2.6.requestedsequencenumber" Miax.Pe
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/LoginResponse.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr
+if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr ]; then echo "--- tshark stderr (LoginResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.numberofmatchingengines" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
 grep "miax.pearlequities.expressorders.meo.v2.6.loginstatus" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
@@ -53,8 +61,10 @@ grep "miax.pearlequities.expressorders.meo.v2.6.highestsequencenumber" Miax.Pear
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/NewOrderNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr
+if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr ]; then echo "--- tshark stderr (NewOrderNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.mpid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
@@ -85,8 +95,10 @@ grep "miax.pearlequities.expressorders.meo.v2.6.reserved18" Miax.PearlEquities.E
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/OrderPriceUpdateNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr
+if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr ]; then echo "--- tshark stderr (OrderPriceUpdateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
@@ -97,8 +109,10 @@ grep "miax.pearlequities.expressorders.meo.v2.6.reserved9" Miax.PearlEquities.Ex
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/SymbolUpdate.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr
+if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr ]; then echo "--- tshark stderr (SymbolUpdate) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
 grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
@@ -114,8 +128,10 @@ grep "miax.pearlequities.expressorders.meo.v2.6.reserved12" Miax.PearlEquities.E
 tshark \
   -r "omi-data-packets/Miax/PearlEquities.Meo.v2.6/SystemStateNotification.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr
+if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr ]; then echo "--- tshark stderr (SystemStateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.meoversion" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json

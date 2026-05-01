@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/AddOrderNoMpidAttributionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
+  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -T json \
-  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
+  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json.stderr
+if [ -s Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json.stderr ]; then echo "--- tshark stderr (AddOrderNoMpidAttributionMessage) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json.stderr; fi
 
 grep "nasdaq.nsmequities.totalview.itch.v5.0.stocklocate" Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.trackingnumber" Nasdaq.NsmEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
@@ -18,8 +20,10 @@ grep "nasdaq.nsmequities.totalview.itch.v5.0.price" Nasdaq.NsmEquities.TotalView
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/MarketParticipantPositionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
+  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -T json \
-  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json
+  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json.stderr
+if [ -s Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json.stderr ]; then echo "--- tshark stderr (MarketParticipantPositionMessage) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json.stderr; fi
 
 grep "nasdaq.nsmequities.totalview.itch.v5.0.stocklocate" Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.trackingnumber" Nasdaq.NsmEquities.TotalView.Itch.v5.0.MarketParticipantPositionMessage.json
@@ -32,8 +36,10 @@ grep "nasdaq.nsmequities.totalview.itch.v5.0.marketparticipantstate" Nasdaq.NsmE
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/NetOrderImbalanceIndicatorMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
+  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -T json \
-  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json
+  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json.stderr
+if [ -s Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json.stderr ]; then echo "--- tshark stderr (NetOrderImbalanceIndicatorMessage) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json.stderr; fi
 
 grep "nasdaq.nsmequities.totalview.itch.v5.0.stocklocate" Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.trackingnumber" Nasdaq.NsmEquities.TotalView.Itch.v5.0.NetOrderImbalanceIndicatorMessage.json
@@ -50,8 +56,10 @@ grep "nasdaq.nsmequities.totalview.itch.v5.0.pricevariationindicator" Nasdaq.Nsm
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/OrderDeleteMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
+  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -T json \
-  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json
+  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json.stderr
+if [ -s Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json.stderr ]; then echo "--- tshark stderr (OrderDeleteMessage) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json.stderr; fi
 
 grep "nasdaq.nsmequities.totalview.itch.v5.0.stocklocate" Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.trackingnumber" Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json
@@ -60,8 +68,10 @@ grep "nasdaq.nsmequities.totalview.itch.v5.0.orderreferencenumber" Nasdaq.NsmEqu
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/OrderExecutedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
+  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -T json \
-  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json
+  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json.stderr
+if [ -s Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutedMessage) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json.stderr; fi
 
 grep "nasdaq.nsmequities.totalview.itch.v5.0.stocklocate" Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.trackingnumber" Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json
@@ -72,8 +82,10 @@ grep "nasdaq.nsmequities.totalview.itch.v5.0.matchnumber" Nasdaq.NsmEquities.Tot
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/OrderReplaceMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
+  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -T json \
-  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
+  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json.stderr
+if [ -s Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json.stderr ]; then echo "--- tshark stderr (OrderReplaceMessage) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json.stderr; fi
 
 grep "nasdaq.nsmequities.totalview.itch.v5.0.stocklocate" Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.trackingnumber" Nasdaq.NsmEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
@@ -85,8 +97,10 @@ grep "nasdaq.nsmequities.totalview.itch.v5.0.price" Nasdaq.NsmEquities.TotalView
 tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0/StockTradingActionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_TotalView_Itch_v5_0_Dissector.lua" \
+  --enable-heuristic "nasdaq.nsmequities.totalview.itch.v5.0.lua_udp" \
   -T json \
-  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
+  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json.stderr
+if [ -s Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json.stderr ]; then echo "--- tshark stderr (StockTradingActionMessage) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json.stderr; fi
 
 grep "nasdaq.nsmequities.totalview.itch.v5.0.stocklocate" Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.trackingnumber" Nasdaq.NsmEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json

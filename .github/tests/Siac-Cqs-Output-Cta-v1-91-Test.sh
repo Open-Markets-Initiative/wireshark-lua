@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" \
   -X "lua_script:Siac/Siac_Cqs_Output_Cta_v1_91_Dissector.lua" \
+  --enable-heuristic "siac.cqs.output.cta.v1.91.lua_udp" \
   -T json \
-  > Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
+  > Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json 2> Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr
+if [ -s Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr ]; then echo "--- tshark stderr (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; fi
 
 grep "siac.cqs.output.cta.v1.91.participantid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.messageid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json

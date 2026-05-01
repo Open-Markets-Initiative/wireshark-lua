@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/AddOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr
+if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr ]; then echo "--- tshark stderr (AddOrderMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindex" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
@@ -19,8 +21,10 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.numparitysplits" Nyse.AmexEqui
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr
+if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr ]; then echo "--- tshark stderr (ImbalanceMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
@@ -45,8 +49,10 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.numextensions" Nyse.AmexEquiti
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/OrderExecutionMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr
+if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutionMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindex" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
@@ -61,8 +67,10 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.dbexecid" Nyse.AmexEquities.In
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ReplaceOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr
+if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr ]; then echo "--- tshark stderr (ReplaceOrderMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindex" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
@@ -76,8 +84,10 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.newpriceparitysplits" Nyse.Ame
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr
+if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr ]; then echo "--- tshark stderr (SecurityStatusMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
@@ -97,8 +107,10 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sessionstate" Nyse.AmexEquitie
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr
+if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr ]; then echo "--- tshark stderr (SourceTimeReferenceMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.id" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolseqnum" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
@@ -106,8 +118,10 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.AmexEquities.
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr
+if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr ]; then echo "--- tshark stderr (SymbolIndexMappingMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindex" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbol" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json

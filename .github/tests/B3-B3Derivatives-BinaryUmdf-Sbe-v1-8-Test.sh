@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/B3/BinaryUmdf.v1.8/SecurityDefinitionMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryUmdf_Sbe_v1_8_Dissector.lua" \
+  --enable-heuristic "b3.b3derivatives.binaryumdf.sbe.v1.8.lua_udp" \
   -T json \
-  > B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+  > B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json 2> B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr
+if [ -s B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr ]; then echo "--- tshark stderr (SecurityDefinitionMessage) ---"; cat B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr; fi
 
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.securityid" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.securityexchange" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json

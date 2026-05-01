@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr ]; then echo "--- tshark stderr (AddOrderMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json
@@ -18,8 +20,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.price" Asx.AsxSecurities.Ntp.Itch.v1.05.A
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AnomalousOrderThresholdPublishMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr ]; then echo "--- tshark stderr (AnomalousOrderThresholdPublishMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
@@ -33,8 +37,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.etrlowerprice" Asx.AsxSecurities.Ntp.Itch
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AuctionOrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (AuctionOrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
@@ -50,8 +56,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.oppositeorderid" Asx.AsxSecurities.Ntp.It
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationOrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (CombinationOrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
@@ -70,8 +78,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.combinationtradeid" Asx.AsxSecurities.Ntp
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (CombinationSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
@@ -87,8 +97,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.legs" Asx.AsxSecurities.Ntp.Itch.v1.05.Co
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationTradeExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr ]; then echo "--- tshark stderr (CombinationTradeExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
@@ -110,8 +122,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.sellerparticipantid" Asx.AsxSecurities.Nt
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/EquilibriumPriceMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr ]; then echo "--- tshark stderr (EquilibriumPriceMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
@@ -123,8 +137,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.askquantity" Asx.AsxSecurities.Ntp.Itch.v
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/FutureSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (FutureSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
@@ -152,8 +168,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.expirydate" Asx.AsxSecurities.Ntp.Itch.v1
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderAddedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr ]; then echo "--- tshark stderr (ImpliedOrderAddedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
@@ -166,8 +184,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.price" Asx.AsxSecurities.Ntp.Itch.v1.05.I
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderDeletedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr ]; then echo "--- tshark stderr (ImpliedOrderDeletedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
@@ -177,8 +197,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.orderid" Asx.AsxSecurities.Ntp.Itch.v1.05
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderReplacedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr ]; then echo "--- tshark stderr (ImpliedOrderReplacedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
@@ -191,8 +213,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.price" Asx.AsxSecurities.Ntp.Itch.v1.05.I
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OpenHighLowLastTradeAdjustmentMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr ]; then echo "--- tshark stderr (OpenHighLowLastTradeAdjustmentMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
@@ -206,8 +230,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.totaltradedvolume" Asx.AsxSecurities.Ntp.
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OptionsSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (OptionsSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
@@ -243,8 +269,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.basisofquotation" Asx.AsxSecurities.Ntp.I
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderBookStateMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr ]; then echo "--- tshark stderr (OrderBookStateMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json
@@ -253,8 +281,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.sessionstate" Asx.AsxSecurities.Ntp.Itch.
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderDeletedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr ]; then echo "--- tshark stderr (OrderDeletedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json
@@ -264,8 +294,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.orderid" Asx.AsxSecurities.Ntp.Itch.v1.05
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json
@@ -282,8 +314,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.counterpartyid" Asx.AsxSecurities.Ntp.Itc
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderVolumeCancelledMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr ]; then echo "--- tshark stderr (OrderVolumeCancelledMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
@@ -294,8 +328,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.quantity" Asx.AsxSecurities.Ntp.Itch.v1.0
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TextMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json.stderr ]; then echo "--- tshark stderr (TextMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json
@@ -304,8 +340,10 @@ grep "asx.asxsecurities.ntp.itch.v1.05.text" Asx.AsxSecurities.Ntp.Itch.v1.05.Te
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TradeExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  --enable-heuristic "asx.asxsecurities.ntp.itch.v1.05.lua_udp" \
   -T json \
-  > Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json
+  > Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr
+if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr ]; then echo "--- tshark stderr (TradeExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr; fi
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json

@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/AddOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr ]; then echo "--- tshark stderr (AddOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
@@ -19,8 +21,10 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.reserved11" Nyse.NyseEquiti
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/CrossTradeMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr ]; then echo "--- tshark stderr (CrossTradeMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
@@ -32,8 +36,10 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.crosstype" Nyse.NyseEquitie
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/DeleteOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr ]; then echo "--- tshark stderr (DeleteOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
@@ -43,8 +49,10 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.reserved11" Nyse.NyseEquiti
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr ]; then echo "--- tshark stderr (ImbalanceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
@@ -72,8 +80,10 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.significantimbalance" Nyse.
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/OrderExecutionMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutionMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
@@ -91,8 +101,10 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.tradecond4" Nyse.NyseEquiti
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ReplaceOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr ]; then echo "--- tshark stderr (ReplaceOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
@@ -106,8 +118,10 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.newpriceparitysplits" Nyse.
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr ]; then echo "--- tshark stderr (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
@@ -127,8 +141,10 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sessionstate" Nyse.NyseEqui
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr ]; then echo "--- tshark stderr (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.id" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolseqnum" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
@@ -136,8 +152,10 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.NyseEquiti
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/StockSummaryMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
+  --enable-heuristic "nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua_udp" \
   -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json
+  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr
+if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr ]; then echo "--- tshark stderr (StockSummaryMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr; fi
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json

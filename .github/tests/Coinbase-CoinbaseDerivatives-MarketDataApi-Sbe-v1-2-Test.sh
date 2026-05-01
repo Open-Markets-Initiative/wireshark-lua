@@ -4,15 +4,19 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderDeleteMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
+  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -T json \
-  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
+  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json.stderr
+if [ -s Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json.stderr ]; then echo "--- tshark stderr (OrderDeleteMessage) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json.stderr; fi
 
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderPutMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
+  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -T json \
-  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
+  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json.stderr
+if [ -s Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json.stderr ]; then echo "--- tshark stderr (OrderPutMessage) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json.stderr; fi
 
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.price" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
@@ -20,8 +24,10 @@ grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.quantity" Coinbase.Coi
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/OrderSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
+  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -T json \
-  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json
+  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json.stderr
+if [ -s Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json.stderr ]; then echo "--- tshark stderr (OrderSnapshotMessage) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json.stderr; fi
 
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshotseqnum" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.quantity" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json
@@ -31,8 +37,10 @@ grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.price" Coinbase.Coinba
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/StartOfOutrightInstrumentSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
+  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -T json \
-  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json
+  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json.stderr
+if [ -s Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json.stderr ]; then echo "--- tshark stderr (StartOfOutrightInstrumentSnapshotMessage) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json.stderr; fi
 
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshotseqnum" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lastinstrseqnum" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json
@@ -53,8 +61,10 @@ grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingstatus" Coinbas
 tshark \
   -r "omi-data-packets/Coinbase/MarketDataApi.v1.2/StartOfSpreadInstrumentSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
+  --enable-heuristic "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lua_udp" \
   -T json \
-  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json
+  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json.stderr
+if [ -s Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json.stderr ]; then echo "--- tshark stderr (StartOfSpreadInstrumentSnapshotMessage) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json.stderr; fi
 
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshotseqnum" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lastinstrseqnum" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json

@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ExecutionSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json.stderr ]; then echo "--- tshark stderr (ExecutionSummary) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json.stderr; fi
 
 grep "eurex.derivatives.eobi.t7.v6.0.securityid" Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.aggressortime" Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json
@@ -21,8 +23,10 @@ grep "eurex.derivatives.eobi.t7.v6.0.restingcxlqty" Eurex.Derivatives.Eobi.T7.v6
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/FullOrderExecution.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json 2> Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json.stderr ]; then echo "--- tshark stderr (FullOrderExecution) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json.stderr; fi
 
 grep "eurex.derivatives.eobi.t7.v6.0.side" Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json
 grep "eurex.derivatives.eobi.t7.v6.0.ordtype" Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json
@@ -37,16 +41,20 @@ grep "eurex.derivatives.eobi.t7.v6.0.lastpx" Eurex.Derivatives.Eobi.T7.v6.0.Full
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/Heartbeat.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json 2> Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json.stderr ]; then echo "--- tshark stderr (Heartbeat) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json.stderr; fi
 
 grep "eurex.derivatives.eobi.t7.v6.0.lastmsgseqnumprocessed" Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json
 grep "eurex.derivatives.eobi.t7.v6.0.pad4" Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/InstrumentSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json.stderr ]; then echo "--- tshark stderr (InstrumentSummary) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json.stderr; fi
 
 grep "eurex.derivatives.eobi.t7.v6.0.securityid" Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.lastupdatetime" Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json
@@ -61,16 +69,20 @@ grep "eurex.derivatives.eobi.t7.v6.0.nomdentries" Eurex.Derivatives.Eobi.T7.v6.0
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderAdd.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json 2> Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json.stderr ]; then echo "--- tshark stderr (OrderAdd) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json.stderr; fi
 
 grep "eurex.derivatives.eobi.t7.v6.0.trdregtstimein" Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json
 grep "eurex.derivatives.eobi.t7.v6.0.securityid" Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderModify.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json 2> Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json.stderr ]; then echo "--- tshark stderr (OrderModify) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json.stderr; fi
 
 grep "eurex.derivatives.eobi.t7.v6.0.trdregtstimein" Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json
 grep "eurex.derivatives.eobi.t7.v6.0.trdregtsprevtimepriority" Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json
@@ -81,8 +93,10 @@ grep "eurex.derivatives.eobi.t7.v6.0.securityid" Eurex.Derivatives.Eobi.T7.v6.0.
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/PartialOrderExecution.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json 2> Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json.stderr ]; then echo "--- tshark stderr (PartialOrderExecution) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json.stderr; fi
 
 grep "eurex.derivatives.eobi.t7.v6.0.side" Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json
 grep "eurex.derivatives.eobi.t7.v6.0.ordtype" Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json
@@ -97,8 +111,10 @@ grep "eurex.derivatives.eobi.t7.v6.0.lastpx" Eurex.Derivatives.Eobi.T7.v6.0.Part
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ProductSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json.stderr ]; then echo "--- tshark stderr (ProductSummary) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json.stderr; fi
 
 grep "eurex.derivatives.eobi.t7.v6.0.lastmsgseqnumprocessed" Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.tradingsessionid" Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json
@@ -110,6 +126,8 @@ grep "eurex.derivatives.eobi.t7.v6.0.pad7" Eurex.Derivatives.Eobi.T7.v6.0.Produc
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/SnapshotOrder.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
+  --enable-heuristic "eurex.derivatives.eobi.t7.v6.0.lua_udp" \
   -T json \
-  > Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json
+  > Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json 2> Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json.stderr
+if [ -s Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json.stderr ]; then echo "--- tshark stderr (SnapshotOrder) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json.stderr; fi
 

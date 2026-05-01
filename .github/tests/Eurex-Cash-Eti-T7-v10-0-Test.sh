@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" \
   -X "lua_script:Eurex/Eurex_Cash_Eti_T7_v10_0_Dissector.lua" \
+  --enable-heuristic "eurex.cash.eti.t7.v10.0.lua_udp" \
   -T json \
-  > Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json
+  > Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json 2> Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr
+if [ -s Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr ]; then echo "--- tshark stderr (OrderExecResponse) ---"; cat Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr; fi
 
 grep "eurex.cash.eti.t7.v10.0.pad2" Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json
 grep "eurex.cash.eti.t7.v10.0.orderid" Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json

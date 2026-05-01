@@ -4,8 +4,10 @@ set -o pipefail
 tshark \
   -r "omi-data-packets/Imperative/IntelligentCross.Mdf.v1.11/OrderExecutedMessage.pcap" \
   -X "lua_script:Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua" \
+  --enable-heuristic "imperative.intelligentcross.mdf.v1.11.lua_udp" \
   -T json \
-  > Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json
+  > Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json 2> Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json.stderr
+if [ -s Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutedMessage) ---"; cat Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json.stderr; fi
 
 grep "imperative.intelligentcross.mdf.v1.11.symbolid" Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json
 grep "imperative.intelligentcross.mdf.v1.11.timestamp" Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json
@@ -17,8 +19,10 @@ grep "imperative.intelligentcross.mdf.v1.11.price" Imperative.IntelligentCross.M
 tshark \
   -r "omi-data-packets/Imperative/IntelligentCross.Mdf.v1.11/TradeMessage.pcap" \
   -X "lua_script:Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua" \
+  --enable-heuristic "imperative.intelligentcross.mdf.v1.11.lua_udp" \
   -T json \
-  > Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json
+  > Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json 2> Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json.stderr
+if [ -s Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json.stderr ]; then echo "--- tshark stderr (TradeMessage) ---"; cat Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json.stderr; fi
 
 grep "imperative.intelligentcross.mdf.v1.11.symbolid" Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json
 grep "imperative.intelligentcross.mdf.v1.11.timestamp" Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json
