@@ -227,10 +227,18 @@ asx_asxsecurities_ntp_itch_v1_05.conversation = {}
 -- Get/create our protocol's data record on the current packet's conversation
 asx_asxsecurities_ntp_itch_v1_05.conversation.data = function(packet)
   local conversation = packet.conversation
-  local data = conversation[omi_asx_asxsecurities_ntp_itch_v1_05]
+  io.stderr:write(string.format("[asx.conversation.data] frame=%d conv=%s type=%s\n", packet.number, tostring(conversation), type(conversation)))
+  local ok, data = pcall(function() return conversation[omi_asx_asxsecurities_ntp_itch_v1_05] end)
+  if not ok then
+    io.stderr:write(string.format("[asx.conversation.data] index FAILED: %s\n", tostring(data)))
+    return { second = { last = nil, frames = {} } }
+  end
   if data == nil then
     data = { second = { last = nil, frames = {} } }
-    conversation[omi_asx_asxsecurities_ntp_itch_v1_05] = data
+    local ok2, err = pcall(function() conversation[omi_asx_asxsecurities_ntp_itch_v1_05] = data end)
+    if not ok2 then
+      io.stderr:write(string.format("[asx.conversation.data] assign FAILED: %s\n", tostring(err)))
+    end
   end
   return data
 end
@@ -5213,13 +5221,20 @@ end
 
 -- Dissector for Asx AsxSecurities Ntp Itch 1.05
 function omi_asx_asxsecurities_ntp_itch_v1_05.dissector(buffer, packet, parent)
+  io.stderr:write(string.format("[asx.dispatcher] called frame=%d len=%d\n", packet.number, buffer:len()))
 
   -- Set protocol name
   packet.cols.protocol = omi_asx_asxsecurities_ntp_itch_v1_05.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05, buffer(), omi_asx_asxsecurities_ntp_itch_v1_05.description, "("..buffer:len().." Bytes)")
-  return asx_asxsecurities_ntp_itch_v1_05.packet.dissect(buffer, packet, protocol)
+  local ok, result = pcall(asx_asxsecurities_ntp_itch_v1_05.packet.dissect, buffer, packet, protocol)
+  if not ok then
+    io.stderr:write(string.format("[asx.dispatcher] packet.dissect THREW frame=%d: %s\n", packet.number, tostring(result)))
+    return 0
+  end
+  io.stderr:write(string.format("[asx.dispatcher] dissect OK frame=%d index=%s\n", packet.number, tostring(result)))
+  return result
 end
 
 
@@ -5229,8 +5244,14 @@ end
 
 -- Dissector Heuristic for Asx AsxSecurities Ntp Itch 1.05 (Udp)
 local function omi_asx_asxsecurities_ntp_itch_v1_05_udp_heuristic(buffer, packet, parent)
+  io.stderr:write(string.format("[asx.heuristic] called frame=%d len=%d\n", packet.number, buffer:len()))
   -- Verify packet length
-  if not asx_asxsecurities_ntp_itch_v1_05.packet.requiredsize(buffer) then return false end
+  if not asx_asxsecurities_ntp_itch_v1_05.packet.requiredsize(buffer) then
+    io.stderr:write(string.format("[asx.heuristic] requiredsize FAILED frame=%d len=%d\n", packet.number, buffer:len()))
+    return false
+  end
+
+  io.stderr:write(string.format("[asx.heuristic] claiming frame=%d\n", packet.number))
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_asx_asxsecurities_ntp_itch_v1_05
