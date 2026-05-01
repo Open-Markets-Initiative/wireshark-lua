@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.lua_udp" \
   -d "udp.port==${PORT},tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.lua" \
   -T json \
-  > Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json 2> Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr
+  > Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json 2> Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr \
+  || { echo "--- tshark FAILED (AssignCopOrdersMessage) ---"; cat Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr; exit 1; }
 if [ -s Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr ]; then echo "--- tshark stderr (AssignCopOrdersMessage) ---"; cat Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr; fi
 
 grep "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.symbol" Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json

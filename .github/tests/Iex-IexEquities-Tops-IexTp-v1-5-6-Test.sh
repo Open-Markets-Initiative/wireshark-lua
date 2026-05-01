@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json.stderr \
+  || { echo "--- tshark FAILED (AuctionInformationMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json.stderr ]; then echo "--- tshark stderr (AuctionInformationMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.auctiontype" Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json
@@ -32,7 +33,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json.stderr \
+  || { echo "--- tshark FAILED (OfficialPriceMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json.stderr ]; then echo "--- tshark stderr (OfficialPriceMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.pricetype" Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json
@@ -46,7 +48,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json.stderr \
+  || { echo "--- tshark FAILED (OperationalHaltStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json.stderr ]; then echo "--- tshark stderr (OperationalHaltStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.operationalhaltstatus" Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json
@@ -59,7 +62,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json.stderr \
+  || { echo "--- tshark FAILED (QuoteUpdateMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json.stderr ]; then echo "--- tshark stderr (QuoteUpdateMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.quoteupdateflags" Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json
@@ -76,7 +80,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json.stderr \
+  || { echo "--- tshark FAILED (SecurityDirectoryMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (SecurityDirectoryMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.securitydirectoryflags" Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json
@@ -92,7 +97,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json.stderr \
+  || { echo "--- tshark FAILED (ShortSalePriceTestStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json.stderr ]; then echo "--- tshark stderr (ShortSalePriceTestStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.shortsalepriceteststatus" Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json
@@ -106,7 +112,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json.stderr \
+  || { echo "--- tshark FAILED (SystemEventMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json.stderr ]; then echo "--- tshark stderr (SystemEventMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.systemevent" Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json
@@ -118,7 +125,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json.stderr \
+  || { echo "--- tshark FAILED (TradeReportMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json.stderr ]; then echo "--- tshark stderr (TradeReportMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.saleconditionflags" Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json
@@ -134,7 +142,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.5.6.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.5.6.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json.stderr \
+  || { echo "--- tshark FAILED (TradingStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json.stderr ]; then echo "--- tshark stderr (TradingStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.5.6.tradingstatus" Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json

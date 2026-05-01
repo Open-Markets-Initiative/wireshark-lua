@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr \
+  || { echo "--- tshark FAILED (AuctionCancelMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr ]; then echo "--- tshark stderr (AuctionCancelMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json
@@ -20,7 +21,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr \
+  || { echo "--- tshark FAILED (AuctionNotificationMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr ]; then echo "--- tshark stderr (AuctionNotificationMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json
@@ -41,7 +43,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr \
+  || { echo "--- tshark FAILED (AuctionUpdateMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr ]; then echo "--- tshark stderr (AuctionUpdateMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json
@@ -62,7 +65,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr \
+  || { echo "--- tshark FAILED (ComplexInstrumentDefinitionExpandedMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr ]; then echo "--- tshark stderr (ComplexInstrumentDefinitionExpandedMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
@@ -76,7 +80,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr ]; then echo "--- tshark stderr (DeleteOrderMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json
@@ -88,7 +93,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr \
+  || { echo "--- tshark FAILED (ModifyOrderShortMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr ]; then echo "--- tshark stderr (ModifyOrderShortMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
@@ -103,7 +109,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr \
+  || { echo "--- tshark FAILED (OrderExecutedMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutedMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json
@@ -118,7 +125,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json.stderr \
+  || { echo "--- tshark FAILED (SymbolMappingMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json.stderr ]; then echo "--- tshark stderr (SymbolMappingMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.feedsymbol" Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json
@@ -132,7 +140,8 @@ tshark \
   --enable-heuristic "cboe.c1options.complex.pitch.v2.1.18.lua_udp" \
   -d "udp.port==${PORT},cboe.c1options.complex.pitch.v2.1.18.lua" \
   -T json \
-  > Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json.stderr
+  > Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json.stderr \
+  || { echo "--- tshark FAILED (TimeMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json.stderr; exit 1; }
 if [ -s Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json.stderr ]; then echo "--- tshark stderr (TimeMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json.stderr; fi
 
 grep "cboe.c1options.complex.pitch.v2.1.18.time" Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json

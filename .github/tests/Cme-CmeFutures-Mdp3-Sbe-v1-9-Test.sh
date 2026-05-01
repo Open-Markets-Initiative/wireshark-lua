@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
-  > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr
+  > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr \
+  || { echo "--- tshark FAILED (MdIncrementalRefreshBook) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr; exit 1; }
 if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr ]; then echo "--- tshark stderr (MdIncrementalRefreshBook) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr; fi
 
 grep "cme.cmefutures.mdp3.sbe.v1.9.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
@@ -21,7 +22,8 @@ tshark \
   --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
-  > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr
+  > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr \
+  || { echo "--- tshark FAILED (MdIncrementalRefreshOrderBook) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr; exit 1; }
 if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr ]; then echo "--- tshark stderr (MdIncrementalRefreshOrderBook) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr; fi
 
 grep "cme.cmefutures.mdp3.sbe.v1.9.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
@@ -34,7 +36,8 @@ tshark \
   --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
-  > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr
+  > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr \
+  || { echo "--- tshark FAILED (MdIncrementalRefreshTradeSummary) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr; exit 1; }
 if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr ]; then echo "--- tshark stderr (MdIncrementalRefreshTradeSummary) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr; fi
 
 grep "cme.cmefutures.mdp3.sbe.v1.9.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
@@ -47,7 +50,8 @@ tshark \
   --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
   -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
-  > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr
+  > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr \
+  || { echo "--- tshark FAILED (MdIncrementalRefreshVolume) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr; exit 1; }
 if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr ]; then echo "--- tshark stderr (MdIncrementalRefreshVolume) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr; fi
 
 grep "cme.cmefutures.mdp3.sbe.v1.9.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json

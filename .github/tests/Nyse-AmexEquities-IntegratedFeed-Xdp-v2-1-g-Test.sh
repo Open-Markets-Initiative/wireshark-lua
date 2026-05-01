@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr; exit 1; }
 if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr ]; then echo "--- tshark stderr (AddOrderMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
@@ -27,7 +28,8 @@ tshark \
   --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr \
+  || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr; exit 1; }
 if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr ]; then echo "--- tshark stderr (ImbalanceMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
@@ -57,7 +59,8 @@ tshark \
   --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr \
+  || { echo "--- tshark FAILED (OrderExecutionMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr; exit 1; }
 if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutionMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
@@ -77,7 +80,8 @@ tshark \
   --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (ReplaceOrderMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr; exit 1; }
 if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr ]; then echo "--- tshark stderr (ReplaceOrderMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
@@ -96,7 +100,8 @@ tshark \
   --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr \
+  || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr; exit 1; }
 if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr ]; then echo "--- tshark stderr (SecurityStatusMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
@@ -121,7 +126,8 @@ tshark \
   --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr \
+  || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr; exit 1; }
 if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr ]; then echo "--- tshark stderr (SourceTimeReferenceMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.id" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
@@ -134,7 +140,8 @@ tshark \
   --enable-heuristic "nyse.amexequities.integratedfeed.xdp.v2.1.g.lua_udp" \
   -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
-  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr \
+  || { echo "--- tshark FAILED (SymbolIndexMappingMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr; exit 1; }
 if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr ]; then echo "--- tshark stderr (SymbolIndexMappingMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr; fi
 
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindex" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json

@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "txse.txseequities.orderentry.seed.v0.1.lua_udp" \
   -d "udp.port==${PORT},txse.txseequities.orderentry.seed.v0.1.lua" \
   -T json \
-  > Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json 2> Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json.stderr
+  > Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json 2> Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json.stderr \
+  || { echo "--- tshark FAILED (DefineSymbolMessage) ---"; cat Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json.stderr; exit 1; }
 if [ -s Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json.stderr ]; then echo "--- tshark stderr (DefineSymbolMessage) ---"; cat Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json.stderr; fi
 
 grep "txse.txseequities.orderentry.seed.v0.1.transacttime" Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json
@@ -25,7 +26,8 @@ tshark \
   --enable-heuristic "txse.txseequities.orderentry.seed.v0.1.lua_udp" \
   -d "udp.port==${PORT},txse.txseequities.orderentry.seed.v0.1.lua" \
   -T json \
-  > Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json 2> Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json.stderr
+  > Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json 2> Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (LimitOrderMessage) ---"; cat Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json.stderr; exit 1; }
 if [ -s Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json.stderr ]; then echo "--- tshark stderr (LimitOrderMessage) ---"; cat Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json.stderr; fi
 
 grep "txse.txseequities.orderentry.seed.v0.1.limitorderpresencebits" Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json

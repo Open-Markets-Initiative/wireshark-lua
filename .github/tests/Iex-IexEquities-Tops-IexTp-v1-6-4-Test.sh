@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "iex.iexequities.tops.iextp.v1.6.4.lua_udp" \
   -d "udp.port==${PORT},iex.iexequities.tops.iextp.v1.6.4.lua" \
   -T json \
-  > Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json.stderr
+  > Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json.stderr \
+  || { echo "--- tshark FAILED (QuoteUpdateMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json.stderr; exit 1; }
 if [ -s Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json.stderr ]; then echo "--- tshark stderr (QuoteUpdateMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json.stderr; fi
 
 grep "iex.iexequities.tops.iextp.v1.6.4.quoteupdateflags" Iex.IexEquities.Tops.IexTp.v1.6.4.QuoteUpdateMessage.json

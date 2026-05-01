@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
-  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json.stderr
+  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (CancelOrderMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json.stderr; exit 1; }
 if [ -s Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json.stderr ]; then echo "--- tshark stderr (CancelOrderMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json.stderr; fi
 
 grep "cboe.bzxoptions.orderentry.boe.v2.10.origclordid" Cboe.BzxOptions.OrderEntry.Boe.v2.10.CancelOrderMessage.json
@@ -19,7 +20,8 @@ tshark \
   --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
-  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json.stderr
+  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json.stderr \
+  || { echo "--- tshark FAILED (LoginRequestMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json.stderr; exit 1; }
 if [ -s Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json.stderr ]; then echo "--- tshark stderr (LoginRequestMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json.stderr; fi
 
 grep "cboe.bzxoptions.orderentry.boe.v2.10.sessionsubid" Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginRequestMessage.json
@@ -33,7 +35,8 @@ tshark \
   --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
-  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json.stderr
+  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json.stderr \
+  || { echo "--- tshark FAILED (LoginResponseMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json.stderr; exit 1; }
 if [ -s Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json.stderr ]; then echo "--- tshark stderr (LoginResponseMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json.stderr; fi
 
 grep "cboe.bzxoptions.orderentry.boe.v2.10.loginresponsestatus" Cboe.BzxOptions.OrderEntry.Boe.v2.10.LoginResponseMessage.json
@@ -49,7 +52,8 @@ tshark \
   --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
-  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json.stderr
+  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (ModifyOrderMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json.stderr; exit 1; }
 if [ -s Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json.stderr ]; then echo "--- tshark stderr (ModifyOrderMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json.stderr; fi
 
 grep "cboe.bzxoptions.orderentry.boe.v2.10.clordid" Cboe.BzxOptions.OrderEntry.Boe.v2.10.ModifyOrderMessage.json
@@ -61,7 +65,8 @@ tshark \
   --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
-  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json.stderr
+  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (NewOrderMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json.stderr; exit 1; }
 if [ -s Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json.stderr ]; then echo "--- tshark stderr (NewOrderMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json.stderr; fi
 
 grep "cboe.bzxoptions.orderentry.boe.v2.10.clordid" Cboe.BzxOptions.OrderEntry.Boe.v2.10.NewOrderMessage.json
@@ -74,7 +79,8 @@ tshark \
   --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
-  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json.stderr
+  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json.stderr \
+  || { echo "--- tshark FAILED (OrderCancelledMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json.stderr; exit 1; }
 if [ -s Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json.stderr ]; then echo "--- tshark stderr (OrderCancelledMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json.stderr; fi
 
 grep "cboe.bzxoptions.orderentry.boe.v2.10.transacttime" Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderCancelledMessage.json
@@ -88,7 +94,8 @@ tshark \
   --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
-  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json.stderr
+  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json.stderr \
+  || { echo "--- tshark FAILED (OrderModifiedMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json.stderr; exit 1; }
 if [ -s Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json.stderr ]; then echo "--- tshark stderr (OrderModifiedMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json.stderr; fi
 
 grep "cboe.bzxoptions.orderentry.boe.v2.10.transactiontime" Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderModifiedMessage.json
@@ -102,7 +109,8 @@ tshark \
   --enable-heuristic "cboe.bzxoptions.orderentry.boe.v2.10.lua_udp" \
   -d "udp.port==${PORT},cboe.bzxoptions.orderentry.boe.v2.10.lua" \
   -T json \
-  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json.stderr
+  > Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json 2> Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json.stderr \
+  || { echo "--- tshark FAILED (OrderRejectedMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json.stderr; exit 1; }
 if [ -s Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json.stderr ]; then echo "--- tshark stderr (OrderRejectedMessage) ---"; cat Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json.stderr; fi
 
 grep "cboe.bzxoptions.orderentry.boe.v2.10.transactiontime" Cboe.BzxOptions.OrderEntry.Boe.v2.10.OrderRejectedMessage.json

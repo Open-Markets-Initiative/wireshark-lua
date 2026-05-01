@@ -8,7 +8,8 @@ tshark \
   --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr \
+  || { echo "--- tshark FAILED (CancelOrderRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr ]; then echo "--- tshark stderr (CancelOrderRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved8" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
@@ -24,7 +25,8 @@ tshark \
   --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr \
+  || { echo "--- tshark FAILED (CancelOrderResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr ]; then echo "--- tshark stderr (CancelOrderResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
@@ -43,7 +45,8 @@ tshark \
   --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr \
+  || { echo "--- tshark FAILED (LoginRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr ]; then echo "--- tshark stderr (LoginRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.esesmversion" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
@@ -59,7 +62,8 @@ tshark \
   --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr \
+  || { echo "--- tshark FAILED (LoginResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr ]; then echo "--- tshark stderr (LoginResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.numberofmatchingengines" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
@@ -73,7 +77,8 @@ tshark \
   --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr \
+  || { echo "--- tshark FAILED (NewOrderNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr ]; then echo "--- tshark stderr (NewOrderNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
@@ -109,7 +114,8 @@ tshark \
   --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr \
+  || { echo "--- tshark FAILED (OrderPriceUpdateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr ]; then echo "--- tshark stderr (OrderPriceUpdateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
@@ -125,7 +131,8 @@ tshark \
   --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr \
+  || { echo "--- tshark FAILED (SymbolUpdate) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr ]; then echo "--- tshark stderr (SymbolUpdate) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
@@ -146,7 +153,8 @@ tshark \
   --enable-heuristic "miax.pearlequities.expressorders.meo.v2.6.lua_udp" \
   -d "udp.port==${PORT},miax.pearlequities.expressorders.meo.v2.6.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr \
+  || { echo "--- tshark FAILED (SystemStateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr ]; then echo "--- tshark stderr (SystemStateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr; fi
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
