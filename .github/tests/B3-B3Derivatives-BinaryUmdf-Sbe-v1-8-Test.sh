@@ -1,11 +1,9 @@
 set -o errexit
 set -o pipefail
 
-PORT=$(tshark -r "omi-data-packets/B3/BinaryUmdf.v1.8/SecurityDefinitionMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/B3/BinaryUmdf.v1.8/SecurityDefinitionMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryUmdf_Sbe_v1_8_Dissector.lua" \
-  -d "udp.port==${PORT},b3.b3derivatives.binaryumdf.sbe.v1.8.lua" \
   -T json \
   > B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json 2> B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityDefinitionMessage) ---"; cat B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr; exit 1; }

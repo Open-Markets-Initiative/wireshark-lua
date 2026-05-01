@@ -4121,6 +4121,10 @@ end
 -- Register Heuristic for Nyse AmexEquities Trades Pillar 2.6
 omi_nyse_amexequities_trades_pillar_v2_6:register_heuristic("udp", omi_nyse_amexequities_trades_pillar_v2_6_udp_heuristic)
 
+-- Register Nyse AmexEquities Trades Pillar 2.6 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_amexequities_trades_pillar_v2_6)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

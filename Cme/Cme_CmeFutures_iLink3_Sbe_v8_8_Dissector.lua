@@ -19209,6 +19209,10 @@ end
 -- Register Heuristic for Cme CmeFutures iLink3 Sbe 8.8
 omi_cme_cmefutures_ilink3_sbe_v8_8:register_heuristic("tcp", omi_cme_cmefutures_ilink3_sbe_v8_8_tcp_heuristic)
 
+-- Register Cme CmeFutures iLink3 Sbe 8.8 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cme_cmefutures_ilink3_sbe_v8_8)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

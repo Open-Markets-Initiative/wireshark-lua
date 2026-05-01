@@ -2320,6 +2320,10 @@ end
 -- Register Heuristic for Nasdaq IseOptions OrderFeed Itch 1.1
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1:register_heuristic("udp", omi_nasdaq_iseoptions_orderfeed_itch_v1_1_udp_heuristic)
 
+-- Register Nasdaq IseOptions OrderFeed Itch 1.1 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nasdaq_iseoptions_orderfeed_itch_v1_1)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

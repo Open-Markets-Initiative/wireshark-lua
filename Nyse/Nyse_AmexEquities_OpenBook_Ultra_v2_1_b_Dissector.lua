@@ -1520,6 +1520,10 @@ end
 -- Register Heuristic for Nyse AmexEquities OpenBook Ultra 2.1.b
 omi_nyse_amexequities_openbook_ultra_v2_1_b:register_heuristic("udp", omi_nyse_amexequities_openbook_ultra_v2_1_b_udp_heuristic)
 
+-- Register Nyse AmexEquities OpenBook Ultra 2.1.b on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_amexequities_openbook_ultra_v2_1_b)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

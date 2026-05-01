@@ -5409,6 +5409,10 @@ end
 -- Register Heuristic for Hkex Derivatives Premium Omd 2.0
 omi_hkex_derivatives_premium_omd_v2_0:register_heuristic("udp", omi_hkex_derivatives_premium_omd_v2_0_udp_heuristic)
 
+-- Register Hkex Derivatives Premium Omd 2.0 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_hkex_derivatives_premium_omd_v2_0)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

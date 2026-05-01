@@ -3990,6 +3990,10 @@ end
 -- Register Heuristic for Nasdaq PhlxOptions MarketDepth Itch 1.5
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5:register_heuristic("udp", omi_nasdaq_phlxoptions_marketdepth_itch_v1_5_udp_heuristic)
 
+-- Register Nasdaq PhlxOptions MarketDepth Itch 1.5 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nasdaq_phlxoptions_marketdepth_itch_v1_5)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

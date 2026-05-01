@@ -10201,6 +10201,10 @@ end
 -- Register Heuristic for Nyse ArcaOptions BinaryGateway PillarStream 3.15
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15:register_heuristic("tcp", omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15_tcp_heuristic)
 
+-- Register Nyse ArcaOptions BinaryGateway PillarStream 3.15 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

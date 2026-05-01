@@ -14918,6 +14918,10 @@ end
 -- Register Heuristic for B3 B3Derivatives BinaryEntryPoint Sbe 8.2
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2:register_heuristic("tcp", omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2_tcp_heuristic)
 
+-- Register B3 B3Derivatives BinaryEntryPoint Sbe 8.2 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

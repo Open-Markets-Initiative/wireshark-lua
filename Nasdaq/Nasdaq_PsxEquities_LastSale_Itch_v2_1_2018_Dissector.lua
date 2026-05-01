@@ -3304,6 +3304,10 @@ end
 -- Register Heuristic for Nasdaq PsxEquities LastSale Itch 2.1.2018
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018:register_heuristic("udp", omi_nasdaq_psxequities_lastsale_itch_v2_1_2018_udp_heuristic)
 
+-- Register Nasdaq PsxEquities LastSale Itch 2.1.2018 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nasdaq_psxequities_lastsale_itch_v2_1_2018)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

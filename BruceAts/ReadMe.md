@@ -5,9 +5,9 @@
 
 | Division | [Protocol][Omi.BruceAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BruceEquities][BruceEquities.Exchange] | [BestBidAndOffer][BruceAts.BruceEquities.BestBidAndOffer] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1225 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Pdf] |
-| [BruceEquities][BruceEquities.Exchange] | [DepthOfBook][BruceAts.BruceEquities.DepthOfBook] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1225 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.DepthOfBook.Itch.v1.0.Pdf] |
-| [BruceEquities][BruceEquities.Exchange] | [LastSale][BruceAts.BruceEquities.LastSale] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1259 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.LastSale.Itch.v1.0.Pdf] |
+| [BruceEquities][BruceEquities.Exchange] | [BestBidAndOffer][BruceAts.BruceEquities.BestBidAndOffer] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1229 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Pdf] |
+| [BruceEquities][BruceEquities.Exchange] | [DepthOfBook][BruceAts.BruceEquities.DepthOfBook] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1229 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.DepthOfBook.Itch.v1.0.Pdf] |
+| [BruceEquities][BruceEquities.Exchange] | [LastSale][BruceAts.BruceEquities.LastSale] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1263 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.LastSale.Itch.v1.0.Pdf] |
 
 
 BruceAts: [website](https://www.brucemarkets.com "Go to Bruce ATS")

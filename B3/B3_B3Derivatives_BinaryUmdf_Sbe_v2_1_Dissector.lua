@@ -9314,6 +9314,10 @@ end
 -- Register Heuristic for B3 B3Derivatives BinaryUmdf Sbe 2.1
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1:register_heuristic("udp", omi_b3_b3derivatives_binaryumdf_sbe_v2_1_udp_heuristic)
 
+-- Register B3 B3Derivatives BinaryUmdf Sbe 2.1 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_b3_b3derivatives_binaryumdf_sbe_v2_1)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

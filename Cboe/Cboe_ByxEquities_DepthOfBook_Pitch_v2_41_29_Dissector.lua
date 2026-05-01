@@ -2695,6 +2695,10 @@ end
 -- Register Heuristic for Cboe ByxEquities DepthOfBook Pitch 2.41.29
 omi_cboe_byxequities_depthofbook_pitch_v2_41_29:register_heuristic("udp", omi_cboe_byxequities_depthofbook_pitch_v2_41_29_udp_heuristic)
 
+-- Register Cboe ByxEquities DepthOfBook Pitch 2.41.29 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cboe_byxequities_depthofbook_pitch_v2_41_29)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

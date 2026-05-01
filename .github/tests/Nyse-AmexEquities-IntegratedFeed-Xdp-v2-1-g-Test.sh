@@ -1,11 +1,9 @@
 set -o errexit
 set -o pipefail
 
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/AddOrderMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/AddOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr; exit 1; }
@@ -20,11 +18,9 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.volume" Nyse.AmexEquities.Inte
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.side" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.firmid" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.numparitysplits" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ImbalanceMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr \
   || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr; exit 1; }
@@ -50,11 +46,9 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.lowercollar" Nyse.AmexEquities
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.auctionstatus" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.freezestatus" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.numextensions" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/OrderExecutionMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/OrderExecutionMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutionMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr; exit 1; }
@@ -70,11 +64,9 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.volume" Nyse.AmexEquities.Inte
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.printableflag" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.numparitysplits" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.dbexecid" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ReplaceOrderMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/ReplaceOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ReplaceOrderMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr; exit 1; }
@@ -89,11 +81,9 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.price" Nyse.AmexEquities.Integ
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.volume" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.prevpriceparitysplits" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.newpriceparitysplits" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SecurityStatusMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr; exit 1; }
@@ -114,11 +104,9 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.time" Nyse.AmexEquities.Integr
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.ssrstate" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.marketstate" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sessionstate" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SourceTimeReferenceMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr; exit 1; }
@@ -127,11 +115,9 @@ if [ -s Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.j
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.id" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolseqnum" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SymbolIndexMappingMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Xdp.v2.1/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.amexequities.integratedfeed.xdp.v2.1.g.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr \
   || { echo "--- tshark FAILED (SymbolIndexMappingMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr; exit 1; }

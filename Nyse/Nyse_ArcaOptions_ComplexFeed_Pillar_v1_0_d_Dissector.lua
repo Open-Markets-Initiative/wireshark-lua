@@ -4368,6 +4368,10 @@ end
 -- Register Heuristic for Nyse ArcaOptions ComplexFeed Pillar 1.0.d
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d:register_heuristic("udp", omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d_udp_heuristic)
 
+-- Register Nyse ArcaOptions ComplexFeed Pillar 1.0.d on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

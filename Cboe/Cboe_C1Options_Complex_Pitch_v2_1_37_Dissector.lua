@@ -3654,6 +3654,10 @@ end
 -- Register Heuristic for Cboe C1Options Complex Pitch 2.1.37
 omi_cboe_c1options_complex_pitch_v2_1_37:register_heuristic("udp", omi_cboe_c1options_complex_pitch_v2_1_37_udp_heuristic)
 
+-- Register Cboe C1Options Complex Pitch 2.1.37 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cboe_c1options_complex_pitch_v2_1_37)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

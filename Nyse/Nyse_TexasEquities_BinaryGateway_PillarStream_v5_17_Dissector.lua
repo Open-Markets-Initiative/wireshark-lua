@@ -9793,6 +9793,10 @@ end
 -- Register Heuristic for Nyse TexasEquities BinaryGateway PillarStream 5.17
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17:register_heuristic("tcp", omi_nyse_texasequities_binarygateway_pillarstream_v5_17_tcp_heuristic)
 
+-- Register Nyse TexasEquities BinaryGateway PillarStream 5.17 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_texasequities_binarygateway_pillarstream_v5_17)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

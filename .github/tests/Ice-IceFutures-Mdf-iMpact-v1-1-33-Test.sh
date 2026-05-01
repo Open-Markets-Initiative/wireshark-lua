@@ -1,11 +1,9 @@
 set -o errexit
 set -o pipefail
 
-PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/DeleteOrderMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/DeleteOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
-  -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.33.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json.stderr; exit 1; }
@@ -15,11 +13,9 @@ grep "ice.icefutures.mdf.impact.v1.1.33.marketid" Ice.IceFutures.Mdf.iMpact.v1.1
 grep "ice.icefutures.mdf.impact.v1.1.33.orderid" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.messagedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.sequencewithinmillis" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
-PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MarketSnapshotOrderMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MarketSnapshotOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
-  -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.33.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (MarketSnapshotOrderMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json.stderr; exit 1; }
@@ -35,11 +31,9 @@ grep "ice.icefutures.mdf.impact.v1.1.33.isimplied" Ice.IceFutures.Mdf.iMpact.v1.
 grep "ice.icefutures.mdf.impact.v1.1.33.isrfq" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.orderentrydatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.sequencewithinmillis" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
-PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MarketStatisticsMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MarketStatisticsMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
-  -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.33.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json.stderr \
   || { echo "--- tshark FAILED (MarketStatisticsMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json.stderr; exit 1; }
@@ -54,33 +48,27 @@ grep "ice.icefutures.mdf.impact.v1.1.33.high" Ice.IceFutures.Mdf.iMpact.v1.1.33.
 grep "ice.icefutures.mdf.impact.v1.1.33.low" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.vwap" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.messagedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
-PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MessageBundleMarker.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MessageBundleMarker.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
-  -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.33.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr \
   || { echo "--- tshark FAILED (MessageBundleMarker) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr; exit 1; }
 if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr ]; then echo "--- tshark stderr (MessageBundleMarker) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr; fi
 
 grep "ice.icefutures.mdf.impact.v1.1.33.startorend" Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json
-PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/SpecialFieldMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/SpecialFieldMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
-  -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.33.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr \
   || { echo "--- tshark FAILED (SpecialFieldMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr; exit 1; }
 if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr ]; then echo "--- tshark stderr (SpecialFieldMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr; fi
 
 grep "ice.icefutures.mdf.impact.v1.1.33.numberofspecialfields" Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json
-PORT=$(tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/TradeMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/TradeMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
-  -d "udp.port==${PORT},ice.icefutures.mdf.impact.v1.1.33.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json.stderr; exit 1; }

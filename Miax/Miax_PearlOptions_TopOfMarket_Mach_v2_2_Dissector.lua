@@ -2902,6 +2902,10 @@ end
 -- Register Heuristic for Miax PearlOptions TopOfMarket Mach 2.2
 omi_miax_pearloptions_topofmarket_mach_v2_2:register_heuristic("udp", omi_miax_pearloptions_topofmarket_mach_v2_2_udp_heuristic)
 
+-- Register Miax PearlOptions TopOfMarket Mach 2.2 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_miax_pearloptions_topofmarket_mach_v2_2)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

@@ -2630,6 +2630,10 @@ end
 -- Register Heuristic for Nyse AmexOptions DeepFeed Xdp 1.3.a
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a:register_heuristic("udp", omi_nyse_amexoptions_deepfeed_xdp_v1_3_a_udp_heuristic)
 
+-- Register Nyse AmexOptions DeepFeed Xdp 1.3.a on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_amexoptions_deepfeed_xdp_v1_3_a)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

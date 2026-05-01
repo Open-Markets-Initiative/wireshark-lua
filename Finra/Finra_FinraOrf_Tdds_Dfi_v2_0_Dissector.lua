@@ -3679,6 +3679,10 @@ end
 -- Register Heuristic for Finra FinraOrf Tdds Dfi 2.0
 omi_finra_finraorf_tdds_dfi_v2_0:register_heuristic("udp", omi_finra_finraorf_tdds_dfi_v2_0_udp_heuristic)
 
+-- Register Finra FinraOrf Tdds Dfi 2.0 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_finra_finraorf_tdds_dfi_v2_0)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

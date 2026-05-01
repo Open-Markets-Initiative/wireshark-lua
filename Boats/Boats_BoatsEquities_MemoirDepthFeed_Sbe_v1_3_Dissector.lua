@@ -2195,6 +2195,10 @@ end
 -- Register Heuristic for Boats BoatsEquities MemoirDepthFeed Sbe 1.3
 omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3:register_heuristic("udp", omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3_udp_heuristic)
 
+-- Register Boats BoatsEquities MemoirDepthFeed Sbe 1.3 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

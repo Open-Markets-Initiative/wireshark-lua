@@ -489,6 +489,10 @@ end
 -- Register Heuristic for Hkex Orion Headers Udp 1.0
 omi_hkex_orion_headers_udp_v1_0:register_heuristic("udp", omi_hkex_orion_headers_udp_v1_0_udp_heuristic)
 
+-- Register Hkex Orion Headers Udp 1.0 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_hkex_orion_headers_udp_v1_0)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

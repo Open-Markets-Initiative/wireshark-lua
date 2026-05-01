@@ -3916,6 +3916,10 @@ end
 -- Register Heuristic for Cboe TitaniumOptions ComplexTop Pitch 1.1.54
 omi_cboe_titaniumoptions_complextop_pitch_v1_1_54:register_heuristic("udp", omi_cboe_titaniumoptions_complextop_pitch_v1_1_54_udp_heuristic)
 
+-- Register Cboe TitaniumOptions ComplexTop Pitch 1.1.54 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cboe_titaniumoptions_complextop_pitch_v1_1_54)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

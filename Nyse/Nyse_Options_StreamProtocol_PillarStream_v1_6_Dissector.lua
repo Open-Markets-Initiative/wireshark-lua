@@ -1513,6 +1513,10 @@ end
 -- Register Heuristic for Nyse Options StreamProtocol PillarStream 1.6
 omi_nyse_options_streamprotocol_pillarstream_v1_6:register_heuristic("tcp", omi_nyse_options_streamprotocol_pillarstream_v1_6_tcp_heuristic)
 
+-- Register Nyse Options StreamProtocol PillarStream 1.6 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_options_streamprotocol_pillarstream_v1_6)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

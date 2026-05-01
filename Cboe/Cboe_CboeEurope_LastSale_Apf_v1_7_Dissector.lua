@@ -2364,6 +2364,10 @@ end
 -- Register Heuristic for Cboe CboeEurope LastSale Apf 1.7
 omi_cboe_cboeeurope_lastsale_apf_v1_7:register_heuristic("tcp", omi_cboe_cboeeurope_lastsale_apf_v1_7_tcp_heuristic)
 
+-- Register Cboe CboeEurope LastSale Apf 1.7 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cboe_cboeeurope_lastsale_apf_v1_7)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

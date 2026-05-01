@@ -2268,6 +2268,10 @@ end
 -- Register Heuristic for Cboe TitaniumOptions AuctionFeed Pitch 1.1.39
 omi_cboe_titaniumoptions_auctionfeed_pitch_v1_1_39:register_heuristic("udp", omi_cboe_titaniumoptions_auctionfeed_pitch_v1_1_39_udp_heuristic)
 
+-- Register Cboe TitaniumOptions AuctionFeed Pitch 1.1.39 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cboe_titaniumoptions_auctionfeed_pitch_v1_1_39)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

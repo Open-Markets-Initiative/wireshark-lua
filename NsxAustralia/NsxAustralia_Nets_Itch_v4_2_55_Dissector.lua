@@ -3980,6 +3980,10 @@ end
 -- Register Heuristic for NsxAustralia Nets Itch 4.2.55
 omi_nsxaustralia_nets_itch_v4_2_55:register_heuristic("tcp", omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic)
 
+-- Register NsxAustralia Nets Itch 4.2.55 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nsxaustralia_nets_itch_v4_2_55)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

@@ -17452,6 +17452,10 @@ end
 -- Register Heuristic for Eurex Derivatives Eti T7 2.5
 omi_eurex_derivatives_eti_t7_v2_5:register_heuristic("tcp", omi_eurex_derivatives_eti_t7_v2_5_tcp_heuristic)
 
+-- Register Eurex Derivatives Eti T7 2.5 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_eurex_derivatives_eti_t7_v2_5)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

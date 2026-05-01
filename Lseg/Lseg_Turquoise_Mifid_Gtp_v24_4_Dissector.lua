@@ -2744,6 +2744,10 @@ end
 -- Register Heuristic for Lseg Turquoise Mifid Gtp 24.4
 omi_lseg_turquoise_mifid_gtp_v24_4:register_heuristic("udp", omi_lseg_turquoise_mifid_gtp_v24_4_udp_heuristic)
 
+-- Register Lseg Turquoise Mifid Gtp 24.4 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_lseg_turquoise_mifid_gtp_v24_4)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

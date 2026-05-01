@@ -636,6 +636,10 @@ end
 -- Register Heuristic for B3 Securities BinaryPacketHeader Udp 1.0
 omi_b3_securities_binarypacketheader_udp_v1_0:register_heuristic("udp", omi_b3_securities_binarypacketheader_udp_v1_0_udp_heuristic)
 
+-- Register B3 Securities BinaryPacketHeader Udp 1.0 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_b3_securities_binarypacketheader_udp_v1_0)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

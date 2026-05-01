@@ -1,11 +1,9 @@
 set -o errexit
 set -o pipefail
 
-PORT=$(tshark -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/OptionsQuoteMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/OptionsQuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.arcaoptions.topfeed.pillar.v1.2.c.lua" \
   -T json \
   > Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json 2> Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (OptionsQuoteMessage) ---"; cat Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json.stderr; exit 1; }
@@ -22,11 +20,9 @@ grep "nyse.arcaoptions.topfeed.pillar.v1.2.c.quotecondition" Nyse.ArcaOptions.To
 grep "nyse.arcaoptions.topfeed.pillar.v1.2.c.reserved1" Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json
 grep "nyse.arcaoptions.topfeed.pillar.v1.2.c.askcustomervolume" Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json
 grep "nyse.arcaoptions.topfeed.pillar.v1.2.c.bidcustomervolume" Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/SequenceNumberResetMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/Arca.Options.TopFeed.Pillar.1.2.c/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.arcaoptions.topfeed.pillar.v1.2.c.lua" \
   -T json \
   > Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json 2> Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json.stderr \
   || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json.stderr; exit 1; }

@@ -4535,6 +4535,10 @@ end
 -- Register Heuristic for Nyse AmexOptions ComplexFeed Pillar 1.0.h
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h:register_heuristic("udp", omi_nyse_amexoptions_complexfeed_pillar_v1_0_h_udp_heuristic)
 
+-- Register Nyse AmexOptions ComplexFeed Pillar 1.0.h on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_amexoptions_complexfeed_pillar_v1_0_h)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

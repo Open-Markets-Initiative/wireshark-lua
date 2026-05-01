@@ -3098,6 +3098,10 @@ end
 -- Register Heuristic for Nyse ArcaEquities Bbo Pillar 2.5.d
 omi_nyse_arcaequities_bbo_pillar_v2_5_d:register_heuristic("udp", omi_nyse_arcaequities_bbo_pillar_v2_5_d_udp_heuristic)
 
+-- Register Nyse ArcaEquities Bbo Pillar 2.5.d on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_arcaequities_bbo_pillar_v2_5_d)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

@@ -18607,6 +18607,10 @@ end
 -- Register Heuristic for Euronext Optiq MarketDataGateway Sbe 5.16
 omi_euronext_optiq_marketdatagateway_sbe_v5_16:register_heuristic("udp", omi_euronext_optiq_marketdatagateway_sbe_v5_16_udp_heuristic)
 
+-- Register Euronext Optiq MarketDataGateway Sbe 5.16 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_euronext_optiq_marketdatagateway_sbe_v5_16)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

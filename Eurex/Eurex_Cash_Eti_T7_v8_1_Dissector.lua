@@ -25600,6 +25600,10 @@ end
 -- Register Heuristic for Eurex Cash Eti T7 8.1
 omi_eurex_cash_eti_t7_v8_1:register_heuristic("tcp", omi_eurex_cash_eti_t7_v8_1_tcp_heuristic)
 
+-- Register Eurex Cash Eti T7 8.1 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_eurex_cash_eti_t7_v8_1)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

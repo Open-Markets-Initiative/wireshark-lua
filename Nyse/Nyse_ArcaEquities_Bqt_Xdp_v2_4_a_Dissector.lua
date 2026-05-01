@@ -5201,6 +5201,10 @@ end
 -- Register Heuristic for Nyse ArcaEquities Bqt Xdp 2.4.a
 omi_nyse_arcaequities_bqt_xdp_v2_4_a:register_heuristic("udp", omi_nyse_arcaequities_bqt_xdp_v2_4_a_udp_heuristic)
 
+-- Register Nyse ArcaEquities Bqt Xdp 2.4.a on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_arcaequities_bqt_xdp_v2_4_a)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

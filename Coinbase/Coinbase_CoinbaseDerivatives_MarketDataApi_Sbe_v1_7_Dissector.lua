@@ -5342,6 +5342,10 @@ end
 -- Register Heuristic for Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7:register_heuristic("udp", omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7_udp_heuristic)
 
+-- Register Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

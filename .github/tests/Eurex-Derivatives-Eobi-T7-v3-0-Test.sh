@@ -1,11 +1,9 @@
 set -o errexit
 set -o pipefail
 
-PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/Heartbeat.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v3.0/Heartbeat.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v3_0_Dissector.lua" \
-  -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v3.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json 2> Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json.stderr \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json.stderr; exit 1; }
@@ -13,11 +11,9 @@ if [ -s Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json.stderr ]; then echo "--- t
 
 grep "eurex.derivatives.eobi.t7.v3.0.lastmsgseqnumprocessed" Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json
 grep "eurex.derivatives.eobi.t7.v3.0.pad4" Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json
-PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/OrderAdd.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v3.0/OrderAdd.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v3_0_Dissector.lua" \
-  -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v3.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json 2> Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json.stderr \
   || { echo "--- tshark FAILED (OrderAdd) ---"; cat Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json.stderr; exit 1; }
@@ -25,11 +21,9 @@ if [ -s Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json.stderr ]; then echo "--- ts
 
 grep "eurex.derivatives.eobi.t7.v3.0.trdregtstimein" Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json
 grep "eurex.derivatives.eobi.t7.v3.0.securityid" Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json
-PORT=$(tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/SnapshotOrder.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v3.0/SnapshotOrder.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v3_0_Dissector.lua" \
-  -d "udp.port==${PORT},eurex.derivatives.eobi.t7.v3.0.lua" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v3.0.SnapshotOrder.json 2> Eurex.Derivatives.Eobi.T7.v3.0.SnapshotOrder.json.stderr \
   || { echo "--- tshark FAILED (SnapshotOrder) ---"; cat Eurex.Derivatives.Eobi.T7.v3.0.SnapshotOrder.json.stderr; exit 1; }

@@ -3868,6 +3868,10 @@ end
 -- Register Heuristic for Siac Opra Recipient Obi 6.1
 omi_siac_opra_recipient_obi_v6_1:register_heuristic("udp", omi_siac_opra_recipient_obi_v6_1_udp_heuristic)
 
+-- Register Siac Opra Recipient Obi 6.1 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_siac_opra_recipient_obi_v6_1)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

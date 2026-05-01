@@ -7720,6 +7720,10 @@ end
 -- Register Heuristic for Cboe CfeFutures OrderEntry Boe3 1.1.18
 omi_cboe_cfefutures_orderentry_boe3_v1_1_18:register_heuristic("tcp", omi_cboe_cfefutures_orderentry_boe3_v1_1_18_tcp_heuristic)
 
+-- Register Cboe CfeFutures OrderEntry Boe3 1.1.18 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cboe_cfefutures_orderentry_boe3_v1_1_18)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

@@ -344,6 +344,10 @@ end
 -- Register Heuristic for Aquis Equities TcpHeader Atp 1.0
 omi_aquis_equities_tcpheader_atp_v1_0:register_heuristic("tcp", omi_aquis_equities_tcpheader_atp_v1_0_tcp_heuristic)
 
+-- Register Aquis Equities TcpHeader Atp 1.0 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_aquis_equities_tcpheader_atp_v1_0)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

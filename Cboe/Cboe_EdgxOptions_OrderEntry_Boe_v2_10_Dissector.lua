@@ -47708,6 +47708,10 @@ end
 -- Register Heuristic for Cboe EdgxOptions OrderEntry Boe 2.10
 omi_cboe_edgxoptions_orderentry_boe_v2_10:register_heuristic("tcp", omi_cboe_edgxoptions_orderentry_boe_v2_10_tcp_heuristic)
 
+-- Register Cboe EdgxOptions OrderEntry Boe 2.10 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cboe_edgxoptions_orderentry_boe_v2_10)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

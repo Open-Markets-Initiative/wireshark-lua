@@ -655,6 +655,10 @@ end
 -- Register Heuristic for Aquis Equities Replay Amd 4.1
 omi_aquis_equities_replay_amd_v4_1:register_heuristic("tcp", omi_aquis_equities_replay_amd_v4_1_tcp_heuristic)
 
+-- Register Aquis Equities Replay Amd 4.1 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_aquis_equities_replay_amd_v4_1)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

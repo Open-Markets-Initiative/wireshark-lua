@@ -6933,6 +6933,10 @@ end
 -- Register Heuristic for 24X 24XEquities Memo Sbe 1.13
 omi_n24x_24xequities_memo_sbe_v1_13:register_heuristic("tcp", omi_n24x_24xequities_memo_sbe_v1_13_tcp_heuristic)
 
+-- Register 24X 24XEquities Memo Sbe 1.13 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_n24x_24xequities_memo_sbe_v1_13)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

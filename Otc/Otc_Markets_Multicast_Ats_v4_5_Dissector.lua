@@ -3979,6 +3979,10 @@ end
 -- Register Heuristic for Otc Markets Multicast Ats 4.5
 omi_otc_markets_multicast_ats_v4_5:register_heuristic("udp", omi_otc_markets_multicast_ats_v4_5_udp_heuristic)
 
+-- Register Otc Markets Multicast Ats 4.5 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_otc_markets_multicast_ats_v4_5)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

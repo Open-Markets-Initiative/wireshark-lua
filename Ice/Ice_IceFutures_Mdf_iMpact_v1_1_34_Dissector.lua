@@ -11579,6 +11579,10 @@ end
 -- Register Heuristic for Ice IceFutures Mdf iMpact 1.1.34
 omi_ice_icefutures_mdf_impact_v1_1_34:register_heuristic("udp", omi_ice_icefutures_mdf_impact_v1_1_34_udp_heuristic)
 
+-- Register Ice IceFutures Mdf iMpact 1.1.34 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_ice_icefutures_mdf_impact_v1_1_34)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

@@ -1,11 +1,9 @@
 set -o errexit
 set -o pipefail
 
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/AddOrderMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/AddOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr; exit 1; }
@@ -20,11 +18,9 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.volume" Nyse.NyseEquities.I
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.side" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.firmid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.reserved11" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/CrossTradeMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/CrossTradeMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (CrossTradeMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr; exit 1; }
@@ -37,11 +33,9 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.crossid" Nyse.NyseEquities.
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.price" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.volume" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.crosstype" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/DeleteOrderMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/DeleteOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr; exit 1; }
@@ -52,11 +46,9 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquit
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolseqnum" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.orderid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.reserved11" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ImbalanceMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr \
   || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr; exit 1; }
@@ -85,11 +77,9 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.numextensions" Nyse.NyseEqu
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.unpairedqty" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.unpairedside" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.significantimbalance" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/OrderExecutionMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/OrderExecutionMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutionMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr; exit 1; }
@@ -108,11 +98,9 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.tradecond1" Nyse.NyseEquiti
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.tradecond2" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.tradecond3" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.tradecond4" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ReplaceOrderMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/ReplaceOrderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ReplaceOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr; exit 1; }
@@ -127,11 +115,9 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.price" Nyse.NyseEquities.In
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.volume" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.prevpriceparitysplits" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.newpriceparitysplits" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SecurityStatusMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr; exit 1; }
@@ -152,11 +138,9 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.time" Nyse.NyseEquities.Int
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.ssrstate" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.marketstate" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sessionstate" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SourceTimeReferenceMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr; exit 1; }
@@ -165,11 +149,9 @@ if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessag
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.id" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolseqnum" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
-PORT=$(tshark -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/StockSummaryMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nyse/IntegratedFeed.Pillar.v2.5/StockSummaryMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_a_Dissector.lua" \
-  -d "udp.port==${PORT},nyse.nyseequities.integratedfeed.pillar.v2.5.a.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr \
   || { echo "--- tshark FAILED (StockSummaryMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr; exit 1; }

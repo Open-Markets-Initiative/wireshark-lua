@@ -1,11 +1,9 @@
 set -o errexit
 set -o pipefail
 
-PORT=$(tshark -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" \
   -X "lua_script:Siac/Siac_Cqs_Output_Cta_v1_91_Dissector.lua" \
-  -d "udp.port==${PORT},siac.cqs.output.cta.v1.91.lua" \
   -T json \
   > Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json 2> Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; exit 1; }

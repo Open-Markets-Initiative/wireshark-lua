@@ -2773,6 +2773,10 @@ end
 -- Register Heuristic for Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8:register_heuristic("udp", omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_udp_heuristic)
 
+-- Register Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

@@ -6604,6 +6604,10 @@ end
 -- Register Heuristic for Box Options Sola Multicast Hsvf 1.8
 omi_box_options_sola_multicast_hsvf_v1_8:register_heuristic("udp", omi_box_options_sola_multicast_hsvf_v1_8_udp_heuristic)
 
+-- Register Box Options Sola Multicast Hsvf 1.8 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_box_options_sola_multicast_hsvf_v1_8)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

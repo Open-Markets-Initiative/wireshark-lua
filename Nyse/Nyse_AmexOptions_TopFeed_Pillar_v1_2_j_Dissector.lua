@@ -5425,6 +5425,10 @@ end
 -- Register Heuristic for Nyse AmexOptions TopFeed Pillar 1.2.j
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j:register_heuristic("udp", omi_nyse_amexoptions_topfeed_pillar_v1_2_j_udp_heuristic)
 
+-- Register Nyse AmexOptions TopFeed Pillar 1.2.j on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_amexoptions_topfeed_pillar_v1_2_j)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

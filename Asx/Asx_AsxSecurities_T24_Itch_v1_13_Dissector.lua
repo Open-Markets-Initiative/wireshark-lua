@@ -5579,6 +5579,10 @@ end
 -- Register Heuristic for Asx AsxSecurities T24 Itch 1.13
 omi_asx_asxsecurities_t24_itch_v1_13:register_heuristic("udp", omi_asx_asxsecurities_t24_itch_v1_13_udp_heuristic)
 
+-- Register Asx AsxSecurities T24 Itch 1.13 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_asx_asxsecurities_t24_itch_v1_13)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

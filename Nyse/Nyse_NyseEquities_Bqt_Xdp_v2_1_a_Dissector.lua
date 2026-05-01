@@ -4365,6 +4365,10 @@ end
 -- Register Heuristic for Nyse NyseEquities Bqt Xdp 2.1.a
 omi_nyse_nyseequities_bqt_xdp_v2_1_a:register_heuristic("udp", omi_nyse_nyseequities_bqt_xdp_v2_1_a_udp_heuristic)
 
+-- Register Nyse NyseEquities Bqt Xdp 2.1.a on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_nyseequities_bqt_xdp_v2_1_a)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

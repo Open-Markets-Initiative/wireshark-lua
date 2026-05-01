@@ -1877,6 +1877,10 @@ end
 -- Register Heuristic for Cboe TitaniumEquities SummaryDepth Pitch 1.0.7
 omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7:register_heuristic("udp", omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7_udp_heuristic)
 
+-- Register Cboe TitaniumEquities SummaryDepth Pitch 1.0.7 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_cboe_titaniumequities_summarydepth_pitch_v1_0_7)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

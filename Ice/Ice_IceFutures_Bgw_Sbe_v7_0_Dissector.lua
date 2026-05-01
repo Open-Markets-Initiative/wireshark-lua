@@ -16590,6 +16590,10 @@ end
 -- Register Heuristic for Ice IceFutures Bgw Sbe 7.0
 omi_ice_icefutures_bgw_sbe_v7_0:register_heuristic("tcp", omi_ice_icefutures_bgw_sbe_v7_0_tcp_heuristic)
 
+-- Register Ice IceFutures Bgw Sbe 7.0 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_ice_icefutures_bgw_sbe_v7_0)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

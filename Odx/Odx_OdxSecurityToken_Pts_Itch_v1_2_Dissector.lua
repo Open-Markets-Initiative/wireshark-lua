@@ -2454,6 +2454,10 @@ end
 -- Register Heuristic for Odx OdxSecurityToken Pts Itch 1.2
 omi_odx_odxsecuritytoken_pts_itch_v1_2:register_heuristic("tcp", omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_heuristic)
 
+-- Register Odx OdxSecurityToken Pts Itch 1.2 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_odx_odxsecuritytoken_pts_itch_v1_2)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

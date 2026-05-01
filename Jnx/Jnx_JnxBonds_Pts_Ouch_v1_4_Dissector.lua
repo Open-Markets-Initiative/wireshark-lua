@@ -2572,6 +2572,10 @@ end
 -- Register Heuristic for Jnx JnxBonds Pts Ouch 1.4
 omi_jnx_jnxbonds_pts_ouch_v1_4:register_heuristic("tcp", omi_jnx_jnxbonds_pts_ouch_v1_4_tcp_heuristic)
 
+-- Register Jnx JnxBonds Pts Ouch 1.4 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_jnx_jnxbonds_pts_ouch_v1_4)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

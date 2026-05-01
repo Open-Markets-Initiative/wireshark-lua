@@ -4853,6 +4853,10 @@ end
 -- Register Heuristic for Nyse NyseEquities IntegratedFeed Xdp 2.3.a
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a:register_heuristic("udp", omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a_udp_heuristic)
 
+-- Register Nyse NyseEquities IntegratedFeed Xdp 2.3.a on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

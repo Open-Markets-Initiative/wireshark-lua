@@ -3204,6 +3204,10 @@ end
 -- Register Heuristic for Lseg Millennium Level2 Mitch 11.9
 omi_lseg_millennium_level2_mitch_v11_9:register_heuristic("udp", omi_lseg_millennium_level2_mitch_v11_9_udp_heuristic)
 
+-- Register Lseg Millennium Level2 Mitch 11.9 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_lseg_millennium_level2_mitch_v11_9)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

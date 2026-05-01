@@ -2224,6 +2224,10 @@ end
 -- Register Heuristic for Nasdaq MrxOptions SpreadDepth Itch 2.1
 omi_nasdaq_mrxoptions_spreaddepth_itch_v2_1:register_heuristic("tcp", omi_nasdaq_mrxoptions_spreaddepth_itch_v2_1_tcp_heuristic)
 
+-- Register Nasdaq MrxOptions SpreadDepth Itch 2.1 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_nasdaq_mrxoptions_spreaddepth_itch_v2_1)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.

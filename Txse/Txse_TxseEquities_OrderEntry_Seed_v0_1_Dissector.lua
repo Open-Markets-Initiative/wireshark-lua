@@ -6749,6 +6749,10 @@ end
 -- Register Heuristic for Txse TxseEquities OrderEntry Seed 0.1
 omi_txse_txseequities_orderentry_seed_v0_1:register_heuristic("tcp", omi_txse_txseequities_orderentry_seed_v0_1_tcp_heuristic)
 
+-- Register Txse TxseEquities OrderEntry Seed 0.1 on default port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(65333, omi_txse_txseequities_orderentry_seed_v0_1)
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
