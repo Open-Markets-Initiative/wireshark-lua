@@ -5254,6 +5254,9 @@ omi_asx_asxsecurities_ntp_itch_v1_05:register_heuristic("udp", omi_asx_asxsecuri
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add(65333, omi_asx_asxsecurities_ntp_itch_v1_05)
 
+-- Diagnostic: confirms script reached end of registration
+io.stderr:write("[omi_asx_asxsecurities_ntp_itch_v1_05] registered heuristic+port 65333\n")
+
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
