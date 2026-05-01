@@ -4404,14 +4404,29 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.dissect
   end
 end
 
+io.stderr:write(string.format("[xdp.debug] before stmr: proto=%s id=%s id.size=%s symbol_seq_num=%s symbol_seq_num.size=%s source_time=%s source_time.size=%s\n",
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g),
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g and nyse_amexequities_integratedfeed_xdp_v2_1_g.id),
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g and nyse_amexequities_integratedfeed_xdp_v2_1_g.id and nyse_amexequities_integratedfeed_xdp_v2_1_g.id.size),
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g and nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num),
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g and nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num and nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size),
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g and nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time),
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g and nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time and nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.size)))
+
 -- Source Time Reference Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message = {}
 
+io.stderr:write(string.format("[xdp.debug] after stmr={}: stmr=%s\n",
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g and nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message)))
+
 -- Size: Source Time Reference Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message.size =
-  nyse_amexequities_integratedfeed_xdp_v2_1_g.id.size + 
-  nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size + 
+  nyse_amexequities_integratedfeed_xdp_v2_1_g.id.size +
+  nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.size +
   nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.size
+
+io.stderr:write(string.format("[xdp.debug] after size: stmr.size=%s\n",
+  type(nyse_amexequities_integratedfeed_xdp_v2_1_g and nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message and nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message.size)))
 
 -- Display: Source Time Reference Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message.display = function(packet, parent, length)
