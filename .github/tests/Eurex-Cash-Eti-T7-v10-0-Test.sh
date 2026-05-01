@@ -8,6 +8,14 @@ tshark \
   > Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json 2> Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr \
   || { echo "--- tshark FAILED (OrderExecResponse) ---"; cat Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr; exit 1; }
 if [ -s Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr ]; then echo "--- tshark stderr (OrderExecResponse) ---"; cat Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr; fi
+echo "--- tshark diagnostic (OrderExecResponse) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json)"
+echo "frame count: $(grep -c '\"_index\"' Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json; echo
 
 grep "eurex.cash.eti.t7.v10.0.pad2" Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json
 grep "eurex.cash.eti.t7.v10.0.orderid" Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json

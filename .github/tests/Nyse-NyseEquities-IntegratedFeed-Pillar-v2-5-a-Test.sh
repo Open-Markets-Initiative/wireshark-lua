@@ -8,6 +8,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr ]; then echo "--- tshark stderr (AddOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json.stderr; fi
+echo "--- tshark diagnostic (AddOrderMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.AddOrderMessage.json
@@ -25,6 +33,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (CrossTradeMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr ]; then echo "--- tshark stderr (CrossTradeMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json.stderr; fi
+echo "--- tshark diagnostic (CrossTradeMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.CrossTradeMessage.json
@@ -40,6 +56,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr ]; then echo "--- tshark stderr (DeleteOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json.stderr; fi
+echo "--- tshark diagnostic (DeleteOrderMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.DeleteOrderMessage.json
@@ -53,6 +77,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr \
   || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr ]; then echo "--- tshark stderr (ImbalanceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json.stderr; fi
+echo "--- tshark diagnostic (ImbalanceMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ImbalanceMessage.json
@@ -84,6 +116,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutionMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutionMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json.stderr; fi
+echo "--- tshark diagnostic (OrderExecutionMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.OrderExecutionMessage.json
@@ -105,6 +145,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ReplaceOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr ]; then echo "--- tshark stderr (ReplaceOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json.stderr; fi
+echo "--- tshark diagnostic (ReplaceOrderMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.ReplaceOrderMessage.json
@@ -122,6 +170,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr ]; then echo "--- tshark stderr (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json.stderr; fi
+echo "--- tshark diagnostic (SecurityStatusMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SecurityStatusMessage.json
@@ -145,6 +201,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr ]; then echo "--- tshark stderr (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json.stderr; fi
+echo "--- tshark diagnostic (SourceTimeReferenceMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.id" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.symbolseqnum" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.SourceTimeReferenceMessage.json
@@ -156,6 +220,14 @@ tshark \
   > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr \
   || { echo "--- tshark FAILED (StockSummaryMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr ]; then echo "--- tshark stderr (StockSummaryMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json.stderr; fi
+echo "--- tshark diagnostic (StockSummaryMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json; echo
 
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetime" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.StockSummaryMessage.json

@@ -8,6 +8,14 @@ tshark \
   > Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json 2> Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr \
   || { echo "--- tshark FAILED (AssignCopOrdersMessage) ---"; cat Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr; exit 1; }
 if [ -s Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr ]; then echo "--- tshark stderr (AssignCopOrdersMessage) ---"; cat Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr; fi
+echo "--- tshark diagnostic (AssignCopOrdersMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json; echo
 
 grep "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.symbol" Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json
 grep "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.calculatedopeningprice" Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json

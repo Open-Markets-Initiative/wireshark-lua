@@ -8,6 +8,14 @@ tshark \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportStatus) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr; exit 1; }
 if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr ]; then echo "--- tshark stderr (ExecutionReportStatus) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr; fi
+echo "--- tshark diagnostic (ExecutionReportStatus) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json)"
+echo "frame count: $(grep -c '\"_index\"' Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json; echo
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.seqnum" Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
@@ -54,6 +62,14 @@ tshark \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr \
   || { echo "--- tshark FAILED (QuoteCancel) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr; exit 1; }
 if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr ]; then echo "--- tshark stderr (QuoteCancel) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr; fi
+echo "--- tshark diagnostic (QuoteCancel) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json)"
+echo "frame count: $(grep -c '\"_index\"' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json; echo
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.partydetailslistreqid" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.sendingtimeepoch" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json
@@ -71,6 +87,14 @@ tshark \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr \
   || { echo "--- tshark FAILED (QuoteCancelAck) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr; exit 1; }
 if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr ]; then echo "--- tshark stderr (QuoteCancelAck) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr; fi
+echo "--- tshark diagnostic (QuoteCancelAck) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json)"
+echo "frame count: $(grep -c '\"_index\"' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json; echo
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.seqnum" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json
@@ -101,6 +125,14 @@ tshark \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr \
   || { echo "--- tshark FAILED (Sequence) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr; exit 1; }
 if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr ]; then echo "--- tshark stderr (Sequence) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr; fi
+echo "--- tshark diagnostic (Sequence) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json)"
+echo "frame count: $(grep -c '\"_index\"' Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json; echo
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.nextseqno" Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json

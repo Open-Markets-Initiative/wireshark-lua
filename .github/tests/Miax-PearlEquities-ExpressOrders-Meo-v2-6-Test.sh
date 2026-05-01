@@ -8,6 +8,14 @@ tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr \
   || { echo "--- tshark FAILED (CancelOrderRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr ]; then echo "--- tshark stderr (CancelOrderRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr; fi
+echo "--- tshark diagnostic (CancelOrderRequest) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json)"
+echo "frame count: $(grep -c '\"_index\"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json; echo
 
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved8" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
 grep "miax.pearlequities.expressorders.meo.v2.6.mpid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
@@ -22,6 +30,14 @@ tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr \
   || { echo "--- tshark FAILED (CancelOrderResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr ]; then echo "--- tshark stderr (CancelOrderResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr; fi
+echo "--- tshark diagnostic (CancelOrderResponse) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json)"
+echo "frame count: $(grep -c '\"_index\"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json; echo
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
 grep "miax.pearlequities.expressorders.meo.v2.6.mpid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
@@ -39,6 +55,14 @@ tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr \
   || { echo "--- tshark FAILED (LoginRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr ]; then echo "--- tshark stderr (LoginRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr; fi
+echo "--- tshark diagnostic (LoginRequest) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json)"
+echo "frame count: $(grep -c '\"_index\"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json; echo
 
 grep "miax.pearlequities.expressorders.meo.v2.6.esesmversion" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
 grep "miax.pearlequities.expressorders.meo.v2.6.username" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
@@ -53,6 +77,14 @@ tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr \
   || { echo "--- tshark FAILED (LoginResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr ]; then echo "--- tshark stderr (LoginResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr; fi
+echo "--- tshark diagnostic (LoginResponse) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json)"
+echo "frame count: $(grep -c '\"_index\"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json; echo
 
 grep "miax.pearlequities.expressorders.meo.v2.6.numberofmatchingengines" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
 grep "miax.pearlequities.expressorders.meo.v2.6.loginstatus" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
@@ -65,6 +97,14 @@ tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr \
   || { echo "--- tshark FAILED (NewOrderNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr ]; then echo "--- tshark stderr (NewOrderNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr; fi
+echo "--- tshark diagnostic (NewOrderNotification) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json)"
+echo "frame count: $(grep -c '\"_index\"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json; echo
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.mpid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
@@ -99,6 +139,14 @@ tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr \
   || { echo "--- tshark FAILED (OrderPriceUpdateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr ]; then echo "--- tshark stderr (OrderPriceUpdateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr; fi
+echo "--- tshark diagnostic (OrderPriceUpdateNotification) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json)"
+echo "frame count: $(grep -c '\"_index\"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json; echo
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
@@ -113,6 +161,14 @@ tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr \
   || { echo "--- tshark FAILED (SymbolUpdate) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr ]; then echo "--- tshark stderr (SymbolUpdate) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr; fi
+echo "--- tshark diagnostic (SymbolUpdate) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json)"
+echo "frame count: $(grep -c '\"_index\"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json; echo
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
 grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
@@ -132,6 +188,14 @@ tshark \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr \
   || { echo "--- tshark FAILED (SystemStateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr; exit 1; }
 if [ -s Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr ]; then echo "--- tshark stderr (SystemStateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr; fi
+echo "--- tshark diagnostic (SystemStateNotification) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json)"
+echo "frame count: $(grep -c '\"_index\"' Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json; echo
 
 grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.meoversion" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json

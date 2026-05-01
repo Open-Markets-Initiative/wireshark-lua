@@ -8,6 +8,14 @@ tshark \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr \
   || { echo "--- tshark FAILED (OptionMarketDepthMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr; exit 1; }
 if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr ]; then echo "--- tshark stderr (OptionMarketDepthMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr; fi
+echo "--- tshark diagnostic (OptionMarketDepthMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json; echo
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.instrumentstatusmarker" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionMarketDepthMessage.json
@@ -19,6 +27,14 @@ tshark \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (OptionTradeMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json.stderr; exit 1; }
 if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json.stderr ]; then echo "--- tshark stderr (OptionTradeMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json.stderr; fi
+echo "--- tshark diagnostic (OptionTradeMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json; echo
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.volume" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
@@ -37,6 +53,14 @@ tshark \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json.stderr \
   || { echo "--- tshark FAILED (StrategyAuctionBeginningMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json.stderr; exit 1; }
 if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json.stderr ]; then echo "--- tshark stderr (StrategyAuctionBeginningMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json.stderr; fi
+echo "--- tshark diagnostic (StrategyAuctionBeginningMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json; echo
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.strategysymbol" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json
@@ -55,6 +79,14 @@ tshark \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr \
   || { echo "--- tshark FAILED (StrategyMarketDepthMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr; exit 1; }
 if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr ]; then echo "--- tshark stderr (StrategyMarketDepthMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr; fi
+echo "--- tshark diagnostic (StrategyMarketDepthMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json; echo
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.symbol" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyMarketDepthMessage.json
@@ -67,6 +99,14 @@ tshark \
   > Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json 2> Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (StrategyTradeMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json.stderr; exit 1; }
 if [ -s Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json.stderr ]; then echo "--- tshark stderr (StrategyTradeMessage) ---"; cat Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json.stderr; fi
+echo "--- tshark diagnostic (StrategyTradeMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json; echo
 
 grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.symbol" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json

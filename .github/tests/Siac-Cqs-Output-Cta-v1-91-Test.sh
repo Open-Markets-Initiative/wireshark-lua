@@ -8,6 +8,14 @@ tshark \
   > Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json 2> Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; exit 1; }
 if [ -s Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr ]; then echo "--- tshark stderr (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; fi
+echo "--- tshark diagnostic (LongQuoteMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json; echo
 
 grep "siac.cqs.output.cta.v1.91.participantid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.messageid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json

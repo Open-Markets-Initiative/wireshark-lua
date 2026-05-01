@@ -8,6 +8,14 @@ tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json.stderr \
   || { echo "--- tshark FAILED (NegotiateRejectMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json.stderr; exit 1; }
 if [ -s B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json.stderr ]; then echo "--- tshark stderr (NegotiateRejectMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json.stderr; fi
+echo "--- tshark diagnostic (NegotiateRejectMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json; echo
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionverid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
@@ -23,6 +31,14 @@ tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json.stderr \
   || { echo "--- tshark FAILED (TerminateMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json.stderr; exit 1; }
 if [ -s B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json.stderr ]; then echo "--- tshark stderr (TerminateMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json.stderr; fi
+echo "--- tshark diagnostic (TerminateMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json; echo
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionverid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json

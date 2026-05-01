@@ -8,6 +8,14 @@ tshark \
   > Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json 2> Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutedMessage) ---"; cat Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json.stderr; exit 1; }
 if [ -s Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutedMessage) ---"; cat Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json.stderr; fi
+echo "--- tshark diagnostic (OrderExecutedMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json; echo
 
 grep "imperative.intelligentcross.mdf.v1.11.symbolid" Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json
 grep "imperative.intelligentcross.mdf.v1.11.timestamp" Imperative.IntelligentCross.Mdf.v1.11.OrderExecutedMessage.json
@@ -23,6 +31,14 @@ tshark \
   > Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json 2> Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeMessage) ---"; cat Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json.stderr; exit 1; }
 if [ -s Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json.stderr ]; then echo "--- tshark stderr (TradeMessage) ---"; cat Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json.stderr; fi
+echo "--- tshark diagnostic (TradeMessage) ---"
+tshark -v | head -n 1
+echo "json bytes: $(wc -c < Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json)"
+echo "frame count: $(grep -c '\"_index\"' Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json || true)"
+echo "layer keys (frame 0):"
+grep -oE '"[a-z0-9_.]+":' Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json | sort -u | head -n 40
+echo "json head:"
+head -c 1500 Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json; echo
 
 grep "imperative.intelligentcross.mdf.v1.11.symbolid" Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json
 grep "imperative.intelligentcross.mdf.v1.11.timestamp" Imperative.IntelligentCross.Mdf.v1.11.TradeMessage.json
