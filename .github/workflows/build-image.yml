@@ -4,6 +4,7 @@ on:
   push:
     branches: [ main ]
     paths: [ '.github/docker/tshark-test.Dockerfile' ]
+  workflow_dispatch:
 
 jobs:
   build:
