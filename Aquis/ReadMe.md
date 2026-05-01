@@ -13,7 +13,7 @@
 | [Equities][Equities] | [Snapshot][Aquis.Equities.Snapshot] | [Amd][Omi.Encoding.Amd] | [4.0][Aquis.Equities.Snapshot.Amd.v4.0.Dissector] | 8/1/2025 | 1078 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.Snapshot.Amd.v4.0.Url] - [pdf][Aquis.Equities.Snapshot.Amd.v4.0.Pdf] |
 | [Equities][Equities] | [UdpHeader][Aquis.Equities.UdpHeader] | [Amd][Omi.Encoding.Amd] | [1.0][Aquis.Equities.UdpHeader.Amd.v1.0.Dissector] | 8/1/2025 | 424 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.UdpHeader.Amd.v1.0.Url] |
 | [Equities][Equities] | [TcpHeader][Aquis.Equities.TcpHeader] | [Atp][Omi.Encoding.Atp] | [1.0][Aquis.Equities.TcpHeader.Atp.v1.0.Dissector] | 8/1/2025 | 367 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TcpHeader.Atp.v1.0.Url] |
-| [Equities][Equities] | [TradingProtocol][Aquis.Equities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.Equities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3699 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.Equities.TradingProtocol.Atp.v4.0.Pdf] |
+| [Equities][Equities] | [TradingProtocol][Aquis.Equities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.Equities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3708 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.Equities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.Equities.TradingProtocol.Atp.v4.0.Pdf] |
 
 
 Aquis: [website](https://www.aquis.eu "Go to Aquis Exchange")

@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 522 | 4,506,599 |
+| 523 | 4,539,456 |
 
 ## Testing
 
@@ -337,14 +337,15 @@ Enjoy.
 [Nyse.NationalEquities.Trades]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NationalEquities/Trades.md "Nyse National Equities Trades"
 [Nyse.NyseEquities.Trades]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseEquities/Trades.md "Nyse Equities Trades"
 [Nyse.TexasEquities.Trades]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/TexasEquities/Trades.md "Nyse Texas Equities Trades"
-[Nyse.ArcaOptions.ComplexFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/ComplexFeed.md "Nyse Arca Options Complex Feed"
 [Nyse.AmexOptions.ComplexFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexOptions/ComplexFeed.md "Nyse Amex Options Complex Feed"
-[Nyse.ArcaOptions.DeepFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/DeepFeed.md "Nyse Arca Options Deep Feed"
 [Nyse.AmexOptions.DeepFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexOptions/DeepFeed.md "Nyse Amex Options Deep Feed"
-[Nyse.ArcaOptions.TopFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/TopFeed.md "Nyse Arca Options Top Feed"
 [Nyse.AmexOptions.TopFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexOptions/TopFeed.md "Nyse Amex Options Top Feed"
 [Nyse.AmexOptions.BinaryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexOptions/BinaryGateway.md "Nyse Amex Options Binary Gateway"
+[Nyse.ArcaOptions.ComplexFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/ComplexFeed.md "Nyse Arca Options Complex Feed"
+[Nyse.ArcaOptions.DeepFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/DeepFeed.md "Nyse Arca Options Deep Feed"
+[Nyse.ArcaOptions.TopFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/TopFeed.md "Nyse Arca Options Top Feed"
 [Nyse.ArcaOptions.BinaryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaOptions/BinaryGateway.md "Nyse Arca Options Binary Gateway"
+[Nyse.NyseConsolidated.Bqt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseConsolidated/Bqt.md ""
 [Nyse.NyseOptions.CommonClient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseOptions/CommonClient.md "Nyse Options Common Client"
 [Nyse.Options.StreamProtocol]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Options/StreamProtocol.md "Nyse Options Stream Protocol"
 [Odx.OdxSecurityToken.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Odx/Protocols/OdxSecurityToken/Pts.md "Odx Security Token Proprietary Trading System"
