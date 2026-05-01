@@ -1,10 +1,12 @@
 set -o errexit
 set -o pipefail
 
+PORT=$(tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   --enable-heuristic "siac.cts.output.cta.v2.9.lua_udp" \
+  -d "udp.port==${PORT},siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json 2> Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr
 if [ -s Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr ]; then echo "--- tshark stderr (LineIntegrityMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr; fi
@@ -13,10 +15,12 @@ grep "siac.cts.output.cta.v2.9.participantid" Siac.Cts.Output.Cta.v2.9.LineInteg
 grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.transactionid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.participantreferencenumber" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
+PORT=$(tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   --enable-heuristic "siac.cts.output.cta.v2.9.lua_udp" \
+  -d "udp.port==${PORT},siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json 2> Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr
 if [ -s Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr ]; then echo "--- tshark stderr (LongTradeMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr; fi
@@ -39,10 +43,12 @@ grep "siac.cts.output.cta.v2.9.financialstatusindicator" Siac.Cts.Output.Cta.v2.
 grep "siac.cts.output.cta.v2.9.heldtradeindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.consolidatedhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.participantopenhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+PORT=$(tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   --enable-heuristic "siac.cts.output.cta.v2.9.lua_udp" \
+  -d "udp.port==${PORT},siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json 2> Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr
 if [ -s Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr ]; then echo "--- tshark stderr (TradingStatusMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr; fi

@@ -1,10 +1,12 @@
 set -o errexit
 set -o pipefail
 
+PORT=$(tshark -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" \
   -X "lua_script:Eurex/Eurex_Cash_Eti_T7_v10_0_Dissector.lua" \
   --enable-heuristic "eurex.cash.eti.t7.v10.0.lua_udp" \
+  -d "udp.port==${PORT},eurex.cash.eti.t7.v10.0.lua" \
   -T json \
   > Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json 2> Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr
 if [ -s Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr ]; then echo "--- tshark stderr (OrderExecResponse) ---"; cat Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr; fi

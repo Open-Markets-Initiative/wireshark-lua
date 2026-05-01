@@ -1,10 +1,12 @@
 set -o errexit
 set -o pipefail
 
+PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshBook.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshBook.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_9_Dissector.lua" \
   --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
+  -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr
 if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr ]; then echo "--- tshark stderr (MdIncrementalRefreshBook) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr; fi
@@ -12,10 +14,12 @@ if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json.stderr ]; the
 grep "cme.cmefutures.mdp3.sbe.v1.9.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
 grep "cme.cmefutures.mdp3.sbe.v1.9.matcheventindicator" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
 grep "cme.cmefutures.mdp3.sbe.v1.9.padding2" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
+PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshOrderBook.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshOrderBook.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_9_Dissector.lua" \
   --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
+  -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr
 if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr ]; then echo "--- tshark stderr (MdIncrementalRefreshOrderBook) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr; fi
@@ -23,10 +27,12 @@ if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json.stderr ]
 grep "cme.cmefutures.mdp3.sbe.v1.9.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
 grep "cme.cmefutures.mdp3.sbe.v1.9.matcheventindicator" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
 grep "cme.cmefutures.mdp3.sbe.v1.9.padding2" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
+PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshTradeSummary.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_9_Dissector.lua" \
   --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
+  -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr
 if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr ]; then echo "--- tshark stderr (MdIncrementalRefreshTradeSummary) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stderr; fi
@@ -34,10 +40,12 @@ if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json.stder
 grep "cme.cmefutures.mdp3.sbe.v1.9.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
 grep "cme.cmefutures.mdp3.sbe.v1.9.matcheventindicator" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
 grep "cme.cmefutures.mdp3.sbe.v1.9.padding2" Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
+PORT=$(tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshVolume.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.9/MdIncrementalRefreshVolume.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_9_Dissector.lua" \
   --enable-heuristic "cme.cmefutures.mdp3.sbe.v1.9.lua_udp" \
+  -d "udp.port==${PORT},cme.cmefutures.mdp3.sbe.v1.9.lua" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr
 if [ -s Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr ]; then echo "--- tshark stderr (MdIncrementalRefreshVolume) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json.stderr; fi

@@ -1,10 +1,12 @@
 set -o errexit
 set -o pipefail
 
+PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyAuctionMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyAuctionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
   --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
+  -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json.stderr
 if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json.stderr ]; then echo "--- tshark stderr (ComplexStrategyAuctionMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json.stderr; fi
@@ -25,10 +27,12 @@ grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.cmta" Nasdaq.IseOptions.OrderCo
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctionevent" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctiontype" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.numberofresponses" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyAuctionMessage.json
+PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyDirectoryMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyDirectoryMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
   --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
+  -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json.stderr
 if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (ComplexStrategyDirectoryMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json.stderr; fi
@@ -39,10 +43,12 @@ grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategytype" Nasdaq.IseOptions
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.source" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.underlyingsymbol" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.numberoflegs" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyDirectoryMessage.json
+PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyOrderOnBookMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/ComplexStrategyOrderOnBookMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
   --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
+  -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json.stderr
 if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json.stderr ]; then echo "--- tshark stderr (ComplexStrategyOrderOnBookMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json.stderr; fi
@@ -59,10 +65,12 @@ grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.scope" Nasdaq.IseOptions.OrderC
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.ownerid" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.giveup" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.cmta" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json
+PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyOpenClosedMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyOpenClosedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
   --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
+  -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json.stderr
 if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json.stderr ]; then echo "--- tshark stderr (StrategyOpenClosedMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json.stderr; fi
@@ -70,10 +78,12 @@ if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.jso
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.openstate" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyOpenClosedMessage.json
+PORT=$(tshark -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyTradingActionMessage.pcap" -Y udp -T fields -e udp.dstport 2>/dev/null | sort -un | head -1)
 tshark \
   -r "omi-data-packets/Nasdaq/Ise.OrderComboFeed.v1.1/StrategyTradingActionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
   --enable-heuristic "nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua_udp" \
+  -d "udp.port==${PORT},nasdaq.iseoptions.ordercombofeed.itch.v1.1.lua" \
   -T json \
   > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json.stderr
 if [ -s Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json.stderr ]; then echo "--- tshark stderr (StrategyTradingActionMessage) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.StrategyTradingActionMessage.json.stderr; fi
