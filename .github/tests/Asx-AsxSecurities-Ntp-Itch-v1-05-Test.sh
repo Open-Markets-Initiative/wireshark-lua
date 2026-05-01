@@ -1,6 +1,13 @@
 set -o errexit
 set -o pipefail
 
+echo "--- pre-tshark path check ---"
+echo "pwd: $(pwd)"
+ls -la "Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" || echo "DISSECTOR PATH MISSING"
+ls -la "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" || echo "PCAP PATH MISSING"
+echo "tshark Lua build flag:"
+tshark -v 2>&1 | grep -i -E 'with lua|without lua' || echo "no lua mention in tshark -v output"
+
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
