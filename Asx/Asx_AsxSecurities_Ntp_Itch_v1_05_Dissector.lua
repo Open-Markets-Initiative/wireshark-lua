@@ -1,8 +1,11 @@
 -----------------------------------------------------------------------
 -- Lua Script Wireshark Dissector
--- 
+--
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
+
+-- Diagnostic: confirms script started loading
+io.stderr:write("[asx-itch] script load started\n")
 
 -- Asx AsxSecurities Ntp Itch 1.05 Protocol
 local omi_asx_asxsecurities_ntp_itch_v1_05 = Proto("Asx.AsxSecurities.Ntp.Itch.v1.05.Lua", "Asx AsxSecurities Ntp Itch 1.05")
