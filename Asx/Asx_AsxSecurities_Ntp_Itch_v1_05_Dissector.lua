@@ -225,20 +225,15 @@ end
 asx_asxsecurities_ntp_itch_v1_05.conversation = {}
 
 -- Get/create our protocol's data record on the current packet's conversation
+-- Module-level flow cache keyed by 4-tuple (this tshark build does not expose pinfo.conversation as a reader)
+asx_asxsecurities_ntp_itch_v1_05.conversation.flows = {}
+
 asx_asxsecurities_ntp_itch_v1_05.conversation.data = function(packet)
-  local conversation = packet.conversation
-  io.stderr:write(string.format("[asx.conversation.data] frame=%d conv=%s type=%s\n", packet.number, tostring(conversation), type(conversation)))
-  local ok, data = pcall(function() return conversation[omi_asx_asxsecurities_ntp_itch_v1_05] end)
-  if not ok then
-    io.stderr:write(string.format("[asx.conversation.data] index FAILED: %s\n", tostring(data)))
-    return { second = { last = nil, frames = {} } }
-  end
+  local key = string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+  local data = asx_asxsecurities_ntp_itch_v1_05.conversation.flows[key]
   if data == nil then
     data = { second = { last = nil, frames = {} } }
-    local ok2, err = pcall(function() conversation[omi_asx_asxsecurities_ntp_itch_v1_05] = data end)
-    if not ok2 then
-      io.stderr:write(string.format("[asx.conversation.data] assign FAILED: %s\n", tostring(err)))
-    end
+    asx_asxsecurities_ntp_itch_v1_05.conversation.flows[key] = data
   end
   return data
 end
@@ -5217,6 +5212,7 @@ end
 function omi_asx_asxsecurities_ntp_itch_v1_05.init()
   asx_asxsecurities_ntp_itch_v1_05.second.current = nil
   asx_asxsecurities_ntp_itch_v1_05.conversation.current = nil
+  asx_asxsecurities_ntp_itch_v1_05.conversation.flows = {}
 end
 
 -- Dissector for Asx AsxSecurities Ntp Itch 1.05
