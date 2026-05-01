@@ -169,16 +169,23 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- State attached to packet.conversation
+-- Per-flow state, keyed by src/dst tuple
 cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation = {}
+cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.flows = {}
 
--- Get/create our protocol's data record on the current packet's conversation
+-- Conversation key for the current packet (src/dst tuple)
+cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
 cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.data = function(packet)
-  local conversation = packet.conversation
-  local data = conversation[omi_cboe_bzxequities_depthofbook_pitch_v2_41_29]
+  local key = cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.key(packet)
+  local data = cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.flows[key]
   if data == nil then
     data = { time = { last = nil, frames = {} } }
-    conversation[omi_cboe_bzxequities_depthofbook_pitch_v2_41_29] = data
+    cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.flows[key] = data
   end
   return data
 end
@@ -2698,6 +2705,7 @@ end
 function omi_cboe_bzxequities_depthofbook_pitch_v2_41_29.init()
   cboe_bzxequities_depthofbook_pitch_v2_41_29.time.current = nil
   cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.current = nil
+  cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.flows = {}
 end
 
 -- Dissector for Cboe BzxEquities DepthOfBook Pitch 2.41.29

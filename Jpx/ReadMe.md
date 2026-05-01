@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.Jpx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Itch][Omi.Encoding.Itch] | [1.1][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | 5/8/2024 | 3064 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf] |
+| [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Itch][Omi.Encoding.Itch] | [1.1][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | 5/8/2024 | 3072 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf] |
 | [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Ouch][Omi.Encoding.Ouch] | [5.0][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | 9/16/2020 | 3064 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Pdf] |
 
 

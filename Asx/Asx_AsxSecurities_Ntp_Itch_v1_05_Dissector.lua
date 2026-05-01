@@ -221,15 +221,19 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- State attached to packet.conversation
+-- Per-flow state, keyed by src/dst tuple
 asx_asxsecurities_ntp_itch_v1_05.conversation = {}
-
--- Get/create our protocol's data record on the current packet's conversation
--- Module-level flow cache keyed by 4-tuple (this tshark build does not expose pinfo.conversation as a reader)
 asx_asxsecurities_ntp_itch_v1_05.conversation.flows = {}
 
+-- Conversation key for the current packet (src/dst tuple)
+asx_asxsecurities_ntp_itch_v1_05.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
 asx_asxsecurities_ntp_itch_v1_05.conversation.data = function(packet)
-  local key = string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+  local key = asx_asxsecurities_ntp_itch_v1_05.conversation.key(packet)
   local data = asx_asxsecurities_ntp_itch_v1_05.conversation.flows[key]
   if data == nil then
     data = { second = { last = nil, frames = {} } }
@@ -5217,20 +5221,13 @@ end
 
 -- Dissector for Asx AsxSecurities Ntp Itch 1.05
 function omi_asx_asxsecurities_ntp_itch_v1_05.dissector(buffer, packet, parent)
-  io.stderr:write(string.format("[asx.dispatcher] called frame=%d len=%d\n", packet.number, buffer:len()))
 
   -- Set protocol name
   packet.cols.protocol = omi_asx_asxsecurities_ntp_itch_v1_05.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05, buffer(), omi_asx_asxsecurities_ntp_itch_v1_05.description, "("..buffer:len().." Bytes)")
-  local ok, result = pcall(asx_asxsecurities_ntp_itch_v1_05.packet.dissect, buffer, packet, protocol)
-  if not ok then
-    io.stderr:write(string.format("[asx.dispatcher] packet.dissect THREW frame=%d: %s\n", packet.number, tostring(result)))
-    return 0
-  end
-  io.stderr:write(string.format("[asx.dispatcher] dissect OK frame=%d index=%s\n", packet.number, tostring(result)))
-  return result
+  return asx_asxsecurities_ntp_itch_v1_05.packet.dissect(buffer, packet, protocol)
 end
 
 
@@ -5240,14 +5237,8 @@ end
 
 -- Dissector Heuristic for Asx AsxSecurities Ntp Itch 1.05 (Udp)
 local function omi_asx_asxsecurities_ntp_itch_v1_05_udp_heuristic(buffer, packet, parent)
-  io.stderr:write(string.format("[asx.heuristic] called frame=%d len=%d\n", packet.number, buffer:len()))
   -- Verify packet length
-  if not asx_asxsecurities_ntp_itch_v1_05.packet.requiredsize(buffer) then
-    io.stderr:write(string.format("[asx.heuristic] requiredsize FAILED frame=%d len=%d\n", packet.number, buffer:len()))
-    return false
-  end
-
-  io.stderr:write(string.format("[asx.heuristic] claiming frame=%d\n", packet.number))
+  if not asx_asxsecurities_ntp_itch_v1_05.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_asx_asxsecurities_ntp_itch_v1_05
@@ -5261,7 +5252,7 @@ omi_asx_asxsecurities_ntp_itch_v1_05:register_heuristic("udp", omi_asx_asxsecuri
 
 -- Register Asx AsxSecurities Ntp Itch 1.05 on default port
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(17510, omi_asx_asxsecurities_ntp_itch_v1_05)
+udp_table:add(65333, omi_asx_asxsecurities_ntp_itch_v1_05)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

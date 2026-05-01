@@ -134,16 +134,23 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- State attached to packet.conversation
+-- Per-flow state, keyed by src/dst tuple
 jnx_jnxbonds_pts_itch_v1_2.conversation = {}
+jnx_jnxbonds_pts_itch_v1_2.conversation.flows = {}
 
--- Get/create our protocol's data record on the current packet's conversation
+-- Conversation key for the current packet (src/dst tuple)
+jnx_jnxbonds_pts_itch_v1_2.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
 jnx_jnxbonds_pts_itch_v1_2.conversation.data = function(packet)
-  local conversation = packet.conversation
-  local data = conversation[omi_jnx_jnxbonds_pts_itch_v1_2]
+  local key = jnx_jnxbonds_pts_itch_v1_2.conversation.key(packet)
+  local data = jnx_jnxbonds_pts_itch_v1_2.conversation.flows[key]
   if data == nil then
     data = { timestamp_seconds = { last = nil, frames = {} } }
-    conversation[omi_jnx_jnxbonds_pts_itch_v1_2] = data
+    jnx_jnxbonds_pts_itch_v1_2.conversation.flows[key] = data
   end
   return data
 end
@@ -1710,6 +1717,7 @@ end
 function omi_jnx_jnxbonds_pts_itch_v1_2.init()
   jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.current = nil
   jnx_jnxbonds_pts_itch_v1_2.conversation.current = nil
+  jnx_jnxbonds_pts_itch_v1_2.conversation.flows = {}
 end
 
 -- Dissector for Jnx JnxBonds Pts Itch 1.2

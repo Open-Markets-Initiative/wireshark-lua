@@ -136,16 +136,23 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- State attached to packet.conversation
+-- Per-flow state, keyed by src/dst tuple
 odx_odxsecuritytoken_pts_itch_v2_2.conversation = {}
+odx_odxsecuritytoken_pts_itch_v2_2.conversation.flows = {}
 
--- Get/create our protocol's data record on the current packet's conversation
+-- Conversation key for the current packet (src/dst tuple)
+odx_odxsecuritytoken_pts_itch_v2_2.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
 odx_odxsecuritytoken_pts_itch_v2_2.conversation.data = function(packet)
-  local conversation = packet.conversation
-  local data = conversation[omi_odx_odxsecuritytoken_pts_itch_v2_2]
+  local key = odx_odxsecuritytoken_pts_itch_v2_2.conversation.key(packet)
+  local data = odx_odxsecuritytoken_pts_itch_v2_2.conversation.flows[key]
   if data == nil then
     data = { second = { last = nil, frames = {} } }
-    conversation[omi_odx_odxsecuritytoken_pts_itch_v2_2] = data
+    odx_odxsecuritytoken_pts_itch_v2_2.conversation.flows[key] = data
   end
   return data
 end
@@ -1822,6 +1829,7 @@ end
 function omi_odx_odxsecuritytoken_pts_itch_v2_2.init()
   odx_odxsecuritytoken_pts_itch_v2_2.second.current = nil
   odx_odxsecuritytoken_pts_itch_v2_2.conversation.current = nil
+  odx_odxsecuritytoken_pts_itch_v2_2.conversation.flows = {}
 end
 
 -- Dissector for Odx OdxSecurityToken Pts Itch 2.2

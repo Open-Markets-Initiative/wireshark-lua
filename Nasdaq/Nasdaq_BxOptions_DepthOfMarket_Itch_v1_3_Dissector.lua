@@ -188,16 +188,23 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- State attached to packet.conversation
+-- Per-flow state, keyed by src/dst tuple
 nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation = {}
+nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation.flows = {}
 
--- Get/create our protocol's data record on the current packet's conversation
+-- Conversation key for the current packet (src/dst tuple)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
 nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation.data = function(packet)
-  local conversation = packet.conversation
-  local data = conversation[omi_nasdaq_bxoptions_depthofmarket_itch_v1_3]
+  local key = nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation.key(packet)
+  local data = nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation.flows[key]
   if data == nil then
     data = { second = { last = nil, frames = {} } }
-    conversation[omi_nasdaq_bxoptions_depthofmarket_itch_v1_3] = data
+    nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation.flows[key] = data
   end
   return data
 end
@@ -3859,6 +3866,7 @@ end
 function omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.init()
   nasdaq_bxoptions_depthofmarket_itch_v1_3.second.current = nil
   nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation.current = nil
+  nasdaq_bxoptions_depthofmarket_itch_v1_3.conversation.flows = {}
 end
 
 -- Dissector for Nasdaq BxOptions DepthOfMarket Itch 1.3

@@ -233,16 +233,23 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- State attached to packet.conversation
+-- Per-flow state, keyed by src/dst tuple
 asx_asxsecurities_t24_itch_v1_13.conversation = {}
+asx_asxsecurities_t24_itch_v1_13.conversation.flows = {}
 
--- Get/create our protocol's data record on the current packet's conversation
+-- Conversation key for the current packet (src/dst tuple)
+asx_asxsecurities_t24_itch_v1_13.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
 asx_asxsecurities_t24_itch_v1_13.conversation.data = function(packet)
-  local conversation = packet.conversation
-  local data = conversation[omi_asx_asxsecurities_t24_itch_v1_13]
+  local key = asx_asxsecurities_t24_itch_v1_13.conversation.key(packet)
+  local data = asx_asxsecurities_t24_itch_v1_13.conversation.flows[key]
   if data == nil then
     data = { second = { last = nil, frames = {} } }
-    conversation[omi_asx_asxsecurities_t24_itch_v1_13] = data
+    asx_asxsecurities_t24_itch_v1_13.conversation.flows[key] = data
   end
   return data
 end
@@ -5546,6 +5553,7 @@ end
 function omi_asx_asxsecurities_t24_itch_v1_13.init()
   asx_asxsecurities_t24_itch_v1_13.second.current = nil
   asx_asxsecurities_t24_itch_v1_13.conversation.current = nil
+  asx_asxsecurities_t24_itch_v1_13.conversation.flows = {}
 end
 
 -- Dissector for Asx AsxSecurities T24 Itch 1.13
