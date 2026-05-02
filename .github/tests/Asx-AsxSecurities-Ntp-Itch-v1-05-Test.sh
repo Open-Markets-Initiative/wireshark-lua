@@ -9,7 +9,7 @@ echo "tshark Lua build flag:"
 tshark -v 2>&1 | grep -i -E 'with lua|without lua' || echo "no lua mention in tshark -v output"
 
 echo "--- init.lua locations ---"
-find / -name 'init.lua' 2>/dev/null
+find /usr -name 'init.lua' 2>/dev/null || true
 echo "--- /usr/share/wireshark/init.lua tail ---"
 tail -20 /usr/share/wireshark/init.lua 2>/dev/null || echo "init.lua not at expected path"
 echo "--- root/superuser refs in init.lua ---"
