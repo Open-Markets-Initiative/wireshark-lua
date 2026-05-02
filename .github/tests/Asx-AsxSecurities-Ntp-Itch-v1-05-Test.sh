@@ -15,7 +15,7 @@ tail -20 /usr/share/wireshark/init.lua 2>/dev/null || echo "init.lua not at expe
 echo "--- root/superuser refs in init.lua ---"
 grep -n -E 'running_superuser|disable_lua|superuser' /usr/share/wireshark/init.lua 2>/dev/null || echo "no matches"
 
-echo "--- minimal lua script test ---"
+echo "--- minimal lua script test (as tester user) ---"
 cat > /tmp/probe.lua <<'EOF'
 local f = io.open("/tmp/probe-touched.log", "w")
 if f then f:write("trivial script ran\n"); f:close() end
@@ -23,14 +23,16 @@ io.stderr:write("[probe] trivial script ran (stderr)\n")
 print("[probe] trivial script ran (print)")
 EOF
 rm -f /tmp/probe-touched.log
-tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" -X "lua_script:/tmp/probe.lua" -T json > /dev/null 2> /tmp/probe.stderr || true
+chmod 777 /tmp
+chown -R tester:tester . || true
+runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" -X "lua_script:/tmp/probe.lua" -T json > /dev/null 2> /tmp/probe.stderr || true
 echo "trivial script stderr:"
 cat /tmp/probe.stderr
 if [ -f /tmp/probe-touched.log ]; then
-  echo "TRIVIAL PROBE RAN — Lua scripting works in this container"
+  echo "TRIVIAL PROBE RAN — Lua scripting works as non-root user"
   cat /tmp/probe-touched.log
 else
-  echo "TRIVIAL PROBE DID NOT RUN — Lua scripts are completely disabled in this tshark"
+  echo "TRIVIAL PROBE DID NOT RUN — Lua scripts still disabled"
 fi
 
 echo "--- tshark log-level debug for Lua ---"
