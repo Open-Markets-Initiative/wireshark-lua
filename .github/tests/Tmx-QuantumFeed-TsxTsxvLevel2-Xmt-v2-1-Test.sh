@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Tmx/Tmx.TsxTsxvLevel2.Xmt.v2.1/AssignCopOrdersMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Tmx/Tmx.TsxTsxvLevel2.Xmt.v2.1/AssignCopOrdersMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Tmx/Tmx.TsxTsxvLevel2.Xmt.v2.1/AssignCopOrdersMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.lua"; else echo "could not detect transport port for AssignCopOrdersMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Tmx/Tmx.TsxTsxvLevel2.Xmt.v2.1/AssignCopOrdersMessage.pcap" \
   -X "lua_script:Tmx/Tmx_QuantumFeed_TsxTsxvLevel2_Xmt_v2_1_Dissector.lua" \
-  -d "udp.port==$port,tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.lua" \
+  -d "$decode" \
   -T json \
   > Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json 2> Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr \
   || { echo "--- tshark FAILED (AssignCopOrdersMessage) ---"; cat Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr; exit 1; }

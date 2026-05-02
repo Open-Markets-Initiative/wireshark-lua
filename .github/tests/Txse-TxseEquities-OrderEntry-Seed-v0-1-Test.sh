@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/DefineSymbolMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/DefineSymbolMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/DefineSymbolMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,txse.txseequities.orderentry.seed.v0.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,txse.txseequities.orderentry.seed.v0.1.lua"; else echo "could not detect transport port for DefineSymbolMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/DefineSymbolMessage.pcap" \
   -X "lua_script:Txse/Txse_TxseEquities_OrderEntry_Seed_v0_1_Dissector.lua" \
-  -d "udp.port==$port,txse.txseequities.orderentry.seed.v0.1.lua" \
+  -d "$decode" \
   -T json \
   > Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json 2> Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json.stderr \
   || { echo "--- tshark FAILED (DefineSymbolMessage) ---"; cat Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json.stderr; exit 1; }
@@ -30,12 +32,14 @@ grep "txse.txseequities.orderentry.seed.v0.1.suffix" Txse.TxseEquities.OrderEntr
 grep "txse.txseequities.orderentry.seed.v0.1.matchingengineid" Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json
 grep "txse.txseequities.orderentry.seed.v0.1.definesymbolbitfields" Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json
 grep "txse.txseequities.orderentry.seed.v0.1.lotsize" Txse.TxseEquities.OrderEntry.Seed.v0.1.DefineSymbolMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/LimitOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/LimitOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/LimitOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,txse.txseequities.orderentry.seed.v0.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,txse.txseequities.orderentry.seed.v0.1.lua"; else echo "could not detect transport port for LimitOrderMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Txse/OrderEntry.Seed.v0.7/LimitOrderMessage.pcap" \
   -X "lua_script:Txse/Txse_TxseEquities_OrderEntry_Seed_v0_1_Dissector.lua" \
-  -d "udp.port==$port,txse.txseequities.orderentry.seed.v0.1.lua" \
+  -d "$decode" \
   -T json \
   > Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json 2> Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (LimitOrderMessage) ---"; cat Txse.TxseEquities.OrderEntry.Seed.v0.1.LimitOrderMessage.json.stderr; exit 1; }

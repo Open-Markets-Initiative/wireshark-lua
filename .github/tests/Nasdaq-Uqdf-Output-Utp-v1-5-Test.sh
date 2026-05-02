@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/LimitUpLimitDownPriceBandMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/LimitUpLimitDownPriceBandMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/LimitUpLimitDownPriceBandMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nasdaq.uqdf.output.utp.v1.5.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nasdaq.uqdf.output.utp.v1.5.lua"; else echo "could not detect transport port for LimitUpLimitDownPriceBandMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/LimitUpLimitDownPriceBandMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
-  -d "udp.port==$port,nasdaq.uqdf.output.utp.v1.5.lua" \
+  -d "$decode" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json.stderr \
   || { echo "--- tshark FAILED (LimitUpLimitDownPriceBandMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json.stderr; exit 1; }
@@ -28,12 +30,14 @@ grep "nasdaq.uqdf.output.utp.v1.5.luldpricebandindicator" Nasdaq.Uqdf.Output.Utp
 grep "nasdaq.uqdf.output.utp.v1.5.luldtimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.limitdownprice" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.limitupprice" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteLongFormMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteLongFormMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteLongFormMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nasdaq.uqdf.output.utp.v1.5.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nasdaq.uqdf.output.utp.v1.5.lua"; else echo "could not detect transport port for QuoteLongFormMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteLongFormMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
-  -d "udp.port==$port,nasdaq.uqdf.output.utp.v1.5.lua" \
+  -d "$decode" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteLongFormMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json.stderr; exit 1; }
@@ -58,12 +62,14 @@ grep "nasdaq.uqdf.output.utp.v1.5.retailinterestindicator" Nasdaq.Uqdf.Output.Ut
 grep "nasdaq.uqdf.output.utp.v1.5.nbboappendageindicator" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.luldnationalbboindicator" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.finraadfmpidappendageindicator" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteShortFormMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteShortFormMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteShortFormMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nasdaq.uqdf.output.utp.v1.5.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nasdaq.uqdf.output.utp.v1.5.lua"; else echo "could not detect transport port for QuoteShortFormMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteShortFormMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
-  -d "udp.port==$port,nasdaq.uqdf.output.utp.v1.5.lua" \
+  -d "$decode" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteShortFormMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json.stderr; exit 1; }

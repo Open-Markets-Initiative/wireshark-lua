@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.8/MdIncrementalRefreshTradeSummary.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.8/MdIncrementalRefreshTradeSummary.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.8/MdIncrementalRefreshTradeSummary.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cme.cmefutures.mdp3.sbe.v1.8.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cme.cmefutures.mdp3.sbe.v1.8.lua"; else echo "could not detect transport port for MdIncrementalRefreshTradeSummary"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.8/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_8_Dissector.lua" \
-  -d "udp.port==$port,cme.cmefutures.mdp3.sbe.v1.8.lua" \
+  -d "$decode" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshTradeSummary) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json.stderr; exit 1; }

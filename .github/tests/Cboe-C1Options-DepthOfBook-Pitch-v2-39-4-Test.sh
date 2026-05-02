@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/AddOrderLongMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/AddOrderLongMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/AddOrderLongMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cboe.c1options.depthofbook.pitch.v2.39.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cboe.c1options.depthofbook.pitch.v2.39.4.lua"; else echo "could not detect transport port for AddOrderLongMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/AddOrderLongMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_DepthOfBook_Pitch_v2_39_4_Dissector.lua" \
-  -d "udp.port==$port,cboe.c1options.depthofbook.pitch.v2.39.4.lua" \
+  -d "$decode" \
   -T json \
   > Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json 2> Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderLongMessage) ---"; cat Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json.stderr; exit 1; }
@@ -30,12 +32,14 @@ grep "cboe.c1options.depthofbook.pitch.v2.39.4.longquantity" Cboe.C1Options.Dept
 grep "cboe.c1options.depthofbook.pitch.v2.39.4.symbol" Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json
 grep "cboe.c1options.depthofbook.pitch.v2.39.4.longprice" Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json
 grep "cboe.c1options.depthofbook.pitch.v2.39.4.addflags" Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/DeleteOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/DeleteOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/DeleteOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cboe.c1options.depthofbook.pitch.v2.39.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cboe.c1options.depthofbook.pitch.v2.39.4.lua"; else echo "could not detect transport port for DeleteOrderMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/DeleteOrderMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_DepthOfBook_Pitch_v2_39_4_Dissector.lua" \
-  -d "udp.port==$port,cboe.c1options.depthofbook.pitch.v2.39.4.lua" \
+  -d "$decode" \
   -T json \
   > Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json 2> Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json.stderr; exit 1; }
@@ -49,12 +53,14 @@ grep -oE '"[a-z0-9_.]+":' Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.DeleteOrderMe
 
 grep "cboe.c1options.depthofbook.pitch.v2.39.4.timeoffset" Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json
 grep "cboe.c1options.depthofbook.pitch.v2.39.4.orderid" Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/ModifyOrderLongMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/ModifyOrderLongMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/ModifyOrderLongMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cboe.c1options.depthofbook.pitch.v2.39.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cboe.c1options.depthofbook.pitch.v2.39.4.lua"; else echo "could not detect transport port for ModifyOrderLongMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/Options.DepthOfBook.Pitch.v2.39.4/ModifyOrderLongMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_DepthOfBook_Pitch_v2_39_4_Dissector.lua" \
-  -d "udp.port==$port,cboe.c1options.depthofbook.pitch.v2.39.4.lua" \
+  -d "$decode" \
   -T json \
   > Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json 2> Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json.stderr \
   || { echo "--- tshark FAILED (ModifyOrderLongMessage) ---"; cat Cboe.C1Options.DepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json.stderr; exit 1; }

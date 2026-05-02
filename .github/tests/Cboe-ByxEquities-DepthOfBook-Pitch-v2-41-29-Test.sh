@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/AddOrderShortMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/AddOrderShortMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/AddOrderShortMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cboe.byxequities.depthofbook.pitch.v2.41.29.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cboe.byxequities.depthofbook.pitch.v2.41.29.lua"; else echo "could not detect transport port for AddOrderShortMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/AddOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_ByxEquities_DepthOfBook_Pitch_v2_41_29_Dissector.lua" \
-  -d "udp.port==$port,cboe.byxequities.depthofbook.pitch.v2.41.29.lua" \
+  -d "$decode" \
   -T json \
   > Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json 2> Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderShortMessage) ---"; cat Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json.stderr; exit 1; }
@@ -30,12 +32,14 @@ grep "cboe.byxequities.depthofbook.pitch.v2.41.29.quantityshort" Cboe.ByxEquitie
 grep "cboe.byxequities.depthofbook.pitch.v2.41.29.symbol" Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
 grep "cboe.byxequities.depthofbook.pitch.v2.41.29.priceshort" Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
 grep "cboe.byxequities.depthofbook.pitch.v2.41.29.addorderflags" Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/ModifyOrderShortMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/ModifyOrderShortMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/ModifyOrderShortMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cboe.byxequities.depthofbook.pitch.v2.41.29.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cboe.byxequities.depthofbook.pitch.v2.41.29.lua"; else echo "could not detect transport port for ModifyOrderShortMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/Byx.Equities.DepthOfBook.Pitch.v2.41/ModifyOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_ByxEquities_DepthOfBook_Pitch_v2_41_29_Dissector.lua" \
-  -d "udp.port==$port,cboe.byxequities.depthofbook.pitch.v2.41.29.lua" \
+  -d "$decode" \
   -T json \
   > Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json 2> Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json.stderr \
   || { echo "--- tshark FAILED (ModifyOrderShortMessage) ---"; cat Cboe.ByxEquities.DepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json.stderr; exit 1; }

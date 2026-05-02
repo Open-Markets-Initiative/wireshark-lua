@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; else echo "could not detect transport port for MdIncrementalRefreshBook"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  -d "udp.port==$port,cme.cmefutures.mdp3.sbe.v1.5.lua" \
+  -d "$decode" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshBook) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json.stderr; exit 1; }
@@ -26,12 +28,14 @@ grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.
 grep "cme.cmefutures.mdp3.sbe.v1.5.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 grep "cme.cmefutures.mdp3.sbe.v1.5.matcheventindicator" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 grep "cme.cmefutures.mdp3.sbe.v1.5.padding2" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; else echo "could not detect transport port for MdIncrementalRefreshSessionStatistics"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  -d "udp.port==$port,cme.cmefutures.mdp3.sbe.v1.5.lua" \
+  -d "$decode" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshSessionStatistics) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json.stderr; exit 1; }
@@ -46,12 +50,14 @@ grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessi
 grep "cme.cmefutures.mdp3.sbe.v1.5.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 grep "cme.cmefutures.mdp3.sbe.v1.5.matcheventindicator" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 grep "cme.cmefutures.mdp3.sbe.v1.5.padding2" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; else echo "could not detect transport port for MdIncrementalRefreshTradeSummary"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  -d "udp.port==$port,cme.cmefutures.mdp3.sbe.v1.5.lua" \
+  -d "$decode" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshTradeSummary) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json.stderr; exit 1; }
@@ -66,12 +72,14 @@ grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTrade
 grep "cme.cmefutures.mdp3.sbe.v1.5.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 grep "cme.cmefutures.mdp3.sbe.v1.5.matcheventindicator" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 grep "cme.cmefutures.mdp3.sbe.v1.5.padding2" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; else echo "could not detect transport port for MdIncrementalRefreshVolume"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  -d "udp.port==$port,cme.cmefutures.mdp3.sbe.v1.5.lua" \
+  -d "$decode" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshVolume) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json.stderr; exit 1; }
@@ -86,12 +94,14 @@ grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolum
 grep "cme.cmefutures.mdp3.sbe.v1.5.transacttime" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 grep "cme.cmefutures.mdp3.sbe.v1.5.matcheventindicator" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 grep "cme.cmefutures.mdp3.sbe.v1.5.padding2" Cme.CmeFutures.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,cme.cmefutures.mdp3.sbe.v1.5.lua"; else echo "could not detect transport port for MdInstrumentDefinitionSpread"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" \
   -X "lua_script:Cme/Cme_CmeFutures_Mdp3_Sbe_v1_5_Dissector.lua" \
-  -d "udp.port==$port,cme.cmefutures.mdp3.sbe.v1.5.lua" \
+  -d "$decode" \
   -T json \
   > Cme.CmeFutures.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json 2> Cme.CmeFutures.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json.stderr \
   || { echo "--- tshark FAILED (MdInstrumentDefinitionSpread) ---"; cat Cme.CmeFutures.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json.stderr; exit 1; }

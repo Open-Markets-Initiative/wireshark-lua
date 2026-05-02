@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/DeltaUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/DeltaUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/DeltaUpdateMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.openbook.ultra.v2.1.b.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.openbook.ultra.v2.1.b.lua"; else echo "could not detect transport port for DeltaUpdateMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/DeltaUpdateMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
-  -d "udp.port==$port,nyse.nyseequities.openbook.ultra.v2.1.b.lua" \
+  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (DeltaUpdateMessage) ---"; cat Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json.stderr; exit 1; }
@@ -32,12 +34,14 @@ grep "nyse.nyseequities.openbook.ultra.v2.1.b.sourcesessionid" Nyse.NyseEquities
 grep "nyse.nyseequities.openbook.ultra.v2.1.b.quotecondition" Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json
 grep "nyse.nyseequities.openbook.ultra.v2.1.b.tradingstatus" Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json
 grep "nyse.nyseequities.openbook.ultra.v2.1.b.pricescalecode" Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullUpdateMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.openbook.ultra.v2.1.b.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.openbook.ultra.v2.1.b.lua"; else echo "could not detect transport port for FullUpdateMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullUpdateMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
-  -d "udp.port==$port,nyse.nyseequities.openbook.ultra.v2.1.b.lua" \
+  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (FullUpdateMessage) ---"; cat Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json.stderr; exit 1; }
@@ -61,12 +65,14 @@ grep "nyse.nyseequities.openbook.ultra.v2.1.b.quotecondition" Nyse.NyseEquities.
 grep "nyse.nyseequities.openbook.ultra.v2.1.b.tradingstatus" Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json
 grep "nyse.nyseequities.openbook.ultra.v2.1.b.reserved1" Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json
 grep "nyse.nyseequities.openbook.ultra.v2.1.b.mpv" Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/HeartbeatMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/HeartbeatMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/HeartbeatMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.openbook.ultra.v2.1.b.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.openbook.ultra.v2.1.b.lua"; else echo "could not detect transport port for HeartbeatMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/HeartbeatMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
-  -d "udp.port==$port,nyse.nyseequities.openbook.ultra.v2.1.b.lua" \
+  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json.stderr \
   || { echo "--- tshark FAILED (HeartbeatMessage) ---"; cat Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json.stderr; exit 1; }
@@ -78,12 +84,14 @@ echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Nyse.NyseEqu
 echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json | sort -u | head -n 40
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/SequenceNumberResetMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/SequenceNumberResetMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/SequenceNumberResetMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.openbook.ultra.v2.1.b.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.openbook.ultra.v2.1.b.lua"; else echo "could not detect transport port for SequenceNumberResetMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
-  -d "udp.port==$port,nyse.nyseequities.openbook.ultra.v2.1.b.lua" \
+  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json.stderr \
   || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json.stderr; exit 1; }

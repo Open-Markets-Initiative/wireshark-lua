@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CancelOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CancelOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CancelOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nasdaq.nsmequities.orders.ouch.v5.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nasdaq.nsmequities.orders.ouch.v5.0.lua"; else echo "could not detect transport port for CancelOrderMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CancelOrderMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
-  -d "udp.port==$port,nasdaq.nsmequities.orders.ouch.v5.0.lua" \
+  -d "$decode" \
   -T json \
   > Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json 2> Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (CancelOrderMessage) ---"; cat Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json.stderr; exit 1; }
@@ -25,12 +27,14 @@ grep -oE '"[a-z0-9_.]+":' Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage
 
 grep "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.quantity" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CancelOrderMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CanceledMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CanceledMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CanceledMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nasdaq.nsmequities.orders.ouch.v5.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nasdaq.nsmequities.orders.ouch.v5.0.lua"; else echo "could not detect transport port for CanceledMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/CanceledMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
-  -d "udp.port==$port,nasdaq.nsmequities.orders.ouch.v5.0.lua" \
+  -d "$decode" \
   -T json \
   > Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json 2> Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json.stderr \
   || { echo "--- tshark FAILED (CanceledMessage) ---"; cat Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json.stderr; exit 1; }
@@ -46,12 +50,14 @@ grep "nasdaq.nsmequities.orders.ouch.v5.0.timestamp" Nasdaq.NsmEquities.Orders.O
 grep "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.quantity" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.cancelorderreason" Nasdaq.NsmEquities.Orders.Ouch.v5.0.CanceledMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/EnterOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/EnterOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/EnterOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nasdaq.nsmequities.orders.ouch.v5.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nasdaq.nsmequities.orders.ouch.v5.0.lua"; else echo "could not detect transport port for EnterOrderMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/EnterOrderMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
-  -d "udp.port==$port,nasdaq.nsmequities.orders.ouch.v5.0.lua" \
+  -d "$decode" \
   -T json \
   > Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json 2> Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (EnterOrderMessage) ---"; cat Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json.stderr; exit 1; }
@@ -75,12 +81,14 @@ grep "nasdaq.nsmequities.orders.ouch.v5.0.intermarketsweepeligibility" Nasdaq.Ns
 grep "nasdaq.nsmequities.orders.ouch.v5.0.crosstype" Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.clordid" Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json
 grep "nasdaq.nsmequities.orders.ouch.v5.0.appendagelength" Nasdaq.NsmEquities.Orders.Ouch.v5.0.EnterOrderMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/OrderAcceptedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/OrderAcceptedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/OrderAcceptedMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nasdaq.nsmequities.orders.ouch.v5.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nasdaq.nsmequities.orders.ouch.v5.0.lua"; else echo "could not detect transport port for OrderAcceptedMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Nasdaq.Nsm.Ouch.v5.0/OrderAcceptedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_NsmEquities_Orders_Ouch_v5_0_Dissector.lua" \
-  -d "udp.port==$port,nasdaq.nsmequities.orders.ouch.v5.0.lua" \
+  -d "$decode" \
   -T json \
   > Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json 2> Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderAcceptedMessage) ---"; cat Nasdaq.NsmEquities.Orders.Ouch.v5.0.OrderAcceptedMessage.json.stderr; exit 1; }

@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,siac.cts.output.cta.v2.9.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,siac.cts.output.cta.v2.9.lua"; else echo "could not detect transport port for LineIntegrityMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
-  -d "udp.port==$port,siac.cts.output.cta.v2.9.lua" \
+  -d "$decode" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json 2> Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr \
   || { echo "--- tshark FAILED (LineIntegrityMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr; exit 1; }
@@ -27,12 +29,14 @@ grep "siac.cts.output.cta.v2.9.participantid" Siac.Cts.Output.Cta.v2.9.LineInteg
 grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.transactionid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.participantreferencenumber" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,siac.cts.output.cta.v2.9.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,siac.cts.output.cta.v2.9.lua"; else echo "could not detect transport port for LongTradeMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
-  -d "udp.port==$port,siac.cts.output.cta.v2.9.lua" \
+  -d "$decode" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json 2> Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (LongTradeMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr; exit 1; }
@@ -62,12 +66,14 @@ grep "siac.cts.output.cta.v2.9.financialstatusindicator" Siac.Cts.Output.Cta.v2.
 grep "siac.cts.output.cta.v2.9.heldtradeindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.consolidatedhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.participantopenhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,siac.cts.output.cta.v2.9.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,siac.cts.output.cta.v2.9.lua"; else echo "could not detect transport port for TradingStatusMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
-  -d "udp.port==$port,siac.cts.output.cta.v2.9.lua" \
+  -d "$decode" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json 2> Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (TradingStatusMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr; exit 1; }

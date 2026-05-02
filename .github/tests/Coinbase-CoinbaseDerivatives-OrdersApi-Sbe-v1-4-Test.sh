@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for InstrumentInfoMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoMessage.json.stderr \
   || { echo "--- tshark FAILED (InstrumentInfoMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoMessage.json.stderr; exit 1; }
@@ -30,12 +32,14 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.instrumentstatus" Coinbase
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.islastmessage" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.reservedbyte" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.symbol" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoRequestMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoRequestMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoRequestMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for InstrumentInfoRequestMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/InstrumentInfoRequestMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoRequestMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoRequestMessage.json.stderr \
   || { echo "--- tshark FAILED (InstrumentInfoRequestMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoRequestMessage.json.stderr; exit 1; }
@@ -48,12 +52,14 @@ echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoRequestMessage.json | sort -u | head -n 40
 
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.correlationid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoRequestMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderAckMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderAckMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderAckMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for MassCancelOrderAckMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderAckMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderAckMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderAckMessage.json.stderr \
   || { echo "--- tshark FAILED (MassCancelOrderAckMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderAckMessage.json.stderr; exit 1; }
@@ -71,12 +77,14 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.correlationid" Coinbase.Co
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.canceledcount" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderAckMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.onlycurrentsession" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderAckMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.tradinglockapplied" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderAckMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for MassCancelOrderMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/MassCancelOrderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (MassCancelOrderMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderMessage.json.stderr; exit 1; }
@@ -94,12 +102,14 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.instrumentid" Coinbase.Coi
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.side" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.currentsessiononly" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.requesttradinglock" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.MassCancelOrderMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/NewOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/NewOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/NewOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for NewOrderMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/NewOrderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.NewOrderMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.NewOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (NewOrderMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.NewOrderMessage.json.stderr; exit 1; }
@@ -117,12 +127,14 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.limitprice" Coinbase.Coinb
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.quantity" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.NewOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.instrumentid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.NewOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.side" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.NewOrderMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderFilledMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderFilledMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderFilledMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for OrderFilledMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderFilledMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderFilledMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderFilledMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderFilledMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderFilledMessage.json.stderr; exit 1; }
@@ -147,12 +159,14 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.fillprice" Coinbase.Coinba
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.fillqty" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderFilledMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.instrumentid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderFilledMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.isaggressor" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderFilledMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderReplacedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderReplacedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderReplacedMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for OrderReplacedMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/OrderReplacedMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderReplacedMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderReplacedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderReplacedMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderReplacedMessage.json.stderr; exit 1; }
@@ -173,12 +187,14 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.receivetime" Coinbase.Coin
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.totalfilled" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderReplacedMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.availableqty" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderReplacedMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.instrumentid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.OrderReplacedMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/ReplaceOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/ReplaceOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/ReplaceOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for ReplaceOrderMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/ReplaceOrderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.ReplaceOrderMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.ReplaceOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ReplaceOrderMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.ReplaceOrderMessage.json.stderr; exit 1; }
@@ -195,12 +211,14 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.correlationid" Coinbase.Co
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.newlimitprice" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.ReplaceOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.newquantity" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.ReplaceOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.instrumentid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.ReplaceOrderMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAccountMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAccountMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAccountMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for SetAccountMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAccountMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAccountMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAccountMessage.json.stderr \
   || { echo "--- tshark FAILED (SetAccountMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAccountMessage.json.stderr; exit 1; }
@@ -214,12 +232,14 @@ grep -oE '"[a-z0-9_.]+":' Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAcc
 
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.correlationid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAccountMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.account" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAccountMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAckMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAckMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAckMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for SetAckMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetAckMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAckMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAckMessage.json.stderr \
   || { echo "--- tshark FAILED (SetAckMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAckMessage.json.stderr; exit 1; }
@@ -232,12 +252,14 @@ echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAckMessage.json | sort -u | head -n 40
 
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.correlationid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetAckMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetTraderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetTraderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetTraderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua"; else echo "could not detect transport port for SetTraderMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/OrderApi.v1.4/SetTraderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
-  -d "udp.port==$port,coinbase.coinbasederivatives.ordersapi.sbe.v1.4.lua" \
+  -d "$decode" \
   -T json \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetTraderMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetTraderMessage.json.stderr \
   || { echo "--- tshark FAILED (SetTraderMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.SetTraderMessage.json.stderr; exit 1; }

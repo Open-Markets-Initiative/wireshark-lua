@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.cash.eti.t7.v10.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.cash.eti.t7.v10.0.lua"; else echo "could not detect transport port for OrderExecResponse"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" \
   -X "lua_script:Eurex/Eurex_Cash_Eti_T7_v10_0_Dissector.lua" \
-  -d "udp.port==$port,eurex.cash.eti.t7.v10.0.lua" \
+  -d "$decode" \
   -T json \
   > Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json 2> Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr \
   || { echo "--- tshark FAILED (OrderExecResponse) ---"; cat Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr; exit 1; }

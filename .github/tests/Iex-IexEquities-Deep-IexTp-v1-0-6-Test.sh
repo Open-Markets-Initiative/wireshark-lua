@@ -6,12 +6,14 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelBuyUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelBuyUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelBuyUpdateMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.deep.iextp.v1.0.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.deep.iextp.v1.0.6.lua"; else echo "could not detect transport port for PriceLevelBuyUpdateMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelBuyUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Deep_IexTp_v1_0_6_Dissector.lua" \
-  -d "udp.port==$port,iex.iexequities.deep.iextp.v1.0.6.lua" \
+  -d "$decode" \
   -T json \
   > Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelBuyUpdateMessage.json 2> Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelBuyUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (PriceLevelBuyUpdateMessage) ---"; cat Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelBuyUpdateMessage.json.stderr; exit 1; }
@@ -28,12 +30,14 @@ grep "iex.iexequities.deep.iextp.v1.0.6.timestamp" Iex.IexEquities.Deep.IexTp.v1
 grep "iex.iexequities.deep.iextp.v1.0.6.symbol" Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelBuyUpdateMessage.json
 grep "iex.iexequities.deep.iextp.v1.0.6.size" Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelBuyUpdateMessage.json
 grep "iex.iexequities.deep.iextp.v1.0.6.price" Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelBuyUpdateMessage.json
-port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelSellUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelSellUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelSellUpdateMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
+if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.deep.iextp.v1.0.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.deep.iextp.v1.0.6.lua"; else echo "could not detect transport port for PriceLevelSellUpdateMessage"; exit 1; fi
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Deep.IexTp.v1.0/PriceLevelSellUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Deep_IexTp_v1_0_6_Dissector.lua" \
-  -d "udp.port==$port,iex.iexequities.deep.iextp.v1.0.6.lua" \
+  -d "$decode" \
   -T json \
   > Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelSellUpdateMessage.json 2> Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelSellUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (PriceLevelSellUpdateMessage) ---"; cat Iex.IexEquities.Deep.IexTp.v1.0.6.PriceLevelSellUpdateMessage.json.stderr; exit 1; }
