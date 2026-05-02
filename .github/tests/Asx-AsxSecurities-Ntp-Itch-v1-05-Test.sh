@@ -1,70 +1,27 @@
 set -o errexit
 set -o pipefail
 
-echo "--- pre-tshark path check ---"
-echo "pwd: $(pwd)"
-ls -la "Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" || echo "DISSECTOR PATH MISSING"
-ls -la "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" || echo "PCAP PATH MISSING"
-echo "tshark Lua build flag:"
-tshark -v 2>&1 | grep -i -E 'with lua|without lua' || echo "no lua mention in tshark -v output"
+# Wireshark's Debian build silently disables -X lua_script: when running as root,
+# so all tshark calls below run as the unprivileged 'tester' user via runuser.
+# Give that user write access to the working directory for json output files.
+chown -R tester:tester .
 
-echo "--- init.lua locations ---"
-find /usr -name 'init.lua' 2>/dev/null || true
-echo "--- /usr/share/wireshark/init.lua tail ---"
-tail -20 /usr/share/wireshark/init.lua 2>/dev/null || echo "init.lua not at expected path"
-echo "--- root/superuser refs in init.lua ---"
-grep -n -E 'running_superuser|disable_lua|superuser' /usr/share/wireshark/init.lua 2>/dev/null || echo "no matches"
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
 
-echo "--- minimal lua script test (as tester user) ---"
-cat > /tmp/probe.lua <<'EOF'
-local f = io.open("/tmp/probe-touched.log", "w")
-if f then f:write("trivial script ran\n"); f:close() end
-io.stderr:write("[probe] trivial script ran (stderr)\n")
-print("[probe] trivial script ran (print)")
-EOF
-rm -f /tmp/probe-touched.log
-chmod 777 /tmp
-chown -R tester:tester . || true
-runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" -X "lua_script:/tmp/probe.lua" -T json > /dev/null 2> /tmp/probe.stderr || true
-echo "trivial script stderr:"
-cat /tmp/probe.stderr
-if [ -f /tmp/probe-touched.log ]; then
-  echo "TRIVIAL PROBE RAN — Lua scripting works as non-root user"
-  cat /tmp/probe-touched.log
-else
-  echo "TRIVIAL PROBE DID NOT RUN — Lua scripts still disabled"
-fi
-
-echo "--- tshark log-level debug for Lua ---"
-tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" --log-level=debug --log-domain=Lua -X "lua_script:/tmp/probe.lua" -T json > /dev/null 2> /tmp/probe-debug.stderr || true
-echo "lua-debug stderr (first 50 lines):"
-head -n 50 /tmp/probe-debug.stderr || true
-
-rm -f /tmp/asx-itch-load.log
-
-tshark \
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr; exit 1; }
-
-echo "--- script load file probe ---"
-if [ -f /tmp/asx-itch-load.log ]; then
-  echo "PROBE FILE EXISTS — script chunk executed:"
-  cat /tmp/asx-itch-load.log
-else
-  echo "PROBE FILE MISSING — script chunk never ran"
-fi
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr ]; then echo "--- tshark stderr (AddOrderMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr; fi
 echo "--- tshark diagnostic (AddOrderMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json
@@ -74,21 +31,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.orderid" Asx.AsxSecurities.Ntp.Itch.v1.05
 grep "asx.asxsecurities.ntp.itch.v1.05.orderbookpriority" Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.quantity" Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.price" Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AnomalousOrderThresholdPublishMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AnomalousOrderThresholdPublishMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr \
   || { echo "--- tshark FAILED (AnomalousOrderThresholdPublishMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr ]; then echo "--- tshark stderr (AnomalousOrderThresholdPublishMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr; fi
 echo "--- tshark diagnostic (AnomalousOrderThresholdPublishMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
@@ -99,21 +57,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.aotlowerprice" Asx.AsxSecurities.Ntp.Itch
 grep "asx.asxsecurities.ntp.itch.v1.05.etrprice" Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.etrupperprice" Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.etrlowerprice" Asx.AsxSecurities.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AuctionOrderExecutedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AuctionOrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (AuctionOrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (AuctionOrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr; fi
 echo "--- tshark diagnostic (AuctionOrderExecutedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
@@ -126,21 +85,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.tradeid" Asx.AsxSecurities.Ntp.Itch.v1.05
 grep "asx.asxsecurities.ntp.itch.v1.05.executedquantity" Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradeprice" Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.oppositeorderid" Asx.AsxSecurities.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationOrderExecutedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationOrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (CombinationOrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (CombinationOrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr; fi
 echo "--- tshark diagnostic (CombinationOrderExecutedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
@@ -156,21 +116,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.oppositetradeableinstrumentid" Asx.AsxSec
 grep "asx.asxsecurities.ntp.itch.v1.05.oppositeside" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.oppositeorderid" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.combinationtradeid" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationSymbolDirectoryMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr \
   || { echo "--- tshark FAILED (CombinationSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (CombinationSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr; fi
 echo "--- tshark diagnostic (CombinationSymbolDirectoryMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
@@ -183,21 +144,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.pricedisplaydecimals" Asx.AsxSecurities.N
 grep "asx.asxsecurities.ntp.itch.v1.05.pricefractionaldenominator" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.priceminimumtick" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.legs" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationTradeExecutedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/CombinationTradeExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (CombinationTradeExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr ]; then echo "--- tshark stderr (CombinationTradeExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr; fi
 echo "--- tshark diagnostic (CombinationTradeExecutedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
@@ -216,21 +178,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.sellerside" Asx.AsxSecurities.Ntp.Itch.v1
 grep "asx.asxsecurities.ntp.itch.v1.05.sellerorderid" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.sellercombinationtradeid" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.sellerparticipantid" Asx.AsxSecurities.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/EquilibriumPriceMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/EquilibriumPriceMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr \
   || { echo "--- tshark FAILED (EquilibriumPriceMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr ]; then echo "--- tshark stderr (EquilibriumPriceMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr; fi
 echo "--- tshark diagnostic (EquilibriumPriceMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
@@ -239,21 +202,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.equilibriumprice" Asx.AsxSecurities.Ntp.I
 grep "asx.asxsecurities.ntp.itch.v1.05.matchedquantity" Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.bidquantity" Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.askquantity" Asx.AsxSecurities.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/FutureSymbolDirectoryMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/FutureSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr \
   || { echo "--- tshark FAILED (FutureSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (FutureSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr; fi
 echo "--- tshark diagnostic (FutureSymbolDirectoryMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
@@ -278,21 +242,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.couponrate" Asx.AsxSecurities.Ntp.Itch.v1
 grep "asx.asxsecurities.ntp.itch.v1.05.paymentsperyear" Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.blocklotsize" Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.expirydate" Asx.AsxSecurities.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderAddedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderAddedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr \
   || { echo "--- tshark FAILED (ImpliedOrderAddedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr ]; then echo "--- tshark stderr (ImpliedOrderAddedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr; fi
 echo "--- tshark diagnostic (ImpliedOrderAddedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
@@ -302,42 +267,44 @@ grep "asx.asxsecurities.ntp.itch.v1.05.orderid" Asx.AsxSecurities.Ntp.Itch.v1.05
 grep "asx.asxsecurities.ntp.itch.v1.05.orderbookpriority" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.quantity" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.price" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderDeletedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderDeletedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr \
   || { echo "--- tshark FAILED (ImpliedOrderDeletedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr ]; then echo "--- tshark stderr (ImpliedOrderDeletedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr; fi
 echo "--- tshark diagnostic (ImpliedOrderDeletedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradeableinstrumentid" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.side" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.orderid" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderReplacedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/ImpliedOrderReplacedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr \
   || { echo "--- tshark FAILED (ImpliedOrderReplacedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr ]; then echo "--- tshark stderr (ImpliedOrderReplacedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr; fi
 echo "--- tshark diagnostic (ImpliedOrderReplacedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
@@ -347,21 +314,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.orderid" Asx.AsxSecurities.Ntp.Itch.v1.05
 grep "asx.asxsecurities.ntp.itch.v1.05.orderbookpriority" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.quantity" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.price" Asx.AsxSecurities.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OpenHighLowLastTradeAdjustmentMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OpenHighLowLastTradeAdjustmentMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr \
   || { echo "--- tshark FAILED (OpenHighLowLastTradeAdjustmentMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr ]; then echo "--- tshark stderr (OpenHighLowLastTradeAdjustmentMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr; fi
 echo "--- tshark diagnostic (OpenHighLowLastTradeAdjustmentMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
@@ -372,21 +340,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.lowesttrade" Asx.AsxSecurities.Ntp.Itch.v
 grep "asx.asxsecurities.ntp.itch.v1.05.lasttrade" Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.lastvolume" Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.totaltradedvolume" Asx.AsxSecurities.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OptionsSymbolDirectoryMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OptionsSymbolDirectoryMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr \
   || { echo "--- tshark FAILED (OptionsSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr ]; then echo "--- tshark stderr (OptionsSymbolDirectoryMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr; fi
 echo "--- tshark diagnostic (OptionsSymbolDirectoryMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
@@ -419,62 +388,65 @@ grep "asx.asxsecurities.ntp.itch.v1.05.paymentsperyear" Asx.AsxSecurities.Ntp.It
 grep "asx.asxsecurities.ntp.itch.v1.05.blocklotsize" Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.expirydate" Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.basisofquotation" Asx.AsxSecurities.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderBookStateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderBookStateMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderBookStateMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr ]; then echo "--- tshark stderr (OrderBookStateMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr; fi
 echo "--- tshark diagnostic (OrderBookStateMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradeableinstrumentid" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.sessionstate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderBookStateMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderDeletedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderDeletedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderDeletedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr ]; then echo "--- tshark stderr (OrderDeletedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr; fi
 echo "--- tshark diagnostic (OrderDeletedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradeableinstrumentid" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.side" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.orderid" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderDeletedMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderExecutedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr ]; then echo "--- tshark stderr (OrderExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr; fi
 echo "--- tshark diagnostic (OrderExecutedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json
@@ -488,21 +460,22 @@ grep "asx.asxsecurities.ntp.itch.v1.05.executedquantity" Asx.AsxSecurities.Ntp.I
 grep "asx.asxsecurities.ntp.itch.v1.05.tradeprice" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.combinationtradeid" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.counterpartyid" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderExecutedMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderVolumeCancelledMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/OrderVolumeCancelledMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderVolumeCancelledMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr ]; then echo "--- tshark stderr (OrderVolumeCancelledMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr; fi
 echo "--- tshark diagnostic (OrderVolumeCancelledMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
@@ -510,41 +483,43 @@ grep "asx.asxsecurities.ntp.itch.v1.05.tradeableinstrumentid" Asx.AsxSecurities.
 grep "asx.asxsecurities.ntp.itch.v1.05.side" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.orderid" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.quantity" Asx.AsxSecurities.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TextMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TextMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json.stderr \
   || { echo "--- tshark FAILED (TextMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json.stderr ]; then echo "--- tshark stderr (TextMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json.stderr; fi
 echo "--- tshark diagnostic (TextMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.sourceid" Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.text" Asx.AsxSecurities.Ntp.Itch.v1.05.TextMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TradeExecutedMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/TradeExecutedMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
+  -d "udp.port==$port,asx.asxsecurities.ntp.itch.v1.05.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr; exit 1; }
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr ]; then echo "--- tshark stderr (TradeExecutedMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr; fi
 echo "--- tshark diagnostic (TradeExecutedMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json; echo
 
 grep "asx.asxsecurities.ntp.itch.v1.05.nanoseconds" Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json
 grep "asx.asxsecurities.ntp.itch.v1.05.tradedate" Asx.AsxSecurities.Ntp.Itch.v1.05.TradeExecutedMessage.json

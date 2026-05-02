@@ -1,21 +1,27 @@
 set -o errexit
 set -o pipefail
 
-tshark \
+# Wireshark's Debian build silently disables -X lua_script: when running as root,
+# so all tshark calls below run as the unprivileged 'tester' user via runuser.
+# Give that user write access to the working directory for json output files.
+chown -R tester:tester .
+
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  -d "udp.port==$port,nyse.nyseequities.bbo.pillar.v2.5.b.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr ]; then echo "--- tshark stderr (QuoteMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr; fi
 echo "--- tshark diagnostic (QuoteMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json; echo
 
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sourcetimens" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.symbolindex" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
@@ -26,41 +32,43 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.bidprice" Nyse.NyseEquities.Bbo.Pillar
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.bidvolume" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.quotecondition" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.rpiindicator" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/RefreshHeaderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  -d "udp.port==$port,nyse.nyseequities.bbo.pillar.v2.5.b.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr \
   || { echo "--- tshark FAILED (RefreshHeaderMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr ]; then echo "--- tshark stderr (RefreshHeaderMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr; fi
 echo "--- tshark diagnostic (RefreshHeaderMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json; echo
 
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.currentrefreshpkt" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.totalrefreshpkts" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.lastseqnum" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.lastsymbolseqnum" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SecurityStatusMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  -d "udp.port==$port,nyse.nyseequities.bbo.pillar.v2.5.b.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr ]; then echo "--- tshark stderr (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr; fi
 echo "--- tshark diagnostic (SecurityStatusMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json; echo
 
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sourcetime" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sourcetimens" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
@@ -77,21 +85,22 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.time" Nyse.NyseEquities.Bbo.Pillar.v2.
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.ssrstate" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.marketstate" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sessionstate" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SourceTimeReferenceMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  -d "udp.port==$port,nyse.nyseequities.bbo.pillar.v2.5.b.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr; exit 1; }
 if [ -s Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr ]; then echo "--- tshark stderr (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr; fi
 echo "--- tshark diagnostic (SourceTimeReferenceMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json; echo
 
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.id" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.symbolseqnum" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json

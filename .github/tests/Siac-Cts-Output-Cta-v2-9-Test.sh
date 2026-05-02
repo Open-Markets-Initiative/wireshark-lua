@@ -1,41 +1,48 @@
 set -o errexit
 set -o pipefail
 
-tshark \
+# Wireshark's Debian build silently disables -X lua_script: when running as root,
+# so all tshark calls below run as the unprivileged 'tester' user via runuser.
+# Give that user write access to the working directory for json output files.
+chown -R tester:tester .
+
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/LineIntegrityMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
+  -d "udp.port==$port,siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json 2> Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr \
   || { echo "--- tshark FAILED (LineIntegrityMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr; exit 1; }
 if [ -s Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr ]; then echo "--- tshark stderr (LineIntegrityMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr; fi
 echo "--- tshark diagnostic (LineIntegrityMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json; echo
 
 grep "siac.cts.output.cta.v2.9.participantid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.transactionid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.participantreferencenumber" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/LongTradeMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
+  -d "udp.port==$port,siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json 2> Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (LongTradeMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr; exit 1; }
 if [ -s Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr ]; then echo "--- tshark stderr (LongTradeMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr; fi
 echo "--- tshark diagnostic (LongTradeMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json; echo
 
 grep "siac.cts.output.cta.v2.9.participantid" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
@@ -55,21 +62,22 @@ grep "siac.cts.output.cta.v2.9.financialstatusindicator" Siac.Cts.Output.Cta.v2.
 grep "siac.cts.output.cta.v2.9.heldtradeindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.consolidatedhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.participantopenhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
-tshark \
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.9/TradingStatusMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
+  -d "udp.port==$port,siac.cts.output.cta.v2.9.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json 2> Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (TradingStatusMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr; exit 1; }
 if [ -s Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr ]; then echo "--- tshark stderr (TradingStatusMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr; fi
 echo "--- tshark diagnostic (TradingStatusMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json; echo
 
 grep "siac.cts.output.cta.v2.9.participantid" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
 grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json

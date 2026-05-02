@@ -1,21 +1,27 @@
 set -o errexit
 set -o pipefail
 
-tshark \
+# Wireshark's Debian build silently disables -X lua_script: when running as root,
+# so all tshark calls below run as the unprivileged 'tester' user via runuser.
+# Give that user write access to the working directory for json output files.
+chown -R tester:tester .
+
+port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" \
   -X "lua_script:Siac/Siac_Cqs_Output_Cta_v1_91_Dissector.lua" \
+  -d "udp.port==$port,siac.cqs.output.cta.v1.91.lua" \
   -T json \
   > Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json 2> Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; exit 1; }
 if [ -s Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr ]; then echo "--- tshark stderr (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; fi
 echo "--- tshark diagnostic (LongQuoteMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json; echo
 
 grep "siac.cqs.output.cta.v1.91.participantid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.messageid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json

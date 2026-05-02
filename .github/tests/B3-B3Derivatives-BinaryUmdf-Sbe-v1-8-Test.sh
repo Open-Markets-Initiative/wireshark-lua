@@ -1,21 +1,27 @@
 set -o errexit
 set -o pipefail
 
-tshark \
+# Wireshark's Debian build silently disables -X lua_script: when running as root,
+# so all tshark calls below run as the unprivileged 'tester' user via runuser.
+# Give that user write access to the working directory for json output files.
+chown -R tester:tester .
+
+port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryUmdf.v1.8/SecurityDefinitionMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryUmdf.v1.8/SecurityDefinitionMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryUmdf_Sbe_v1_8_Dissector.lua" \
+  -d "udp.port==$port,b3.b3derivatives.binaryumdf.sbe.v1.8.lua" \
   -T json \
   > B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json 2> B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityDefinitionMessage) ---"; cat B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr; exit 1; }
 if [ -s B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr ]; then echo "--- tshark stderr (SecurityDefinitionMessage) ---"; cat B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr; fi
 echo "--- tshark diagnostic (SecurityDefinitionMessage) ---"
-tshark -v | head -n 1
 echo "json bytes: $(wc -c < B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json)"
 echo "frame count: $(grep -c '\"_index\"' B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json || true)"
-echo "layer keys (frame 0):"
+echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json | head -n 1)"
+echo "layer keys:"
 grep -oE '"[a-z0-9_.]+":' B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json | sort -u | head -n 40
-echo "json head:"
-head -c 1500 B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json; echo
 
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.securityid" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.securityexchange" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
