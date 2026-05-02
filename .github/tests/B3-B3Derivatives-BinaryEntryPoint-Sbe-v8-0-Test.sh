@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/NegotiateRejectMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/NegotiateRejectMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.0.lua"; else echo "could not detect transport port for NegotiateRejectMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/NegotiateRejectMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json.stderr \
   || { echo "--- tshark FAILED (NegotiateRejectMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json.stderr; exit 1; }
@@ -32,14 +27,9 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.enteringfirmoptional" B3.B3Deri
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.negotiationrejectcode" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.offset25padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.0.currentsessionverid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.NegotiateRejectMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/TerminateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/TerminateMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.0.lua"; else echo "could not detect transport port for TerminateMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.0/TerminateMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json.stderr \
   || { echo "--- tshark FAILED (TerminateMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.0.TerminateMessage.json.stderr; exit 1; }

@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/ImbalancesFeed.Xdp.v2.1.f/ImbalanceMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/ImbalancesFeed.Xdp.v2.1.f/ImbalanceMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.lua"; else echo "could not detect transport port for ImbalanceMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ImbalancesFeed.Xdp.v2.1.f/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_1_f_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json.stderr \
   || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json.stderr; exit 1; }

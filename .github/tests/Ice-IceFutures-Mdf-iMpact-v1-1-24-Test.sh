@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/AddOrModifyOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/AddOrModifyOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; else echo "could not detect transport port for AddOrModifyOrderMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/AddOrModifyOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrModifyOrderMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json.stderr; exit 1; }
@@ -36,14 +31,9 @@ grep "ice.icefutures.mdf.impact.v1.1.24.isrfq" Ice.IceFutures.Mdf.iMpact.v1.1.24
 grep "ice.icefutures.mdf.impact.v1.1.24.orderentrydatetime" Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.extraflags" Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.sequencewithinmillis" Ice.IceFutures.Mdf.iMpact.v1.1.24.AddOrModifyOrderMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/MarketStateChangeMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/MarketStateChangeMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; else echo "could not detect transport port for MarketStateChangeMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/MarketStateChangeMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json.stderr \
   || { echo "--- tshark FAILED (MarketStateChangeMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json.stderr; exit 1; }
@@ -58,14 +48,9 @@ grep -oE '"[a-z0-9_.]+":' Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMes
 grep "ice.icefutures.mdf.impact.v1.1.24.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.tradingstatus" Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.messagedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.24.MarketStateChangeMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/NewOptionsStrategyDefinitionMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/NewOptionsStrategyDefinitionMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; else echo "could not detect transport port for NewOptionsStrategyDefinitionMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/NewOptionsStrategyDefinitionMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json.stderr \
   || { echo "--- tshark FAILED (NewOptionsStrategyDefinitionMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json.stderr; exit 1; }
@@ -91,14 +76,9 @@ grep "ice.icefutures.mdf.impact.v1.1.24.securitysubtype" Ice.IceFutures.Mdf.iMpa
 grep "ice.icefutures.mdf.impact.v1.1.24.isblockonly" Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.strategysymbol" Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.gtallowed" Ice.IceFutures.Mdf.iMpact.v1.1.24.NewOptionsStrategyDefinitionMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/OpenPriceMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/OpenPriceMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; else echo "could not detect transport port for OpenPriceMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/OpenPriceMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json.stderr \
   || { echo "--- tshark FAILED (OpenPriceMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json.stderr; exit 1; }
@@ -113,14 +93,9 @@ grep -oE '"[a-z0-9_.]+":' Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.jso
 grep "ice.icefutures.mdf.impact.v1.1.24.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.openprice" Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.24.messagedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.24.OpenPriceMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/PreOpenPriceIndicatorMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/PreOpenPriceIndicatorMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,ice.icefutures.mdf.impact.v1.1.24.lua"; else echo "could not detect transport port for PreOpenPriceIndicatorMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.24/PreOpenPriceIndicatorMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json.stderr \
   || { echo "--- tshark FAILED (PreOpenPriceIndicatorMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.24.PreOpenPriceIndicatorMessage.json.stderr; exit 1; }

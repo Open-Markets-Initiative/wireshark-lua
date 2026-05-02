@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/AuctionInformationMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/AuctionInformationMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for AuctionInformationMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/AuctionInformationMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json.stderr \
   || { echo "--- tshark FAILED (AuctionInformationMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json.stderr; exit 1; }
@@ -39,14 +34,9 @@ grep "iex.iexequities.tops.iextp.v1.5.6.auctionbookclearingprice" Iex.IexEquitie
 grep "iex.iexequities.tops.iextp.v1.5.6.collarreferenceprice" Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.lowerauctioncollar" Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.upperauctioncollar" Iex.IexEquities.Tops.IexTp.v1.5.6.AuctionInformationMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OfficialPriceMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OfficialPriceMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for OfficialPriceMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OfficialPriceMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json.stderr \
   || { echo "--- tshark FAILED (OfficialPriceMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json.stderr; exit 1; }
@@ -62,14 +52,9 @@ grep "iex.iexequities.tops.iextp.v1.5.6.pricetype" Iex.IexEquities.Tops.IexTp.v1
 grep "iex.iexequities.tops.iextp.v1.5.6.timestamp" Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.symbol" Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.officialprice" Iex.IexEquities.Tops.IexTp.v1.5.6.OfficialPriceMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OperationalHaltStatusMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OperationalHaltStatusMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for OperationalHaltStatusMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OperationalHaltStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (OperationalHaltStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json.stderr; exit 1; }
@@ -84,14 +69,9 @@ grep -oE '"[a-z0-9_.]+":' Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatu
 grep "iex.iexequities.tops.iextp.v1.5.6.operationalhaltstatus" Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.timestamp" Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.symbol" Iex.IexEquities.Tops.IexTp.v1.5.6.OperationalHaltStatusMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/QuoteUpdateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/QuoteUpdateMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for QuoteUpdateMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/QuoteUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteUpdateMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json.stderr; exit 1; }
@@ -110,14 +90,9 @@ grep "iex.iexequities.tops.iextp.v1.5.6.bidsize" Iex.IexEquities.Tops.IexTp.v1.5
 grep "iex.iexequities.tops.iextp.v1.5.6.bidprice" Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.askprice" Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.asksize" Iex.IexEquities.Tops.IexTp.v1.5.6.QuoteUpdateMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SecurityDirectoryMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SecurityDirectoryMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for SecurityDirectoryMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SecurityDirectoryMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityDirectoryMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json.stderr; exit 1; }
@@ -135,14 +110,9 @@ grep "iex.iexequities.tops.iextp.v1.5.6.symbol" Iex.IexEquities.Tops.IexTp.v1.5.
 grep "iex.iexequities.tops.iextp.v1.5.6.roundlotsize" Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.adjustedpocprice" Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.luldtier" Iex.IexEquities.Tops.IexTp.v1.5.6.SecurityDirectoryMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/ShortSalePriceTestStatusMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/ShortSalePriceTestStatusMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for ShortSalePriceTestStatusMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/ShortSalePriceTestStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (ShortSalePriceTestStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json.stderr; exit 1; }
@@ -158,14 +128,9 @@ grep "iex.iexequities.tops.iextp.v1.5.6.shortsalepriceteststatus" Iex.IexEquitie
 grep "iex.iexequities.tops.iextp.v1.5.6.timestamp" Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.symbol" Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.detail" Iex.IexEquities.Tops.IexTp.v1.5.6.ShortSalePriceTestStatusMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SystemEventMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SystemEventMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for SystemEventMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SystemEventMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json.stderr \
   || { echo "--- tshark FAILED (SystemEventMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json.stderr; exit 1; }
@@ -179,14 +144,9 @@ grep -oE '"[a-z0-9_.]+":' Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.j
 
 grep "iex.iexequities.tops.iextp.v1.5.6.systemevent" Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.timestamp" Iex.IexEquities.Tops.IexTp.v1.5.6.SystemEventMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradeReportMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradeReportMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for TradeReportMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradeReportMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeReportMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json.stderr; exit 1; }
@@ -204,14 +164,9 @@ grep "iex.iexequities.tops.iextp.v1.5.6.symbol" Iex.IexEquities.Tops.IexTp.v1.5.
 grep "iex.iexequities.tops.iextp.v1.5.6.size" Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.price" Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json
 grep "iex.iexequities.tops.iextp.v1.5.6.tradeid" Iex.IexEquities.Tops.IexTp.v1.5.6.TradeReportMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradingStatusMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradingStatusMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,iex.iexequities.tops.iextp.v1.5.6.lua"; else echo "could not detect transport port for TradingStatusMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradingStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_5_6_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (TradingStatusMessage) ---"; cat Iex.IexEquities.Tops.IexTp.v1.5.6.TradingStatusMessage.json.stderr; exit 1; }

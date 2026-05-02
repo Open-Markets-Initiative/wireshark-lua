@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,siac.cqs.output.cta.v1.91.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,siac.cqs.output.cta.v1.91.lua"; else echo "could not detect transport port for LongQuoteMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cqs.Cta.v1.91/LongQuoteMessage.pcap" \
   -X "lua_script:Siac/Siac_Cqs_Output_Cta_v1_91_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json 2> Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; exit 1; }

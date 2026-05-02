@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.bbo.pillar.v2.5.b.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.bbo.pillar.v2.5.b.lua"; else echo "could not detect transport port for QuoteMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr; exit 1; }
@@ -34,14 +29,9 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.bidprice" Nyse.NyseEquities.Bbo.Pillar
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.bidvolume" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.quotecondition" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.rpiindicator" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/RefreshHeaderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/RefreshHeaderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.bbo.pillar.v2.5.b.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.bbo.pillar.v2.5.b.lua"; else echo "could not detect transport port for RefreshHeaderMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr \
   || { echo "--- tshark FAILED (RefreshHeaderMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr; exit 1; }
@@ -57,14 +47,9 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.currentrefreshpkt" Nyse.NyseEquities.B
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.totalrefreshpkts" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.lastseqnum" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.lastsymbolseqnum" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SecurityStatusMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SecurityStatusMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.bbo.pillar.v2.5.b.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.bbo.pillar.v2.5.b.lua"; else echo "could not detect transport port for SecurityStatusMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr; exit 1; }
@@ -91,14 +76,9 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.time" Nyse.NyseEquities.Bbo.Pillar.v2.
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.ssrstate" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.marketstate" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sessionstate" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SourceTimeReferenceMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SourceTimeReferenceMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.nyseequities.bbo.pillar.v2.5.b.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.nyseequities.bbo.pillar.v2.5.b.lua"; else echo "could not detect transport port for SourceTimeReferenceMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/National.Equities.Bbo.Pillar.v2.5/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr; exit 1; }

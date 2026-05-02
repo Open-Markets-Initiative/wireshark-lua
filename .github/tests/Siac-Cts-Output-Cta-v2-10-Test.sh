@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.10/TradeCorrectionMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Siac/Cts.Cta.v2.10/TradeCorrectionMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,siac.cts.output.cta.v2.10.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,siac.cts.output.cta.v2.10.lua"; else echo "could not detect transport port for TradeCorrectionMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Cta.v2.10/TradeCorrectionMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_10_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json 2> Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeCorrectionMessage) ---"; cat Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr; exit 1; }

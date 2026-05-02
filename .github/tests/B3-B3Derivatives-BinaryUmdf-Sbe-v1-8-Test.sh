@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryUmdf.v1.8/SecurityDefinitionMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryUmdf.v1.8/SecurityDefinitionMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryumdf.sbe.v1.8.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryumdf.sbe.v1.8.lua"; else echo "could not detect transport port for SecurityDefinitionMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryUmdf.v1.8/SecurityDefinitionMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryUmdf_Sbe_v1_8_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json 2> B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityDefinitionMessage) ---"; cat B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json.stderr; exit 1; }

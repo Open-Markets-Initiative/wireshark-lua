@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ExecutionSummary.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ExecutionSummary.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for ExecutionSummary"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ExecutionSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json.stderr \
   || { echo "--- tshark FAILED (ExecutionSummary) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json.stderr; exit 1; }
@@ -36,14 +31,9 @@ grep "eurex.derivatives.eobi.t7.v6.0.pad2" Eurex.Derivatives.Eobi.T7.v6.0.Execut
 grep "eurex.derivatives.eobi.t7.v6.0.lastpx" Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.restinghiddenqty" Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.restingcxlqty" Eurex.Derivatives.Eobi.T7.v6.0.ExecutionSummary.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/FullOrderExecution.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/FullOrderExecution.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for FullOrderExecution"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/FullOrderExecution.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json 2> Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json.stderr \
   || { echo "--- tshark FAILED (FullOrderExecution) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json.stderr; exit 1; }
@@ -65,14 +55,9 @@ grep "eurex.derivatives.eobi.t7.v6.0.securityid" Eurex.Derivatives.Eobi.T7.v6.0.
 grep "eurex.derivatives.eobi.t7.v6.0.trdmatchid" Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json
 grep "eurex.derivatives.eobi.t7.v6.0.lastqty" Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json
 grep "eurex.derivatives.eobi.t7.v6.0.lastpx" Eurex.Derivatives.Eobi.T7.v6.0.FullOrderExecution.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/Heartbeat.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/Heartbeat.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for Heartbeat"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/Heartbeat.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json 2> Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json.stderr \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json.stderr; exit 1; }
@@ -86,14 +71,9 @@ grep -oE '"[a-z0-9_.]+":' Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json | sort -
 
 grep "eurex.derivatives.eobi.t7.v6.0.lastmsgseqnumprocessed" Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json
 grep "eurex.derivatives.eobi.t7.v6.0.pad4" Eurex.Derivatives.Eobi.T7.v6.0.Heartbeat.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/InstrumentSummary.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/InstrumentSummary.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for InstrumentSummary"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/InstrumentSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json.stderr \
   || { echo "--- tshark FAILED (InstrumentSummary) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json.stderr; exit 1; }
@@ -115,14 +95,9 @@ grep "eurex.derivatives.eobi.t7.v6.0.marketcondition" Eurex.Derivatives.Eobi.T7.
 grep "eurex.derivatives.eobi.t7.v6.0.fastmarketindicator" Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.securitytradingevent" Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.nomdentries" Eurex.Derivatives.Eobi.T7.v6.0.InstrumentSummary.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderAdd.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderAdd.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for OrderAdd"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderAdd.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json 2> Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json.stderr \
   || { echo "--- tshark FAILED (OrderAdd) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json.stderr; exit 1; }
@@ -136,14 +111,9 @@ grep -oE '"[a-z0-9_.]+":' Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json | sort -u
 
 grep "eurex.derivatives.eobi.t7.v6.0.trdregtstimein" Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json
 grep "eurex.derivatives.eobi.t7.v6.0.securityid" Eurex.Derivatives.Eobi.T7.v6.0.OrderAdd.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderModify.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderModify.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for OrderModify"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/OrderModify.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json 2> Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json.stderr \
   || { echo "--- tshark FAILED (OrderModify) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json.stderr; exit 1; }
@@ -161,14 +131,9 @@ grep "eurex.derivatives.eobi.t7.v6.0.prevprice" Eurex.Derivatives.Eobi.T7.v6.0.O
 grep "eurex.derivatives.eobi.t7.v6.0.prevdisplayqty" Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json
 grep "eurex.derivatives.eobi.t7.v6.0.pad4" Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json
 grep "eurex.derivatives.eobi.t7.v6.0.securityid" Eurex.Derivatives.Eobi.T7.v6.0.OrderModify.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/PartialOrderExecution.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/PartialOrderExecution.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for PartialOrderExecution"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/PartialOrderExecution.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json 2> Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json.stderr \
   || { echo "--- tshark FAILED (PartialOrderExecution) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json.stderr; exit 1; }
@@ -190,14 +155,9 @@ grep "eurex.derivatives.eobi.t7.v6.0.securityid" Eurex.Derivatives.Eobi.T7.v6.0.
 grep "eurex.derivatives.eobi.t7.v6.0.trdmatchid" Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json
 grep "eurex.derivatives.eobi.t7.v6.0.lastqty" Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json
 grep "eurex.derivatives.eobi.t7.v6.0.lastpx" Eurex.Derivatives.Eobi.T7.v6.0.PartialOrderExecution.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ProductSummary.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ProductSummary.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for ProductSummary"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/ProductSummary.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json 2> Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json.stderr \
   || { echo "--- tshark FAILED (ProductSummary) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json.stderr; exit 1; }
@@ -216,14 +176,9 @@ grep "eurex.derivatives.eobi.t7.v6.0.tradsesstatus" Eurex.Derivatives.Eobi.T7.v6
 grep "eurex.derivatives.eobi.t7.v6.0.marketcondition" Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.fastmarketindicator" Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json
 grep "eurex.derivatives.eobi.t7.v6.0.pad7" Eurex.Derivatives.Eobi.T7.v6.0.ProductSummary.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/SnapshotOrder.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v6.0/SnapshotOrder.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v6.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v6.0.lua"; else echo "could not detect transport port for SnapshotOrder"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v6.0/SnapshotOrder.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v6_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json 2> Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json.stderr \
   || { echo "--- tshark FAILED (SnapshotOrder) ---"; cat Eurex.Derivatives.Eobi.T7.v6.0.SnapshotOrder.json.stderr; exit 1; }

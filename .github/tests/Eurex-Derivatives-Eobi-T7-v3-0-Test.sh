@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/Heartbeat.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/Heartbeat.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v3.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v3.0.lua"; else echo "could not detect transport port for Heartbeat"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v3.0/Heartbeat.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v3_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json 2> Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json.stderr \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json.stderr; exit 1; }
@@ -27,14 +22,9 @@ grep -oE '"[a-z0-9_.]+":' Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json | sort -
 
 grep "eurex.derivatives.eobi.t7.v3.0.lastmsgseqnumprocessed" Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json
 grep "eurex.derivatives.eobi.t7.v3.0.pad4" Eurex.Derivatives.Eobi.T7.v3.0.Heartbeat.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/OrderAdd.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/OrderAdd.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v3.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v3.0.lua"; else echo "could not detect transport port for OrderAdd"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v3.0/OrderAdd.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v3_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json 2> Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json.stderr \
   || { echo "--- tshark FAILED (OrderAdd) ---"; cat Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json.stderr; exit 1; }
@@ -48,14 +38,9 @@ grep -oE '"[a-z0-9_.]+":' Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json | sort -u
 
 grep "eurex.derivatives.eobi.t7.v3.0.trdregtstimein" Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json
 grep "eurex.derivatives.eobi.t7.v3.0.securityid" Eurex.Derivatives.Eobi.T7.v3.0.OrderAdd.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/SnapshotOrder.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Eurex/Eobi.T7.v3.0/SnapshotOrder.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,eurex.derivatives.eobi.t7.v3.0.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,eurex.derivatives.eobi.t7.v3.0.lua"; else echo "could not detect transport port for SnapshotOrder"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/Eobi.T7.v3.0/SnapshotOrder.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eobi_T7_v3_0_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Eurex.Derivatives.Eobi.T7.v3.0.SnapshotOrder.json 2> Eurex.Derivatives.Eobi.T7.v3.0.SnapshotOrder.json.stderr \
   || { echo "--- tshark FAILED (SnapshotOrder) ---"; cat Eurex.Derivatives.Eobi.T7.v3.0.SnapshotOrder.json.stderr; exit 1; }

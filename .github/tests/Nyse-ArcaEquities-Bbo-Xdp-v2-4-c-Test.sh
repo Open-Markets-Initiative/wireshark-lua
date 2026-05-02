@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/QuoteMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/QuoteMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.arcaequities.bbo.xdp.v2.4.c.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.arcaequities.bbo.xdp.v2.4.c.lua"; else echo "could not detect transport port for QuoteMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteMessage) ---"; cat Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json.stderr; exit 1; }
@@ -35,14 +30,9 @@ grep "nyse.arcaequities.bbo.xdp.v2.4.c.bidvolume" Nyse.ArcaEquities.Bbo.Xdp.v2.4
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.quotecondition" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.rpiindicator" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.reserved4" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SequenceNumberResetMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SequenceNumberResetMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.arcaequities.bbo.xdp.v2.4.c.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.arcaequities.bbo.xdp.v2.4.c.lua"; else echo "could not detect transport port for SequenceNumberResetMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json.stderr \
   || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json.stderr; exit 1; }
@@ -58,14 +48,9 @@ grep "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetime" Nyse.ArcaEquities.Bbo.Xdp.v2.
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetimens" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.productid" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.channelid" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SymbolIndexMappingMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SymbolIndexMappingMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,nyse.arcaequities.bbo.xdp.v2.4.c.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,nyse.arcaequities.bbo.xdp.v2.4.c.lua"; else echo "could not detect transport port for SymbolIndexMappingMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/Bbo.Xdp.v2.3a/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json.stderr \
   || { echo "--- tshark FAILED (SymbolIndexMappingMessage) ---"; cat Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json.stderr; exit 1; }

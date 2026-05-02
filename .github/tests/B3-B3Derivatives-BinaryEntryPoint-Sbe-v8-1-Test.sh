@@ -6,14 +6,9 @@ set -o pipefail
 # Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/EstablishMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/EstablishMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; else echo "could not detect transport port for EstablishMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/EstablishMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json.stderr \
   || { echo "--- tshark FAILED (EstablishMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json.stderr; exit 1; }
@@ -33,14 +28,9 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.nextseqno" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.cancelondisconnecttype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.offset33padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.codtimeoutwindow" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.EstablishMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; else echo "could not detect transport port for ExecutionReportNewMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportNewMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json.stderr; exit 1; }
@@ -83,14 +73,9 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.crossprioritization" B3.B3Deriv
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.mmprotectionresetbooleanoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.offset165padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportNewMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportTradeMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportTradeMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; else echo "could not detect transport port for ExecutionReportTradeMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/ExecutionReportTradeMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportTradeMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json.stderr; exit 1; }
@@ -136,14 +121,9 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.crosstype" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.crossprioritization" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.offset159padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportTradeMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/NegotiateMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/NegotiateMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; else echo "could not detect transport port for NegotiateMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/NegotiateMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json.stderr \
   || { echo "--- tshark FAILED (NegotiateMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json.stderr; exit 1; }
@@ -160,14 +140,9 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sessionverid" B3.B3Derivatives.
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.timestamp" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.enteringfirm" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.onbehalffirm" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.NegotiateMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleModifyOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleModifyOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; else echo "could not detect transport port for SimpleModifyOrderMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleModifyOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (SimpleModifyOrderMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json.stderr; exit 1; }
@@ -195,14 +170,9 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.orderqty" B3.B3Derivatives.Bina
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.priceoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.orderidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.origclordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleModifyOrderMessage.json
-udp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleNewOrderMessage.pcap" -c 1 -T fields -e udp.dstport 2>/dev/null | tr -d '[:space:]')
-tcp_port=$(runuser -u tester -- tshark -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleNewOrderMessage.pcap" -c 1 -T fields -e tcp.dstport 2>/dev/null | tr -d '[:space:]')
-if [ -n "$udp_port" ]; then decode="udp.port==$udp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; elif [ -n "$tcp_port" ]; then decode="tcp.port==$tcp_port,b3.b3derivatives.binaryentrypoint.sbe.v8.1.lua"; else echo "could not detect transport port for SimpleNewOrderMessage"; exit 1; fi
-
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/BinaryEntryPoint.v8.1/SimpleNewOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
-  -d "$decode" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (SimpleNewOrderMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.SimpleNewOrderMessage.json.stderr; exit 1; }
