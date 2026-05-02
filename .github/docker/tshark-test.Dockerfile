@@ -12,6 +12,9 @@ RUN apt-get update && \
         curl && \
     rm -rf /var/lib/apt/lists/*
 
-# Wireshark's init.lua sets disable_lua=true when running as root, which silently skips
-# user scripts loaded via -X lua_script:. CI runs as root, so override at end of init.lua.
-RUN echo 'disable_lua = false' >> /usr/share/wireshark/init.lua
+# Debian Trixie ships an empty /usr/share/wireshark/init.lua — Wireshark's Lua subsystem
+# silently skips all user -X lua_script: files when init.lua is empty/missing. Replace it
+# with the upstream init.lua from the matching Wireshark release branch.
+RUN curl -fsSL https://gitlab.com/wireshark/wireshark/-/raw/release-4.4/epan/wslua/init.lua \
+        -o /usr/share/wireshark/init.lua && \
+    echo 'disable_lua = false' >> /usr/share/wireshark/init.lua
