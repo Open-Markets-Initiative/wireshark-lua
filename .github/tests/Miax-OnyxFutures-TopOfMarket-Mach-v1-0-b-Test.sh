@@ -1,9 +1,6 @@
 set -o errexit
 set -o pipefail
 
-# Wireshark's Debian build silently disables -X lua_script: when running as root,
-# so all tshark calls below run as the unprivileged 'tester' user via runuser.
-# Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
@@ -12,13 +9,6 @@ runuser -u tester -- tshark \
   -T json \
   > Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json 2> Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json.stderr \
   || { echo "--- tshark FAILED (BestBidAndOfferMessage) ---"; cat Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json.stderr; exit 1; }
-if [ -s Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json.stderr ]; then echo "--- tshark stderr (BestBidAndOfferMessage) ---"; cat Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json.stderr; fi
-echo "--- tshark diagnostic (BestBidAndOfferMessage) ---"
-echo "json bytes: $(wc -c < Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json | sort -u | head -n 40
 
 grep "miax.onyxfutures.topofmarket.mach.v1.0.b.timestamp" Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json
 grep "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumentid" Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json
@@ -32,13 +22,6 @@ runuser -u tester -- tshark \
   -T json \
   > Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json 2> Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json.stderr \
   || { echo "--- tshark FAILED (InstrumentTradingStatusNotificationMessage) ---"; cat Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json.stderr; exit 1; }
-if [ -s Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json.stderr ]; then echo "--- tshark stderr (InstrumentTradingStatusNotificationMessage) ---"; cat Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json.stderr; fi
-echo "--- tshark diagnostic (InstrumentTradingStatusNotificationMessage) ---"
-echo "json bytes: $(wc -c < Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json | sort -u | head -n 40
 
 grep "miax.onyxfutures.topofmarket.mach.v1.0.b.timestamp" Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json
 grep "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumentid" Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.InstrumentTradingStatusNotificationMessage.json
@@ -50,13 +33,6 @@ runuser -u tester -- tshark \
   -T json \
   > Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json 2> Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json.stderr \
   || { echo "--- tshark FAILED (SystemStateMessage) ---"; cat Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json.stderr; exit 1; }
-if [ -s Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json.stderr ]; then echo "--- tshark stderr (SystemStateMessage) ---"; cat Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json.stderr; fi
-echo "--- tshark diagnostic (SystemStateMessage) ---"
-echo "json bytes: $(wc -c < Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json | sort -u | head -n 40
 
 grep "miax.onyxfutures.topofmarket.mach.v1.0.b.timestamp" Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json
 grep "miax.onyxfutures.topofmarket.mach.v1.0.b.tomversion" Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.SystemStateMessage.json

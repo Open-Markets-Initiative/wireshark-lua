@@ -1,9 +1,6 @@
 set -o errexit
 set -o pipefail
 
-# Wireshark's Debian build silently disables -X lua_script: when running as root,
-# so all tshark calls below run as the unprivileged 'tester' user via runuser.
-# Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
@@ -12,13 +9,6 @@ runuser -u tester -- tshark \
   -T json \
   > Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json 2> Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr \
   || { echo "--- tshark FAILED (OrderExecResponse) ---"; cat Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr; exit 1; }
-if [ -s Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr ]; then echo "--- tshark stderr (OrderExecResponse) ---"; cat Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json.stderr; fi
-echo "--- tshark diagnostic (OrderExecResponse) ---"
-echo "json bytes: $(wc -c < Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json)"
-echo "frame count: $(grep -c '\"_index\"' Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json | sort -u | head -n 40
 
 grep "eurex.cash.eti.t7.v10.0.pad2" Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json
 grep "eurex.cash.eti.t7.v10.0.orderid" Eurex.Cash.Eti.T7.v10.0.OrderExecResponse.json

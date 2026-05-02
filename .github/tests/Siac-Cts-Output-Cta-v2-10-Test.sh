@@ -1,9 +1,6 @@
 set -o errexit
 set -o pipefail
 
-# Wireshark's Debian build silently disables -X lua_script: when running as root,
-# so all tshark calls below run as the unprivileged 'tester' user via runuser.
-# Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
@@ -12,13 +9,6 @@ runuser -u tester -- tshark \
   -T json \
   > Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json 2> Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeCorrectionMessage) ---"; cat Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr; exit 1; }
-if [ -s Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr ]; then echo "--- tshark stderr (TradeCorrectionMessage) ---"; cat Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr; fi
-echo "--- tshark diagnostic (TradeCorrectionMessage) ---"
-echo "json bytes: $(wc -c < Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json | sort -u | head -n 40
 
 grep "siac.cts.output.cta.v2.10.participantid" Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json
 grep "siac.cts.output.cta.v2.10.messageid" Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json

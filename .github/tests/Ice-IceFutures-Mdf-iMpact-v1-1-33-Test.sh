@@ -1,9 +1,6 @@
 set -o errexit
 set -o pipefail
 
-# Wireshark's Debian build silently disables -X lua_script: when running as root,
-# so all tshark calls below run as the unprivileged 'tester' user via runuser.
-# Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
@@ -12,13 +9,6 @@ runuser -u tester -- tshark \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json.stderr; exit 1; }
-if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json.stderr ]; then echo "--- tshark stderr (DeleteOrderMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json.stderr; fi
-echo "--- tshark diagnostic (DeleteOrderMessage) ---"
-echo "json bytes: $(wc -c < Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json | sort -u | head -n 40
 
 grep "ice.icefutures.mdf.impact.v1.1.33.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.orderid" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
@@ -30,13 +20,6 @@ runuser -u tester -- tshark \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (MarketSnapshotOrderMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json.stderr; exit 1; }
-if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json.stderr ]; then echo "--- tshark stderr (MarketSnapshotOrderMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json.stderr; fi
-echo "--- tshark diagnostic (MarketSnapshotOrderMessage) ---"
-echo "json bytes: $(wc -c < Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json | sort -u | head -n 40
 
 grep "ice.icefutures.mdf.impact.v1.1.33.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.orderid" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
@@ -54,13 +37,6 @@ runuser -u tester -- tshark \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json.stderr \
   || { echo "--- tshark FAILED (MarketStatisticsMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json.stderr; exit 1; }
-if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json.stderr ]; then echo "--- tshark stderr (MarketStatisticsMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json.stderr; fi
-echo "--- tshark diagnostic (MarketStatisticsMessage) ---"
-echo "json bytes: $(wc -c < Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json | sort -u | head -n 40
 
 grep "ice.icefutures.mdf.impact.v1.1.33.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.volume" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
@@ -77,13 +53,6 @@ runuser -u tester -- tshark \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr \
   || { echo "--- tshark FAILED (MessageBundleMarker) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr; exit 1; }
-if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr ]; then echo "--- tshark stderr (MessageBundleMarker) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr; fi
-echo "--- tshark diagnostic (MessageBundleMarker) ---"
-echo "json bytes: $(wc -c < Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json)"
-echo "frame count: $(grep -c '\"_index\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json | sort -u | head -n 40
 
 grep "ice.icefutures.mdf.impact.v1.1.33.startorend" Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json
 runuser -u tester -- tshark \
@@ -92,13 +61,6 @@ runuser -u tester -- tshark \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr \
   || { echo "--- tshark FAILED (SpecialFieldMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr; exit 1; }
-if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr ]; then echo "--- tshark stderr (SpecialFieldMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr; fi
-echo "--- tshark diagnostic (SpecialFieldMessage) ---"
-echo "json bytes: $(wc -c < Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json | sort -u | head -n 40
 
 grep "ice.icefutures.mdf.impact.v1.1.33.numberofspecialfields" Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json
 runuser -u tester -- tshark \
@@ -107,13 +69,6 @@ runuser -u tester -- tshark \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json.stderr; exit 1; }
-if [ -s Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json.stderr ]; then echo "--- tshark stderr (TradeMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json.stderr; fi
-echo "--- tshark diagnostic (TradeMessage) ---"
-echo "json bytes: $(wc -c < Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json)"
-echo "frame count: $(grep -c '\"_index\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json | sort -u | head -n 40
 
 grep "ice.icefutures.mdf.impact.v1.1.33.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.tradeid" Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json

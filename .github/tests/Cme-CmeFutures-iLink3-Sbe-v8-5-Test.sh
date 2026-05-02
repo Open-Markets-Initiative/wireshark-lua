@@ -1,9 +1,6 @@
 set -o errexit
 set -o pipefail
 
-# Wireshark's Debian build silently disables -X lua_script: when running as root,
-# so all tshark calls below run as the unprivileged 'tester' user via runuser.
-# Give that user write access to the working directory for json output files.
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
@@ -12,13 +9,6 @@ runuser -u tester -- tshark \
   -T json \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportStatus) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr; exit 1; }
-if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr ]; then echo "--- tshark stderr (ExecutionReportStatus) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr; fi
-echo "--- tshark diagnostic (ExecutionReportStatus) ---"
-echo "json bytes: $(wc -c < Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json)"
-echo "frame count: $(grep -c '\"_index\"' Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json | sort -u | head -n 40
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.seqnum" Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.ExecutionReportStatus.json
@@ -64,13 +54,6 @@ runuser -u tester -- tshark \
   -T json \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr \
   || { echo "--- tshark FAILED (QuoteCancel) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr; exit 1; }
-if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr ]; then echo "--- tshark stderr (QuoteCancel) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json.stderr; fi
-echo "--- tshark diagnostic (QuoteCancel) ---"
-echo "json bytes: $(wc -c < Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json)"
-echo "frame count: $(grep -c '\"_index\"' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json | sort -u | head -n 40
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.partydetailslistreqid" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.sendingtimeepoch" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancel.json
@@ -87,13 +70,6 @@ runuser -u tester -- tshark \
   -T json \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr \
   || { echo "--- tshark FAILED (QuoteCancelAck) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr; exit 1; }
-if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr ]; then echo "--- tshark stderr (QuoteCancelAck) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr; fi
-echo "--- tshark diagnostic (QuoteCancelAck) ---"
-echo "json bytes: $(wc -c < Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json)"
-echo "frame count: $(grep -c '\"_index\"' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json | sort -u | head -n 40
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.seqnum" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.QuoteCancelAck.json
@@ -123,13 +99,6 @@ runuser -u tester -- tshark \
   -T json \
   > Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json 2> Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr \
   || { echo "--- tshark FAILED (Sequence) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr; exit 1; }
-if [ -s Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr ]; then echo "--- tshark stderr (Sequence) ---"; cat Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json.stderr; fi
-echo "--- tshark diagnostic (Sequence) ---"
-echo "json bytes: $(wc -c < Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json)"
-echo "frame count: $(grep -c '\"_index\"' Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json || true)"
-echo "frame.protocols: $(grep -oE '\"frame.protocols\": \"[^\"]+\"' Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json | head -n 1)"
-echo "layer keys:"
-grep -oE '"[a-z0-9_.]+":' Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json | sort -u | head -n 40
 
 grep "cme.cmefutures.ilink3.sbe.v8.5.uuid" Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json
 grep "cme.cmefutures.ilink3.sbe.v8.5.nextseqno" Cme.CmeFutures.iLink3.Sbe.v8.5.Sequence.json
