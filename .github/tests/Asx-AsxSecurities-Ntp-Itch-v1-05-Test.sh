@@ -8,12 +8,22 @@ ls -la "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" || echo "PCAP 
 echo "tshark Lua build flag:"
 tshark -v 2>&1 | grep -i -E 'with lua|without lua' || echo "no lua mention in tshark -v output"
 
+rm -f /tmp/asx-itch-load.log
+
 tshark \
   -r "omi-data-packets/Asx/Ntp.Itch.v1.05/AddOrderMessage.pcap" \
   -X "lua_script:Asx/Asx_AsxSecurities_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json 2> Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr; exit 1; }
+
+echo "--- script load file probe ---"
+if [ -f /tmp/asx-itch-load.log ]; then
+  echo "PROBE FILE EXISTS — script chunk executed:"
+  cat /tmp/asx-itch-load.log
+else
+  echo "PROBE FILE MISSING — script chunk never ran"
+fi
 if [ -s Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr ]; then echo "--- tshark stderr (AddOrderMessage) ---"; cat Asx.AsxSecurities.Ntp.Itch.v1.05.AddOrderMessage.json.stderr; fi
 echo "--- tshark diagnostic (AddOrderMessage) ---"
 tshark -v | head -n 1
