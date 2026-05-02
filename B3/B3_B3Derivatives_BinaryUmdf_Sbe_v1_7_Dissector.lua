@@ -9665,13 +9665,13 @@ b3_b3derivatives_binaryumdf_sbe_v1_7.message_header.fields = function(buffer, of
   -- Block Length: uint16
   index, block_length = b3_b3derivatives_binaryumdf_sbe_v1_7.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: uint16
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 29 values
   index, template_id = b3_b3derivatives_binaryumdf_sbe_v1_7.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: uint16
+  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
   index, schema_id = b3_b3derivatives_binaryumdf_sbe_v1_7.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: uint16
+  -- Version: 2 Byte Unsigned Fixed Width Integer Static
   index, version = b3_b3derivatives_binaryumdf_sbe_v1_7.version.dissect(buffer, index, packet, parent)
 
   return index
@@ -9712,10 +9712,10 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_7.framing_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Length: uint16
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = b3_b3derivatives_binaryumdf_sbe_v1_7.message_length.dissect(buffer, index, packet, parent)
 
-  -- Encoding Type: uint16
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
   index, encoding_type = b3_b3derivatives_binaryumdf_sbe_v1_7.encoding_type.dissect(buffer, index, packet, parent)
 
   return index

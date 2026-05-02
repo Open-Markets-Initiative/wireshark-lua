@@ -21,6 +21,7 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.details = ProtoField.ne
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.session.tcp.v1.2.flags", ftypes.UINT8)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.fromsequencenumber", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.coinbasederivatives.session.tcp.v1.2.heartbeatintervalseconds", ftypes.INT32)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.is_resend = ProtoField.new("Is Resend", "coinbase.coinbasederivatives.session.tcp.v1.2.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.coinbasederivatives.session.tcp.v1.2.lastprocessedseqno", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.session.tcp.v1.2.messageheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_length = ProtoField.new("Message Length", "coinbase.coinbasederivatives.session.tcp.v1.2.messagelength", ftypes.UINT16)
@@ -33,6 +34,7 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reason_reject_reason = 
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reason_string_64 = ProtoField.new("Reason String 64", "coinbase.coinbasederivatives.session.tcp.v1.2.reasonstring64", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.refsequencenumber", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.session.tcp.v1.2.reserved", ftypes.UINT32)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.session.tcp.v1.2.reservedbits", ftypes.UINT8, nil, base.DEC, 0x7F)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.session.tcp.v1.2.resetseqnum", ftypes.INT8)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.session.tcp.v1.2.sbemessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.session.tcp.v1.2.schemaid", ftypes.UINT16)
@@ -61,12 +63,14 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.test_request_message = 
 local show = {}
 
 -- Coinbase CoinbaseDerivatives Session Tcp 1.2 Element Dissection Options
+show.flags = true
 show.application_messages = true
 show.message_header = true
 show.packet = true
 show.sbe_message = true
 
 -- Register Coinbase CoinbaseDerivatives Session Tcp 1.2 Show Options
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -78,6 +82,9 @@ function omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs_changed()
   -- Check if show options have changed
   if show.application_messages ~= omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_application_messages then
     show.application_messages = omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_application_messages
+  end
+  if show.flags ~= omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_flags then
+    show.flags = omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_flags
   end
   if show.message_header ~= omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_message_header then
     show.message_header = omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_message_header
@@ -176,29 +183,6 @@ coinbase_coinbasederivatives_session_tcp_v1_2.details.dissect = function(buffer,
   local display = coinbase_coinbasederivatives_session_tcp_v1_2.details.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.details, range, value, display)
-
-  return offset + length, value
-end
-
--- Flags
-coinbase_coinbasederivatives_session_tcp_v1_2.flags = {}
-
--- Size: Flags
-coinbase_coinbasederivatives_session_tcp_v1_2.flags.size = 1
-
--- Display: Flags
-coinbase_coinbasederivatives_session_tcp_v1_2.flags.display = function(value)
-  return "Flags: "..value
-end
-
--- Dissect: Flags
-coinbase_coinbasederivatives_session_tcp_v1_2.flags.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_session_tcp_v1_2.flags.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = coinbase_coinbasederivatives_session_tcp_v1_2.flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.flags, range, value, display)
 
   return offset + length, value
 end
@@ -391,7 +375,7 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.protocol_id, range, value, display)
@@ -1227,12 +1211,56 @@ coinbase_coinbasederivatives_session_tcp_v1_2.payload.dissect = function(buffer,
   return offset
 end
 
+-- Flags
+coinbase_coinbasederivatives_session_tcp_v1_2.flags = {}
+
+-- Size: Flags
+coinbase_coinbasederivatives_session_tcp_v1_2.flags.size = 1
+
+-- Display: Flags
+coinbase_coinbasederivatives_session_tcp_v1_2.flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Is Resend flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Is Resend"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Flags
+coinbase_coinbasederivatives_session_tcp_v1_2.flags.bits = function(range, value, packet, parent)
+
+  -- Reserved Bits: 7 Bit
+  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved_bits, range, value)
+
+  -- Is Resend: 1 Bit
+  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.is_resend, range, value)
+end
+
+-- Dissect: Flags
+coinbase_coinbasederivatives_session_tcp_v1_2.flags.dissect = function(buffer, offset, packet, parent)
+  local size = coinbase_coinbasederivatives_session_tcp_v1_2.flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = coinbase_coinbasederivatives_session_tcp_v1_2.flags.display(range, value, packet, parent)
+  local element = parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.flags, range, display)
+
+  if show.flags then
+    coinbase_coinbasederivatives_session_tcp_v1_2.flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Message Header
 coinbase_coinbasederivatives_session_tcp_v1_2.message_header = {}
 
 -- Size: Message Header
 coinbase_coinbasederivatives_session_tcp_v1_2.message_header.size =
   coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.size + 
+  coinbase_coinbasederivatives_session_tcp_v1_2.flags.size + 
   coinbase_coinbasederivatives_session_tcp_v1_2.flags.size + 
   coinbase_coinbasederivatives_session_tcp_v1_2.message_length.size + 
   coinbase_coinbasederivatives_session_tcp_v1_2.sequence_number.size + 
@@ -1253,37 +1281,40 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Protocol Id: uint8
+  -- Protocol Id: 1 Byte Unsigned Fixed Width Integer
   index, protocol_id = coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.dissect(buffer, index, packet, parent)
 
-  -- Flags: 1 Byte Unsigned Fixed Width Integer
+  -- Flags: Struct of 2 fields
   index, flags = coinbase_coinbasederivatives_session_tcp_v1_2.flags.dissect(buffer, index, packet, parent)
 
-  -- Message Length: uint16
+  -- Flags: Struct of 2 fields
+  index, flags = coinbase_coinbasederivatives_session_tcp_v1_2.flags.dissect(buffer, index, packet, parent)
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = coinbase_coinbasederivatives_session_tcp_v1_2.message_length.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: uint32
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = coinbase_coinbasederivatives_session_tcp_v1_2.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Last Processed Seq No: uint32
+  -- Last Processed Seq No: 4 Byte Unsigned Fixed Width Integer
   index, last_processed_seq_no = coinbase_coinbasederivatives_session_tcp_v1_2.last_processed_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Reserved: uint32
+  -- Reserved: 4 Byte Unsigned Fixed Width Integer
   index, reserved = coinbase_coinbasederivatives_session_tcp_v1_2.reserved.dissect(buffer, index, packet, parent)
 
   -- Send Time Epoch Nanos: 8 Byte Signed Fixed Width Integer
   index, send_time_epoch_nanos = coinbase_coinbasederivatives_session_tcp_v1_2.send_time_epoch_nanos.dissect(buffer, index, packet, parent)
 
-  -- Block Length: uint16
+  -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = coinbase_coinbasederivatives_session_tcp_v1_2.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: uint16
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, template_id = coinbase_coinbasederivatives_session_tcp_v1_2.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: uint16
+  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
   index, schema_id = coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: uint16
+  -- Version: 2 Byte Unsigned Fixed Width Integer Static
   index, version = coinbase_coinbasederivatives_session_tcp_v1_2.version.dissect(buffer, index, packet, parent)
 
   return index
@@ -1319,7 +1350,7 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
-  -- Message Header: Struct of 11 fields
+  -- Message Header: Struct of 12 fields
   index, message_header = coinbase_coinbasederivatives_session_tcp_v1_2.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -1329,7 +1360,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields = function(buff
   index = coinbase_coinbasederivatives_session_tcp_v1_2.payload.dissect(buffer, index, packet, parent, template_id)
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset + 2, 2):le_uint()
+  local message_length = buffer(offset + 3, 2):le_uint()
 
   -- Runtime optional field: Padding
   local padding = nil
@@ -1380,7 +1411,7 @@ local sbe_message_bytes_remaining = function(buffer, index, available)
   end
 
   -- Parse runtime size
-  local current = buffer(index + 2, 2):le_uint()
+  local current = buffer(index + 3, 2):le_uint()
 
   -- Check if enough bytes remain
   if remaining < current then
@@ -1453,7 +1484,7 @@ end
 -- Verify Schema Id Field
 coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(28, 2):le_uint()
+  local value = buffer(29, 2):le_uint()
 
   if value == 1100 then
     return true
@@ -1465,7 +1496,7 @@ end
 -- Verify Version Field
 coinbase_coinbasederivatives_session_tcp_v1_2.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(30, 2):le_uint()
+  local value = buffer(31, 2):le_uint()
 
   if value == 2 then
     return true

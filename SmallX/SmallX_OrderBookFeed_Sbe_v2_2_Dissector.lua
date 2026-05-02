@@ -5386,13 +5386,13 @@ smallx_orderbookfeed_sbe_v2_2.message_header.fields = function(buffer, offset, p
   -- Block Length: uint16
   index, block_length = smallx_orderbookfeed_sbe_v2_2.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: uint16
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, template_id = smallx_orderbookfeed_sbe_v2_2.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: uint16
+  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
   index, schema_id = smallx_orderbookfeed_sbe_v2_2.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: uint16
+  -- Version: 2 Byte Unsigned Fixed Width Integer Static
   index, version = smallx_orderbookfeed_sbe_v2_2.version.dissect(buffer, index, packet, parent)
 
   return index

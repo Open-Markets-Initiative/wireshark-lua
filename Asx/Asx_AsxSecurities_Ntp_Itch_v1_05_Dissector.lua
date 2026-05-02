@@ -1,19 +1,8 @@
 -----------------------------------------------------------------------
 -- Lua Script Wireshark Dissector
---
+-- 
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
-
--- Diagnostic: writes to a file so we can check after tshark runs
-do
-  local f = io.open("/tmp/asx-itch-load.log", "a")
-  if f then
-    f:write("script load started at " .. os.date() .. "\n")
-    f:close()
-  end
-end
-io.stderr:write("[asx-itch] script load started\n")
-print("[asx-itch] script load started (print)")
 
 -- Asx AsxSecurities Ntp Itch 1.05 Protocol
 local omi_asx_asxsecurities_ntp_itch_v1_05 = Proto("Asx.AsxSecurities.Ntp.Itch.v1.05.Lua", "Asx AsxSecurities Ntp Itch 1.05")
@@ -5264,9 +5253,6 @@ omi_asx_asxsecurities_ntp_itch_v1_05:register_heuristic("udp", omi_asx_asxsecuri
 -- Register Asx AsxSecurities Ntp Itch 1.05 on default port
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add(65333, omi_asx_asxsecurities_ntp_itch_v1_05)
-
--- Diagnostic: confirms script reached end of registration
-io.stderr:write("[omi_asx_asxsecurities_ntp_itch_v1_05] registered heuristic+port 65333\n")
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

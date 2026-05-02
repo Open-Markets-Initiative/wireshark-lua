@@ -13871,13 +13871,13 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.message_header.fields = function(buff
   -- Block Length: uint16
   index, block_length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: uint16
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 39 values
   index, template_id = b3_b3derivatives_binaryentrypoint_sbe_v7_0.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: uint16
+  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
   index, schema_id = b3_b3derivatives_binaryentrypoint_sbe_v7_0.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: uint16
+  -- Version: 2 Byte Unsigned Fixed Width Integer Static
   index, version = b3_b3derivatives_binaryentrypoint_sbe_v7_0.version.dissect(buffer, index, packet, parent)
 
   return index
@@ -13918,10 +13918,10 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.simple_open_framing_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Length: uint16
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.message_length.dissect(buffer, index, packet, parent)
 
-  -- Encoding Type: uint16
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
   index, encoding_type = b3_b3derivatives_binaryentrypoint_sbe_v7_0.encoding_type.dissect(buffer, index, packet, parent)
 
   return index

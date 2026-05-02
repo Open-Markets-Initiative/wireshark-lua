@@ -34,8 +34,8 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.payload = ProtoField.new("Pa
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.psn_high_weight = ProtoField.new("Psn High Weight", "euronext.optiq.marketdatapacket.udp.v1.0.psnhighweight", ftypes.UINT16, nil, base.DEC, 0x0070)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatapacket.udp.v1.0.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFC00)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.schema_id = ProtoField.new("Schema Id", "euronext.optiq.marketdatapacket.udp.v1.0.schemaid", ftypes.UINT16)
-omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.schema_version = ProtoField.new("Schema Version", "euronext.optiq.marketdatapacket.udp.v1.0.schemaversion", ftypes.UINT16)
 omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.template_id = ProtoField.new("Template Id", "euronext.optiq.marketdatapacket.udp.v1.0.templateid", ftypes.UINT16)
+omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.version = ProtoField.new("Version", "euronext.optiq.marketdatapacket.udp.v1.0.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -317,29 +317,6 @@ euronext_optiq_marketdatapacket_udp_v1_0.schema_id.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Schema Version
-euronext_optiq_marketdatapacket_udp_v1_0.schema_version = {}
-
--- Size: Schema Version
-euronext_optiq_marketdatapacket_udp_v1_0.schema_version.size = 2
-
--- Display: Schema Version
-euronext_optiq_marketdatapacket_udp_v1_0.schema_version.display = function(value)
-  return "Schema Version: "..value
-end
-
--- Dissect: Schema Version
-euronext_optiq_marketdatapacket_udp_v1_0.schema_version.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatapacket_udp_v1_0.schema_version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_marketdatapacket_udp_v1_0.schema_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.schema_version, range, value, display)
-
-  return offset + length, value
-end
-
 -- Template Id
 euronext_optiq_marketdatapacket_udp_v1_0.template_id = {}
 
@@ -367,6 +344,29 @@ euronext_optiq_marketdatapacket_udp_v1_0.template_id.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Version
+euronext_optiq_marketdatapacket_udp_v1_0.version = {}
+
+-- Size: Version
+euronext_optiq_marketdatapacket_udp_v1_0.version.size = 2
+
+-- Display: Version
+euronext_optiq_marketdatapacket_udp_v1_0.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+euronext_optiq_marketdatapacket_udp_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatapacket_udp_v1_0.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatapacket_udp_v1_0.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Euronext Optiq MarketDataPacket Udp 1.0
@@ -380,7 +380,7 @@ euronext_optiq_marketdatapacket_udp_v1_0.message_header.size =
   euronext_optiq_marketdatapacket_udp_v1_0.block_length.size + 
   euronext_optiq_marketdatapacket_udp_v1_0.template_id.size + 
   euronext_optiq_marketdatapacket_udp_v1_0.schema_id.size + 
-  euronext_optiq_marketdatapacket_udp_v1_0.schema_version.size
+  euronext_optiq_marketdatapacket_udp_v1_0.version.size
 
 -- Display: Message Header
 euronext_optiq_marketdatapacket_udp_v1_0.message_header.display = function(packet, parent, length)
@@ -400,8 +400,8 @@ euronext_optiq_marketdatapacket_udp_v1_0.message_header.fields = function(buffer
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer
   index, schema_id = euronext_optiq_marketdatapacket_udp_v1_0.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Version: 2 Byte Unsigned Fixed Width Integer
-  index, schema_version = euronext_optiq_marketdatapacket_udp_v1_0.schema_version.dissect(buffer, index, packet, parent)
+  -- Version: 2 Byte Unsigned Fixed Width Integer
+  index, version = euronext_optiq_marketdatapacket_udp_v1_0.version.dissect(buffer, index, packet, parent)
 
   return index
 end
