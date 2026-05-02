@@ -11,3 +11,7 @@ RUN apt-get update && \
         ca-certificates \
         curl && \
     rm -rf /var/lib/apt/lists/*
+
+# Wireshark's init.lua sets disable_lua=true when running as root, which silently skips
+# user scripts loaded via -X lua_script:. CI runs as root, so override at end of init.lua.
+RUN echo 'disable_lua = false' >> /usr/share/wireshark/init.lua
