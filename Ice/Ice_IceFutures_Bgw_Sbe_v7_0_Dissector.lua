@@ -215,8 +215,8 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code_data = ProtoField.new("Phys
 omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code_length = ProtoField.new("Physical Code Length", "ice.icefutures.bgw.sbe.v7.0.physicalcodelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.port = ProtoField.new("Port", "ice.icefutures.bgw.sbe.v7.0.port", ftypes.INT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.position_effect = ProtoField.new("Position Effect", "ice.icefutures.bgw.sbe.v7.0.positioneffect", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.poss_dupe = ProtoField.new("Poss Dupe", "ice.icefutures.bgw.sbe.v7.0.possdupe", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.poss_resend = ProtoField.new("Poss Resend", "ice.icefutures.bgw.sbe.v7.0.possresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.poss_dupe = ProtoField.new("Poss Dupe", "ice.icefutures.bgw.sbe.v7.0.possdupe", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.poss_resend = ProtoField.new("Poss Resend", "ice.icefutures.bgw.sbe.v7.0.possresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_decimal_9 = ProtoField.new("Price Decimal 9", "ice.icefutures.bgw.sbe.v7.0.pricedecimal9", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_decimal_9_null = ProtoField.new("Price Decimal 9 Null", "ice.icefutures.bgw.sbe.v7.0.pricedecimal9null", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination = ProtoField.new("Price Denomination", "ice.icefutures.bgw.sbe.v7.0.pricedenomination", ftypes.STRING)
@@ -261,7 +261,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_4 = ProtoField.new("Reserved 4",
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_5 = ProtoField.new("Reserved 5", "ice.icefutures.bgw.sbe.v7.0.reserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_6 = ProtoField.new("Reserved 6", "ice.icefutures.bgw.sbe.v7.0.reserved6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_7 = ProtoField.new("Reserved 7", "ice.icefutures.bgw.sbe.v7.0.reserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "ice.icefutures.bgw.sbe.v7.0.reservedbits", ftypes.UINT8, nil, base.DEC, 0x3F)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "ice.icefutures.bgw.sbe.v7.0.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.rfc_status = ProtoField.new("Rfc Status", "ice.icefutures.bgw.sbe.v7.0.rfcstatus", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.rfq_futures_allowed = ProtoField.new("Rfq Futures Allowed", "ice.icefutures.bgw.sbe.v7.0.rfqfuturesallowed", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.rfq_options_allowed = ProtoField.new("Rfq Options Allowed", "ice.icefutures.bgw.sbe.v7.0.rfqoptionsallowed", ftypes.UINT8)
@@ -16268,13 +16268,13 @@ ice_icefutures_bgw_sbe_v7_0.header_flags.size = 1
 ice_icefutures_bgw_sbe_v7_0.header_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Poss Resend flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Poss Resend"
-  end
   -- Is Poss Dupe flag set?
-  if bit.band(value, 0x80) ~= 0 then
+  if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Poss Dupe"
+  end
+  -- Is Poss Resend flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Poss Resend"
   end
 
   return table.concat(flags, "|")
@@ -16283,14 +16283,14 @@ end
 -- Dissect Bit Fields: Header Flags
 ice_icefutures_bgw_sbe_v7_0.header_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved Bits: 6 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_bits, range, value)
+  -- Poss Dupe: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.poss_dupe, range, value)
 
   -- Poss Resend: 1 Bit
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.poss_resend, range, value)
 
-  -- Poss Dupe: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.poss_dupe, range, value)
+  -- Reserved Bits: 6 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_bits, range, value)
 end
 
 -- Dissect: Header Flags
@@ -16333,19 +16333,19 @@ ice_icefutures_bgw_sbe_v7_0.message_header.fields = function(buffer, offset, pac
   -- Block Length: uint16
   index, block_length = ice_icefutures_bgw_sbe_v7_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 42 values
+  -- Template Id: uint16
   index, template_id = ice_icefutures_bgw_sbe_v7_0.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = ice_icefutures_bgw_sbe_v7_0.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = ice_icefutures_bgw_sbe_v7_0.version.dissect(buffer, index, packet, parent)
 
-  -- Sequence Id: 4 Byte Unsigned Fixed Width Integer
+  -- Sequence Id: uint32
   index, sequence_id = ice_icefutures_bgw_sbe_v7_0.sequence_id.dissect(buffer, index, packet, parent)
 
-  -- Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Send Time: UTCTimestamp
   index, send_time = ice_icefutures_bgw_sbe_v7_0.send_time.dissect(buffer, index, packet, parent)
 
   -- Header Flags: Struct of 3 fields

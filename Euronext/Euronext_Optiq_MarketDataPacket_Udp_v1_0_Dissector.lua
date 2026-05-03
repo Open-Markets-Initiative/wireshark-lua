@@ -391,16 +391,16 @@ end
 euronext_optiq_marketdatapacket_udp_v1_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = euronext_optiq_marketdatapacket_udp_v1_0.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Template Id: uint16
   index, template_id = euronext_optiq_marketdatapacket_udp_v1_0.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer
+  -- Schema Id: uint16
   index, schema_id = euronext_optiq_marketdatapacket_udp_v1_0.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer
+  -- Version: uint16
   index, version = euronext_optiq_marketdatapacket_udp_v1_0.version.dissect(buffer, index, packet, parent)
 
   return index

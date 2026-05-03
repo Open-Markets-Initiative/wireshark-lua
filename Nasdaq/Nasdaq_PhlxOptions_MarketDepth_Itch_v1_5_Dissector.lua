@@ -194,7 +194,7 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state, keyed by src/dst tuple
+-- State, keyed by src/dst tuple
 nasdaq_phlxoptions_marketdepth_itch_v1_5.conversation = {}
 nasdaq_phlxoptions_marketdepth_itch_v1_5.conversation.flows = {}
 

@@ -169,7 +169,7 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state, keyed by src/dst tuple
+-- State, keyed by src/dst tuple
 cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation = {}
 cboe_bzxequities_depthofbook_pitch_v2_41_29.conversation.flows = {}
 

@@ -154,7 +154,7 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state, keyed by src/dst tuple
+-- State, keyed by src/dst tuple
 nasdaq_nsmequities_totalview_itch_v4_1.conversation = {}
 nasdaq_nsmequities_totalview_itch_v4_1.conversation.flows = {}
 

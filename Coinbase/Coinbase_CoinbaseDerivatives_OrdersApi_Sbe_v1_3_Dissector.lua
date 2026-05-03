@@ -44,7 +44,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.instrument_id = Proto
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.instrument_status = ProtoField.new("Instrument Status", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.instrumentstatus", ftypes.UINT8)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.is_aggressor = ProtoField.new("Is Aggressor", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.isaggressor", ftypes.INT8)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.is_last_message = ProtoField.new("Is Last Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.islastmessage", ftypes.INT8)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.is_resend = ProtoField.new("Is Resend", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.is_resend = ProtoField.new("Is Resend", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.last_exec_id = ProtoField.new("Last Exec Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.lastexecid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.lastprocessedfillid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.lastprocessedseqno", ftypes.UINT32)
@@ -75,7 +75,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.request_trading_lock 
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.resend_reject_reason = ProtoField.new("Resend Reject Reason", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.resendrejectreason", ftypes.INT8)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.resent_event_count = ProtoField.new("Resent Event Count", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.resenteventcount", ftypes.INT32)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.reserved", ftypes.UINT32)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.reservedbits", ftypes.UINT8, nil, base.DEC, 0x7F)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reserved_byte = ProtoField.new("Reserved Byte", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.reservedbyte", ftypes.INT8)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.resetseqnum", ftypes.INT8)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.sbemessage", ftypes.STRING)
@@ -4536,7 +4536,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.flags.display = function(range, 
   local flags = {}
 
   -- Is Is Resend flag set?
-  if bit.band(value, 0x80) ~= 0 then
+  if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Is Resend"
   end
 
@@ -4546,11 +4546,11 @@ end
 -- Dissect Bit Fields: Flags
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.flags.bits = function(range, value, packet, parent)
 
+  -- Is Resend: choice
+  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.is_resend, range, value)
+
   -- Reserved Bits: 7 Bit
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reserved_bits, range, value)
-
-  -- Is Resend: 1 Bit
-  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.is_resend, range, value)
 end
 
 -- Dissect: Flags
@@ -4594,37 +4594,37 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Protocol Id: 1 Byte Unsigned Fixed Width Integer
+  -- Protocol Id: uint8
   index, protocol_id = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.protocol_id.dissect(buffer, index, packet, parent)
 
   -- Flags: Struct of 2 fields
   index, flags = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.flags.dissect(buffer, index, packet, parent)
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Length: uint16
   index, message_length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.message_length.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Sequence Number: uint32
   index, sequence_number = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Last Processed Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Last Processed Seq No: uint32
   index, last_processed_seq_no = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.last_processed_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 4 Byte Unsigned Fixed Width Integer
+  -- Reserved: uint32
   index, reserved = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reserved.dissect(buffer, index, packet, parent)
 
-  -- Send Time Epoch Nanos: 8 Byte Signed Fixed Width Integer
+  -- Send Time Epoch Nanos: int64
   index, send_time_epoch_nanos = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.send_time_epoch_nanos.dissect(buffer, index, packet, parent)
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 37 values
+  -- Template Id: uint16
   index, template_id = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.version.dissect(buffer, index, packet, parent)
 
   return index

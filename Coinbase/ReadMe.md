@@ -16,6 +16,7 @@
 | [CoinbaseDerivatives][CoinbaseDerivatives.Exchange] | [OrdersApi][Coinbase.CoinbaseDerivatives.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.4][Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.Dissector] | 7/27/2020 | 4912 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [xml][Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.Xml] |
 | [CoinbaseDerivatives][CoinbaseDerivatives.Exchange] | [OrdersApi][Coinbase.CoinbaseDerivatives.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.3][Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.3.Dissector] | 7/27/2020 | 4872 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.3.Pdf] - [xml][Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.3.Xml] |
 | [CoinbaseDerivatives][CoinbaseDerivatives.Exchange] | [Session][Coinbase.CoinbaseDerivatives.Session] | [Tcp][Omi.Encoding.Tcp] | [1.2][Coinbase.CoinbaseDerivatives.Session.Tcp.v1.2.Dissector] | 7/27/2020 | 1553 | [Header][Omi.Glossary.Status.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.CoinbaseDerivatives.Session.Tcp.v1.2.Url] - [xml][Coinbase.CoinbaseDerivatives.Session.Tcp.v1.2.Xml] |
+| [Deribit][Deribit] | [MarketDataApi][Coinbase.Deribit.MarketDataApi] | [Sbe][Omi.Encoding.Sbe] | [1.0][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Dissector] | 9/5/2025 | 3740 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Url] - [xml][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Xml] |
 
 
 Coinbase: [website](https://www.coinbase.com/ "Go to Coinbase")
@@ -37,9 +38,11 @@ Coinbase: [website](https://www.coinbase.com/ "Go to Coinbase")
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [CoinbaseDerivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives "Coinbase CoinbaseDerivatives"
+[Deribit]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Coinbase/Protocols/Deribit "Coinbase Deribit"
 [Coinbase.CoinbaseDerivatives.Session]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/Session.md "Coinbase Derivatives Session Layer"
 [Coinbase.CoinbaseDerivatives.MarketDataApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/MarketDataApi.md "Coinbase Derivatives Market Data Api"
 [Coinbase.CoinbaseDerivatives.OrdersApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/OrdersApi.md "Coinbase Derivatives Orders Api"
+[Coinbase.Deribit.MarketDataApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/Deribit/MarketDataApi.md "Market Data Api"
 
 [Coinbase.CoinbaseDerivatives.Session.Tcp.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase_CoinbaseDerivatives_Session_Tcp_v1_2_Dissector.lua "Coinbase CoinbaseDerivatives Session Tcp v1.2 Wireshark Dissector"
 [Coinbase.CoinbaseDerivatives.Session.Tcp.v1.2.Url]: https://docs.cdp.coinbase.com/derivatives/introduction/downloads "Coinbase 1.2 Url"
@@ -73,3 +76,6 @@ Coinbase: [website](https://www.coinbase.com/ "Go to Coinbase")
 [Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua "Coinbase CoinbaseDerivatives OrdersApi Sbe v1.8 Wireshark Dissector"
 [Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Url]: https://docs.cdp.coinbase.com/derivatives/introduction/downloads "Coinbase 1.8 Url"
 [Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Specifications/OrdersApi/Coinbase.Derivatives.OrdersApi.Sbe.v1.8.xml "Coinbase 1.8 Xml"
+[Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v1_0_Dissector.lua "Coinbase Deribit MarketDataApi Sbe v1.0 Wireshark Dissector"
+[Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Url]: https://docs.cdp.coinbase.com/derivatives/introduction/downloads "Coinbase 1.0 Url"
+[Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Specifications/Deribit/MarketDataApi/Coinbase.Deribit.MarketDataApi.Sbe.v1.0.xml "Coinbase 1.0 Xml"

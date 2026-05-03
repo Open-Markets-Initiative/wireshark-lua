@@ -136,7 +136,7 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state, keyed by src/dst tuple
+-- State, keyed by src/dst tuple
 odx_odxsecuritytoken_pts_itch_v2_2.conversation = {}
 odx_odxsecuritytoken_pts_itch_v2_2.conversation.flows = {}
 

@@ -5003,37 +5003,37 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Protocol Id: 1 Byte Unsigned Fixed Width Integer
+  -- Protocol Id: uint8
   index, protocol_id = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.protocol_id.dissect(buffer, index, packet, parent)
 
   -- Flags: Struct of 2 fields
   index, flags = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.flags.dissect(buffer, index, packet, parent)
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Length: uint16
   index, message_length = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.message_length.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Sequence Number: uint32
   index, sequence_number = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Last Processed Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Last Processed Seq No: uint32
   index, last_processed_seq_no = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_processed_seq_no.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 4 Byte Unsigned Fixed Width Integer
+  -- Reserved: uint32
   index, reserved = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reserved.dissect(buffer, index, packet, parent)
 
-  -- Send Time Epoch Nanos: 8 Byte Signed Fixed Width Integer
+  -- Send Time Epoch Nanos: int64
   index, send_time_epoch_nanos = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.send_time_epoch_nanos.dissect(buffer, index, packet, parent)
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 41 values
+  -- Template Id: uint16
   index, template_id = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.dissect(buffer, index, packet, parent)
 
   return index

@@ -154,7 +154,7 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state, keyed by src/dst tuple
+-- State, keyed by src/dst tuple
 nasdaq_nomoptions_bono_itch_v3_2.conversation = {}
 nasdaq_nomoptions_bono_itch_v3_2.conversation.flows = {}
 

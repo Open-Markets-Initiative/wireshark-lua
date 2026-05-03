@@ -139,7 +139,7 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state, keyed by src/dst tuple
+-- State, keyed by src/dst tuple
 jnx_jnxequities_pts_itch_v1_6.conversation = {}
 jnx_jnxequities_pts_itch_v1_6.conversation.flows = {}
 

@@ -160,7 +160,7 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state, keyed by src/dst tuple
+-- State, keyed by src/dst tuple
 jpx_osederivatives_geniuminet_itch_v1_1.conversation = {}
 jpx_osederivatives_geniuminet_itch_v1_1.conversation.flows = {}
 

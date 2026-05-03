@@ -178,7 +178,7 @@ end
 -- Protocol Conversation State
 -----------------------------------------------------------------------
 
--- Per-flow state, keyed by src/dst tuple
+-- State, keyed by src/dst tuple
 asx_asxsecurities_trade_itch_v3_1.conversation = {}
 asx_asxsecurities_trade_itch_v3_1.conversation.flows = {}
 

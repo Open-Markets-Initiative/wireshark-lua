@@ -18911,16 +18911,16 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_35.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = euronext_optiq_marketdatagateway_sbe_v5_35.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 28 values
+  -- Template Id: uint16
   index, template_id = euronext_optiq_marketdatagateway_sbe_v5_35.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = euronext_optiq_marketdatagateway_sbe_v5_35.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = euronext_optiq_marketdatagateway_sbe_v5_35.version.dissect(buffer, index, packet, parent)
 
   return index

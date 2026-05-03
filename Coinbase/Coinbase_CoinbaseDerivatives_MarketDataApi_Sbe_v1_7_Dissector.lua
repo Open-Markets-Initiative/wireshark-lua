@@ -5089,19 +5089,19 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Frame Length: 2 Byte Unsigned Fixed Width Integer
+  -- Frame Length: uint16
   index, frame_length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.frame_length.dissect(buffer, index, packet, parent)
 
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  -- Block Length: uint16
   index, block_length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.block_length.dissect(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 23 values
+  -- Template Id: uint16
   index, template_id = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.template_id.dissect(buffer, index, packet, parent)
 
-  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  -- Schema Id: uint16
   index, schema_id = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.schema_id.dissect(buffer, index, packet, parent)
 
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  -- Version: uint16
   index, version = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.version.dissect(buffer, index, packet, parent)
 
   return index
