@@ -5,9 +5,12 @@
 
 | Division | [Protocol][Omi.Siac.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [Cqs][Cqs.Exchange] | [Output][Siac.Cqs.Output] | [Cta][Omi.Encoding.Cta] | [2.10.a][Siac.Cqs.Output.Cta.v2.10.a.Dissector] | 6/6/2025 | 5551 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Output.Cta.v2.10.a.Url] - [pdf][Siac.Cqs.Output.Cta.v2.10.a.Pdf] |
 | [Cqs][Cqs] | [Output][Siac.Cqs.Output] | [Cta][Omi.Encoding.Cta] | [2.9][Siac.Cqs.Output.Cta.v2.9.Dissector] | 12/16/2022 | 5083 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Output.Cta.v2.9.Url] - [pdf][Siac.Cqs.Output.Cta.v2.9.Pdf] |
 | [Cqs][Cqs] | [Output][Siac.Cqs.Output] | [Cta][Omi.Encoding.Cta] | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | 4875 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cqs.Output.Cta.v1.91.Url] - [pdf][Siac.Cqs.Output.Cta.v1.91.Pdf] |
+| [Cqs][Cqs.Exchange] | [Snapshot][Siac.Cqs.Snapshot] | [Cta][Omi.Encoding.Cta] | [2.1][Siac.Cqs.Snapshot.Cta.v2.1.Dissector] | 6/6/2025 | 3156 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Snapshot.Cta.v2.1.Url] - [pdf][Siac.Cqs.Snapshot.Cta.v2.1.Pdf] |
 | [Cqs][Cqs] | [Snapshot][Siac.Cqs.Snapshot] | [Cta][Omi.Encoding.Cta] | [1.0][Siac.Cqs.Snapshot.Cta.v1.0.Dissector] | 1/24/2022 | 3173 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Snapshot.Cta.v1.0.Url] - [pdf][Siac.Cqs.Snapshot.Cta.v1.0.Pdf] |
+| [Cts][Cts.Exchange] | [Output][Siac.Cts.Output] | [Cta][Omi.Encoding.Cta] | [2.11.b][Siac.Cts.Output.Cta.v2.11.b.Dissector] | 1/29/2026 | 9415 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v2.11.b.Url] - [pdf][Siac.Cts.Output.Cta.v2.11.b.Pdf] |
 | [Cts][Cts] | [Output][Siac.Cts.Output] | [Cta][Omi.Encoding.Cta] | [2.10][Siac.Cts.Output.Cta.v2.10.Dissector] | 9/30/2024 | 8478 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v2.10.Url] - [pdf][Siac.Cts.Output.Cta.v2.10.Pdf] |
 | [Cts][Cts] | [Output][Siac.Cts.Output] | [Cta][Omi.Encoding.Cta] | [2.9][Siac.Cts.Output.Cta.v2.9.Dissector] | 12/16/2022 | 6837 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cts.Output.Cta.v2.9.Url] - [pdf][Siac.Cts.Output.Cta.v2.9.Pdf] |
 | [Cts][Cts] | [Output][Siac.Cts.Output] | [Cta][Omi.Encoding.Cta] | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | 6882 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v1.91.Url] - [pdf][Siac.Cts.Output.Cta.v1.91.Pdf] |
@@ -36,7 +39,9 @@ Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Cor
 [Omi.Encoding.Cta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cta.md "Cta Encoding"
 [Opra]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Opra "Siac Opra"
 [Cts]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cts "Siac Cts"
+[Cts.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cts "Siac Cts"
 [Cqs]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cqs "Siac Cqs"
+[Cqs.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cqs "Siac Cqs"
 [Siac.Opra.Recipient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Recipient.md "Recipient"
 [Siac.Cts.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cts/Output.md "Output"
 [Siac.Cqs.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Output.md "Output"
@@ -60,12 +65,21 @@ Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Cor
 [Siac.Cts.Output.Cta.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cts_Output_Cta_v2_10_Dissector.lua "Siac Cts Output Cta v2.10 Wireshark Dissector"
 [Siac.Cts.Output.Cta.v2.10.Url]: https://www.ctaplan.com/tech-specs "The Securities Industry Automation Corporation 2.10 Url"
 [Siac.Cts.Output.Cta.v2.10.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Cts/Output/Siac.Cts.Output.Cta.v2.10.pdf "The Securities Industry Automation Corporation 2.10 Pdf"
+[Siac.Cts.Output.Cta.v2.11.b.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cts_Output_Cta_v2_11_b_Dissector.lua "Siac Cts Output Cta v2.11.b Wireshark Dissector"
+[Siac.Cts.Output.Cta.v2.11.b.Url]: https://www.ctaplan.com/tech-specs "The Securities Industry Automation Corporation 2.11.b Url"
+[Siac.Cts.Output.Cta.v2.11.b.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Cts/Output/Siac.Cts.Output.Cta.v2.11.b.pdf "The Securities Industry Automation Corporation 2.11.b Pdf"
 [Siac.Cqs.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cqs_Output_Cta_v1_91_Dissector.lua "Siac Cqs Output Cta v1.91 Wireshark Dissector"
 [Siac.Cqs.Output.Cta.v1.91.Url]: https://www.ctaplan.com/tech-specs "The Securities Industry Automation Corporation 1.91 Url"
 [Siac.Cqs.Output.Cta.v1.91.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Cqs/Output/Siac.Cqs.Output.Cta.v1.91.pdf "The Securities Industry Automation Corporation 1.91 Pdf"
 [Siac.Cqs.Output.Cta.v2.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cqs_Output_Cta_v2_9_Dissector.lua "Siac Cqs Output Cta v2.9 Wireshark Dissector"
 [Siac.Cqs.Output.Cta.v2.9.Url]: https://www.ctaplan.com/tech-specs "The Securities Industry Automation Corporation 2.9 Url"
 [Siac.Cqs.Output.Cta.v2.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Cqs/Output/Siac.Cqs.Output.Cta.v2.9.pdf "The Securities Industry Automation Corporation 2.9 Pdf"
+[Siac.Cqs.Output.Cta.v2.10.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cqs_Output_Cta_v2_10_a_Dissector.lua "Siac Cqs Output Cta v2.10.a Wireshark Dissector"
+[Siac.Cqs.Output.Cta.v2.10.a.Url]: https://www.ctaplan.com/tech-specs "The Securities Industry Automation Corporation 2.10.a Url"
+[Siac.Cqs.Output.Cta.v2.10.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Cqs/Snapshot/Siac.Cqs.Output.Cta.v2.10.a.pdf "The Securities Industry Automation Corporation 2.10.a Pdf"
 [Siac.Cqs.Snapshot.Cta.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cqs_Snapshot_Cta_v1_0_Dissector.lua "Siac Cqs Snapshot Cta v1.0 Wireshark Dissector"
 [Siac.Cqs.Snapshot.Cta.v1.0.Url]: https://www.ctaplan.com/tech-specs "The Securities Industry Automation Corporation 1.0 Url"
 [Siac.Cqs.Snapshot.Cta.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Cqs/Snapshot/Siac.Cqs.Output.Cta.v1.0.pdf "The Securities Industry Automation Corporation 1.0 Pdf"
+[Siac.Cqs.Snapshot.Cta.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cqs_Snapshot_Cta_v2_1_Dissector.lua "Siac Cqs Snapshot Cta v2.1 Wireshark Dissector"
+[Siac.Cqs.Snapshot.Cta.v2.1.Url]: https://www.ctaplan.com/tech-specs "The Securities Industry Automation Corporation 2.1 Url"
+[Siac.Cqs.Snapshot.Cta.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Cqs/Snapshot/Siac.Cqs.Snapshot.Cta.v2.1.pdf "The Securities Industry Automation Corporation 2.1 Pdf"

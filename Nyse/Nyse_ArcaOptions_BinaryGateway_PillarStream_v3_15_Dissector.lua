@@ -44,6 +44,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.clearing_firm = Pro
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.clearing_firm_covered = ProtoField.new("Clearing Firm Covered", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.clearingfirmcovered", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.clearing_firm_exposed = ProtoField.new("Clearing Firm Exposed", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.clearingfirmexposed", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.clearing_number = ProtoField.new("Clearing Number", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.clearingnumber", ftypes.STRING)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.closing_only_indicator = ProtoField.new("Closing Only Indicator", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.closingonlyindicator", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.complex_leg = ProtoField.new("Complex Leg", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.complexleg", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.complex_leg_ack = ProtoField.new("Complex Leg Ack", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.complexlegack", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.contra_clearing_account = ProtoField.new("Contra Clearing Account", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.contraclearingaccount", ftypes.STRING)
@@ -54,6 +55,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.contra_customer_or_
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.contra_market_maker = ProtoField.new("Contra Market Maker", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.contramarketmaker", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.contra_mpid = ProtoField.new("Contra Mpid", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.contrampid", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.contra_open_close = ProtoField.new("Contra Open Close", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.contraopenclose", ftypes.UINT8)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.contractmultiplier", ftypes.UINT32)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.count_calculation = ProtoField.new("Count Calculation", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.countcalculation", ftypes.UINT32)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.count_limit = ProtoField.new("Count Limit", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.countlimit", ftypes.INT32)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.covered = ProtoField.new("Covered", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.covered", ftypes.STRING)
@@ -84,6 +86,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.listed_mic = ProtoF
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.locate_reqd = ProtoField.new("Locate Reqd", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.locatereqd", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.luldmpv = ProtoField.new("Luldmpv", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.luldmpv", ftypes.DOUBLE)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.market_maker = ProtoField.new("Market Maker", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.marketmaker", ftypes.STRING)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.maturitydate", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.max_floor = ProtoField.new("Max Floor", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.maxfloor", ftypes.UINT32)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.max_order_price = ProtoField.new("Max Order Price", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.maxorderprice", ftypes.DOUBLE)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.max_order_quantity = ProtoField.new("Max Order Quantity", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.maxorderquantity", ftypes.UINT32)
@@ -105,6 +108,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.msg_type = ProtoFie
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.multilegreportingtype", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.next_seq = ProtoField.new("Next Seq", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.nextseq", ftypes.UINT64)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.nyse_symbol = ProtoField.new("Nyse Symbol", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.nysesymbol", ftypes.STRING)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.occ_symbol_root = ProtoField.new("Occ Symbol Root", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.occsymbolroot", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.open_close = ProtoField.new("Open Close", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.openclose", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.optional_data = ProtoField.new("Optional Data", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.optionaldata", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.optionalorderaddon", ftypes.STRING)
@@ -122,6 +126,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.pre_liquidity_indic
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.price_price_8 = ProtoField.new("Price Price 8", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.priceprice8", ftypes.DOUBLE)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.price_u_price_8 = ProtoField.new("Price U Price 8", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.priceuprice8", ftypes.DOUBLE)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.proactiveiflocked", ftypes.UINT8)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.putorcall", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.quantity = ProtoField.new("Quantity", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.quantity", ftypes.UINT32)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.quote_ack = ProtoField.new("Quote Ack", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.quoteack", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.quotingmpv", ftypes.DOUBLE)
@@ -158,6 +163,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.seq_msg_id = ProtoF
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.seqmsglength", ftypes.UINT16)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.seqmsgtype", ftypes.UINT16)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.series_index = ProtoField.new("Series Index", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.seriesindex", ftypes.UINT32)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.series_type = ProtoField.new("Series Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.seriestype", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.sess = ProtoField.new("Sess", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.sess", ftypes.UINT32)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.side_bit_5 = ProtoField.new("Side Bit 5", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.sidebit5", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.side_u_81 = ProtoField.new("Side U 81", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.sideu81", ftypes.UINT8)
@@ -166,6 +172,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.start_seq = ProtoFi
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.status = ProtoField.new("Status", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.status", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.stop_px = ProtoField.new("Stop Px", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.stoppx", ftypes.DOUBLE)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.stream_id = ProtoField.new("Stream Id", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.streamid", ftypes.STRING)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.strike_price = ProtoField.new("Strike Price", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.strikeprice", ftypes.DOUBLE)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.sub_id = ProtoField.new("Sub Id", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.subid", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.subidindicator", ftypes.UINT8)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.submsgheader", ftypes.STRING)
@@ -225,6 +232,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.risk_control_acknow
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.risk_control_alert = ProtoField.new("Risk Control Alert", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.riskcontrolalert", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.risk_limit_update_request = ProtoField.new("Risk Limit Update Request", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.risklimitupdaterequest", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.sequenced_filler = ProtoField.new("Sequenced Filler", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.sequencedfiller", ftypes.STRING)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.series_reference_data = ProtoField.new("Series Reference Data", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.seriesreferencedata", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.session_configuration_acknowledgement = ProtoField.new("Session Configuration Acknowledgement", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.sessionconfigurationacknowledgement", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.sessionconfigurationrequestmessage", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.trade_bust_or_correct = ProtoField.new("Trade Bust Or Correct", "nyse.arcaoptions.binarygateway.pillarstream.v3.15.tradebustorcorrect", ftypes.STRING)
@@ -1203,6 +1211,36 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.clearing_number.dissect = func
   return offset + length, value
 end
 
+-- Closing Only Indicator
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.closing_only_indicator = {}
+
+-- Size: Closing Only Indicator
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.closing_only_indicator.size = 1
+
+-- Display: Closing Only Indicator
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.closing_only_indicator.display = function(value)
+  if value == 0 then
+    return "Closing Only Indicator: Standard Series (0)"
+  end
+  if value == 1 then
+    return "Closing Only Indicator: Closing Only Series (1)"
+  end
+
+  return "Closing Only Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Closing Only Indicator
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_15.closing_only_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.closing_only_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.closing_only_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Contra Clearing Account
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_clearing_account = {}
 
@@ -1499,6 +1537,29 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_open_close.dissect = fu
   local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_open_close.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.contra_open_close, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Multiplier
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.contract_multiplier = {}
+
+-- Size: Contract Multiplier
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.contract_multiplier.size = 4
+
+-- Display: Contract Multiplier
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.contract_multiplier.display = function(value)
+  return "Contract Multiplier: "..value
+end
+
+-- Dissect: Contract Multiplier
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.contract_multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_15.contract_multiplier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.contract_multiplier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.contract_multiplier, range, value, display)
 
   return offset + length, value
 end
@@ -2220,6 +2281,45 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.market_maker.dissect = functio
   return offset + length, value
 end
 
+-- Maturity Date
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.maturity_date = {}
+
+-- Size: Maturity Date
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.maturity_date.size = 8
+
+-- Display: Maturity Date
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.maturity_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Maturity Date: No Value"
+  end
+
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_15.maturity_date.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
 -- Max Floor
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.max_floor = {}
 
@@ -2788,6 +2888,29 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.nyse_symbol.dissect = function
   return offset + length, value
 end
 
+-- Occ Symbol Root
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.occ_symbol_root = {}
+
+-- Size: Occ Symbol Root
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.occ_symbol_root.size = 24
+
+-- Display: Occ Symbol Root
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.occ_symbol_root.display = function(value)
+  return "Occ Symbol Root: "..value
+end
+
+-- Dissect: Occ Symbol Root
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.occ_symbol_root.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_15.occ_symbol_root.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.occ_symbol_root.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.occ_symbol_root, range, value, display)
+
+  return offset + length, value
+end
+
 -- Open Close
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.open_close = {}
 
@@ -3164,6 +3287,36 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.price_u_price_8.dissect = func
   local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.price_u_price_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.price_u_price_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Put Or Call
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.put_or_call = {}
+
+-- Size: Put Or Call
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.put_or_call.size = 1
+
+-- Display: Put Or Call
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.put_or_call.display = function(value)
+  if value == 0 then
+    return "Put Or Call: Put (0)"
+  end
+  if value == 1 then
+    return "Put Or Call: Call (1)"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
+end
+
+-- Dissect: Put Or Call
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_15.put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.put_or_call, range, value, display)
 
   return offset + length, value
 end
@@ -4908,7 +5061,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_type.display = functio
     return "Seq Msg Type: Underlying Symbol Reference Data (0x0233)"
   end
   if value == 0X0234 then
-    return "Seq Msg Type: Sequenced Filler (0X0234)"
+    return "Seq Msg Type: Series Reference Data (0X0234)"
   end
   if value == 0x0230 then
     return "Seq Msg Type: Minimum Price Variant Class Reference Data (0x0230)"
@@ -4990,6 +5143,29 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_index.dissect = functio
   local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.series_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Series Type
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_type = {}
+
+-- Size: Series Type
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_type.size = 1
+
+-- Display: Series Type
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_type.display = function(value)
+  return "Series Type: "..value
+end
+
+-- Dissect: Series Type
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.series_type, range, value, display)
 
   return offset + length, value
 end
@@ -5118,6 +5294,35 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.stop_px.dissect = function(buf
   local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.stop_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.stop_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price = {}
+
+-- Size: Strike Price
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.size = 8
+
+-- Display: Strike Price
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Strike Price
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.translate(raw)
+  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -8094,43 +8299,83 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.minimum_price_variant_class_re
   end
 end
 
--- Sequenced Filler
-nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler = {}
+-- Series Reference Data
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data = {}
 
--- Size: Sequenced Filler
-nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.size =
-  nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_header.size
+-- Size: Series Reference Data
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data.size =
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_header.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.transact_time.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_index.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.symbol_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.occ_symbol_root.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.put_or_call.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.maturity_date.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.contract_multiplier.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_type.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.closing_only_indicator.size
 
--- Display: Sequenced Filler
-nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.display = function(packet, parent, length)
+-- Display: Series Reference Data
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sequenced Filler
-nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Series Reference Data
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seq Msg Header: Struct of 2 fields
   index, seq_msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_header.dissect(buffer, index, packet, parent)
 
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  index, transact_time = nyse_arcaoptions_binarygateway_pillarstream_v3_15.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  index, series_index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  index, symbol_id = nyse_arcaoptions_binarygateway_pillarstream_v3_15.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Occ Symbol Root: 24 Byte Ascii String
+  index, occ_symbol_root = nyse_arcaoptions_binarygateway_pillarstream_v3_15.occ_symbol_root.dissect(buffer, index, packet, parent)
+
+  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, put_or_call = nyse_arcaoptions_binarygateway_pillarstream_v3_15.put_or_call.dissect(buffer, index, packet, parent)
+
+  -- Strike Price: 8 Byte Unsigned Fixed Width Integer
+  index, strike_price = nyse_arcaoptions_binarygateway_pillarstream_v3_15.strike_price.dissect(buffer, index, packet, parent)
+
+  -- Maturity Date: 8 Byte Ascii String
+  index, maturity_date = nyse_arcaoptions_binarygateway_pillarstream_v3_15.maturity_date.dissect(buffer, index, packet, parent)
+
+  -- Contract Multiplier: 4 Byte Unsigned Fixed Width Integer
+  index, contract_multiplier = nyse_arcaoptions_binarygateway_pillarstream_v3_15.contract_multiplier.dissect(buffer, index, packet, parent)
+
+  -- Series Type: 1 Byte Unsigned Fixed Width Integer
+  index, series_type = nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_type.dissect(buffer, index, packet, parent)
+
+  -- Closing Only Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, closing_only_indicator = nyse_arcaoptions_binarygateway_pillarstream_v3_15.closing_only_indicator.dissect(buffer, index, packet, parent)
+
   return index
 end
 
--- Dissect: Sequenced Filler
-nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Series Reference Data
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.sequenced_filler, buffer(offset, 0))
-    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.series_reference_data, buffer(offset, 0))
+    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.display(packet, parent, length)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.fields(buffer, offset, packet, parent)
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9301,6 +9546,46 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_request.dissect = functi
   end
 end
 
+-- Sequenced Filler
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler = {}
+
+-- Size: Sequenced Filler
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.size =
+  nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_header.size
+
+-- Display: Sequenced Filler
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Filler
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seq Msg Header: Struct of 2 fields
+  index, seq_msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_header.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequenced Filler
+nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.sequenced_filler, buffer(offset, 0))
+    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Session Configuration Request Message
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.session_configuration_request_message = {}
 
@@ -9422,9 +9707,9 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_message.dissect = fu
   if seq_msg_type == 0x0233 then
     return nyse_arcaoptions_binarygateway_pillarstream_v3_15.underlying_symbol_reference_data.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Sequenced Filler
+  -- Dissect Series Reference Data
   if seq_msg_type == 0X0234 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_filler.dissect(buffer, offset, packet, parent)
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_15.series_reference_data.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Minimum Price Variant Class Reference Data
   if seq_msg_type == 0x0230 then
