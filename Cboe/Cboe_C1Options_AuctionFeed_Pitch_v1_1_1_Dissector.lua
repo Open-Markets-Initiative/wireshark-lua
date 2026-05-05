@@ -69,6 +69,7 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.width_update_message = ProtoF
 
 -- Cboe C1Options AuctionFeed Pitch 1.1.1 generated fields
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.auctionfeed.pitch.v1.1.1.messageindex", ftypes.UINT16)
+omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -115,6 +116,36 @@ function omi_cboe_c1options_auctionfeed_pitch_v1_1_1.prefs_changed()
     show.message_index = omi_cboe_c1options_auctionfeed_pitch_v1_1_1.prefs.show_message_index
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+cboe_c1options_auctionfeed_pitch_v1_1_1.conversation = {}
+cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.data = function(packet)
+  local key = cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.key(packet)
+  local data = cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.flows[key]
+  if data == nil then
+    data = { time = { last = nil, frames = {} } }
+    cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -920,6 +951,16 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.time = {}
 -- Size: Time
 cboe_c1options_auctionfeed_pitch_v1_1_1.time.size = 4
 
+-- Store: Time
+cboe_c1options_auctionfeed_pitch_v1_1_1.time.current = nil
+
+-- Generated: Time
+cboe_c1options_auctionfeed_pitch_v1_1_1.time.generated = function(value, range, packet, parent)
+  local display = cboe_c1options_auctionfeed_pitch_v1_1_1.time.display(value)
+  local time = parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.time, range, value, display)
+  time:set_generated()
+end
+
 -- Display: Time
 cboe_c1options_auctionfeed_pitch_v1_1_1.time.display = function(value)
   return "Time: "..value
@@ -1059,6 +1100,47 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.width_type.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Timestamp
+cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp = {}
+
+-- Translate: Timestamp
+cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.translate = function(time_offset, stored_time)
+  return UInt64.new(stored_midnightreference + stored_time * 1000000000 + time_offset)
+end
+
+-- Display: Timestamp
+cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.display = function(time_offset, stored_time)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_time)..string.format("%09d", time_offset)
+end
+
+-- Composite: Timestamp
+cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.composite = function(buffer, offset, stored_time, packet, parent)
+  local length = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.size
+  local range = buffer(offset, length)
+  local time_offset = range:le_uint()
+  local value = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.translate(time_offset, stored_time)
+  local display = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.display(time_offset, stored_time)
+  parent = parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.timestamp, range, value, display)
+
+  cboe_c1options_auctionfeed_pitch_v1_1_1.time.generated(stored_time, range, packet, parent)
+
+  display = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.display(time_offset)
+  parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.time_offset, range, time_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_time = cboe_c1options_auctionfeed_pitch_v1_1_1.time.current
+
+  if stored_time ~= nil then
+    return cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.composite(buffer, offset, stored_time, packet, parent)
+  end
+
+  return cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Cboe C1Options AuctionFeed Pitch 1.1.1
@@ -1176,7 +1258,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.width_update_message.fields = function(b
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Underlying: 8 Byte Ascii String
   index, underlying = cboe_c1options_auctionfeed_pitch_v1_1_1.underlying.dissect(buffer, index, packet, parent)
@@ -1229,7 +1311,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.auction_summary_message.fields = functio
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Extended: 8 Byte Ascii String
   index, symbol_extended = cboe_c1options_auctionfeed_pitch_v1_1_1.symbol_extended.dissect(buffer, index, packet, parent)
@@ -1289,7 +1371,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.auction_update_message.fields = function
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Extended: 8 Byte Ascii String
   index, symbol_extended = cboe_c1options_auctionfeed_pitch_v1_1_1.symbol_extended.dissect(buffer, index, packet, parent)
@@ -1357,7 +1439,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.auction_trade_message.fields = function(
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = cboe_c1options_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
@@ -1410,7 +1492,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.auction_cancel_message.fields = function
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = cboe_c1options_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
@@ -1463,7 +1545,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.auction_notification_message.fields = fu
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
   index, symbol = cboe_c1options_auctionfeed_pitch_v1_1_1.symbol.dissect(buffer, index, packet, parent)
@@ -1533,7 +1615,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.unit_clear_message.fields = function(buf
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1574,6 +1656,13 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.time_message.fields = function(buffer, o
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
   index, time = cboe_c1options_auctionfeed_pitch_v1_1_1.time.dissect(buffer, index, packet, parent)
+
+  -- Store Time Value
+  cboe_c1options_auctionfeed_pitch_v1_1_1.time.current = time
+
+  if not packet.visited then
+    cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.current.time.last = time
+  end
 
   return index
 end
@@ -1692,6 +1781,16 @@ end
 -- Message
 cboe_c1options_auctionfeed_pitch_v1_1_1.message = {}
 
+-- Read runtime size of: Message
+cboe_c1options_auctionfeed_pitch_v1_1_1.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 1):le_uint()
+
+  return message_length
+end
+
 -- Display: Message
 cboe_c1options_auctionfeed_pitch_v1_1_1.message.display = function(packet, parent, length)
   return ""
@@ -1721,6 +1820,7 @@ end
 
 -- Dissect: Message
 cboe_c1options_auctionfeed_pitch_v1_1_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = cboe_c1options_auctionfeed_pitch_v1_1_1.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1738,6 +1838,28 @@ cboe_c1options_auctionfeed_pitch_v1_1_1.message.dissect = function(buffer, offse
 
     return index
   end
+end
+
+-- Messages
+cboe_c1options_auctionfeed_pitch_v1_1_1.messages = {}
+
+-- Dissect: Messages
+cboe_c1options_auctionfeed_pitch_v1_1_1.messages.dissect = function(buffer, offset, packet, parent, sequence)
+  -- Dissect Heartbeat
+  if sequence == 0 then
+    return offset
+  end
+  -- Repeating: Message
+  for message_index = 1, count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 1):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = cboe_c1options_auctionfeed_pitch_v1_1_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Packet Header
@@ -1802,25 +1924,24 @@ end
 
 -- Dissect Packet
 cboe_c1options_auctionfeed_pitch_v1_1_1.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.data(packet)
+  if not packet.visited then
+    data.time.frames[packet.number] = data.time.last
+  end
+  cboe_c1options_auctionfeed_pitch_v1_1_1.time.current = data.time.frames[packet.number]
+  cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_c1options_auctionfeed_pitch_v1_1_1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Sequence
+  local sequence = buffer(index - 4, 4):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Length
-    local message_length = buffer(index, 1):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = cboe_c1options_auctionfeed_pitch_v1_1_1.message.dissect(buffer, index, packet, parent, message_length, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = cboe_c1options_auctionfeed_pitch_v1_1_1.messages.dissect(buffer, index, packet, parent, sequence)
 
   return index
 end
@@ -1832,6 +1953,9 @@ end
 
 -- Initialize Dissector
 function omi_cboe_c1options_auctionfeed_pitch_v1_1_1.init()
+  cboe_c1options_auctionfeed_pitch_v1_1_1.time.current = nil
+  cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.current = nil
+  cboe_c1options_auctionfeed_pitch_v1_1_1.conversation.flows = {}
 end
 
 -- Dissector for Cboe C1Options AuctionFeed Pitch 1.1.1

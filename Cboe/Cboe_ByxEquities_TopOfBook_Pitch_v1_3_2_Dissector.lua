@@ -2251,6 +2251,16 @@ end
 -- Message
 cboe_byxequities_topofbook_pitch_v1_3_2.message = {}
 
+-- Read runtime size of: Message
+cboe_byxequities_topofbook_pitch_v1_3_2.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 1):le_uint()
+
+  return message_length
+end
+
 -- Display: Message
 cboe_byxequities_topofbook_pitch_v1_3_2.message.display = function(packet, parent, length)
   return ""
@@ -2280,6 +2290,7 @@ end
 
 -- Dissect: Message
 cboe_byxequities_topofbook_pitch_v1_3_2.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = cboe_byxequities_topofbook_pitch_v1_3_2.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2297,6 +2308,28 @@ cboe_byxequities_topofbook_pitch_v1_3_2.message.dissect = function(buffer, offse
 
     return index
   end
+end
+
+-- Messages
+cboe_byxequities_topofbook_pitch_v1_3_2.messages = {}
+
+-- Dissect: Messages
+cboe_byxequities_topofbook_pitch_v1_3_2.messages.dissect = function(buffer, offset, packet, parent, sequence)
+  -- Dissect Heartbeat
+  if sequence == 0 then
+    return offset
+  end
+  -- Repeating: Message
+  for message_index = 1, count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 1):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = cboe_byxequities_topofbook_pitch_v1_3_2.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Packet Header
@@ -2366,20 +2399,11 @@ cboe_byxequities_topofbook_pitch_v1_3_2.packet.dissect = function(buffer, packet
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_byxequities_topofbook_pitch_v1_3_2.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Sequence
+  local sequence = buffer(index - 4, 4):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Length
-    local message_length = buffer(index, 1):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = cboe_byxequities_topofbook_pitch_v1_3_2.message.dissect(buffer, index, packet, parent, message_length, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = cboe_byxequities_topofbook_pitch_v1_3_2.messages.dissect(buffer, index, packet, parent, sequence)
 
   return index
 end
