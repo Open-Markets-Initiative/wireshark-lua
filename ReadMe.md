@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 525 | 4,554,192 |
+| 524 | 4,561,686 |
 
 ## Testing
 
@@ -136,13 +136,13 @@ Enjoy.
 [Box.Options.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Options/Multicast.md "Multicast"
 [Cboe.TitaniumEquities.AuctionFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumEquities/AuctionFeed.md "Cboe Titanium Equities Auction Feed"
 [Cboe.TitaniumEquities.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumEquities/DepthOfBook.md "Cboe Titanium Equities Depth Of Book"
-[Cboe.TitaniumEquities.OneFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumEquities/OneFeed.md "Cboe Titanium Equities One Feed"
-[Cboe.TitaniumEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumEquities/LastSale.md "Cboe Titanium Equities Last Sale"
-[Cboe.TitaniumEquities.SummaryDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumEquities/SummaryDepth.md "Cboe Titanium Equities Summary Depth"
+[Cboe.TitaniumConsolidated.OneFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumConsolidated/OneFeed.md "Cboe One Feed"
+[Cboe.TitaniumConsolidated.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumConsolidated/LastSale.md "Cboe Last Sale"
+[Cboe.TitaniumConsolidated.SummaryDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumConsolidated/SummaryDepth.md "Cboe Summary Depth"
+[Cboe.ByxEquities.SummaryDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/ByxEquities/SummaryDepth.md "Cboe Summary Depth"
 [Cboe.TitaniumEquities.TopOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumEquities/TopOfBook.md "Cboe Titanium Equities Top Of Book"
 [Cboe.ByxEquities.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/ByxEquities/DepthOfBook.md "Cboe BYX Depth Of Book"
 [Cboe.ByxEquities.TopOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/ByxEquities/TopOfBook.md "Cboe Titanium Equities Top Of Book"
-[Cboe.ByxEquities.SummaryDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/ByxEquities/SummaryDepth.md "Cboe BYX Summary Depth"
 [Cboe.BzxEquities.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/DepthOfBook.md "Cboe BZX Depth Of Book"
 [Cboe.BzxEquities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/OrderEntry.md "Cboe BZX Order Entry"
 [Cboe.EdgxEquities.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxEquities/DepthOfBook.md "Cboe EDGX Depth Of Book"
@@ -168,13 +168,9 @@ Enjoy.
 [Cboe.C1Options.MarketLevel2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketLevel2.md "Cboe Market Level 2 Feed"
 [Cboe.C1Options.OpeningAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/OpeningAuction.md "Cboe Options Opening Auction Feed"
 [Cboe.TitaniumOptions.AuctionFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/AuctionFeed.md "Cboe Titanium Options Auction Feed"
-[Cboe.TitaniumOptions.Complex]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/Complex.md "Cboe Titanium Options Complex"
-[Cboe.TitaniumOptions.ComplexAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/ComplexAuction.md "Cboe Titanium Options Complex Auction"
-[Cboe.TitaniumOptions.ComplexTop]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/ComplexTop.md "Cboe Titanium Options Complex Top"
 [Cboe.TitaniumOptions.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/DepthOfBook.md "Cboe Titanium Options Depth Of Book"
 [Cboe.TitaniumOptions.Flex]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/Flex.md "Cboe Titanium Options Flex"
-[Cboe.TitaniumOptions.MulticastTop]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/MulticastTop.md "Cboe Titanium Options Multicast Top"
-[Cboe.TitaniumOptions.OneOptions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/OneOptions.md "Cboe Titanium Options One Options"
+[Cboe.TitaniumConsolidated.OneOptions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumConsolidated/OneOptions.md "Cboe One Options"
 [Cboe.TitaniumOptions.OpeningProcess]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumOptions/OpeningProcess.md "Cboe Titanium Options Opening Process"
 [Cme.Headers.Mdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Headers/Mdp.md "Market Data Protocol"
 [Cme.CmeFutures.Mdp3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Mdp3.md "Cme Market Data Platform 3"

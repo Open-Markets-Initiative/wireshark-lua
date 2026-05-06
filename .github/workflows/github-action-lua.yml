@@ -67,6 +67,12 @@ jobs:
       - name: Run Coinbase CoinbaseDerivatives OrdersApi Sbe 1.4 Dissector Tests
         run: bash -x .github/tests/Coinbase-CoinbaseDerivatives-OrdersApi-Sbe-v1-4-Test.sh
 
+      - name: Run Coinbase Deribit MarketDataApi Sbe 1.0 Dissector Tests
+        run: bash -x .github/tests/Coinbase-Deribit-MarketDataApi-Sbe-v1-0-Test.sh
+
+      - name: Run Coinbase Deribit OrdersApi Sbe 1.0 Dissector Tests
+        run: bash -x .github/tests/Coinbase-Deribit-OrdersApi-Sbe-v1-0-Test.sh
+
       - name: Run Eurex Cash Eti T7 10.0 Dissector Tests
         run: bash -x .github/tests/Eurex-Cash-Eti-T7-v10-0-Test.sh
 
