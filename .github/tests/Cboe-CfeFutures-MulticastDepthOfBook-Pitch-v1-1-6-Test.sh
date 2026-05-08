@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Futures.MulticastDepthOfBook.Pitch.v1.1.6/AddOrderShortMessage.pcap" \
+  -r "omi-data-packets/Cboe/CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6/AddOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_MulticastDepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \
   > Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json 2> Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json.stderr \
@@ -17,7 +17,7 @@ grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.shortquantity" Cboe.CfeF
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.symbol" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.shortprice" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Futures.MulticastDepthOfBook.Pitch.v1.1.6/ModifyOrderShortMessage.pcap" \
+  -r "omi-data-packets/Cboe/CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6/ModifyOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_MulticastDepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \
   > Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.ModifyOrderShortMessage.json 2> Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.ModifyOrderShortMessage.json.stderr \
@@ -28,7 +28,7 @@ grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.orderid" Cboe.CfeFutures
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.shortquantity" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.ModifyOrderShortMessage.json
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.shortprice" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.ModifyOrderShortMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Futures.MulticastDepthOfBook.Pitch.v1.1.6/TimeMessage.pcap" \
+  -r "omi-data-packets/Cboe/CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6/TimeMessage.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_MulticastDepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \
   > Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TimeMessage.json 2> Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TimeMessage.json.stderr \
@@ -37,7 +37,7 @@ runuser -u tester -- tshark \
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.time" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TimeMessage.json
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.epoch" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TimeMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Futures.MulticastDepthOfBook.Pitch.v1.1.6/TradingStatusMessage.pcap" \
+  -r "omi-data-packets/Cboe/CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6/TradingStatusMessage.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_MulticastDepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \
   > Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json 2> Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.TradingStatusMessage.json.stderr \

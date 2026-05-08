@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Byx.Equities.MulticastDepthOfBook.Pitch.v2.41/AddOrderShortMessage.pcap" \
+  -r "omi-data-packets/Cboe/ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29/AddOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
   -T json \
   > Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json 2> Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json.stderr \
@@ -18,7 +18,7 @@ grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.symbol" Cboe.ByxEquit
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.priceshort" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.addorderflags" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Byx.Equities.MulticastDepthOfBook.Pitch.v2.41/ModifyOrderShortMessage.pcap" \
+  -r "omi-data-packets/Cboe/ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29/ModifyOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
   -T json \
   > Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json 2> Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json.stderr \

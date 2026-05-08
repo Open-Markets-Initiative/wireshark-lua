@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/AuctionCancelMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/AuctionCancelMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr \
@@ -13,7 +13,7 @@ runuser -u tester -- tshark \
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.auctionid" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/AuctionNotificationMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/AuctionNotificationMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr \
@@ -31,7 +31,7 @@ grep "cboe.c1options.complex.pitch.v2.1.18.participantid" Cboe.C1Options.Complex
 grep "cboe.c1options.complex.pitch.v2.1.18.auctionendoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.clientid" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/AuctionUpdateMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/AuctionUpdateMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr \
@@ -49,7 +49,7 @@ grep "cboe.c1options.complex.pitch.v2.1.18.openingcondition" Cboe.C1Options.Comp
 grep "cboe.c1options.complex.pitch.v2.1.18.compositemarketbidprice" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.compositemarketofferprice" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/ComplexInstrumentDefinitionExpandedMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/ComplexInstrumentDefinitionExpandedMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr \
@@ -60,7 +60,7 @@ grep "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentid" Cboe.C1Options.C
 grep "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentunderlying" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.legcount" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/DeleteOrderMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/DeleteOrderMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr \
@@ -69,7 +69,7 @@ runuser -u tester -- tshark \
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.orderid" Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/ModifyOrderShortMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/ModifyOrderShortMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr \
@@ -81,7 +81,7 @@ grep "cboe.c1options.complex.pitch.v2.1.18.quantityshort" Cboe.C1Options.Complex
 grep "cboe.c1options.complex.pitch.v2.1.18.priceshort" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.padding" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/OrderExecutedMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/OrderExecutedMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr \
@@ -93,7 +93,7 @@ grep "cboe.c1options.complex.pitch.v2.1.18.executedquantity" Cboe.C1Options.Comp
 grep "cboe.c1options.complex.pitch.v2.1.18.executionid" Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.tradecondition" Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/SymbolMappingMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/SymbolMappingMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json.stderr \
@@ -104,7 +104,7 @@ grep "cboe.c1options.complex.pitch.v2.1.18.osisymbol" Cboe.C1Options.Complex.Pit
 grep "cboe.c1options.complex.pitch.v2.1.18.symbolcondition" Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.underlying" Cboe.C1Options.Complex.Pitch.v2.1.18.SymbolMappingMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/Options.ComplexDepthOfBook.Pitch.v2.1.18/TimeMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/TimeMessage.pcap" \
   -X "lua_script:Cboe/Cboe_C1Options_Complex_Pitch_v2_1_18_Dissector.lua" \
   -T json \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.TimeMessage.json.stderr \
