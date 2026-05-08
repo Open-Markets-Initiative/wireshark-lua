@@ -3551,27 +3551,13 @@ end
 -- Message
 finra_finraorf_tdds_dfi_v2_1.message = {}
 
--- Calculate size of: Message
-finra_finraorf_tdds_dfi_v2_1.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + finra_finraorf_tdds_dfi_v2_1.mold_udp64.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + finra_finraorf_tdds_dfi_v2_1.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 finra_finraorf_tdds_dfi_v2_1.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-finra_finraorf_tdds_dfi_v2_1.message.fields = function(buffer, offset, packet, parent, message_index)
+finra_finraorf_tdds_dfi_v2_1.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -3593,20 +3579,23 @@ finra_finraorf_tdds_dfi_v2_1.message.fields = function(buffer, offset, packet, p
 end
 
 -- Dissect: Message
-finra_finraorf_tdds_dfi_v2_1.message.dissect = function(buffer, offset, packet, parent, message_index)
+finra_finraorf_tdds_dfi_v2_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.message, buffer(offset, 0))
-    local index = finra_finraorf_tdds_dfi_v2_1.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = finra_finraorf_tdds_dfi_v2_1.message.display(packet, parent, length)
+    local current = finra_finraorf_tdds_dfi_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = finra_finraorf_tdds_dfi_v2_1.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return finra_finraorf_tdds_dfi_v2_1.message.fields(buffer, offset, packet, parent, message_index)
+    finra_finraorf_tdds_dfi_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -3673,14 +3662,20 @@ finra_finraorf_tdds_dfi_v2_1.packet.dissect = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = finra_finraorf_tdds_dfi_v2_1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Count
+  local count = buffer(index - 2, 2):uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-    index, message = finra_finraorf_tdds_dfi_v2_1.message.dissect(buffer, index, packet, parent, message_index)
+  -- Repeating: Message
+  for message_index = 1, count do
+
+    -- Dependency element: Length
+    local length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = length + 2
+
+    -- Message: Struct of 2 fields
+    index, message = finra_finraorf_tdds_dfi_v2_1.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index
