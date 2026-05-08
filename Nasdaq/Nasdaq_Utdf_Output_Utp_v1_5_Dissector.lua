@@ -5251,13 +5251,11 @@ nasdaq_utdf_output_utp_v1_5.packet.dissect = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_utdf_output_utp_v1_5.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Count
+  local count = buffer(index - 2, 2):uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
+  -- Repeating: Message
+  for message_index = 1, count do
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):uint()
