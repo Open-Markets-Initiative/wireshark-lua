@@ -1799,25 +1799,25 @@ end
 cboe_c1options_complex_pitch_v2_1_37.timestamp = {}
 
 -- Translate: Timestamp
-cboe_c1options_complex_pitch_v2_1_37.timestamp.translate = function(time_offset, stored_midnight_reference)
+cboe_c1options_complex_pitch_v2_1_37.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time)
   return UInt64.new(stored_midnight_reference + stored_time * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp
-cboe_c1options_complex_pitch_v2_1_37.timestamp.display = function(time_offset, stored_midnight_reference)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference)..string.format("%09d", time_offset)
+cboe_c1options_complex_pitch_v2_1_37.timestamp.display = function(time_offset, stored_midnight_reference, stored_time)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference + stored_time)..string.format("%09d", time_offset)
 end
 
 -- Composite: Timestamp
-cboe_c1options_complex_pitch_v2_1_37.timestamp.composite = function(buffer, offset, stored_midnight_reference, packet, parent)
+cboe_c1options_complex_pitch_v2_1_37.timestamp.composite = function(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_37.time_offset.size
   local range = buffer(offset, length)
   local time_offset = range:le_uint()
-  local value = cboe_c1options_complex_pitch_v2_1_37.timestamp.translate(time_offset, stored_midnight_reference)
-  local display = cboe_c1options_complex_pitch_v2_1_37.timestamp.display(time_offset, stored_midnight_reference)
+  local value = cboe_c1options_complex_pitch_v2_1_37.timestamp.translate(time_offset, stored_midnight_reference, stored_time)
+  local display = cboe_c1options_complex_pitch_v2_1_37.timestamp.display(time_offset, stored_midnight_reference, stored_time)
   parent = parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.timestamp, range, value, display)
 
-  cboe_c1options_complex_pitch_v2_1_37.midnight_reference.generated(stored_midnight_reference, range, packet, parent)
+  cboe_c1options_complex_pitch_v2_1_37.time.generated(stored_time, range, packet, parent)
 
   display = cboe_c1options_complex_pitch_v2_1_37.time_offset.display(time_offset)
   parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.time_offset, range, time_offset, display)
@@ -1828,9 +1828,10 @@ end
 -- Dissect: Timestamp
 cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect = function(buffer, offset, packet, parent)
   local stored_midnight_reference = cboe_c1options_complex_pitch_v2_1_37.midnight_reference.current
+  local stored_time = cboe_c1options_complex_pitch_v2_1_37.time.current
 
-  if stored_midnight_reference ~= nil then
-    return cboe_c1options_complex_pitch_v2_1_37.timestamp.composite(buffer, offset, stored_midnight_reference, packet, parent)
+  if stored_midnight_reference ~= nil and stored_time ~= nil then
+    return cboe_c1options_complex_pitch_v2_1_37.timestamp.composite(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
   end
 
   return cboe_c1options_complex_pitch_v2_1_37.time_offset.dissect(buffer, offset, packet, parent)

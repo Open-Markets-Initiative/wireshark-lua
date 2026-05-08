@@ -136,6 +136,19 @@ omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_packet_header = Pref.bool("S
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_complex_instrument_leg_index = Pref.bool("Show Complex Instrument Leg Index", show.complex_instrument_leg_index, "Show generated complex instrument leg index in protocol tree")
 
+-- Time Offset Display Preferences
+cboe_c1options_complex_pitch_v2_1_18.time_offset_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+cboe_c1options_complex_pitch_v2_1_18.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+
+local time_offset_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+omi_cboe_c1options_complex_pitch_v2_1_18.prefs.time_offset_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", time_offset_format_enum, false)
+omi_cboe_c1options_complex_pitch_v2_1_18.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+
 -- Handle changed preferences
 function omi_cboe_c1options_complex_pitch_v2_1_18.prefs_changed()
 
@@ -166,6 +179,14 @@ function omi_cboe_c1options_complex_pitch_v2_1_18.prefs_changed()
   end
   if show.complex_instrument_leg_index ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_complex_instrument_leg_index then
     show.complex_instrument_leg_index = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_complex_instrument_leg_index
+  end
+
+  -- Check Time Offset preferences
+  if cboe_c1options_complex_pitch_v2_1_18.time_offset_format ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.time_offset_format then
+    cboe_c1options_complex_pitch_v2_1_18.time_offset_format = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.time_offset_format
+  end
+  if cboe_c1options_complex_pitch_v2_1_18.utc_offset_hours ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.utc_offset_hours then
+    cboe_c1options_complex_pitch_v2_1_18.utc_offset_hours = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.utc_offset_hours
   end
 end
 
@@ -1696,12 +1717,28 @@ cboe_c1options_complex_pitch_v2_1_18.timestamp = {}
 
 -- Translate: Timestamp
 cboe_c1options_complex_pitch_v2_1_18.timestamp.translate = function(time_offset, stored_time)
-  return UInt64.new(stored_midnightreference + stored_time * 1000000000 + time_offset)
+  return UInt64.new(stored_time * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp
-cboe_c1options_complex_pitch_v2_1_18.timestamp.display = function(time_offset, stored_time)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_time)..string.format("%09d", time_offset)
+cboe_c1options_complex_pitch_v2_1_18.timestamp.display = function(time_offset, stored_time, packet)
+  -- Raw display mode
+  if cboe_c1options_complex_pitch_v2_1_18.time_offset_format == 0 then
+    return "Timestamp: "..(stored_time * 1000000000 + time_offset)
+  end
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if cboe_c1options_complex_pitch_v2_1_18.time_offset_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = cboe_c1options_complex_pitch_v2_1_18.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + stored_time
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", time_offset)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", stored_time)..string.format("%09d", time_offset)
 end
 
 -- Composite: Timestamp
