@@ -42,7 +42,7 @@ omi_siac_cqs_output_cta_v2_10_a.fields.block_sequence_number = ProtoField.new("B
 omi_siac_cqs_output_cta_v2_10_a.fields.block_size = ProtoField.new("Block Size", "siac.cqs.output.cta.v2.10.a.blocksize", ftypes.UINT16)
 omi_siac_cqs_output_cta_v2_10_a.fields.category_message_type = ProtoField.new("Category Message Type", "siac.cqs.output.cta.v2.10.a.categorymessagetype", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.consolidated_closing_price = ProtoField.new("Consolidated Closing Price", "siac.cqs.output.cta.v2.10.a.consolidatedclosingprice", ftypes.DOUBLE)
-omi_siac_cqs_output_cta_v2_10_a.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cqs.output.cta.v2.10.a.datafeedindicator", ftypes.BYTES)
+omi_siac_cqs_output_cta_v2_10_a.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cqs.output.cta.v2.10.a.datafeedindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.output.cta.v2.10.a.financialstatusindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.finra_bbo_indicator = ProtoField.new("Finra Bbo Indicator", "siac.cqs.output.cta.v2.10.a.finrabboindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.finra_bbo_luld_indicator = ProtoField.new("Finra Bbo Luld Indicator", "siac.cqs.output.cta.v2.10.a.finrabboluldindicator", ftypes.STRING)
@@ -96,7 +96,7 @@ omi_siac_cqs_output_cta_v2_10_a.fields.reserved = ProtoField.new("Reserved", "si
 omi_siac_cqs_output_cta_v2_10_a.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.cqs.output.cta.v2.10.a.reserved128", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cqs.output.cta.v2.10.a.reserved62", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.output.cta.v2.10.a.retailinterestindicator", ftypes.STRING)
-omi_siac_cqs_output_cta_v2_10_a.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cqs.output.cta.v2.10.a.retransmissionindicator", ftypes.BYTES)
+omi_siac_cqs_output_cta_v2_10_a.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cqs.output.cta.v2.10.a.retransmissionindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.round_lot_size = ProtoField.new("Round Lot Size", "siac.cqs.output.cta.v2.10.a.roundlotsize", ftypes.UINT16)
 omi_siac_cqs_output_cta_v2_10_a.fields.seconds = ProtoField.new("Seconds", "siac.cqs.output.cta.v2.10.a.seconds", ftypes.UINT32)
 omi_siac_cqs_output_cta_v2_10_a.fields.security_status_indicator = ProtoField.new("Security Status Indicator", "siac.cqs.output.cta.v2.10.a.securitystatusindicator", ftypes.STRING)
@@ -959,7 +959,7 @@ end
 siac_cqs_output_cta_v2_10_a.data_feed_indicator.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_10_a.data_feed_indicator.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = siac_cqs_output_cta_v2_10_a.data_feed_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.data_feed_indicator, range, value, display)
@@ -2464,7 +2464,7 @@ end
 siac_cqs_output_cta_v2_10_a.retransmission_indicator.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_10_a.retransmission_indicator.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = siac_cqs_output_cta_v2_10_a.retransmission_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.retransmission_indicator, range, value, display)

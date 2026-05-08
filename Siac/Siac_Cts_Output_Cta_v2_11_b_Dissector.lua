@@ -54,7 +54,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.corrected_trade_volume = ProtoField.new("
 omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_i_total_trades_volume = ProtoField.new("Crossing Session I Total Trades Volume", "siac.cts.output.cta.v2.11.b.crossingsessionitotaltradesvolume", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_ii_dollar_value = ProtoField.new("Crossing Session Ii Dollar Value", "siac.cts.output.cta.v2.11.b.crossingsessioniidollarvalue", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_ii_total_trades_volume = ProtoField.new("Crossing Session Ii Total Trades Volume", "siac.cts.output.cta.v2.11.b.crossingsessioniitotaltradesvolume", ftypes.UINT64)
-omi_siac_cts_output_cta_v2_11_b.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cts.output.cta.v2.11.b.datafeedindicator", ftypes.BYTES)
+omi_siac_cts_output_cta_v2_11_b.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cts.output.cta.v2.11.b.datafeedindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.dollar_value = ProtoField.new("Dollar Value", "siac.cts.output.cta.v2.11.b.dollarvalue", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cts.output.cta.v2.11.b.financialstatusindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.fractional_total_volume = ProtoField.new("Fractional Total Volume", "siac.cts.output.cta.v2.11.b.fractionaltotalvolume", ftypes.UINT64)
@@ -122,7 +122,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.prior_security_symbol = ProtoField.new("P
 omi_siac_cts_output_cta_v2_11_b.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.11.b.reserved", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.cts.output.cta.v2.11.b.reserved128", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cts.output.cta.v2.11.b.reserved62", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cts.output.cta.v2.11.b.retransmissionindicator", ftypes.BYTES)
+omi_siac_cts_output_cta_v2_11_b.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cts.output.cta.v2.11.b.retransmissionindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.round_lot_size = ProtoField.new("Round Lot Size", "siac.cts.output.cta.v2.11.b.roundlotsize", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "siac.cts.output.cta.v2.11.b.salecondition1", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_4 = ProtoField.new("Sale Condition 4", "siac.cts.output.cta.v2.11.b.salecondition4", ftypes.STRING)
@@ -1445,7 +1445,7 @@ end
 siac_cts_output_cta_v2_11_b.data_feed_indicator.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.data_feed_indicator.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = siac_cts_output_cta_v2_11_b.data_feed_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.data_feed_indicator, range, value, display)
@@ -3387,7 +3387,7 @@ end
 siac_cts_output_cta_v2_11_b.retransmission_indicator.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.retransmission_indicator.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = siac_cts_output_cta_v2_11_b.retransmission_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.retransmission_indicator, range, value, display)
