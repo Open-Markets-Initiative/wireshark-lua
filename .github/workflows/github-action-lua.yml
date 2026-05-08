@@ -31,20 +31,20 @@ jobs:
       - name: Run B3 B3Derivatives BinaryUmdf Sbe 1.8 Dissector Tests
         run: bash -x .github/tests/B3-B3Derivatives-BinaryUmdf-Sbe-v1-8-Test.sh
 
-      - name: Run Cboe ByxEquities DepthOfBook Pitch 2.41.29 Dissector Tests
-        run: bash -x .github/tests/Cboe-ByxEquities-DepthOfBook-Pitch-v2-41-29-Test.sh
+      - name: Run Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
+        run: bash -x .github/tests/Cboe-ByxEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
 
       - name: Run Cboe BzxOptions OrderEntry Boe 2.10 Dissector Tests
         run: bash -x .github/tests/Cboe-BzxOptions-OrderEntry-Boe-v2-10-Test.sh
 
-      - name: Run Cboe CfeFutures DepthOfBook Pitch 1.1.6 Dissector Tests
-        run: bash -x .github/tests/Cboe-CfeFutures-DepthOfBook-Pitch-v1-1-6-Test.sh
+      - name: Run Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Dissector Tests
+        run: bash -x .github/tests/Cboe-CfeFutures-MulticastDepthOfBook-Pitch-v1-1-6-Test.sh
 
       - name: Run Cboe C1Options Complex Pitch 2.1.18 Dissector Tests
         run: bash -x .github/tests/Cboe-C1Options-Complex-Pitch-v2-1-18-Test.sh
 
-      - name: Run Cboe C1Options DepthOfBook Pitch 2.39.4 Dissector Tests
-        run: bash -x .github/tests/Cboe-C1Options-DepthOfBook-Pitch-v2-39-4-Test.sh
+      - name: Run Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Dissector Tests
+        run: bash -x .github/tests/Cboe-C1Options-MulticastDepthOfBook-Pitch-v2-39-4-Test.sh
 
       - name: Run Cboe C1Options MarketLevel2 Csm 1.0.4 Dissector Tests
         run: bash -x .github/tests/Cboe-C1Options-MarketLevel2-Csm-v1-0-4-Test.sh

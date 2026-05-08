@@ -3479,9 +3479,9 @@ end
 cboe_c1options_complex_pitch_v2_1_18.messages = {}
 
 -- Dissect: Messages
-cboe_c1options_complex_pitch_v2_1_18.messages.dissect = function(buffer, offset, packet, parent, sequence)
+cboe_c1options_complex_pitch_v2_1_18.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
-  if sequence == 0 then
+  if count == 0 then
     return offset
   end
   -- Repeating: Message
@@ -3572,11 +3572,11 @@ cboe_c1options_complex_pitch_v2_1_18.packet.dissect = function(buffer, packet, p
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_c1options_complex_pitch_v2_1_18.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Sequence
-  local sequence = buffer(index - 4, 4):le_uint()
+  -- Dependency element: Count
+  local count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_c1options_complex_pitch_v2_1_18.messages.dissect(buffer, index, packet, parent, sequence)
+  index = cboe_c1options_complex_pitch_v2_1_18.messages.dissect(buffer, index, packet, parent, count)
 
   return index
 end

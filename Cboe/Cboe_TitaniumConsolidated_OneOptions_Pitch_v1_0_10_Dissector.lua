@@ -2837,9 +2837,9 @@ end
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages = {}
 
 -- Dissect: Messages
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, sequence)
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
-  if sequence == 0 then
+  if count == 0 then
     return offset
   end
   -- Repeating: Message
@@ -2922,11 +2922,11 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet.dissect = function(buf
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Sequence
-  local sequence = buffer(index - 4, 4):le_uint()
+  -- Dependency element: Count
+  local count = buffer(index - 7, 2):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect(buffer, index, packet, parent, sequence)
+  index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect(buffer, index, packet, parent, count)
 
   return index
 end
