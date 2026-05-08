@@ -15,8 +15,6 @@ local siac_cts_output_cta_v2_11_b = {}
 -----------------------------------------------------------------------
 
 -- Siac Cts Output Cta 2.11.b Fields
-omi_siac_cts_output_cta_v2_11_b.fields.administrative = ProtoField.new("Administrative", "siac.cts.output.cta.v2.11.b.administrative", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.output.cta.v2.11.b.administrativemessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.approximate_volume_participant = ProtoField.new("Approximate Volume Participant", "siac.cts.output.cta.v2.11.b.approximatevolumeparticipant", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v2.11.b.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v2.11.b.auctioncollarreferenceprice", ftypes.DOUBLE)
@@ -33,6 +31,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.category_1 = ProtoField.new("Category 1",
 omi_siac_cts_output_cta_v2_11_b.fields.category_2 = ProtoField.new("Category 2", "siac.cts.output.cta.v2.11.b.category2", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.category_3 = ProtoField.new("Category 3", "siac.cts.output.cta.v2.11.b.category3", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.category_4 = ProtoField.new("Category 4", "siac.cts.output.cta.v2.11.b.category4", ftypes.STRING)
+omi_siac_cts_output_cta_v2_11_b.fields.category_message_type = ProtoField.new("Category Message Type", "siac.cts.output.cta.v2.11.b.categorymessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_closing_price = ProtoField.new("Consolidated Closing Price", "siac.cts.output.cta.v2.11.b.consolidatedclosingprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_fractional_total_volume = ProtoField.new("Consolidated Fractional Total Volume", "siac.cts.output.cta.v2.11.b.consolidatedfractionaltotalvolume", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_high_low_last_indicator = ProtoField.new("Consolidated High Low Last Indicator", "siac.cts.output.cta.v2.11.b.consolidatedhighlowlastindicator", ftypes.STRING)
@@ -43,8 +42,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.consolidated_low_price = ProtoField.new("
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_previous_close_price_date = ProtoField.new("Consolidated Previous Close Price Date", "siac.cts.output.cta.v2.11.b.consolidatedpreviousclosepricedate", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_tick = ProtoField.new("Consolidated Tick", "siac.cts.output.cta.v2.11.b.consolidatedtick", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_total_volume = ProtoField.new("Consolidated Total Volume", "siac.cts.output.cta.v2.11.b.consolidatedtotalvolume", ftypes.UINT32)
-omi_siac_cts_output_cta_v2_11_b.fields.control = ProtoField.new("Control", "siac.cts.output.cta.v2.11.b.control", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.output.cta.v2.11.b.controlmessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_fractional_trade_volume = ProtoField.new("Corrected Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.correctedfractionaltradevolume", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time = ProtoField.new("Corrected Prior Day Trade Date And Time", "siac.cts.output.cta.v2.11.b.correctedpriordaytradedateandtime", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_sale_condition = ProtoField.new("Corrected Sale Condition", "siac.cts.output.cta.v2.11.b.correctedsalecondition", ftypes.STRING)
@@ -68,8 +65,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.halt_reason = ProtoField.new("Halt Reason
 omi_siac_cts_output_cta_v2_11_b.fields.held_trade_indicator = ProtoField.new("Held Trade Indicator", "siac.cts.output.cta.v2.11.b.heldtradeindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.high_indication_price_upper_limit_price_band = ProtoField.new("High Indication Price Upper Limit Price Band", "siac.cts.output.cta.v2.11.b.highindicationpriceupperlimitpriceband", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.high_price = ProtoField.new("High Price", "siac.cts.output.cta.v2.11.b.highprice", ftypes.DOUBLE)
-omi_siac_cts_output_cta_v2_11_b.fields.index = ProtoField.new("Index", "siac.cts.output.cta.v2.11.b.index", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.index_message_type = ProtoField.new("Index Message Type", "siac.cts.output.cta.v2.11.b.indexmessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.index_symbol = ProtoField.new("Index Symbol", "siac.cts.output.cta.v2.11.b.indexsymbol", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v2.11.b.indexvalue", ftypes.INT64)
 omi_siac_cts_output_cta_v2_11_b.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cts.output.cta.v2.11.b.instrumenttype", ftypes.STRING)
@@ -81,11 +76,8 @@ omi_siac_cts_output_cta_v2_11_b.fields.low_indication_price_lower_limit_price_ba
 omi_siac_cts_output_cta_v2_11_b.fields.low_price = ProtoField.new("Low Price", "siac.cts.output.cta.v2.11.b.lowprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.luld_leverage_ratio = ProtoField.new("Luld Leverage Ratio", "siac.cts.output.cta.v2.11.b.luldleverageratio", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.luld_tier = ProtoField.new("Luld Tier", "siac.cts.output.cta.v2.11.b.luldtier", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.market_status = ProtoField.new("Market Status", "siac.cts.output.cta.v2.11.b.marketstatus", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.11.b.marketstatusmessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v2.11.b.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.11.b.message", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v2.11.b.messagecategory", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v2.11.b.messageid", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_11_b.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.11.b.messagelength", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_11_b.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.output.cta.v2.11.b.messagesinblock", ftypes.UINT8)
@@ -125,8 +117,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.previous_close_price = ProtoField.new("Pr
 omi_siac_cts_output_cta_v2_11_b.fields.previous_close_price_date = ProtoField.new("Previous Close Price Date", "siac.cts.output.cta.v2.11.b.previousclosepricedate", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cts.output.cta.v2.11.b.primarylistingmarketparticipantid", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.primary_listing_market_previous_closing_price = ProtoField.new("Primary Listing Market Previous Closing Price", "siac.cts.output.cta.v2.11.b.primarylistingmarketpreviousclosingprice", ftypes.DOUBLE)
-omi_siac_cts_output_cta_v2_11_b.fields.prior_day = ProtoField.new("Prior Day", "siac.cts.output.cta.v2.11.b.priorday", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.output.cta.v2.11.b.priordaymessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.11.b.priordaytradedateandtime", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.prior_security_symbol = ProtoField.new("Prior Security Symbol", "siac.cts.output.cta.v2.11.b.priorsecuritysymbol", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.11.b.reserved", ftypes.STRING)
@@ -146,16 +136,12 @@ omi_siac_cts_output_cta_v2_11_b.fields.sellers_sale_days = ProtoField.new("Selle
 omi_siac_cts_output_cta_v2_11_b.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cts.output.cta.v2.11.b.shortsalerestrictionindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp = ProtoField.new("SIP Block Timestamp", "siac.cts.output.cta.v2.11.b.sipblocktimestamp", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.output.cta.v2.11.b.stopstockindicator", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.summary = ProtoField.new("Summary", "siac.cts.output.cta.v2.11.b.summary", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.summary_message_type = ProtoField.new("Summary Message Type", "siac.cts.output.cta.v2.11.b.summarymessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.test = ProtoField.new("Test", "siac.cts.output.cta.v2.11.b.test", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.tick = ProtoField.new("Tick", "siac.cts.output.cta.v2.11.b.tick", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v2.11.b.timestamp1", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.11.b.timestamp2", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.total_trades = ProtoField.new("Total Trades", "siac.cts.output.cta.v2.11.b.totaltrades", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.total_volume = ProtoField.new("Total Volume", "siac.cts.output.cta.v2.11.b.totalvolume", ftypes.UINT64)
-omi_siac_cts_output_cta_v2_11_b.fields.trade = ProtoField.new("Trade", "siac.cts.output.cta.v2.11.b.trade", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.cts.output.cta.v2.11.b.trademessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.trade_price = ProtoField.new("Trade Price", "siac.cts.output.cta.v2.11.b.tradeprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.trade_price_2 = ProtoField.new("Trade Price 2", "siac.cts.output.cta.v2.11.b.tradeprice2", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.trade_reporting_facility_id = ProtoField.new("Trade Reporting Facility Id", "siac.cts.output.cta.v2.11.b.tradereportingfacilityid", ftypes.STRING)
@@ -174,10 +160,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.bid_and_offer_index_message = ProtoField.
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_end_of_day_summary_message = ProtoField.new("Consolidated End Of Day Summary Message", "siac.cts.output.cta.v2.11.b.consolidatedendofdaysummarymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_start_of_day_summary_message = ProtoField.new("Consolidated Start Of Day Summary Message", "siac.cts.output.cta.v2.11.b.consolidatedstartofdaysummarymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_summary_message = ProtoField.new("Crossing Session Summary Message", "siac.cts.output.cta.v2.11.b.crossingsessionsummarymessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.disaster_recovery_data_center_activation_message = ProtoField.new("Disaster Recovery Data Center Activation Message", "siac.cts.output.cta.v2.11.b.disasterrecoverydatacenteractivationmessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cts.output.cta.v2.11.b.endofdaymessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.end_of_end_of_day_summary_message = ProtoField.new("End Of End Of Day Summary Message", "siac.cts.output.cta.v2.11.b.endofendofdaysummarymessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.end_of_start_of_day_summary_message = ProtoField.new("End Of Start Of Day Summary Message", "siac.cts.output.cta.v2.11.b.endofstartofdaysummarymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.fractional_approximate_adjusted_volume_market_center_message = ProtoField.new("Fractional Approximate Adjusted Volume Market Center Message", "siac.cts.output.cta.v2.11.b.fractionalapproximateadjustedvolumemarketcentermessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.fractional_consolidated_end_of_day_summary_message = ProtoField.new("Fractional Consolidated End Of Day Summary Message", "siac.cts.output.cta.v2.11.b.fractionalconsolidatedendofdaysummarymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.fractional_long_trade_message = ProtoField.new("Fractional Long Trade Message", "siac.cts.output.cta.v2.11.b.fractionallongtrademessage", ftypes.STRING)
@@ -189,7 +171,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.fractional_short_trade_message = ProtoFie
 omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_cancel_error_message = ProtoField.new("Fractional Trade Cancel Error Message", "siac.cts.output.cta.v2.11.b.fractionaltradecancelerrormessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_correction_message = ProtoField.new("Fractional Trade Correction Message", "siac.cts.output.cta.v2.11.b.fractionaltradecorrectionmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.index_message = ProtoField.new("Index Message", "siac.cts.output.cta.v2.11.b.indexmessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cts.output.cta.v2.11.b.lineintegritymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.long_trade_message = ProtoField.new("Long Trade Message", "siac.cts.output.cta.v2.11.b.longtrademessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cts.output.cta.v2.11.b.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cts.output.cta.v2.11.b.marketwidecircuitbreakerstatusmessage", ftypes.STRING)
@@ -198,20 +179,14 @@ omi_siac_cts_output_cta_v2_11_b.fields.participant_start_of_day_summary_message 
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_cancel_error_message = ProtoField.new("Prior Day Trade Cancel Error Message", "siac.cts.output.cta.v2.11.b.priordaytradecancelerrormessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_correction_message = ProtoField.new("Prior Day Trade Correction Message", "siac.cts.output.cta.v2.11.b.priordaytradecorrectionmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_message = ProtoField.new("Prior Day Trade Message", "siac.cts.output.cta.v2.11.b.priordaytrademessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.reset_block_sequence_number_message = ProtoField.new("Reset Block Sequence Number Message", "siac.cts.output.cta.v2.11.b.resetblocksequencenumbermessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.short_trade_message = ProtoField.new("Short Trade Message", "siac.cts.output.cta.v2.11.b.shorttrademessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cts.output.cta.v2.11.b.startofdaymessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.start_of_end_of_day_summary_message = ProtoField.new("Start Of End Of Day Summary Message", "siac.cts.output.cta.v2.11.b.startofendofdaysummarymessage", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.start_of_start_of_day_summary_message = ProtoField.new("Start Of Start Of Day Summary Message", "siac.cts.output.cta.v2.11.b.startofstartofdaysummarymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.symbol_reference_data_message = ProtoField.new("Symbol Reference Data Message", "siac.cts.output.cta.v2.11.b.symbolreferencedatamessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "siac.cts.output.cta.v2.11.b.tradecancelerrormessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v2.11.b.tradecorrectionmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.trading_status_message = ProtoField.new("Trading Status Message", "siac.cts.output.cta.v2.11.b.tradingstatusmessage", ftypes.STRING)
 
 -- Siac Cts Output Cta 2.11.b generated fields
-omi_siac_cts_output_cta_v2_11_b.fields.approximate_volume_participant_index = ProtoField.new("Approximate Volume Participant Index", "siac.cts.output.cta.v2.11.b.approximatevolumeparticipantindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_11_b.fields.message_index = ProtoField.new("Message Index", "siac.cts.output.cta.v2.11.b.messageindex", ftypes.UINT16)
-omi_siac_cts_output_cta_v2_11_b.fields.participant_index = ProtoField.new("Participant Index", "siac.cts.output.cta.v2.11.b.participantindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -220,56 +195,35 @@ omi_siac_cts_output_cta_v2_11_b.fields.participant_index = ProtoField.new("Parti
 local show = {}
 
 -- Siac Cts Output Cta 2.11.b Element Dissection Options
-show.administrative = true
 show.application_messages = true
 show.approximate_volume_participant = true
 show.block_header = true
-show.control = true
-show.index = true
-show.market_status = true
 show.message = true
 show.packet = true
 show.participant = true
-show.prior_day = true
 show.sale_condition_4 = true
 show.sip_block_timestamp = true
-show.summary = true
 show.timestamp_1 = true
 show.timestamp_2 = true
-show.trade = true
 show.message_index = true
-show.approximate_volume_participant_index = true
-show.participant_index = true
 
 -- Register Siac Cts Output Cta 2.11.b Show Options
-omi_siac_cts_output_cta_v2_11_b.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_approximate_volume_participant = Pref.bool("Show Approximate Volume Participant", show.approximate_volume_participant, "Parse and add Approximate Volume Participant to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-omi_siac_cts_output_cta_v2_11_b.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-omi_siac_cts_output_cta_v2_11_b.prefs.show_index = Pref.bool("Show Index", show.index, "Parse and add Index to protocol tree")
-omi_siac_cts_output_cta_v2_11_b.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_participant = Pref.bool("Show Participant", show.participant, "Parse and add Participant to protocol tree")
-omi_siac_cts_output_cta_v2_11_b.prefs.show_prior_day = Pref.bool("Show Prior Day", show.prior_day, "Parse and add Prior Day to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_sale_condition_4 = Pref.bool("Show Sale Condition 4", show.sale_condition_4, "Parse and add Sale Condition 4 to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_sip_block_timestamp = Pref.bool("Show SIP Block Timestamp", show.sip_block_timestamp, "Parse and add SIP Block Timestamp to protocol tree")
-omi_siac_cts_output_cta_v2_11_b.prefs.show_summary = Pref.bool("Show Summary", show.summary, "Parse and add Summary to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_timestamp_1 = Pref.bool("Show Timestamp 1", show.timestamp_1, "Parse and add Timestamp 1 to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_timestamp_2 = Pref.bool("Show Timestamp 2", show.timestamp_2, "Parse and add Timestamp 2 to protocol tree")
-omi_siac_cts_output_cta_v2_11_b.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_siac_cts_output_cta_v2_11_b.prefs.show_approximate_volume_participant_index = Pref.bool("Show Approximate Volume Participant Index", show.approximate_volume_participant_index, "Show generated approximate volume participant index in protocol tree")
-omi_siac_cts_output_cta_v2_11_b.prefs.show_participant_index = Pref.bool("Show Participant Index", show.participant_index, "Show generated participant index in protocol tree")
 
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_11_b.prefs_changed()
 
   -- Check if show options have changed
-  if show.administrative ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_administrative then
-    show.administrative = omi_siac_cts_output_cta_v2_11_b.prefs.show_administrative
-  end
   if show.application_messages ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_application_messages then
     show.application_messages = omi_siac_cts_output_cta_v2_11_b.prefs.show_application_messages
   end
@@ -278,15 +232,6 @@ function omi_siac_cts_output_cta_v2_11_b.prefs_changed()
   end
   if show.block_header ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_block_header then
     show.block_header = omi_siac_cts_output_cta_v2_11_b.prefs.show_block_header
-  end
-  if show.control ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_control then
-    show.control = omi_siac_cts_output_cta_v2_11_b.prefs.show_control
-  end
-  if show.index ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_index then
-    show.index = omi_siac_cts_output_cta_v2_11_b.prefs.show_index
-  end
-  if show.market_status ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_market_status then
-    show.market_status = omi_siac_cts_output_cta_v2_11_b.prefs.show_market_status
   end
   if show.message ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_message then
     show.message = omi_siac_cts_output_cta_v2_11_b.prefs.show_message
@@ -297,17 +242,11 @@ function omi_siac_cts_output_cta_v2_11_b.prefs_changed()
   if show.participant ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_participant then
     show.participant = omi_siac_cts_output_cta_v2_11_b.prefs.show_participant
   end
-  if show.prior_day ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_prior_day then
-    show.prior_day = omi_siac_cts_output_cta_v2_11_b.prefs.show_prior_day
-  end
   if show.sale_condition_4 ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_sale_condition_4 then
     show.sale_condition_4 = omi_siac_cts_output_cta_v2_11_b.prefs.show_sale_condition_4
   end
   if show.sip_block_timestamp ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_sip_block_timestamp then
     show.sip_block_timestamp = omi_siac_cts_output_cta_v2_11_b.prefs.show_sip_block_timestamp
-  end
-  if show.summary ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_summary then
-    show.summary = omi_siac_cts_output_cta_v2_11_b.prefs.show_summary
   end
   if show.timestamp_1 ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_timestamp_1 then
     show.timestamp_1 = omi_siac_cts_output_cta_v2_11_b.prefs.show_timestamp_1
@@ -315,17 +254,8 @@ function omi_siac_cts_output_cta_v2_11_b.prefs_changed()
   if show.timestamp_2 ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_timestamp_2 then
     show.timestamp_2 = omi_siac_cts_output_cta_v2_11_b.prefs.show_timestamp_2
   end
-  if show.trade ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_trade then
-    show.trade = omi_siac_cts_output_cta_v2_11_b.prefs.show_trade
-  end
   if show.message_index ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_message_index then
     show.message_index = omi_siac_cts_output_cta_v2_11_b.prefs.show_message_index
-  end
-  if show.approximate_volume_participant_index ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_approximate_volume_participant_index then
-    show.approximate_volume_participant_index = omi_siac_cts_output_cta_v2_11_b.prefs.show_approximate_volume_participant_index
-  end
-  if show.participant_index ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_participant_index then
-    show.participant_index = omi_siac_cts_output_cta_v2_11_b.prefs.show_participant_index
   end
 end
 
@@ -356,45 +286,6 @@ end
 -----------------------------------------------------------------------
 -- Siac Cts Output Cta 2.11.b Fields
 -----------------------------------------------------------------------
-
--- Administrative Message Type
-siac_cts_output_cta_v2_11_b.administrative_message_type = {}
-
--- Size: Administrative Message Type
-siac_cts_output_cta_v2_11_b.administrative_message_type.size = 1
-
--- Display: Administrative Message Type
-siac_cts_output_cta_v2_11_b.administrative_message_type.display = function(value)
-  if value == "A" then
-    return "Administrative Message Type: Start Of End Of Day Summary (A)"
-  end
-  if value == "B" then
-    return "Administrative Message Type: End Of End Of Day Summary (B)"
-  end
-  if value == "C" then
-    return "Administrative Message Type: Start Of Start Of Day Summary (C)"
-  end
-  if value == "D" then
-    return "Administrative Message Type: End Of Start Of Day Summary (D)"
-  end
-  if value == "S" then
-    return "Administrative Message Type: Symbol Reference Data (S)"
-  end
-
-  return "Administrative Message Type: Unknown("..value..")"
-end
-
--- Dissect: Administrative Message Type
-siac_cts_output_cta_v2_11_b.administrative_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_11_b.administrative_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_11_b.administrative_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.administrative_message_type, range, value, display)
-
-  return offset + length, value
-end
 
 -- Auction Collar Lower Threshold Price
 siac_cts_output_cta_v2_11_b.auction_collar_lower_threshold_price = {}
@@ -834,6 +725,150 @@ siac_cts_output_cta_v2_11_b.category_4.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Category Message Type
+siac_cts_output_cta_v2_11_b.category_message_type = {}
+
+-- Size: Category Message Type
+siac_cts_output_cta_v2_11_b.category_message_type.size = 2
+
+-- Display: Category Message Type
+siac_cts_output_cta_v2_11_b.category_message_type.display = function(value)
+  if value == "AA" then
+    return "Category Message Type: Administrative - Start Of End Of Day Summary Message (AA)"
+  end
+  if value == "AB" then
+    return "Category Message Type: Administrative - End Of End Of Day Summary Message (AB)"
+  end
+  if value == "AC" then
+    return "Category Message Type: Administrative - Start Of Start Of Day Summary Message (AC)"
+  end
+  if value == "AD" then
+    return "Category Message Type: Administrative - End Of Start Of Day Summary Message (AD)"
+  end
+  if value == "AS" then
+    return "Category Message Type: Administrative - Symbol Reference Data Message (AS)"
+  end
+  if value == "CA" then
+    return "Category Message Type: Control - Start Of Day Message (CA)"
+  end
+  if value == "CL" then
+    return "Category Message Type: Control - Reset Block Sequence Number Message (CL)"
+  end
+  if value == "CP" then
+    return "Category Message Type: Control - Disaster Recovery Data Center Activation Message (CP)"
+  end
+  if value == "CT" then
+    return "Category Message Type: Control - Line Integrity Message (CT)"
+  end
+  if value == "CZ" then
+    return "Category Message Type: Control - End Of Day Message (CZ)"
+  end
+  if value == "II" then
+    return "Category Message Type: Index - Index Message (II)"
+  end
+  if value == "IQ" then
+    return "Category Message Type: Index - Bid And Offer Index Message (IQ)"
+  end
+  if value == "MK" then
+    return "Category Message Type: Market Status - Market Wide Circuit Breaker Decline Level Status Message (MK)"
+  end
+  if value == "ML" then
+    return "Category Message Type: Market Status - Market Wide Circuit Breaker Status Message (ML)"
+  end
+  if value == "MN" then
+    return "Category Message Type: Market Status - Approximate Adjusted Volume Market Center Message (MN)"
+  end
+  if value == "MV" then
+    return "Category Message Type: Market Status - Fractional Approximate Adjusted Volume Market Center Message (MV)"
+  end
+  if value == "MO" then
+    return "Category Message Type: Market Status - Approximate Trades And Total Dollar Value Message (MO)"
+  end
+  if value == "MP" then
+    return "Category Message Type: Market Status - Crossing Session Summary Message (MP)"
+  end
+  if value == "PC" then
+    return "Category Message Type: Prior Day - Prior Day Trade Correction Message (PC)"
+  end
+  if value == "PT" then
+    return "Category Message Type: Prior Day - Prior Day Trade Message (PT)"
+  end
+  if value == "PX" then
+    return "Category Message Type: Prior Day - Prior Day Trade Cancel Error Message (PX)"
+  end
+  if value == "PO" then
+    return "Category Message Type: Prior Day - Fractional Prior Day Trade Correction Message (PO)"
+  end
+  if value == "PR" then
+    return "Category Message Type: Prior Day - Fractional Prior Day Trade Message (PR)"
+  end
+  if value == "PE" then
+    return "Category Message Type: Prior Day - Fractional Prior Day Trade Cancel Error Message (PE)"
+  end
+  if value == "SA" then
+    return "Category Message Type: Summary - Consolidated Start Of Day Summary Message (SA)"
+  end
+  if value == "SB" then
+    return "Category Message Type: Summary - Participant Start Of Day Summary Message (SB)"
+  end
+  if value == "SC" then
+    return "Category Message Type: Summary - Consolidated End Of Day Summary Message (SC)"
+  end
+  if value == "ST" then
+    return "Category Message Type: Summary - Fractional Consolidated End Of Day Summary Message (ST)"
+  end
+  if value == "SD" then
+    return "Category Message Type: Summary - Participant End Of Day Summary Message (SD)"
+  end
+  if value == "SP" then
+    return "Category Message Type: Summary - Fractional Participant End Of Day Summary Message (SP)"
+  end
+  if value == "TA" then
+    return "Category Message Type: Trade - Auction Status Message (TA)"
+  end
+  if value == "TC" then
+    return "Category Message Type: Trade - Trade Correction Message (TC)"
+  end
+  if value == "TL" then
+    return "Category Message Type: Trade - Long Trade Message (TL)"
+  end
+  if value == "TT" then
+    return "Category Message Type: Trade - Short Trade Message (TT)"
+  end
+  if value == "TX" then
+    return "Category Message Type: Trade - Trade Cancel Error Message (TX)"
+  end
+  if value == "TO" then
+    return "Category Message Type: Trade - Fractional Trade Correction Message (TO)"
+  end
+  if value == "TR" then
+    return "Category Message Type: Trade - Fractional Long Trade Message (TR)"
+  end
+  if value == "TS" then
+    return "Category Message Type: Trade - Trading Status Message (TS)"
+  end
+  if value == "TH" then
+    return "Category Message Type: Trade - Fractional Short Trade Message (TH)"
+  end
+  if value == "TE" then
+    return "Category Message Type: Trade - Fractional Trade Cancel Error Message (TE)"
+  end
+
+  return "Category Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Category Message Type
+siac_cts_output_cta_v2_11_b.category_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_11_b.category_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_11_b.category_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.category_message_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Consolidated Closing Price
 siac_cts_output_cta_v2_11_b.consolidated_closing_price = {}
 
@@ -1109,45 +1144,6 @@ siac_cts_output_cta_v2_11_b.consolidated_total_volume.dissect = function(buffer,
   local display = siac_cts_output_cta_v2_11_b.consolidated_total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.consolidated_total_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Control Message Type
-siac_cts_output_cta_v2_11_b.control_message_type = {}
-
--- Size: Control Message Type
-siac_cts_output_cta_v2_11_b.control_message_type.size = 1
-
--- Display: Control Message Type
-siac_cts_output_cta_v2_11_b.control_message_type.display = function(value)
-  if value == "A" then
-    return "Control Message Type: Start Of Day (A)"
-  end
-  if value == "L" then
-    return "Control Message Type: Reset Block Sequence Number (L)"
-  end
-  if value == "P" then
-    return "Control Message Type: Disaster Recovery Data Center Activation (P)"
-  end
-  if value == "T" then
-    return "Control Message Type: Line Integrity (T)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Day (Z)"
-  end
-
-  return "Control Message Type: Unknown("..value..")"
-end
-
--- Dissect: Control Message Type
-siac_cts_output_cta_v2_11_b.control_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_11_b.control_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_11_b.control_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.control_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1798,36 +1794,6 @@ siac_cts_output_cta_v2_11_b.high_price.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Index Message Type
-siac_cts_output_cta_v2_11_b.index_message_type = {}
-
--- Size: Index Message Type
-siac_cts_output_cta_v2_11_b.index_message_type.size = 1
-
--- Display: Index Message Type
-siac_cts_output_cta_v2_11_b.index_message_type.display = function(value)
-  if value == "I" then
-    return "Index Message Type: Index (I)"
-  end
-  if value == "Q" then
-    return "Index Message Type: Bid And Offer Index (Q)"
-  end
-
-  return "Index Message Type: Unknown("..value..")"
-end
-
--- Dissect: Index Message Type
-siac_cts_output_cta_v2_11_b.index_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_11_b.index_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_11_b.index_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.index_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Index Symbol
 siac_cts_output_cta_v2_11_b.index_symbol = {}
 
@@ -2163,48 +2129,6 @@ siac_cts_output_cta_v2_11_b.luld_tier.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Market Status Message Type
-siac_cts_output_cta_v2_11_b.market_status_message_type = {}
-
--- Size: Market Status Message Type
-siac_cts_output_cta_v2_11_b.market_status_message_type.size = 1
-
--- Display: Market Status Message Type
-siac_cts_output_cta_v2_11_b.market_status_message_type.display = function(value)
-  if value == "K" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status (K)"
-  end
-  if value == "L" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Status (L)"
-  end
-  if value == "N" then
-    return "Market Status Message Type: Approximate Adjusted Volume Market Center (N)"
-  end
-  if value == "V" then
-    return "Market Status Message Type: Fractional Approximate Adjusted Volume Market Center (V)"
-  end
-  if value == "O" then
-    return "Market Status Message Type: Approximate Trades And Total Dollar Value (O)"
-  end
-  if value == "P" then
-    return "Market Status Message Type: Crossing Session Summary (P)"
-  end
-
-  return "Market Status Message Type: Unknown("..value..")"
-end
-
--- Dissect: Market Status Message Type
-siac_cts_output_cta_v2_11_b.market_status_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_11_b.market_status_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_11_b.market_status_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.market_status_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Wide Circuit Breaker Level Indicator
 siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_level_indicator = {}
 
@@ -2237,51 +2161,6 @@ siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_level_indicator.dissect 
   local display = siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_level_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.market_wide_circuit_breaker_level_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Category
-siac_cts_output_cta_v2_11_b.message_category = {}
-
--- Size: Message Category
-siac_cts_output_cta_v2_11_b.message_category.size = 1
-
--- Display: Message Category
-siac_cts_output_cta_v2_11_b.message_category.display = function(value)
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
-  if value == "I" then
-    return "Message Category: Index (I)"
-  end
-  if value == "M" then
-    return "Message Category: Market Status (M)"
-  end
-  if value == "P" then
-    return "Message Category: Prior Day (P)"
-  end
-  if value == "S" then
-    return "Message Category: Summary (S)"
-  end
-  if value == "T" then
-    return "Message Category: Trade (T)"
-  end
-
-  return "Message Category: Unknown("..value..")"
-end
-
--- Dissect: Message Category
-siac_cts_output_cta_v2_11_b.message_category.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_11_b.message_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_11_b.message_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -3378,48 +3257,6 @@ siac_cts_output_cta_v2_11_b.primary_listing_market_previous_closing_price.dissec
   return offset + length, value
 end
 
--- Prior Day Message Type
-siac_cts_output_cta_v2_11_b.prior_day_message_type = {}
-
--- Size: Prior Day Message Type
-siac_cts_output_cta_v2_11_b.prior_day_message_type.size = 1
-
--- Display: Prior Day Message Type
-siac_cts_output_cta_v2_11_b.prior_day_message_type.display = function(value)
-  if value == "C" then
-    return "Prior Day Message Type: Prior Day Trade Correction (C)"
-  end
-  if value == "O" then
-    return "Prior Day Message Type: Fractional Prior Day Trade Correction (O)"
-  end
-  if value == "T" then
-    return "Prior Day Message Type: Prior Day Trade (T)"
-  end
-  if value == "R" then
-    return "Prior Day Message Type: Fractional Prior Day Trade (R)"
-  end
-  if value == "X" then
-    return "Prior Day Message Type: Prior Day Trade Cancel Error (X)"
-  end
-  if value == "E" then
-    return "Prior Day Message Type: Fractional Prior Day Trade Cancel Error (E)"
-  end
-
-  return "Prior Day Message Type: Unknown("..value..")"
-end
-
--- Dissect: Prior Day Message Type
-siac_cts_output_cta_v2_11_b.prior_day_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_11_b.prior_day_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_11_b.prior_day_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.prior_day_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Prior Day Trade Date And Time
 siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time = {}
 
@@ -3978,48 +3815,6 @@ siac_cts_output_cta_v2_11_b.stop_stock_indicator.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Summary Message Type
-siac_cts_output_cta_v2_11_b.summary_message_type = {}
-
--- Size: Summary Message Type
-siac_cts_output_cta_v2_11_b.summary_message_type.size = 1
-
--- Display: Summary Message Type
-siac_cts_output_cta_v2_11_b.summary_message_type.display = function(value)
-  if value == "A" then
-    return "Summary Message Type: Consolidated Start Of Day Summary (A)"
-  end
-  if value == "B" then
-    return "Summary Message Type: Participant Start Of Day Summary (B)"
-  end
-  if value == "C" then
-    return "Summary Message Type: Consolidated End Of Day Summary (C)"
-  end
-  if value == "T" then
-    return "Summary Message Type: Fractional Consolidated End Of Day Summary (T)"
-  end
-  if value == "D" then
-    return "Summary Message Type: Participant End Of Day Summary (D)"
-  end
-  if value == "P" then
-    return "Summary Message Type: Fractional Participant End Of Day Summary (P)"
-  end
-
-  return "Summary Message Type: Unknown("..value..")"
-end
-
--- Dissect: Summary Message Type
-siac_cts_output_cta_v2_11_b.summary_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_11_b.summary_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_11_b.summary_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.summary_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Test
 siac_cts_output_cta_v2_11_b.test = {}
 
@@ -4131,60 +3926,6 @@ siac_cts_output_cta_v2_11_b.total_volume.dissect = function(buffer, offset, pack
   local display = siac_cts_output_cta_v2_11_b.total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.total_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Message Type
-siac_cts_output_cta_v2_11_b.trade_message_type = {}
-
--- Size: Trade Message Type
-siac_cts_output_cta_v2_11_b.trade_message_type.size = 1
-
--- Display: Trade Message Type
-siac_cts_output_cta_v2_11_b.trade_message_type.display = function(value)
-  if value == "A" then
-    return "Trade Message Type: Auction Status (A)"
-  end
-  if value == "C" then
-    return "Trade Message Type: Trade Correction (C)"
-  end
-  if value == "O" then
-    return "Trade Message Type: Fractional Trade Correction (O)"
-  end
-  if value == "L" then
-    return "Trade Message Type: Long Trade (L)"
-  end
-  if value == "R" then
-    return "Trade Message Type: Fractional Long Trade (R)"
-  end
-  if value == "S" then
-    return "Trade Message Type: Trading Status (S)"
-  end
-  if value == "T" then
-    return "Trade Message Type: Short Trade (T)"
-  end
-  if value == "H" then
-    return "Trade Message Type: Fractional Short Trade (H)"
-  end
-  if value == "X" then
-    return "Trade Message Type: Trade Cancel Error (X)"
-  end
-  if value == "E" then
-    return "Trade Message Type: Fractional Trade Cancel Error (E)"
-  end
-
-  return "Trade Message Type: Unknown("..value..")"
-end
-
--- Dissect: Trade Message Type
-siac_cts_output_cta_v2_11_b.trade_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_11_b.trade_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_11_b.trade_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.trade_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -4581,73 +4322,11 @@ siac_cts_output_cta_v2_11_b.sale_condition_4.dissect = function(buffer, offset, 
   end
 end
 
--- Timestamp 1
-siac_cts_output_cta_v2_11_b.timestamp_1 = {}
-
--- Size: Timestamp 1
-siac_cts_output_cta_v2_11_b.timestamp_1.size =
-  siac_cts_output_cta_v2_11_b.seconds.size + 
-  siac_cts_output_cta_v2_11_b.nanoseconds.size
-
--- Display: Timestamp 1
-siac_cts_output_cta_v2_11_b.timestamp_1.display = function(packet, parent, value)
-  -- Check null value
-  if value == nil then
-    return "No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect Fields: Timestamp 1
-siac_cts_output_cta_v2_11_b.timestamp_1.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seconds: unsigned integer
-  index, seconds = siac_cts_output_cta_v2_11_b.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: unsigned integer
-  index, nanoseconds = siac_cts_output_cta_v2_11_b.nanoseconds.dissect(buffer, index, packet, parent)
-
-  -- Composite value
-  local timestamp_1 = UInt64.new(seconds * 1000000000 + nanoseconds)
-
-  return index, timestamp_1
-end
-
--- Dissect: Timestamp 1
-siac_cts_output_cta_v2_11_b.timestamp_1.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_1 then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1, buffer(offset, 0))
-    local index, value = siac_cts_output_cta_v2_11_b.timestamp_1.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.timestamp_1.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.timestamp_1.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Fractional Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.fractional_trade_cancel_error_message = {}
 
 -- Size: Fractional Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.fractional_trade_cancel_error_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -4686,21 +4365,6 @@ end
 -- Dissect Fields: Fractional Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.fractional_trade_cancel_error_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -4815,11 +4479,6 @@ siac_cts_output_cta_v2_11_b.fractional_short_trade_message = {}
 
 -- Size: Fractional Short Trade Message
 siac_cts_output_cta_v2_11_b.fractional_short_trade_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol_5.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_1.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_category.size + 
@@ -4837,21 +4496,6 @@ end
 -- Dissect Fields: Fractional Short Trade Message
 siac_cts_output_cta_v2_11_b.fractional_short_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol 5: Char[]
   index, security_symbol_5 = siac_cts_output_cta_v2_11_b.security_symbol_5.dissect(buffer, index, packet, parent)
@@ -4903,11 +4547,6 @@ siac_cts_output_cta_v2_11_b.trading_status_message = {}
 
 -- Size: Trading Status Message
 siac_cts_output_cta_v2_11_b.trading_status_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.last_price.size + 
@@ -4930,21 +4569,6 @@ end
 -- Dissect Fields: Trading Status Message
 siac_cts_output_cta_v2_11_b.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -5011,11 +4635,6 @@ siac_cts_output_cta_v2_11_b.fractional_long_trade_message = {}
 
 -- Size: Fractional Long Trade Message
 siac_cts_output_cta_v2_11_b.fractional_long_trade_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -5041,21 +4660,6 @@ end
 -- Dissect Fields: Fractional Long Trade Message
 siac_cts_output_cta_v2_11_b.fractional_long_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -5131,11 +4735,6 @@ siac_cts_output_cta_v2_11_b.fractional_trade_correction_message = {}
 
 -- Size: Fractional Trade Correction Message
 siac_cts_output_cta_v2_11_b.fractional_trade_correction_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.corrected_sale_condition.size + 
@@ -5180,21 +4779,6 @@ end
 -- Dissect Fields: Fractional Trade Correction Message
 siac_cts_output_cta_v2_11_b.fractional_trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -5327,11 +4911,6 @@ siac_cts_output_cta_v2_11_b.trade_cancel_error_message = {}
 
 -- Size: Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.trade_cancel_error_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -5370,21 +4949,6 @@ end
 -- Dissect Fields: Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.trade_cancel_error_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -5499,11 +5063,6 @@ siac_cts_output_cta_v2_11_b.short_trade_message = {}
 
 -- Size: Short Trade Message
 siac_cts_output_cta_v2_11_b.short_trade_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol_5.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_1.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_category.size + 
@@ -5521,21 +5080,6 @@ end
 -- Dissect Fields: Short Trade Message
 siac_cts_output_cta_v2_11_b.short_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol 5: Char[]
   index, security_symbol_5 = siac_cts_output_cta_v2_11_b.security_symbol_5.dissect(buffer, index, packet, parent)
@@ -5587,11 +5131,6 @@ siac_cts_output_cta_v2_11_b.long_trade_message = {}
 
 -- Size: Long Trade Message
 siac_cts_output_cta_v2_11_b.long_trade_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -5617,21 +5156,6 @@ end
 -- Dissect Fields: Long Trade Message
 siac_cts_output_cta_v2_11_b.long_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -5707,11 +5231,6 @@ siac_cts_output_cta_v2_11_b.trade_correction_message = {}
 
 -- Size: Trade Correction Message
 siac_cts_output_cta_v2_11_b.trade_correction_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.corrected_sale_condition.size + 
@@ -5756,21 +5275,6 @@ end
 -- Dissect Fields: Trade Correction Message
 siac_cts_output_cta_v2_11_b.trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -5903,11 +5407,6 @@ siac_cts_output_cta_v2_11_b.auction_status_message = {}
 
 -- Size: Auction Status Message
 siac_cts_output_cta_v2_11_b.auction_status_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.auction_collar_reference_price.size + 
@@ -5927,21 +5426,6 @@ end
 -- Dissect Fields: Auction Status Message
 siac_cts_output_cta_v2_11_b.auction_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -5994,118 +5478,11 @@ siac_cts_output_cta_v2_11_b.auction_status_message.dissect = function(buffer, of
   end
 end
 
--- Trade Message Payload
-siac_cts_output_cta_v2_11_b.trade_message_payload = {}
-
--- Dissect: Trade Message Payload
-siac_cts_output_cta_v2_11_b.trade_message_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  -- Dissect Auction Status Message
-  if trade_message_type == "A" then
-    return siac_cts_output_cta_v2_11_b.auction_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if trade_message_type == "C" then
-    return siac_cts_output_cta_v2_11_b.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Trade Message
-  if trade_message_type == "L" then
-    return siac_cts_output_cta_v2_11_b.long_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Trade Message
-  if trade_message_type == "T" then
-    return siac_cts_output_cta_v2_11_b.short_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error Message
-  if trade_message_type == "X" then
-    return siac_cts_output_cta_v2_11_b.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Trade Correction Message
-  if trade_message_type == "O" then
-    return siac_cts_output_cta_v2_11_b.fractional_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Long Trade Message
-  if trade_message_type == "R" then
-    return siac_cts_output_cta_v2_11_b.fractional_long_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if trade_message_type == "S" then
-    return siac_cts_output_cta_v2_11_b.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Short Trade Message
-  if trade_message_type == "H" then
-    return siac_cts_output_cta_v2_11_b.fractional_short_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Trade Cancel Error Message
-  if trade_message_type == "E" then
-    return siac_cts_output_cta_v2_11_b.fractional_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Trade
-siac_cts_output_cta_v2_11_b.trade = {}
-
--- Calculate size of: Trade
-siac_cts_output_cta_v2_11_b.trade.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.trade_message_type.size
-
-  -- Calculate runtime size of Trade Message Payload field
-  local trade_message_payload_offset = offset + index
-  local trade_message_payload_type = buffer(trade_message_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.trade_message_payload.size(buffer, trade_message_payload_offset, trade_message_payload_type)
-
-  return index
-end
-
--- Display: Trade
-siac_cts_output_cta_v2_11_b.trade.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade
-siac_cts_output_cta_v2_11_b.trade.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Trade Message Type: Char
-  index, trade_message_type = siac_cts_output_cta_v2_11_b.trade_message_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Message Payload: Runtime Type with 10 branches
-  index = siac_cts_output_cta_v2_11_b.trade_message_payload.dissect(buffer, index, packet, parent, trade_message_type)
-
-  return index
-end
-
--- Dissect: Trade
-siac_cts_output_cta_v2_11_b.trade.dissect = function(buffer, offset, packet, parent)
-  if show.trade then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.trade, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.trade.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.trade.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.trade.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Fractional Participant End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.fractional_participant_end_of_day_summary_message = {}
 
 -- Size: Fractional Participant End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.fractional_participant_end_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.participant_id.size + 
@@ -6125,21 +5502,6 @@ end
 -- Dissect Fields: Fractional Participant End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.fractional_participant_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -6197,11 +5559,6 @@ siac_cts_output_cta_v2_11_b.participant_end_of_day_summary_message = {}
 
 -- Size: Participant End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.participant_end_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.participant_id.size + 
@@ -6221,21 +5578,6 @@ end
 -- Dissect Fields: Participant End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.participant_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -6293,11 +5635,6 @@ siac_cts_output_cta_v2_11_b.fractional_consolidated_end_of_day_summary_message =
 
 -- Size: Fractional Consolidated End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.fractional_consolidated_end_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.last_participant_id.size + 
@@ -6319,21 +5656,6 @@ end
 -- Dissect Fields: Fractional Consolidated End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.fractional_consolidated_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -6397,11 +5719,6 @@ siac_cts_output_cta_v2_11_b.consolidated_end_of_day_summary_message = {}
 
 -- Size: Consolidated End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.consolidated_end_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.last_participant_id.size + 
@@ -6423,21 +5740,6 @@ end
 -- Dissect Fields: Consolidated End Of Day Summary Message
 siac_cts_output_cta_v2_11_b.consolidated_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -6501,11 +5803,6 @@ siac_cts_output_cta_v2_11_b.participant_start_of_day_summary_message = {}
 
 -- Size: Participant Start Of Day Summary Message
 siac_cts_output_cta_v2_11_b.participant_start_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.participant_id.size + 
@@ -6520,21 +5817,6 @@ end
 -- Dissect Fields: Participant Start Of Day Summary Message
 siac_cts_output_cta_v2_11_b.participant_start_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -6577,11 +5859,6 @@ siac_cts_output_cta_v2_11_b.consolidated_start_of_day_summary_message = {}
 
 -- Size: Consolidated Start Of Day Summary Message
 siac_cts_output_cta_v2_11_b.consolidated_start_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.participant_id.size + 
@@ -6600,21 +5877,6 @@ end
 -- Dissect Fields: Consolidated Start Of Day Summary Message
 siac_cts_output_cta_v2_11_b.consolidated_start_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -6664,102 +5926,11 @@ siac_cts_output_cta_v2_11_b.consolidated_start_of_day_summary_message.dissect = 
   end
 end
 
--- Summary Message Payload
-siac_cts_output_cta_v2_11_b.summary_message_payload = {}
-
--- Dissect: Summary Message Payload
-siac_cts_output_cta_v2_11_b.summary_message_payload.dissect = function(buffer, offset, packet, parent, summary_message_type)
-  -- Dissect Consolidated Start Of Day Summary Message
-  if summary_message_type == "A" then
-    return siac_cts_output_cta_v2_11_b.consolidated_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant Start Of Day Summary Message
-  if summary_message_type == "B" then
-    return siac_cts_output_cta_v2_11_b.participant_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated End Of Day Summary Message
-  if summary_message_type == "C" then
-    return siac_cts_output_cta_v2_11_b.consolidated_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Consolidated End Of Day Summary Message
-  if summary_message_type == "T" then
-    return siac_cts_output_cta_v2_11_b.fractional_consolidated_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant End Of Day Summary Message
-  if summary_message_type == "D" then
-    return siac_cts_output_cta_v2_11_b.participant_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Participant End Of Day Summary Message
-  if summary_message_type == "P" then
-    return siac_cts_output_cta_v2_11_b.fractional_participant_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Summary
-siac_cts_output_cta_v2_11_b.summary = {}
-
--- Calculate size of: Summary
-siac_cts_output_cta_v2_11_b.summary.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.summary_message_type.size
-
-  -- Calculate runtime size of Summary Message Payload field
-  local summary_message_payload_offset = offset + index
-  local summary_message_payload_type = buffer(summary_message_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.summary_message_payload.size(buffer, summary_message_payload_offset, summary_message_payload_type)
-
-  return index
-end
-
--- Display: Summary
-siac_cts_output_cta_v2_11_b.summary.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Summary
-siac_cts_output_cta_v2_11_b.summary.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Summary Message Type: Char
-  index, summary_message_type = siac_cts_output_cta_v2_11_b.summary_message_type.dissect(buffer, index, packet, parent)
-
-  -- Summary Message Payload: Runtime Type with 6 branches
-  index = siac_cts_output_cta_v2_11_b.summary_message_payload.dissect(buffer, index, packet, parent, summary_message_type)
-
-  return index
-end
-
--- Dissect: Summary
-siac_cts_output_cta_v2_11_b.summary.dissect = function(buffer, offset, packet, parent)
-  if show.summary then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.summary, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.summary.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.summary.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.summary.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Fractional Prior Day Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_cancel_error_message = {}
 
 -- Size: Fractional Prior Day Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_cancel_error_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -6781,21 +5952,6 @@ end
 -- Dissect Fields: Fractional Prior Day Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_cancel_error_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -6859,11 +6015,6 @@ siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_message = {}
 
 -- Size: Fractional Prior Day Trade Message
 siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -6884,21 +6035,6 @@ end
 -- Dissect Fields: Fractional Prior Day Trade Message
 siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -6959,11 +6095,6 @@ siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_correction_message = {}
 
 -- Size: Fractional Prior Day Trade Correction Message
 siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_correction_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -6984,21 +6115,6 @@ end
 -- Dissect Fields: Fractional Prior Day Trade Correction Message
 siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -7059,11 +6175,6 @@ siac_cts_output_cta_v2_11_b.prior_day_trade_cancel_error_message = {}
 
 -- Size: Prior Day Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.prior_day_trade_cancel_error_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -7085,21 +6196,6 @@ end
 -- Dissect Fields: Prior Day Trade Cancel Error Message
 siac_cts_output_cta_v2_11_b.prior_day_trade_cancel_error_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -7163,11 +6259,6 @@ siac_cts_output_cta_v2_11_b.prior_day_trade_message = {}
 
 -- Size: Prior Day Trade Message
 siac_cts_output_cta_v2_11_b.prior_day_trade_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.sale_condition_4.size + 
@@ -7188,21 +6279,6 @@ end
 -- Dissect Fields: Prior Day Trade Message
 siac_cts_output_cta_v2_11_b.prior_day_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -7263,11 +6339,6 @@ siac_cts_output_cta_v2_11_b.prior_day_trade_correction_message = {}
 
 -- Size: Prior Day Trade Correction Message
 siac_cts_output_cta_v2_11_b.prior_day_trade_correction_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.corrected_sale_condition.size + 
@@ -7296,21 +6367,6 @@ end
 -- Dissect Fields: Prior Day Trade Correction Message
 siac_cts_output_cta_v2_11_b.prior_day_trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -7390,102 +6446,11 @@ siac_cts_output_cta_v2_11_b.prior_day_trade_correction_message.dissect = functio
   end
 end
 
--- Prior Day Message Payload
-siac_cts_output_cta_v2_11_b.prior_day_message_payload = {}
-
--- Dissect: Prior Day Message Payload
-siac_cts_output_cta_v2_11_b.prior_day_message_payload.dissect = function(buffer, offset, packet, parent, prior_day_message_type)
-  -- Dissect Prior Day Trade Correction Message
-  if prior_day_message_type == "C" then
-    return siac_cts_output_cta_v2_11_b.prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Prior Day Trade Message
-  if prior_day_message_type == "T" then
-    return siac_cts_output_cta_v2_11_b.prior_day_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Prior Day Trade Cancel Error Message
-  if prior_day_message_type == "X" then
-    return siac_cts_output_cta_v2_11_b.prior_day_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Prior Day Trade Correction Message
-  if prior_day_message_type == "O" then
-    return siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Prior Day Trade Message
-  if prior_day_message_type == "R" then
-    return siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Prior Day Trade Cancel Error Message
-  if prior_day_message_type == "E" then
-    return siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Prior Day
-siac_cts_output_cta_v2_11_b.prior_day = {}
-
--- Calculate size of: Prior Day
-siac_cts_output_cta_v2_11_b.prior_day.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.prior_day_message_type.size
-
-  -- Calculate runtime size of Prior Day Message Payload field
-  local prior_day_message_payload_offset = offset + index
-  local prior_day_message_payload_type = buffer(prior_day_message_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.prior_day_message_payload.size(buffer, prior_day_message_payload_offset, prior_day_message_payload_type)
-
-  return index
-end
-
--- Display: Prior Day
-siac_cts_output_cta_v2_11_b.prior_day.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Prior Day
-siac_cts_output_cta_v2_11_b.prior_day.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Prior Day Message Type: Char
-  index, prior_day_message_type = siac_cts_output_cta_v2_11_b.prior_day_message_type.dissect(buffer, index, packet, parent)
-
-  -- Prior Day Message Payload: Runtime Type with 6 branches
-  index = siac_cts_output_cta_v2_11_b.prior_day_message_payload.dissect(buffer, index, packet, parent, prior_day_message_type)
-
-  return index
-end
-
--- Dissect: Prior Day
-siac_cts_output_cta_v2_11_b.prior_day.dissect = function(buffer, offset, packet, parent)
-  if show.prior_day then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.prior_day, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.prior_day.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.prior_day.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.prior_day.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Crossing Session Summary Message
 siac_cts_output_cta_v2_11_b.crossing_session_summary_message = {}
 
 -- Size: Crossing Session Summary Message
 siac_cts_output_cta_v2_11_b.crossing_session_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.crossing_session_i_total_trades_volume.size + 
   siac_cts_output_cta_v2_11_b.crossing_session_ii_dollar_value.size + 
   siac_cts_output_cta_v2_11_b.crossing_session_ii_total_trades_volume.size
@@ -7498,21 +6463,6 @@ end
 -- Dissect Fields: Crossing Session Summary Message
 siac_cts_output_cta_v2_11_b.crossing_session_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Crossing Session I Total Trades Volume: Long
   index, crossing_session_i_total_trades_volume = siac_cts_output_cta_v2_11_b.crossing_session_i_total_trades_volume.dissect(buffer, index, packet, parent)
@@ -7549,11 +6499,6 @@ siac_cts_output_cta_v2_11_b.approximate_trades_and_total_dollar_value_message = 
 
 -- Size: Approximate Trades And Total Dollar Value Message
 siac_cts_output_cta_v2_11_b.approximate_trades_and_total_dollar_value_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.total_trades.size + 
   siac_cts_output_cta_v2_11_b.dollar_value.size
 
@@ -7565,21 +6510,6 @@ end
 -- Dissect Fields: Approximate Trades And Total Dollar Value Message
 siac_cts_output_cta_v2_11_b.approximate_trades_and_total_dollar_value_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Total Trades: Integer
   index, total_trades = siac_cts_output_cta_v2_11_b.total_trades.dissect(buffer, index, packet, parent)
@@ -7622,14 +6552,8 @@ siac_cts_output_cta_v2_11_b.participant.display = function(packet, parent, lengt
 end
 
 -- Dissect Fields: Participant
-siac_cts_output_cta_v2_11_b.participant.fields = function(buffer, offset, packet, parent, participant_index)
+siac_cts_output_cta_v2_11_b.participant.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Implicit Participant Index
-  if participant_index ~= nil and show.participant_index then
-    local iteration = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.participant_index, participant_index)
-    iteration:set_generated()
-  end
 
   -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
@@ -7641,11 +6565,11 @@ siac_cts_output_cta_v2_11_b.participant.fields = function(buffer, offset, packet
 end
 
 -- Dissect: Participant
-siac_cts_output_cta_v2_11_b.participant.dissect = function(buffer, offset, packet, parent, participant_index)
+siac_cts_output_cta_v2_11_b.participant.dissect = function(buffer, offset, packet, parent)
   if show.participant then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.participant, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.participant.fields(buffer, offset, packet, parent, participant_index)
+    local index = siac_cts_output_cta_v2_11_b.participant.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
     local display = siac_cts_output_cta_v2_11_b.participant.display(packet, parent, length)
@@ -7654,35 +6578,17 @@ siac_cts_output_cta_v2_11_b.participant.dissect = function(buffer, offset, packe
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.participant.fields(buffer, offset, packet, parent, participant_index)
+    return siac_cts_output_cta_v2_11_b.participant.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Fractional Approximate Adjusted Volume Market Center Message
 siac_cts_output_cta_v2_11_b.fractional_approximate_adjusted_volume_market_center_message = {}
 
--- Calculate size of: Fractional Approximate Adjusted Volume Market Center Message
-siac_cts_output_cta_v2_11_b.fractional_approximate_adjusted_volume_market_center_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.participant_id.size
-
-  index = index + siac_cts_output_cta_v2_11_b.timestamp_1.size
-
-  index = index + siac_cts_output_cta_v2_11_b.message_id.size
-
-  index = index + siac_cts_output_cta_v2_11_b.transaction_id.size
-
-  index = index + siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
-  index = index + siac_cts_output_cta_v2_11_b.number_of_participants.size
-
-  -- Calculate field size from count
-  local participant_count = buffer(offset + index - 1, 1):uint()
-  index = index + participant_count * 9
-
-  return index
-end
+-- Size: Fractional Approximate Adjusted Volume Market Center Message
+siac_cts_output_cta_v2_11_b.fractional_approximate_adjusted_volume_market_center_message.size =
+  siac_cts_output_cta_v2_11_b.number_of_participants.size + 
+  siac_cts_output_cta_v2_11_b.participant.size
 
 -- Display: Fractional Approximate Adjusted Volume Market Center Message
 siac_cts_output_cta_v2_11_b.fractional_approximate_adjusted_volume_market_center_message.display = function(packet, parent, length)
@@ -7693,28 +6599,11 @@ end
 siac_cts_output_cta_v2_11_b.fractional_approximate_adjusted_volume_market_center_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
   -- Number Of Participants: Byte
   index, number_of_participants = siac_cts_output_cta_v2_11_b.number_of_participants.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Participant
-  for participant_index = 1, number_of_participants do
-    index, participant = siac_cts_output_cta_v2_11_b.participant.dissect(buffer, index, packet, parent, participant_index)
-  end
+  -- Participant: Struct of 2 fields
+  index, participant = siac_cts_output_cta_v2_11_b.participant.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7751,14 +6640,8 @@ siac_cts_output_cta_v2_11_b.approximate_volume_participant.display = function(pa
 end
 
 -- Dissect Fields: Approximate Volume Participant
-siac_cts_output_cta_v2_11_b.approximate_volume_participant.fields = function(buffer, offset, packet, parent, approximate_volume_participant_index)
+siac_cts_output_cta_v2_11_b.approximate_volume_participant.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Implicit Approximate Volume Participant Index
-  if approximate_volume_participant_index ~= nil and show.approximate_volume_participant_index then
-    local iteration = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.approximate_volume_participant_index, approximate_volume_participant_index)
-    iteration:set_generated()
-  end
 
   -- Participant Id: Char
   index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
@@ -7770,11 +6653,11 @@ siac_cts_output_cta_v2_11_b.approximate_volume_participant.fields = function(buf
 end
 
 -- Dissect: Approximate Volume Participant
-siac_cts_output_cta_v2_11_b.approximate_volume_participant.dissect = function(buffer, offset, packet, parent, approximate_volume_participant_index)
+siac_cts_output_cta_v2_11_b.approximate_volume_participant.dissect = function(buffer, offset, packet, parent)
   if show.approximate_volume_participant then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.approximate_volume_participant, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.approximate_volume_participant.fields(buffer, offset, packet, parent, approximate_volume_participant_index)
+    local index = siac_cts_output_cta_v2_11_b.approximate_volume_participant.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
     local display = siac_cts_output_cta_v2_11_b.approximate_volume_participant.display(packet, parent, length)
@@ -7783,35 +6666,17 @@ siac_cts_output_cta_v2_11_b.approximate_volume_participant.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.approximate_volume_participant.fields(buffer, offset, packet, parent, approximate_volume_participant_index)
+    return siac_cts_output_cta_v2_11_b.approximate_volume_participant.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Approximate Adjusted Volume Market Center Message
 siac_cts_output_cta_v2_11_b.approximate_adjusted_volume_market_center_message = {}
 
--- Calculate size of: Approximate Adjusted Volume Market Center Message
-siac_cts_output_cta_v2_11_b.approximate_adjusted_volume_market_center_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.participant_id.size
-
-  index = index + siac_cts_output_cta_v2_11_b.timestamp_1.size
-
-  index = index + siac_cts_output_cta_v2_11_b.message_id.size
-
-  index = index + siac_cts_output_cta_v2_11_b.transaction_id.size
-
-  index = index + siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
-  index = index + siac_cts_output_cta_v2_11_b.number_of_participants.size
-
-  -- Calculate field size from count
-  local approximate_volume_participant_count = buffer(offset + index - 1, 1):uint()
-  index = index + approximate_volume_participant_count * 9
-
-  return index
-end
+-- Size: Approximate Adjusted Volume Market Center Message
+siac_cts_output_cta_v2_11_b.approximate_adjusted_volume_market_center_message.size =
+  siac_cts_output_cta_v2_11_b.number_of_participants.size + 
+  siac_cts_output_cta_v2_11_b.approximate_volume_participant.size
 
 -- Display: Approximate Adjusted Volume Market Center Message
 siac_cts_output_cta_v2_11_b.approximate_adjusted_volume_market_center_message.display = function(packet, parent, length)
@@ -7822,28 +6687,11 @@ end
 siac_cts_output_cta_v2_11_b.approximate_adjusted_volume_market_center_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
   -- Number Of Participants: Byte
   index, number_of_participants = siac_cts_output_cta_v2_11_b.number_of_participants.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Approximate Volume Participant
-  for approximate_volume_participant_index = 1, number_of_participants do
-    index, approximate_volume_participant = siac_cts_output_cta_v2_11_b.approximate_volume_participant.dissect(buffer, index, packet, parent, approximate_volume_participant_index)
-  end
+  -- Approximate Volume Participant: Struct of 2 fields
+  index, approximate_volume_participant = siac_cts_output_cta_v2_11_b.approximate_volume_participant.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7871,11 +6719,6 @@ siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_status_message = {}
 
 -- Size: Market Wide Circuit Breaker Status Message
 siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_status_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_level_indicator.size + 
   siac_cts_output_cta_v2_11_b.reserved.size
 
@@ -7887,21 +6730,6 @@ end
 -- Dissect Fields: Market Wide Circuit Breaker Status Message
 siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Market Wide Circuit Breaker Level Indicator: Char
   index, market_wide_circuit_breaker_level_indicator = siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_level_indicator.dissect(buffer, index, packet, parent)
@@ -7935,11 +6763,6 @@ siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_decline_level_status_mes
 
 -- Size: Market Wide Circuit Breaker Decline Level Status Message
 siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_decline_level_status_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.mwcb_level_1.size + 
   siac_cts_output_cta_v2_11_b.mwcb_level_2.size + 
   siac_cts_output_cta_v2_11_b.mwcb_level_3.size + 
@@ -7953,21 +6776,6 @@ end
 -- Dissect Fields: Market Wide Circuit Breaker Decline Level Status Message
 siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_decline_level_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Mwcb Level 1: Signed Long
   index, mwcb_level_1 = siac_cts_output_cta_v2_11_b.mwcb_level_1.dissect(buffer, index, packet, parent)
@@ -8002,102 +6810,11 @@ siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_decline_level_status_mes
   end
 end
 
--- Market Status Message Payload
-siac_cts_output_cta_v2_11_b.market_status_message_payload = {}
-
--- Dissect: Market Status Message Payload
-siac_cts_output_cta_v2_11_b.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
-  -- Dissect Market Wide Circuit Breaker Decline Level Status Message
-  if market_status_message_type == "K" then
-    return siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Status Message
-  if market_status_message_type == "L" then
-    return siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Approximate Adjusted Volume Market Center Message
-  if market_status_message_type == "N" then
-    return siac_cts_output_cta_v2_11_b.approximate_adjusted_volume_market_center_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Approximate Adjusted Volume Market Center Message
-  if market_status_message_type == "V" then
-    return siac_cts_output_cta_v2_11_b.fractional_approximate_adjusted_volume_market_center_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Approximate Trades And Total Dollar Value Message
-  if market_status_message_type == "O" then
-    return siac_cts_output_cta_v2_11_b.approximate_trades_and_total_dollar_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Crossing Session Summary Message
-  if market_status_message_type == "P" then
-    return siac_cts_output_cta_v2_11_b.crossing_session_summary_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Market Status
-siac_cts_output_cta_v2_11_b.market_status = {}
-
--- Calculate size of: Market Status
-siac_cts_output_cta_v2_11_b.market_status.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.market_status_message_type.size
-
-  -- Calculate runtime size of Market Status Message Payload field
-  local market_status_message_payload_offset = offset + index
-  local market_status_message_payload_type = buffer(market_status_message_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.market_status_message_payload.size(buffer, market_status_message_payload_offset, market_status_message_payload_type)
-
-  return index
-end
-
--- Display: Market Status
-siac_cts_output_cta_v2_11_b.market_status.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Market Status
-siac_cts_output_cta_v2_11_b.market_status.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Market Status Message Type: Char
-  index, market_status_message_type = siac_cts_output_cta_v2_11_b.market_status_message_type.dissect(buffer, index, packet, parent)
-
-  -- Market Status Message Payload: Runtime Type with 6 branches
-  index = siac_cts_output_cta_v2_11_b.market_status_message_payload.dissect(buffer, index, packet, parent, market_status_message_type)
-
-  return index
-end
-
--- Dissect: Market Status
-siac_cts_output_cta_v2_11_b.market_status.dissect = function(buffer, offset, packet, parent)
-  if show.market_status then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.market_status, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.market_status.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.market_status.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.market_status.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Bid And Offer Index Message
 siac_cts_output_cta_v2_11_b.bid_and_offer_index_message = {}
 
 -- Size: Bid And Offer Index Message
 siac_cts_output_cta_v2_11_b.bid_and_offer_index_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.index_symbol.size + 
   siac_cts_output_cta_v2_11_b.bid_index_value.size + 
   siac_cts_output_cta_v2_11_b.offer_index_value.size
@@ -8110,21 +6827,6 @@ end
 -- Dissect Fields: Bid And Offer Index Message
 siac_cts_output_cta_v2_11_b.bid_and_offer_index_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Index Symbol: Char[]
   index, index_symbol = siac_cts_output_cta_v2_11_b.index_symbol.dissect(buffer, index, packet, parent)
@@ -8161,11 +6863,6 @@ siac_cts_output_cta_v2_11_b.index_message = {}
 
 -- Size: Index Message
 siac_cts_output_cta_v2_11_b.index_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.index_symbol.size + 
   siac_cts_output_cta_v2_11_b.index_value.size
 
@@ -8177,21 +6874,6 @@ end
 -- Dissect Fields: Index Message
 siac_cts_output_cta_v2_11_b.index_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Index Symbol: Char[]
   index, index_symbol = siac_cts_output_cta_v2_11_b.index_symbol.dissect(buffer, index, packet, parent)
@@ -8220,448 +6902,11 @@ siac_cts_output_cta_v2_11_b.index_message.dissect = function(buffer, offset, pac
   end
 end
 
--- Index Message Payload
-siac_cts_output_cta_v2_11_b.index_message_payload = {}
-
--- Dissect: Index Message Payload
-siac_cts_output_cta_v2_11_b.index_message_payload.dissect = function(buffer, offset, packet, parent, index_message_type)
-  -- Dissect Index Message
-  if index_message_type == "I" then
-    return siac_cts_output_cta_v2_11_b.index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid And Offer Index Message
-  if index_message_type == "Q" then
-    return siac_cts_output_cta_v2_11_b.bid_and_offer_index_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Index
-siac_cts_output_cta_v2_11_b.index = {}
-
--- Calculate size of: Index
-siac_cts_output_cta_v2_11_b.index.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.index_message_type.size
-
-  -- Calculate runtime size of Index Message Payload field
-  local index_message_payload_offset = offset + index
-  local index_message_payload_type = buffer(index_message_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.index_message_payload.size(buffer, index_message_payload_offset, index_message_payload_type)
-
-  return index
-end
-
--- Display: Index
-siac_cts_output_cta_v2_11_b.index.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Index
-siac_cts_output_cta_v2_11_b.index.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Index Message Type: Char
-  index, index_message_type = siac_cts_output_cta_v2_11_b.index_message_type.dissect(buffer, index, packet, parent)
-
-  -- Index Message Payload: Runtime Type with 2 branches
-  index = siac_cts_output_cta_v2_11_b.index_message_payload.dissect(buffer, index, packet, parent, index_message_type)
-
-  return index
-end
-
--- Dissect: Index
-siac_cts_output_cta_v2_11_b.index.dissect = function(buffer, offset, packet, parent)
-  if show.index then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.index, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.index.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.index.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.index.fields(buffer, offset, packet, parent)
-  end
-end
-
--- End Of Day Message
-siac_cts_output_cta_v2_11_b.end_of_day_message = {}
-
--- Size: End Of Day Message
-siac_cts_output_cta_v2_11_b.end_of_day_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: End Of Day Message
-siac_cts_output_cta_v2_11_b.end_of_day_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: End Of Day Message
-siac_cts_output_cta_v2_11_b.end_of_day_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: End Of Day Message
-siac_cts_output_cta_v2_11_b.end_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.end_of_day_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.end_of_day_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.end_of_day_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.end_of_day_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Line Integrity Message
-siac_cts_output_cta_v2_11_b.line_integrity_message = {}
-
--- Size: Line Integrity Message
-siac_cts_output_cta_v2_11_b.line_integrity_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: Line Integrity Message
-siac_cts_output_cta_v2_11_b.line_integrity_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Line Integrity Message
-siac_cts_output_cta_v2_11_b.line_integrity_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Line Integrity Message
-siac_cts_output_cta_v2_11_b.line_integrity_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.line_integrity_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.line_integrity_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.line_integrity_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.line_integrity_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Disaster Recovery Data Center Activation Message
-siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message = {}
-
--- Size: Disaster Recovery Data Center Activation Message
-siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: Disaster Recovery Data Center Activation Message
-siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Disaster Recovery Data Center Activation Message
-siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Disaster Recovery Data Center Activation Message
-siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.disaster_recovery_data_center_activation_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reset Block Sequence Number Message
-siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message = {}
-
--- Size: Reset Block Sequence Number Message
-siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: Reset Block Sequence Number Message
-siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reset Block Sequence Number Message
-siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reset Block Sequence Number Message
-siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reset_block_sequence_number_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Start Of Day Message
-siac_cts_output_cta_v2_11_b.start_of_day_message = {}
-
--- Size: Start Of Day Message
-siac_cts_output_cta_v2_11_b.start_of_day_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: Start Of Day Message
-siac_cts_output_cta_v2_11_b.start_of_day_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Start Of Day Message
-siac_cts_output_cta_v2_11_b.start_of_day_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Start Of Day Message
-siac_cts_output_cta_v2_11_b.start_of_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.start_of_day_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.start_of_day_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.start_of_day_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.start_of_day_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Control Message Payload
-siac_cts_output_cta_v2_11_b.control_message_payload = {}
-
--- Dissect: Control Message Payload
-siac_cts_output_cta_v2_11_b.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Dissect Start Of Day Message
-  if control_message_type == "A" then
-    return siac_cts_output_cta_v2_11_b.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Block Sequence Number Message
-  if control_message_type == "L" then
-    return siac_cts_output_cta_v2_11_b.reset_block_sequence_number_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disaster Recovery Data Center Activation Message
-  if control_message_type == "P" then
-    return siac_cts_output_cta_v2_11_b.disaster_recovery_data_center_activation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Line Integrity Message
-  if control_message_type == "T" then
-    return siac_cts_output_cta_v2_11_b.line_integrity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if control_message_type == "Z" then
-    return siac_cts_output_cta_v2_11_b.end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Control
-siac_cts_output_cta_v2_11_b.control = {}
-
--- Calculate size of: Control
-siac_cts_output_cta_v2_11_b.control.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.control_message_type.size
-
-  -- Calculate runtime size of Control Message Payload field
-  local control_message_payload_offset = offset + index
-  local control_message_payload_type = buffer(control_message_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.control_message_payload.size(buffer, control_message_payload_offset, control_message_payload_type)
-
-  return index
-end
-
--- Display: Control
-siac_cts_output_cta_v2_11_b.control.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Control
-siac_cts_output_cta_v2_11_b.control.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Control Message Type: Char
-  index, control_message_type = siac_cts_output_cta_v2_11_b.control_message_type.dissect(buffer, index, packet, parent)
-
-  -- Control Message Payload: Runtime Type with 5 branches
-  index = siac_cts_output_cta_v2_11_b.control_message_payload.dissect(buffer, index, packet, parent, control_message_type)
-
-  return index
-end
-
--- Dissect: Control
-siac_cts_output_cta_v2_11_b.control.dissect = function(buffer, offset, packet, parent)
-  if show.control then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.control, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.control.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.control.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.control.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Symbol Reference Data Message
 siac_cts_output_cta_v2_11_b.symbol_reference_data_message = {}
 
 -- Size: Symbol Reference Data Message
 siac_cts_output_cta_v2_11_b.symbol_reference_data_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size + 
   siac_cts_output_cta_v2_11_b.security_symbol.size + 
   siac_cts_output_cta_v2_11_b.prior_security_symbol.size + 
   siac_cts_output_cta_v2_11_b.primary_listing_market_participant_id.size + 
@@ -8689,21 +6934,6 @@ end
 -- Dissect Fields: Symbol Reference Data Message
 siac_cts_output_cta_v2_11_b.symbol_reference_data_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cts_output_cta_v2_11_b.security_symbol.dissect(buffer, index, packet, parent)
@@ -8780,347 +7010,230 @@ siac_cts_output_cta_v2_11_b.symbol_reference_data_message.dissect = function(buf
   end
 end
 
--- End Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message = {}
+-- Message Payload
+siac_cts_output_cta_v2_11_b.message_payload = {}
 
--- Size: End Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: End Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: End Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: End Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.end_of_start_of_day_summary_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Start Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message = {}
-
--- Size: Start Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: Start Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Start Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Start Of Start Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.start_of_start_of_day_summary_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- End Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message = {}
-
--- Size: End Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: End Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: End Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: End Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.end_of_end_of_day_summary_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Start Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message = {}
-
--- Size: Start Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message.size =
-  siac_cts_output_cta_v2_11_b.participant_id.size + 
-  siac_cts_output_cta_v2_11_b.timestamp_1.size + 
-  siac_cts_output_cta_v2_11_b.message_id.size + 
-  siac_cts_output_cta_v2_11_b.transaction_id.size + 
-  siac_cts_output_cta_v2_11_b.participant_reference_number.size
-
--- Display: Start Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Start Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Start Of End Of Day Summary Message
-siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.start_of_end_of_day_summary_message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Administrative Message Payload
-siac_cts_output_cta_v2_11_b.administrative_message_payload = {}
-
--- Dissect: Administrative Message Payload
-siac_cts_output_cta_v2_11_b.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Message Payload
+siac_cts_output_cta_v2_11_b.message_payload.dissect = function(buffer, offset, packet, parent, category_message_type)
   -- Dissect Start Of End Of Day Summary Message
-  if administrative_message_type == "A" then
-    return siac_cts_output_cta_v2_11_b.start_of_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  if category_message_type == "AA" then
+    return offset
   end
   -- Dissect End Of End Of Day Summary Message
-  if administrative_message_type == "B" then
-    return siac_cts_output_cta_v2_11_b.end_of_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  if category_message_type == "AB" then
+    return offset
   end
   -- Dissect Start Of Start Of Day Summary Message
-  if administrative_message_type == "C" then
-    return siac_cts_output_cta_v2_11_b.start_of_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  if category_message_type == "AC" then
+    return offset
   end
   -- Dissect End Of Start Of Day Summary Message
-  if administrative_message_type == "D" then
-    return siac_cts_output_cta_v2_11_b.end_of_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  if category_message_type == "AD" then
+    return offset
   end
   -- Dissect Symbol Reference Data Message
-  if administrative_message_type == "S" then
+  if category_message_type == "AS" then
     return siac_cts_output_cta_v2_11_b.symbol_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Day Message
+  if category_message_type == "CA" then
+    return offset
+  end
+  -- Dissect Reset Block Sequence Number Message
+  if category_message_type == "CL" then
+    return offset
+  end
+  -- Dissect Disaster Recovery Data Center Activation Message
+  if category_message_type == "CP" then
+    return offset
+  end
+  -- Dissect Line Integrity Message
+  if category_message_type == "CT" then
+    return offset
+  end
+  -- Dissect End Of Day Message
+  if category_message_type == "CZ" then
+    return offset
+  end
+  -- Dissect Index Message
+  if category_message_type == "II" then
+    return siac_cts_output_cta_v2_11_b.index_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bid And Offer Index Message
+  if category_message_type == "IQ" then
+    return siac_cts_output_cta_v2_11_b.bid_and_offer_index_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Wide Circuit Breaker Decline Level Status Message
+  if category_message_type == "MK" then
+    return siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Wide Circuit Breaker Status Message
+  if category_message_type == "ML" then
+    return siac_cts_output_cta_v2_11_b.market_wide_circuit_breaker_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Approximate Adjusted Volume Market Center Message
+  if category_message_type == "MN" then
+    return siac_cts_output_cta_v2_11_b.approximate_adjusted_volume_market_center_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Approximate Adjusted Volume Market Center Message
+  if category_message_type == "MV" then
+    return siac_cts_output_cta_v2_11_b.fractional_approximate_adjusted_volume_market_center_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Approximate Trades And Total Dollar Value Message
+  if category_message_type == "MO" then
+    return siac_cts_output_cta_v2_11_b.approximate_trades_and_total_dollar_value_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Crossing Session Summary Message
+  if category_message_type == "MP" then
+    return siac_cts_output_cta_v2_11_b.crossing_session_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Prior Day Trade Correction Message
+  if category_message_type == "PC" then
+    return siac_cts_output_cta_v2_11_b.prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Prior Day Trade Message
+  if category_message_type == "PT" then
+    return siac_cts_output_cta_v2_11_b.prior_day_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Prior Day Trade Cancel Error Message
+  if category_message_type == "PX" then
+    return siac_cts_output_cta_v2_11_b.prior_day_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Prior Day Trade Correction Message
+  if category_message_type == "PO" then
+    return siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Prior Day Trade Message
+  if category_message_type == "PR" then
+    return siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Prior Day Trade Cancel Error Message
+  if category_message_type == "PE" then
+    return siac_cts_output_cta_v2_11_b.fractional_prior_day_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Consolidated Start Of Day Summary Message
+  if category_message_type == "SA" then
+    return siac_cts_output_cta_v2_11_b.consolidated_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Participant Start Of Day Summary Message
+  if category_message_type == "SB" then
+    return siac_cts_output_cta_v2_11_b.participant_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Consolidated End Of Day Summary Message
+  if category_message_type == "SC" then
+    return siac_cts_output_cta_v2_11_b.consolidated_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Consolidated End Of Day Summary Message
+  if category_message_type == "ST" then
+    return siac_cts_output_cta_v2_11_b.fractional_consolidated_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Participant End Of Day Summary Message
+  if category_message_type == "SD" then
+    return siac_cts_output_cta_v2_11_b.participant_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Participant End Of Day Summary Message
+  if category_message_type == "SP" then
+    return siac_cts_output_cta_v2_11_b.fractional_participant_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Status Message
+  if category_message_type == "TA" then
+    return siac_cts_output_cta_v2_11_b.auction_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Correction Message
+  if category_message_type == "TC" then
+    return siac_cts_output_cta_v2_11_b.trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Long Trade Message
+  if category_message_type == "TL" then
+    return siac_cts_output_cta_v2_11_b.long_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Short Trade Message
+  if category_message_type == "TT" then
+    return siac_cts_output_cta_v2_11_b.short_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cancel Error Message
+  if category_message_type == "TX" then
+    return siac_cts_output_cta_v2_11_b.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Trade Correction Message
+  if category_message_type == "TO" then
+    return siac_cts_output_cta_v2_11_b.fractional_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Long Trade Message
+  if category_message_type == "TR" then
+    return siac_cts_output_cta_v2_11_b.fractional_long_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if category_message_type == "TS" then
+    return siac_cts_output_cta_v2_11_b.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Short Trade Message
+  if category_message_type == "TH" then
+    return siac_cts_output_cta_v2_11_b.fractional_short_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Trade Cancel Error Message
+  if category_message_type == "TE" then
+    return siac_cts_output_cta_v2_11_b.fractional_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Administrative
-siac_cts_output_cta_v2_11_b.administrative = {}
+-- Timestamp 1
+siac_cts_output_cta_v2_11_b.timestamp_1 = {}
 
--- Calculate size of: Administrative
-siac_cts_output_cta_v2_11_b.administrative.size = function(buffer, offset)
-  local index = 0
+-- Size: Timestamp 1
+siac_cts_output_cta_v2_11_b.timestamp_1.size =
+  siac_cts_output_cta_v2_11_b.seconds.size + 
+  siac_cts_output_cta_v2_11_b.nanoseconds.size
 
-  index = index + siac_cts_output_cta_v2_11_b.administrative_message_type.size
+-- Display: Timestamp 1
+siac_cts_output_cta_v2_11_b.timestamp_1.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
 
-  -- Calculate runtime size of Administrative Message Payload field
-  local administrative_message_payload_offset = offset + index
-  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.administrative_message_payload.size(buffer, administrative_message_payload_offset, administrative_message_payload_type)
+  end
 
-  return index
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Display: Administrative
-siac_cts_output_cta_v2_11_b.administrative.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Administrative
-siac_cts_output_cta_v2_11_b.administrative.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Timestamp 1
+siac_cts_output_cta_v2_11_b.timestamp_1.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Administrative Message Type: Char
-  index, administrative_message_type = siac_cts_output_cta_v2_11_b.administrative_message_type.dissect(buffer, index, packet, parent)
+  -- Seconds: unsigned integer
+  index, seconds = siac_cts_output_cta_v2_11_b.seconds.dissect(buffer, index, packet, parent)
 
-  -- Administrative Message Payload: Runtime Type with 5 branches
-  index = siac_cts_output_cta_v2_11_b.administrative_message_payload.dissect(buffer, index, packet, parent, administrative_message_type)
+  -- Nanoseconds: unsigned integer
+  index, nanoseconds = siac_cts_output_cta_v2_11_b.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local timestamp_1 = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, timestamp_1
 end
 
--- Dissect: Administrative
-siac_cts_output_cta_v2_11_b.administrative.dissect = function(buffer, offset, packet, parent)
-  if show.administrative then
+-- Dissect: Timestamp 1
+siac_cts_output_cta_v2_11_b.timestamp_1.dissect = function(buffer, offset, packet, parent)
+  if show.timestamp_1 then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.administrative, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.administrative.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1, buffer(offset, 0))
+    local index, value = siac_cts_output_cta_v2_11_b.timestamp_1.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.administrative.display(packet, parent, length)
+    local display = siac_cts_output_cta_v2_11_b.timestamp_1.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.administrative.fields(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v2_11_b.timestamp_1.fields(buffer, offset, packet, parent)
   end
-end
-
--- Category Payload
-siac_cts_output_cta_v2_11_b.category_payload = {}
-
--- Dissect: Category Payload
-siac_cts_output_cta_v2_11_b.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Administrative
-  if message_category == "A" then
-    return siac_cts_output_cta_v2_11_b.administrative.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control
-  if message_category == "C" then
-    return siac_cts_output_cta_v2_11_b.control.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index
-  if message_category == "I" then
-    return siac_cts_output_cta_v2_11_b.index.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Status
-  if message_category == "M" then
-    return siac_cts_output_cta_v2_11_b.market_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Prior Day
-  if message_category == "P" then
-    return siac_cts_output_cta_v2_11_b.prior_day.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Summary
-  if message_category == "S" then
-    return siac_cts_output_cta_v2_11_b.summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade
-  if message_category == "T" then
-    return siac_cts_output_cta_v2_11_b.trade.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
 end
 
 -- Message
@@ -9132,12 +7245,20 @@ siac_cts_output_cta_v2_11_b.message.size = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_11_b.message_length.size
 
-  index = index + siac_cts_output_cta_v2_11_b.message_category.size
+  index = index + siac_cts_output_cta_v2_11_b.category_message_type.size
 
-  -- Calculate runtime size of Category Payload field
-  local category_payload_offset = offset + index
-  local category_payload_type = buffer(category_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.category_payload.size(buffer, category_payload_offset, category_payload_type)
+  index = index + siac_cts_output_cta_v2_11_b.participant_id.size
+
+  index = index + siac_cts_output_cta_v2_11_b.timestamp_1.size
+
+  index = index + siac_cts_output_cta_v2_11_b.message_id.size
+
+  index = index + siac_cts_output_cta_v2_11_b.transaction_id.size
+
+  index = index + siac_cts_output_cta_v2_11_b.participant_reference_number.size
+
+  -- Parse runtime size of: Message Payload
+  index = index + buffer(offset + index - 26, 2):uint()
 
   return index
 end
@@ -9160,11 +7281,26 @@ siac_cts_output_cta_v2_11_b.message.fields = function(buffer, offset, packet, pa
   -- Message Length: Short
   index, message_length = siac_cts_output_cta_v2_11_b.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Category: Char
-  index, message_category = siac_cts_output_cta_v2_11_b.message_category.dissect(buffer, index, packet, parent)
+  -- Category Message Type: 2 Byte Ascii String Enum with 40 values
+  index, category_message_type = siac_cts_output_cta_v2_11_b.category_message_type.dissect(buffer, index, packet, parent)
 
-  -- Category Payload: Runtime Type with 7 branches
-  index = siac_cts_output_cta_v2_11_b.category_payload.dissect(buffer, index, packet, parent, message_category)
+  -- Participant Id: Char
+  index, participant_id = siac_cts_output_cta_v2_11_b.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Timestamp 1: Struct of 2 fields
+  index, timestamp_1 = siac_cts_output_cta_v2_11_b.timestamp_1.dissect(buffer, index, packet, parent)
+
+  -- Message Id: Byte
+  index, message_id = siac_cts_output_cta_v2_11_b.message_id.dissect(buffer, index, packet, parent)
+
+  -- Transaction Id: Integer
+  index, transaction_id = siac_cts_output_cta_v2_11_b.transaction_id.dissect(buffer, index, packet, parent)
+
+  -- Participant Reference Number: Signed Long
+  index, participant_reference_number = siac_cts_output_cta_v2_11_b.participant_reference_number.dissect(buffer, index, packet, parent)
+
+  -- Message Payload: Runtime Type with 40 branches
+  index = siac_cts_output_cta_v2_11_b.message_payload.dissect(buffer, index, packet, parent, category_message_type)
 
   return index
 end

@@ -25,6 +25,7 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.block_header = ProtoField.new("Block Heade
 omi_siac_cqs_snapshot_cta_v2_1.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.snapshot.cta.v2.1.blockpadbyte", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v2_1.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.snapshot.cta.v2.1.blocksequencenumber", ftypes.UINT32)
 omi_siac_cqs_snapshot_cta_v2_1.fields.block_size = ProtoField.new("Block Size", "siac.cqs.snapshot.cta.v2.1.blocksize", ftypes.UINT16)
+omi_siac_cqs_snapshot_cta_v2_1.fields.category_message_type = ProtoField.new("Category Message Type", "siac.cqs.snapshot.cta.v2.1.categorymessagetype", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.consolidated_closing_price = ProtoField.new("Consolidated Closing Price", "siac.cqs.snapshot.cta.v2.1.consolidatedclosingprice", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v2_1.fields.deliveryflag = ProtoField.new("Deliveryflag", "siac.cqs.snapshot.cta.v2.1.deliveryflag", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v2_1.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.snapshot.cta.v2.1.financialstatusindicator", ftypes.STRING)
@@ -49,7 +50,6 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.luld_leverage_ratio = ProtoField.new("Luld
 omi_siac_cqs_snapshot_cta_v2_1.fields.luld_tier = ProtoField.new("Luld Tier", "siac.cqs.snapshot.cta.v2.1.luldtier", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.snapshot.cta.v2.1.marketcondition", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v2.1.message", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v2_1.fields.message_category = ProtoField.new("Message Category", "siac.cqs.snapshot.cta.v2.1.messagecategory", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.message_length = ProtoField.new("Message Length", "siac.cqs.snapshot.cta.v2.1.messagelength", ftypes.UINT16)
 omi_siac_cqs_snapshot_cta_v2_1.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.snapshot.cta.v2.1.messagesinblock", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.snapshot.cta.v2.1.mwcblevel1", ftypes.INT64)
@@ -82,8 +82,6 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.security_symbol = ProtoField.new("Security
 omi_siac_cqs_snapshot_cta_v2_1.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.snapshot.cta.v2.1.settlementcondition", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.snapshot.cta.v2.1.shortsalerestrictionindicator", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot = ProtoField.new("Snapshot", "siac.cqs.snapshot.cta.v2.1.snapshot", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v2.1.snapshotmessagetype", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.test = ProtoField.new("Test", "siac.cqs.snapshot.cta.v2.1.test", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.totpubseqrollover = ProtoField.new("Totpubseqrollover", "siac.cqs.snapshot.cta.v2.1.totpubseqrollover", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v2_1.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v2.1.upperlimitpriceband", ftypes.DOUBLE)
@@ -92,7 +90,6 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.version = ProtoField.new("Version", "siac.
 -- Siac Cqs Cta Snapshot 2.1 Application Messages
 omi_siac_cqs_snapshot_cta_v2_1.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v2.1.consolidatedsnapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.finra_snapshot_message = ProtoField.new("Finra Snapshot Message", "siac.cqs.snapshot.cta.v2.1.finrasnapshotmessage", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v2_1.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.snapshot.cta.v2.1.lineintegritymessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Snapshot Message", "siac.cqs.snapshot.cta.v2.1.marketwidecircuitbreakerdeclinelevelstatussnapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.participant_snapshot_message = ProtoField.new("Participant Snapshot Message", "siac.cqs.snapshot.cta.v2.1.participantsnapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.symbol_reference_data_message = ProtoField.new("Symbol Reference Data Message", "siac.cqs.snapshot.cta.v2.1.symbolreferencedatamessage", ftypes.STRING)
@@ -112,7 +109,6 @@ show.application_messages = true
 show.message = true
 show.packet = true
 show.sip_block_timestamp = true
-show.snapshot = true
 show.message_index = true
 
 -- Register Siac Cqs Snapshot Cta 2.1 Show Options
@@ -121,7 +117,6 @@ omi_siac_cqs_snapshot_cta_v2_1.prefs.show_application_messages = Pref.bool("Show
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
-omi_siac_cqs_snapshot_cta_v2_1.prefs.show_snapshot = Pref.bool("Show Snapshot", show.snapshot, "Parse and add Snapshot to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 -- Handle changed preferences
@@ -142,9 +137,6 @@ function omi_siac_cqs_snapshot_cta_v2_1.prefs_changed()
   end
   if show.sip_block_timestamp ~= omi_siac_cqs_snapshot_cta_v2_1.prefs.show_sip_block_timestamp then
     show.sip_block_timestamp = omi_siac_cqs_snapshot_cta_v2_1.prefs.show_sip_block_timestamp
-  end
-  if show.snapshot ~= omi_siac_cqs_snapshot_cta_v2_1.prefs.show_snapshot then
-    show.snapshot = omi_siac_cqs_snapshot_cta_v2_1.prefs.show_snapshot
   end
   if show.message_index ~= omi_siac_cqs_snapshot_cta_v2_1.prefs.show_message_index then
     show.message_index = omi_siac_cqs_snapshot_cta_v2_1.prefs.show_message_index
@@ -406,6 +398,48 @@ siac_cqs_snapshot_cta_v2_1.block_size.dissect = function(buffer, offset, packet,
   local display = siac_cqs_snapshot_cta_v2_1.block_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.block_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Category Message Type
+siac_cqs_snapshot_cta_v2_1.category_message_type = {}
+
+-- Size: Category Message Type
+siac_cqs_snapshot_cta_v2_1.category_message_type.size = 2
+
+-- Display: Category Message Type
+siac_cqs_snapshot_cta_v2_1.category_message_type.display = function(value)
+  if value == "RT" then
+    return "Category Message Type: Snapshot - Line Integrity Message (RT)"
+  end
+  if value == "RS" then
+    return "Category Message Type: Snapshot - Symbol Reference Data Message (RS)"
+  end
+  if value == "RK" then
+    return "Category Message Type: Snapshot - Market Wide Circuit Breaker Decline Level Status Snapshot Message (RK)"
+  end
+  if value == "RC" then
+    return "Category Message Type: Snapshot - Consolidated Snapshot Message (RC)"
+  end
+  if value == "RP" then
+    return "Category Message Type: Snapshot - Participant Snapshot Message (RP)"
+  end
+  if value == "RF" then
+    return "Category Message Type: Snapshot - Finra Snapshot Message (RF)"
+  end
+
+  return "Category Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Category Message Type
+siac_cqs_snapshot_cta_v2_1.category_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v2_1.category_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v2_1.category_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.category_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1136,33 +1170,6 @@ siac_cqs_snapshot_cta_v2_1.market_condition.dissect = function(buffer, offset, p
   local display = siac_cqs_snapshot_cta_v2_1.market_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.market_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Category
-siac_cqs_snapshot_cta_v2_1.message_category = {}
-
--- Size: Message Category
-siac_cqs_snapshot_cta_v2_1.message_category.size = 1
-
--- Display: Message Category
-siac_cqs_snapshot_cta_v2_1.message_category.display = function(value)
-  if value == "R" then
-    return "Message Category: Snapshot (R)"
-  end
-
-  return "Message Category: Unknown("..value..")"
-end
-
--- Dissect: Message Category
-siac_cqs_snapshot_cta_v2_1.message_category.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v2_1.message_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v2_1.message_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -2113,29 +2120,6 @@ siac_cqs_snapshot_cta_v2_1.short_sale_restriction_indicator.dissect = function(b
   return offset + length, value
 end
 
--- Snapshot Message Type
-siac_cqs_snapshot_cta_v2_1.snapshot_message_type = {}
-
--- Size: Snapshot Message Type
-siac_cqs_snapshot_cta_v2_1.snapshot_message_type.size = 1
-
--- Display: Snapshot Message Type
-siac_cqs_snapshot_cta_v2_1.snapshot_message_type.display = function(value)
-  return "Snapshot Message Type: "..value
-end
-
--- Dissect: Snapshot Message Type
-siac_cqs_snapshot_cta_v2_1.snapshot_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v2_1.snapshot_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v2_1.snapshot_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Test
 siac_cqs_snapshot_cta_v2_1.test = {}
 
@@ -2251,7 +2235,6 @@ siac_cqs_snapshot_cta_v2_1.finra_snapshot_message = {}
 
 -- Size: Finra Snapshot Message
 siac_cqs_snapshot_cta_v2_1.finra_snapshot_message.size =
-  siac_cqs_snapshot_cta_v2_1.participant_id.size + 
   siac_cqs_snapshot_cta_v2_1.security_symbol.size + 
   siac_cqs_snapshot_cta_v2_1.finra_best_bid_quote_condition.size + 
   siac_cqs_snapshot_cta_v2_1.finra_best_bid_price.size + 
@@ -2274,9 +2257,6 @@ end
 -- Dissect Fields: Finra Snapshot Message
 siac_cqs_snapshot_cta_v2_1.finra_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_snapshot_cta_v2_1.participant_id.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cqs_snapshot_cta_v2_1.security_symbol.dissect(buffer, index, packet, parent)
@@ -2343,7 +2323,6 @@ siac_cqs_snapshot_cta_v2_1.participant_snapshot_message = {}
 
 -- Size: Participant Snapshot Message
 siac_cqs_snapshot_cta_v2_1.participant_snapshot_message.size =
-  siac_cqs_snapshot_cta_v2_1.participant_id.size + 
   siac_cqs_snapshot_cta_v2_1.security_symbol.size + 
   siac_cqs_snapshot_cta_v2_1.quote_condition.size + 
   siac_cqs_snapshot_cta_v2_1.bid_price.size + 
@@ -2366,9 +2345,6 @@ end
 -- Dissect Fields: Participant Snapshot Message
 siac_cqs_snapshot_cta_v2_1.participant_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_snapshot_cta_v2_1.participant_id.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cqs_snapshot_cta_v2_1.security_symbol.dissect(buffer, index, packet, parent)
@@ -2435,7 +2411,6 @@ siac_cqs_snapshot_cta_v2_1.consolidated_snapshot_message = {}
 
 -- Size: Consolidated Snapshot Message
 siac_cqs_snapshot_cta_v2_1.consolidated_snapshot_message.size =
-  siac_cqs_snapshot_cta_v2_1.participant_id.size + 
   siac_cqs_snapshot_cta_v2_1.security_symbol.size + 
   siac_cqs_snapshot_cta_v2_1.instrument_type.size + 
   siac_cqs_snapshot_cta_v2_1.lower_limit_price_band.size + 
@@ -2469,9 +2444,6 @@ end
 -- Dissect Fields: Consolidated Snapshot Message
 siac_cqs_snapshot_cta_v2_1.consolidated_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_snapshot_cta_v2_1.participant_id.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cqs_snapshot_cta_v2_1.security_symbol.dissect(buffer, index, packet, parent)
@@ -2571,7 +2543,6 @@ siac_cqs_snapshot_cta_v2_1.market_wide_circuit_breaker_decline_level_status_snap
 
 -- Size: Market Wide Circuit Breaker Decline Level Status Snapshot Message
 siac_cqs_snapshot_cta_v2_1.market_wide_circuit_breaker_decline_level_status_snapshot_message.size =
-  siac_cqs_snapshot_cta_v2_1.participant_id.size + 
   siac_cqs_snapshot_cta_v2_1.mwcb_level_1.size + 
   siac_cqs_snapshot_cta_v2_1.mwcb_level_2.size + 
   siac_cqs_snapshot_cta_v2_1.mwcb_level_3.size + 
@@ -2585,9 +2556,6 @@ end
 -- Dissect Fields: Market Wide Circuit Breaker Decline Level Status Snapshot Message
 siac_cqs_snapshot_cta_v2_1.market_wide_circuit_breaker_decline_level_status_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_snapshot_cta_v2_1.participant_id.dissect(buffer, index, packet, parent)
 
   -- Mwcb Level 1: Signed Long
   index, mwcb_level_1 = siac_cqs_snapshot_cta_v2_1.mwcb_level_1.dissect(buffer, index, packet, parent)
@@ -2627,7 +2595,6 @@ siac_cqs_snapshot_cta_v2_1.symbol_reference_data_message = {}
 
 -- Size: Symbol Reference Data Message
 siac_cqs_snapshot_cta_v2_1.symbol_reference_data_message.size =
-  siac_cqs_snapshot_cta_v2_1.participant_id.size + 
   siac_cqs_snapshot_cta_v2_1.security_symbol.size + 
   siac_cqs_snapshot_cta_v2_1.prior_security_symbol.size + 
   siac_cqs_snapshot_cta_v2_1.primary_listing_market_participant_id.size + 
@@ -2655,9 +2622,6 @@ end
 -- Dissect Fields: Symbol Reference Data Message
 siac_cqs_snapshot_cta_v2_1.symbol_reference_data_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_snapshot_cta_v2_1.participant_id.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: Char[]
   index, security_symbol = siac_cqs_snapshot_cta_v2_1.security_symbol.dissect(buffer, index, packet, parent)
@@ -2734,140 +2698,34 @@ siac_cqs_snapshot_cta_v2_1.symbol_reference_data_message.dissect = function(buff
   end
 end
 
--- Line Integrity Message
-siac_cqs_snapshot_cta_v2_1.line_integrity_message = {}
+-- Message Payload
+siac_cqs_snapshot_cta_v2_1.message_payload = {}
 
--- Size: Line Integrity Message
-siac_cqs_snapshot_cta_v2_1.line_integrity_message.size =
-  siac_cqs_snapshot_cta_v2_1.participant_id.size
-
--- Display: Line Integrity Message
-siac_cqs_snapshot_cta_v2_1.line_integrity_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Line Integrity Message
-siac_cqs_snapshot_cta_v2_1.line_integrity_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_snapshot_cta_v2_1.participant_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Line Integrity Message
-siac_cqs_snapshot_cta_v2_1.line_integrity_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.line_integrity_message, buffer(offset, 0))
-    local index = siac_cqs_snapshot_cta_v2_1.line_integrity_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_snapshot_cta_v2_1.line_integrity_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_snapshot_cta_v2_1.line_integrity_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Snapshot Message Payload
-siac_cqs_snapshot_cta_v2_1.snapshot_message_payload = {}
-
--- Dissect: Snapshot Message Payload
-siac_cqs_snapshot_cta_v2_1.snapshot_message_payload.dissect = function(buffer, offset, packet, parent, snapshot_message_type)
+-- Dissect: Message Payload
+siac_cqs_snapshot_cta_v2_1.message_payload.dissect = function(buffer, offset, packet, parent, category_message_type)
   -- Dissect Line Integrity Message
-  if snapshot_message_type == "T" then
-    return siac_cqs_snapshot_cta_v2_1.line_integrity_message.dissect(buffer, offset, packet, parent)
+  if category_message_type == "RT" then
+    return offset
   end
   -- Dissect Symbol Reference Data Message
-  if snapshot_message_type == "S" then
+  if category_message_type == "RS" then
     return siac_cqs_snapshot_cta_v2_1.symbol_reference_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Wide Circuit Breaker Decline Level Status Snapshot Message
-  if snapshot_message_type == "K" then
+  if category_message_type == "RK" then
     return siac_cqs_snapshot_cta_v2_1.market_wide_circuit_breaker_decline_level_status_snapshot_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated Snapshot Message
-  if snapshot_message_type == "C" then
+  if category_message_type == "RC" then
     return siac_cqs_snapshot_cta_v2_1.consolidated_snapshot_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Participant Snapshot Message
-  if snapshot_message_type == "P" then
+  if category_message_type == "RP" then
     return siac_cqs_snapshot_cta_v2_1.participant_snapshot_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Finra Snapshot Message
-  if snapshot_message_type == "F" then
+  if category_message_type == "RF" then
     return siac_cqs_snapshot_cta_v2_1.finra_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Snapshot
-siac_cqs_snapshot_cta_v2_1.snapshot = {}
-
--- Calculate size of: Snapshot
-siac_cqs_snapshot_cta_v2_1.snapshot.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_snapshot_cta_v2_1.snapshot_message_type.size
-
-  -- Calculate runtime size of Snapshot Message Payload field
-  local snapshot_message_payload_offset = offset + index
-  local snapshot_message_payload_type = buffer(snapshot_message_payload_offset - 1, 1):string()
-  index = index + siac_cqs_snapshot_cta_v2_1.snapshot_message_payload.size(buffer, snapshot_message_payload_offset, snapshot_message_payload_type)
-
-  return index
-end
-
--- Display: Snapshot
-siac_cqs_snapshot_cta_v2_1.snapshot.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Snapshot
-siac_cqs_snapshot_cta_v2_1.snapshot.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Snapshot Message Type: Char
-  index, snapshot_message_type = siac_cqs_snapshot_cta_v2_1.snapshot_message_type.dissect(buffer, index, packet, parent)
-
-  -- Snapshot Message Payload: Runtime Type with 6 branches
-  index = siac_cqs_snapshot_cta_v2_1.snapshot_message_payload.dissect(buffer, index, packet, parent, snapshot_message_type)
-
-  return index
-end
-
--- Dissect: Snapshot
-siac_cqs_snapshot_cta_v2_1.snapshot.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot, buffer(offset, 0))
-    local index = siac_cqs_snapshot_cta_v2_1.snapshot.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_snapshot_cta_v2_1.snapshot.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_snapshot_cta_v2_1.snapshot.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Category Payload
-siac_cqs_snapshot_cta_v2_1.category_payload = {}
-
--- Dissect: Category Payload
-siac_cqs_snapshot_cta_v2_1.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Snapshot
-  if message_category == "R" then
-    return siac_cqs_snapshot_cta_v2_1.snapshot.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2882,12 +2740,12 @@ siac_cqs_snapshot_cta_v2_1.message.size = function(buffer, offset)
 
   index = index + siac_cqs_snapshot_cta_v2_1.message_length.size
 
-  index = index + siac_cqs_snapshot_cta_v2_1.message_category.size
+  index = index + siac_cqs_snapshot_cta_v2_1.category_message_type.size
 
-  -- Calculate runtime size of Category Payload field
-  local category_payload_offset = offset + index
-  local category_payload_type = buffer(category_payload_offset - 1, 1):string()
-  index = index + siac_cqs_snapshot_cta_v2_1.category_payload.size(buffer, category_payload_offset, category_payload_type)
+  index = index + siac_cqs_snapshot_cta_v2_1.participant_id.size
+
+  -- Parse runtime size of: Message Payload
+  index = index + buffer(offset + index - 5, 2):uint()
 
   return index
 end
@@ -2910,11 +2768,14 @@ siac_cqs_snapshot_cta_v2_1.message.fields = function(buffer, offset, packet, par
   -- Message Length: Short
   index, message_length = siac_cqs_snapshot_cta_v2_1.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Category: Char
-  index, message_category = siac_cqs_snapshot_cta_v2_1.message_category.dissect(buffer, index, packet, parent)
+  -- Category Message Type: 2 Byte Ascii String Enum with 6 values
+  index, category_message_type = siac_cqs_snapshot_cta_v2_1.category_message_type.dissect(buffer, index, packet, parent)
 
-  -- Category Payload: Runtime Type with 1 branches
-  index = siac_cqs_snapshot_cta_v2_1.category_payload.dissect(buffer, index, packet, parent, message_category)
+  -- Participant Id: Char
+  index, participant_id = siac_cqs_snapshot_cta_v2_1.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Message Payload: Runtime Type with 6 branches
+  index = siac_cqs_snapshot_cta_v2_1.message_payload.dissect(buffer, index, packet, parent, category_message_type)
 
   return index
 end
@@ -2946,8 +2807,18 @@ siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.size =
   siac_cqs_snapshot_cta_v2_1.nanoseconds.size
 
 -- Display: Sip Block Timestamp
-siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.display = function(packet, parent, length)
-  return ""
+siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Sip Block Timestamp
@@ -2960,7 +2831,10 @@ siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.fields = function(buffer, offset,
   -- Nanoseconds: unsigned integer
   index, nanoseconds = siac_cqs_snapshot_cta_v2_1.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local sip_block_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, sip_block_timestamp
 end
 
 -- Dissect: Sip Block Timestamp
@@ -2968,10 +2842,10 @@ siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.dissect = function(buffer, offset
   if show.sip_block_timestamp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp, buffer(offset, 0))
-    local index = siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.fields(buffer, offset, packet, parent)
+    local index, value = siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.display(packet, parent, length)
+    local display = siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.display(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
