@@ -2860,7 +2860,7 @@ asx_asxsecurities_t24_itch_v1_13.timestamp.composite = function(buffer, offset, 
   local range = buffer(offset, length)
   local nanoseconds = range:uint()
   local value = asx_asxsecurities_t24_itch_v1_13.timestamp.translate(nanoseconds, stored_second)
-  local display = asx_asxsecurities_t24_itch_v1_13.timestamp.display(nanoseconds, stored_second)
+  local display = asx_asxsecurities_t24_itch_v1_13.timestamp.display(nanoseconds, stored_second, packet)
   parent = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.timestamp, range, value, display)
 
   asx_asxsecurities_t24_itch_v1_13.second.generated(stored_second, range, packet, parent)

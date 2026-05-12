@@ -1069,7 +1069,12 @@ end
 nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.requested_sequence_number, range, value, display)
@@ -2452,6 +2457,14 @@ nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.payload.dissect = function(buffer,
   if packet_type == "S" then
     return nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Server Heartbeat Packet
+  if packet_type == "H" then
+    return offset
+  end
+  -- Dissect End Of Session Packet
+  if packet_type == "Z" then
+    return offset
+  end
   -- Dissect Login Request Packet
   if packet_type == "L" then
     return nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.login_request_packet.dissect(buffer, offset, packet, parent)
@@ -2459,6 +2472,14 @@ nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.payload.dissect = function(buffer,
   -- Dissect Unsequenced Data Packet
   if packet_type == "U" then
     return nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Packet
+  if packet_type == "R" then
+    return offset
+  end
+  -- Dissect Logout Request Packet
+  if packet_type == "O" then
+    return offset
   end
 
   return offset
@@ -2526,7 +2547,7 @@ nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.soup_bin_tcp_packet.fields = funct
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 6 branches
+  -- Payload: Runtime Type with 10 branches
   index = nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

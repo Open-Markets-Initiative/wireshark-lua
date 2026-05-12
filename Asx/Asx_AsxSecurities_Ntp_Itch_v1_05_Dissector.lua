@@ -2817,7 +2817,7 @@ asx_asxsecurities_ntp_itch_v1_05.timestamp.composite = function(buffer, offset, 
   local range = buffer(offset, length)
   local nanoseconds = range:uint()
   local value = asx_asxsecurities_ntp_itch_v1_05.timestamp.translate(nanoseconds, stored_second)
-  local display = asx_asxsecurities_ntp_itch_v1_05.timestamp.display(nanoseconds, stored_second)
+  local display = asx_asxsecurities_ntp_itch_v1_05.timestamp.display(nanoseconds, stored_second, packet)
   parent = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.timestamp, range, value, display)
 
   asx_asxsecurities_ntp_itch_v1_05.second.generated(stored_second, range, packet, parent)

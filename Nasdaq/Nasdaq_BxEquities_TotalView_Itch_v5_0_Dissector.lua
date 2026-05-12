@@ -135,7 +135,7 @@ omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.show_message_index = Pref.bool("
 
 -- Timestamp Display Preferences
 nasdaq_bxequities_totalview_itch_v5_0.timestamp_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-nasdaq_bxequities_totalview_itch_v5_0.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+nasdaq_bxequities_totalview_itch_v5_0.utc_offset_hours = 5 -- Hours behind UTC (EST) for midnight calculation
 
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
@@ -144,7 +144,7 @@ local timestamp_format_enum = {
 }
 
 omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+omi_nasdaq_bxequities_totalview_itch_v5_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_bxequities_totalview_itch_v5_0.prefs_changed()

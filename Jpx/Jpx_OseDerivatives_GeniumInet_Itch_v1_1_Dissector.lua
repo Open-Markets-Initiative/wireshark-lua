@@ -1689,7 +1689,7 @@ jpx_osederivatives_geniuminet_itch_v1_1.timestamp.composite = function(buffer, o
   local range = buffer(offset, length)
   local nanoseconds = range:uint()
   local value = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.translate(nanoseconds, stored_seconds)
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.display(nanoseconds, stored_seconds)
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.timestamp.display(nanoseconds, stored_seconds, packet)
   parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.timestamp, range, value, display)
 
   jpx_osederivatives_geniuminet_itch_v1_1.seconds.generated(stored_seconds, range, packet, parent)

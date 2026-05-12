@@ -106,7 +106,7 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.show_message_index = Pref.bool("Show 
 
 -- Nanoseconds Display Preferences
 nasdaq_nomoptions_bono_itch_v3_2.nanoseconds_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-nasdaq_nomoptions_bono_itch_v3_2.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+nasdaq_nomoptions_bono_itch_v3_2.utc_offset_hours = 5 -- Hours behind UTC (EST) for midnight calculation
 
 local nanoseconds_format_enum = {
   { 1, "Raw", 0 },
@@ -115,7 +115,7 @@ local nanoseconds_format_enum = {
 }
 
 omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
-omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_nomoptions_bono_itch_v3_2.prefs_changed()
@@ -1404,14 +1404,14 @@ nasdaq_nomoptions_bono_itch_v3_2.timestamp.display = function(nanoseconds, store
   if nasdaq_nomoptions_bono_itch_v3_2.nanoseconds_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = nasdaq_nomoptions_bono_itch_v3_2.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
     local full_seconds = local_midnight + stored_second
 
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("%H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -1420,7 +1420,7 @@ nasdaq_nomoptions_bono_itch_v3_2.timestamp.composite = function(buffer, offset, 
   local range = buffer(offset, length)
   local nanoseconds = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.timestamp.translate(nanoseconds, stored_second)
-  local display = nasdaq_nomoptions_bono_itch_v3_2.timestamp.display(nanoseconds, stored_second)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.timestamp.display(nanoseconds, stored_second, packet)
   parent = parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.timestamp, range, value, display)
 
   nasdaq_nomoptions_bono_itch_v3_2.second.generated(stored_second, range, packet, parent)

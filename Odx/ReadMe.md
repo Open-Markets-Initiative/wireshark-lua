@@ -6,7 +6,7 @@
 | Division | [Protocol][Omi.Odx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.OdxSecurityToken.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1891 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v2.2.Pdf] |
-| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.OdxSecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 2482 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v1.2.Pdf] |
+| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.OdxSecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 2503 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v1.2.Pdf] |
 
 
 Odx: [website](https://www.odx.co.jp/en "Go to Osaka Digital Exchange")

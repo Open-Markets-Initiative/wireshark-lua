@@ -86,7 +86,7 @@ omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index = Pref.bool("Show Messag
 
 -- Timestamp Nanoseconds Display Preferences
 jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours = 9 -- Hours ahead of UTC (JST) for midnight calculation
 
 local timestamp_nanoseconds_format_enum = {
   { 1, "Raw", 0 },
@@ -95,7 +95,7 @@ local timestamp_nanoseconds_format_enum = {
 }
 
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_nanoseconds_format_enum, false)
-omi_jnx_jnxbonds_pts_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+omi_jnx_jnxbonds_pts_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_jnx_jnxbonds_pts_itch_v1_2.prefs_changed()
@@ -918,14 +918,14 @@ jnx_jnxbonds_pts_itch_v1_2.timestamp.display = function(timestamp_nanoseconds, s
   if jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local local_midnight = math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
     local full_seconds = local_midnight + stored_timestamp_seconds
 
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp_nanoseconds)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp_nanoseconds)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("%H:%M:%S.", stored_timestamp_seconds)..string.format("%09d", timestamp_nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_timestamp_seconds)..string.format("%09d", timestamp_nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -934,7 +934,7 @@ jnx_jnxbonds_pts_itch_v1_2.timestamp.composite = function(buffer, offset, stored
   local range = buffer(offset, length)
   local timestamp_nanoseconds = range:uint()
   local value = jnx_jnxbonds_pts_itch_v1_2.timestamp.translate(timestamp_nanoseconds, stored_timestamp_seconds)
-  local display = jnx_jnxbonds_pts_itch_v1_2.timestamp.display(timestamp_nanoseconds, stored_timestamp_seconds)
+  local display = jnx_jnxbonds_pts_itch_v1_2.timestamp.display(timestamp_nanoseconds, stored_timestamp_seconds, packet)
   parent = parent:add(omi_jnx_jnxbonds_pts_itch_v1_2.fields.timestamp, range, value, display)
 
   jnx_jnxbonds_pts_itch_v1_2.timestamp_seconds.generated(stored_timestamp_seconds, range, packet, parent)

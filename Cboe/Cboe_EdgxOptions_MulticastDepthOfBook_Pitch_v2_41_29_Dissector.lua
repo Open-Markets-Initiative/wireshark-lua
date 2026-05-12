@@ -136,7 +136,7 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.prefs.show_message_inde
 
 -- Time Offset Display Preferences
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.time_offset_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.utc_offset_hours = 5 -- Hours behind UTC (EST) for midnight calculation
 
 local time_offset_format_enum = {
   { 1, "Raw", 0 },
@@ -145,7 +145,7 @@ local time_offset_format_enum = {
 }
 
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.prefs.time_offset_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", time_offset_format_enum, false)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.prefs_changed()
@@ -1688,14 +1688,14 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.timestamp.display = functio
   if cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.time_offset_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
     local full_seconds = local_midnight + stored_time
 
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", time_offset)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", time_offset)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("%H:%M:%S.", stored_time)..string.format("%09d", time_offset)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", time_offset)
 end
 
 -- Composite: Timestamp
@@ -1704,7 +1704,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.timestamp.composite = funct
   local range = buffer(offset, length)
   local time_offset = range:le_uint()
   local value = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.timestamp.translate(time_offset, stored_time)
-  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.timestamp.display(time_offset, stored_time)
+  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.timestamp.display(time_offset, stored_time, packet)
   parent = parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.timestamp, range, value, display)
 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.time.generated(stored_time, range, packet, parent)

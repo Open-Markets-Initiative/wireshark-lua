@@ -88,7 +88,7 @@ omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_message_index = Pref.bool("Sho
 
 -- Nanoseconds Display Preferences
 odx_odxsecuritytoken_pts_itch_v2_2.nanoseconds_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-odx_odxsecuritytoken_pts_itch_v2_2.utc_offset_hours = 5 -- Hours behind UTC (EST = 5, EDT = 4, UTC = 0)
+odx_odxsecuritytoken_pts_itch_v2_2.utc_offset_hours = 9 -- Hours ahead of UTC (JST) for midnight calculation
 
 local nanoseconds_format_enum = {
   { 1, "Raw", 0 },
@@ -97,7 +97,7 @@ local nanoseconds_format_enum = {
 }
 
 omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
-omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC for midnight calculation (EST=5, EDT=4, UTC=0)")
+omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs_changed()
@@ -974,14 +974,14 @@ odx_odxsecuritytoken_pts_itch_v2_2.timestamp.display = function(nanoseconds, sto
   if odx_odxsecuritytoken_pts_itch_v2_2.nanoseconds_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = odx_odxsecuritytoken_pts_itch_v2_2.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local local_midnight = math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
     local full_seconds = local_midnight + stored_second
 
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("%H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
@@ -990,7 +990,7 @@ odx_odxsecuritytoken_pts_itch_v2_2.timestamp.composite = function(buffer, offset
   local range = buffer(offset, length)
   local nanoseconds = range:uint()
   local value = odx_odxsecuritytoken_pts_itch_v2_2.timestamp.translate(nanoseconds, stored_second)
-  local display = odx_odxsecuritytoken_pts_itch_v2_2.timestamp.display(nanoseconds, stored_second)
+  local display = odx_odxsecuritytoken_pts_itch_v2_2.timestamp.display(nanoseconds, stored_second, packet)
   parent = parent:add(omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.timestamp, range, value, display)
 
   odx_odxsecuritytoken_pts_itch_v2_2.second.generated(stored_second, range, packet, parent)
