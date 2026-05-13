@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------
 -- Lua Script Wireshark Dissector
--- 
+--
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
@@ -19,16 +19,31 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.action_time = ProtoField.new("Action Ti
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "nasdaq.uqdf.output.utp.v3.0.c.adftimestamp", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.uqdf.output.utp.v3.0.c.administrativemessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.uqdf.output.utp.v3.0.c.administrativemessagetype", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.ask_adf_mpid = ProtoField.new("Ask Adf Mpid", "nasdaq.uqdf.output.utp.v3.0.c.askadfmpid", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.uqdf.output.utp.v3.0.c.askpricelong", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.uqdf.output.utp.v3.0.c.askpriceshort", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.uqdf.output.utp.v3.0.c.asksizelong", ftypes.UINT32)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.ask_size_short = ProtoField.new("Ask Size Short", "nasdaq.uqdf.output.utp.v3.0.c.asksizeshort", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.uqdf.output.utp.v3.0.c.authenticity", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bid_adf_mpid = ProtoField.new("Bid Adf Mpid", "nasdaq.uqdf.output.utp.v3.0.c.bidadfmpid", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.uqdf.output.utp.v3.0.c.bidpricelong", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.uqdf.output.utp.v3.0.c.bidpriceshort", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.uqdf.output.utp.v3.0.c.bidsizelong", ftypes.UINT32)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bid_size_short = ProtoField.new("Bid Size Short", "nasdaq.uqdf.output.utp.v3.0.c.bidsizeshort", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_indicator = ProtoField.new("Bolo Appendage Indicator", "nasdaq.uqdf.output.utp.v3.0.c.boloappendageindicator", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_long_form = ProtoField.new("Bolo Appendage Long Form", "nasdaq.uqdf.output.utp.v3.0.c.boloappendagelongform", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_mpid_form = ProtoField.new("Bolo Appendage Mpid Form", "nasdaq.uqdf.output.utp.v3.0.c.boloappendagempidform", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_short_form = ProtoField.new("Bolo Appendage Short Form", "nasdaq.uqdf.output.utp.v3.0.c.boloappendageshortform", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_ask_price_long = ProtoField.new("Bolo Ask Price Long", "nasdaq.uqdf.output.utp.v3.0.c.boloaskpricelong", ftypes.DOUBLE)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_ask_price_short = ProtoField.new("Bolo Ask Price Short", "nasdaq.uqdf.output.utp.v3.0.c.boloaskpriceshort", ftypes.DOUBLE)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_ask_size = ProtoField.new("Bolo Ask Size", "nasdaq.uqdf.output.utp.v3.0.c.boloasksize", ftypes.UINT16)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_best_ask_market_center = ProtoField.new("Bolo Best Ask Market Center", "nasdaq.uqdf.output.utp.v3.0.c.bolobestaskmarketcenter", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_best_ask_market_participant_identifier = ProtoField.new("Bolo Best Ask Market Participant Identifier", "nasdaq.uqdf.output.utp.v3.0.c.bolobestaskmarketparticipantidentifier", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_best_bid_market_center = ProtoField.new("Bolo Best Bid Market Center", "nasdaq.uqdf.output.utp.v3.0.c.bolobestbidmarketcenter", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_best_bid_market_participant_identifier = ProtoField.new("Bolo Best Bid Market Participant Identifier", "nasdaq.uqdf.output.utp.v3.0.c.bolobestbidmarketparticipantidentifier", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_bid_price_long = ProtoField.new("Bolo Bid Price Long", "nasdaq.uqdf.output.utp.v3.0.c.bolobidpricelong", ftypes.DOUBLE)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_bid_price_short = ProtoField.new("Bolo Bid Price Short", "nasdaq.uqdf.output.utp.v3.0.c.bolobidpriceshort", ftypes.DOUBLE)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_bid_size = ProtoField.new("Bolo Bid Size", "nasdaq.uqdf.output.utp.v3.0.c.bolobidsize", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.uqdf.output.utp.v3.0.c.collardownprice", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.collar_extension_indicator = ProtoField.new("Collar Extension Indicator", "nasdaq.uqdf.output.utp.v3.0.c.collarextensionindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.uqdf.output.utp.v3.0.c.collarreferenceprice", ftypes.DOUBLE)
@@ -36,6 +51,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.collar_up_price = ProtoField.new("Colla
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.control_message = ProtoField.new("Control Message", "nasdaq.uqdf.output.utp.v3.0.c.controlmessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.uqdf.output.utp.v3.0.c.controlmessagetype", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.uqdf.output.utp.v3.0.c.financialstatusindicator", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.finra_adf_mpid_appendage = ProtoField.new("Finra Adf Mpid Appendage", "nasdaq.uqdf.output.utp.v3.0.c.finraadfmpidappendage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.finra_adf_mpid_appendage_indicator = ProtoField.new("Finra Adf Mpid Appendage Indicator", "nasdaq.uqdf.output.utp.v3.0.c.finraadfmpidappendageindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.finra_market_participant = ProtoField.new("Finra Market Participant", "nasdaq.uqdf.output.utp.v3.0.c.finramarketparticipant", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.issue_name = ProtoField.new("Issue Name", "nasdaq.uqdf.output.utp.v3.0.c.issuename", ftypes.STRING)
@@ -157,7 +173,11 @@ local show = {}
 -- Nasdaq Uqdf Output Utp 3.0.c Element Dissection Options
 show.administrative_message = true
 show.application_messages = true
+show.bolo_appendage_long_form = true
+show.bolo_appendage_mpid_form = true
+show.bolo_appendage_short_form = true
 show.control_message = true
+show.finra_adf_mpid_appendage = true
 show.market_center_close_recap = true
 show.message = true
 show.message_header = true
@@ -172,7 +192,11 @@ show.market_center_close_recap_index = true
 -- Register Nasdaq Uqdf Output Utp 3.0.c Show Options
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_long_form = Pref.bool("Show Bolo Appendage Long Form", show.bolo_appendage_long_form, "Parse and add Bolo Appendage Long Form to protocol tree")
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_mpid_form = Pref.bool("Show Bolo Appendage Mpid Form", show.bolo_appendage_mpid_form, "Parse and add Bolo Appendage Mpid Form to protocol tree")
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_short_form = Pref.bool("Show Bolo Appendage Short Form", show.bolo_appendage_short_form, "Parse and add Bolo Appendage Short Form to protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_finra_adf_mpid_appendage = Pref.bool("Show Finra Adf Mpid Appendage", show.finra_adf_mpid_appendage, "Parse and add Finra Adf Mpid Appendage to protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap = Pref.bool("Show Market Center Close Recap", show.market_center_close_recap, "Parse and add Market Center Close Recap to protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
@@ -194,8 +218,20 @@ function omi_nasdaq_uqdf_output_utp_v3_0_c.prefs_changed()
   if show.application_messages ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_application_messages
   end
+  if show.bolo_appendage_long_form ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_long_form then
+    show.bolo_appendage_long_form = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_long_form
+  end
+  if show.bolo_appendage_mpid_form ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_mpid_form then
+    show.bolo_appendage_mpid_form = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_mpid_form
+  end
+  if show.bolo_appendage_short_form ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_short_form then
+    show.bolo_appendage_short_form = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_short_form
+  end
   if show.control_message ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_control_message then
     show.control_message = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_control_message
+  end
+  if show.finra_adf_mpid_appendage ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_finra_adf_mpid_appendage then
+    show.finra_adf_mpid_appendage = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_finra_adf_mpid_appendage
   end
   if show.market_center_close_recap ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap then
     show.market_center_close_recap = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap
@@ -321,6 +357,29 @@ nasdaq_uqdf_output_utp_v3_0_c.administrative_message_type.dissect = function(buf
   local display = nasdaq_uqdf_output_utp_v3_0_c.administrative_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.administrative_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Adf Mpid
+nasdaq_uqdf_output_utp_v3_0_c.ask_adf_mpid = {}
+
+-- Size: Ask Adf Mpid
+nasdaq_uqdf_output_utp_v3_0_c.ask_adf_mpid.size = 4
+
+-- Display: Ask Adf Mpid
+nasdaq_uqdf_output_utp_v3_0_c.ask_adf_mpid.display = function(value)
+  return "Ask Adf Mpid: "..value
+end
+
+-- Dissect: Ask Adf Mpid
+nasdaq_uqdf_output_utp_v3_0_c.ask_adf_mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.ask_adf_mpid.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_uqdf_output_utp_v3_0_c.ask_adf_mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.ask_adf_mpid, range, value, display)
 
   return offset + length, value
 end
@@ -465,6 +524,29 @@ nasdaq_uqdf_output_utp_v3_0_c.authenticity.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Bid Adf Mpid
+nasdaq_uqdf_output_utp_v3_0_c.bid_adf_mpid = {}
+
+-- Size: Bid Adf Mpid
+nasdaq_uqdf_output_utp_v3_0_c.bid_adf_mpid.size = 4
+
+-- Display: Bid Adf Mpid
+nasdaq_uqdf_output_utp_v3_0_c.bid_adf_mpid.display = function(value)
+  return "Bid Adf Mpid: "..value
+end
+
+-- Dissect: Bid Adf Mpid
+nasdaq_uqdf_output_utp_v3_0_c.bid_adf_mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bid_adf_mpid.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bid_adf_mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bid_adf_mpid, range, value, display)
+
+  return offset + length, value
+end
+
 -- Bid Price Long
 nasdaq_uqdf_output_utp_v3_0_c.bid_price_long = {}
 
@@ -604,6 +686,260 @@ nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_indicator.dissect = function(buffer
   local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Ask Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long = {}
+
+-- Size: Bolo Ask Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.size = 8
+
+-- Display: Bolo Ask Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.display = function(value)
+  return "Bolo Ask Price Long: "..value
+end
+
+-- Translate: Bolo Ask Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Bolo Ask Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.translate(raw)
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_ask_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Ask Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short = {}
+
+-- Size: Bolo Ask Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.size = 2
+
+-- Display: Bolo Ask Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.display = function(value)
+  return "Bolo Ask Price Short: "..value
+end
+
+-- Translate: Bolo Ask Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bolo Ask Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.translate(raw)
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_ask_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Ask Size
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size = {}
+
+-- Size: Bolo Ask Size
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.size = 2
+
+-- Display: Bolo Ask Size
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.display = function(value)
+  return "Bolo Ask Size: "..value
+end
+
+-- Dissect: Bolo Ask Size
+nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_ask_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Best Ask Market Center
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center = {}
+
+-- Size: Bolo Best Ask Market Center
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.size = 1
+
+-- Display: Bolo Best Ask Market Center
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.display = function(value)
+  return "Bolo Best Ask Market Center: "..value
+end
+
+-- Dissect: Bolo Best Ask Market Center
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_best_ask_market_center, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Best Ask Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_participant_identifier = {}
+
+-- Size: Bolo Best Ask Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_participant_identifier.size = 4
+
+-- Display: Bolo Best Ask Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_participant_identifier.display = function(value)
+  return "Bolo Best Ask Market Participant Identifier: "..value
+end
+
+-- Dissect: Bolo Best Ask Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_participant_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_participant_identifier.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_participant_identifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_best_ask_market_participant_identifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Best Bid Market Center
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center = {}
+
+-- Size: Bolo Best Bid Market Center
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.size = 1
+
+-- Display: Bolo Best Bid Market Center
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.display = function(value)
+  return "Bolo Best Bid Market Center: "..value
+end
+
+-- Dissect: Bolo Best Bid Market Center
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_best_bid_market_center, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Best Bid Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_participant_identifier = {}
+
+-- Size: Bolo Best Bid Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_participant_identifier.size = 4
+
+-- Display: Bolo Best Bid Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_participant_identifier.display = function(value)
+  return "Bolo Best Bid Market Participant Identifier: "..value
+end
+
+-- Dissect: Bolo Best Bid Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_participant_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_participant_identifier.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_participant_identifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_best_bid_market_participant_identifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Bid Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long = {}
+
+-- Size: Bolo Bid Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.size = 8
+
+-- Display: Bolo Bid Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.display = function(value)
+  return "Bolo Bid Price Long: "..value
+end
+
+-- Translate: Bolo Bid Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Bolo Bid Price Long
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.translate(raw)
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_bid_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Bid Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short = {}
+
+-- Size: Bolo Bid Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.size = 2
+
+-- Display: Bolo Bid Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.display = function(value)
+  return "Bolo Bid Price Short: "..value
+end
+
+-- Translate: Bolo Bid Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bolo Bid Price Short
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.translate(raw)
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_bid_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bolo Bid Size
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size = {}
+
+-- Size: Bolo Bid Size
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.size = 2
+
+-- Display: Bolo Bid Size
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.display = function(value)
+  return "Bolo Bid Size: "..value
+end
+
+-- Dissect: Bolo Bid Size
+nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -4630,22 +4966,246 @@ nasdaq_uqdf_output_utp_v3_0_c.administrative_message.dissect = function(buffer, 
   end
 end
 
+-- Bolo Appendage Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form = {}
+
+-- Size: Bolo Appendage Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size =
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_participant_identifier.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_participant_identifier.size
+
+-- Display: Bolo Appendage Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bolo Appendage Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bolo Best Bid Market Center: byte
+  index, bolo_best_bid_market_center = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.dissect(buffer, index, packet, parent)
+
+  -- Bolo Bid Price Long: long
+  index, bolo_bid_price_long = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.dissect(buffer, index, packet, parent)
+
+  -- Bolo Bid Size: short
+  index, bolo_bid_size = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.dissect(buffer, index, packet, parent)
+
+  -- Bolo Best Ask Market Center: byte
+  index, bolo_best_ask_market_center = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.dissect(buffer, index, packet, parent)
+
+  -- Bolo Ask Price Long: long
+  index, bolo_ask_price_long = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.dissect(buffer, index, packet, parent)
+
+  -- Bolo Ask Size: short
+  index, bolo_ask_size = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.dissect(buffer, index, packet, parent)
+
+  -- Bolo Best Bid Market Participant Identifier: byte[]
+  index, bolo_best_bid_market_participant_identifier = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_participant_identifier.dissect(buffer, index, packet, parent)
+
+  -- Bolo Best Ask Market Participant Identifier: byte[]
+  index, bolo_best_ask_market_participant_identifier = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_participant_identifier.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bolo Appendage Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect = function(buffer, offset, packet, parent)
+  if show.bolo_appendage_mpid_form then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_mpid_form, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bolo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form = {}
+
+-- Size: Bolo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size =
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.size
+
+-- Display: Bolo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bolo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bolo Best Bid Market Center: byte
+  index, bolo_best_bid_market_center = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.dissect(buffer, index, packet, parent)
+
+  -- Bolo Bid Price Long: long
+  index, bolo_bid_price_long = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_long.dissect(buffer, index, packet, parent)
+
+  -- Bolo Bid Size: short
+  index, bolo_bid_size = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.dissect(buffer, index, packet, parent)
+
+  -- Bolo Best Ask Market Center: byte
+  index, bolo_best_ask_market_center = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.dissect(buffer, index, packet, parent)
+
+  -- Bolo Ask Price Long: long
+  index, bolo_ask_price_long = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_long.dissect(buffer, index, packet, parent)
+
+  -- Bolo Ask Size: short
+  index, bolo_ask_size = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bolo Appendage Long Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.dissect = function(buffer, offset, packet, parent)
+  if show.bolo_appendage_long_form then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_long_form, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bolo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form = {}
+
+-- Size: Bolo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size =
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.size
+
+-- Display: Bolo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bolo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bolo Best Bid Market Center: byte
+  index, bolo_best_bid_market_center = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_bid_market_center.dissect(buffer, index, packet, parent)
+
+  -- Bolo Bid Price Short: short
+  index, bolo_bid_price_short = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_price_short.dissect(buffer, index, packet, parent)
+
+  -- Bolo Bid Size: short
+  index, bolo_bid_size = nasdaq_uqdf_output_utp_v3_0_c.bolo_bid_size.dissect(buffer, index, packet, parent)
+
+  -- Bolo Best Ask Market Center: byte
+  index, bolo_best_ask_market_center = nasdaq_uqdf_output_utp_v3_0_c.bolo_best_ask_market_center.dissect(buffer, index, packet, parent)
+
+  -- Bolo Ask Price Short: short
+  index, bolo_ask_price_short = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_price_short.dissect(buffer, index, packet, parent)
+
+  -- Bolo Ask Size: short
+  index, bolo_ask_size = nasdaq_uqdf_output_utp_v3_0_c.bolo_ask_size.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bolo Appendage Short Form
+nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.dissect = function(buffer, offset, packet, parent)
+  if show.bolo_appendage_short_form then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_short_form, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Odd Lot Quote Message Long Form Message
 nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message = {}
 
--- Size: Odd Lot Quote Message Long Form Message
-nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message.size =
-  nasdaq_uqdf_output_utp_v3_0_c.market_center_originator.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.sub_market_center_id.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.sip_timestamp.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.timestamp_1.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.participant_token.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.adf_timestamp.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.symbol_long.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.sip_generated_update_flag.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_indicator.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_type.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.size
+-- Calculate size of: Odd Lot Quote Message Long Form Message
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.market_center_originator.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.sub_market_center_id.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.sip_timestamp.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.timestamp_1.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.participant_token.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.adf_timestamp.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.symbol_long.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.sip_generated_update_flag.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_type.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.size
+
+  local bolo_appendage_indicator = buffer(offset + index - 4, 1):string()
+
+  if bolo_appendage_indicator == "2" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 14, 1):string()
+
+  if bolo_appendage_indicator == "3" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 36, 1):string()
+
+  if bolo_appendage_indicator == "5" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
+
+  end
+
+  return index
+end
 
 -- Display: Odd Lot Quote Message Long Form Message
 nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message.display = function(packet, parent, length)
@@ -4689,6 +5249,33 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message.fields = f
   -- Odd Lot Attachment Count: short
   index, odd_lot_attachment_count = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.dissect(buffer, index, packet, parent)
 
+  -- Runtime optional field: Bolo Appendage Short Form
+  local bolo_appendage_short_form = nil
+
+  local bolo_appendage_short_form_exists = bolo_appendage_indicator == "2"
+
+  if bolo_appendage_short_form_exists then
+    index, bolo_appendage_short_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Long Form
+  local bolo_appendage_long_form = nil
+
+  local bolo_appendage_long_form_exists = bolo_appendage_indicator == "3"
+
+  if bolo_appendage_long_form_exists then
+    index, bolo_appendage_long_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Mpid Form
+  local bolo_appendage_mpid_form = nil
+
+  local bolo_appendage_mpid_form_exists = bolo_appendage_indicator == "5"
+
+  if bolo_appendage_mpid_form_exists then
+    index, bolo_appendage_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  end
+
   return index
 end
 
@@ -4713,18 +5300,53 @@ end
 -- Odd Lot Quote Message Short Form Message
 nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message = {}
 
--- Size: Odd Lot Quote Message Short Form Message
-nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.size =
-  nasdaq_uqdf_output_utp_v3_0_c.market_center_originator.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.sub_market_center_id.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.sip_timestamp.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.timestamp_1.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.participant_token.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.symbol_short.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.sip_generated_update_flag.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_indicator.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_type.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.size
+-- Calculate size of: Odd Lot Quote Message Short Form Message
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.market_center_originator.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.sub_market_center_id.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.sip_timestamp.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.timestamp_1.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.participant_token.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.symbol_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.sip_generated_update_flag.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_type.size
+
+  index = index + nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.size
+
+  local bolo_appendage_indicator = buffer(offset + index - 4, 1):string()
+
+  if bolo_appendage_indicator == "2" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 14, 1):string()
+
+  if bolo_appendage_indicator == "3" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 36, 1):string()
+
+  if bolo_appendage_indicator == "5" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
+
+  end
+
+  return index
+end
 
 -- Display: Odd Lot Quote Message Short Form Message
 nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.display = function(packet, parent, length)
@@ -4765,6 +5387,33 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.fields = 
   -- Odd Lot Attachment Count: short
   index, odd_lot_attachment_count = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.dissect(buffer, index, packet, parent)
 
+  -- Runtime optional field: Bolo Appendage Short Form
+  local bolo_appendage_short_form = nil
+
+  local bolo_appendage_short_form_exists = bolo_appendage_indicator == "2"
+
+  if bolo_appendage_short_form_exists then
+    index, bolo_appendage_short_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Long Form
+  local bolo_appendage_long_form = nil
+
+  local bolo_appendage_long_form_exists = bolo_appendage_indicator == "3"
+
+  if bolo_appendage_long_form_exists then
+    index, bolo_appendage_long_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Mpid Form
+  local bolo_appendage_mpid_form = nil
+
+  local bolo_appendage_mpid_form_exists = bolo_appendage_indicator == "5"
+
+  if bolo_appendage_mpid_form_exists then
+    index, bolo_appendage_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  end
+
   return index
 end
 
@@ -4783,6 +5432,50 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.dissect =
   else
     -- Skip element, add fields directly
     return nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Finra Adf Mpid Appendage
+nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage = {}
+
+-- Size: Finra Adf Mpid Appendage
+nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.size =
+  nasdaq_uqdf_output_utp_v3_0_c.bid_adf_mpid.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.ask_adf_mpid.size
+
+-- Display: Finra Adf Mpid Appendage
+nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Finra Adf Mpid Appendage
+nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Adf Mpid: byte[]
+  index, bid_adf_mpid = nasdaq_uqdf_output_utp_v3_0_c.bid_adf_mpid.dissect(buffer, index, packet, parent)
+
+  -- Ask Adf Mpid: byte[]
+  index, ask_adf_mpid = nasdaq_uqdf_output_utp_v3_0_c.ask_adf_mpid.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Finra Adf Mpid Appendage
+nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.dissect = function(buffer, offset, packet, parent)
+  if show.finra_adf_mpid_appendage then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.finra_adf_mpid_appendage, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4977,6 +5670,34 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_long_form_message.size = fu
 
   end
 
+  local finra_adf_mpid_appendage_indicator = buffer(offset + index - 43, 1):string()
+
+  if finra_adf_mpid_appendage_indicator == "2" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 50, 1):string()
+
+  if bolo_appendage_indicator == "2" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 60, 1):string()
+
+  if bolo_appendage_indicator == "3" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 82, 1):string()
+
+  if bolo_appendage_indicator == "5" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
+
+  end
+
   return index
 end
 
@@ -5070,6 +5791,42 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_long_form_message.fields = 
     index, national_bbo_appendage_longform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Finra Adf Mpid Appendage
+  local finra_adf_mpid_appendage = nil
+
+  local finra_adf_mpid_appendage_exists = finra_adf_mpid_appendage_indicator == "2"
+
+  if finra_adf_mpid_appendage_exists then
+    index, finra_adf_mpid_appendage = nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Short Form
+  local bolo_appendage_short_form = nil
+
+  local bolo_appendage_short_form_exists = bolo_appendage_indicator == "2"
+
+  if bolo_appendage_short_form_exists then
+    index, bolo_appendage_short_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Long Form
+  local bolo_appendage_long_form = nil
+
+  local bolo_appendage_long_form_exists = bolo_appendage_indicator == "3"
+
+  if bolo_appendage_long_form_exists then
+    index, bolo_appendage_long_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Mpid Form
+  local bolo_appendage_mpid_form = nil
+
+  local bolo_appendage_mpid_form_exists = bolo_appendage_indicator == "5"
+
+  if bolo_appendage_mpid_form_exists then
+    index, bolo_appendage_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  end
+
   return index
 end
 
@@ -5147,6 +5904,27 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_short_form_message.size = f
 
   if nbbo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 42, 1):string()
+
+  if bolo_appendage_indicator == "2" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 52, 1):string()
+
+  if bolo_appendage_indicator == "3" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + index - 74, 1):string()
+
+  if bolo_appendage_indicator == "5" then
+    index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
 
   end
 
@@ -5235,6 +6013,33 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_short_form_message.fields =
 
   if national_bbo_appendage_longform_exists then
     index, national_bbo_appendage_longform = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Short Form
+  local bolo_appendage_short_form = nil
+
+  local bolo_appendage_short_form_exists = bolo_appendage_indicator == "2"
+
+  if bolo_appendage_short_form_exists then
+    index, bolo_appendage_short_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Long Form
+  local bolo_appendage_long_form = nil
+
+  local bolo_appendage_long_form_exists = bolo_appendage_indicator == "3"
+
+  if bolo_appendage_long_form_exists then
+    index, bolo_appendage_long_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Mpid Form
+  local bolo_appendage_mpid_form = nil
+
+  local bolo_appendage_mpid_form_exists = bolo_appendage_indicator == "5"
+
+  if bolo_appendage_mpid_form_exists then
+    index, bolo_appendage_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -6022,21 +6827,30 @@ udp_table:add(65333, omi_nasdaq_uqdf_output_utp_v3_0_c)
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
 -- Feel free to modify. Enjoy.
 -----------------------------------------------------------------------
--- 
+--
 -- Protocol:
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.0.c
 --   Date: Sunday, February 1, 2026
 --   Specification: UtpBinaryOutputSpec.pdf
--- 
+--
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
 --   License: Public/GPLv3
 --   Authors: Omi Developers
--- 
--- This dissector script was generated by The Open Markets Initiative (Omi).
--- 
+--
+-- Copyright (c) 2026 Scaled Sources LLC.  https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--
+-- The Binary Data Compiler technologies used to produce this file
+-- are the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
 -- For full Omi information:
--- https://github.com/Open-Markets-Initiative/Directory
+--   https://github.com/Open-Markets-Initiative/Directory
 -----------------------------------------------------------------------
