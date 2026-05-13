@@ -338,6 +338,7 @@ omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_quote_index = Pref.bool("S
 omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_quote_short_index = Pref.bool("Show Quote Short Index", show.quote_short_index, "Show generated quote short index in protocol tree")
 omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_index = Pref.bool("Show Quote Acknowledgement Index", show.quote_acknowledgement_index, "Show generated quote acknowledgement index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs_changed()
 

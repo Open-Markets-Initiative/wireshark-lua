@@ -192,6 +192,7 @@ omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message_index = Pref.bool("Show Mes
 omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_closing_price_and_volume_summary_index = Pref.bool("Show Market Center Closing Price And Volume Summary Index", show.market_center_closing_price_and_volume_summary_index, "Show generated market center closing price and volume summary index in protocol tree")
 omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_volume_group_index = Pref.bool("Show Market Center Volume Group Index", show.market_center_volume_group_index, "Show generated market center volume group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v3_0_c.prefs_changed()
 

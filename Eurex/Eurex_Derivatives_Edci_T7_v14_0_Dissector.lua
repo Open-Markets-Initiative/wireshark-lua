@@ -175,6 +175,7 @@ omi_eurex_derivatives_edci_t7_v14_0.prefs.show_fills_grp_comp_index = Pref.bool(
 omi_eurex_derivatives_edci_t7_v14_0.prefs.show_partition_grp_comp_index = Pref.bool("Show Partition Grp Comp Index", show.partition_grp_comp_index, "Show generated partition grp comp index in protocol tree")
 omi_eurex_derivatives_edci_t7_v14_0.prefs.show_sessions_grp_comp_index = Pref.bool("Show Sessions Grp Comp Index", show.sessions_grp_comp_index, "Show generated sessions grp comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_derivatives_edci_t7_v14_0.prefs_changed()
 

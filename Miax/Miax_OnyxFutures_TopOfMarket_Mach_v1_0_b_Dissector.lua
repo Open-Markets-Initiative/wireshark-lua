@@ -104,6 +104,7 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_message = Pref.bool("Sho
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg_index = Pref.bool("Show Instrument Leg Index", show.instrument_leg_index, "Show generated instrument leg index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()
 

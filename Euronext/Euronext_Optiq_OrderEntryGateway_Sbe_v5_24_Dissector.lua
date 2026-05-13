@@ -690,6 +690,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_24.prefs.show_cross_clearing_fields_
 omi_euronext_optiq_orderentrygateway_sbe_v5_24.prefs.show_cross_strategy_fields_group_index = Pref.bool("Show Cross Strategy Fields Group Index", show.cross_strategy_fields_group_index, "Show generated cross strategy fields group index in protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_24.prefs.show_rfq_counterparts_group_index = Pref.bool("Show Rfq Counterparts Group Index", show.rfq_counterparts_group_index, "Show generated rfq counterparts group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v5_24.prefs_changed()
 

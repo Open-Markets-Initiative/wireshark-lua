@@ -169,6 +169,7 @@ omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_message_index = Pref.bool(
 omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_security_definition_leg_index = Pref.bool("Show Security Definition Leg Index", show.security_definition_leg_index, "Show generated security definition leg index in protocol tree")
 omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_md_entry_index = Pref.bool("Show Md Entry Index", show.md_entry_index, "Show generated md entry index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_c1options_openingauction_csm_v1_0.prefs_changed()
 

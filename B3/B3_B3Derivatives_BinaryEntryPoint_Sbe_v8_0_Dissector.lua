@@ -352,6 +352,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_legs_group_index = Pre
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_sides_group_index = Pref.bool("Show Sides Group Index", show.sides_group_index, "Show generated sides group index in protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_positions_group_index = Pref.bool("Show Positions Group Index", show.positions_group_index, "Show generated positions group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs_changed()
 

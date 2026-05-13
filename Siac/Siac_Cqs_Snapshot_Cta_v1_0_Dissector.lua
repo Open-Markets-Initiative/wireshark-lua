@@ -119,6 +119,7 @@ omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp = Pref.bool("Show 
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot = Pref.bool("Show Snapshot", show.snapshot, "Parse and add Snapshot to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_siac_cqs_snapshot_cta_v1_0.prefs_changed()
 

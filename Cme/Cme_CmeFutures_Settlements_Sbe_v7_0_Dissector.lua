@@ -143,6 +143,7 @@ omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_gr
 omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group_index = Pref.bool("Show Incremental Refresh Voi Group Index", show.incremental_refresh_voi_group_index, "Show generated incremental refresh voi group index in protocol tree")
 omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index = Pref.bool("Show Incremental Refresh High Low Group Index", show.incremental_refresh_high_low_group_index, "Show generated incremental refresh high low group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_settlements_sbe_v7_0.prefs_changed()
 

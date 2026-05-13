@@ -65,6 +65,23 @@ omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.message_index = ProtoField.new("Me
 omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.timestamp = ProtoField.new("Timestamp", "odx.odxsecuritytoken.pts.itch.v2.2.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Odx OdxSecurityToken Pts Itch 2.2 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local nanoseconds_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+odx_odxsecuritytoken_pts_itch_v2_2.nanoseconds_format = 2
+
+-- Hours ahead of UTC (JST) for midnight calculation
+odx_odxsecuritytoken_pts_itch_v2_2.utc_offset_hours = 9
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -85,16 +102,6 @@ omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_application_messages = Pref.bo
 omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-
--- Nanoseconds Display Preferences
-odx_odxsecuritytoken_pts_itch_v2_2.nanoseconds_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-odx_odxsecuritytoken_pts_itch_v2_2.utc_offset_hours = 9 -- Hours ahead of UTC (JST) for midnight calculation
-
-local nanoseconds_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
 
 omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
 omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")

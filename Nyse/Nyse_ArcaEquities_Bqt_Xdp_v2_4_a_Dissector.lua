@@ -172,6 +172,7 @@ omi_nyse_arcaequities_bqt_xdp_v2_4_a.prefs.show_packet_header = Pref.bool("Show 
 omi_nyse_arcaequities_bqt_xdp_v2_4_a.prefs.show_retail_pricing_indicator = Pref.bool("Show Retail Pricing Indicator", show.retail_pricing_indicator, "Parse and add Retail Pricing Indicator to protocol tree")
 omi_nyse_arcaequities_bqt_xdp_v2_4_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_arcaequities_bqt_xdp_v2_4_a.prefs_changed()
 

@@ -94,6 +94,7 @@ omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.prefs.show_sbe_message = Pref.b
 omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_boats_boatsequities_memoirtopofbook_sbe_v1_3.prefs_changed()
 

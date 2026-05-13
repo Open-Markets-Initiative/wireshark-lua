@@ -525,6 +525,7 @@ omi_cme_cmefutures_streamlined_sbe_v5_8.prefs.show_otc_security_alt_id_group_ind
 omi_cme_cmefutures_streamlined_sbe_v5_8.prefs.show_eris_feed_types_group_index = Pref.bool("Show Eris Feed Types Group Index", show.eris_feed_types_group_index, "Show generated eris feed types group index in protocol tree")
 omi_cme_cmefutures_streamlined_sbe_v5_8.prefs.show_eris_legs_group_index = Pref.bool("Show Eris Legs Group Index", show.eris_legs_group_index, "Show generated eris legs group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_streamlined_sbe_v5_8.prefs_changed()
 

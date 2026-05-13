@@ -112,6 +112,7 @@ omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_packet_header = Pref.bool("Show
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_regulatory_data = Pref.bool("Show Regulatory Data", show.regulatory_data, "Parse and add Regulatory Data to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_asx_asxsecurities_trade_ouch_v3_6.prefs_changed()
 

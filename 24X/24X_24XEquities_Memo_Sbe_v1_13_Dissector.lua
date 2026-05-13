@@ -210,6 +210,7 @@ omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_stream_request_message = Pref.boo
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_parties_group_index = Pref.bool("Show Parties Group Index", show.parties_group_index, "Show generated parties group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_n24x_24xequities_memo_sbe_v1_13.prefs_changed()
 

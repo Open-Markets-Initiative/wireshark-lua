@@ -155,6 +155,7 @@ omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade_information = Pref.bool("Show 
 omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade_summary_information = Pref.bool("Show Trade Summary Information", show.trade_summary_information, "Parse and add Trade Summary Information to protocol tree")
 omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_finra_finraorf_tdds_dfi_v2_1.prefs_changed()
 

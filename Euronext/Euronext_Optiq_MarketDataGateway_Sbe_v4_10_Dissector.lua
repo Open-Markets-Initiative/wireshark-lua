@@ -601,6 +601,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_10.prefs.show_long_order_updates_gro
 omi_euronext_optiq_marketdatagateway_sbe_v4_10.prefs.show_package_components_group_index = Pref.bool("Show Package Components Group Index", show.package_components_group_index, "Show generated package components group index in protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v4_10.prefs.show_interest_payment_date_rep_group_index = Pref.bool("Show Interest Payment Date Rep Group Index", show.interest_payment_date_rep_group_index, "Show generated interest payment date rep group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatagateway_sbe_v4_10.prefs_changed()
 

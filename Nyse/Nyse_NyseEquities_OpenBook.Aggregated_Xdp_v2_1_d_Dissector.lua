@@ -125,6 +125,7 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_packet_header = P
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_snapshot_price_point = Pref.bool("Show Snapshot Price Point", show.snapshot_price_point, "Parse and add Snapshot Price Point to protocol tree")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs_changed()
 

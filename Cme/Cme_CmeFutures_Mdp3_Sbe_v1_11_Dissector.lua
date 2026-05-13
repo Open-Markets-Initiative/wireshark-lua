@@ -529,6 +529,7 @@ omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_security_status_workup_group_index 
 omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_snapshot_full_refresh_tcp_group_index = Pref.bool("Show Snapshot Full Refresh Tcp Group Index", show.snapshot_full_refresh_tcp_group_index, "Show generated snapshot full refresh tcp group index in protocol tree")
 omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_collateral_market_value_group_index = Pref.bool("Show Collateral Market Value Group Index", show.collateral_market_value_group_index, "Show generated collateral market value group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_mdp3_sbe_v1_11.prefs_changed()
 

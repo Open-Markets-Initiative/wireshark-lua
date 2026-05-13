@@ -109,6 +109,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_application_messages = Pr
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v1_0.prefs_changed()
 

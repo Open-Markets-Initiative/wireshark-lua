@@ -110,6 +110,7 @@ omi_aquis_equities_realtime_amd_v4_1.prefs.show_packet_header = Pref.bool("Show 
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_security_definition_flags = Pref.bool("Show Security Definition Flags", show.security_definition_flags, "Parse and add Security Definition Flags to protocol tree")
 omi_aquis_equities_realtime_amd_v4_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_aquis_equities_realtime_amd_v4_1.prefs_changed()
 

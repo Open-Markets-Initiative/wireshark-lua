@@ -305,6 +305,7 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_swap_future_market_depth_trading
 omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_strategy_summary_strategy_leg_index = Pref.bool("Show Strategy Summary Strategy Leg Index", show.strategy_summary_strategy_leg_index, "Show generated strategy summary strategy leg index in protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_tick_entry_group_index = Pref.bool("Show Tick Entry Group Index", show.tick_entry_group_index, "Show generated tick entry group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_tmx_mx_sola_multicast_hsvf_v1_11.prefs_changed()
 

@@ -1279,6 +1279,7 @@ omi_cboe_cfefutures_orderentry_boe_v1_3.prefs.show_unit_sequence_index = Pref.bo
 omi_cboe_cfefutures_orderentry_boe_v1_3.prefs.show_quote_group_index = Pref.bool("Show Quote Group Index", show.quote_group_index, "Show generated quote group index in protocol tree")
 omi_cboe_cfefutures_orderentry_boe_v1_3.prefs.show_quote_result_group_index = Pref.bool("Show Quote Result Group Index", show.quote_result_group_index, "Show generated quote result group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_cfefutures_orderentry_boe_v1_3.prefs_changed()
 

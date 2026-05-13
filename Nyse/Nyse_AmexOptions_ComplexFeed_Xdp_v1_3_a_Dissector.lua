@@ -120,6 +120,7 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs_changed()
 

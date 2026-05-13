@@ -229,6 +229,7 @@ omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level_index = P
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level_index = Pref.bool("Show Complex Market Depth Level Index", show.complex_market_depth_level_index, "Show generated complex market depth level index in protocol tree")
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg_index = Pref.bool("Show Instrument Leg Index", show.instrument_leg_index, "Show generated instrument leg index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
 

@@ -156,6 +156,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.prefs.show_packet_header = Pref.bool("Show 
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.prefs.show_trade_session = Pref.bool("Show Trade Session", show.trade_session, "Parse and add Trade Session to protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_bqt_xdp_v2_1_a.prefs_changed()
 

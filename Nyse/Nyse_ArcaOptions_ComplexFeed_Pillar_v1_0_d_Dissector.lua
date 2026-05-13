@@ -162,6 +162,7 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_trade_condition = Pref
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs_changed()
 

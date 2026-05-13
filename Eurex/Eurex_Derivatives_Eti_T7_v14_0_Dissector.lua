@@ -1035,6 +1035,7 @@ omi_eurex_derivatives_eti_t7_v14_0.prefs.show_side_alloc_ext_grp_comp_index = Pr
 omi_eurex_derivatives_eti_t7_v14_0.prefs.show_rra_update_base_party_grp_comp_index = Pref.bool("Show Rra Update Base Party Grp Comp Index", show.rra_update_base_party_grp_comp_index, "Show generated rra update base party grp comp index in protocol tree")
 omi_eurex_derivatives_eti_t7_v14_0.prefs.show_rra_update_base_party_ack_grp_comp_index = Pref.bool("Show Rra Update Base Party Ack Grp Comp Index", show.rra_update_base_party_ack_grp_comp_index, "Show generated rra update base party ack grp comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v14_0.prefs_changed()
 

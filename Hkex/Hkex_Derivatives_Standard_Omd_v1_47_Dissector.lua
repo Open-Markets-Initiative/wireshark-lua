@@ -175,6 +175,7 @@ omi_hkex_derivatives_standard_omd_v1_47.prefs.show_message_index = Pref.bool("Sh
 omi_hkex_derivatives_standard_omd_v1_47.prefs.show_book_entry_index = Pref.bool("Show Book Entry Index", show.book_entry_index, "Show generated book entry index in protocol tree")
 omi_hkex_derivatives_standard_omd_v1_47.prefs.show_content_index = Pref.bool("Show Content Index", show.content_index, "Show generated content index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_hkex_derivatives_standard_omd_v1_47.prefs_changed()
 

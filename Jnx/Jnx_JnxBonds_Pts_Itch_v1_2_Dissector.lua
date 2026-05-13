@@ -63,6 +63,23 @@ omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_index = ProtoField.new("Message In
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxbonds.pts.itch.v1.2.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Jnx JnxBonds Pts Itch 1.2 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_nanoseconds_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format = 2
+
+-- Hours ahead of UTC (JST) for midnight calculation
+jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours = 9
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -83,16 +100,6 @@ omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_application_messages = Pref.bool("Show
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-
--- Timestamp Nanoseconds Display Preferences
-jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours = 9 -- Hours ahead of UTC (JST) for midnight calculation
-
-local timestamp_nanoseconds_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
 
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_nanoseconds_format_enum, false)
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
@@ -120,7 +127,7 @@ function omi_jnx_jnxbonds_pts_itch_v1_2.prefs_changed()
     show.message_index = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index
   end
 
-  -- Check Timestamp Nanoseconds preferences
+  -- Check Nanoseconds preferences
   if jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format then
     jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format
   end

@@ -50,6 +50,7 @@ omi_aquis_equities_replay_amd_v4_1.prefs.show_message = Pref.bool("Show Message"
 omi_aquis_equities_replay_amd_v4_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_aquis_equities_replay_amd_v4_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_aquis_equities_replay_amd_v4_1.prefs_changed()
 

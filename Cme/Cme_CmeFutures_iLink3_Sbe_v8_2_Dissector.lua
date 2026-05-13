@@ -550,6 +550,7 @@ omi_cme_cmefutures_ilink3_sbe_v8_2.prefs.show_order_mass_action_report_558_no_af
 omi_cme_cmefutures_ilink3_sbe_v8_2.prefs.show_request_legs_group_index = Pref.bool("Show Request Legs Group Index", show.request_legs_group_index, "Show generated request legs group index in protocol tree")
 omi_cme_cmefutures_ilink3_sbe_v8_2.prefs.show_response_legs_group_index = Pref.bool("Show Response Legs Group Index", show.response_legs_group_index, "Show generated response legs group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_ilink3_sbe_v8_2.prefs_changed()
 

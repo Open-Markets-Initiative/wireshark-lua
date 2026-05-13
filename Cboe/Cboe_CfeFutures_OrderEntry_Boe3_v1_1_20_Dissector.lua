@@ -290,6 +290,7 @@ omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_option_group
 omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_acknowledgement_group_index = Pref.bool("Show Quote Update Acknowledgement Group Index", show.quote_update_acknowledgement_group_index, "Show generated quote update acknowledgement group index in protocol tree")
 omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_option_leg_index = Pref.bool("Show Option Leg Index", show.option_leg_index, "Show generated option leg index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs_changed()
 

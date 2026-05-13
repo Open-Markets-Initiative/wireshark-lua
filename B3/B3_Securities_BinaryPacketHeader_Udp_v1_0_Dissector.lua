@@ -53,6 +53,7 @@ omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message_header = Pref.b
 omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
+
 -- Handle changed preferences
 function omi_b3_securities_binarypacketheader_udp_v1_0.prefs_changed()
 

@@ -218,6 +218,7 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_synchronization_compl
 omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_test_packet = Pref.bool("Show Test Packet", show.test_packet, "Parse and add Test Packet to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_miax_pearlequities_expressorders_meo_v2_7_a.prefs_changed()
 

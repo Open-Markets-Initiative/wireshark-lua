@@ -377,6 +377,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_mess
 omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_group_index = Pref.bool("Show Mass Quote Orders Placed Message fills Group Index", show.mass_quote_orders_placed_message_fills_group_index, "Show generated mass quote orders placed message fills group index in protocol tree")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group_index = Pref.bool("Show Mass Quote Orders Placed Message legs Group Index", show.mass_quote_orders_placed_message_legs_group_index, "Show generated mass quote orders placed message legs group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs_changed()
 

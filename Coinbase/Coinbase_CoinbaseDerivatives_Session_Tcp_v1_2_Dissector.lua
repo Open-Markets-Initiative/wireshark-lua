@@ -76,6 +76,7 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_message_header = Pr
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 
+
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs_changed()
 

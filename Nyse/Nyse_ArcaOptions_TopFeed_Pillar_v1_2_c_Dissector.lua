@@ -180,6 +180,7 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_send_time = Pref.bool("Sho
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs_changed()
 

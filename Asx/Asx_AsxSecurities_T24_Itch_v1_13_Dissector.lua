@@ -192,6 +192,7 @@ omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_session = Pref.bool("Show Sessio
 omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_contract_legs_index = Pref.bool("Show Contract Legs Index", show.contract_legs_index, "Show generated contract legs index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_asx_asxsecurities_t24_itch_v1_13.prefs_changed()
 

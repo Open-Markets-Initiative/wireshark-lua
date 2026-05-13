@@ -144,6 +144,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_packet = Pref.
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs_changed()
 

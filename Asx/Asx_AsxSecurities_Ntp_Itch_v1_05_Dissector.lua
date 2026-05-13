@@ -180,6 +180,7 @@ omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message_index = Pref.bool("Show 
 omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_combination_leg_index = Pref.bool("Show Combination Leg Index", show.combination_leg_index, "Show generated combination leg index in protocol tree")
 omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_bundle_leg_index = Pref.bool("Show Bundle Leg Index", show.bundle_leg_index, "Show generated bundle leg index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_asx_asxsecurities_ntp_itch_v1_05.prefs_changed()
 

@@ -101,6 +101,7 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_packet_header = Pref.bool
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_full_price_point_index = Pref.bool("Show Full Price Point Index", show.full_price_point_index, "Show generated full price point index in protocol tree")
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_delta_price_point_index = Pref.bool("Show Delta Price Point Index", show.delta_price_point_index, "Show generated delta price point index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs_changed()
 

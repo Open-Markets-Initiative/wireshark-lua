@@ -293,6 +293,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_seq_msg_id = Pr
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs_changed()
 

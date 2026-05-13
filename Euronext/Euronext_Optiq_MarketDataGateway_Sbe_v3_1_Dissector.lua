@@ -526,6 +526,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_contract_emm_properties
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_outright_rep_group_index = Pref.bool("Show Outright Rep Group Index", show.outright_rep_group_index, "Show generated outright rep group index in protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs.show_package_components_group_index = Pref.bool("Show Package Components Group Index", show.package_components_group_index, "Show generated package components group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatagateway_sbe_v3_1.prefs_changed()
 

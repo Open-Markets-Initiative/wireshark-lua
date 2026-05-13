@@ -116,6 +116,7 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_sequenced_message = Pref.bool
 omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs_changed()
 

@@ -571,6 +571,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_group_index = Pref.bool("Show Security Definition Request Create Strategy Message no Legs Group Index", show.security_definition_request_create_strategy_message_no_legs_group_index, "Show generated security definition request create strategy message no legs group index in protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_group_index = Pref.bool("Show Mass Quote Report Message no Quote Sets Group Index", show.mass_quote_report_message_no_quote_sets_group_index, "Show generated mass quote report message no quote sets group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()
 

@@ -153,6 +153,7 @@ omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_index = Pref.bool("Sh
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order_index = Pref.bool("Show Cop Order Index", show.cop_order_index, "Show generated cop order index in protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit_index = Pref.bool("Show Cop Limit Index", show.cop_limit_index, "Show generated cop limit index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs_changed()
 

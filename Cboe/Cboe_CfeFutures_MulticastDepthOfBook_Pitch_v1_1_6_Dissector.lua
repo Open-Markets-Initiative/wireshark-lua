@@ -115,6 +115,23 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.message_index = Pro
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local time_offset_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_offset_format = 2
+
+-- Hours behind UTC (CST) for midnight calculation
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.utc_offset_hours = 6
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -145,16 +162,6 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_summary_flags =
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_variance = Pref.bool("Show Variance", show.variance, "Parse and add Variance to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_future_leg_index = Pref.bool("Show Future Leg Index", show.future_leg_index, "Show generated future leg index in protocol tree")
-
--- Time Offset Display Preferences
-cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_offset_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.utc_offset_hours = 6 -- Hours behind UTC (CST) for midnight calculation
-
-local time_offset_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
 
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.time_offset_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", time_offset_format_enum, false)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 6, "Hours behind UTC (CST) for midnight calculation")
@@ -197,7 +204,7 @@ function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs_changed()
     show.future_leg_index = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_future_leg_index
   end
 
-  -- Check Time Offset preferences
+  -- Check Nanoseconds preferences
   if cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_offset_format ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.time_offset_format then
     cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_offset_format = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.time_offset_format
   end

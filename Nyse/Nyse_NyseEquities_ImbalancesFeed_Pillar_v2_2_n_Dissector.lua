@@ -133,6 +133,7 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs.show_packet_header = Pr
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs_changed()
 

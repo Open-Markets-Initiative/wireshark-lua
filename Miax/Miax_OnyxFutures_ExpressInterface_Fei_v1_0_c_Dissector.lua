@@ -175,6 +175,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg = Pref.
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg_index = Pref.bool("Show Strategy Leg Index", show.strategy_leg_index, "Show generated strategy leg index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
 

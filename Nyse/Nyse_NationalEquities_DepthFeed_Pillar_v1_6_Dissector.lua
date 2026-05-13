@@ -151,6 +151,7 @@ omi_nyse_nationalequities_depthfeed_pillar_v1_6.prefs.show_message_index = Pref.
 omi_nyse_nationalequities_depthfeed_pillar_v1_6.prefs.show_price_point_index = Pref.bool("Show Price Point Index", show.price_point_index, "Show generated price point index in protocol tree")
 omi_nyse_nationalequities_depthfeed_pillar_v1_6.prefs.show_participant_index = Pref.bool("Show Participant Index", show.participant_index, "Show generated participant index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_nationalequities_depthfeed_pillar_v1_6.prefs_changed()
 

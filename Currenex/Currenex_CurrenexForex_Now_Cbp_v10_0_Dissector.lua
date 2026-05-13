@@ -103,6 +103,7 @@ omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_offer = Pref.bool("Show Offe
 omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_level_index = Pref.bool("Show Level Index", show.level_index, "Show generated level index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_currenex_currenexforex_now_cbp_v10_0.prefs_changed()
 

@@ -512,6 +512,7 @@ omi_cme_cmefutures_mdp3_sbe_v1_10.prefs.show_snapshot_refresh_top_orders_group_i
 omi_cme_cmefutures_mdp3_sbe_v1_10.prefs.show_security_status_workup_group_index = Pref.bool("Show Security Status Workup Group Index", show.security_status_workup_group_index, "Show generated security status workup group index in protocol tree")
 omi_cme_cmefutures_mdp3_sbe_v1_10.prefs.show_snapshot_full_refresh_tcp_group_index = Pref.bool("Show Snapshot Full Refresh Tcp Group Index", show.snapshot_full_refresh_tcp_group_index, "Show generated snapshot full refresh tcp group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_mdp3_sbe_v1_10.prefs_changed()
 

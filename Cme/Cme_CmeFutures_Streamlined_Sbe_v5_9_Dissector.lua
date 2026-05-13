@@ -567,6 +567,7 @@ omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group_index = Pr
 omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group_index = Pref.bool("Show Trade Blocks Legs Group Index", show.trade_blocks_legs_group_index, "Show generated trade blocks legs group index in protocol tree")
 omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_group_index = Pref.bool("Show Otc Group Index", show.otc_group_index, "Show generated otc group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_streamlined_sbe_v5_9.prefs_changed()
 

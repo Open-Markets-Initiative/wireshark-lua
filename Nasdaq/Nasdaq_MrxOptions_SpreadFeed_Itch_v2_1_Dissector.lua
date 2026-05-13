@@ -163,6 +163,7 @@ omi_nasdaq_mrxoptions_spreadfeed_itch_v2_1.prefs.show_message_index = Pref.bool(
 omi_nasdaq_mrxoptions_spreadfeed_itch_v2_1.prefs.show_leg_information_index = Pref.bool("Show Leg Information Index", show.leg_information_index, "Show generated leg information index in protocol tree")
 omi_nasdaq_mrxoptions_spreadfeed_itch_v2_1.prefs.show_flex_dac_leg_information_index = Pref.bool("Show Flex Dac Leg Information Index", show.flex_dac_leg_information_index, "Show generated flex dac leg information index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nasdaq_mrxoptions_spreadfeed_itch_v2_1.prefs_changed()
 

@@ -112,6 +112,23 @@ omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.system_event_message = ProtoFi
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxequities.totalview.itch.v5.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nasdaq NtxEquities TotalView Itch 5.0 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_ntxequities_totalview_itch_v5_0.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_ntxequities_totalview_itch_v5_0.utc_offset_hours = 5
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -132,16 +149,6 @@ omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.show_message_header = Pref.bool
 omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-
--- Timestamp Display Preferences
-nasdaq_ntxequities_totalview_itch_v5_0.timestamp_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-nasdaq_ntxequities_totalview_itch_v5_0.utc_offset_hours = 5 -- Hours behind UTC (EST) for midnight calculation
-
-local timestamp_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
 
 omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -169,7 +176,7 @@ function omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs_changed()
     show.message_index = omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.show_message_index
   end
 
-  -- Check Timestamp preferences
+  -- Check Nanoseconds preferences
   if nasdaq_ntxequities_totalview_itch_v5_0.timestamp_format ~= omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.timestamp_format then
     nasdaq_ntxequities_totalview_itch_v5_0.timestamp_format = omi_nasdaq_ntxequities_totalview_itch_v5_0.prefs.timestamp_format
   end

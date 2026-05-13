@@ -113,6 +113,7 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_message_header = Pref.bool("Show
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_quotation = Pref.bool("Show Quotation", show.quotation, "Parse and add Quotation to protocol tree")
 
+
 -- Handle changed preferences
 function omi_finra_finraotc_bbds_dfi_v2018_1a.prefs_changed()
 

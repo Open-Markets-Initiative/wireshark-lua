@@ -50,6 +50,7 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet = Pref.bool("Show
 omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
 omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs_changed()
 

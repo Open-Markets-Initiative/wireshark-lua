@@ -57,6 +57,7 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message = Pref.boo
 omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags = Pref.bool("Show Packet Flags", show.packet_flags, "Parse and add Packet Flags to protocol tree")
 
+
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs_changed()
 

@@ -124,6 +124,7 @@ omi_miax_pearloptions_complextopofmarket_mach_v1_3.prefs.show_message = Pref.boo
 omi_miax_pearloptions_complextopofmarket_mach_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_miax_pearloptions_complextopofmarket_mach_v1_3.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_miax_pearloptions_complextopofmarket_mach_v1_3.prefs_changed()
 

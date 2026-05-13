@@ -121,6 +121,7 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_message_index = Pref.bool("Sh
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_strategy_leg_index = Pref.bool("Show Complex Order Strategy Leg Index", show.complex_order_strategy_leg_index, "Show generated complex order strategy leg index in protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg_index = Pref.bool("Show Complex Order Leg Index", show.complex_order_leg_index, "Show generated complex order leg index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
 

@@ -41,6 +41,7 @@ omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message = Pref.
 omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_miax_onyxfutures_headeronly_mach_v1_0.prefs_changed()
 

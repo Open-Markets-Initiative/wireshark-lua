@@ -160,6 +160,7 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_send_time = Pref.bool(
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_complex_series_index_mapping_leg_index = Pref.bool("Show Complex Series Index Mapping Leg Index", show.complex_series_index_mapping_leg_index, "Show generated complex series index mapping leg index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs_changed()
 

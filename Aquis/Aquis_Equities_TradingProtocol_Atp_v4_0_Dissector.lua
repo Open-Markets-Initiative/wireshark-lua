@@ -151,6 +151,7 @@ omi_aquis_equities_tradingprotocol_atp_v4_0.prefs.show_table_select_3 = Pref.boo
 omi_aquis_equities_tradingprotocol_atp_v4_0.prefs.show_trade_capture_flags = Pref.bool("Show Trade Capture Flags", show.trade_capture_flags, "Parse and add Trade Capture Flags to protocol tree")
 omi_aquis_equities_tradingprotocol_atp_v4_0.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
 
+
 -- Handle changed preferences
 function omi_aquis_equities_tradingprotocol_atp_v4_0.prefs_changed()
 

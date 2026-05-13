@@ -110,6 +110,7 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.prefs.show_trade_flags = Pref.bo
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.prefs.show_adap_block_index = Pref.bool("Show Adap Block Index", show.adap_block_index, "Show generated adap block index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.prefs_changed()
 

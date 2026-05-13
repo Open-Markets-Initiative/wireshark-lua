@@ -594,6 +594,7 @@ omi_eurex_cash_eti_t7_v7_1.prefs.show_order_book_item_grp_comp_index = Pref.bool
 omi_eurex_cash_eti_t7_v7_1.prefs.show_xetra_en_light_target_parties_comp_index = Pref.bool("Show Xetra En Light Target Parties Comp Index", show.xetra_en_light_target_parties_comp_index, "Show generated xetra en light target parties comp index in protocol tree")
 omi_eurex_cash_eti_t7_v7_1.prefs.show_srqs_quote_entry_grp_comp_index = Pref.bool("Show Srqs Quote Entry Grp Comp Index", show.srqs_quote_entry_grp_comp_index, "Show generated srqs quote entry grp comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_cash_eti_t7_v7_1.prefs_changed()
 

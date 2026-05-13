@@ -297,6 +297,7 @@ omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_group_index = Pref.
 omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_group_index = Pref.bool("Show Allocation Report Message Allocations Group Index", show.allocation_report_message_allocations_group_index, "Show generated allocation report message allocations group index in protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_group_index = Pref.bool("Show Allocation Report Message Parties Group Index", show.allocation_report_message_parties_group_index, "Show generated allocation report message parties group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_memx_memxoptions_memo_sbe_v1_3.prefs_changed()
 

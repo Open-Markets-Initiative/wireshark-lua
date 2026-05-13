@@ -162,6 +162,7 @@ omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_mess
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_underlying_status_message = Pref.bool("Show Underlying Status Message", show.underlying_status_message, "Parse and add Underlying Status Message to protocol tree")
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs_changed()
 

@@ -97,6 +97,7 @@ omi_cboe_byxequities_top_asciipitch_v1_3_2.prefs.show_milliseconds_packet = Pref
 omi_cboe_byxequities_top_asciipitch_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_byxequities_top_asciipitch_v1_3_2.prefs.show_seconds_packet = Pref.bool("Show Seconds Packet", show.seconds_packet, "Parse and add Seconds Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_byxequities_top_asciipitch_v1_3_2.prefs_changed()
 

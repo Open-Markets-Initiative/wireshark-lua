@@ -163,6 +163,7 @@ omi_siac_opra_recipient_obi_v6_3_a.prefs.show_underlying_value = Pref.bool("Show
 omi_siac_opra_recipient_obi_v6_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_opra_recipient_obi_v6_3_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v6_3_a.prefs_changed()
 

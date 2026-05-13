@@ -75,6 +75,7 @@ omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.prefs.show_sequenced_data_packet
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.prefs.show_sequenced_message_header = Pref.bool("Show Sequenced Message Header", show.sequenced_message_header, "Parse and add Sequenced Message Header to protocol tree")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.prefs_changed()
 

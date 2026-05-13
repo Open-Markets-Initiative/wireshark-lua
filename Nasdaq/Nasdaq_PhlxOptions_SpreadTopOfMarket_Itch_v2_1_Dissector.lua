@@ -117,6 +117,7 @@ omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.prefs.show_packet_header = Pr
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.prefs.show_leg_information_index = Pref.bool("Show Leg Information Index", show.leg_information_index, "Show generated leg information index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.prefs_changed()
 

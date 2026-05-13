@@ -155,6 +155,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage = Pre
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage = Pref.bool("Show Replaced Message Appendage", show.replaced_message_appendage, "Parse and add Replaced Message Appendage to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
 

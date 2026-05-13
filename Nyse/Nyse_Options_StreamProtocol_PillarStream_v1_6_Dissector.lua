@@ -74,6 +74,7 @@ omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_seq_msg_id = Pref.b
 omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs_changed()
 

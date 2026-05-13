@@ -110,6 +110,7 @@ omi_cme_cmefutures_ebsspectrum_sbe_v12_0.prefs.show_incremental_refresh_ticker_g
 omi_cme_cmefutures_ebsspectrum_sbe_v12_0.prefs.show_snapshot_refresh_spectrum_group_index = Pref.bool("Show Snapshot Refresh Spectrum Group Index", show.snapshot_refresh_spectrum_group_index, "Show generated snapshot refresh spectrum group index in protocol tree")
 omi_cme_cmefutures_ebsspectrum_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group_index = Pref.bool("Show Snapshot Refresh Ticker Group Index", show.snapshot_refresh_ticker_group_index, "Show generated snapshot refresh ticker group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_ebsspectrum_sbe_v12_0.prefs_changed()
 

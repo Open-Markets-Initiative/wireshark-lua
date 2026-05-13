@@ -1180,6 +1180,7 @@ omi_cboe_edgxequities_orderentry_boe_v2_3.prefs.show_user_modify_rejected_return
 omi_cboe_edgxequities_orderentry_boe_v2_3.prefs.show_param_group_index = Pref.bool("Show Param Group Index", show.param_group_index, "Show generated param group index in protocol tree")
 omi_cboe_edgxequities_orderentry_boe_v2_3.prefs.show_unit_sequence_index = Pref.bool("Show Unit Sequence Index", show.unit_sequence_index, "Show generated unit sequence index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_edgxequities_orderentry_boe_v2_3.prefs_changed()
 

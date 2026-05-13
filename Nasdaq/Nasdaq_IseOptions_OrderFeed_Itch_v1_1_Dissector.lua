@@ -107,6 +107,7 @@ omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header = Pref.bool("
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response_index = Pref.bool("Show Auction Response Index", show.auction_response_index, "Show generated auction response index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs_changed()
 

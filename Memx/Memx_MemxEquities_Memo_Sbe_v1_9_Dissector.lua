@@ -188,6 +188,7 @@ omi_memx_memxequities_memo_sbe_v1_9.prefs.show_stream_rejected_message = Pref.bo
 omi_memx_memxequities_memo_sbe_v1_9.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
 omi_memx_memxequities_memo_sbe_v1_9.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
+
 -- Handle changed preferences
 function omi_memx_memxequities_memo_sbe_v1_9.prefs_changed()
 

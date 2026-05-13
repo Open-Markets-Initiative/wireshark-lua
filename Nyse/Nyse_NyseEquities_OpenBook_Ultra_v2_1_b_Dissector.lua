@@ -83,6 +83,7 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_full_update_messages = Pr
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs_changed()
 

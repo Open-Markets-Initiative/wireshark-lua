@@ -56,6 +56,23 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.message_index = ProtoField.
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe EdgxOptions AuctionFeed Pitch 1.1.1 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local time_offset_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.utc_offset_hours = 5
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -76,16 +93,6 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_message_header = Pref.b
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-
--- Time Offset Display Preferences
-cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_edgxoptions_auctionfeed_pitch_v1_1_1.utc_offset_hours = 5 -- Hours behind UTC (EST) for midnight calculation
-
-local time_offset_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
 
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.time_offset_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", time_offset_format_enum, false)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -113,7 +120,7 @@ function omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs_changed()
     show.message_index = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_message_index
   end
 
-  -- Check Time Offset preferences
+  -- Check Nanoseconds preferences
   if cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset_format ~= omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.time_offset_format then
     cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset_format = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.time_offset_format
   end

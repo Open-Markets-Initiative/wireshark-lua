@@ -388,6 +388,7 @@ omi_cboe_c1options_orderentry_boe3_v1_0_12.prefs.show_acknowledgement_allocation
 omi_cboe_c1options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_index = Pref.bool("Show Quote Acknowledgement Index", show.quote_acknowledgement_index, "Show generated quote acknowledgement index in protocol tree")
 omi_cboe_c1options_orderentry_boe3_v1_0_12.prefs.show_allocation_cancelled_index = Pref.bool("Show Allocation Cancelled Index", show.allocation_cancelled_index, "Show generated allocation cancelled index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_c1options_orderentry_boe3_v1_0_12.prefs_changed()
 

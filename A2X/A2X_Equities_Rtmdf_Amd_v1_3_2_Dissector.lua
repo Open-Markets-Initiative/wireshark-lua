@@ -95,6 +95,7 @@ omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", s
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
 omi_a2x_equities_rtmdf_amd_v1_3_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_a2x_equities_rtmdf_amd_v1_3_2.prefs_changed()
 

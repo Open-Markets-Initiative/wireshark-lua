@@ -71,6 +71,7 @@ omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_header = Pref.bool("Show
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_a2x_equities_snapshot_amd_v1_3_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_a2x_equities_snapshot_amd_v1_3_2.prefs_changed()
 

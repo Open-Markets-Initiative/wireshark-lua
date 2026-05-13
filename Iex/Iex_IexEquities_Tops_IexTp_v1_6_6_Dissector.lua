@@ -125,6 +125,7 @@ omi_iex_iexequities_tops_iextp_v1_6_6.prefs.show_sale_condition_flags = Pref.boo
 omi_iex_iexequities_tops_iextp_v1_6_6.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
 omi_iex_iexequities_tops_iextp_v1_6_6.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_iex_iexequities_tops_iextp_v1_6_6.prefs_changed()
 

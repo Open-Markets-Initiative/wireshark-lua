@@ -141,6 +141,7 @@ omi_nyse_texasequities_trades_pillar_v2_6.prefs.show_packet_header = Pref.bool("
 omi_nyse_texasequities_trades_pillar_v2_6.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
 omi_nyse_texasequities_trades_pillar_v2_6.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_texasequities_trades_pillar_v2_6.prefs_changed()
 

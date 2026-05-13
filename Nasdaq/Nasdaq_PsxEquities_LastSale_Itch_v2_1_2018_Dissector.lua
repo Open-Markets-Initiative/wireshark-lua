@@ -93,6 +93,23 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.trading_action_message = P
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.lastsale.itch.v2.1.2018.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nasdaq PsxEquities LastSale Itch 2.1.2018 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_psxequities_lastsale_itch_v2_1_2018.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_psxequities_lastsale_itch_v2_1_2018.utc_offset_hours = 5
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -113,16 +130,6 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_application_messages =
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-
--- Timestamp Display Preferences
-nasdaq_psxequities_lastsale_itch_v2_1_2018.timestamp_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-nasdaq_psxequities_lastsale_itch_v2_1_2018.utc_offset_hours = 5 -- Hours behind UTC (EST) for midnight calculation
-
-local timestamp_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
 
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -150,7 +157,7 @@ function omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs_changed()
     show.message_index = omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_message_index
   end
 
-  -- Check Timestamp preferences
+  -- Check Nanoseconds preferences
   if nasdaq_psxequities_lastsale_itch_v2_1_2018.timestamp_format ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.timestamp_format then
     nasdaq_psxequities_lastsale_itch_v2_1_2018.timestamp_format = omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.timestamp_format
   end

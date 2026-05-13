@@ -149,6 +149,7 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_symbol_index_mapping_
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs_changed()
 

@@ -169,6 +169,7 @@ omi_eurex_derivatives_eobi_t7_v7_1.prefs.show_instrmt_leg_grp_comp_index = Pref.
 omi_eurex_derivatives_eobi_t7_v7_1.prefs.show_md_instrument_entry_grp_comp_index = Pref.bool("Show Md Instrument Entry Grp Comp Index", show.md_instrument_entry_grp_comp_index, "Show generated md instrument entry grp comp index in protocol tree")
 omi_eurex_derivatives_eobi_t7_v7_1.prefs.show_md_trade_entry_grp_comp_index = Pref.bool("Show Md Trade Entry Grp Comp Index", show.md_trade_entry_grp_comp_index, "Show generated md trade entry grp comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_derivatives_eobi_t7_v7_1.prefs_changed()
 

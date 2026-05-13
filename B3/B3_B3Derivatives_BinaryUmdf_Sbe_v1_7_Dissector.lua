@@ -363,6 +363,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_7.prefs.show_legs_group_index = Pref.bool
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.prefs.show_instr_attribs_group_index = Pref.bool("Show Instr Attribs Group Index", show.instr_attribs_group_index, "Show generated instr attribs group index in protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index, "Show generated snapshot full refresh orders mb o 71 message no m d entries group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryumdf_sbe_v1_7.prefs_changed()
 

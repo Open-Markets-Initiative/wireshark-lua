@@ -85,6 +85,7 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_synchronization_comple
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_test_packet = Pref.bool("Show Test Packet", show.test_packet, "Parse and add Test Packet to protocol tree")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs_changed()
 

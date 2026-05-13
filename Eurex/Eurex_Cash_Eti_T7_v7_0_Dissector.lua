@@ -517,6 +517,7 @@ omi_eurex_cash_eti_t7_v7_0.prefs.show_fills_grp_comp_index = Pref.bool("Show Fil
 omi_eurex_cash_eti_t7_v7_0.prefs.show_quote_event_grp_comp_index = Pref.bool("Show Quote Event Grp Comp Index", show.quote_event_grp_comp_index, "Show generated quote event grp comp index in protocol tree")
 omi_eurex_cash_eti_t7_v7_0.prefs.show_side_alloc_grp_bc_comp_index = Pref.bool("Show Side Alloc Grp Bc Comp Index", show.side_alloc_grp_bc_comp_index, "Show generated side alloc grp bc comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_cash_eti_t7_v7_0.prefs_changed()
 

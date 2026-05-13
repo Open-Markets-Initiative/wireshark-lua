@@ -159,6 +159,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet_type = Pref.bool("
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_taker_flags = Pref.bool("Show Taker Flags", show.taker_flags, "Parse and add Taker Flags to protocol tree")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message_index = Pref.bool("Show Md Message Index", show.md_message_index, "Show generated md message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs_changed()
 

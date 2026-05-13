@@ -325,6 +325,7 @@ omi_txse_txseequities_orderentry_seed_v0_1.prefs.show_tcp_sequenced_message = Pr
 omi_txse_txseequities_orderentry_seed_v0_1.prefs.show_tcp_unsequenced_message = Pref.bool("Show Tcp Unsequenced Message", show.tcp_unsequenced_message, "Parse and add Tcp Unsequenced Message to protocol tree")
 omi_txse_txseequities_orderentry_seed_v0_1.prefs.show_trading_session_status_presence_bits = Pref.bool("Show Trading Session Status Presence Bits", show.trading_session_status_presence_bits, "Parse and add Trading Session Status Presence Bits to protocol tree")
 
+
 -- Handle changed preferences
 function omi_txse_txseequities_orderentry_seed_v0_1.prefs_changed()
 

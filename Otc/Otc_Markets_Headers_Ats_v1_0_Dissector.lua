@@ -58,6 +58,7 @@ omi_otc_markets_headers_ats_v1_0.prefs.show_packet_flag = Pref.bool("Show Packet
 omi_otc_markets_headers_ats_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_otc_markets_headers_ats_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_otc_markets_headers_ats_v1_0.prefs_changed()
 

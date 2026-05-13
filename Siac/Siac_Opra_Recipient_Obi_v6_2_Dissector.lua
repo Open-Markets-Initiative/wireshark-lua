@@ -141,6 +141,7 @@ omi_siac_opra_recipient_obi_v6_2.prefs.show_message_header = Pref.bool("Show Mes
 omi_siac_opra_recipient_obi_v6_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_siac_opra_recipient_obi_v6_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v6_2.prefs_changed()
 

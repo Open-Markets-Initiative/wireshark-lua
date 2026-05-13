@@ -207,6 +207,7 @@ omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs_changed()
 

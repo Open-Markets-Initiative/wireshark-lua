@@ -118,6 +118,7 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_packet_header = Pre
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_leg_information_index = Pref.bool("Show Leg Information Index", show.leg_information_index, "Show generated leg information index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs_changed()
 

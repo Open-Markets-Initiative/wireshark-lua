@@ -70,6 +70,7 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_packet_header = 
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs_changed()
 

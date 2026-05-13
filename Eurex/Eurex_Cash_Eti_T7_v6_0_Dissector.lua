@@ -451,6 +451,7 @@ omi_eurex_cash_eti_t7_v6_0.prefs.show_quote_entry_ack_grp_comp_index = Pref.bool
 omi_eurex_cash_eti_t7_v6_0.prefs.show_fills_grp_comp_index = Pref.bool("Show Fills Grp Comp Index", show.fills_grp_comp_index, "Show generated fills grp comp index in protocol tree")
 omi_eurex_cash_eti_t7_v6_0.prefs.show_quote_event_grp_comp_index = Pref.bool("Show Quote Event Grp Comp Index", show.quote_event_grp_comp_index, "Show generated quote event grp comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_cash_eti_t7_v6_0.prefs_changed()
 

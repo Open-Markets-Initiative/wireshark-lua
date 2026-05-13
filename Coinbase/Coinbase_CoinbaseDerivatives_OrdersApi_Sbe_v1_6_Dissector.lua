@@ -161,6 +161,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_message_header = 
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 
+
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs_changed()
 

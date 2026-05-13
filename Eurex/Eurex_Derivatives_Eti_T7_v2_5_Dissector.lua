@@ -481,6 +481,7 @@ omi_eurex_derivatives_eti_t7_v2_5.prefs.show_instrmnt_leg_exec_grp_comp_index = 
 omi_eurex_derivatives_eti_t7_v2_5.prefs.show_quote_event_grp_comp_index = Pref.bool("Show Quote Event Grp Comp Index", show.quote_event_grp_comp_index, "Show generated quote event grp comp index in protocol tree")
 omi_eurex_derivatives_eti_t7_v2_5.prefs.show_quote_leg_exec_grp_comp_index = Pref.bool("Show Quote Leg Exec Grp Comp Index", show.quote_leg_exec_grp_comp_index, "Show generated quote leg exec grp comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v2_5.prefs_changed()
 

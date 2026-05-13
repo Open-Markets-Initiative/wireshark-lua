@@ -635,6 +635,7 @@ omi_cme_cmefutures_mdp3_sbe_v1_12.prefs.show_incremental_refresh_session_statist
 omi_cme_cmefutures_mdp3_sbe_v1_12.prefs.show_snapshotfull_refresh_tcp_long_group_index = Pref.bool("Show Snapshotfull Refresh Tcp Long Group Index", show.snapshotfull_refresh_tcp_long_group_index, "Show generated snapshotfull refresh tcp long group index in protocol tree")
 omi_cme_cmefutures_mdp3_sbe_v1_12.prefs.show_snapshot_full_refresh_long_group_index = Pref.bool("Show Snapshot Full Refresh Long Group Index", show.snapshot_full_refresh_long_group_index, "Show generated snapshot full refresh long group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_mdp3_sbe_v1_12.prefs_changed()
 

@@ -118,6 +118,23 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message_index = ProtoField.n
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.phlxoptions.marketdepth.itch.v1.5.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Nasdaq PhlxOptions MarketDepth Itch 1.5 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local nanoseconds_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_phlxoptions_marketdepth_itch_v1_5.nanoseconds_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_phlxoptions_marketdepth_itch_v1_5.utc_offset_hours = 5
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -140,16 +157,6 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_packet = Pref.bool("Show
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.show_cancelled_reference_number_delta_index = Pref.bool("Show Cancelled Reference Number Delta Index", show.cancelled_reference_number_delta_index, "Show generated cancelled reference number delta index in protocol tree")
-
--- Nanoseconds Display Preferences
-nasdaq_phlxoptions_marketdepth_itch_v1_5.nanoseconds_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-nasdaq_phlxoptions_marketdepth_itch_v1_5.utc_offset_hours = 5 -- Hours behind UTC (EST) for midnight calculation
-
-local nanoseconds_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
 
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
 omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")

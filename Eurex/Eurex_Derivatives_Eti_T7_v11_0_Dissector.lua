@@ -931,6 +931,7 @@ omi_eurex_derivatives_eti_t7_v11_0.prefs.show_side_alloc_grp_bc_comp_index = Pre
 omi_eurex_derivatives_eti_t7_v11_0.prefs.show_trd_clearing_price_leg_grp_comp_index = Pref.bool("Show Trd Clearing Price Leg Grp Comp Index", show.trd_clearing_price_leg_grp_comp_index, "Show generated trd clearing price leg grp comp index in protocol tree")
 omi_eurex_derivatives_eti_t7_v11_0.prefs.show_side_alloc_ext_grp_comp_index = Pref.bool("Show Side Alloc Ext Grp Comp Index", show.side_alloc_ext_grp_comp_index, "Show generated side alloc ext grp comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v11_0.prefs_changed()
 

@@ -284,6 +284,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_seq_msg_id = P
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs_changed()
 

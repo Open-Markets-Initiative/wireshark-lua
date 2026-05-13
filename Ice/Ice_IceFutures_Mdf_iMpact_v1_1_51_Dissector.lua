@@ -368,6 +368,7 @@ omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_strategy_leg_definition_index =
 omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_hedge_definition_index = Pref.bool("Show Hedge Definition Index", show.hedge_definition_index, "Show generated hedge definition index in protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_51.prefs.show_extra_strategy_leg_definition_index = Pref.bool("Show Extra Strategy Leg Definition Index", show.extra_strategy_leg_definition_index, "Show generated extra strategy leg definition index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_ice_icefutures_mdf_impact_v1_1_51.prefs_changed()
 

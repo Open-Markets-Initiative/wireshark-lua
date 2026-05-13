@@ -873,6 +873,7 @@ omi_eurex_derivatives_eti_t7_v9_0.prefs.show_side_alloc_grp_bc_comp_index = Pref
 omi_eurex_derivatives_eti_t7_v9_0.prefs.show_srqs_related_trade_id_grp_comp_index = Pref.bool("Show Srqs Related Trade Id Grp Comp Index", show.srqs_related_trade_id_grp_comp_index, "Show generated srqs related trade id grp comp index in protocol tree")
 omi_eurex_derivatives_eti_t7_v9_0.prefs.show_side_alloc_ext_grp_comp_index = Pref.bool("Show Side Alloc Ext Grp Comp Index", show.side_alloc_ext_grp_comp_index, "Show generated side alloc ext grp comp index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v9_0.prefs_changed()
 

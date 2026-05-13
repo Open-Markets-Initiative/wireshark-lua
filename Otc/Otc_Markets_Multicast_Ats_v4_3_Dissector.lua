@@ -186,6 +186,7 @@ omi_otc_markets_multicast_ats_v4_3.prefs.show_security_flags = Pref.bool("Show S
 omi_otc_markets_multicast_ats_v4_3.prefs.show_trade_status = Pref.bool("Show Trade Status", show.trade_status, "Parse and add Trade Status to protocol tree")
 omi_otc_markets_multicast_ats_v4_3.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_otc_markets_multicast_ats_v4_3.prefs_changed()
 

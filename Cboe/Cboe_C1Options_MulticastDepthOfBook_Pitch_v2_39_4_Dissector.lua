@@ -101,6 +101,23 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_index = Pro
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local time_offset_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours = 5
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -125,16 +142,6 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_modify_flags = 
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-
--- Time Offset Display Preferences
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format = 2  -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours = 5 -- Hours behind UTC (EST) for midnight calculation
-
-local time_offset_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
 
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.time_offset_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", time_offset_format_enum, false)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -168,7 +175,7 @@ function omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs_changed()
     show.message_index = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_message_index
   end
 
-  -- Check Time Offset preferences
+  -- Check Nanoseconds preferences
   if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.time_offset_format then
     cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.time_offset_format
   end

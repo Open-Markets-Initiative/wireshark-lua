@@ -87,6 +87,7 @@ omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_message_header = Pref.bool(
 omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_incremental_refresh_btec_group_index = Pref.bool("Show Incremental Refresh Btec Group Index", show.incremental_refresh_btec_group_index, "Show generated incremental refresh btec group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs_changed()
 

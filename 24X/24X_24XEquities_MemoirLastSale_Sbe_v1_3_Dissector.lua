@@ -101,6 +101,7 @@ omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_sbe_message = Pref.bool(
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs_changed()
 

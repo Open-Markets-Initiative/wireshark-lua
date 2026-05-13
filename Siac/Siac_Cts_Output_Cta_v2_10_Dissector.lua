@@ -259,6 +259,7 @@ omi_siac_cts_output_cta_v2_10.prefs.show_message_index = Pref.bool("Show Message
 omi_siac_cts_output_cta_v2_10.prefs.show_participants_index = Pref.bool("Show Participants Index", show.participants_index, "Show generated participants index in protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participants_index = Pref.bool("Show Fractional Participants Index", show.fractional_participants_index, "Show generated fractional participants index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_10.prefs_changed()
 

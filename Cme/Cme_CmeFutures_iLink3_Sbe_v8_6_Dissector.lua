@@ -574,6 +574,7 @@ omi_cme_cmefutures_ilink3_sbe_v8_6.prefs.show_affected_orders_group_index = Pref
 omi_cme_cmefutures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_entries_group_index = Pref.bool("Show Quote Cancel Ack Entries Group Index", show.quote_cancel_ack_entries_group_index, "Show generated quote cancel ack entries group index in protocol tree")
 omi_cme_cmefutures_ilink3_sbe_v8_6.prefs.show_quote_cancel_ack_sets_group_index = Pref.bool("Show Quote Cancel Ack Sets Group Index", show.quote_cancel_ack_sets_group_index, "Show generated quote cancel ack sets group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_ilink3_sbe_v8_6.prefs_changed()
 

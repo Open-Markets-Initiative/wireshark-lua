@@ -109,6 +109,7 @@ omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_packet = Pref.bool("Show Packe
 omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_bxequities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 
+
 -- Handle changed preferences
 function omi_nasdaq_bxequities_orders_ouch_v4_2.prefs_changed()
 

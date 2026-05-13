@@ -144,6 +144,7 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_symbol_index_mapping_request_mes
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_trading_session_change_message = Pref.bool("Show Trading Session Change Message", show.trading_session_change_message, "Parse and add Trading Session Change Message to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs_changed()
 

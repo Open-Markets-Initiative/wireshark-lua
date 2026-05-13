@@ -231,6 +231,7 @@ omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group_index = Pre
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group_index = Pref.bool("Show Snaphot Orders Group Index", show.snaphot_orders_group_index, "Show generated snaphot orders group index in protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group_index = Pref.bool("Show Legs Group Index", show.legs_group_index, "Show generated legs group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
 

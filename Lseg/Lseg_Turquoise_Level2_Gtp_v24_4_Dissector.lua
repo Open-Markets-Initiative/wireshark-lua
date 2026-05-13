@@ -141,6 +141,7 @@ omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_trade_flags = Pref.bool("Show Tra
 omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
 omi_lseg_turquoise_level2_gtp_v24_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_lseg_turquoise_level2_gtp_v24_4.prefs_changed()
 

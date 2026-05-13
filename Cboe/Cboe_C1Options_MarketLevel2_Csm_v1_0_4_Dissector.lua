@@ -170,6 +170,7 @@ omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_snapshot_full_refresh_md_e
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_md_volume_entry_index = Pref.bool("Show Md Volume Entry Index", show.md_volume_entry_index, "Show generated md volume entry index in protocol tree")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_incremental_refresh_md_entry_index = Pref.bool("Show Incremental Refresh Md Entry Index", show.incremental_refresh_md_entry_index, "Show generated incremental refresh md entry index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs_changed()
 

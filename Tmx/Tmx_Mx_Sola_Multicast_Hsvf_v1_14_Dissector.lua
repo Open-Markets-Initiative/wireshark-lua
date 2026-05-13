@@ -296,6 +296,7 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg_index = 
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition_index = Pref.bool("Show Bond Definition Index", show.bond_definition_index, "Show generated bond definition index in protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry_index = Pref.bool("Show Tick Entry Index", show.tick_entry_index, "Show generated tick entry index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs_changed()
 

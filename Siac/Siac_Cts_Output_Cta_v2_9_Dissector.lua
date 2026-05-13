@@ -216,6 +216,7 @@ omi_siac_cts_output_cta_v2_9.prefs.show_trade = Pref.bool("Show Trade", show.tra
 omi_siac_cts_output_cta_v2_9.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_siac_cts_output_cta_v2_9.prefs.show_participants_index = Pref.bool("Show Participants Index", show.participants_index, "Show generated participants index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_9.prefs_changed()
 

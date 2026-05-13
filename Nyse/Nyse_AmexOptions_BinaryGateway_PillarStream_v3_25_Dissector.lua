@@ -282,6 +282,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_stream_id = Pre
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_leg_group_index = Pref.bool("Show Leg Group Index", show.leg_group_index, "Show generated leg group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs_changed()
 

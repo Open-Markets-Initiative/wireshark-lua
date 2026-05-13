@@ -140,6 +140,7 @@ omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_packet_header = Pref.bool("S
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg_index = Pref.bool("Show Complex Instrument Leg Index", show.complex_instrument_leg_index, "Show generated complex instrument leg index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_c1options_complex_pitch_v2_1_37.prefs_changed()
 

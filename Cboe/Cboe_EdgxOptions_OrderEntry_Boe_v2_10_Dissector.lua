@@ -1940,6 +1940,7 @@ omi_cboe_edgxoptions_orderentry_boe_v2_10.prefs.show_quote_update_index = Pref.b
 omi_cboe_edgxoptions_orderentry_boe_v2_10.prefs.show_short_quote_update_index = Pref.bool("Show Short Quote Update Index", show.short_quote_update_index, "Show generated short quote update index in protocol tree")
 omi_cboe_edgxoptions_orderentry_boe_v2_10.prefs.show_quote_result_group_index = Pref.bool("Show Quote Result Group Index", show.quote_result_group_index, "Show generated quote result group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cboe_edgxoptions_orderentry_boe_v2_10.prefs_changed()
 

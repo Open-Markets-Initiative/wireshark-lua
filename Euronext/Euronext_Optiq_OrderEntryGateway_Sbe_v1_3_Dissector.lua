@@ -441,6 +441,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quotes_rep_group_index 
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_quote_acks_group_index = Pref.bool("Show Quote Acks Group Index", show.quote_acks_group_index, "Show generated quote acks group index in protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronization_group_index = Pref.bool("Show Instrument Synchronization Group Index", show.instrument_synchronization_group_index, "Show generated instrument synchronization group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
 

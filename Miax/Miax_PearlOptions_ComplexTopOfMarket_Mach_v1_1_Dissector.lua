@@ -132,6 +132,7 @@ omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_wide_bid = Pref.bo
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_wide_offer = Pref.bool("Show Wide Offer", show.wide_offer, "Parse and add Wide Offer to protocol tree")
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs_changed()
 

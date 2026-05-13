@@ -663,6 +663,7 @@ omi_cme_cmefutures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_group_entries_grou
 omi_cme_cmefutures_ilink3_sbe_v8_9.prefs.show_quote_cancel_by_instrument_entries_group_index = Pref.bool("Show Quote Cancel By Instrument Entries Group Index", show.quote_cancel_by_instrument_entries_group_index, "Show generated quote cancel by instrument entries group index in protocol tree")
 omi_cme_cmefutures_ilink3_sbe_v8_9.prefs.show_mass_quote_response_entries_group_index = Pref.bool("Show Mass Quote Response Entries Group Index", show.mass_quote_response_entries_group_index, "Show generated mass quote response entries group index in protocol tree")
 
+
 -- Handle changed preferences
 function omi_cme_cmefutures_ilink3_sbe_v8_9.prefs_changed()
 
