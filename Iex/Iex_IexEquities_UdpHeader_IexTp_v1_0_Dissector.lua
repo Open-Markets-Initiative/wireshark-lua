@@ -60,7 +60,7 @@ omi_iex_iexequities_udpheader_iextp_v1_0.prefs.show_message_index = Pref.bool("S
 -- Handle changed preferences
 function omi_iex_iexequities_udpheader_iextp_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.iextp_header ~= omi_iex_iexequities_udpheader_iextp_v1_0.prefs.show_iextp_header then
     show.iextp_header = omi_iex_iexequities_udpheader_iextp_v1_0.prefs.show_iextp_header
   end

@@ -297,7 +297,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_sub_msg_header 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_application_messages
   end

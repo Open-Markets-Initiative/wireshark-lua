@@ -125,7 +125,7 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_complex_order_leg_index = Pre
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages
   end

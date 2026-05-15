@@ -910,7 +910,7 @@ omi_eurex_derivatives_eti_t7_v10_1.prefs.show_side_alloc_ext_grp_comp_index = Pr
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v10_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.affected_order_requests_grp_comp ~= omi_eurex_derivatives_eti_t7_v10_1.prefs.show_affected_order_requests_grp_comp then
     show.affected_order_requests_grp_comp = omi_eurex_derivatives_eti_t7_v10_1.prefs.show_affected_order_requests_grp_comp
   end

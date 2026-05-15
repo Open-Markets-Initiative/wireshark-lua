@@ -211,7 +211,7 @@ omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.prefs.show_message_index = Pref.
 -- Handle changed preferences
 function omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.add_order_message ~= omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message then
     show.add_order_message = omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.prefs.show_add_order_message
   end

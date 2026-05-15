@@ -106,7 +106,7 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.show_soup_bin_tcp_packet = Pref.boo
 -- Handle changed preferences
 function omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.show_application_messages then
     show.application_messages = omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.show_application_messages
   end

@@ -96,6 +96,7 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 nasdaq_nsmequities_noi_itch_v3_0_2026.utc_offset_hours = 5
+
 -- timestamp format
 local timestamp_integer_6_format_enum = {
   { 1, "Raw", 0 },
@@ -108,6 +109,7 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 nasdaq_nsmequities_noi_itch_v3_0_2026.utc_offset_hours = 5
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -133,11 +135,13 @@ omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_message_index = Pref.bool("
 
 omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.timestamp_timestamp_6_format = Pref.enum("Timestamp Timestamp 6 Format", 2, "Timestamp Timestamp 6 display format", timestamp_timestamp_6_format_enum, false)
 omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.timestamp_integer_6_format = Pref.enum("Timestamp Integer 6 Format", 2, "Timestamp Integer 6 display format", timestamp_integer_6_format_enum, false)
+omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_application_messages
   end
@@ -156,8 +160,6 @@ function omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs_changed()
   if show.message_index ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_message_index then
     show.message_index = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.show_message_index
   end
-
-  -- Check Nanoseconds preferences
   if nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6_format ~= omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.timestamp_timestamp_6_format then
     nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6_format = omi_nasdaq_nsmequities_noi_itch_v3_0_2026.prefs.timestamp_timestamp_6_format
   end

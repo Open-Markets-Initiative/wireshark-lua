@@ -199,7 +199,7 @@ omi_nasdaq_utdf_output_utp_v1_5.prefs.show_market_center_volume_attachment_index
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.administrative ~= omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative then
     show.administrative = omi_nasdaq_utdf_output_utp_v1_5.prefs.show_administrative
   end

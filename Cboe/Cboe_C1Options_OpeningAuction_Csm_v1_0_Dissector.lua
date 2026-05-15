@@ -173,7 +173,7 @@ omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_md_entry_index = Pref.bool
 -- Handle changed preferences
 function omi_cboe_c1options_openingauction_csm_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_application_messages
   end

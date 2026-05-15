@@ -57,7 +57,7 @@ omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet_header = Pref.bo
 -- Handle changed preferences
 function omi_b3_securities_binarypacketheader_udp_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.framing_header ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_framing_header then
     show.framing_header = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_framing_header
   end

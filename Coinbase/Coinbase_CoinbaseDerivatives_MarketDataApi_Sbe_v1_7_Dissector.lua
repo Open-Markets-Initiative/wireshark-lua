@@ -181,7 +181,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_sbe_message =
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_application_messages then
     show.application_messages = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_application_messages
   end

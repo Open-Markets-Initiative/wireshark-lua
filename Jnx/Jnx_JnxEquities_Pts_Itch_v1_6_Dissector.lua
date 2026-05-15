@@ -84,6 +84,7 @@ jnx_jnxequities_pts_itch_v1_6.timestamp_nanoseconds_format = 2
 -- Hours ahead of UTC (JST) for midnight calculation
 jnx_jnxequities_pts_itch_v1_6.utc_offset_hours = 9
 
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -112,7 +113,7 @@ omi_jnx_jnxequities_pts_itch_v1_6.prefs.utc_offset_hours = Pref.uint("UTC Offset
 -- Handle changed preferences
 function omi_jnx_jnxequities_pts_itch_v1_6.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_jnx_jnxequities_pts_itch_v1_6.prefs.show_application_messages then
     show.application_messages = omi_jnx_jnxequities_pts_itch_v1_6.prefs.show_application_messages
   end
@@ -131,8 +132,6 @@ function omi_jnx_jnxequities_pts_itch_v1_6.prefs_changed()
   if show.message_index ~= omi_jnx_jnxequities_pts_itch_v1_6.prefs.show_message_index then
     show.message_index = omi_jnx_jnxequities_pts_itch_v1_6.prefs.show_message_index
   end
-
-  -- Check Nanoseconds preferences
   if jnx_jnxequities_pts_itch_v1_6.timestamp_nanoseconds_format ~= omi_jnx_jnxequities_pts_itch_v1_6.prefs.timestamp_nanoseconds_format then
     jnx_jnxequities_pts_itch_v1_6.timestamp_nanoseconds_format = omi_jnx_jnxequities_pts_itch_v1_6.prefs.timestamp_nanoseconds_format
   end

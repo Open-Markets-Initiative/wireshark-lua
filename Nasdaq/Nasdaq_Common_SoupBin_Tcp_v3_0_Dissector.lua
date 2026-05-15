@@ -63,7 +63,7 @@ omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet = Pref.bool("S
 -- Handle changed preferences
 function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet then
     show.packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet
   end

@@ -117,7 +117,7 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_quotation = Pref.bool("Show Quot
 -- Handle changed preferences
 function omi_finra_finraotc_bbds_dfi_v2018_1a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.action_datetime ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_action_datetime then
     show.action_datetime = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_action_datetime
   end

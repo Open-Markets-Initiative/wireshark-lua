@@ -694,7 +694,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_24.prefs.show_rfq_counterparts_group
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v5_24.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.ack_qualifiers ~= omi_euronext_optiq_orderentrygateway_sbe_v5_24.prefs.show_ack_qualifiers then
     show.ack_qualifiers = omi_euronext_optiq_orderentrygateway_sbe_v5_24.prefs.show_ack_qualifiers
   end

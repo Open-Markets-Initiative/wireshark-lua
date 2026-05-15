@@ -342,7 +342,7 @@ omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_inde
 -- Handle changed preferences
 function omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.cancel_order_message ~= omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_cancel_order_message then
     show.cancel_order_message = omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_cancel_order_message
   end

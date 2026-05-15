@@ -91,7 +91,7 @@ omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_incremental_refresh_btec_gr
 -- Handle changed preferences
 function omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_application_messages
   end
@@ -125,38 +125,6 @@ function omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs_changed()
   if show.incremental_refresh_btec_group_index ~= omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_incremental_refresh_btec_group_index then
     show.incremental_refresh_btec_group_index = omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_incremental_refresh_btec_group_index
   end
-end
-
-
------------------------------------------------------------------------
--- Protocol Functions
------------------------------------------------------------------------
-
--- Convert exponent to decimal
-factor = function(value)
-  if value == nil then
-    return nil
-  elseif value == -1 then
-    return 10
-  elseif value == -2 then
-    return 100
-  elseif value == -3 then
-    return 1000
-  elseif value == -4 then
-    return 10000
-  elseif value == -5 then
-    return 100000
-  elseif value == -6 then
-    return 1000000
-  elseif value == -7 then
-    return 10000000
-  elseif value == -8 then
-    return 100000000
-  elseif value == -9 then
-    return 1000000000
-  end
-
-  return 1
 end
 
 
@@ -913,12 +881,12 @@ cme_cmefutures_brokertecust_sbe_v10_1.coupon_rate.size =
   cme_cmefutures_brokertecust_sbe_v10_1.exponent.size
 
 -- Display: Coupon Rate
-cme_cmefutures_brokertecust_sbe_v10_1.coupon_rate.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_brokertecust_sbe_v10_1.coupon_rate.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Coupon Rate
@@ -932,7 +900,10 @@ cme_cmefutures_brokertecust_sbe_v10_1.coupon_rate.fields = function(buffer, offs
   index, exponent = cme_cmefutures_brokertecust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local coupon_rate = mantissa_32 / factor( exponent )
+  local coupon_rate = mantissa_32 * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa_32 == 2147483647 then coupon_rate = nil end
 
   return index, coupon_rate
 end
@@ -964,12 +935,12 @@ cme_cmefutures_brokertecust_sbe_v10_1.md_entry_px.size =
   cme_cmefutures_brokertecust_sbe_v10_1.exponent.size
 
 -- Display: Md Entry Px
-cme_cmefutures_brokertecust_sbe_v10_1.md_entry_px.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_brokertecust_sbe_v10_1.md_entry_px.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Md Entry Px
@@ -983,7 +954,10 @@ cme_cmefutures_brokertecust_sbe_v10_1.md_entry_px.fields = function(buffer, offs
   index, exponent = cme_cmefutures_brokertecust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_px = mantissa / factor( exponent )
+  local md_entry_px = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0x00000000, 0x80000000) then md_entry_px = nil end
 
   return index, md_entry_px
 end

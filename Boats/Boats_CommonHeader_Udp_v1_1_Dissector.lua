@@ -64,7 +64,7 @@ omi_boats_commonheader_udp_v1_1.prefs.show_message_index = Pref.bool("Show Messa
 -- Handle changed preferences
 function omi_boats_commonheader_udp_v1_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.common_header ~= omi_boats_commonheader_udp_v1_1.prefs.show_common_header then
     show.common_header = omi_boats_commonheader_udp_v1_1.prefs.show_common_header
   end

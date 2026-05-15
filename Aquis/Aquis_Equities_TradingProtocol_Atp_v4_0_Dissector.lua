@@ -155,7 +155,7 @@ omi_aquis_equities_tradingprotocol_atp_v4_0.prefs.show_trade_flags = Pref.bool("
 -- Handle changed preferences
 function omi_aquis_equities_tradingprotocol_atp_v4_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_aquis_equities_tradingprotocol_atp_v4_0.prefs.show_application_messages then
     show.application_messages = omi_aquis_equities_tradingprotocol_atp_v4_0.prefs.show_application_messages
   end

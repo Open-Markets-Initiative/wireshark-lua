@@ -214,7 +214,7 @@ omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_parties_group_index = Pref.bool("
 -- Handle changed preferences
 function omi_n24x_24xequities_memo_sbe_v1_13.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_application_messages then
     show.application_messages = omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_application_messages
   end

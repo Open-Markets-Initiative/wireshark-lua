@@ -328,7 +328,7 @@ omi_ice_icefutures_mdf_impact_v1_1_34.prefs.show_hedge_definition_index = Pref.b
 -- Handle changed preferences
 function omi_ice_icefutures_mdf_impact_v1_1_34.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_ice_icefutures_mdf_impact_v1_1_34.prefs.show_application_messages then
     show.application_messages = omi_ice_icefutures_mdf_impact_v1_1_34.prefs.show_application_messages
   end

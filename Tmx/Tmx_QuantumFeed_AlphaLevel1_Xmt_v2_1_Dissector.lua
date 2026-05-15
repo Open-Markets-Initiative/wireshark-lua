@@ -106,7 +106,7 @@ omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_body_index = Pref.bool("Show
 -- Handle changed preferences
 function omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_application_messages then
     show.application_messages = omi_tmx_quantumfeed_alphalevel1_xmt_v2_1.prefs.show_application_messages
   end

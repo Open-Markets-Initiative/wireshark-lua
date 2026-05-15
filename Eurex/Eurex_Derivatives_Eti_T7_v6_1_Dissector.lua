@@ -691,7 +691,7 @@ omi_eurex_derivatives_eti_t7_v6_1.prefs.show_side_alloc_ext_grp_comp_index = Pre
 -- Handle changed preferences
 function omi_eurex_derivatives_eti_t7_v6_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_eurex_derivatives_eti_t7_v6_1.prefs.show_application_messages then
     show.application_messages = omi_eurex_derivatives_eti_t7_v6_1.prefs.show_application_messages
   end

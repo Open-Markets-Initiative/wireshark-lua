@@ -45,7 +45,7 @@ omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_packet = Pref.bool("Show Pa
 -- Handle changed preferences
 function omi_miax_onyxfutures_headeronly_mach_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_message ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message then
     show.application_message = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message
   end

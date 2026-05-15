@@ -54,7 +54,7 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_index = Pref.boo
 -- Handle changed preferences
 function omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.message ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message then
     show.message = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message
   end

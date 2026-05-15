@@ -179,7 +179,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.prefs.show_message_index = Pref.bool
 -- Handle changed preferences
 function omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.prefs.show_application_messages
   end

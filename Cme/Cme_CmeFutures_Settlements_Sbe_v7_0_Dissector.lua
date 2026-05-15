@@ -147,7 +147,7 @@ omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_
 -- Handle changed preferences
 function omi_cme_cmefutures_settlements_sbe_v7_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_application_messages
   end
@@ -214,38 +214,6 @@ function omi_cme_cmefutures_settlements_sbe_v7_0.prefs_changed()
   if show.incremental_refresh_high_low_group_index ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index then
     show.incremental_refresh_high_low_group_index = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index
   end
-end
-
-
------------------------------------------------------------------------
--- Protocol Functions
------------------------------------------------------------------------
-
--- Convert exponent to decimal
-factor = function(value)
-  if value == nil then
-    return nil
-  elseif value == -1 then
-    return 10
-  elseif value == -2 then
-    return 100
-  elseif value == -3 then
-    return 1000
-  elseif value == -4 then
-    return 10000
-  elseif value == -5 then
-    return 100000
-  elseif value == -6 then
-    return 1000000
-  elseif value == -7 then
-    return 10000000
-  elseif value == -8 then
-    return 100000000
-  elseif value == -9 then
-    return 1000000000
-  end
-
-  return 1
 end
 
 
@@ -1442,12 +1410,12 @@ cme_cmefutures_settlements_sbe_v7_0.high_px.size =
   cme_cmefutures_settlements_sbe_v7_0.exponent.size
 
 -- Display: High Px
-cme_cmefutures_settlements_sbe_v7_0.high_px.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_settlements_sbe_v7_0.high_px.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: High Px
@@ -1461,7 +1429,10 @@ cme_cmefutures_settlements_sbe_v7_0.high_px.fields = function(buffer, offset, pa
   index, exponent = cme_cmefutures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local high_px = mantissa / factor( exponent )
+  local high_px = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0x00000000, 0x80000000) then high_px = nil end
 
   return index, high_px
 end
@@ -1493,12 +1464,12 @@ cme_cmefutures_settlements_sbe_v7_0.low_px.size =
   cme_cmefutures_settlements_sbe_v7_0.exponent.size
 
 -- Display: Low Px
-cme_cmefutures_settlements_sbe_v7_0.low_px.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_settlements_sbe_v7_0.low_px.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Low Px
@@ -1512,7 +1483,10 @@ cme_cmefutures_settlements_sbe_v7_0.low_px.fields = function(buffer, offset, pac
   index, exponent = cme_cmefutures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local low_px = mantissa / factor( exponent )
+  local low_px = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0x00000000, 0x80000000) then low_px = nil end
 
   return index, low_px
 end
@@ -1596,12 +1570,12 @@ cme_cmefutures_settlements_sbe_v7_0.strike_price.size =
   cme_cmefutures_settlements_sbe_v7_0.exponent.size
 
 -- Display: Strike Price
-cme_cmefutures_settlements_sbe_v7_0.strike_price.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_settlements_sbe_v7_0.strike_price.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Strike Price
@@ -1615,7 +1589,10 @@ cme_cmefutures_settlements_sbe_v7_0.strike_price.fields = function(buffer, offse
   index, exponent = cme_cmefutures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local strike_price = mantissa / factor( exponent )
+  local strike_price = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0x00000000, 0x80000000) then strike_price = nil end
 
   return index, strike_price
 end
@@ -2286,12 +2263,12 @@ cme_cmefutures_settlements_sbe_v7_0.formatted_last_px.size =
   cme_cmefutures_settlements_sbe_v7_0.exponent.size
 
 -- Display: Formatted Last Px
-cme_cmefutures_settlements_sbe_v7_0.formatted_last_px.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_settlements_sbe_v7_0.formatted_last_px.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Formatted Last Px
@@ -2305,7 +2282,10 @@ cme_cmefutures_settlements_sbe_v7_0.formatted_last_px.fields = function(buffer, 
   index, exponent = cme_cmefutures_settlements_sbe_v7_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local formatted_last_px = mantissa / factor( exponent )
+  local formatted_last_px = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0x00000000, 0x80000000) then formatted_last_px = nil end
 
   return index, formatted_last_px
 end

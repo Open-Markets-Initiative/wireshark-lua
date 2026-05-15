@@ -89,7 +89,7 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_unsequenced_data_packe
 -- Handle changed preferences
 function omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.esesm_tcp_packet ~= omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_esesm_tcp_packet then
     show.esesm_tcp_packet = omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_esesm_tcp_packet
   end

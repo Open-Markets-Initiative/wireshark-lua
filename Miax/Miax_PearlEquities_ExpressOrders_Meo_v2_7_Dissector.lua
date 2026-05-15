@@ -222,7 +222,7 @@ omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_unsequenced_data_packet
 -- Handle changed preferences
 function omi_miax_pearlequities_expressorders_meo_v2_7.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.additional_liquidity_indicator ~= omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_additional_liquidity_indicator then
     show.additional_liquidity_indicator = omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_additional_liquidity_indicator
   end

@@ -53,7 +53,7 @@ omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message_index = Pref.bool("Show Mes
 -- Handle changed preferences
 function omi_nasdaq_common_mold64_udp_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.message ~= omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message then
     show.message = omi_nasdaq_common_mold64_udp_v1_0.prefs.show_message
   end

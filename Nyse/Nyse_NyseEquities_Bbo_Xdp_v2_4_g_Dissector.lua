@@ -148,7 +148,7 @@ omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_message_index = Pref.bool("Show 
 -- Handle changed preferences
 function omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.heartbeat_response_message ~= omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message then
     show.heartbeat_response_message = omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_heartbeat_response_message
   end

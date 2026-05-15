@@ -113,7 +113,7 @@ omi_memx_memxoptions_memoirdepth_sbe_v1_3.prefs.show_message_index = Pref.bool("
 -- Handle changed preferences
 function omi_memx_memxoptions_memoirdepth_sbe_v1_3.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_memx_memxoptions_memoirdepth_sbe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_memx_memxoptions_memoirdepth_sbe_v1_3.prefs.show_application_messages
   end

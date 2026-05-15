@@ -213,7 +213,7 @@ omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_group_index = Pref.boo
 -- Handle changed preferences
 function omi_boats_boatsequities_memo_sbe_v1_13.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_application_messages then
     show.application_messages = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_application_messages
   end

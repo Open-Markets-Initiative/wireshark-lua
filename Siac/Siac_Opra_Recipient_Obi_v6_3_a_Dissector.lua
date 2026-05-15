@@ -167,7 +167,7 @@ omi_siac_opra_recipient_obi_v6_3_a.prefs.show_message_index = Pref.bool("Show Me
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v6_3_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.administrative ~= omi_siac_opra_recipient_obi_v6_3_a.prefs.show_administrative then
     show.administrative = omi_siac_opra_recipient_obi_v6_3_a.prefs.show_administrative
   end

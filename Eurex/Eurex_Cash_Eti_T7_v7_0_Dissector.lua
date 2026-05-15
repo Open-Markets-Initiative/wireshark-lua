@@ -521,7 +521,7 @@ omi_eurex_cash_eti_t7_v7_0.prefs.show_side_alloc_grp_bc_comp_index = Pref.bool("
 -- Handle changed preferences
 function omi_eurex_cash_eti_t7_v7_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.affected_ord_grp_comp ~= omi_eurex_cash_eti_t7_v7_0.prefs.show_affected_ord_grp_comp then
     show.affected_ord_grp_comp = omi_eurex_cash_eti_t7_v7_0.prefs.show_affected_ord_grp_comp
   end

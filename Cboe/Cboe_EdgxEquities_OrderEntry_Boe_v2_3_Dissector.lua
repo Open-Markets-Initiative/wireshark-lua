@@ -1184,7 +1184,7 @@ omi_cboe_edgxequities_orderentry_boe_v2_3.prefs.show_unit_sequence_index = Pref.
 -- Handle changed preferences
 function omi_cboe_edgxequities_orderentry_boe_v2_3.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_edgxequities_orderentry_boe_v2_3.prefs.show_application_messages then
     show.application_messages = omi_cboe_edgxequities_orderentry_boe_v2_3.prefs.show_application_messages
   end

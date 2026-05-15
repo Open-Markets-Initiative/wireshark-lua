@@ -647,7 +647,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_cross_strategy_fields_g
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.ack_qualifiers ~= omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_ack_qualifiers then
     show.ack_qualifiers = omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_ack_qualifiers
   end

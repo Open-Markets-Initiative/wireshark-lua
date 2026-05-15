@@ -227,7 +227,7 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry_index =
 -- Handle changed preferences
 function omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages
   end

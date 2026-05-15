@@ -61,7 +61,7 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags = Pref.bool
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.market_data_packet_header ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header then
     show.market_data_packet_header = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header
   end

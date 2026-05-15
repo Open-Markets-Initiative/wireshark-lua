@@ -105,7 +105,7 @@ omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_message_index = Pref.boo
 -- Handle changed preferences
 function omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_application_messages
   end

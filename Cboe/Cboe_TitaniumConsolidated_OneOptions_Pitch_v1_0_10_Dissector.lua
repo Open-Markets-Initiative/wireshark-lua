@@ -121,7 +121,7 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_message_index 
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_application_messages then
     show.application_messages = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_application_messages
   end

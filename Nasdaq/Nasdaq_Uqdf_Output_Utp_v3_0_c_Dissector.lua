@@ -212,7 +212,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap_index = P
 -- Handle changed preferences
 function omi_nasdaq_uqdf_output_utp_v3_0_c.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.administrative_message ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_administrative_message then
     show.administrative_message = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_administrative_message
   end

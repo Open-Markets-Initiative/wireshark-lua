@@ -146,7 +146,7 @@ omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_index = Pref.bool("Sho
 -- Handle changed preferences
 function omi_lseg_millennium_level2_mitch_v11_9.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.add_attributed_order_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_flags then
     show.add_attributed_order_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_flags
   end

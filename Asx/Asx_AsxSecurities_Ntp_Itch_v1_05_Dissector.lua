@@ -184,7 +184,7 @@ omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_bundle_leg_index = Pref.bool("Sh
 -- Handle changed preferences
 function omi_asx_asxsecurities_ntp_itch_v1_05.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_application_messages then
     show.application_messages = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_application_messages
   end

@@ -49,7 +49,7 @@ omi_a2x_equities_udpheader_amd_v1_0.prefs.show_message_index = Pref.bool("Show M
 -- Handle changed preferences
 function omi_a2x_equities_udpheader_amd_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.message ~= omi_a2x_equities_udpheader_amd_v1_0.prefs.show_message then
     show.message = omi_a2x_equities_udpheader_amd_v1_0.prefs.show_message
   end

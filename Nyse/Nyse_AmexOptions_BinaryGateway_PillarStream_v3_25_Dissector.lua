@@ -286,7 +286,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_leg_group_index
 -- Handle changed preferences
 function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_application_messages
   end

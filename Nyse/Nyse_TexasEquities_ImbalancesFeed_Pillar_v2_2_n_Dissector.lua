@@ -137,7 +137,7 @@ omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.prefs.show_message_index = P
 -- Handle changed preferences
 function omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.prefs.show_application_messages then
     show.application_messages = omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.prefs.show_application_messages
   end

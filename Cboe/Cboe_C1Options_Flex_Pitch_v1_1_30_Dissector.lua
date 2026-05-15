@@ -126,6 +126,7 @@ cboe_c1options_flex_pitch_v1_1_30.time_offset_format = 2
 -- Hours behind UTC (EST) for midnight calculation
 cboe_c1options_flex_pitch_v1_1_30.utc_offset_hours = 5
 
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -162,7 +163,7 @@ omi_cboe_c1options_flex_pitch_v1_1_30.prefs.utc_offset_hours = Pref.uint("UTC Of
 -- Handle changed preferences
 function omi_cboe_c1options_flex_pitch_v1_1_30.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages
   end
@@ -193,8 +194,6 @@ function omi_cboe_c1options_flex_pitch_v1_1_30.prefs_changed()
   if show.dac_delta_index ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta_index then
     show.dac_delta_index = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta_index
   end
-
-  -- Check Nanoseconds preferences
   if cboe_c1options_flex_pitch_v1_1_30.time_offset_format ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.time_offset_format then
     cboe_c1options_flex_pitch_v1_1_30.time_offset_format = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.time_offset_format
   end

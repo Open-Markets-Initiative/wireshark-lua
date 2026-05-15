@@ -173,7 +173,7 @@ omi_siac_cqs_output_cta_v2_9.prefs.show_message_index = Pref.bool("Show Message 
 -- Handle changed preferences
 function omi_siac_cqs_output_cta_v2_9.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.adf_timestamp ~= omi_siac_cqs_output_cta_v2_9.prefs.show_adf_timestamp then
     show.adf_timestamp = omi_siac_cqs_output_cta_v2_9.prefs.show_adf_timestamp
   end

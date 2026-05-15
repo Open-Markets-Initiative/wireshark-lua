@@ -157,7 +157,7 @@ omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_cop_limit_index = Pref.boo
 -- Handle changed preferences
 function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_application_messages then
     show.application_messages = omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_application_messages
   end

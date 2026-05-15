@@ -148,7 +148,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_message_index 
 -- Handle changed preferences
 function omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.add_order_flags ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_add_order_flags then
     show.add_order_flags = omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_add_order_flags
   end

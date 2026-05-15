@@ -608,7 +608,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_16.prefs.show_interest_payment_date_
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatagateway_sbe_v5_16.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_euronext_optiq_marketdatagateway_sbe_v5_16.prefs.show_application_messages then
     show.application_messages = omi_euronext_optiq_marketdatagateway_sbe_v5_16.prefs.show_application_messages
   end

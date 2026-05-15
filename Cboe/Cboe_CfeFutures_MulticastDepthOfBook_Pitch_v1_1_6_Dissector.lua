@@ -131,6 +131,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_offset_format = 2
 -- Hours behind UTC (CST) for midnight calculation
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.utc_offset_hours = 6
 
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -169,7 +170,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.utc_offset_hours = P
 -- Handle changed preferences
 function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_application_messages then
     show.application_messages = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_application_messages
   end
@@ -203,8 +204,6 @@ function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs_changed()
   if show.future_leg_index ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_future_leg_index then
     show.future_leg_index = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_future_leg_index
   end
-
-  -- Check Nanoseconds preferences
   if cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_offset_format ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.time_offset_format then
     cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_offset_format = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.time_offset_format
   end

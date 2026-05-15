@@ -557,7 +557,7 @@ omi_cme_cmefutures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_sets_group_index 
 -- Handle changed preferences
 function omi_cme_cmefutures_ilink3_sbe_v8_5.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.affected_orders_group ~= omi_cme_cmefutures_ilink3_sbe_v8_5.prefs.show_affected_orders_group then
     show.affected_orders_group = omi_cme_cmefutures_ilink3_sbe_v8_5.prefs.show_affected_orders_group
   end
@@ -798,38 +798,6 @@ function omi_cme_cmefutures_ilink3_sbe_v8_5.prefs_changed()
   if show.quote_cancel_ack_sets_group_index ~= omi_cme_cmefutures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_sets_group_index then
     show.quote_cancel_ack_sets_group_index = omi_cme_cmefutures_ilink3_sbe_v8_5.prefs.show_quote_cancel_ack_sets_group_index
   end
-end
-
-
------------------------------------------------------------------------
--- Protocol Functions
------------------------------------------------------------------------
-
--- Convert exponent to decimal
-factor = function(value)
-  if value == nil then
-    return nil
-  elseif value == -1 then
-    return 10
-  elseif value == -2 then
-    return 100
-  elseif value == -3 then
-    return 1000
-  elseif value == -4 then
-    return 10000
-  elseif value == -5 then
-    return 100000
-  elseif value == -6 then
-    return 1000000
-  elseif value == -7 then
-    return 10000000
-  elseif value == -8 then
-    return 100000000
-  elseif value == -9 then
-    return 1000000000
-  end
-
-  return 1
 end
 
 
@@ -8685,12 +8653,12 @@ cme_cmefutures_ilink3_sbe_v8_5.leg_option_delta.size =
   cme_cmefutures_ilink3_sbe_v8_5.exponent.size
 
 -- Display: Leg Option Delta
-cme_cmefutures_ilink3_sbe_v8_5.leg_option_delta.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_ilink3_sbe_v8_5.leg_option_delta.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Leg Option Delta
@@ -8704,7 +8672,10 @@ cme_cmefutures_ilink3_sbe_v8_5.leg_option_delta.fields = function(buffer, offset
   index, exponent = cme_cmefutures_ilink3_sbe_v8_5.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_option_delta = mantissa_32 / factor( exponent )
+  local leg_option_delta = mantissa_32 * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa_32 == 2147483647 then leg_option_delta = nil end
 
   return index, leg_option_delta
 end
@@ -13470,12 +13441,12 @@ cme_cmefutures_ilink3_sbe_v8_5.risk_free_rate.size =
   cme_cmefutures_ilink3_sbe_v8_5.exponent.size
 
 -- Display: Risk Free Rate
-cme_cmefutures_ilink3_sbe_v8_5.risk_free_rate.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_ilink3_sbe_v8_5.risk_free_rate.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Risk Free Rate
@@ -13489,7 +13460,10 @@ cme_cmefutures_ilink3_sbe_v8_5.risk_free_rate.fields = function(buffer, offset, 
   index, exponent = cme_cmefutures_ilink3_sbe_v8_5.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local risk_free_rate = mantissa_32 / factor( exponent )
+  local risk_free_rate = mantissa_32 * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa_32 == 2147483647 then risk_free_rate = nil end
 
   return index, risk_free_rate
 end
@@ -13521,12 +13495,12 @@ cme_cmefutures_ilink3_sbe_v8_5.time_to_expiration.size =
   cme_cmefutures_ilink3_sbe_v8_5.exponent.size
 
 -- Display: Time To Expiration
-cme_cmefutures_ilink3_sbe_v8_5.time_to_expiration.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_ilink3_sbe_v8_5.time_to_expiration.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Time To Expiration
@@ -13540,7 +13514,10 @@ cme_cmefutures_ilink3_sbe_v8_5.time_to_expiration.fields = function(buffer, offs
   index, exponent = cme_cmefutures_ilink3_sbe_v8_5.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local time_to_expiration = mantissa_32 / factor( exponent )
+  local time_to_expiration = mantissa_32 * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa_32 == 2147483647 then time_to_expiration = nil end
 
   return index, time_to_expiration
 end
@@ -13572,12 +13549,12 @@ cme_cmefutures_ilink3_sbe_v8_5.option_delta.size =
   cme_cmefutures_ilink3_sbe_v8_5.exponent.size
 
 -- Display: Option Delta
-cme_cmefutures_ilink3_sbe_v8_5.option_delta.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_ilink3_sbe_v8_5.option_delta.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Option Delta
@@ -13591,7 +13568,10 @@ cme_cmefutures_ilink3_sbe_v8_5.option_delta.fields = function(buffer, offset, pa
   index, exponent = cme_cmefutures_ilink3_sbe_v8_5.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local option_delta = mantissa_32 / factor( exponent )
+  local option_delta = mantissa_32 * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa_32 == 2147483647 then option_delta = nil end
 
   return index, option_delta
 end
@@ -13623,12 +13603,12 @@ cme_cmefutures_ilink3_sbe_v8_5.volatility.size =
   cme_cmefutures_ilink3_sbe_v8_5.exponent.size
 
 -- Display: Volatility
-cme_cmefutures_ilink3_sbe_v8_5.volatility.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_ilink3_sbe_v8_5.volatility.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Volatility
@@ -13642,7 +13622,10 @@ cme_cmefutures_ilink3_sbe_v8_5.volatility.fields = function(buffer, offset, pack
   index, exponent = cme_cmefutures_ilink3_sbe_v8_5.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local volatility = mantissa / factor( exponent )
+  local volatility = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then volatility = nil end
 
   return index, volatility
 end

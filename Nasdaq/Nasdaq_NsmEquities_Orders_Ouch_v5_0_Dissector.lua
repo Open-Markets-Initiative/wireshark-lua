@@ -159,7 +159,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bo
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages
   end

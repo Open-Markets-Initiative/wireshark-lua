@@ -114,7 +114,7 @@ omi_cme_cmefutures_derived_sbe_v12_0.prefs.show_snapshot_refresh_ticker_group_in
 -- Handle changed preferences
 function omi_cme_cmefutures_derived_sbe_v12_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_derived_sbe_v12_0.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_derived_sbe_v12_0.prefs.show_application_messages
   end

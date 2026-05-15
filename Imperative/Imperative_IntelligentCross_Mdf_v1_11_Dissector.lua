@@ -85,7 +85,7 @@ omi_imperative_intelligentcross_mdf_v1_11.prefs.show_message_index = Pref.bool("
 -- Handle changed preferences
 function omi_imperative_intelligentcross_mdf_v1_11.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_imperative_intelligentcross_mdf_v1_11.prefs.show_application_messages then
     show.application_messages = omi_imperative_intelligentcross_mdf_v1_11.prefs.show_application_messages
   end

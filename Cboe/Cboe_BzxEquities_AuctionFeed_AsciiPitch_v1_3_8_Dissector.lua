@@ -88,7 +88,7 @@ omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.prefs.show_unsequenced_data_p
 -- Handle changed preferences
 function omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.prefs.show_application_messages then
     show.application_messages = omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.prefs.show_application_messages
   end

@@ -105,7 +105,7 @@ omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_delta_price_point_index =
 -- Handle changed preferences
 function omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_application_messages
   end

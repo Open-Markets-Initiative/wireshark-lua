@@ -263,7 +263,7 @@ omi_siac_cts_output_cta_v2_10.prefs.show_fractional_participants_index = Pref.bo
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_10.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.administrative ~= omi_siac_cts_output_cta_v2_10.prefs.show_administrative then
     show.administrative = omi_siac_cts_output_cta_v2_10.prefs.show_administrative
   end

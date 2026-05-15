@@ -107,7 +107,7 @@ omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_level_index = Pref.bool("Sho
 -- Handle changed preferences
 function omi_currenex_currenexforex_now_cbp_v10_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_application_messages then
     show.application_messages = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_application_messages
   end

@@ -260,7 +260,7 @@ omi_siac_cts_output_cta_v2_11_b.prefs.show_participant_index = Pref.bool("Show P
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_11_b.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.administrative_message ~= omi_siac_cts_output_cta_v2_11_b.prefs.show_administrative_message then
     show.administrative_message = omi_siac_cts_output_cta_v2_11_b.prefs.show_administrative_message
   end

@@ -392,7 +392,7 @@ omi_cboe_c1options_orderentry_boe3_v1_0_12.prefs.show_allocation_cancelled_index
 -- Handle changed preferences
 function omi_cboe_c1options_orderentry_boe3_v1_0_12.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.acknowledgement_allocation ~= omi_cboe_c1options_orderentry_boe3_v1_0_12.prefs.show_acknowledgement_allocation then
     show.acknowledgement_allocation = omi_cboe_c1options_orderentry_boe3_v1_0_12.prefs.show_acknowledgement_allocation
   end

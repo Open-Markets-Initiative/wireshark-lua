@@ -667,7 +667,7 @@ omi_cme_cmefutures_mdp3_sbe_v1_9.prefs.show_option_related_instruments_group_ind
 -- Handle changed preferences
 function omi_cme_cmefutures_mdp3_sbe_v1_9.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_mdp3_sbe_v1_9.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_mdp3_sbe_v1_9.prefs.show_application_messages
   end

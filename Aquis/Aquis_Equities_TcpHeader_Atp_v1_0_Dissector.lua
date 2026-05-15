@@ -43,7 +43,7 @@ omi_aquis_equities_tcpheader_atp_v1_0.prefs.show_packet = Pref.bool("Show Packet
 -- Handle changed preferences
 function omi_aquis_equities_tcpheader_atp_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.message ~= omi_aquis_equities_tcpheader_atp_v1_0.prefs.show_message then
     show.message = omi_aquis_equities_tcpheader_atp_v1_0.prefs.show_message
   end

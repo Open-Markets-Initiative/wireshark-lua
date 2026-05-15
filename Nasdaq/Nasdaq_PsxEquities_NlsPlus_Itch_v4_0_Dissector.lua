@@ -115,6 +115,7 @@ nasdaq_psxequities_nlsplus_itch_v4_0.timestamp_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 nasdaq_psxequities_nlsplus_itch_v4_0.utc_offset_hours = 5
+
 -- timestamp format
 local client_timestamp_format_enum = {
   { 1, "Raw", 0 },
@@ -127,6 +128,7 @@ nasdaq_psxequities_nlsplus_itch_v4_0.client_timestamp_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 nasdaq_psxequities_nlsplus_itch_v4_0.utc_offset_hours = 5
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -152,11 +154,13 @@ omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.show_message_index = Pref.bool("S
 
 omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.client_timestamp_format = Pref.enum("Client Timestamp Format", 2, "Client Timestamp display format", client_timestamp_format_enum, false)
+omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.show_application_messages
   end
@@ -175,8 +179,6 @@ function omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs_changed()
   if show.message_index ~= omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.show_message_index then
     show.message_index = omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.show_message_index
   end
-
-  -- Check Nanoseconds preferences
   if nasdaq_psxequities_nlsplus_itch_v4_0.timestamp_format ~= omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.timestamp_format then
     nasdaq_psxequities_nlsplus_itch_v4_0.timestamp_format = omi_nasdaq_psxequities_nlsplus_itch_v4_0.prefs.timestamp_format
   end

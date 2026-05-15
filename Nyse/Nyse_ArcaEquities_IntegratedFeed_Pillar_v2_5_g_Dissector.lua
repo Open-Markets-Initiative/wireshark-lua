@@ -170,7 +170,7 @@ omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.prefs.show_message_index = Pr
 -- Handle changed preferences
 function omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.prefs.show_application_messages
   end

@@ -196,7 +196,7 @@ omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_contract_legs_index = Pref.bool(
 -- Handle changed preferences
 function omi_asx_asxsecurities_t24_itch_v1_13.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_application_messages then
     show.application_messages = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_application_messages
   end

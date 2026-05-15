@@ -72,6 +72,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset_format = 2
 -- Hours behind UTC (EST) for midnight calculation
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.utc_offset_hours = 5
 
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -100,7 +101,7 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.utc_offset_hours = Pref.uint
 -- Handle changed preferences
 function omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_application_messages then
     show.application_messages = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_application_messages
   end
@@ -119,8 +120,6 @@ function omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs_changed()
   if show.message_index ~= omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_message_index then
     show.message_index = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.show_message_index
   end
-
-  -- Check Nanoseconds preferences
   if cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset_format ~= omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.time_offset_format then
     cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset_format = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.prefs.time_offset_format
   end

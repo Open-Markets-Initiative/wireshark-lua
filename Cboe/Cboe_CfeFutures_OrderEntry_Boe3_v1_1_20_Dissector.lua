@@ -294,7 +294,7 @@ omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_option_leg_index = Pref.b
 -- Handle changed preferences
 function omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.cancel_order ~= omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_cancel_order then
     show.cancel_order = omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_cancel_order
   end

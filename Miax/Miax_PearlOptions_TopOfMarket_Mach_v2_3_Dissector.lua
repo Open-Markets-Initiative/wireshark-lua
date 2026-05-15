@@ -114,7 +114,7 @@ omi_miax_pearloptions_topofmarket_mach_v2_3.prefs.show_packet = Pref.bool("Show 
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v2_3.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_message ~= omi_miax_pearloptions_topofmarket_mach_v2_3.prefs.show_application_message then
     show.application_message = omi_miax_pearloptions_topofmarket_mach_v2_3.prefs.show_application_message
   end

@@ -71,7 +71,7 @@ omi_txse_headers_rake_tcp_v1_0.prefs.show_tcp_unsequenced_message = Pref.bool("S
 -- Handle changed preferences
 function omi_txse_headers_rake_tcp_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.debug_message ~= omi_txse_headers_rake_tcp_v1_0.prefs.show_debug_message then
     show.debug_message = omi_txse_headers_rake_tcp_v1_0.prefs.show_debug_message
   end

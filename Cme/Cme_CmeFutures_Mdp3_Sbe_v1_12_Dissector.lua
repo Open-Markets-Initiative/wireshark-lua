@@ -639,7 +639,7 @@ omi_cme_cmefutures_mdp3_sbe_v1_12.prefs.show_snapshot_full_refresh_long_group_in
 -- Handle changed preferences
 function omi_cme_cmefutures_mdp3_sbe_v1_12.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_mdp3_sbe_v1_12.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_mdp3_sbe_v1_12.prefs.show_application_messages
   end

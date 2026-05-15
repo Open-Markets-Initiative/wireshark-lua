@@ -110,7 +110,7 @@ omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block_index = Pre
 -- Handle changed preferences
 function omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.adap_block ~= omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block then
     show.adap_block = omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block
   end

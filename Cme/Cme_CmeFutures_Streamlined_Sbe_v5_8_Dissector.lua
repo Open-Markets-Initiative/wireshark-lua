@@ -529,7 +529,7 @@ omi_cme_cmefutures_streamlined_sbe_v5_8.prefs.show_eris_legs_group_index = Pref.
 -- Handle changed preferences
 function omi_cme_cmefutures_streamlined_sbe_v5_8.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.accrued_coupons ~= omi_cme_cmefutures_streamlined_sbe_v5_8.prefs.show_accrued_coupons then
     show.accrued_coupons = omi_cme_cmefutures_streamlined_sbe_v5_8.prefs.show_accrued_coupons
   end
@@ -860,38 +860,6 @@ function omi_cme_cmefutures_streamlined_sbe_v5_8.prefs_changed()
   if show.eris_legs_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_8.prefs.show_eris_legs_group_index then
     show.eris_legs_group_index = omi_cme_cmefutures_streamlined_sbe_v5_8.prefs.show_eris_legs_group_index
   end
-end
-
-
------------------------------------------------------------------------
--- Protocol Functions
------------------------------------------------------------------------
-
--- Convert exponent to decimal
-factor = function(value)
-  if value == nil then
-    return nil
-  elseif value == -1 then
-    return 10
-  elseif value == -2 then
-    return 100
-  elseif value == -3 then
-    return 1000
-  elseif value == -4 then
-    return 10000
-  elseif value == -5 then
-    return 100000
-  elseif value == -6 then
-    return 1000000
-  elseif value == -7 then
-    return 10000000
-  elseif value == -8 then
-    return 100000000
-  elseif value == -9 then
-    return 1000000000
-  end
-
-  return 1
 end
 
 
@@ -5711,12 +5679,12 @@ cme_cmefutures_streamlined_sbe_v5_8.interpolation_factor.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Interpolation Factor
-cme_cmefutures_streamlined_sbe_v5_8.interpolation_factor.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.interpolation_factor.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Interpolation Factor
@@ -5730,7 +5698,10 @@ cme_cmefutures_streamlined_sbe_v5_8.interpolation_factor.fields = function(buffe
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local interpolation_factor = mantissa / factor( exponent )
+  local interpolation_factor = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then interpolation_factor = nil end
 
   return index, interpolation_factor
 end
@@ -5762,12 +5733,12 @@ cme_cmefutures_streamlined_sbe_v5_8.previous_fixing_rate.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Previous Fixing Rate
-cme_cmefutures_streamlined_sbe_v5_8.previous_fixing_rate.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.previous_fixing_rate.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Previous Fixing Rate
@@ -5781,7 +5752,10 @@ cme_cmefutures_streamlined_sbe_v5_8.previous_fixing_rate.fields = function(buffe
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local previous_fixing_rate = mantissa / factor( exponent )
+  local previous_fixing_rate = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then previous_fixing_rate = nil end
 
   return index, previous_fixing_rate
 end
@@ -6201,12 +6175,12 @@ cme_cmefutures_streamlined_sbe_v5_8.min_price_increment.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Min Price Increment
-cme_cmefutures_streamlined_sbe_v5_8.min_price_increment.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.min_price_increment.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Min Price Increment
@@ -6220,7 +6194,10 @@ cme_cmefutures_streamlined_sbe_v5_8.min_price_increment.fields = function(buffer
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local min_price_increment = mantissa / factor( exponent )
+  local min_price_increment = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then min_price_increment = nil end
 
   return index, min_price_increment
 end
@@ -6651,12 +6628,12 @@ cme_cmefutures_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Unit Of Measure Qty Decimal
-cme_cmefutures_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Unit Of Measure Qty Decimal
@@ -6670,7 +6647,10 @@ cme_cmefutures_streamlined_sbe_v5_8.unit_of_measure_qty_decimal.fields = functio
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local unit_of_measure_qty_decimal = mantissa / factor( exponent )
+  local unit_of_measure_qty_decimal = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then unit_of_measure_qty_decimal = nil end
 
   return index, unit_of_measure_qty_decimal
 end
@@ -6702,12 +6682,12 @@ cme_cmefutures_streamlined_sbe_v5_8.strike_price_decimal.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Strike Price Decimal
-cme_cmefutures_streamlined_sbe_v5_8.strike_price_decimal.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.strike_price_decimal.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Strike Price Decimal
@@ -6721,7 +6701,10 @@ cme_cmefutures_streamlined_sbe_v5_8.strike_price_decimal.fields = function(buffe
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local strike_price_decimal = mantissa / factor( exponent )
+  local strike_price_decimal = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then strike_price_decimal = nil end
 
   return index, strike_price_decimal
 end
@@ -6805,12 +6788,12 @@ cme_cmefutures_streamlined_sbe_v5_8.md_entry_size.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Md Entry Size
-cme_cmefutures_streamlined_sbe_v5_8.md_entry_size.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.md_entry_size.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Md Entry Size
@@ -6824,7 +6807,10 @@ cme_cmefutures_streamlined_sbe_v5_8.md_entry_size.fields = function(buffer, offs
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_size = mantissa / factor( exponent )
+  local md_entry_size = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then md_entry_size = nil end
 
   return index, md_entry_size
 end
@@ -7284,12 +7270,12 @@ cme_cmefutures_streamlined_sbe_v5_8.cal_fut_px.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Cal Fut Px
-cme_cmefutures_streamlined_sbe_v5_8.cal_fut_px.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.cal_fut_px.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Cal Fut Px
@@ -7303,7 +7289,10 @@ cme_cmefutures_streamlined_sbe_v5_8.cal_fut_px.fields = function(buffer, offset,
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local cal_fut_px = mantissa / factor( exponent )
+  local cal_fut_px = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then cal_fut_px = nil end
 
   return index, cal_fut_px
 end
@@ -7335,12 +7324,12 @@ cme_cmefutures_streamlined_sbe_v5_8.md_entry_px_decimal.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Md Entry Px Decimal
-cme_cmefutures_streamlined_sbe_v5_8.md_entry_px_decimal.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.md_entry_px_decimal.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Md Entry Px Decimal
@@ -7354,7 +7343,10 @@ cme_cmefutures_streamlined_sbe_v5_8.md_entry_px_decimal.fields = function(buffer
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_px_decimal = mantissa / factor( exponent )
+  local md_entry_px_decimal = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then md_entry_px_decimal = nil end
 
   return index, md_entry_px_decimal
 end
@@ -8671,12 +8663,12 @@ cme_cmefutures_streamlined_sbe_v5_8.percent_trading.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Percent Trading
-cme_cmefutures_streamlined_sbe_v5_8.percent_trading.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.percent_trading.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Percent Trading
@@ -8690,7 +8682,10 @@ cme_cmefutures_streamlined_sbe_v5_8.percent_trading.fields = function(buffer, of
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local percent_trading = mantissa / factor( exponent )
+  local percent_trading = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then percent_trading = nil end
 
   return index, percent_trading
 end
@@ -8722,12 +8717,12 @@ cme_cmefutures_streamlined_sbe_v5_8.net_pct_chg.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Net Pct Chg
-cme_cmefutures_streamlined_sbe_v5_8.net_pct_chg.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.net_pct_chg.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Net Pct Chg
@@ -8741,7 +8736,10 @@ cme_cmefutures_streamlined_sbe_v5_8.net_pct_chg.fields = function(buffer, offset
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local net_pct_chg = mantissa / factor( exponent )
+  local net_pct_chg = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then net_pct_chg = nil end
 
   return index, net_pct_chg
 end
@@ -8773,12 +8771,12 @@ cme_cmefutures_streamlined_sbe_v5_8.net_chg_prev_day.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Net Chg Prev Day
-cme_cmefutures_streamlined_sbe_v5_8.net_chg_prev_day.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.net_chg_prev_day.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Net Chg Prev Day
@@ -8792,7 +8790,10 @@ cme_cmefutures_streamlined_sbe_v5_8.net_chg_prev_day.fields = function(buffer, o
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local net_chg_prev_day = mantissa / factor( exponent )
+  local net_chg_prev_day = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then net_chg_prev_day = nil end
 
   return index, net_chg_prev_day
 end
@@ -8824,12 +8825,12 @@ cme_cmefutures_streamlined_sbe_v5_8.yield.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Yield
-cme_cmefutures_streamlined_sbe_v5_8.yield.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.yield.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Yield
@@ -8843,7 +8844,10 @@ cme_cmefutures_streamlined_sbe_v5_8.yield.fields = function(buffer, offset, pack
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local yield = mantissa / factor( exponent )
+  local yield = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then yield = nil end
 
   return index, yield
 end
@@ -10255,12 +10259,12 @@ cme_cmefutures_streamlined_sbe_v5_8.final_settlement_futures_price.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Final Settlement Futures Price
-cme_cmefutures_streamlined_sbe_v5_8.final_settlement_futures_price.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.final_settlement_futures_price.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Final Settlement Futures Price
@@ -10274,7 +10278,10 @@ cme_cmefutures_streamlined_sbe_v5_8.final_settlement_futures_price.fields = func
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local final_settlement_futures_price = mantissa / factor( exponent )
+  local final_settlement_futures_price = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then final_settlement_futures_price = nil end
 
   return index, final_settlement_futures_price
 end
@@ -10306,12 +10313,12 @@ cme_cmefutures_streamlined_sbe_v5_8.settlement_npv.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Settlement Npv
-cme_cmefutures_streamlined_sbe_v5_8.settlement_npv.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.settlement_npv.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Settlement Npv
@@ -10325,7 +10332,10 @@ cme_cmefutures_streamlined_sbe_v5_8.settlement_npv.fields = function(buffer, off
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local settlement_npv = mantissa / factor( exponent )
+  local settlement_npv = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then settlement_npv = nil end
 
   return index, settlement_npv
 end
@@ -10357,12 +10367,12 @@ cme_cmefutures_streamlined_sbe_v5_8.d_v_01.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: D V 01
-cme_cmefutures_streamlined_sbe_v5_8.d_v_01.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.d_v_01.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: D V 01
@@ -10376,7 +10386,10 @@ cme_cmefutures_streamlined_sbe_v5_8.d_v_01.fields = function(buffer, offset, pac
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local d_v_01 = mantissa / factor( exponent )
+  local d_v_01 = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then d_v_01 = nil end
 
   return index, d_v_01
 end
@@ -10408,12 +10421,12 @@ cme_cmefutures_streamlined_sbe_v5_8.p_v_01.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: P V 01
-cme_cmefutures_streamlined_sbe_v5_8.p_v_01.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.p_v_01.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: P V 01
@@ -10427,7 +10440,10 @@ cme_cmefutures_streamlined_sbe_v5_8.p_v_01.fields = function(buffer, offset, pac
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local p_v_01 = mantissa / factor( exponent )
+  local p_v_01 = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then p_v_01 = nil end
 
   return index, p_v_01
 end
@@ -10459,12 +10475,12 @@ cme_cmefutures_streamlined_sbe_v5_8.leg_contract_multiplier.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Leg Contract Multiplier
-cme_cmefutures_streamlined_sbe_v5_8.leg_contract_multiplier.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.leg_contract_multiplier.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Leg Contract Multiplier
@@ -10478,7 +10494,10 @@ cme_cmefutures_streamlined_sbe_v5_8.leg_contract_multiplier.fields = function(bu
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_contract_multiplier = mantissa / factor( exponent )
+  local leg_contract_multiplier = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then leg_contract_multiplier = nil end
 
   return index, leg_contract_multiplier
 end
@@ -10510,12 +10529,12 @@ cme_cmefutures_streamlined_sbe_v5_8.previous_eris_pai.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Previous Eris Pai
-cme_cmefutures_streamlined_sbe_v5_8.previous_eris_pai.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.previous_eris_pai.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Previous Eris Pai
@@ -10529,7 +10548,10 @@ cme_cmefutures_streamlined_sbe_v5_8.previous_eris_pai.fields = function(buffer, 
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local previous_eris_pai = mantissa / factor( exponent )
+  local previous_eris_pai = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then previous_eris_pai = nil end
 
   return index, previous_eris_pai
 end
@@ -10561,12 +10583,12 @@ cme_cmefutures_streamlined_sbe_v5_8.next_floating_payment_amount.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Next Floating Payment Amount
-cme_cmefutures_streamlined_sbe_v5_8.next_floating_payment_amount.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.next_floating_payment_amount.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Next Floating Payment Amount
@@ -10580,7 +10602,10 @@ cme_cmefutures_streamlined_sbe_v5_8.next_floating_payment_amount.fields = functi
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local next_floating_payment_amount = mantissa / factor( exponent )
+  local next_floating_payment_amount = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then next_floating_payment_amount = nil end
 
   return index, next_floating_payment_amount
 end
@@ -10612,12 +10637,12 @@ cme_cmefutures_streamlined_sbe_v5_8.next_fixed_payment_amount.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Next Fixed Payment Amount
-cme_cmefutures_streamlined_sbe_v5_8.next_fixed_payment_amount.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.next_fixed_payment_amount.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Next Fixed Payment Amount
@@ -10631,7 +10656,10 @@ cme_cmefutures_streamlined_sbe_v5_8.next_fixed_payment_amount.fields = function(
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local next_fixed_payment_amount = mantissa / factor( exponent )
+  local next_fixed_payment_amount = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then next_fixed_payment_amount = nil end
 
   return index, next_fixed_payment_amount
 end
@@ -10663,12 +10691,12 @@ cme_cmefutures_streamlined_sbe_v5_8.floating_payment.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Floating Payment
-cme_cmefutures_streamlined_sbe_v5_8.floating_payment.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.floating_payment.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Floating Payment
@@ -10682,7 +10710,10 @@ cme_cmefutures_streamlined_sbe_v5_8.floating_payment.fields = function(buffer, o
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local floating_payment = mantissa / factor( exponent )
+  local floating_payment = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then floating_payment = nil end
 
   return index, floating_payment
 end
@@ -10714,12 +10745,12 @@ cme_cmefutures_streamlined_sbe_v5_8.fixed_payment.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Fixed Payment
-cme_cmefutures_streamlined_sbe_v5_8.fixed_payment.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.fixed_payment.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Fixed Payment
@@ -10733,7 +10764,10 @@ cme_cmefutures_streamlined_sbe_v5_8.fixed_payment.fields = function(buffer, offs
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fixed_payment = mantissa / factor( exponent )
+  local fixed_payment = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fixed_payment = nil end
 
   return index, fixed_payment
 end
@@ -10765,12 +10799,12 @@ cme_cmefutures_streamlined_sbe_v5_8.min_price_increment_optional.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Min Price Increment Optional
-cme_cmefutures_streamlined_sbe_v5_8.min_price_increment_optional.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.min_price_increment_optional.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Min Price Increment Optional
@@ -10784,7 +10818,10 @@ cme_cmefutures_streamlined_sbe_v5_8.min_price_increment_optional.fields = functi
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local min_price_increment_optional = mantissa / factor( exponent )
+  local min_price_increment_optional = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then min_price_increment_optional = nil end
 
   return index, min_price_increment_optional
 end
@@ -10816,12 +10853,12 @@ cme_cmefutures_streamlined_sbe_v5_8.fed_funds_rate.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Fed Funds Rate
-cme_cmefutures_streamlined_sbe_v5_8.fed_funds_rate.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.fed_funds_rate.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Fed Funds Rate
@@ -10835,7 +10872,10 @@ cme_cmefutures_streamlined_sbe_v5_8.fed_funds_rate.fields = function(buffer, off
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fed_funds_rate = mantissa / factor( exponent )
+  local fed_funds_rate = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fed_funds_rate = nil end
 
   return index, fed_funds_rate
 end
@@ -10867,12 +10907,12 @@ cme_cmefutures_streamlined_sbe_v5_8.eris_pai.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Eris Pai
-cme_cmefutures_streamlined_sbe_v5_8.eris_pai.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.eris_pai.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Eris Pai
@@ -10886,7 +10926,10 @@ cme_cmefutures_streamlined_sbe_v5_8.eris_pai.fields = function(buffer, offset, p
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local eris_pai = mantissa / factor( exponent )
+  local eris_pai = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then eris_pai = nil end
 
   return index, eris_pai
 end
@@ -10918,12 +10961,12 @@ cme_cmefutures_streamlined_sbe_v5_8.daily_incremental_eris_pai.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Daily Incremental Eris Pai
-cme_cmefutures_streamlined_sbe_v5_8.daily_incremental_eris_pai.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.daily_incremental_eris_pai.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Daily Incremental Eris Pai
@@ -10937,7 +10980,10 @@ cme_cmefutures_streamlined_sbe_v5_8.daily_incremental_eris_pai.fields = function
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local daily_incremental_eris_pai = mantissa / factor( exponent )
+  local daily_incremental_eris_pai = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then daily_incremental_eris_pai = nil end
 
   return index, daily_incremental_eris_pai
 end
@@ -10969,12 +11015,12 @@ cme_cmefutures_streamlined_sbe_v5_8.accrued_coupons.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Accrued Coupons
-cme_cmefutures_streamlined_sbe_v5_8.accrued_coupons.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.accrued_coupons.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Accrued Coupons
@@ -10988,7 +11034,10 @@ cme_cmefutures_streamlined_sbe_v5_8.accrued_coupons.fields = function(buffer, of
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local accrued_coupons = mantissa / factor( exponent )
+  local accrued_coupons = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then accrued_coupons = nil end
 
   return index, accrued_coupons
 end
@@ -11020,12 +11069,12 @@ cme_cmefutures_streamlined_sbe_v5_8.npv.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Npv
-cme_cmefutures_streamlined_sbe_v5_8.npv.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.npv.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Npv
@@ -11039,7 +11088,10 @@ cme_cmefutures_streamlined_sbe_v5_8.npv.fields = function(buffer, offset, packet
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local npv = mantissa / factor( exponent )
+  local npv = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then npv = nil end
 
   return index, npv
 end
@@ -11071,12 +11123,12 @@ cme_cmefutures_streamlined_sbe_v5_8.float_npv.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Float Npv
-cme_cmefutures_streamlined_sbe_v5_8.float_npv.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.float_npv.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Float Npv
@@ -11090,7 +11142,10 @@ cme_cmefutures_streamlined_sbe_v5_8.float_npv.fields = function(buffer, offset, 
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local float_npv = mantissa / factor( exponent )
+  local float_npv = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then float_npv = nil end
 
   return index, float_npv
 end
@@ -11122,12 +11177,12 @@ cme_cmefutures_streamlined_sbe_v5_8.fixed_npv.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Fixed Npv
-cme_cmefutures_streamlined_sbe_v5_8.fixed_npv.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.fixed_npv.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Fixed Npv
@@ -11141,7 +11196,10 @@ cme_cmefutures_streamlined_sbe_v5_8.fixed_npv.fields = function(buffer, offset, 
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fixed_npv = mantissa / factor( exponent )
+  local fixed_npv = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fixed_npv = nil end
 
   return index, fixed_npv
 end
@@ -11173,12 +11231,12 @@ cme_cmefutures_streamlined_sbe_v5_8.leg_purchase_rate.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Leg Purchase Rate
-cme_cmefutures_streamlined_sbe_v5_8.leg_purchase_rate.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.leg_purchase_rate.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Leg Purchase Rate
@@ -11192,7 +11250,10 @@ cme_cmefutures_streamlined_sbe_v5_8.leg_purchase_rate.fields = function(buffer, 
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_purchase_rate = mantissa / factor( exponent )
+  local leg_purchase_rate = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then leg_purchase_rate = nil end
 
   return index, leg_purchase_rate
 end
@@ -11224,12 +11285,12 @@ cme_cmefutures_streamlined_sbe_v5_8.fair_coupon_pct.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Fair Coupon Pct
-cme_cmefutures_streamlined_sbe_v5_8.fair_coupon_pct.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.fair_coupon_pct.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Fair Coupon Pct
@@ -11243,7 +11304,10 @@ cme_cmefutures_streamlined_sbe_v5_8.fair_coupon_pct.fields = function(buffer, of
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fair_coupon_pct = mantissa / factor( exponent )
+  local fair_coupon_pct = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fair_coupon_pct = nil end
 
   return index, fair_coupon_pct
 end
@@ -11275,12 +11339,12 @@ cme_cmefutures_streamlined_sbe_v5_8.coupon_rate_optional.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Coupon Rate Optional
-cme_cmefutures_streamlined_sbe_v5_8.coupon_rate_optional.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.coupon_rate_optional.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Coupon Rate Optional
@@ -11294,7 +11358,10 @@ cme_cmefutures_streamlined_sbe_v5_8.coupon_rate_optional.fields = function(buffe
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local coupon_rate_optional = mantissa_32 / factor( exponent )
+  local coupon_rate_optional = mantissa_32 * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa_32 == 2147483647 then coupon_rate_optional = nil end
 
   return index, coupon_rate_optional
 end
@@ -11326,12 +11393,12 @@ cme_cmefutures_streamlined_sbe_v5_8.cal_fut_px_optional.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Cal Fut Px Optional
-cme_cmefutures_streamlined_sbe_v5_8.cal_fut_px_optional.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.cal_fut_px_optional.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Cal Fut Px Optional
@@ -11345,7 +11412,10 @@ cme_cmefutures_streamlined_sbe_v5_8.cal_fut_px_optional.fields = function(buffer
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local cal_fut_px_optional = mantissa / factor( exponent )
+  local cal_fut_px_optional = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then cal_fut_px_optional = nil end
 
   return index, cal_fut_px_optional
 end
@@ -11466,12 +11536,12 @@ cme_cmefutures_streamlined_sbe_v5_8.md_entry_px_decimal_optional.size =
   cme_cmefutures_streamlined_sbe_v5_8.exponent.size
 
 -- Display: Md Entry Px Decimal Optional
-cme_cmefutures_streamlined_sbe_v5_8.md_entry_px_decimal_optional.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+cme_cmefutures_streamlined_sbe_v5_8.md_entry_px_decimal_optional.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Md Entry Px Decimal Optional
@@ -11485,7 +11555,10 @@ cme_cmefutures_streamlined_sbe_v5_8.md_entry_px_decimal_optional.fields = functi
   index, exponent = cme_cmefutures_streamlined_sbe_v5_8.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_px_decimal_optional = mantissa / factor( exponent )
+  local md_entry_px_decimal_optional = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then md_entry_px_decimal_optional = nil end
 
   return index, md_entry_px_decimal_optional
 end

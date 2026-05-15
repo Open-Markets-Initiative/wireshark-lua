@@ -114,7 +114,7 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.prefs.show_adap_block_index = Pr
 -- Handle changed preferences
 function omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.adap_block ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.prefs.show_adap_block then
     show.adap_block = omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.prefs.show_adap_block
   end

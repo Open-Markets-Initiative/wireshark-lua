@@ -575,7 +575,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_se
 -- Handle changed preferences
 function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages then
     show.application_messages = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages
   end

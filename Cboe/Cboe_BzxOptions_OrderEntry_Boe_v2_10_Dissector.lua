@@ -1286,7 +1286,7 @@ omi_cboe_bzxoptions_orderentry_boe_v2_10.prefs.show_quote_result_group_index = P
 -- Handle changed preferences
 function omi_cboe_bzxoptions_orderentry_boe_v2_10.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_bzxoptions_orderentry_boe_v2_10.prefs.show_application_messages then
     show.application_messages = omi_cboe_bzxoptions_orderentry_boe_v2_10.prefs.show_application_messages
   end

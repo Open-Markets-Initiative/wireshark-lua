@@ -188,7 +188,7 @@ omi_siac_cqs_output_cta_v2_10_a.prefs.show_message_index = Pref.bool("Show Messa
 -- Handle changed preferences
 function omi_siac_cqs_output_cta_v2_10_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.administrative_message ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_administrative_message then
     show.administrative_message = omi_siac_cqs_output_cta_v2_10_a.prefs.show_administrative_message
   end

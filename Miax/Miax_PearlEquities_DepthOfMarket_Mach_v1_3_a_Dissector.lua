@@ -94,7 +94,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags = Pref.b
 -- Handle changed preferences
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_message then
     show.application_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_message
   end

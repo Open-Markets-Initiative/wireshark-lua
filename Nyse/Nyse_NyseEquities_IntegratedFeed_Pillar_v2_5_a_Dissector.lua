@@ -174,7 +174,7 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_message_index = Pr
 -- Handle changed preferences
 function omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_application_messages then
     show.application_messages = omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_application_messages
   end

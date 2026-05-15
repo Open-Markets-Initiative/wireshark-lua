@@ -149,7 +149,7 @@ omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_trade_summary_information = Pref.boo
 -- Handle changed preferences
 function omi_finra_finraorf_tdds_dfi_v2_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.action_datetime ~= omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_action_datetime then
     show.action_datetime = omi_finra_finraorf_tdds_dfi_v2_0.prefs.show_action_datetime
   end

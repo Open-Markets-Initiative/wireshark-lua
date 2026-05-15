@@ -104,7 +104,7 @@ omi_jnx_jnxequities_pts_ouch_v1_12.prefs.show_soup_bin_tcp_packet = Pref.bool("S
 -- Handle changed preferences
 function omi_jnx_jnxequities_pts_ouch_v1_12.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_jnx_jnxequities_pts_ouch_v1_12.prefs.show_application_messages then
     show.application_messages = omi_jnx_jnxequities_pts_ouch_v1_12.prefs.show_application_messages
   end

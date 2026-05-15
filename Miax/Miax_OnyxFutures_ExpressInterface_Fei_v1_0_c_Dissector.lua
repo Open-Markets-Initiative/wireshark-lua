@@ -179,7 +179,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg_index =
 -- Handle changed preferences
 function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.additional_order_indicators ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators then
     show.additional_order_indicators = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators
   end

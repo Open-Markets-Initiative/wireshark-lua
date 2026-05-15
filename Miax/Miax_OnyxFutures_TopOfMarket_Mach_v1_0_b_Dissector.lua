@@ -108,7 +108,7 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg_index = P
 -- Handle changed preferences
 function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message then
     show.application_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message
   end

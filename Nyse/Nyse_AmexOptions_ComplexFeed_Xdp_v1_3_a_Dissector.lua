@@ -124,7 +124,7 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_leg_definition_index = Pr
 -- Handle changed preferences
 function omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.complex_crossing_rfq_message ~= omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message then
     show.complex_crossing_rfq_message = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message
   end

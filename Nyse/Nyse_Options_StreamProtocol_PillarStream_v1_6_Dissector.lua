@@ -78,7 +78,7 @@ omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_stream_id = Pref.bo
 -- Handle changed preferences
 function omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.msg_header ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_msg_header then
     show.msg_header = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_msg_header
   end

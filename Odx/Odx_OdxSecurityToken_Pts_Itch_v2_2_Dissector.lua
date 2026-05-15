@@ -81,6 +81,7 @@ odx_odxsecuritytoken_pts_itch_v2_2.nanoseconds_format = 2
 -- Hours ahead of UTC (JST) for midnight calculation
 odx_odxsecuritytoken_pts_itch_v2_2.utc_offset_hours = 9
 
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -109,7 +110,7 @@ omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.utc_offset_hours = Pref.uint("UTC O
 -- Handle changed preferences
 function omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_application_messages then
     show.application_messages = omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_application_messages
   end
@@ -128,8 +129,6 @@ function omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs_changed()
   if show.message_index ~= omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_message_index then
     show.message_index = omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.show_message_index
   end
-
-  -- Check Nanoseconds preferences
   if odx_odxsecuritytoken_pts_itch_v2_2.nanoseconds_format ~= omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.nanoseconds_format then
     odx_odxsecuritytoken_pts_itch_v2_2.nanoseconds_format = omi_odx_odxsecuritytoken_pts_itch_v2_2.prefs.nanoseconds_format
   end

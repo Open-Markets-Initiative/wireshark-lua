@@ -132,6 +132,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_6.nanoseconds_format = 2
 -- Hours behind UTC (EST) for midnight calculation
 nasdaq_phlxoptions_marketdepth_itch_v1_6.utc_offset_hours = 5
 
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -160,7 +161,7 @@ omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.utc_offset_hours = Pref.uint(
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_application_messages
   end
@@ -179,8 +180,6 @@ function omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs_changed()
   if show.message_index ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_message_index then
     show.message_index = omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.show_message_index
   end
-
-  -- Check Nanoseconds preferences
   if nasdaq_phlxoptions_marketdepth_itch_v1_6.nanoseconds_format ~= omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.nanoseconds_format then
     nasdaq_phlxoptions_marketdepth_itch_v1_6.nanoseconds_format = omi_nasdaq_phlxoptions_marketdepth_itch_v1_6.prefs.nanoseconds_format
   end

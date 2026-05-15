@@ -166,7 +166,7 @@ omi_nyse_amexoptions_topfeed_xdp_v1_3_a.prefs.show_message_index = Pref.bool("Sh
 -- Handle changed preferences
 function omi_nyse_amexoptions_topfeed_xdp_v1_3_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.message ~= omi_nyse_amexoptions_topfeed_xdp_v1_3_a.prefs.show_message then
     show.message = omi_nyse_amexoptions_topfeed_xdp_v1_3_a.prefs.show_message
   end

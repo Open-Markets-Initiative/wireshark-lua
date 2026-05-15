@@ -129,6 +129,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.timestamp_format = 2
 -- Hours behind UTC (EST) for midnight calculation
 nasdaq_nsmequities_totalview_itch_v5_0_2017.utc_offset_hours = 5
 
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -157,7 +158,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.utc_offset_hours = Pref.ui
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_application_messages
   end
@@ -176,8 +177,6 @@ function omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs_changed()
   if show.message_index ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_message_index then
     show.message_index = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.show_message_index
   end
-
-  -- Check Nanoseconds preferences
   if nasdaq_nsmequities_totalview_itch_v5_0_2017.timestamp_format ~= omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.timestamp_format then
     nasdaq_nsmequities_totalview_itch_v5_0_2017.timestamp_format = omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.prefs.timestamp_format
   end

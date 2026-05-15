@@ -153,7 +153,7 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_message_index = Pref.
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.heartbeat_response_message ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_heartbeat_response_message then
     show.heartbeat_response_message = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_heartbeat_response_message
   end

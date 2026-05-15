@@ -79,7 +79,7 @@ omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.prefs.show_unsequenced_data_pack
 -- Handle changed preferences
 function omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.prefs.show_application_messages then
     show.application_messages = omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.prefs.show_application_messages
   end

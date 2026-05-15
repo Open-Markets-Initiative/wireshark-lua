@@ -144,7 +144,7 @@ omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg_index
 -- Handle changed preferences
 function omi_cboe_c1options_complex_pitch_v2_1_37.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_application_messages
   end

@@ -301,7 +301,7 @@ omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_
 -- Handle changed preferences
 function omi_memx_memxoptions_memo_sbe_v1_3.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.allocation_instruction_message_allocations_group ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_group then
     show.allocation_instruction_message_allocations_group = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_group
   end

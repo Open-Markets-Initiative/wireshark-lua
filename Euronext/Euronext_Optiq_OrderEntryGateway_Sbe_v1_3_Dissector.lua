@@ -445,7 +445,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_instrument_synchronizat
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.ack_qualifiers ~= omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ack_qualifiers then
     show.ack_qualifiers = omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs.show_ack_qualifiers
   end

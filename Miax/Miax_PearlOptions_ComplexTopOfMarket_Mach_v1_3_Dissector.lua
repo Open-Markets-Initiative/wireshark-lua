@@ -128,7 +128,7 @@ omi_miax_pearloptions_complextopofmarket_mach_v1_3.prefs.show_leg_definition_ind
 -- Handle changed preferences
 function omi_miax_pearloptions_complextopofmarket_mach_v1_3.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_message ~= omi_miax_pearloptions_complextopofmarket_mach_v1_3.prefs.show_application_message then
     show.application_message = omi_miax_pearloptions_complextopofmarket_mach_v1_3.prefs.show_application_message
   end

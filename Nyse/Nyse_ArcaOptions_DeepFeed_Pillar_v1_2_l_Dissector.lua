@@ -194,7 +194,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_complex_series_index_mapp
 -- Handle changed preferences
 function omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_application_messages
   end

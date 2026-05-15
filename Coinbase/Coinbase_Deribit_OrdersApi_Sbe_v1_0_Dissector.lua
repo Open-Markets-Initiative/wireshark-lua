@@ -381,7 +381,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_mess
 -- Handle changed preferences
 function omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.amend_order_response_message_fills_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_group then
     show.amend_order_response_message_fills_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_group
   end
@@ -610,38 +610,6 @@ function omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs_changed()
   if show.mass_quote_orders_placed_message_legs_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group_index then
     show.mass_quote_orders_placed_message_legs_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group_index
   end
-end
-
-
------------------------------------------------------------------------
--- Protocol Functions
------------------------------------------------------------------------
-
--- Convert exponent to decimal
-factor = function(value)
-  if value == nil then
-    return nil
-  elseif value == -1 then
-    return 10
-  elseif value == -2 then
-    return 100
-  elseif value == -3 then
-    return 1000
-  elseif value == -4 then
-    return 10000
-  elseif value == -5 then
-    return 100000
-  elseif value == -6 then
-    return 1000000
-  elseif value == -7 then
-    return 10000000
-  elseif value == -8 then
-    return 100000000
-  elseif value == -9 then
-    return 1000000000
-  end
-
-  return 1
 end
 
 
@@ -3232,12 +3200,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.fill_qty.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Fill Qty
-coinbase_deribit_ordersapi_sbe_v1_0.fill_qty.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.fill_qty.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Fill Qty
@@ -3251,7 +3219,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.fill_qty.fields = function(buffer, offset, p
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fill_qty = mantissa / factor( exponent )
+  local fill_qty = mantissa * 10 ^ exponent
 
   return index, fill_qty
 end
@@ -3561,12 +3529,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.visible_qty.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Visible Qty
-coinbase_deribit_ordersapi_sbe_v1_0.visible_qty.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.visible_qty.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Visible Qty
@@ -3580,7 +3548,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.visible_qty.fields = function(buffer, offset
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local visible_qty = mantissa / factor( exponent )
+  local visible_qty = mantissa * 10 ^ exponent
 
   return index, visible_qty
 end
@@ -3612,12 +3580,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.total_filled.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Total Filled
-coinbase_deribit_ordersapi_sbe_v1_0.total_filled.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.total_filled.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Total Filled
@@ -3631,7 +3599,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.total_filled.fields = function(buffer, offse
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local total_filled = mantissa / factor( exponent )
+  local total_filled = mantissa * 10 ^ exponent
 
   return index, total_filled
 end
@@ -3663,12 +3631,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.quantity.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Quantity
-coinbase_deribit_ordersapi_sbe_v1_0.quantity.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.quantity.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Quantity
@@ -3682,7 +3650,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.quantity.fields = function(buffer, offset, p
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local quantity = mantissa / factor( exponent )
+  local quantity = mantissa * 10 ^ exponent
 
   return index, quantity
 end
@@ -5507,12 +5475,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.ask_filled_qty.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Ask Filled Qty
-coinbase_deribit_ordersapi_sbe_v1_0.ask_filled_qty.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.ask_filled_qty.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Ask Filled Qty
@@ -5526,7 +5494,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.ask_filled_qty.fields = function(buffer, off
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local ask_filled_qty = mantissa / factor( exponent )
+  local ask_filled_qty = mantissa * 10 ^ exponent
 
   return index, ask_filled_qty
 end
@@ -5558,12 +5526,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.bid_filled_qty.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Bid Filled Qty
-coinbase_deribit_ordersapi_sbe_v1_0.bid_filled_qty.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.bid_filled_qty.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Bid Filled Qty
@@ -5577,7 +5545,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.bid_filled_qty.fields = function(buffer, off
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local bid_filled_qty = mantissa / factor( exponent )
+  local bid_filled_qty = mantissa * 10 ^ exponent
 
   return index, bid_filled_qty
 end
@@ -5609,12 +5577,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.ask_qty.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Ask Qty
-coinbase_deribit_ordersapi_sbe_v1_0.ask_qty.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.ask_qty.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Ask Qty
@@ -5628,7 +5596,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.ask_qty.fields = function(buffer, offset, pa
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local ask_qty = mantissa / factor( exponent )
+  local ask_qty = mantissa * 10 ^ exponent
 
   return index, ask_qty
 end
@@ -5660,12 +5628,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.bid_qty.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Bid Qty
-coinbase_deribit_ordersapi_sbe_v1_0.bid_qty.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.bid_qty.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Bid Qty
@@ -5679,7 +5647,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.bid_qty.fields = function(buffer, offset, pa
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local bid_qty = mantissa / factor( exponent )
+  local bid_qty = mantissa * 10 ^ exponent
 
   return index, bid_qty
 end
@@ -7556,12 +7524,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.show_qty.size =
   coinbase_deribit_ordersapi_sbe_v1_0.exponent.size
 
 -- Display: Show Qty
-coinbase_deribit_ordersapi_sbe_v1_0.show_qty.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
+coinbase_deribit_ordersapi_sbe_v1_0.show_qty.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
   end
 
-  return ""..value
+  return ": " .. tostring(value)
 end
 
 -- Dissect Fields: Show Qty
@@ -7575,7 +7543,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.show_qty.fields = function(buffer, offset, p
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_0.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local show_qty = mantissa / factor( exponent )
+  local show_qty = mantissa * 10 ^ exponent
 
   return index, show_qty
 end

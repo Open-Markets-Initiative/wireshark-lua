@@ -109,6 +109,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.timestamp_format = 2
 -- Hours behind UTC (EST) for midnight calculation
 nasdaq_psxequities_lastsale_itch_v2_1_2018.utc_offset_hours = 5
 
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -137,7 +138,7 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.utc_offset_hours = Pref.uin
 -- Handle changed preferences
 function omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_application_messages
   end
@@ -156,8 +157,6 @@ function omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs_changed()
   if show.message_index ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_message_index then
     show.message_index = omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_message_index
   end
-
-  -- Check Nanoseconds preferences
   if nasdaq_psxequities_lastsale_itch_v2_1_2018.timestamp_format ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.timestamp_format then
     nasdaq_psxequities_lastsale_itch_v2_1_2018.timestamp_format = omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.timestamp_format
   end

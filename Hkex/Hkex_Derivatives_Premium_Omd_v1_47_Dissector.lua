@@ -205,7 +205,7 @@ omi_hkex_derivatives_premium_omd_v1_47.prefs.show_content_index = Pref.bool("Sho
 -- Handle changed preferences
 function omi_hkex_derivatives_premium_omd_v1_47.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_hkex_derivatives_premium_omd_v1_47.prefs.show_application_messages then
     show.application_messages = omi_hkex_derivatives_premium_omd_v1_47.prefs.show_application_messages
   end

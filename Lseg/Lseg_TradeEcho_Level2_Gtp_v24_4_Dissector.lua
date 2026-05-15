@@ -101,7 +101,7 @@ omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_message_index = Pref.bool("Show M
 -- Handle changed preferences
 function omi_lseg_tradeecho_level2_gtp_v24_4.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.allowed_book_types ~= omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_allowed_book_types then
     show.allowed_book_types = omi_lseg_tradeecho_level2_gtp_v24_4.prefs.show_allowed_book_types
   end

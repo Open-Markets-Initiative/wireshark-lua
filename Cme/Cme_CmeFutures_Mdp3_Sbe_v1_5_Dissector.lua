@@ -457,7 +457,7 @@ omi_cme_cmefutures_mdp3_sbe_v1_5.prefs.show_m_d_incremental_refresh_trade_summar
 -- Handle changed preferences
 function omi_cme_cmefutures_mdp3_sbe_v1_5.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_mdp3_sbe_v1_5.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_mdp3_sbe_v1_5.prefs.show_application_messages
   end

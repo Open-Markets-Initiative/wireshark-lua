@@ -50,7 +50,7 @@ omi_cme_headers_mdp_udp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.p
 -- Handle changed preferences
 function omi_cme_headers_mdp_udp_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.binary_packet_header ~= omi_cme_headers_mdp_udp_v1_0.prefs.show_binary_packet_header then
     show.binary_packet_header = omi_cme_headers_mdp_udp_v1_0.prefs.show_binary_packet_header
   end

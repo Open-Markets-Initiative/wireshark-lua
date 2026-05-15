@@ -163,7 +163,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message_index = Pref.b
 -- Handle changed preferences
 function omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_application_messages then
     show.application_messages = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_application_messages
   end

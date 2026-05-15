@@ -219,7 +219,7 @@ omi_siac_cts_output_cta_v1_91.prefs.show_participants_index = Pref.bool("Show Pa
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v1_91.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.administrative ~= omi_siac_cts_output_cta_v1_91.prefs.show_administrative then
     show.administrative = omi_siac_cts_output_cta_v1_91.prefs.show_administrative
   end

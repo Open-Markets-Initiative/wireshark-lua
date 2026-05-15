@@ -188,7 +188,7 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_index = Pref.bool("Show 
 -- Handle changed preferences
 function omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.bqt_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_bqt_message then
     show.bqt_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_bqt_message
   end

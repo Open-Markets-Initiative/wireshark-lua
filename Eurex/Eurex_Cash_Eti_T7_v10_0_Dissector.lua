@@ -626,7 +626,7 @@ omi_eurex_cash_eti_t7_v10_0.prefs.show_srqs_quote_entry_grp_comp_index = Pref.bo
 -- Handle changed preferences
 function omi_eurex_cash_eti_t7_v10_0.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.affected_ord_grp_comp ~= omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp then
     show.affected_ord_grp_comp = omi_eurex_cash_eti_t7_v10_0.prefs.show_affected_ord_grp_comp
   end

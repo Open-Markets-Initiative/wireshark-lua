@@ -68,7 +68,7 @@ omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body_index = Pref.bool("Show B
 -- Handle changed preferences
 function omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.body ~= omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body then
     show.body = omi_tmx_quantumfeed_xmtheader_udp_v1_1.prefs.show_body
   end

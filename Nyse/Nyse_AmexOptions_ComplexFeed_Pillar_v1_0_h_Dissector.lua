@@ -164,7 +164,7 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_complex_series_index_m
 -- Handle changed preferences
 function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages
   end

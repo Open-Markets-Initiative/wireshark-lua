@@ -145,7 +145,7 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_adap_block_in
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs_changed()
 
-  -- Check if show options have changed
+  -- Check if preferences have changed
   if show.adap_block ~= omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_adap_block then
     show.adap_block = omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_adap_block
   end
