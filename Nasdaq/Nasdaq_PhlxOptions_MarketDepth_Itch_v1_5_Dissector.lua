@@ -971,16 +971,16 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.display = function(value)
     return "Market Side: Sell (S)"
   end
   if value == "A" then
-    return "Market Side: Buy (A)"
+    return "Market Side: Buy Aon (A)"
   end
   if value == "B" then
-    return "Market Side: Sell (B)"
+    return "Market Side: Sell Aon (B)"
   end
   if value == "M" then
-    return "Market Side: Buy (M)"
+    return "Market Side: Buy Implied (M)"
   end
   if value == "N" then
-    return "Market Side: Sell (N)"
+    return "Market Side: Sell Implied (N)"
   end
 
   return "Market Side: Unknown("..value..")"

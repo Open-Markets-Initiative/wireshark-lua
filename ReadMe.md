@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 546 | 4,631,848 |
+| 551 | 4,649,141 |
 
 ## Testing
 
@@ -140,6 +140,10 @@ Enjoy.
 [Cboe.BzxEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/MulticastDepthOfBook.md "Cboe BZX Multicast Depth Of Book"
 [Cboe.EdgaEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgaEquities/MulticastDepthOfBook.md "Cboe EDGA Multicast Depth Of Book"
 [Cboe.EdgxEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxEquities/MulticastDepthOfBook.md "Cboe EDGX Multicast Depth Of Book"
+[Cboe.ByxEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/ByxEquities/TcpDepthOfBook.md "Cboe BYX Tcp Depth Of Book"
+[Cboe.BzxEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/TcpDepthOfBook.md "Cboe BZX Tcp Depth Of Book"
+[Cboe.EdgaEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgaEquities/TcpDepthOfBook.md "Cboe EDGA Tcp Depth Of Book"
+[Cboe.EdgxEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxEquities/TcpDepthOfBook.md "Cboe EDGX Tcp Depth Of Book"
 [Cboe.TitaniumConsolidated.OneEquities]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumConsolidated/OneEquities.md "Cboe One Equities"
 [Cboe.ByxEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/ByxEquities/LastSale.md "Cboe BYX Last Sale"
 [Cboe.BzxEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/LastSale.md "Cboe BZX Last Sale"
@@ -171,6 +175,7 @@ Enjoy.
 [Cboe.CfeFutures.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/OrderEntry.md "Cboe Futures Order Entry"
 [Cboe.CboeEurope.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CboeEurope/LastSale.md "Cboe Europe Last Sale"
 [Cboe.CboeEurope.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CboeEurope/MulticastDepthOfBook.md "Cboe Europe Multicast Depth Of Book"
+[Cboe.CboeEurope.CedxMulticast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CboeEurope/CedxMulticast.md "Cboe Europe CEDX Multicast"
 [Cboe.C1Options.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketDataFeed.md "Cboe Market Data Feed"
 [Cboe.C1Options.MarketLevel2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketLevel2.md "Cboe Market Level 2 Feed"
 [Cboe.C1Options.OpeningAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/OpeningAuction.md "Cboe Options Opening Auction Feed"

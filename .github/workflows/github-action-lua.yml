@@ -124,8 +124,8 @@ jobs:
       - name: Run Nasdaq NsmEquities Orders Ouch 5.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-Orders-Ouch-v5-0-Test.sh
 
-      - name: Run Nasdaq NsmEquities TotalView Itch 5.0 Dissector Tests
-        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v5-0-Test.sh
+      - name: Run Nasdaq NsmEquities TotalView Itch 5.0.2017 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v5-0-2017-Test.sh
 
       - name: Run Nasdaq Uqdf Output Utp 1.5 Dissector Tests
         run: bash -x .github/tests/Nasdaq-Uqdf-Output-Utp-v1-5-Test.sh
