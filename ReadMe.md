@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 551 | 4,649,141 |
+| 555 | 4,660,800 |
 
 ## Testing
 
@@ -173,9 +173,12 @@ Enjoy.
 [Cboe.CfeFutures.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/MulticastDepthOfBook.md "Cboe Futures Multicast Depth Of Book"
 [Cboe.CfeFutures.MulticastTop]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/MulticastTop.md "Cboe Futures Multicast Top"
 [Cboe.CfeFutures.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/OrderEntry.md "Cboe Futures Order Entry"
-[Cboe.CboeEurope.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CboeEurope/LastSale.md "Cboe Europe Last Sale"
-[Cboe.CboeEurope.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CboeEurope/MulticastDepthOfBook.md "Cboe Europe Multicast Depth Of Book"
-[Cboe.CboeEurope.CedxMulticast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CboeEurope/CedxMulticast.md "Cboe Europe CEDX Multicast"
+[Cboe.BxeEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BxeEquities/LastSale.md "Cboe Europe BXE Last Sale"
+[Cboe.CxeEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CxeEquities/LastSale.md "Cboe Europe CXE Last Sale"
+[Cboe.BxeEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BxeEquities/MulticastDepthOfBook.md "Cboe Europe BXE Multicast Depth Of Book"
+[Cboe.CxeEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CxeEquities/MulticastDepthOfBook.md "Cboe Europe CXE Multicast Depth Of Book"
+[Cboe.DxeDerivatives.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/DxeDerivatives/MulticastDepthOfBook.md "Cboe Europe Derivatives Multicast Depth Of Book"
+[Cboe.DxeDerivatives.CedxMulticast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/DxeDerivatives/CedxMulticast.md "Cboe Europe Derivatives CEDX Multicast"
 [Cboe.C1Options.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketDataFeed.md "Cboe Market Data Feed"
 [Cboe.C1Options.MarketLevel2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketLevel2.md "Cboe Market Level 2 Feed"
 [Cboe.C1Options.OpeningAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/OpeningAuction.md "Cboe Options Opening Auction Feed"
