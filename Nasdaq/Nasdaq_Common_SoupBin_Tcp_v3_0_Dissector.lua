@@ -34,11 +34,15 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type = ProtoField.
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.common.soupbin.tcp.v3.0.username", ftypes.STRING)
 
 -- Nasdaq Common Tcp SoupBin 3.0 Session Messages
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.common.soupbin.tcp.v3.0.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbin.tcp.v3.0.debugpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.common.soupbin.tcp.v3.0.endofsessionpacket", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.common.soupbin.tcp.v3.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.common.soupbin.tcp.v3.0.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.common.soupbin.tcp.v3.0.serverheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------

@@ -72,11 +72,15 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced = ProtoField.n
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order = ProtoField.new("Replace Order", "jpx.osederivatives.geniuminet.ouch.v5.0.replaceorder", ftypes.STRING)
 
 -- Jpx OseDerivatives Ouch GeniumInet 5.0 Session Messages
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.clientheartbeatpacket", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.debugpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.endofsessionpacket", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrejectedpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrequestpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.logoutrequestpacket", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.sequenceddatapacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.serverheartbeatpacket", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------

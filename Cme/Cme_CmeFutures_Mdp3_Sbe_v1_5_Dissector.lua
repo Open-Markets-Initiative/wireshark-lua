@@ -227,6 +227,7 @@ omi_cme_cmefutures_mdp3_sbe_v1_5.fields.year = ProtoField.new("Year", "cme.cmefu
 omi_cme_cmefutures_mdp3_sbe_v1_5.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.cmefutures.mdp3.sbe.v1.5.zeropriceoutrighteligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 
 -- Cme CmeFutures Sbe Mdp3 1.5 Application Messages
+omi_cme_cmefutures_mdp3_sbe_v1_5.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.cmefutures.mdp3.sbe.v1.5.adminheartbeat", ftypes.BYTES)
 omi_cme_cmefutures_mdp3_sbe_v1_5.fields.admin_login = ProtoField.new("Admin Login", "cme.cmefutures.mdp3.sbe.v1.5.adminlogin", ftypes.STRING)
 omi_cme_cmefutures_mdp3_sbe_v1_5.fields.admin_logout = ProtoField.new("Admin Logout", "cme.cmefutures.mdp3.sbe.v1.5.adminlogout", ftypes.STRING)
 omi_cme_cmefutures_mdp3_sbe_v1_5.fields.channel_reset = ProtoField.new("Channel Reset", "cme.cmefutures.mdp3.sbe.v1.5.channelreset", ftypes.STRING)

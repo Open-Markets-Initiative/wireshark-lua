@@ -56,11 +56,13 @@ omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.top_lf = ProtoField.new("Top L
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.username = ProtoField.new("Username", "cboe.byxequities.top.asciipitch.v1.3.2.username", ftypes.STRING)
 
 -- Cboe ByxEquities AsciiPitch Top 1.3.2 Application Messages
+omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "cboe.byxequities.top.asciipitch.v1.3.2.clientheartbeatmessage", ftypes.BYTES)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.expanded_ask_update_message = ProtoField.new("Expanded Ask Update Message", "cboe.byxequities.top.asciipitch.v1.3.2.expandedaskupdatemessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.expanded_bid_update_message = ProtoField.new("Expanded Bid Update Message", "cboe.byxequities.top.asciipitch.v1.3.2.expandedbidupdatemessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.expanded_spin_message = ProtoField.new("Expanded Spin Message", "cboe.byxequities.top.asciipitch.v1.3.2.expandedspinmessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.expanded_trade_message = ProtoField.new("Expanded Trade Message", "cboe.byxequities.top.asciipitch.v1.3.2.expandedtrademessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.expanded_two_sided_update_message = ProtoField.new("Expanded Two Sided Update Message", "cboe.byxequities.top.asciipitch.v1.3.2.expandedtwosidedupdatemessage", ftypes.STRING)
+omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.logon_accepted_message = ProtoField.new("Logon Accepted Message", "cboe.byxequities.top.asciipitch.v1.3.2.logonacceptedmessage", ftypes.BYTES)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.logon_message = ProtoField.new("Logon Message", "cboe.byxequities.top.asciipitch.v1.3.2.logonmessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.logon_rejected_message = ProtoField.new("Logon Rejected Message", "cboe.byxequities.top.asciipitch.v1.3.2.logonrejectedmessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.long_ask_update_message = ProtoField.new("Long Ask Update Message", "cboe.byxequities.top.asciipitch.v1.3.2.longaskupdatemessage", ftypes.STRING)
@@ -69,10 +71,12 @@ omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.long_trade_message = ProtoFiel
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.long_two_sided_update_message = ProtoField.new("Long Two Sided Update Message", "cboe.byxequities.top.asciipitch.v1.3.2.longtwosidedupdatemessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.milliseconds_message = ProtoField.new("Milliseconds Message", "cboe.byxequities.top.asciipitch.v1.3.2.millisecondsmessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.seconds_message = ProtoField.new("Seconds Message", "cboe.byxequities.top.asciipitch.v1.3.2.secondsmessage", ftypes.STRING)
+omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.server_heartbeat_message = ProtoField.new("Server Heartbeat Message", "cboe.byxequities.top.asciipitch.v1.3.2.serverheartbeatmessage", ftypes.BYTES)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.short_ask_update_message = ProtoField.new("Short Ask Update Message", "cboe.byxequities.top.asciipitch.v1.3.2.shortaskupdatemessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.short_bid_update_message = ProtoField.new("Short Bid Update Message", "cboe.byxequities.top.asciipitch.v1.3.2.shortbidupdatemessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.short_trade_message = ProtoField.new("Short Trade Message", "cboe.byxequities.top.asciipitch.v1.3.2.shorttrademessage", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.short_two_sided_update_message = ProtoField.new("Short Two Sided Update Message", "cboe.byxequities.top.asciipitch.v1.3.2.shorttwosidedupdatemessage", ftypes.STRING)
+omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.spin_done_message = ProtoField.new("Spin Done Message", "cboe.byxequities.top.asciipitch.v1.3.2.spindonemessage", ftypes.BYTES)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.byxequities.top.asciipitch.v1.3.2.tradingstatusmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------

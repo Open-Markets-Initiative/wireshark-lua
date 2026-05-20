@@ -93,6 +93,7 @@ omi_aquis_equities_tradingprotocol_atp_v4_0.fields.traded_quantity = ProtoField.
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.user_tag = ProtoField.new("User Tag", "aquis.equities.tradingprotocol.atp.v4.0.usertag", ftypes.UINT64)
 
 -- Aquis Equities Atp TradingProtocol 4.0 Application Messages
+omi_aquis_equities_tradingprotocol_atp_v4_0.fields.heartbeat = ProtoField.new("Heartbeat", "aquis.equities.tradingprotocol.atp.v4.0.heartbeat", ftypes.BYTES)
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.iceberg_order_refresh_message = ProtoField.new("Iceberg Order Refresh Message", "aquis.equities.tradingprotocol.atp.v4.0.icebergorderrefreshmessage", ftypes.STRING)
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.ioi_add_message = ProtoField.new("Ioi Add Message", "aquis.equities.tradingprotocol.atp.v4.0.ioiaddmessage", ftypes.STRING)
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.ioi_firmup_message = ProtoField.new("Ioi Firmup Message", "aquis.equities.tradingprotocol.atp.v4.0.ioifirmupmessage", ftypes.STRING)
@@ -100,6 +101,7 @@ omi_aquis_equities_tradingprotocol_atp_v4_0.fields.ioi_invite_message = ProtoFie
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.login_message = ProtoField.new("Login Message", "aquis.equities.tradingprotocol.atp.v4.0.loginmessage", ftypes.STRING)
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.login_response_message = ProtoField.new("Login Response Message", "aquis.equities.tradingprotocol.atp.v4.0.loginresponsemessage", ftypes.STRING)
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.logout_message = ProtoField.new("Logout Message", "aquis.equities.tradingprotocol.atp.v4.0.logoutmessage", ftypes.STRING)
+omi_aquis_equities_tradingprotocol_atp_v4_0.fields.logout_request_message = ProtoField.new("Logout Request Message", "aquis.equities.tradingprotocol.atp.v4.0.logoutrequestmessage", ftypes.BYTES)
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.order_add_extended_message = ProtoField.new("Order Add Extended Message", "aquis.equities.tradingprotocol.atp.v4.0.orderaddextendedmessage", ftypes.STRING)
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.order_add_message = ProtoField.new("Order Add Message", "aquis.equities.tradingprotocol.atp.v4.0.orderaddmessage", ftypes.STRING)
 omi_aquis_equities_tradingprotocol_atp_v4_0.fields.order_add_response_message = ProtoField.new("Order Add Response Message", "aquis.equities.tradingprotocol.atp.v4.0.orderaddresponsemessage", ftypes.STRING)

@@ -377,6 +377,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_new_message = ProtoField
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_reject_message = ProtoField.new("Execution Report Reject Message", "ice.icefutures.bgw.sbe.v7.0.executionreportrejectmessage", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_snapshot_message = ProtoField.new("Execution Report Snapshot Message", "ice.icefutures.bgw.sbe.v7.0.executionreportsnapshotmessage", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "ice.icefutures.bgw.sbe.v7.0.executionreporttrademessage", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.heart_beat_message = ProtoField.new("Heart Beat Message", "ice.icefutures.bgw.sbe.v7.0.heartbeatmessage", ftypes.BYTES)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ip_report_message = ProtoField.new("Ip Report Message", "ice.icefutures.bgw.sbe.v7.0.ipreportmessage", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ip_request_message = ProtoField.new("Ip Request Message", "ice.icefutures.bgw.sbe.v7.0.iprequestmessage", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.logon_report_message = ProtoField.new("Logon Report Message", "ice.icefutures.bgw.sbe.v7.0.logonreportmessage", ftypes.STRING)

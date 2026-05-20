@@ -258,6 +258,7 @@ omi_cme_cmefutures_streamlined_sbe_v5_8.fields.yield = ProtoField.new("Yield", "
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.yield_type = ProtoField.new("Yield Type", "cme.cmefutures.streamlined.sbe.v5.8.yieldtype", ftypes.STRING)
 
 -- Cme CmeFutures Sbe Streamlined 5.8 Application Messages
+omi_cme_cmefutures_streamlined_sbe_v5_8.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.cmefutures.streamlined.sbe.v5.8.adminheartbeat", ftypes.BYTES)
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.admin_login = ProtoField.new("Admin Login", "cme.cmefutures.streamlined.sbe.v5.8.adminlogin", ftypes.STRING)
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.admin_logout = ProtoField.new("Admin Logout", "cme.cmefutures.streamlined.sbe.v5.8.adminlogout", ftypes.STRING)
 omi_cme_cmefutures_streamlined_sbe_v5_8.fields.md_incremental_refresh_eris_351 = ProtoField.new("Md Incremental Refresh Eris 351", "cme.cmefutures.streamlined.sbe.v5.8.mdincrementalrefresheris351", ftypes.STRING)

@@ -268,6 +268,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.security_definition_message = Pr
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.security_group_phase_10_message = ProtoField.new("Security Group Phase 10 Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.securitygroupphase10message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.security_status_3_message = ProtoField.new("Security Status 3 Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.securitystatus3message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.sequence_message = ProtoField.new("Sequence Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.sequencemessage", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.sequenceresetmessage", ftypes.BYTES)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.settlement_price_28_message = ProtoField.new("Settlement Price 28 Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.settlementprice28message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_header_30_message = ProtoField.new("Snapshot Full Refresh Header 30 Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.snapshotfullrefreshheader30message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.snapshotfullrefreshordersmbo71message", ftypes.STRING)

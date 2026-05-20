@@ -74,11 +74,15 @@ omi_jnx_jnxbonds_pts_ouch_v1_4.fields.replace_order_message = ProtoField.new("Re
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxbonds.pts.ouch.v1.4.systemeventmessage", ftypes.STRING)
 
 -- Jnx JnxBonds Ouch Pts 1.4 Session Messages
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxbonds.pts.ouch.v1.4.clientheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxbonds.pts.ouch.v1.4.debugpacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxbonds.pts.ouch.v1.4.endofsessionpacket", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxbonds.pts.ouch.v1.4.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxbonds.pts.ouch.v1.4.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxbonds.pts.ouch.v1.4.loginrequestpacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxbonds.pts.ouch.v1.4.logoutrequestpacket", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxbonds.pts.ouch.v1.4.sequenceddatapacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxbonds.pts.ouch.v1.4.serverheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxbonds.pts.ouch.v1.4.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------

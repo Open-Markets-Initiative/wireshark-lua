@@ -707,9 +707,11 @@ omi_cboe_bzxequities_orderentry_boe_v2_3.fields.working_price = ProtoField.new("
 -- Cboe BzxEquities Boe OrderEntry 2.3 Application Messages
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.bzxequities.orderentry.boe.v2.3.cancelordermessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.bzxequities.orderentry.boe.v2.3.cancelrejectedmessage", ftypes.STRING)
+omi_cboe_bzxequities_orderentry_boe_v2_3.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "cboe.bzxequities.orderentry.boe.v2.3.clientheartbeatmessage", ftypes.BYTES)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.bzxequities.orderentry.boe.v2.3.loginrequestmessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.bzxequities.orderentry.boe.v2.3.loginresponsemessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.logout_message = ProtoField.new("Logout Message", "cboe.bzxequities.orderentry.boe.v2.3.logoutmessage", ftypes.STRING)
+omi_cboe_bzxequities_orderentry_boe_v2_3.fields.logout_request_message = ProtoField.new("Logout Request Message", "cboe.bzxequities.orderentry.boe.v2.3.logoutrequestmessage", ftypes.BYTES)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.mass_cancel_acknowledgment_message = ProtoField.new("Mass Cancel Acknowledgment Message", "cboe.bzxequities.orderentry.boe.v2.3.masscancelacknowledgmentmessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.modify_order_message = ProtoField.new("Modify Order Message", "cboe.bzxequities.orderentry.boe.v2.3.modifyordermessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.new_order_message = ProtoField.new("New Order Message", "cboe.bzxequities.orderentry.boe.v2.3.newordermessage", ftypes.STRING)
@@ -721,6 +723,8 @@ omi_cboe_bzxequities_orderentry_boe_v2_3.fields.order_rejected_message = ProtoFi
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.order_restated_message = ProtoField.new("Order Restated Message", "cboe.bzxequities.orderentry.boe.v2.3.orderrestatedmessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.purge_order_message = ProtoField.new("Purge Order Message", "cboe.bzxequities.orderentry.boe.v2.3.purgeordermessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.purge_rejected_message = ProtoField.new("Purge Rejected Message", "cboe.bzxequities.orderentry.boe.v2.3.purgerejectedmessage", ftypes.STRING)
+omi_cboe_bzxequities_orderentry_boe_v2_3.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "cboe.bzxequities.orderentry.boe.v2.3.replaycompletemessage", ftypes.BYTES)
+omi_cboe_bzxequities_orderentry_boe_v2_3.fields.server_heartbeat_message = ProtoField.new("Server Heartbeat Message", "cboe.bzxequities.orderentry.boe.v2.3.serverheartbeatmessage", ftypes.BYTES)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.bzxequities.orderentry.boe.v2.3.tradecancelorcorrectmessage", ftypes.STRING)
 omi_cboe_bzxequities_orderentry_boe_v2_3.fields.user_modify_rejected_message = ProtoField.new("User Modify Rejected Message", "cboe.bzxequities.orderentry.boe.v2.3.usermodifyrejectedmessage", ftypes.STRING)
 

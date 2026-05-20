@@ -57,6 +57,7 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.volume = ProtoField.new("Volu
 -- Nyse NyseEquities Ultra OpenBook 2.1.b Application Messages
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.delta_update_message = ProtoField.new("Delta Update Message", "nyse.nyseequities.openbook.ultra.v2.1.b.deltaupdatemessage", ftypes.STRING)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_update_message = ProtoField.new("Full Update Message", "nyse.nyseequities.openbook.ultra.v2.1.b.fullupdatemessage", ftypes.STRING)
+omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nyse.nyseequities.openbook.ultra.v2.1.b.heartbeatmessage", ftypes.BYTES)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.nyseequities.openbook.ultra.v2.1.b.sequencenumberresetmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------

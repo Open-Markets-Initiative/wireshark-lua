@@ -118,6 +118,7 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.version = ProtoField.new("Ve
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.current_market_refresh_message = ProtoField.new("Current Market Refresh Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.currentmarketrefreshmessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.currentmarketupdatemessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.expectedopeningpriceandsizemessage", ftypes.STRING)
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.heartbeatmessage", ftypes.BYTES)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.index_value_message = ProtoField.new("Index Value Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.indexvaluemessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.market_data_control_message = ProtoField.new("Market Data Control Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.marketdatacontrolmessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.marketdatarefreshmessage", ftypes.STRING)

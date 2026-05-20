@@ -52,6 +52,7 @@ omi_cme_cmefutures_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Tran
 omi_cme_cmefutures_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.cmefutures.derived.sbe.v12.0.version", ftypes.UINT16)
 
 -- Cme CmeFutures Sbe Derived 12.0 Application Messages
+omi_cme_cmefutures_derived_sbe_v12_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.cmefutures.derived.sbe.v12.0.adminheartbeat", ftypes.BYTES)
 omi_cme_cmefutures_derived_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.cmefutures.derived.sbe.v12.0.globaldayroll", ftypes.STRING)
 omi_cme_cmefutures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum = ProtoField.new("Md Incremental Refresh Spectrum", "cme.cmefutures.derived.sbe.v12.0.mdincrementalrefreshspectrum", ftypes.STRING)
 omi_cme_cmefutures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker = ProtoField.new("Md Incremental Refresh Ticker", "cme.cmefutures.derived.sbe.v12.0.mdincrementalrefreshticker", ftypes.STRING)

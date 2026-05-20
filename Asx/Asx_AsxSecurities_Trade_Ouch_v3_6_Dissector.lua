@@ -81,11 +81,15 @@ omi_asx_asxsecurities_trade_ouch_v3_6.fields.order_replaced_message = ProtoField
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.asxsecurities.trade.ouch.v3.6.replaceordermessage", ftypes.STRING)
 
 -- Asx AsxSecurities Ouch Trade 3.6 Session Messages
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "asx.asxsecurities.trade.ouch.v3.6.clientheartbeatpacket", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.debug_packet = ProtoField.new("Debug Packet", "asx.asxsecurities.trade.ouch.v3.6.debugpacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "asx.asxsecurities.trade.ouch.v3.6.endofsessionpacket", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.asxsecurities.trade.ouch.v3.6.loginacceptedpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.asxsecurities.trade.ouch.v3.6.loginrejectedpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.asxsecurities.trade.ouch.v3.6.loginrequestpacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "asx.asxsecurities.trade.ouch.v3.6.logoutrequestpacket", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.asxsecurities.trade.ouch.v3.6.sequenceddatapacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "asx.asxsecurities.trade.ouch.v3.6.serverheartbeatpacket", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.asxsecurities.trade.ouch.v3.6.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------

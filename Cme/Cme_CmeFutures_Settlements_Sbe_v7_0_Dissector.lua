@@ -80,6 +80,7 @@ omi_cme_cmefutures_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cm
 omi_cme_cmefutures_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.cmefutures.settlements.sbe.v7.0.year", ftypes.UINT16)
 
 -- Cme CmeFutures Sbe Settlements 7.0 Application Messages
+omi_cme_cmefutures_settlements_sbe_v7_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.cmefutures.settlements.sbe.v7.0.adminheartbeat", ftypes.BYTES)
 omi_cme_cmefutures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.cmefutures.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
 omi_cme_cmefutures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.cmefutures.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
 omi_cme_cmefutures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.cmefutures.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)

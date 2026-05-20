@@ -68,11 +68,15 @@ omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.strategy_trading_action_mess
 omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.systemeventmessage", ftypes.STRING)
 
 -- Nasdaq PhlxOptions Itch SpreadDepth 2.1 Session Messages
+omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.debugpacket", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.endofsessionpacket", ftypes.BYTES)
 omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.serverheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_phlxoptions_spreaddepth_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.phlxoptions.spreaddepth.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq PhlxOptions SpreadDepth Itch 2.1 generated fields

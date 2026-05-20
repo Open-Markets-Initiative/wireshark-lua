@@ -117,11 +117,15 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.timestamp_message = ProtoField.new("Ti
 omi_nsxaustralia_nets_itch_v4_2_55.fields.trade_message = ProtoField.new("Trade Message", "nsxaustralia.nets.itch.v4.2.55.trademessage", ftypes.STRING)
 
 -- NsxAustralia Itch Nets 4.2.55 Session Messages
+omi_nsxaustralia_nets_itch_v4_2_55.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nsxaustralia.nets.itch.v4.2.55.clientheartbeatpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.debug_packet = ProtoField.new("Debug Packet", "nsxaustralia.nets.itch.v4.2.55.debugpacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nsxaustralia.nets.itch.v4.2.55.endofsessionpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nsxaustralia.nets.itch.v4.2.55.loginacceptedpacket", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nsxaustralia.nets.itch.v4.2.55.loginrejectedpacket", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.login_request_packet = ProtoField.new("Login Request Packet", "nsxaustralia.nets.itch.v4.2.55.loginrequestpacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nsxaustralia.nets.itch.v4.2.55.logoutrequestpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nsxaustralia.nets.itch.v4.2.55.sequenceddatapacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nsxaustralia.nets.itch.v4.2.55.serverheartbeatpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nsxaustralia.nets.itch.v4.2.55.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------

@@ -286,6 +286,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.declaration_notice_message 
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_message = ProtoField.new("Fill Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fillmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fund_price_input_ack_message = ProtoField.new("Fund Price Input Ack Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fundpriceinputackmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fund_price_input_message = ProtoField.new("Fund Price Input Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fundpriceinputmessage", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "euronext.optiq.orderentrygateway.sbe.v1.3.heartbeatmessage", ftypes.BYTES)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_list_message = ProtoField.new("Instrument Synchronization List Message", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationlistmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.kill_message = ProtoField.new("Kill Message", "euronext.optiq.orderentrygateway.sbe.v1.3.killmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.liquidity_provider_command_message = ProtoField.new("Liquidity Provider Command Message", "euronext.optiq.orderentrygateway.sbe.v1.3.liquidityprovidercommandmessage", ftypes.STRING)
@@ -309,6 +310,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_matching_status_message
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_notification_message = ProtoField.new("Rfq Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.rfqnotificationmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.synchronization_time_message = ProtoField.new("Synchronization Time Message", "euronext.optiq.orderentrygateway.sbe.v1.3.synchronizationtimemessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.technical_reject_message = ProtoField.new("Technical Reject Message", "euronext.optiq.orderentrygateway.sbe.v1.3.technicalrejectmessage", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.test_request_message = ProtoField.new("Test Request Message", "euronext.optiq.orderentrygateway.sbe.v1.3.testrequestmessage", ftypes.BYTES)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_bust_notification_message = ProtoField.new("Trade Bust Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.tradebustnotificationmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_notification_message = ProtoField.new("User Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.usernotificationmessage", ftypes.STRING)
 

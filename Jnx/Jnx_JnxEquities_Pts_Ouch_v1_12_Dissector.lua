@@ -73,11 +73,15 @@ omi_jnx_jnxequities_pts_ouch_v1_12.fields.replace_order_message = ProtoField.new
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxequities.pts.ouch.v1.12.systemeventmessage", ftypes.STRING)
 
 -- Jnx JnxEquities Ouch Pts 1.12 Session Messages
+omi_jnx_jnxequities_pts_ouch_v1_12.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.ouch.v1.12.clientheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.ouch.v1.12.debugpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_ouch_v1_12.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxequities.pts.ouch.v1.12.endofsessionpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.ouch.v1.12.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.ouch.v1.12.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxequities.pts.ouch.v1.12.loginrequestpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_ouch_v1_12.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxequities.pts.ouch.v1.12.logoutrequestpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxequities.pts.ouch.v1.12.sequenceddatapacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_ouch_v1_12.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxequities.pts.ouch.v1.12.serverheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.ouch.v1.12.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------

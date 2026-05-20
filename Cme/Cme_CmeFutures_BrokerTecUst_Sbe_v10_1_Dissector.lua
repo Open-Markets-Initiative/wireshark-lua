@@ -50,6 +50,7 @@ omi_cme_cmefutures_brokertecust_sbe_v10_1.fields.transact_time = ProtoField.new(
 omi_cme_cmefutures_brokertecust_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.cmefutures.brokertecust.sbe.v10.1.version", ftypes.UINT16)
 
 -- Cme CmeFutures Sbe BrokerTecUst 10.1 Application Messages
+omi_cme_cmefutures_brokertecust_sbe_v10_1.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.cmefutures.brokertecust.sbe.v10.1.adminheartbeat", ftypes.BYTES)
 omi_cme_cmefutures_brokertecust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.cmefutures.brokertecust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
 
 -- Cme CmeFutures BrokerTecUst Sbe 10.1 generated fields

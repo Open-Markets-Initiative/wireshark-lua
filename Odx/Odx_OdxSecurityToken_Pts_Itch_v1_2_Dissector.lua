@@ -62,11 +62,15 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.upper_price_limit = ProtoField.new
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.username = ProtoField.new("Username", "odx.odxsecuritytoken.pts.itch.v1.2.username", ftypes.STRING)
 
 -- Odx OdxSecurityToken Itch Pts 1.2 Session Messages
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "odx.odxsecuritytoken.pts.itch.v1.2.clientheartbeatpacket", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.debug_packet = ProtoField.new("Debug Packet", "odx.odxsecuritytoken.pts.itch.v1.2.debugpacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "odx.odxsecuritytoken.pts.itch.v1.2.endofsessionpacket", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginacceptedpacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginrejectedpacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginrequestpacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "odx.odxsecuritytoken.pts.itch.v1.2.logoutrequestpacket", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "odx.odxsecuritytoken.pts.itch.v1.2.sequenceddatapacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "odx.odxsecuritytoken.pts.itch.v1.2.serverheartbeatpacket", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "odx.odxsecuritytoken.pts.itch.v1.2.unsequenceddatapacket", ftypes.STRING)
 
 -- Odx OdxSecurityToken Itch Pts 1.2 Application Messages
