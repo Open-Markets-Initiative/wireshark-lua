@@ -14,8 +14,9 @@
 | [Cts][Cts] | [Output][Siac.Cts.Output] | [Cta][Omi.Encoding.Cta] | [2.10][Siac.Cts.Output.Cta.v2.10.Dissector] | 9/30/2024 | 8488 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v2.10.Url] - [pdf][Siac.Cts.Output.Cta.v2.10.Pdf] |
 | [Cts][Cts] | [Output][Siac.Cts.Output] | [Cta][Omi.Encoding.Cta] | [2.9][Siac.Cts.Output.Cta.v2.9.Dissector] | 12/16/2022 | 6847 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cts.Output.Cta.v2.9.Url] - [pdf][Siac.Cts.Output.Cta.v2.9.Pdf] |
 | [Cts][Cts] | [Output][Siac.Cts.Output] | [Cta][Omi.Encoding.Cta] | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | 6892 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cts.Output.Cta.v1.91.Url] - [pdf][Siac.Cts.Output.Cta.v1.91.Pdf] |
-| [Opra][Opra.Exchange] | [Recipient][Siac.Opra.Recipient] | [Obi][Omi.Encoding.Obi] | [6.3.a][Siac.Opra.Recipient.Obi.v6.3.a.Dissector] | 2/20/2026 | 4206 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v6.3.a.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.3.a.Pdf] |
-| [Opra][Opra] | [Recipient][Siac.Opra.Recipient] | [Obi][Omi.Encoding.Obi] | [6.2][Siac.Opra.Recipient.Obi.v6.2.Dissector] | 12/6/2024 | 4006 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Opra.Recipient.Obi.v6.2.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.2.Pdf] |
+| [Opra][Opra.Exchange] | [Input][Siac.Opra.Input] | [Obi][Omi.Encoding.Obi] | [5.0.i][Siac.Opra.Input.Obi.v5.0.i.Dissector] | 2/20/2026 | 3863 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Input.Obi.v5.0.i.Url] - [pdf][Siac.Opra.Input.Obi.v5.0.i.Pdf] |
+| [Opra][Opra.Exchange] | [Output][Siac.Opra.Output] | [Obi][Omi.Encoding.Obi] | [6.3.a][Siac.Opra.Output.Obi.v6.3.a.Dissector] | 2/20/2026 | 4780 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Output.Obi.v6.3.a.Url] - [pdf][Siac.Opra.Output.Obi.v6.3.a.Pdf] |
+| [Opra][Opra] | [Recipient][Siac.Opra.Recipient] | [Obi][Omi.Encoding.Obi] | [6.2][Siac.Opra.Recipient.Obi.v6.2.Dissector] | 12/6/2024 | 4491 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Opra.Recipient.Obi.v6.2.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.2.Pdf] |
 | [Opra][Opra] | [Recipient][Siac.Opra.Recipient] | [Obi][Omi.Encoding.Obi] | [6.1][Siac.Opra.Recipient.Obi.v6.1.Dissector] | 3/25/2022 | 3906 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v6.1.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.1.Pdf] |
 | [Opra][Opra] | [Recipient][Siac.Opra.Recipient] | [Obi][Omi.Encoding.Obi] | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | 3827 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v4.0.Url] - [pdf][Siac.Opra.Recipient.Obi.v4.0.Pdf] |
 
@@ -45,6 +46,8 @@ Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Cor
 [Cqs]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cqs "Siac Cqs"
 [Cqs.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cqs "Siac Cqs"
 [Siac.Opra.Recipient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Recipient.md "Recipient"
+[Siac.Opra.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Output.md "Output"
+[Siac.Opra.Input]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Input.md "Input"
 [Siac.Cts.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cts/Output.md "Output"
 [Siac.Cqs.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Output.md "Output"
 [Siac.Cqs.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Snapshot.md "Snapshot"
@@ -58,9 +61,12 @@ Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Cor
 [Siac.Opra.Recipient.Obi.v6.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Opra_Recipient_Obi_v6_2_Dissector.lua "Siac Opra Recipient Obi v6.2 Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v6.2.Url]: https://www.opraplan.com/document-library "The Securities Industry Automation Corporation 6.2 Url"
 [Siac.Opra.Recipient.Obi.v6.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Opra/Recipient/Siac.Opra.Recipient.Obi.v6.2.pdf "The Securities Industry Automation Corporation 6.2 Pdf"
-[Siac.Opra.Recipient.Obi.v6.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Opra_Recipient_Obi_v6_3_a_Dissector.lua "Siac Opra Recipient Obi v6.3.a Wireshark Dissector"
-[Siac.Opra.Recipient.Obi.v6.3.a.Url]: https://www.opraplan.com/document-library "The Securities Industry Automation Corporation 6.3.a Url"
-[Siac.Opra.Recipient.Obi.v6.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Opra/Recipient/Siac.Opra.Recipient.Obi.v6.3.a.pdf "The Securities Industry Automation Corporation 6.3.a Pdf"
+[Siac.Opra.Output.Obi.v6.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Opra_Output_Obi_v6_3_a_Dissector.lua "Siac Opra Output Obi v6.3.a Wireshark Dissector"
+[Siac.Opra.Output.Obi.v6.3.a.Url]: https://www.opraplan.com/document-library "The Securities Industry Automation Corporation 6.3.a Url"
+[Siac.Opra.Output.Obi.v6.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Opra/Output/Siac.Opra.Output.Obi.v6.3.a.pdf "The Securities Industry Automation Corporation 6.3.a Pdf"
+[Siac.Opra.Input.Obi.v5.0.i.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Opra_Input_Obi_v5_0_i_Dissector.lua "Siac Opra Input Obi v5.0.i Wireshark Dissector"
+[Siac.Opra.Input.Obi.v5.0.i.Url]: https://www.opraplan.com/document-library "The Securities Industry Automation Corporation 5.0.i Url"
+[Siac.Opra.Input.Obi.v5.0.i.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Opra/Input/Siac.Opra.Input.Obi.v5.0.i.pdf "The Securities Industry Automation Corporation 5.0.i Pdf"
 [Siac.Cts.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cts_Output_Cta_v1_91_Dissector.lua "Siac Cts Output Cta v1.91 Wireshark Dissector"
 [Siac.Cts.Output.Cta.v1.91.Url]: https://www.ctaplan.com/tech-specs "The Securities Industry Automation Corporation 1.91 Url"
 [Siac.Cts.Output.Cta.v1.91.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Specifications/Cts/Output/Siac.Cts.Output.Cta.v1.91.pdf "The Securities Industry Automation Corporation 1.91 Pdf"
