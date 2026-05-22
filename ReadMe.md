@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 553 | 4,653,941 |
+| 553 | 4,654,612 |
 
 ## Testing
 
@@ -250,10 +250,6 @@ Enjoy.
 [Memx.MemxOptions.MemoirDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemxOptions/MemoirDepth.md "Member Order Information Record Depth"
 [Memx.MemxOptions.Memo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemxOptions/Memo.md "Members Orders"
 [Memx.MemxOptions.RiskControl]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemxOptions/RiskControl.md "Memx Risk Control"
-[Nasdaq.BxEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/BxEquities/TotalView.md "Nasdaq BX TotalView Itch"
-[Nasdaq.BxEquities.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/BxEquities/Orders.md "Nasdaq BX Orders"
-[Nasdaq.BxOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/BxOptions/TopOfMarket.md "Nasdaq Bx Options Top Of Market"
-[Nasdaq.BxOptions.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/BxOptions/DepthOfMarket.md "Nasdaq Bx Options Depth Of Market"
 [Nasdaq.GemxOptions.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/GemxOptions/DepthOfMarket.md "Nasdaq Gemx Options Depth Of Market"
 [Nasdaq.GemxOptions.OrderFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/GemxOptions/OrderFeed.md "Nasdaq Gemx Options Order Feed"
 [Nasdaq.GemxOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/GemxOptions/TopOfMarket.md "Nasdaq Gemx Options Top Of Market"
@@ -277,6 +273,7 @@ Enjoy.
 [Nasdaq.NomOptions.Bono]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NomOptions/Bono.md "Nom Binary Order Entry"
 [Nasdaq.NomOptions.Itto]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NomOptions/Itto.md "Nom Itto Top Order Market Data"
 [Nasdaq.NtxEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxEquities/TotalView.md "Nasdaq TX TotalView Itch"
+[Nasdaq.NtxEquities.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxEquities/Orders.md "Nasdaq BX Orders"
 [Nasdaq.NtxOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/TopOfMarket.md "Nasdaq Ntx Options Top Of Market"
 [Nasdaq.NtxOptions.TradeFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/TradeFeed.md "Nasdaq Ntx Options Trade Feed"
 [Nasdaq.NtxOptions.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/DepthOfMarket.md "Nasdaq Ntx Options Depth Of Market"
@@ -360,6 +357,8 @@ Enjoy.
 [Otc.Markets.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Multicast.md "Multicast"
 [Otc.Markets.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Headers.md "Headers"
 [Siac.Opra.Recipient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Recipient.md "Recipient"
+[Siac.Opra.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Output.md "Output"
+[Siac.Opra.Input]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Input.md "Input"
 [Siac.Cts.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cts/Output.md "Output"
 [Siac.Cqs.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Output.md "Output"
 [Siac.Cqs.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Cqs/Snapshot.md "Snapshot"
