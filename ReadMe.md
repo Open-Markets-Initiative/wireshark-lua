@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 553 | 4,654,612 |
+| 557 | 4,663,012 |
 
 ## Testing
 
@@ -175,9 +175,13 @@ Enjoy.
 [Cboe.CfeFutures.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/OrderEntry.md "Cboe Futures Order Entry"
 [Cboe.DxeDerivatives.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/DxeDerivatives/MulticastDepthOfBook.md "Cboe Europe Derivatives Multicast Depth Of Book"
 [Cboe.BxeEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BxeEquities/LastSale.md "Cboe Europe BXE Last Sale"
+[Cboe.BxeEquities.AuctionFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BxeEquities/AuctionFeed.md "Cboe Europe BXE Auction Feed"
 [Cboe.BxeEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BxeEquities/MulticastDepthOfBook.md "Cboe Europe BXE Multicast Depth Of Book"
+[Cboe.BxeEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BxeEquities/TcpDepthOfBook.md "Cboe Europe BXE Tcp Depth Of Book"
 [Cboe.CxeEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CxeEquities/LastSale.md "Cboe Europe CXE Last Sale"
 [Cboe.CxeEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CxeEquities/MulticastDepthOfBook.md "Cboe Europe CXE Multicast Depth Of Book"
+[Cboe.CxeEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CxeEquities/TcpDepthOfBook.md "Cboe Europe CXE Tcp Depth Of Book"
+[Cboe.CxeEquities.AuctionFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CxeEquities/AuctionFeed.md "Cboe Europe CXE Auction Feed"
 [Cboe.C1Options.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketDataFeed.md "Cboe Market Data Feed"
 [Cboe.C1Options.MarketLevel2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketLevel2.md "Cboe Market Level 2 Feed"
 [Cboe.C1Options.OpeningAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/OpeningAuction.md "Cboe Options Opening Auction Feed"
@@ -277,15 +281,12 @@ Enjoy.
 [Nasdaq.NtxOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/TopOfMarket.md "Nasdaq Ntx Options Top Of Market"
 [Nasdaq.NtxOptions.TradeFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/TradeFeed.md "Nasdaq Ntx Options Trade Feed"
 [Nasdaq.NtxOptions.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/DepthOfMarket.md "Nasdaq Ntx Options Depth Of Market"
-[Nasdaq.PhlxOptions.MarketDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/MarketDepth.md "Nasdaq Phlx Market Depth"
+[Nasdaq.PhlxOptions.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/DepthOfMarket.md "Nasdaq Phlx Options Depth Of Market"
 [Nasdaq.PhlxOptions.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/Orders.md "Nasdaq PHLX Orders"
 [Nasdaq.PhlxOptions.Topo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/Topo.md "Nasdaq Phlx Top Order Market Data"
-[Nasdaq.PhlxOptions.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/DepthOfMarket.md "Nasdaq Phlx Options Depth Of Market"
-[Nasdaq.PhlxOptions.OrderFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/OrderFeed.md "Nasdaq Phlx Options Order Feed"
 [Nasdaq.PhlxOptions.SpreadDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/SpreadDepth.md "Nasdaq Phlx Options Spread Depth"
 [Nasdaq.PhlxOptions.SpreadFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/SpreadFeed.md "Nasdaq Phlx Options Spread Feed"
 [Nasdaq.PhlxOptions.SpreadTopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/SpreadTopOfMarket.md "Nasdaq Phlx Options Spread Top Of Market"
-[Nasdaq.PhlxOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/TopOfMarket.md "Nasdaq Phlx Options Top Of Market"
 [Nasdaq.PhlxOptions.TradeFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PhlxOptions/TradeFeed.md "Nasdaq Phlx Options Trade Feed"
 [Nasdaq.PsxEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PsxEquities/LastSale.md "Nasdaq PSX Last Sale"
 [Nasdaq.PsxEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/PsxEquities/TotalView.md "Nasdaq PSX TotalView Itch"
@@ -295,7 +296,7 @@ Enjoy.
 [Nasdaq.NsmEquities.Level2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Level2.md "Nasdaq Level 2"
 [Nasdaq.NsmEquities.NlsPlus]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/NlsPlus.md "Nasdaq Last Sale Plus"
 [Nasdaq.NsmEquities.Nois]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Nois.md "Net Order Imbalance Snapshot"
-[Nasdaq.NsmEquities.Noi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Noi.md "Nasdaq Nsm Equities Net Order Imbalance"
+[Nasdaq.NsmEquities.NoiView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/NoiView.md "Nasdaq Net Order Imbalance View"
 [Nasdaq.NsmEquities.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Orders.md "Nasdaq Orders"
 [Nasdaq.NsmEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/TotalView.md "Nasdaq TotalView Itch"
 [Nasdaq.Uqdf.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Uqdf/Output.md "Output"
