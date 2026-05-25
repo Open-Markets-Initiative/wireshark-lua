@@ -51,6 +51,24 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_summary_message 
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.auctionupdatemessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
+-- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.utc_offset_hours = 5
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -78,6 +96,8 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_sequenced_data_packe
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_sequenced_message_header = Pref.bool("Show Sequenced Message Header", show.sequenced_message_header, "Parse and add Sequenced Message Header to protocol tree")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs_changed()
@@ -109,6 +129,12 @@ function omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs_changed()
   end
   if show.unsequenced_data_packet ~= omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_unsequenced_data_packet then
     show.unsequenced_data_packet = omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_unsequenced_data_packet
+  end
+  if cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format ~= omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format then
+    cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format = omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format
+  end
+  if cboe_bxeequities_auctionfeed_asciipitch_v1_4.utc_offset_hours ~= omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.utc_offset_hours then
+    cboe_bxeequities_auctionfeed_asciipitch_v1_4.utc_offset_hours = omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.utc_offset_hours
   end
 end
 
@@ -643,15 +669,44 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp = {}
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.size = 8
 
 -- Display: Timestamp
-cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.display = function(value)
-  return "Timestamp: "..value
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode (or unparsable ASCII fell back to a non-number)
+  if type(value) ~= "number" then
+    return "Timestamp: "..tostring(value)
+  end
+
+  if cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = cboe_bxeequities_auctionfeed_asciipitch_v1_4.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds + utc_offset_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Timestamp
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.timestamp, range, value, display)
