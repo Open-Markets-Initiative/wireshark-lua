@@ -60,8 +60,8 @@ omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.owner_id = ProtoFiel
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.packetlength", ftypes.UINT16)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.packettype", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.password = ProtoField.new("Password", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.password", ftypes.STRING)
-omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.price_integer_2 = ProtoField.new("Price Integer 2", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.priceinteger2", ftypes.UINT16)
-omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.price_integer_4 = ProtoField.new("Price Integer 4", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.priceinteger4", ftypes.UINT32)
+omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.price_long = ProtoField.new("Price Long", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.pricelong", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.price_short = ProtoField.new("Price Short", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.priceshort", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.requestedsession", ftypes.STRING)
@@ -94,8 +94,8 @@ omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.udp_session = ProtoF
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.username", ftypes.STRING)
-omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_integer_2 = ProtoField.new("Volume Integer 2", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.volumeinteger2", ftypes.UINT16)
-omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_integer_4 = ProtoField.new("Volume Integer 4", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.volumeinteger4", ftypes.UINT32)
+omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.volumelong", ftypes.UINT32)
+omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.volumeshort", ftypes.UINT16)
 
 -- Nasdaq PhlxOptions Itch SpreadDepthOfMarket 2.1 Application Messages
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.add_order_long_form_message = ProtoField.new("Add Order Long Form Message", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.addorderlongformmessage", ftypes.STRING)
@@ -1418,48 +1418,60 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.password.dissect = function(buf
   return offset + length, value
 end
 
--- Price Integer 2
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2 = {}
+-- Price Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long = {}
 
--- Size: Price Integer 2
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.size = 2
+-- Size: Price Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.size = 4
 
--- Display: Price Integer 2
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.display = function(value)
-  return "Price Integer 2: "..value
+-- Display: Price Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Dissect: Price Integer 2
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.display(value, buffer, offset, packet, parent)
+-- Translate: Price Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.translate = function(raw)
+  return raw/10000
+end
 
-  parent:add(omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.price_integer_2, range, value, display)
+-- Dissect: Price Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.translate(raw)
+  local display = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Price Integer 4
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4 = {}
+-- Price Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short = {}
 
--- Size: Price Integer 4
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.size = 4
+-- Size: Price Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.size = 2
 
--- Display: Price Integer 4
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.display = function(value)
-  return "Price Integer 4: "..value
+-- Display: Price Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Dissect: Price Integer 4
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.display(value, buffer, offset, packet, parent)
+-- Translate: Price Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.translate = function(raw)
+  return raw/10000
+end
 
-  parent:add(omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.price_integer_4, range, value, display)
+-- Dissect: Price Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.translate(raw)
+  local display = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.price_short, range, value, display)
 
   return offset + length, value
 end
@@ -2225,48 +2237,48 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.username.dissect = function(buf
   return offset + length, value
 end
 
--- Volume Integer 2
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2 = {}
+-- Volume Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long = {}
 
--- Size: Volume Integer 2
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.size = 2
+-- Size: Volume Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.size = 4
 
--- Display: Volume Integer 2
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.display = function(value)
-  return "Volume Integer 2: "..value
+-- Display: Volume Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.display = function(value)
+  return "Volume Long: "..value
 end
 
--- Dissect: Volume Integer 2
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.size
+-- Dissect: Volume Long
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_integer_2, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_long, range, value, display)
 
   return offset + length, value
 end
 
--- Volume Integer 4
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4 = {}
+-- Volume Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short = {}
 
--- Size: Volume Integer 4
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.size = 4
+-- Size: Volume Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.size = 2
 
--- Display: Volume Integer 4
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.display = function(value)
-  return "Volume Integer 4: "..value
+-- Display: Volume Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.display = function(value)
+  return "Volume Short: "..value
 end
 
--- Dissect: Volume Integer 4
-nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.size
+-- Dissect: Volume Short
+nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_integer_4, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -2347,7 +2359,7 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.complex_strategy_auction_messag
 
   index = index + nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.side.size
 
-  index = index + nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.size
+  index = index + nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.size
 
   index = index + nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.size.size
 
@@ -2414,8 +2426,8 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.complex_strategy_auction_messag
   -- Side: Alpha
   index, side = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.side.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 4: Integer
-  index, price_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Long: Integer
+  index, price_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.dissect(buffer, index, packet, parent)
 
   -- Size: Integer
   index, size = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.size.dissect(buffer, index, packet, parent)
@@ -2488,8 +2500,8 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.complex_strategy_trade_message.
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.match_number.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.reserved_4.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.cross_type.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.trade_condition.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.auction_id.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.reserved_1.size + 
@@ -2526,11 +2538,11 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.complex_strategy_trade_message.
   -- Cross Type: Alpha
   index, cross_type = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 4: Integer
-  index, price_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Long: Integer
+  index, price_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Integer 4: Integer
-  index, volume_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.dissect(buffer, index, packet, parent)
+  -- Volume Long: Integer
+  index, volume_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.dissect(buffer, index, packet, parent)
 
   -- Trade Condition: Alpha
   index, trade_condition = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.trade_condition.dissect(buffer, index, packet, parent)
@@ -2578,8 +2590,8 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.single_side_update_message.size
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.strategy_id.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_reference_number.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.change_reason.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_type.size
 
 -- Display: Single Side Update Message
@@ -2606,11 +2618,11 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.single_side_update_message.fiel
   -- Change Reason: Alpha
   index, change_reason = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.change_reason.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 4: Integer
-  index, price_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Long: Integer
+  index, price_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Integer 4: Integer
-  index, volume_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.dissect(buffer, index, packet, parent)
+  -- Volume Long: Integer
+  index, volume_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.dissect(buffer, index, packet, parent)
 
   -- Order Type: Alpha
   index, order_type = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_type.dissect(buffer, index, packet, parent)
@@ -2698,8 +2710,8 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.single_side_replace_long_form_m
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.strategy_id.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.original_order_reference_number.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.new_order_reference_number.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_type.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.scope.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.reserved_3.size
@@ -2728,11 +2740,11 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.single_side_replace_long_form_m
   -- New Order Reference Number: Integer
   index, new_order_reference_number = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.new_order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 4: Integer
-  index, price_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Long: Integer
+  index, price_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Integer 4: Integer
-  index, volume_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.dissect(buffer, index, packet, parent)
+  -- Volume Long: Integer
+  index, volume_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.dissect(buffer, index, packet, parent)
 
   -- Order Type: Alpha
   index, order_type = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_type.dissect(buffer, index, packet, parent)
@@ -2774,8 +2786,8 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.single_side_replace_short_form_
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.strategy_id.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.original_order_reference_number.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.new_order_reference_number.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_type.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.scope.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.reserved_3.size
@@ -2804,11 +2816,11 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.single_side_replace_short_form_
   -- New Order Reference Number: Integer
   index, new_order_reference_number = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.new_order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 2: Integer
-  index, price_integer_2 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.dissect(buffer, index, packet, parent)
+  -- Price Short: Integer
+  index, price_short = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.dissect(buffer, index, packet, parent)
 
-  -- Volume Integer 2: Integer
-  index, volume_integer_2 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.dissect(buffer, index, packet, parent)
+  -- Volume Short: Integer
+  index, volume_short = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.dissect(buffer, index, packet, parent)
 
   -- Order Type: Alpha
   index, order_type = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_type.dissect(buffer, index, packet, parent)
@@ -2852,8 +2864,8 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.single_side_executed_with_price
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.cross_number.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.match_number.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.reserved_1.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.trade_condition.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.auction_id.size
 
@@ -2887,11 +2899,11 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.single_side_executed_with_price
   -- Reserved 1: Alpha
   index, reserved_1 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 4: Integer
-  index, price_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Long: Integer
+  index, price_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Integer 4: Integer
-  index, volume_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.dissect(buffer, index, packet, parent)
+  -- Volume Long: Integer
+  index, volume_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.dissect(buffer, index, packet, parent)
 
   -- Trade Condition: Alpha
   index, trade_condition = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.trade_condition.dissect(buffer, index, packet, parent)
@@ -3003,8 +3015,8 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.add_order_long_form_message.siz
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_reference_number.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.depth_side.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.depth_order_capacity.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.scope.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.reserved_3.size
 
@@ -3035,11 +3047,11 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.add_order_long_form_message.fie
   -- Depth Order Capacity: Alpha
   index, depth_order_capacity = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.depth_order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 4: Integer
-  index, price_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Long: Integer
+  index, price_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Integer 4: Integer
-  index, volume_integer_4 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_4.dissect(buffer, index, packet, parent)
+  -- Volume Long: Integer
+  index, volume_long = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_long.dissect(buffer, index, packet, parent)
 
   -- Scope: Alpha
   index, scope = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.scope.dissect(buffer, index, packet, parent)
@@ -3079,8 +3091,8 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.add_order_short_form_message.si
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.order_reference_number.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.depth_side.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.depth_order_capacity.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.size + 
-  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.size + 
+  nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.scope.size + 
   nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.reserved_3.size
 
@@ -3111,11 +3123,11 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.add_order_short_form_message.fi
   -- Depth Order Capacity: Alpha
   index, depth_order_capacity = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.depth_order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 2: Integer
-  index, price_integer_2 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_integer_2.dissect(buffer, index, packet, parent)
+  -- Price Short: Integer
+  index, price_short = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.price_short.dissect(buffer, index, packet, parent)
 
-  -- Volume Integer 2: Integer
-  index, volume_integer_2 = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_integer_2.dissect(buffer, index, packet, parent)
+  -- Volume Short: Integer
+  index, volume_short = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.volume_short.dissect(buffer, index, packet, parent)
 
   -- Scope: Alpha
   index, scope = nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.scope.dissect(buffer, index, packet, parent)

@@ -2637,6 +2637,16 @@ end
 -- Message
 nasdaq_phlxoptions_orders_itch_v1_9.message = {}
 
+-- Read runtime size of: Message
+nasdaq_phlxoptions_orders_itch_v1_9.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Length
+  local length = buffer(offset, 2):uint()
+
+  return length + 2
+end
+
 -- Display: Message
 nasdaq_phlxoptions_orders_itch_v1_9.message.display = function(packet, parent, length)
   return ""
@@ -2666,6 +2676,7 @@ end
 
 -- Dissect: Message
 nasdaq_phlxoptions_orders_itch_v1_9.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nasdaq_phlxoptions_orders_itch_v1_9.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2683,6 +2694,35 @@ nasdaq_phlxoptions_orders_itch_v1_9.message.dissect = function(buffer, offset, p
 
     return index
   end
+end
+
+-- Messages
+nasdaq_phlxoptions_orders_itch_v1_9.messages = {}
+
+-- Dissect: Messages
+nasdaq_phlxoptions_orders_itch_v1_9.messages.dissect = function(buffer, offset, packet, parent, count)
+  -- Dissect Heartbeat
+  if count == 0 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if count == 65535 then
+    return offset
+  end
+  -- Repeating: Message
+  for message_index = 1, count do
+
+    -- Dependency element: Length
+    local length = buffer(offset, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = length + 2
+
+    -- Message: Struct of 2 fields
+    offset = nasdaq_phlxoptions_orders_itch_v1_9.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Packet Header
@@ -2751,18 +2791,8 @@ nasdaq_phlxoptions_orders_itch_v1_9.packet.dissect = function(buffer, packet, pa
   -- Dependency element: Count
   local count = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Message
-  for message_index = 1, count do
-
-    -- Dependency element: Length
-    local length = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = length + 2
-
-    -- Message: Struct of 2 fields
-    index, message = nasdaq_phlxoptions_orders_itch_v1_9.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Messages: Runtime Type with 3 branches
+  index = nasdaq_phlxoptions_orders_itch_v1_9.messages.dissect(buffer, index, packet, parent, count)
 
   return index
 end

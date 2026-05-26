@@ -3140,6 +3140,16 @@ end
 -- Message
 nasdaq_psxequities_lastsale_itch_v2_1_2018.message = {}
 
+-- Read runtime size of: Message
+nasdaq_psxequities_lastsale_itch_v2_1_2018.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
 -- Display: Message
 nasdaq_psxequities_lastsale_itch_v2_1_2018.message.display = function(packet, parent, length)
   return ""
@@ -3169,6 +3179,7 @@ end
 
 -- Dissect: Message
 nasdaq_psxequities_lastsale_itch_v2_1_2018.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nasdaq_psxequities_lastsale_itch_v2_1_2018.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3186,6 +3197,35 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.message.dissect = function(buffer, of
 
     return index
   end
+end
+
+-- Messages
+nasdaq_psxequities_lastsale_itch_v2_1_2018.messages = {}
+
+-- Dissect: Messages
+nasdaq_psxequities_lastsale_itch_v2_1_2018.messages.dissect = function(buffer, offset, packet, parent, message_count)
+  -- Dissect Heartbeat
+  if message_count == 0 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if message_count == 65535 then
+    return offset
+  end
+  -- Repeating: Message
+  for message_index = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_length + 2
+
+    -- Message: Struct of 2 fields
+    offset = nasdaq_psxequities_lastsale_itch_v2_1_2018.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Packet Header
@@ -3254,18 +3294,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.packet.dissect = function(buffer, pac
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):uint()
 
-  -- Repeating: Message
-  for message_index = 1, message_count do
-
-    -- Dependency element: Message Length
-    local message_length = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_length + 2
-
-    -- Message: Struct of 2 fields
-    index, message = nasdaq_psxequities_lastsale_itch_v2_1_2018.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Messages: Runtime Type with 3 branches
+  index = nasdaq_psxequities_lastsale_itch_v2_1_2018.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

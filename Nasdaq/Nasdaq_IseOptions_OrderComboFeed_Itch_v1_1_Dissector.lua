@@ -81,6 +81,24 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_information_index = Pr
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nasdaq IseOptions OrderComboFeed Itch 1.1 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.utc_offset_hours = 5
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -110,6 +128,8 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_message_index = Pref.b
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_leg_information_index = Pref.bool("Show Leg Information Index", show.leg_information_index, "Show generated leg information index in protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_auction_response_index = Pref.bool("Show Auction Response Index", show.auction_response_index, "Show generated auction response index in protocol tree")
 
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs_changed()
@@ -144,6 +164,12 @@ function omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs_changed()
   end
   if show.auction_response_index ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_auction_response_index then
     show.auction_response_index = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_auction_response_index
+  end
+  if nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp_format ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.timestamp_format then
+    nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp_format = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.timestamp_format
+  end
+  if nasdaq_iseoptions_ordercombofeed_itch_v1_1.utc_offset_hours ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.utc_offset_hours then
+    nasdaq_iseoptions_ordercombofeed_itch_v1_1.utc_offset_hours = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.utc_offset_hours
   end
 end
 
@@ -1359,8 +1385,28 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp = {}
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp.size = 6
 
 -- Display: Timestamp
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp.display = function(value)
-  return "Timestamp: "..value
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_iseoptions_ordercombofeed_itch_v1_1.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

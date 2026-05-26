@@ -128,6 +128,9 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_data_packet = ProtoField.new
 omi_nsxaustralia_nets_itch_v4_2_55.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nsxaustralia.nets.itch.v4.2.55.serverheartbeatpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nsxaustralia.nets.itch.v4.2.55.unsequenceddatapacket", ftypes.STRING)
 
+-- NsxAustralia Nets Itch 4.2.55 generated fields
+omi_nsxaustralia_nets_itch_v4_2_55.fields.timestamp = ProtoField.new("Timestamp", "nsxaustralia.nets.itch.v4.2.55.timestamp", ftypes.UINT64)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -169,6 +172,36 @@ function omi_nsxaustralia_nets_itch_v4_2_55.prefs_changed()
     show.soup_bin_tcp_packet = omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_soup_bin_tcp_packet
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nsxaustralia_nets_itch_v4_2_55.conversation = {}
+nsxaustralia_nets_itch_v4_2_55.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nsxaustralia_nets_itch_v4_2_55.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nsxaustralia_nets_itch_v4_2_55.conversation.data = function(packet)
+  local key = nsxaustralia_nets_itch_v4_2_55.conversation.key(packet)
+  local data = nsxaustralia_nets_itch_v4_2_55.conversation.flows[key]
+  if data == nil then
+    data = { nanosecond = { last = nil, frames = {} } }
+    nsxaustralia_nets_itch_v4_2_55.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nsxaustralia_nets_itch_v4_2_55.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -917,7 +950,11 @@ nsxaustralia_nets_itch_v4_2_55.nanosecond.size = 8
 
 -- Display: Nanosecond
 nsxaustralia_nets_itch_v4_2_55.nanosecond.display = function(value)
-  return "Nanosecond: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Nanosecond: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Nanosecond
@@ -2274,6 +2311,47 @@ nsxaustralia_nets_itch_v4_2_55.weight.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
+-- Timestamp
+nsxaustralia_nets_itch_v4_2_55.timestamp = {}
+
+-- Translate: Timestamp
+nsxaustralia_nets_itch_v4_2_55.timestamp.translate = function(timestamp, stored_nanosecond)
+  return UInt64.new(stored_nanosecond + timestamp)
+end
+
+-- Display: Timestamp
+nsxaustralia_nets_itch_v4_2_55.timestamp.display = function(timestamp, stored_nanosecond)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_nanosecond)..string.format("%09d", timestamp)
+end
+
+-- Composite: Timestamp
+nsxaustralia_nets_itch_v4_2_55.timestamp.composite = function(buffer, offset, stored_nanosecond, packet, parent)
+  local length = nsxaustralia_nets_itch_v4_2_55.timestamp.size
+  local range = buffer(offset, length)
+  local timestamp = range:uint()
+  local value = nsxaustralia_nets_itch_v4_2_55.timestamp.translate(timestamp, stored_nanosecond)
+  local display = nsxaustralia_nets_itch_v4_2_55.timestamp.display(timestamp, stored_nanosecond, packet)
+  parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.timestamp, range, value, display)
+
+  nsxaustralia_nets_itch_v4_2_55.nanosecond.generated(stored_nanosecond, range, packet, parent)
+
+  display = nsxaustralia_nets_itch_v4_2_55.timestamp.display(timestamp)
+  parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.timestamp, range, timestamp, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nsxaustralia_nets_itch_v4_2_55.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_nanosecond = nsxaustralia_nets_itch_v4_2_55.nanosecond.current
+
+  if stored_nanosecond ~= nil then
+    return nsxaustralia_nets_itch_v4_2_55.timestamp.composite(buffer, offset, stored_nanosecond, packet, parent)
+  end
+
+  return nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect NsxAustralia Nets Itch 4.2.55
@@ -3489,6 +3567,13 @@ nsxaustralia_nets_itch_v4_2_55.timestamp_message.fields = function(buffer, offse
   -- Nanosecond: Unsigned Integer
   index, nanosecond = nsxaustralia_nets_itch_v4_2_55.nanosecond.dissect(buffer, index, packet, parent)
 
+  -- Store Nanosecond Value
+  nsxaustralia_nets_itch_v4_2_55.nanosecond.current = nanosecond
+
+  if not packet.visited then
+    nsxaustralia_nets_itch_v4_2_55.conversation.current.nanosecond.last = nanosecond
+  end
+
   return index
 end
 
@@ -3941,6 +4026,14 @@ end
 
 -- Dissect Packet
 nsxaustralia_nets_itch_v4_2_55.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nsxaustralia_nets_itch_v4_2_55.conversation.data(packet)
+  if not packet.visited then
+    data.nanosecond.frames[packet.number] = data.nanosecond.last
+  end
+  nsxaustralia_nets_itch_v4_2_55.nanosecond.current = data.nanosecond.frames[packet.number]
+  nsxaustralia_nets_itch_v4_2_55.conversation.current = data
+
   local index = 0
 
   -- Dependency for Soup Bin Tcp Packet
@@ -3973,6 +4066,9 @@ end
 
 -- Initialize Dissector
 function omi_nsxaustralia_nets_itch_v4_2_55.init()
+  nsxaustralia_nets_itch_v4_2_55.nanosecond.current = nil
+  nsxaustralia_nets_itch_v4_2_55.conversation.current = nil
+  nsxaustralia_nets_itch_v4_2_55.conversation.flows = {}
 end
 
 -- Dissector for NsxAustralia Nets Itch 4.2.55
