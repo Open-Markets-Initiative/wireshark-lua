@@ -38,6 +38,7 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message_length = ProtoField.
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.auctionfeed.pitch.v1.1.39.messagetype", ftypes.UINT8)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.auctionfeed.pitch.v1.1.39.midnightreference", ftypes.UINT32)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.multiplier = ProtoField.new("Multiplier", "cboe.c1options.auctionfeed.pitch.v1.1.39.multiplier", ftypes.DOUBLE)
+omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.nanoseconds = ProtoField.new("Nanoseconds", "cboe.c1options.auctionfeed.pitch.v1.1.39.nanoseconds", ftypes.UINT32)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.c1options.auctionfeed.pitch.v1.1.39.openingcondition", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.auctionfeed.pitch.v1.1.39.osisymbol", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.packet = ProtoField.new("Packet", "cboe.c1options.auctionfeed.pitch.v1.1.39.packet", ftypes.STRING)
@@ -86,14 +87,14 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.timestamp = ProtoField.new("
 -----------------------------------------------------------------------
 
 -- timestamp format
-local timestamp_format_enum = {
+local nanoseconds_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "Full DateTime", 2 }
 }
 
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp_format = 2
+cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 cboe_c1options_auctionfeed_pitch_v1_1_39.utc_offset_hours = 5
@@ -121,7 +122,7 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_packet = Pref.bool("Show
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
-omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
@@ -146,8 +147,8 @@ function omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs_changed()
   if show.message_index ~= omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_message_index then
     show.message_index = omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_message_index
   end
-  if cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp_format ~= omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.timestamp_format then
-    cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp_format = omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.timestamp_format
+  if cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds_format ~= omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.nanoseconds_format then
+    cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds_format = omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.nanoseconds_format
   end
   if cboe_c1options_auctionfeed_pitch_v1_1_39.utc_offset_hours ~= omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.utc_offset_hours then
     cboe_c1options_auctionfeed_pitch_v1_1_39.utc_offset_hours = omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.utc_offset_hours
@@ -798,6 +799,29 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.multiplier.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Nanoseconds
+cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds = {}
+
+-- Size: Nanoseconds
+cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Opening Condition
 cboe_c1options_auctionfeed_pitch_v1_1_39.opening_condition = {}
 
@@ -1350,44 +1374,44 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp = {}
 
 -- Translate: Timestamp
-cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.translate = function(timestamp, stored_time)
-  return UInt64.new(stored_time * 1000000000 + timestamp)
+cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.translate = function(nanoseconds, stored_time)
+  return UInt64.new(stored_time * 1000000000 + nanoseconds)
 end
 
 -- Display: Timestamp
-cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.display = function(timestamp, stored_time, packet)
+cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.display = function(nanoseconds, stored_time, packet)
   -- Raw display mode
-  if cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp_format == 0 then
-    return "Timestamp: "..(stored_time * 1000000000 + timestamp)
+  if cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds_format == 0 then
+    return "Timestamp: "..(stored_time * 1000000000 + nanoseconds)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp_format == 2 and packet then
+  if cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = cboe_c1options_auctionfeed_pitch_v1_1_39.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
     local full_seconds = local_midnight + stored_time
 
-    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", timestamp)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
 cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.composite = function(buffer, offset, stored_time, packet, parent)
-  local length = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size
+  local length = cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size
   local range = buffer(offset, length)
-  local timestamp = range:le_uint()
-  local value = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.translate(timestamp, stored_time)
-  local display = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.display(timestamp, stored_time, packet)
+  local nanoseconds = range:le_uint()
+  local value = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.translate(nanoseconds, stored_time)
+  local display = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.display(nanoseconds, stored_time, packet)
   parent = parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.timestamp, range, value, display)
 
   cboe_c1options_auctionfeed_pitch_v1_1_39.time.generated(stored_time, range, packet, parent)
 
-  display = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.display(timestamp)
-  parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.timestamp, range, timestamp, display)
+  display = cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.display(nanoseconds)
+  parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.nanoseconds, range, nanoseconds, display)
 
   return offset + length, value
 end
@@ -1400,7 +1424,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect = function(buffer, of
     return cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.composite(buffer, offset, stored_time, packet, parent)
   end
 
-  return cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, offset, packet, parent)
+  return cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -1469,7 +1493,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message = {}
 
 -- Size: Soq Strike Range Update Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.size =
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size + 
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.soq_identifier.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.lower_strike_price.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.upper_strike_price.size
@@ -1483,8 +1507,8 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   -- Soq Identifier: Printable ASCII
   index, soq_identifier = cboe_c1options_auctionfeed_pitch_v1_1_39.soq_identifier.dissect(buffer, index, packet, parent)
@@ -1613,7 +1637,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.width_update_message = {}
 
 -- Size: Width Update Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.width_update_message.size =
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size + 
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.underlying.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.width_type.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.multiplier.size
@@ -1627,8 +1651,8 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.width_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_auctionfeed_pitch_v1_1_39.underlying.dissect(buffer, index, packet, parent)
@@ -1665,7 +1689,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.auction_summary_message = {}
 
 -- Size: Auction Summary Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.auction_summary_message.size =
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size + 
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.symbol_extended.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.auction_type.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.price.size + 
@@ -1680,8 +1704,8 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_c1options_auctionfeed_pitch_v1_1_39.symbol_extended.dissect(buffer, index, packet, parent)
@@ -1721,7 +1745,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.options_auction_update_message = {}
 
 -- Size: Options Auction Update Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.options_auction_update_message.size =
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size + 
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.symbol_extended.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.auction_type.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.reference_price.size + 
@@ -1742,8 +1766,8 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.options_auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_c1options_auctionfeed_pitch_v1_1_39.symbol_extended.dissect(buffer, index, packet, parent)
@@ -1801,7 +1825,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.auction_trade_message = {}
 
 -- Size: Auction Trade Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.auction_trade_message.size =
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size + 
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.auction_id.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.execution_id.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.price.size + 
@@ -1816,8 +1840,8 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_c1options_auctionfeed_pitch_v1_1_39.auction_id.dissect(buffer, index, packet, parent)
@@ -1857,7 +1881,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.auction_cancel_message = {}
 
 -- Size: Auction Cancel Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.auction_cancel_message.size =
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size + 
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.auction_id.size
 
 -- Display: Auction Cancel Message
@@ -1869,8 +1893,8 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_c1options_auctionfeed_pitch_v1_1_39.auction_id.dissect(buffer, index, packet, parent)
@@ -1901,7 +1925,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.auction_notification_message = {}
 
 -- Size: Auction Notification Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.auction_notification_message.size =
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size + 
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.symbol.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.auction_id.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.auction_type.size + 
@@ -1922,8 +1946,8 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_auctionfeed_pitch_v1_1_39.symbol.dissect(buffer, index, packet, parent)
@@ -1981,7 +2005,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.unit_clear_message = {}
 
 -- Size: Unit Clear Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.unit_clear_message.size =
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size
 
 -- Display: Unit Clear Message
 cboe_c1options_auctionfeed_pitch_v1_1_39.unit_clear_message.display = function(packet, parent, length)
@@ -1992,8 +2016,8 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_39.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2074,7 +2098,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.time_reference_message = {}
 cboe_c1options_auctionfeed_pitch_v1_1_39.time_reference_message.size =
   cboe_c1options_auctionfeed_pitch_v1_1_39.midnight_reference.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.time_reference.size + 
-  cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.size + 
+  cboe_c1options_auctionfeed_pitch_v1_1_39.nanoseconds.size + 
   cboe_c1options_auctionfeed_pitch_v1_1_39.trade_date.size
 
 -- Display: Time Reference Message
@@ -2092,8 +2116,8 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.time_reference_message.fields = functio
   -- Time Reference: Binary
   index, time_reference = cboe_c1options_auctionfeed_pitch_v1_1_39.time_reference.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Time Offset
+  index, nanoseconds = cboe_c1options_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Binary Date
   index, trade_date = cboe_c1options_auctionfeed_pitch_v1_1_39.trade_date.dissect(buffer, index, packet, parent)

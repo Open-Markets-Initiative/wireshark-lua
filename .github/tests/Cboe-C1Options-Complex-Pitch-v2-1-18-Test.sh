@@ -10,7 +10,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr \
   || { echo "--- tshark FAILED (AuctionCancelMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.complex.pitch.v2.1.18.timestamp" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.nanoseconds" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.auctionid" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionCancelMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/AuctionNotificationMessage.pcap" \
@@ -19,7 +19,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr \
   || { echo "--- tshark FAILED (AuctionNotificationMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.complex.pitch.v2.1.18.timestamp" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.nanoseconds" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentid" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.auctionid" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.auctiontype" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionNotificationMessage.json
@@ -37,7 +37,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (AuctionUpdateMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.complex.pitch.v2.1.18.timestamp" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.nanoseconds" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentid8" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.auctionopeningtype" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.referenceprice" Cboe.C1Options.Complex.Pitch.v2.1.18.AuctionUpdateMessage.json
@@ -55,7 +55,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr \
   || { echo "--- tshark FAILED (ComplexInstrumentDefinitionExpandedMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.complex.pitch.v2.1.18.timestamp" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.nanoseconds" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentid" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentunderlying" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.legcount" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
@@ -66,7 +66,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.complex.pitch.v2.1.18.timestamp" Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.nanoseconds" Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.orderid" Cboe.C1Options.Complex.Pitch.v2.1.18.DeleteOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/ModifyOrderShortMessage.pcap" \
@@ -75,7 +75,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr \
   || { echo "--- tshark FAILED (ModifyOrderShortMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.complex.pitch.v2.1.18.timestamp" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.nanoseconds" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.orderid" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.quantityshort" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.priceshort" Cboe.C1Options.Complex.Pitch.v2.1.18.ModifyOrderShortMessage.json
@@ -87,7 +87,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json 2> Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutedMessage) ---"; cat Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.complex.pitch.v2.1.18.timestamp" Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.nanoseconds" Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.orderid" Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.executedquantity" Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.executionid" Cboe.C1Options.Complex.Pitch.v2.1.18.OrderExecutedMessage.json
