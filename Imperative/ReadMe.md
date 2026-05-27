@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.Imperative.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Imperative.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [IntelligentCross][Imperative.IntelligentCross] | [Mdf][Omi.Encoding.Mdf] | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1674 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Imperative.Specifications] |
+|  | [IntelligentCross][Imperative.IntelligentCross] | [Mdf][Omi.Encoding.Mdf] | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1674 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Imperative.IntelligentCross.Mdf.v1.11.Url] - [pdf][Imperative.IntelligentCross.Mdf.v1.11.Pdf] |
 
 
 Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
