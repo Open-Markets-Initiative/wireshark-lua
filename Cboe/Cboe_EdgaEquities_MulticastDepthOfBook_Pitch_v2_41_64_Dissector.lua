@@ -2755,13 +2755,9 @@ end
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages = {}
 
 -- Dissect: Messages
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dissect = function(buffer, offset, packet, parent, count, sequence)
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
-  end
-  -- Dissect Heartbeat
-  if sequence == 0 then
     return offset
   end
   -- Repeating: Message
@@ -2855,11 +2851,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.packet.dissect = function(
   -- Dependency element: Count
   local count = buffer(index - 6, 1):le_uint()
 
-  -- Dependency element: Sequence
-  local sequence = buffer(index - 4, 4):le_uint()
-
-  -- Messages: Runtime Type with 3 branches
-  index = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dissect(buffer, index, packet, parent, count, sequence)
+  -- Messages: Runtime Type with 2 branches
+  index = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dissect(buffer, index, packet, parent, count)
 
   return index
 end
