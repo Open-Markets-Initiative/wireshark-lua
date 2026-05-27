@@ -71,7 +71,8 @@ omi_cboe_c1options_complex_pitch_v2_1_37.fields.sequence = ProtoField.new("Seque
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.c1options.complex.pitch.v2.1.37.sideindicator", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.c1options.complex.pitch.v2.1.37.symbolcondition", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.time = ProtoField.new("Time", "cboe.c1options.complex.pitch.v2.1.37.time", ftypes.UINT32)
-omi_cboe_c1options_complex_pitch_v2_1_37.fields.time_offset = ProtoField.new("Time Offset", "cboe.c1options.complex.pitch.v2.1.37.timeoffset", ftypes.UINT32)
+omi_cboe_c1options_complex_pitch_v2_1_37.fields.time_reference = ProtoField.new("Time Reference", "cboe.c1options.complex.pitch.v2.1.37.timereference", ftypes.UINT32)
+omi_cboe_c1options_complex_pitch_v2_1_37.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.complex.pitch.v2.1.37.timestamp", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.c1options.complex.pitch.v2.1.37.tradecondition", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.trade_date = ProtoField.new("Trade Date", "cboe.c1options.complex.pitch.v2.1.37.tradedate", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.trading_status = ProtoField.new("Trading Status", "cboe.c1options.complex.pitch.v2.1.37.tradingstatus", ftypes.STRING)
@@ -1131,7 +1132,8 @@ end
 
 -- Display: Midnight Reference
 cboe_c1options_complex_pitch_v2_1_37.midnight_reference.display = function(value)
-  return "Midnight Reference: "..value
+  -- Parse unix seconds timestamp
+  return "Midnight Reference: "..os.date("%Y-%m-%d %H:%M:%S.", value)
 end
 
 -- Dissect: Midnight Reference
@@ -1579,25 +1581,48 @@ cboe_c1options_complex_pitch_v2_1_37.time.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Time Offset
-cboe_c1options_complex_pitch_v2_1_37.time_offset = {}
+-- Time Reference
+cboe_c1options_complex_pitch_v2_1_37.time_reference = {}
 
--- Size: Time Offset
-cboe_c1options_complex_pitch_v2_1_37.time_offset.size = 4
+-- Size: Time Reference
+cboe_c1options_complex_pitch_v2_1_37.time_reference.size = 4
 
--- Display: Time Offset
-cboe_c1options_complex_pitch_v2_1_37.time_offset.display = function(value)
-  return "Time Offset: "..value
+-- Display: Time Reference
+cboe_c1options_complex_pitch_v2_1_37.time_reference.display = function(value)
+  return "Time Reference: "..value
 end
 
--- Dissect: Time Offset
-cboe_c1options_complex_pitch_v2_1_37.time_offset.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complex_pitch_v2_1_37.time_offset.size
+-- Dissect: Time Reference
+cboe_c1options_complex_pitch_v2_1_37.time_reference.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complex_pitch_v2_1_37.time_reference.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_complex_pitch_v2_1_37.time_offset.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_complex_pitch_v2_1_37.time_reference.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.time_offset, range, value, display)
+  parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.time_reference, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+cboe_c1options_complex_pitch_v2_1_37.timestamp = {}
+
+-- Size: Timestamp
+cboe_c1options_complex_pitch_v2_1_37.timestamp.size = 4
+
+-- Display: Timestamp
+cboe_c1options_complex_pitch_v2_1_37.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complex_pitch_v2_1_37.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_complex_pitch_v2_1_37.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1800,28 +1825,28 @@ end
 cboe_c1options_complex_pitch_v2_1_37.timestamp = {}
 
 -- Translate: Timestamp
-cboe_c1options_complex_pitch_v2_1_37.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time)
-  return UInt64.new(stored_midnight_reference + stored_time * 1000000000 + time_offset)
+cboe_c1options_complex_pitch_v2_1_37.timestamp.translate = function(timestamp, stored_midnight_reference, stored_time)
+  return UInt64.new(stored_midnight_reference + stored_time * 1000000000 + timestamp)
 end
 
 -- Display: Timestamp
-cboe_c1options_complex_pitch_v2_1_37.timestamp.display = function(time_offset, stored_midnight_reference, stored_time)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference + stored_time)..string.format("%09d", time_offset)
+cboe_c1options_complex_pitch_v2_1_37.timestamp.display = function(timestamp, stored_midnight_reference, stored_time)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference + stored_time)..string.format("%09d", timestamp)
 end
 
 -- Composite: Timestamp
 cboe_c1options_complex_pitch_v2_1_37.timestamp.composite = function(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
-  local length = cboe_c1options_complex_pitch_v2_1_37.time_offset.size
+  local length = cboe_c1options_complex_pitch_v2_1_37.timestamp.size
   local range = buffer(offset, length)
-  local time_offset = range:le_uint()
-  local value = cboe_c1options_complex_pitch_v2_1_37.timestamp.translate(time_offset, stored_midnight_reference, stored_time)
-  local display = cboe_c1options_complex_pitch_v2_1_37.timestamp.display(time_offset, stored_midnight_reference, stored_time)
+  local timestamp = range:le_uint()
+  local value = cboe_c1options_complex_pitch_v2_1_37.timestamp.translate(timestamp, stored_midnight_reference, stored_time)
+  local display = cboe_c1options_complex_pitch_v2_1_37.timestamp.display(timestamp, stored_midnight_reference, stored_time)
   parent = parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.timestamp, range, value, display)
 
   cboe_c1options_complex_pitch_v2_1_37.time.generated(stored_time, range, packet, parent)
 
-  display = cboe_c1options_complex_pitch_v2_1_37.time_offset.display(time_offset)
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.time_offset, range, time_offset, display)
+  display = cboe_c1options_complex_pitch_v2_1_37.timestamp.display(timestamp)
+  parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.timestamp, range, timestamp, display)
 
   return offset + length, value
 end
@@ -1835,7 +1860,7 @@ cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect = function(buffer, offset
     return cboe_c1options_complex_pitch_v2_1_37.timestamp.composite(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
   end
 
-  return cboe_c1options_complex_pitch_v2_1_37.time_offset.dissect(buffer, offset, packet, parent)
+  return cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -1848,7 +1873,7 @@ cboe_c1options_complex_pitch_v2_1_37.end_of_session_message = {}
 
 -- Size: End Of Session Message
 cboe_c1options_complex_pitch_v2_1_37.end_of_session_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size
 
 -- Display: End Of Session Message
 cboe_c1options_complex_pitch_v2_1_37.end_of_session_message.display = function(packet, parent, length)
@@ -1859,8 +1884,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1888,7 +1913,7 @@ cboe_c1options_complex_pitch_v2_1_37.auction_summary_message = {}
 
 -- Size: Auction Summary Message
 cboe_c1options_complex_pitch_v2_1_37.auction_summary_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
   cboe_c1options_complex_pitch_v2_1_37.auction_opening_type.size + 
   cboe_c1options_complex_pitch_v2_1_37.price.size + 
@@ -1903,8 +1928,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Id 8: 8 Byte Ascii String
   index, complex_instrument_id_8 = cboe_c1options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect(buffer, index, packet, parent)
@@ -1944,7 +1969,7 @@ cboe_c1options_complex_pitch_v2_1_37.auction_update_message = {}
 
 -- Size: Auction Update Message
 cboe_c1options_complex_pitch_v2_1_37.auction_update_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.complex_instrument_id_8.size + 
   cboe_c1options_complex_pitch_v2_1_37.auction_opening_type.size + 
   cboe_c1options_complex_pitch_v2_1_37.reference_price.size + 
@@ -1965,8 +1990,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Id 8: 8 Byte Ascii String
   index, complex_instrument_id_8 = cboe_c1options_complex_pitch_v2_1_37.complex_instrument_id_8.dissect(buffer, index, packet, parent)
@@ -2024,7 +2049,7 @@ cboe_c1options_complex_pitch_v2_1_37.trading_status_message = {}
 
 -- Size: Trading Status Message
 cboe_c1options_complex_pitch_v2_1_37.trading_status_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.complex_symbol_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.unused.size + 
   cboe_c1options_complex_pitch_v2_1_37.trading_status.size + 
@@ -2041,8 +2066,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Complex Symbol Id: 6 Byte Ascii String
   index, complex_symbol_id = cboe_c1options_complex_pitch_v2_1_37.complex_symbol_id.dissect(buffer, index, packet, parent)
@@ -2088,7 +2113,7 @@ cboe_c1options_complex_pitch_v2_1_37.auction_trade_message = {}
 
 -- Size: Auction Trade Message
 cboe_c1options_complex_pitch_v2_1_37.auction_trade_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.auction_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.execution_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.price.size + 
@@ -2103,8 +2128,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = cboe_c1options_complex_pitch_v2_1_37.auction_id.dissect(buffer, index, packet, parent)
@@ -2144,7 +2169,7 @@ cboe_c1options_complex_pitch_v2_1_37.auction_cancel_message = {}
 
 -- Size: Auction Cancel Message
 cboe_c1options_complex_pitch_v2_1_37.auction_cancel_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.auction_id.size
 
 -- Display: Auction Cancel Message
@@ -2156,8 +2181,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = cboe_c1options_complex_pitch_v2_1_37.auction_id.dissect(buffer, index, packet, parent)
@@ -2188,7 +2213,7 @@ cboe_c1options_complex_pitch_v2_1_37.auction_notification_message = {}
 
 -- Size: Auction Notification Message
 cboe_c1options_complex_pitch_v2_1_37.auction_notification_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.complex_instrument_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.auction_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.auction_type.size + 
@@ -2209,8 +2234,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Id: 6 Byte Ascii String
   index, complex_instrument_id = cboe_c1options_complex_pitch_v2_1_37.complex_instrument_id.dissect(buffer, index, packet, parent)
@@ -2268,7 +2293,7 @@ cboe_c1options_complex_pitch_v2_1_37.trade_short_message = {}
 
 -- Size: Trade Short Message
 cboe_c1options_complex_pitch_v2_1_37.trade_short_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.side_indicator.size + 
   cboe_c1options_complex_pitch_v2_1_37.quantity_short.size + 
@@ -2286,8 +2311,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.trade_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2336,7 +2361,7 @@ cboe_c1options_complex_pitch_v2_1_37.trade_long_message = {}
 
 -- Size: Trade Long Message
 cboe_c1options_complex_pitch_v2_1_37.trade_long_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.side_indicator.size + 
   cboe_c1options_complex_pitch_v2_1_37.quantity.size + 
@@ -2354,8 +2379,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.trade_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2404,7 +2429,7 @@ cboe_c1options_complex_pitch_v2_1_37.delete_order_message = {}
 
 -- Size: Delete Order Message
 cboe_c1options_complex_pitch_v2_1_37.delete_order_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size
 
 -- Display: Delete Order Message
@@ -2416,8 +2441,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2448,7 +2473,7 @@ cboe_c1options_complex_pitch_v2_1_37.modify_order_short_message = {}
 
 -- Size: Modify Order Short Message
 cboe_c1options_complex_pitch_v2_1_37.modify_order_short_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.quantity_short.size + 
   cboe_c1options_complex_pitch_v2_1_37.price_short.size + 
@@ -2463,8 +2488,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.modify_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2504,7 +2529,7 @@ cboe_c1options_complex_pitch_v2_1_37.modify_order_long_message = {}
 
 -- Size: Modify Order Long Message
 cboe_c1options_complex_pitch_v2_1_37.modify_order_long_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.quantity.size + 
   cboe_c1options_complex_pitch_v2_1_37.price.size + 
@@ -2519,8 +2544,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.modify_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2560,7 +2585,7 @@ cboe_c1options_complex_pitch_v2_1_37.reduce_size_short_message = {}
 
 -- Size: Reduce Size Short Message
 cboe_c1options_complex_pitch_v2_1_37.reduce_size_short_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.canceled_quantity_short.size
 
@@ -2573,8 +2598,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.reduce_size_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2608,7 +2633,7 @@ cboe_c1options_complex_pitch_v2_1_37.reduce_size_long_message = {}
 
 -- Size: Reduce Size Long Message
 cboe_c1options_complex_pitch_v2_1_37.reduce_size_long_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.canceled_quantity.size
 
@@ -2621,8 +2646,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.reduce_size_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2656,7 +2681,7 @@ cboe_c1options_complex_pitch_v2_1_37.order_executed_at_price_size_message = {}
 
 -- Size: Order Executed At Price Size Message
 cboe_c1options_complex_pitch_v2_1_37.order_executed_at_price_size_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.executed_quantity.size + 
   cboe_c1options_complex_pitch_v2_1_37.remaining_quantity.size + 
@@ -2673,8 +2698,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.order_executed_at_price_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2720,7 +2745,7 @@ cboe_c1options_complex_pitch_v2_1_37.order_executed_message = {}
 
 -- Size: Order Executed Message
 cboe_c1options_complex_pitch_v2_1_37.order_executed_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.executed_quantity.size + 
   cboe_c1options_complex_pitch_v2_1_37.execution_id.size + 
@@ -2735,8 +2760,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2776,7 +2801,7 @@ cboe_c1options_complex_pitch_v2_1_37.add_order_expanded_message = {}
 
 -- Size: Add Order Expanded Message
 cboe_c1options_complex_pitch_v2_1_37.add_order_expanded_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.side_indicator.size + 
   cboe_c1options_complex_pitch_v2_1_37.quantity.size + 
@@ -2796,8 +2821,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.add_order_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2852,7 +2877,7 @@ cboe_c1options_complex_pitch_v2_1_37.add_order_short_message = {}
 
 -- Size: Add Order Short Message
 cboe_c1options_complex_pitch_v2_1_37.add_order_short_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.side_indicator.size + 
   cboe_c1options_complex_pitch_v2_1_37.quantity_short.size + 
@@ -2869,8 +2894,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.add_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -2916,7 +2941,7 @@ cboe_c1options_complex_pitch_v2_1_37.add_order_long_message = {}
 
 -- Size: Add Order Long Message
 cboe_c1options_complex_pitch_v2_1_37.add_order_long_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.order_id.size + 
   cboe_c1options_complex_pitch_v2_1_37.side_indicator.size + 
   cboe_c1options_complex_pitch_v2_1_37.quantity.size + 
@@ -2933,8 +2958,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.add_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_complex_pitch_v2_1_37.order_id.dissect(buffer, index, packet, parent)
@@ -3132,7 +3157,7 @@ cboe_c1options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_mess
 cboe_c1options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_c1options_complex_pitch_v2_1_37.time_offset.size
+  index = index + cboe_c1options_complex_pitch_v2_1_37.timestamp.size
 
   index = index + cboe_c1options_complex_pitch_v2_1_37.complex_instrument_id.size
 
@@ -3158,8 +3183,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Id: 6 Byte Ascii String
   index, complex_instrument_id = cboe_c1options_complex_pitch_v2_1_37.complex_instrument_id.dissect(buffer, index, packet, parent)
@@ -3204,7 +3229,7 @@ cboe_c1options_complex_pitch_v2_1_37.transaction_end_message = {}
 
 -- Size: Transaction End Message
 cboe_c1options_complex_pitch_v2_1_37.transaction_end_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size
 
 -- Display: Transaction End Message
 cboe_c1options_complex_pitch_v2_1_37.transaction_end_message.display = function(packet, parent, length)
@@ -3215,8 +3240,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.transaction_end_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3244,7 +3269,7 @@ cboe_c1options_complex_pitch_v2_1_37.transaction_begin = {}
 
 -- Size: Transaction Begin
 cboe_c1options_complex_pitch_v2_1_37.transaction_begin.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size
 
 -- Display: Transaction Begin
 cboe_c1options_complex_pitch_v2_1_37.transaction_begin.display = function(packet, parent, length)
@@ -3255,8 +3280,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.transaction_begin.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3284,7 +3309,7 @@ cboe_c1options_complex_pitch_v2_1_37.unit_clear_message = {}
 
 -- Size: Unit Clear Message
 cboe_c1options_complex_pitch_v2_1_37.unit_clear_message.size =
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size
 
 -- Display: Unit Clear Message
 cboe_c1options_complex_pitch_v2_1_37.unit_clear_message.display = function(packet, parent, length)
@@ -3295,8 +3320,8 @@ end
 cboe_c1options_complex_pitch_v2_1_37.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3376,8 +3401,8 @@ cboe_c1options_complex_pitch_v2_1_37.time_reference_message = {}
 -- Size: Time Reference Message
 cboe_c1options_complex_pitch_v2_1_37.time_reference_message.size =
   cboe_c1options_complex_pitch_v2_1_37.midnight_reference.size + 
-  cboe_c1options_complex_pitch_v2_1_37.time.size + 
-  cboe_c1options_complex_pitch_v2_1_37.time_offset.size + 
+  cboe_c1options_complex_pitch_v2_1_37.time_reference.size + 
+  cboe_c1options_complex_pitch_v2_1_37.timestamp.size + 
   cboe_c1options_complex_pitch_v2_1_37.trade_date.size
 
 -- Display: Time Reference Message
@@ -3392,11 +3417,11 @@ cboe_c1options_complex_pitch_v2_1_37.time_reference_message.fields = function(bu
   -- Midnight Reference: 4 Byte Unsigned Fixed Width Integer
   index, midnight_reference = cboe_c1options_complex_pitch_v2_1_37.midnight_reference.dissect(buffer, index, packet, parent)
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer
-  index, time = cboe_c1options_complex_pitch_v2_1_37.time.dissect(buffer, index, packet, parent)
+  -- Time Reference: 4 Byte Unsigned Fixed Width Integer
+  index, time_reference = cboe_c1options_complex_pitch_v2_1_37.time_reference.dissect(buffer, index, packet, parent)
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_complex_pitch_v2_1_37.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
   index, trade_date = cboe_c1options_complex_pitch_v2_1_37.trade_date.dissect(buffer, index, packet, parent)
@@ -3406,13 +3431,6 @@ cboe_c1options_complex_pitch_v2_1_37.time_reference_message.fields = function(bu
 
   if not packet.visited then
     cboe_c1options_complex_pitch_v2_1_37.conversation.current.midnight_reference.last = midnight_reference
-  end
-
-  -- Store Time Value
-  cboe_c1options_complex_pitch_v2_1_37.time.current = time
-
-  if not packet.visited then
-    cboe_c1options_complex_pitch_v2_1_37.conversation.current.time.last = time
   end
 
   return index
@@ -3659,9 +3677,13 @@ end
 cboe_c1options_complex_pitch_v2_1_37.messages = {}
 
 -- Dissect: Messages
-cboe_c1options_complex_pitch_v2_1_37.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_c1options_complex_pitch_v2_1_37.messages.dissect = function(buffer, offset, packet, parent, count, sequence)
   -- Dissect Heartbeat
   if count == 0 then
+    return offset
+  end
+  -- Dissect Heartbeat
+  if sequence == 0 then
     return offset
   end
   -- Repeating: Message
@@ -3744,10 +3766,8 @@ cboe_c1options_complex_pitch_v2_1_37.packet.dissect = function(buffer, packet, p
   if not packet.visited then
     data.midnight_reference.frames[packet.number] = data.midnight_reference.last
     data.time.frames[packet.number] = data.time.last
-    data.time.frames[packet.number] = data.time.last
   end
   cboe_c1options_complex_pitch_v2_1_37.midnight_reference.current = data.midnight_reference.frames[packet.number]
-  cboe_c1options_complex_pitch_v2_1_37.time.current = data.time.frames[packet.number]
   cboe_c1options_complex_pitch_v2_1_37.time.current = data.time.frames[packet.number]
   cboe_c1options_complex_pitch_v2_1_37.conversation.current = data
 
@@ -3759,8 +3779,11 @@ cboe_c1options_complex_pitch_v2_1_37.packet.dissect = function(buffer, packet, p
   -- Dependency element: Count
   local count = buffer(index - 6, 1):le_uint()
 
-  -- Messages: Runtime Type with 2 branches
-  index = cboe_c1options_complex_pitch_v2_1_37.messages.dissect(buffer, index, packet, parent, count)
+  -- Dependency element: Sequence
+  local sequence = buffer(index - 4, 4):le_uint()
+
+  -- Messages: Runtime Type with 3 branches
+  index = cboe_c1options_complex_pitch_v2_1_37.messages.dissect(buffer, index, packet, parent, count, sequence)
 
   return index
 end
