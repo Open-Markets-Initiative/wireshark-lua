@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Euronext Optiq MarketDataPacket Udp 1.0 Protocol
-local omi_euronext_optiq_marketdatapacket_udp_v1_0 = Proto("Euronext.Optiq.MarketDataPacket.Udp.v1.0.Lua", "Euronext Optiq MarketDataPacket Udp 1.0")
+local omi_euronext_optiq_marketdatapacket_udp_v1_0 = Proto("Omi.Euronext.Optiq.MarketDataPacket.Udp.v1.0", "Euronext Optiq MarketDataPacket Udp 1.0")
 
 -- Protocol table
 local euronext_optiq_marketdatapacket_udp_v1_0 = {}

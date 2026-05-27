@@ -3,10 +3,10 @@
 
 ## Osaka Digital Exchange
 
-| Division | [Protocol][Omi.Odx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Odx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Odx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.OdxSecurityToken.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1906 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v2.2.Pdf] |
-| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.OdxSecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 2517 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v1.2.Pdf] |
+| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.OdxSecurityToken.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1906 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Odx.Specifications] |
+| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.OdxSecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 2517 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Odx.Specifications] |
 
 
 Odx: [website](https://www.odx.co.jp/en "Go to Osaka Digital Exchange")
@@ -25,6 +25,7 @@ Odx: [website](https://www.odx.co.jp/en "Go to Osaka Digital Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Odx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols "Odx Protocol Directory"
+[Omi.Odx.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Specifications "Odx Specifications Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [OdxSecurityToken.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols/OdxSecurityToken "Odx OdxSecurityToken"
 [Odx.OdxSecurityToken.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Odx/Protocols/OdxSecurityToken/Pts.md "Odx Security Token Proprietary Trading System"

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Aquis Equities TradingProtocol Atp 4.0 Protocol
-local omi_aquis_equities_tradingprotocol_atp_v4_0 = Proto("Aquis.Equities.TradingProtocol.Atp.v4.0.Lua", "Aquis Equities TradingProtocol Atp 4.0")
+local omi_aquis_equities_tradingprotocol_atp_v4_0 = Proto("Omi.Aquis.Equities.TradingProtocol.Atp.v4.0", "Aquis Equities TradingProtocol Atp 4.0")
 
 -- Protocol table
 local aquis_equities_tradingprotocol_atp_v4_0 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Millennium Level2 Mitch 11.9 Protocol
-local omi_lseg_millennium_level2_mitch_v11_9 = Proto("Lseg.Millennium.Level2.Mitch.v11.9.Lua", "Lseg Millennium Level2 Mitch 11.9")
+local omi_lseg_millennium_level2_mitch_v11_9 = Proto("Omi.Lseg.Millennium.Level2.Mitch.v11.9", "Lseg Millennium Level2 Mitch 11.9")
 
 -- Protocol table
 local lseg_millennium_level2_mitch_v11_9 = {}

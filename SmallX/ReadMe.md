@@ -3,9 +3,9 @@
 
 ## The Small Exchange
 
-| Division | [Protocol][Omi.SmallX.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.SmallX.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.SmallX.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [OrderBookFeed][SmallX.OrderBookFeed] | [Sbe][Omi.Encoding.Sbe] | [2.2][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | 10/12/2021 | 5722 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][SmallX.OrderBookFeed.Sbe.v2.2.Url] - [pdf][SmallX.OrderBookFeed.Sbe.v2.2.Pdf] - [xml][SmallX.OrderBookFeed.Sbe.v2.2.Xml] |
+|  | [OrderBookFeed][SmallX.OrderBookFeed] | [Sbe][Omi.Encoding.Sbe] | [2.2][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | 10/12/2021 | 5722 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.SmallX.Specifications] |
 
 
 SmallX: [website](https://www.thesmallexchange.com "Go to The Small Exchange")
@@ -24,6 +24,7 @@ SmallX: [website](https://www.thesmallexchange.com "Go to The Small Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.SmallX.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/SmallX/Protocols "SmallX Protocol Directory"
+[Omi.SmallX.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/SmallX/Specifications "SmallX Specifications Directory"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [SmallX.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/OrderBookFeed.md "Order Book Feed"
 

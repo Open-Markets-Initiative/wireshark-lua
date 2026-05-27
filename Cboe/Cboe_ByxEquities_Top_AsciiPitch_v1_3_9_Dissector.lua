@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe ByxEquities Top AsciiPitch 1.3.9 Protocol
-local omi_cboe_byxequities_top_asciipitch_v1_3_9 = Proto("Cboe.ByxEquities.Top.AsciiPitch.v1.3.9.Lua", "Cboe ByxEquities Top AsciiPitch 1.3.9")
+local omi_cboe_byxequities_top_asciipitch_v1_3_9 = Proto("Omi.Cboe.ByxEquities.Top.AsciiPitch.v1.3.9", "Cboe ByxEquities Top AsciiPitch 1.3.9")
 
 -- Protocol table
 local cboe_byxequities_top_asciipitch_v1_3_9 = {}

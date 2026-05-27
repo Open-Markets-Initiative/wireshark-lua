@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Protocol
-local omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f = Proto("Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.Lua", "Nyse NyseEquities ImbalancesFeed Xdp 2.1.f")
+local omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f = Proto("Omi.Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f", "Nyse NyseEquities ImbalancesFeed Xdp 2.1.f")
 
 -- Protocol table
 local nyse_nyseequities_imbalancesfeed_xdp_v2_1_f = {}

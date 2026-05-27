@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse ArcaOptions BinaryGateway PillarStream 3.15 Protocol
-local omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15 = Proto("Nyse.ArcaOptions.BinaryGateway.PillarStream.v3.15.Lua", "Nyse ArcaOptions BinaryGateway PillarStream 3.15")
+local omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15 = Proto("Omi.Nyse.ArcaOptions.BinaryGateway.PillarStream.v3.15", "Nyse ArcaOptions BinaryGateway PillarStream 3.15")
 
 -- Protocol table
 local nyse_arcaoptions_binarygateway_pillarstream_v3_15 = {}

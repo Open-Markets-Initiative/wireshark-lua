@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Hkex Orion Headers Udp 1.0 Protocol
-local omi_hkex_orion_headers_udp_v1_0 = Proto("Hkex.Orion.Headers.Udp.v1.0.Lua", "Hkex Orion Headers Udp 1.0")
+local omi_hkex_orion_headers_udp_v1_0 = Proto("Omi.Hkex.Orion.Headers.Udp.v1.0", "Hkex Orion Headers Udp 1.0")
 
 -- Protocol table
 local hkex_orion_headers_udp_v1_0 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Finra FinraOrf Tdds Dfi 2.0 Protocol
-local omi_finra_finraorf_tdds_dfi_v2_0 = Proto("Finra.FinraOrf.Tdds.Dfi.v2.0.Lua", "Finra FinraOrf Tdds Dfi 2.0")
+local omi_finra_finraorf_tdds_dfi_v2_0 = Proto("Omi.Finra.FinraOrf.Tdds.Dfi.v2.0", "Finra FinraOrf Tdds Dfi 2.0")
 
 -- Protocol table
 local finra_finraorf_tdds_dfi_v2_0 = {}

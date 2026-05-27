@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Boats CommonHeader Udp 1.1 Protocol
-local omi_boats_commonheader_udp_v1_1 = Proto("Boats.CommonHeader.Udp.v1.1.Lua", "Boats CommonHeader Udp 1.1")
+local omi_boats_commonheader_udp_v1_1 = Proto("Omi.Boats.CommonHeader.Udp.v1.1", "Boats CommonHeader Udp 1.1")
 
 -- Protocol table
 local boats_commonheader_udp_v1_1 = {}

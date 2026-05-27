@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Hkex Derivatives Premium Omd 2.0 Protocol
-local omi_hkex_derivatives_premium_omd_v2_0 = Proto("Hkex.Derivatives.Premium.Omd.v2.0.Lua", "Hkex Derivatives Premium Omd 2.0")
+local omi_hkex_derivatives_premium_omd_v2_0 = Proto("Omi.Hkex.Derivatives.Premium.Omd.v2.0", "Hkex Derivatives Premium Omd 2.0")
 
 -- Protocol table
 local hkex_derivatives_premium_omd_v2_0 = {}

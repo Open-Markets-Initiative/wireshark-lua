@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme CmeFutures Streamlined Sbe 5.9 Protocol
-local omi_cme_cmefutures_streamlined_sbe_v5_9 = Proto("Cme.CmeFutures.Streamlined.Sbe.v5.9.Lua", "Cme CmeFutures Streamlined Sbe 5.9")
+local omi_cme_cmefutures_streamlined_sbe_v5_9 = Proto("Omi.Cme.CmeFutures.Streamlined.Sbe.v5.9", "Cme CmeFutures Streamlined Sbe 5.9")
 
 -- Protocol table
 local cme_cmefutures_streamlined_sbe_v5_9 = {}

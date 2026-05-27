@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Txse TxseEquities OrderEntry Seed 0.1 Protocol
-local omi_txse_txseequities_orderentry_seed_v0_1 = Proto("Txse.TxseEquities.OrderEntry.Seed.v0.1.Lua", "Txse TxseEquities OrderEntry Seed 0.1")
+local omi_txse_txseequities_orderentry_seed_v0_1 = Proto("Omi.Txse.TxseEquities.OrderEntry.Seed.v0.1", "Txse TxseEquities OrderEntry Seed 0.1")
 
 -- Protocol table
 local txse_txseequities_orderentry_seed_v0_1 = {}

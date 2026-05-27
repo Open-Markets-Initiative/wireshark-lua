@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe EdgxOptions AuctionFeed Pitch 1.1.39 Protocol
-local omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39 = Proto("Cboe.EdgxOptions.AuctionFeed.Pitch.v1.1.39.Lua", "Cboe EdgxOptions AuctionFeed Pitch 1.1.39")
+local omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39 = Proto("Omi.Cboe.EdgxOptions.AuctionFeed.Pitch.v1.1.39", "Cboe EdgxOptions AuctionFeed Pitch 1.1.39")
 
 -- Protocol table
 local cboe_edgxoptions_auctionfeed_pitch_v1_1_39 = {}

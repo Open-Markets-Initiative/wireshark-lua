@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- BruceAts BruceEquities DepthOfBook Itch 1.0 Protocol
-local omi_bruceats_bruceequities_depthofbook_itch_v1_0 = Proto("BruceAts.BruceEquities.DepthOfBook.Itch.v1.0.Lua", "BruceAts BruceEquities DepthOfBook Itch 1.0")
+local omi_bruceats_bruceequities_depthofbook_itch_v1_0 = Proto("Omi.BruceAts.BruceEquities.DepthOfBook.Itch.v1.0", "BruceAts BruceEquities DepthOfBook Itch 1.0")
 
 -- Protocol table
 local bruceats_bruceequities_depthofbook_itch_v1_0 = {}

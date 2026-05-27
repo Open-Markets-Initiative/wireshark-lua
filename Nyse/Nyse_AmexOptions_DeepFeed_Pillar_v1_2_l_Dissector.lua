@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse AmexOptions DeepFeed Pillar 1.2.l Protocol
-local omi_nyse_amexoptions_deepfeed_pillar_v1_2_l = Proto("Nyse.AmexOptions.DeepFeed.Pillar.v1.2.l.Lua", "Nyse AmexOptions DeepFeed Pillar 1.2.l")
+local omi_nyse_amexoptions_deepfeed_pillar_v1_2_l = Proto("Omi.Nyse.AmexOptions.DeepFeed.Pillar.v1.2.l", "Nyse AmexOptions DeepFeed Pillar 1.2.l")
 
 -- Protocol table
 local nyse_amexoptions_deepfeed_pillar_v1_2_l = {}

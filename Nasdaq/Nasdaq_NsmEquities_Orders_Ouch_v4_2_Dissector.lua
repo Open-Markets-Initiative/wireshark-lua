@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Orders Ouch 4.2 Protocol
-local omi_nasdaq_nsmequities_orders_ouch_v4_2 = Proto("Nasdaq.NsmEquities.Orders.Ouch.v4.2.Lua", "Nasdaq NsmEquities Orders Ouch 4.2")
+local omi_nasdaq_nsmequities_orders_ouch_v4_2 = Proto("Omi.Nasdaq.NsmEquities.Orders.Ouch.v4.2", "Nasdaq NsmEquities Orders Ouch 4.2")
 
 -- Protocol table
 local nasdaq_nsmequities_orders_ouch_v4_2 = {}

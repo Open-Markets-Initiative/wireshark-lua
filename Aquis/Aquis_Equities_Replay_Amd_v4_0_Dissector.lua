@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Aquis Equities Replay Amd 4.0 Protocol
-local omi_aquis_equities_replay_amd_v4_0 = Proto("Aquis.Equities.Replay.Amd.v4.0.Lua", "Aquis Equities Replay Amd 4.0")
+local omi_aquis_equities_replay_amd_v4_0 = Proto("Omi.Aquis.Equities.Replay.Amd.v4.0", "Aquis Equities Replay Amd 4.0")
 
 -- Protocol table
 local aquis_equities_replay_amd_v4_0 = {}

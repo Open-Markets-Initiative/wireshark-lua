@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Eurex Derivatives Eobi T7 8.0 Protocol
-local omi_eurex_derivatives_eobi_t7_v8_0 = Proto("Eurex.Derivatives.Eobi.T7.v8.0.Lua", "Eurex Derivatives Eobi T7 8.0")
+local omi_eurex_derivatives_eobi_t7_v8_0 = Proto("Omi.Eurex.Derivatives.Eobi.T7.v8.0", "Eurex Derivatives Eobi T7 8.0")
 
 -- Protocol table
 local eurex_derivatives_eobi_t7_v8_0 = {}

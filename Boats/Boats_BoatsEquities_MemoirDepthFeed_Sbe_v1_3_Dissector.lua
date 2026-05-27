@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Boats BoatsEquities MemoirDepthFeed Sbe 1.3 Protocol
-local omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3 = Proto("Boats.BoatsEquities.MemoirDepthFeed.Sbe.v1.3.Lua", "Boats BoatsEquities MemoirDepthFeed Sbe 1.3")
+local omi_boats_boatsequities_memoirdepthfeed_sbe_v1_3 = Proto("Omi.Boats.BoatsEquities.MemoirDepthFeed.Sbe.v1.3", "Boats BoatsEquities MemoirDepthFeed Sbe 1.3")
 
 -- Protocol table
 local boats_boatsequities_memoirdepthfeed_sbe_v1_3 = {}

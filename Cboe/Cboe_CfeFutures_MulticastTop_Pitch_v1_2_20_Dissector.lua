@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe CfeFutures MulticastTop Pitch 1.2.20 Protocol
-local omi_cboe_cfefutures_multicasttop_pitch_v1_2_20 = Proto("Cboe.CfeFutures.MulticastTop.Pitch.v1.2.20.Lua", "Cboe CfeFutures MulticastTop Pitch 1.2.20")
+local omi_cboe_cfefutures_multicasttop_pitch_v1_2_20 = Proto("Omi.Cboe.CfeFutures.MulticastTop.Pitch.v1.2.20", "Cboe CfeFutures MulticastTop Pitch 1.2.20")
 
 -- Protocol table
 local cboe_cfefutures_multicasttop_pitch_v1_2_20 = {}

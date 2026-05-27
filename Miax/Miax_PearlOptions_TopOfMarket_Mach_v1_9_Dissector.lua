@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax PearlOptions TopOfMarket Mach 1.9 Protocol
-local omi_miax_pearloptions_topofmarket_mach_v1_9 = Proto("Miax.PearlOptions.TopOfMarket.Mach.v1.9.Lua", "Miax PearlOptions TopOfMarket Mach 1.9")
+local omi_miax_pearloptions_topofmarket_mach_v1_9 = Proto("Omi.Miax.PearlOptions.TopOfMarket.Mach.v1.9", "Miax PearlOptions TopOfMarket Mach 1.9")
 
 -- Protocol table
 local miax_pearloptions_topofmarket_mach_v1_9 = {}

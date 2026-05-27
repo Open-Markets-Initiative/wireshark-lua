@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse AmexOptions BinaryGateway PillarStream 3.25 Protocol
-local omi_nyse_amexoptions_binarygateway_pillarstream_v3_25 = Proto("Nyse.AmexOptions.BinaryGateway.PillarStream.v3.25.Lua", "Nyse AmexOptions BinaryGateway PillarStream 3.25")
+local omi_nyse_amexoptions_binarygateway_pillarstream_v3_25 = Proto("Omi.Nyse.AmexOptions.BinaryGateway.PillarStream.v3.25", "Nyse AmexOptions BinaryGateway PillarStream 3.25")
 
 -- Protocol table
 local nyse_amexoptions_binarygateway_pillarstream_v3_25 = {}

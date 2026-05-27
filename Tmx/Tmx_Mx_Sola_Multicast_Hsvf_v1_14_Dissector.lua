@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Tmx Mx Sola Multicast Hsvf 1.14 Protocol
-local omi_tmx_mx_sola_multicast_hsvf_v1_14 = Proto("Tmx.Mx.Sola.Multicast.Hsvf.v1.14.Lua", "Tmx Mx Sola Multicast Hsvf 1.14")
+local omi_tmx_mx_sola_multicast_hsvf_v1_14 = Proto("Omi.Tmx.Mx.Sola.Multicast.Hsvf.v1.14", "Tmx Mx Sola Multicast Hsvf 1.14")
 
 -- Protocol table
 local tmx_mx_sola_multicast_hsvf_v1_14 = {}

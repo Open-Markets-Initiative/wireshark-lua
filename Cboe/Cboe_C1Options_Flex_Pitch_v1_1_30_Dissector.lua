@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe C1Options Flex Pitch 1.1.30 Protocol
-local omi_cboe_c1options_flex_pitch_v1_1_30 = Proto("Cboe.C1Options.Flex.Pitch.v1.1.30.Lua", "Cboe C1Options Flex Pitch 1.1.30")
+local omi_cboe_c1options_flex_pitch_v1_1_30 = Proto("Omi.Cboe.C1Options.Flex.Pitch.v1.1.30", "Cboe C1Options Flex Pitch 1.1.30")
 
 -- Protocol table
 local cboe_c1options_flex_pitch_v1_1_30 = {}

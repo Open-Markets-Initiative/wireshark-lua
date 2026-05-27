@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme CmeFutures iLink3 Sbe 8.4 Protocol
-local omi_cme_cmefutures_ilink3_sbe_v8_4 = Proto("Cme.CmeFutures.iLink3.Sbe.v8.4.Lua", "Cme CmeFutures iLink3 Sbe 8.4")
+local omi_cme_cmefutures_ilink3_sbe_v8_4 = Proto("Omi.Cme.CmeFutures.iLink3.Sbe.v8.4", "Cme CmeFutures iLink3 Sbe 8.4")
 
 -- Protocol table
 local cme_cmefutures_ilink3_sbe_v8_4 = {}

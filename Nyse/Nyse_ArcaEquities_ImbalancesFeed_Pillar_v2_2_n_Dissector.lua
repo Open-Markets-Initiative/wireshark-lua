@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n Protocol
-local omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n = Proto("Nyse.ArcaEquities.ImbalancesFeed.Pillar.v2.2.n.Lua", "Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n")
+local omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n = Proto("Omi.Nyse.ArcaEquities.ImbalancesFeed.Pillar.v2.2.n", "Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n")
 
 -- Protocol table
 local nyse_arcaequities_imbalancesfeed_pillar_v2_2_n = {}

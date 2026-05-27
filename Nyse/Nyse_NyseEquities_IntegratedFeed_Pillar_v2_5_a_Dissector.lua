@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse NyseEquities IntegratedFeed Pillar 2.5.a Protocol
-local omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a = Proto("Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a.Lua", "Nyse NyseEquities IntegratedFeed Pillar 2.5.a")
+local omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a = Proto("Omi.Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.a", "Nyse NyseEquities IntegratedFeed Pillar 2.5.a")
 
 -- Protocol table
 local nyse_nyseequities_integratedfeed_pillar_v2_5_a = {}

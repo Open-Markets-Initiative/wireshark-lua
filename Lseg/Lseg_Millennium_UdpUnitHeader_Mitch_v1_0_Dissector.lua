@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Protocol
-local omi_lseg_millennium_udpunitheader_mitch_v1_0 = Proto("Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Lua", "Lseg Millennium UdpUnitHeader Mitch 1.0")
+local omi_lseg_millennium_udpunitheader_mitch_v1_0 = Proto("Omi.Lseg.Millennium.UdpUnitHeader.Mitch.v1.0", "Lseg Millennium UdpUnitHeader Mitch 1.0")
 
 -- Protocol table
 local lseg_millennium_udpunitheader_mitch_v1_0 = {}

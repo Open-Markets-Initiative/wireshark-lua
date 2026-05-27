@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Asx AsxSecurities Trade Itch 3.1 Protocol
-local omi_asx_asxsecurities_trade_itch_v3_1 = Proto("Asx.AsxSecurities.Trade.Itch.v3.1.Lua", "Asx AsxSecurities Trade Itch 3.1")
+local omi_asx_asxsecurities_trade_itch_v3_1 = Proto("Omi.Asx.AsxSecurities.Trade.Itch.v3.1", "Asx AsxSecurities Trade Itch 3.1")
 
 -- Protocol table
 local asx_asxsecurities_trade_itch_v3_1 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx MemxEquities MemoirDepthFeed Sbe 1.1 Protocol
-local omi_memx_memxequities_memoirdepthfeed_sbe_v1_1 = Proto("Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.1.Lua", "Memx MemxEquities MemoirDepthFeed Sbe 1.1")
+local omi_memx_memxequities_memoirdepthfeed_sbe_v1_1 = Proto("Omi.Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.1", "Memx MemxEquities MemoirDepthFeed Sbe 1.1")
 
 -- Protocol table
 local memx_memxequities_memoirdepthfeed_sbe_v1_1 = {}

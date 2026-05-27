@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Level1 Gtp 24.4 Protocol
-local omi_lseg_turquoise_level1_gtp_v24_4 = Proto("Lseg.Turquoise.Level1.Gtp.v24.4.Lua", "Lseg Turquoise Level1 Gtp 24.4")
+local omi_lseg_turquoise_level1_gtp_v24_4 = Proto("Omi.Lseg.Turquoise.Level1.Gtp.v24.4", "Lseg Turquoise Level1 Gtp 24.4")
 
 -- Protocol table
 local lseg_turquoise_level1_gtp_v24_4 = {}

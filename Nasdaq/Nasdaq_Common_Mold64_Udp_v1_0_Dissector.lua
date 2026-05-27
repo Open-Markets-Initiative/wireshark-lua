@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq Common Mold64 Udp 1.0 Protocol
-local omi_nasdaq_common_mold64_udp_v1_0 = Proto("Nasdaq.Common.Mold64.Udp.v1.0.Lua", "Nasdaq Common Mold64 Udp 1.0")
+local omi_nasdaq_common_mold64_udp_v1_0 = Proto("Omi.Nasdaq.Common.Mold64.Udp.v1.0", "Nasdaq Common Mold64 Udp 1.0")
 
 -- Protocol table
 local nasdaq_common_mold64_udp_v1_0 = {}

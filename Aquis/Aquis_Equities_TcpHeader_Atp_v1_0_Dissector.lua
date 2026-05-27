@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Aquis Equities TcpHeader Atp 1.0 Protocol
-local omi_aquis_equities_tcpheader_atp_v1_0 = Proto("Aquis.Equities.TcpHeader.Atp.v1.0.Lua", "Aquis Equities TcpHeader Atp 1.0")
+local omi_aquis_equities_tcpheader_atp_v1_0 = Proto("Omi.Aquis.Equities.TcpHeader.Atp.v1.0", "Aquis Equities TcpHeader Atp 1.0")
 
 -- Protocol table
 local aquis_equities_tcpheader_atp_v1_0 = {}

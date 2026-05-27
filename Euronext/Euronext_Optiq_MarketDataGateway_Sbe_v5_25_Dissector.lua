@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Euronext Optiq MarketDataGateway Sbe 5.25 Protocol
-local omi_euronext_optiq_marketdatagateway_sbe_v5_25 = Proto("Euronext.Optiq.MarketDataGateway.Sbe.v5.25.Lua", "Euronext Optiq MarketDataGateway Sbe 5.25")
+local omi_euronext_optiq_marketdatagateway_sbe_v5_25 = Proto("Omi.Euronext.Optiq.MarketDataGateway.Sbe.v5.25", "Euronext Optiq MarketDataGateway Sbe 5.25")
 
 -- Protocol table
 local euronext_optiq_marketdatagateway_sbe_v5_25 = {}

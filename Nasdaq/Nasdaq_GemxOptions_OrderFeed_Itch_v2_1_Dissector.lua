@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq GemxOptions OrderFeed Itch 2.1 Protocol
-local omi_nasdaq_gemxoptions_orderfeed_itch_v2_1 = Proto("Nasdaq.GemxOptions.OrderFeed.Itch.v2.1.Lua", "Nasdaq GemxOptions OrderFeed Itch 2.1")
+local omi_nasdaq_gemxoptions_orderfeed_itch_v2_1 = Proto("Omi.Nasdaq.GemxOptions.OrderFeed.Itch.v2.1", "Nasdaq GemxOptions OrderFeed Itch 2.1")
 
 -- Protocol table
 local nasdaq_gemxoptions_orderfeed_itch_v2_1 = {}

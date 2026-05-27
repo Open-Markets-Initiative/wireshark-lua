@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- B3 B3Derivatives BinaryUmdf Sbe 2.2 Protocol
-local omi_b3_b3derivatives_binaryumdf_sbe_v2_2 = Proto("B3.B3Derivatives.BinaryUmdf.Sbe.v2.2.Lua", "B3 B3Derivatives BinaryUmdf Sbe 2.2")
+local omi_b3_b3derivatives_binaryumdf_sbe_v2_2 = Proto("Omi.B3.B3Derivatives.BinaryUmdf.Sbe.v2.2", "B3 B3Derivatives BinaryUmdf Sbe 2.2")
 
 -- Protocol table
 local b3_b3derivatives_binaryumdf_sbe_v2_2 = {}

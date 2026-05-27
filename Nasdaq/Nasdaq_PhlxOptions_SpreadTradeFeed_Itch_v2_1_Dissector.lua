@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions SpreadTradeFeed Itch 2.1 Protocol
-local omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1 = Proto("Nasdaq.PhlxOptions.SpreadTradeFeed.Itch.v2.1.Lua", "Nasdaq PhlxOptions SpreadTradeFeed Itch 2.1")
+local omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1 = Proto("Omi.Nasdaq.PhlxOptions.SpreadTradeFeed.Itch.v2.1", "Nasdaq PhlxOptions SpreadTradeFeed Itch 2.1")
 
 -- Protocol table
 local nasdaq_phlxoptions_spreadtradefeed_itch_v2_1 = {}

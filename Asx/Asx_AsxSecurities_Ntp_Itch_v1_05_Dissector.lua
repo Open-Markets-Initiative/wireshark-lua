@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Asx AsxSecurities Ntp Itch 1.05 Protocol
-local omi_asx_asxsecurities_ntp_itch_v1_05 = Proto("Asx.AsxSecurities.Ntp.Itch.v1.05.Lua", "Asx AsxSecurities Ntp Itch 1.05")
+local omi_asx_asxsecurities_ntp_itch_v1_05 = Proto("Omi.Asx.AsxSecurities.Ntp.Itch.v1.05", "Asx AsxSecurities Ntp Itch 1.05")
 
 -- Protocol table
 local asx_asxsecurities_ntp_itch_v1_05 = {}

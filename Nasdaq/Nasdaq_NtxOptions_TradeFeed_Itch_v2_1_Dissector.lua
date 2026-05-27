@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NtxOptions TradeFeed Itch 2.1 Protocol
-local omi_nasdaq_ntxoptions_tradefeed_itch_v2_1 = Proto("Nasdaq.NtxOptions.TradeFeed.Itch.v2.1.Lua", "Nasdaq NtxOptions TradeFeed Itch 2.1")
+local omi_nasdaq_ntxoptions_tradefeed_itch_v2_1 = Proto("Omi.Nasdaq.NtxOptions.TradeFeed.Itch.v2.1", "Nasdaq NtxOptions TradeFeed Itch 2.1")
 
 -- Protocol table
 local nasdaq_ntxoptions_tradefeed_itch_v2_1 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions Orders Itch 1.9 Protocol
-local omi_nasdaq_phlxoptions_orders_itch_v1_9 = Proto("Nasdaq.PhlxOptions.Orders.Itch.v1.9.Lua", "Nasdaq PhlxOptions Orders Itch 1.9")
+local omi_nasdaq_phlxoptions_orders_itch_v1_9 = Proto("Omi.Nasdaq.PhlxOptions.Orders.Itch.v1.9", "Nasdaq PhlxOptions Orders Itch 1.9")
 
 -- Protocol table
 local nasdaq_phlxoptions_orders_itch_v1_9 = {}

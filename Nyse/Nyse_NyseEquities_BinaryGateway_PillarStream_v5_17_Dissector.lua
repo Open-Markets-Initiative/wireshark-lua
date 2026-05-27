@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse NyseEquities BinaryGateway PillarStream 5.17 Protocol
-local omi_nyse_nyseequities_binarygateway_pillarstream_v5_17 = Proto("Nyse.NyseEquities.BinaryGateway.PillarStream.v5.17.Lua", "Nyse NyseEquities BinaryGateway PillarStream 5.17")
+local omi_nyse_nyseequities_binarygateway_pillarstream_v5_17 = Proto("Omi.Nyse.NyseEquities.BinaryGateway.PillarStream.v5.17", "Nyse NyseEquities BinaryGateway PillarStream 5.17")
 
 -- Protocol table
 local nyse_nyseequities_binarygateway_pillarstream_v5_17 = {}

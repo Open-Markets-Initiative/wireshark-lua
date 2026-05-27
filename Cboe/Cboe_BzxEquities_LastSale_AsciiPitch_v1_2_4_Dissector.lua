@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe BzxEquities LastSale AsciiPitch 1.2.4 Protocol
-local omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4 = Proto("Cboe.BzxEquities.LastSale.AsciiPitch.v1.2.4.Lua", "Cboe BzxEquities LastSale AsciiPitch 1.2.4")
+local omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4 = Proto("Omi.Cboe.BzxEquities.LastSale.AsciiPitch.v1.2.4", "Cboe BzxEquities LastSale AsciiPitch 1.2.4")
 
 -- Protocol table
 local cboe_bzxequities_lastsale_asciipitch_v1_2_4 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse ArcaEquities DepthFeed Pillar 1.6 Protocol
-local omi_nyse_arcaequities_depthfeed_pillar_v1_6 = Proto("Nyse.ArcaEquities.DepthFeed.Pillar.v1.6.Lua", "Nyse ArcaEquities DepthFeed Pillar 1.6")
+local omi_nyse_arcaequities_depthfeed_pillar_v1_6 = Proto("Omi.Nyse.ArcaEquities.DepthFeed.Pillar.v1.6", "Nyse ArcaEquities DepthFeed Pillar 1.6")
 
 -- Protocol table
 local nyse_arcaequities_depthfeed_pillar_v1_6 = {}

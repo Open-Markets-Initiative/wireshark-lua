@@ -3,11 +3,11 @@
 
 ## Box Options Market
 
-| Division | [Protocol][Omi.Box.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Box.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Box.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Options Sola][Options] | [Multicast][Box.Options.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.9][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | 2/15/2024 | 6693 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.9.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf] |
-| [Options Sola][Options] | [Multicast][Box.Options.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.8][Box.Options.Sola.Multicast.Hsvf.v1.8.Dissector] | 10/17/2023 | 6642 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.Options.Sola.Multicast.Hsvf.v1.8.Url] - [pdf][Box.Options.Sola.Multicast.Hsvf.v1.8.Pdf] |
-| [Options Sola][Options] | [Unicast][Box.Options.Unicast] | [Hsvf][Omi.Encoding.Hsvf] | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 7086 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf] |
+| [Options Sola][Options] | [Multicast][Box.Options.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.9][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | 2/15/2024 | 6693 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Box.Specifications] |
+| [Options Sola][Options] | [Multicast][Box.Options.Multicast] | [Hsvf][Omi.Encoding.Hsvf] | [1.8][Box.Options.Sola.Multicast.Hsvf.v1.8.Dissector] | 10/17/2023 | 6642 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Box.Specifications] |
+| [Options Sola][Options] | [Unicast][Box.Options.Unicast] | [Hsvf][Omi.Encoding.Hsvf] | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 7086 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Box.Specifications] |
 
 
 Box: [website](https://boxoptions.com "Go to Box Options Market")
@@ -26,6 +26,7 @@ Box: [website](https://boxoptions.com "Go to Box Options Market")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Box.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Box/Protocols "Box Protocol Directory"
+[Omi.Box.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Box/Specifications "Box Specifications Directory"
 [Omi.Encoding.Hsvf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Hsvf.md "Hsvf Encoding"
 [Options]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Box/Protocols/Options "Box Options"
 [Box.Options.Unicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Protocols/Options/Unicast.md "Unicast"

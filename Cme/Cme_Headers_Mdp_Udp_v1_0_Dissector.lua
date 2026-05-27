@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme Headers Mdp Udp 1.0 Protocol
-local omi_cme_headers_mdp_udp_v1_0 = Proto("Cme.Headers.Mdp.Udp.v1.0.Lua", "Cme Headers Mdp Udp 1.0")
+local omi_cme_headers_mdp_udp_v1_0 = Proto("Omi.Cme.Headers.Mdp.Udp.v1.0", "Cme Headers Mdp Udp 1.0")
 
 -- Protocol table
 local cme_headers_mdp_udp_v1_0 = {}

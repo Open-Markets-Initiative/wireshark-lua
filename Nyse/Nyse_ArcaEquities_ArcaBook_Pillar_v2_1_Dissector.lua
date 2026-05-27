@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 Protocol
-local omi_nyse_arcaequities_arcabook_pillar_v2_1 = Proto("Nyse.ArcaEquities.ArcaBook.Pillar.v2.1.Lua", "Nyse ArcaEquities ArcaBook Pillar 2.1")
+local omi_nyse_arcaequities_arcabook_pillar_v2_1 = Proto("Omi.Nyse.ArcaEquities.ArcaBook.Pillar.v2.1", "Nyse ArcaEquities ArcaBook Pillar 2.1")
 
 -- Protocol table
 local nyse_arcaequities_arcabook_pillar_v2_1 = {}

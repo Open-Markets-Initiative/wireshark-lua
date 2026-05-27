@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Ice IceFutures Mdf iMpact 1.1.34 Protocol
-local omi_ice_icefutures_mdf_impact_v1_1_34 = Proto("Ice.IceFutures.Mdf.iMpact.v1.1.34.Lua", "Ice IceFutures Mdf iMpact 1.1.34")
+local omi_ice_icefutures_mdf_impact_v1_1_34 = Proto("Omi.Ice.IceFutures.Mdf.iMpact.v1.1.34", "Ice IceFutures Mdf iMpact 1.1.34")
 
 -- Protocol table
 local ice_icefutures_mdf_impact_v1_1_34 = {}

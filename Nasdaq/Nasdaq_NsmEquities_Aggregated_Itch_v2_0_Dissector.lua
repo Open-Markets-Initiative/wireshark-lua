@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Aggregated Itch 2.0 Protocol
-local omi_nasdaq_nsmequities_aggregated_itch_v2_0 = Proto("Nasdaq.NsmEquities.Aggregated.Itch.v2.0.Lua", "Nasdaq NsmEquities Aggregated Itch 2.0")
+local omi_nasdaq_nsmequities_aggregated_itch_v2_0 = Proto("Omi.Nasdaq.NsmEquities.Aggregated.Itch.v2.0", "Nasdaq NsmEquities Aggregated Itch 2.0")
 
 -- Protocol table
 local nasdaq_nsmequities_aggregated_itch_v2_0 = {}

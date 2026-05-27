@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Protocol
-local omi_miax_onyxfutures_headeronly_mach_v1_0 = Proto("Miax.OnyxFutures.HeaderOnly.Mach.v1.0.Lua", "Miax OnyxFutures HeaderOnly Mach 1.0")
+local omi_miax_onyxfutures_headeronly_mach_v1_0 = Proto("Omi.Miax.OnyxFutures.HeaderOnly.Mach.v1.0", "Miax OnyxFutures HeaderOnly Mach 1.0")
 
 -- Protocol table
 local miax_onyxfutures_headeronly_mach_v1_0 = {}

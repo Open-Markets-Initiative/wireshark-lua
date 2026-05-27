@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Box Options Sola Multicast Hsvf 1.8 Protocol
-local omi_box_options_sola_multicast_hsvf_v1_8 = Proto("Box.Options.Sola.Multicast.Hsvf.v1.8.Lua", "Box Options Sola Multicast Hsvf 1.8")
+local omi_box_options_sola_multicast_hsvf_v1_8 = Proto("Omi.Box.Options.Sola.Multicast.Hsvf.v1.8", "Box Options Sola Multicast Hsvf 1.8")
 
 -- Protocol table
 local box_options_sola_multicast_hsvf_v1_8 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Hkex Derivatives Lite Omd 1.47 Protocol
-local omi_hkex_derivatives_lite_omd_v1_47 = Proto("Hkex.Derivatives.Lite.Omd.v1.47.Lua", "Hkex Derivatives Lite Omd 1.47")
+local omi_hkex_derivatives_lite_omd_v1_47 = Proto("Omi.Hkex.Derivatives.Lite.Omd.v1.47", "Hkex Derivatives Lite Omd 1.47")
 
 -- Protocol table
 local hkex_derivatives_lite_omd_v1_47 = {}

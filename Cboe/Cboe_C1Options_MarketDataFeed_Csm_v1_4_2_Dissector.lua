@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe C1Options MarketDataFeed Csm 1.4.2 Protocol
-local omi_cboe_c1options_marketdatafeed_csm_v1_4_2 = Proto("Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.Lua", "Cboe C1Options MarketDataFeed Csm 1.4.2")
+local omi_cboe_c1options_marketdatafeed_csm_v1_4_2 = Proto("Omi.Cboe.C1Options.MarketDataFeed.Csm.v1.4.2", "Cboe C1Options MarketDataFeed Csm 1.4.2")
 
 -- Protocol table
 local cboe_c1options_marketdatafeed_csm_v1_4_2 = {}

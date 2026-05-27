@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Jpx OseDerivatives GeniumInet Itch 1.1 Protocol
-local omi_jpx_osederivatives_geniuminet_itch_v1_1 = Proto("Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Lua", "Jpx OseDerivatives GeniumInet Itch 1.1")
+local omi_jpx_osederivatives_geniuminet_itch_v1_1 = Proto("Omi.Jpx.OseDerivatives.GeniumInet.Itch.v1.1", "Jpx OseDerivatives GeniumInet Itch 1.1")
 
 -- Protocol table
 local jpx_osederivatives_geniuminet_itch_v1_1 = {}

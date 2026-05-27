@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NomOptions Bono Itch 3.2 Protocol
-local omi_nasdaq_nomoptions_bono_itch_v3_2 = Proto("Nasdaq.NomOptions.Bono.Itch.v3.2.Lua", "Nasdaq NomOptions Bono Itch 3.2")
+local omi_nasdaq_nomoptions_bono_itch_v3_2 = Proto("Omi.Nasdaq.NomOptions.Bono.Itch.v3.2", "Nasdaq NomOptions Bono Itch 3.2")
 
 -- Protocol table
 local nasdaq_nomoptions_bono_itch_v3_2 = {}

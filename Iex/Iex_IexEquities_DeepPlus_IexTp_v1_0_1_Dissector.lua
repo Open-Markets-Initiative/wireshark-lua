@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Iex IexEquities DeepPlus IexTp 1.0.1 Protocol
-local omi_iex_iexequities_deepplus_iextp_v1_0_1 = Proto("Iex.IexEquities.DeepPlus.IexTp.v1.0.1.Lua", "Iex IexEquities DeepPlus IexTp 1.0.1")
+local omi_iex_iexequities_deepplus_iextp_v1_0_1 = Proto("Omi.Iex.IexEquities.DeepPlus.IexTp.v1.0.1", "Iex IexEquities DeepPlus IexTp 1.0.1")
 
 -- Protocol table
 local iex_iexequities_deepplus_iextp_v1_0_1 = {}

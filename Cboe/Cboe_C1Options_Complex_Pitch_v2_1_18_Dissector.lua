@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe C1Options Complex Pitch 2.1.18 Protocol
-local omi_cboe_c1options_complex_pitch_v2_1_18 = Proto("Cboe.C1Options.Complex.Pitch.v2.1.18.Lua", "Cboe C1Options Complex Pitch 2.1.18")
+local omi_cboe_c1options_complex_pitch_v2_1_18 = Proto("Omi.Cboe.C1Options.Complex.Pitch.v2.1.18", "Cboe C1Options Complex Pitch 2.1.18")
 
 -- Protocol table
 local cboe_c1options_complex_pitch_v2_1_18 = {}

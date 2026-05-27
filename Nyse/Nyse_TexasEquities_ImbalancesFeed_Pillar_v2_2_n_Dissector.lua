@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse TexasEquities ImbalancesFeed Pillar 2.2.n Protocol
-local omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n = Proto("Nyse.TexasEquities.ImbalancesFeed.Pillar.v2.2.n.Lua", "Nyse TexasEquities ImbalancesFeed Pillar 2.2.n")
+local omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n = Proto("Omi.Nyse.TexasEquities.ImbalancesFeed.Pillar.v2.2.n", "Nyse TexasEquities ImbalancesFeed Pillar 2.2.n")
 
 -- Protocol table
 local nyse_texasequities_imbalancesfeed_pillar_v2_2_n = {}

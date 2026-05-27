@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Iex IexEquities UdpHeader IexTp 1.0 Protocol
-local omi_iex_iexequities_udpheader_iextp_v1_0 = Proto("Iex.IexEquities.UdpHeader.IexTp.v1.0.Lua", "Iex IexEquities UdpHeader IexTp 1.0")
+local omi_iex_iexequities_udpheader_iextp_v1_0 = Proto("Omi.Iex.IexEquities.UdpHeader.IexTp.v1.0", "Iex IexEquities UdpHeader IexTp 1.0")
 
 -- Protocol table
 local iex_iexequities_udpheader_iextp_v1_0 = {}

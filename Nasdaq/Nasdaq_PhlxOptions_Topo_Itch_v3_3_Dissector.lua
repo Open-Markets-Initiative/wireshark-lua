@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions Topo Itch 3.3 Protocol
-local omi_nasdaq_phlxoptions_topo_itch_v3_3 = Proto("Nasdaq.PhlxOptions.Topo.Itch.v3.3.Lua", "Nasdaq PhlxOptions Topo Itch 3.3")
+local omi_nasdaq_phlxoptions_topo_itch_v3_3 = Proto("Omi.Nasdaq.PhlxOptions.Topo.Itch.v3.3", "Nasdaq PhlxOptions Topo Itch 3.3")
 
 -- Protocol table
 local nasdaq_phlxoptions_topo_itch_v3_3 = {}

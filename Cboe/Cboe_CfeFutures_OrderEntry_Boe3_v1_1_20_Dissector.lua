@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe CfeFutures OrderEntry Boe3 1.1.20 Protocol
-local omi_cboe_cfefutures_orderentry_boe3_v1_1_20 = Proto("Cboe.CfeFutures.OrderEntry.Boe3.v1.1.20.Lua", "Cboe CfeFutures OrderEntry Boe3 1.1.20")
+local omi_cboe_cfefutures_orderentry_boe3_v1_1_20 = Proto("Omi.Cboe.CfeFutures.OrderEntry.Boe3.v1.1.20", "Cboe CfeFutures OrderEntry Boe3 1.1.20")
 
 -- Protocol table
 local cboe_cfefutures_orderentry_boe3_v1_1_20 = {}

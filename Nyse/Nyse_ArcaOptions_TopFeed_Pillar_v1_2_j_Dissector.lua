@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse ArcaOptions TopFeed Pillar 1.2.j Protocol
-local omi_nyse_arcaoptions_topfeed_pillar_v1_2_j = Proto("Nyse.ArcaOptions.TopFeed.Pillar.v1.2.j.Lua", "Nyse ArcaOptions TopFeed Pillar 1.2.j")
+local omi_nyse_arcaoptions_topfeed_pillar_v1_2_j = Proto("Omi.Nyse.ArcaOptions.TopFeed.Pillar.v1.2.j", "Nyse ArcaOptions TopFeed Pillar 1.2.j")
 
 -- Protocol table
 local nyse_arcaoptions_topfeed_pillar_v1_2_j = {}

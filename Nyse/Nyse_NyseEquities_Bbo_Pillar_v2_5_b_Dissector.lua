@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse NyseEquities Bbo Pillar 2.5.b Protocol
-local omi_nyse_nyseequities_bbo_pillar_v2_5_b = Proto("Nyse.NyseEquities.Bbo.Pillar.v2.5.b.Lua", "Nyse NyseEquities Bbo Pillar 2.5.b")
+local omi_nyse_nyseequities_bbo_pillar_v2_5_b = Proto("Omi.Nyse.NyseEquities.Bbo.Pillar.v2.5.b", "Nyse NyseEquities Bbo Pillar 2.5.b")
 
 -- Protocol table
 local nyse_nyseequities_bbo_pillar_v2_5_b = {}

@@ -3,11 +3,11 @@
 
 ## Bruce ATS
 
-| Division | [Protocol][Omi.BruceAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.BruceAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.BruceAts.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BruceEquities][BruceEquities.Exchange] | [BestBidAndOffer][BruceAts.BruceEquities.BestBidAndOffer] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1239 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Pdf] |
-| [BruceEquities][BruceEquities.Exchange] | [DepthOfBook][BruceAts.BruceEquities.DepthOfBook] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1239 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.DepthOfBook.Itch.v1.0.Pdf] |
-| [BruceEquities][BruceEquities.Exchange] | [LastSale][BruceAts.BruceEquities.LastSale] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1273 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.LastSale.Itch.v1.0.Pdf] |
+| [BruceEquities][BruceEquities.Exchange] | [BestBidAndOffer][BruceAts.BruceEquities.BestBidAndOffer] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1239 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.BruceAts.Specifications] |
+| [BruceEquities][BruceEquities.Exchange] | [DepthOfBook][BruceAts.BruceEquities.DepthOfBook] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1239 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.BruceAts.Specifications] |
+| [BruceEquities][BruceEquities.Exchange] | [LastSale][BruceAts.BruceEquities.LastSale] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1273 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.BruceAts.Specifications] |
 
 
 BruceAts: [website](https://www.brucemarkets.com "Go to Bruce ATS")
@@ -26,6 +26,7 @@ BruceAts: [website](https://www.brucemarkets.com "Go to Bruce ATS")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.BruceAts.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols "BruceAts Protocol Directory"
+[Omi.BruceAts.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Specifications "BruceAts Specifications Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [BruceEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols/BruceEquities "BruceAts BruceEquities"
 [BruceAts.BruceEquities.BestBidAndOffer]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/BruceAts/Protocols/BruceEquities/BestBidAndOffer.md "Best Bid And Offer"

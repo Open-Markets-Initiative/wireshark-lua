@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Finra FinraOtc Bbds Dfi 2018.1A Protocol
-local omi_finra_finraotc_bbds_dfi_v2018_1a = Proto("Finra.FinraOtc.Bbds.Dfi.v2018.1A.Lua", "Finra FinraOtc Bbds Dfi 2018.1A")
+local omi_finra_finraotc_bbds_dfi_v2018_1a = Proto("Omi.Finra.FinraOtc.Bbds.Dfi.v2018.1A", "Finra FinraOtc Bbds Dfi 2018.1A")
 
 -- Protocol table
 local finra_finraotc_bbds_dfi_v2018_1a = {}

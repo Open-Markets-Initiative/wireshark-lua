@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq IseOptions SpreadTopOfMarket Itch 2.1 Protocol
-local omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1 = Proto("Nasdaq.IseOptions.SpreadTopOfMarket.Itch.v2.1.Lua", "Nasdaq IseOptions SpreadTopOfMarket Itch 2.1")
+local omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1 = Proto("Omi.Nasdaq.IseOptions.SpreadTopOfMarket.Itch.v2.1", "Nasdaq IseOptions SpreadTopOfMarket Itch 2.1")
 
 -- Protocol table
 local nasdaq_iseoptions_spreadtopofmarket_itch_v2_1 = {}

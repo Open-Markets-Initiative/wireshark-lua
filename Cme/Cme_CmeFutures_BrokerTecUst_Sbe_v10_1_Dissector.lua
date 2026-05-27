@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme CmeFutures BrokerTecUst Sbe 10.1 Protocol
-local omi_cme_cmefutures_brokertecust_sbe_v10_1 = Proto("Cme.CmeFutures.BrokerTecUst.Sbe.v10.1.Lua", "Cme CmeFutures BrokerTecUst Sbe 10.1")
+local omi_cme_cmefutures_brokertecust_sbe_v10_1 = Proto("Omi.Cme.CmeFutures.BrokerTecUst.Sbe.v10.1", "Cme CmeFutures BrokerTecUst Sbe 10.1")
 
 -- Protocol table
 local cme_cmefutures_brokertecust_sbe_v10_1 = {}

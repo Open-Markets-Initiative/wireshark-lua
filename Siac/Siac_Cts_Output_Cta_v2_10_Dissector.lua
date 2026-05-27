@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Siac Cts Output Cta 2.10 Protocol
-local omi_siac_cts_output_cta_v2_10 = Proto("Siac.Cts.Output.Cta.v2.10.Lua", "Siac Cts Output Cta 2.10")
+local omi_siac_cts_output_cta_v2_10 = Proto("Omi.Siac.Cts.Output.Cta.v2.10", "Siac Cts Output Cta 2.10")
 
 -- Protocol table
 local siac_cts_output_cta_v2_10 = {}

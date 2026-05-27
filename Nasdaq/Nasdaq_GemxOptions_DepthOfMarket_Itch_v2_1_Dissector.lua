@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq GemxOptions DepthOfMarket Itch 2.1 Protocol
-local omi_nasdaq_gemxoptions_depthofmarket_itch_v2_1 = Proto("Nasdaq.GemxOptions.DepthOfMarket.Itch.v2.1.Lua", "Nasdaq GemxOptions DepthOfMarket Itch 2.1")
+local omi_nasdaq_gemxoptions_depthofmarket_itch_v2_1 = Proto("Omi.Nasdaq.GemxOptions.DepthOfMarket.Itch.v2.1", "Nasdaq GemxOptions DepthOfMarket Itch 2.1")
 
 -- Protocol table
 local nasdaq_gemxoptions_depthofmarket_itch_v2_1 = {}

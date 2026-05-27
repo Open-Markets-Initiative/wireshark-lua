@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Coinbase CoinbaseDerivatives Session Tcp 1.2 Protocol
-local omi_coinbase_coinbasederivatives_session_tcp_v1_2 = Proto("Coinbase.CoinbaseDerivatives.Session.Tcp.v1.2.Lua", "Coinbase CoinbaseDerivatives Session Tcp 1.2")
+local omi_coinbase_coinbasederivatives_session_tcp_v1_2 = Proto("Omi.Coinbase.CoinbaseDerivatives.Session.Tcp.v1.2", "Coinbase CoinbaseDerivatives Session Tcp 1.2")
 
 -- Protocol table
 local coinbase_coinbasederivatives_session_tcp_v1_2 = {}

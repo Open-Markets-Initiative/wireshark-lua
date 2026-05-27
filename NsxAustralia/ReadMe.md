@@ -3,9 +3,9 @@
 
 ## Nation Stock Exchange of Australia
 
-| Division | [Protocol][Omi.NsxAustralia.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.NsxAustralia.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.NsxAustralia.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [Nets][NsxAustralia.Nets] | [Itch][Omi.Encoding.Itch] | [4.2.55][NsxAustralia.Nets.Itch.v4.2.55.Dissector] | 4/6/2026 | 4138 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][NsxAustralia.Nets.Itch.v4.2.55.Url] |
+|  | [Nets][NsxAustralia.Nets] | [Itch][Omi.Encoding.Itch] | [4.2.55][NsxAustralia.Nets.Itch.v4.2.55.Dissector] | 4/6/2026 | 4138 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.NsxAustralia.Specifications] |
 
 
 NsxAustralia: [website](https://www.nsx.com.au "Go to Nation Stock Exchange of Australia")
@@ -24,6 +24,7 @@ NsxAustralia: [website](https://www.nsx.com.au "Go to Nation Stock Exchange of A
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.NsxAustralia.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/NsxAustralia/Protocols "NsxAustralia Protocol Directory"
+[Omi.NsxAustralia.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/NsxAustralia/Specifications "NsxAustralia Specifications Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [NsxAustralia.Nets]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/NsxAustralia/Protocols/Nets.md "National Electronic Trading System"
 

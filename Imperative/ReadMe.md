@@ -3,9 +3,9 @@
 
 ## Imperative Execution
 
-| Division | [Protocol][Omi.Imperative.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Imperative.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Imperative.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [IntelligentCross][Imperative.IntelligentCross] | [Mdf][Omi.Encoding.Mdf] | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1674 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Imperative.IntelligentCross.Mdf.v1.11.Url] - [pdf][Imperative.IntelligentCross.Mdf.v1.11.Pdf] |
+|  | [IntelligentCross][Imperative.IntelligentCross] | [Mdf][Omi.Encoding.Mdf] | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1674 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Imperative.Specifications] |
 
 
 Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
@@ -24,6 +24,7 @@ Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Imperative.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols "Imperative Protocol Directory"
+[Omi.Imperative.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Specifications "Imperative Specifications Directory"
 [Omi.Encoding.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mdf.md "Mdf Encoding"
 [Imperative.IntelligentCross]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross.md "IntelligentCross"
 

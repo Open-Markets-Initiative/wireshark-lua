@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- A2X Equities UdpHeader Amd 1.0 Protocol
-local omi_a2x_equities_udpheader_amd_v1_0 = Proto("A2X.Equities.UdpHeader.Amd.v1.0.Lua", "A2X Equities UdpHeader Amd 1.0")
+local omi_a2x_equities_udpheader_amd_v1_0 = Proto("Omi.A2X.Equities.UdpHeader.Amd.v1.0", "A2X Equities UdpHeader Amd 1.0")
 
 -- Protocol table
 local a2x_equities_udpheader_amd_v1_0 = {}

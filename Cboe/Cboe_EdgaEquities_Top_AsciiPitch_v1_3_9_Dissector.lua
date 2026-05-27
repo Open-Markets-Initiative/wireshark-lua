@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe EdgaEquities Top AsciiPitch 1.3.9 Protocol
-local omi_cboe_edgaequities_top_asciipitch_v1_3_9 = Proto("Cboe.EdgaEquities.Top.AsciiPitch.v1.3.9.Lua", "Cboe EdgaEquities Top AsciiPitch 1.3.9")
+local omi_cboe_edgaequities_top_asciipitch_v1_3_9 = Proto("Omi.Cboe.EdgaEquities.Top.AsciiPitch.v1.3.9", "Cboe EdgaEquities Top AsciiPitch 1.3.9")
 
 -- Protocol table
 local cboe_edgaequities_top_asciipitch_v1_3_9 = {}

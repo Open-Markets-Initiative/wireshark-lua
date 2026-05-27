@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- 24X 24XEquities MemoirLastSale Sbe 1.3 Protocol
-local omi_n24x_24xequities_memoirlastsale_sbe_v1_3 = Proto("24X.24XEquities.MemoirLastSale.Sbe.v1.3.Lua", "24X 24XEquities MemoirLastSale Sbe 1.3")
+local omi_n24x_24xequities_memoirlastsale_sbe_v1_3 = Proto("Omi.24X.24XEquities.MemoirLastSale.Sbe.v1.3", "24X 24XEquities MemoirLastSale Sbe 1.3")
 
 -- Protocol table
 local n24x_24xequities_memoirlastsale_sbe_v1_3 = {}

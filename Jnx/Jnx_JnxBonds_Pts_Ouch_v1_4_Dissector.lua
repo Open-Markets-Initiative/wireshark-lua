@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Jnx JnxBonds Pts Ouch 1.4 Protocol
-local omi_jnx_jnxbonds_pts_ouch_v1_4 = Proto("Jnx.JnxBonds.Pts.Ouch.v1.4.Lua", "Jnx JnxBonds Pts Ouch 1.4")
+local omi_jnx_jnxbonds_pts_ouch_v1_4 = Proto("Omi.Jnx.JnxBonds.Pts.Ouch.v1.4", "Jnx JnxBonds Pts Ouch 1.4")
 
 -- Protocol table
 local jnx_jnxbonds_pts_ouch_v1_4 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d Protocol
-local omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d = Proto("Nyse.AmexEquities.OpenBook.Aggregated.Xdp.v2.1.d.Lua", "Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d")
+local omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d = Proto("Omi.Nyse.AmexEquities.OpenBook.Aggregated.Xdp.v2.1.d", "Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d")
 
 -- Protocol table
 local nyse_amexequities_openbookaggregated_xdp_v2_1_d = {}

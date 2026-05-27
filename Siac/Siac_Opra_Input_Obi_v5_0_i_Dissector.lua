@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Siac Opra Input Obi 5.0.i Protocol
-local omi_siac_opra_input_obi_v5_0_i = Proto("Siac.Opra.Input.Obi.v5.0.i.Lua", "Siac Opra Input Obi 5.0.i")
+local omi_siac_opra_input_obi_v5_0_i = Proto("Omi.Siac.Opra.Input.Obi.v5.0.i", "Siac Opra Input Obi 5.0.i")
 
 -- Protocol table
 local siac_opra_input_obi_v5_0_i = {}

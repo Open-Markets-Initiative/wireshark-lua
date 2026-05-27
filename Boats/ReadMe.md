@@ -3,13 +3,13 @@
 
 ## Blue Ocean Technologies
 
-| Division | [Protocol][Omi.Boats.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Boats.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Boats.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [CommonHeader][Boats.CommonHeader] | [Udp][Omi.Encoding.Udp] | [1.1][Boats.CommonHeader.Udp.v1.1.Dissector] | 1/1/2024 | 734 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.CommonHeader.Udp.v1.1.Url] |
-| [BoatsEquities][BoatsEquities.Exchange] | [Memo][Boats.BoatsEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][Boats.BoatsEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 6934 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Boats.BoatsEquities.Memo.Sbe.v1.13.Url] - [pdf][Boats.BoatsEquities.Memo.Sbe.v1.13.Pdf] - [xml][Boats.BoatsEquities.Memo.Sbe.v1.13.Xml] |
-| [BoatsEquities][BoatsEquities.Exchange] | [MemoirDepthFeed][Boats.BoatsEquities.MemoirDepthFeed] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.BoatsEquities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2233 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.BoatsEquities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][Boats.BoatsEquities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][Boats.BoatsEquities.MemoirDepthFeed.Sbe.v1.3.Xml] |
-| [BoatsEquities][BoatsEquities.Exchange] | [MemoirLastSale][Boats.BoatsEquities.MemoirLastSale] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.BoatsEquities.MemoirLastSale.Sbe.v1.3.Dissector] | 1/1/2024 | 2388 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Boats.BoatsEquities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][Boats.BoatsEquities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][Boats.BoatsEquities.MemoirLastSale.Sbe.v1.3.Xml] |
-| [BoatsEquities][BoatsEquities.Exchange] | [MemoirTopOfBook][Boats.BoatsEquities.MemoirTopOfBook] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.BoatsEquities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 1/1/2024 | 2023 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Boats.BoatsEquities.MemoirTopOfBook.Sbe.v1.3.Url] - [pdf][Boats.BoatsEquities.MemoirTopOfBook.Sbe.v1.3.Pdf] - [xml][Boats.BoatsEquities.MemoirTopOfBook.Sbe.v1.3.Xml] |
+|  | [CommonHeader][Boats.CommonHeader] | [Udp][Omi.Encoding.Udp] | [1.1][Boats.CommonHeader.Udp.v1.1.Dissector] | 1/1/2024 | 734 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Boats.Specifications] |
+| [BoatsEquities][BoatsEquities.Exchange] | [Memo][Boats.BoatsEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][Boats.BoatsEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 6934 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [Documentation][Omi.Boats.Specifications] |
+| [BoatsEquities][BoatsEquities.Exchange] | [MemoirDepthFeed][Boats.BoatsEquities.MemoirDepthFeed] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.BoatsEquities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2233 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Boats.Specifications] |
+| [BoatsEquities][BoatsEquities.Exchange] | [MemoirLastSale][Boats.BoatsEquities.MemoirLastSale] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.BoatsEquities.MemoirLastSale.Sbe.v1.3.Dissector] | 1/1/2024 | 2388 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Boats.Specifications] |
+| [BoatsEquities][BoatsEquities.Exchange] | [MemoirTopOfBook][Boats.BoatsEquities.MemoirTopOfBook] | [Sbe][Omi.Encoding.Sbe] | [1.3][Boats.BoatsEquities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 1/1/2024 | 2023 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Boats.Specifications] |
 
 
 Boats: [website](https://blueocean-tech.io/ "Go to Blue Ocean Technologies")
@@ -28,6 +28,7 @@ Boats: [website](https://blueocean-tech.io/ "Go to Blue Ocean Technologies")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Boats.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Boats/Protocols "Boats Protocol Directory"
+[Omi.Boats.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Boats/Specifications "Boats Specifications Directory"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Encoding"
 [BoatsEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Boats/Protocols/BoatsEquities "Boats BoatsEquities"

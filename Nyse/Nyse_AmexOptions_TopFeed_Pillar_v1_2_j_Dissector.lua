@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse AmexOptions TopFeed Pillar 1.2.j Protocol
-local omi_nyse_amexoptions_topfeed_pillar_v1_2_j = Proto("Nyse.AmexOptions.TopFeed.Pillar.v1.2.j.Lua", "Nyse AmexOptions TopFeed Pillar 1.2.j")
+local omi_nyse_amexoptions_topfeed_pillar_v1_2_j = Proto("Omi.Nyse.AmexOptions.TopFeed.Pillar.v1.2.j", "Nyse AmexOptions TopFeed Pillar 1.2.j")
 
 -- Protocol table
 local nyse_amexoptions_topfeed_pillar_v1_2_j = {}

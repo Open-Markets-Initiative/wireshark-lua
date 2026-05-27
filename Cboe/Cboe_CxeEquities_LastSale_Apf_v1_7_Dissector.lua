@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe CxeEquities LastSale Apf 1.7 Protocol
-local omi_cboe_cxeequities_lastsale_apf_v1_7 = Proto("Cboe.CxeEquities.LastSale.Apf.v1.7.Lua", "Cboe CxeEquities LastSale Apf 1.7")
+local omi_cboe_cxeequities_lastsale_apf_v1_7 = Proto("Omi.Cboe.CxeEquities.LastSale.Apf.v1.7", "Cboe CxeEquities LastSale Apf 1.7")
 
 -- Protocol table
 local cboe_cxeequities_lastsale_apf_v1_7 = {}

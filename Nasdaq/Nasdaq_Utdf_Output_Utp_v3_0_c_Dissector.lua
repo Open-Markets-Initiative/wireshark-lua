@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq Utdf Output Utp 3.0.c Protocol
-local omi_nasdaq_utdf_output_utp_v3_0_c = Proto("Nasdaq.Utdf.Output.Utp.v3.0.c.Lua", "Nasdaq Utdf Output Utp 3.0.c")
+local omi_nasdaq_utdf_output_utp_v3_0_c = Proto("Omi.Nasdaq.Utdf.Output.Utp.v3.0.c", "Nasdaq Utdf Output Utp 3.0.c")
 
 -- Protocol table
 local nasdaq_utdf_output_utp_v3_0_c = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Currenex CurrenexForex Now Cbp 10.0 Protocol
-local omi_currenex_currenexforex_now_cbp_v10_0 = Proto("Currenex.CurrenexForex.Now.Cbp.v10.0.Lua", "Currenex CurrenexForex Now Cbp 10.0")
+local omi_currenex_currenexforex_now_cbp_v10_0 = Proto("Omi.Currenex.CurrenexForex.Now.Cbp.v10.0", "Currenex CurrenexForex Now Cbp 10.0")
 
 -- Protocol table
 local currenex_currenexforex_now_cbp_v10_0 = {}

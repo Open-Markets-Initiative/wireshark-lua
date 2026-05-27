@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Boats BoatsEquities Memo Sbe 1.13 Protocol
-local omi_boats_boatsequities_memo_sbe_v1_13 = Proto("Boats.BoatsEquities.Memo.Sbe.v1.13.Lua", "Boats BoatsEquities Memo Sbe 1.13")
+local omi_boats_boatsequities_memo_sbe_v1_13 = Proto("Omi.Boats.BoatsEquities.Memo.Sbe.v1.13", "Boats BoatsEquities Memo Sbe 1.13")
 
 -- Protocol table
 local boats_boatsequities_memo_sbe_v1_13 = {}

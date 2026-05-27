@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse NyseEquities OpenBook Ultra 2.1.b Protocol
-local omi_nyse_nyseequities_openbook_ultra_v2_1_b = Proto("Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.Lua", "Nyse NyseEquities OpenBook Ultra 2.1.b")
+local omi_nyse_nyseequities_openbook_ultra_v2_1_b = Proto("Omi.Nyse.NyseEquities.OpenBook.Ultra.v2.1.b", "Nyse NyseEquities OpenBook Ultra 2.1.b")
 
 -- Protocol table
 local nyse_nyseequities_openbook_ultra_v2_1_b = {}

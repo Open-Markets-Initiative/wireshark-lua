@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Asx AsxSecurities Trade Ouch 3.6 Protocol
-local omi_asx_asxsecurities_trade_ouch_v3_6 = Proto("Asx.AsxSecurities.Trade.Ouch.v3.6.Lua", "Asx AsxSecurities Trade Ouch 3.6")
+local omi_asx_asxsecurities_trade_ouch_v3_6 = Proto("Omi.Asx.AsxSecurities.Trade.Ouch.v3.6", "Asx AsxSecurities Trade Ouch 3.6")
 
 -- Protocol table
 local asx_asxsecurities_trade_ouch_v3_6 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme CmeFutures EbsSpectrum Sbe 12.0 Protocol
-local omi_cme_cmefutures_ebsspectrum_sbe_v12_0 = Proto("Cme.CmeFutures.EbsSpectrum.Sbe.v12.0.Lua", "Cme CmeFutures EbsSpectrum Sbe 12.0")
+local omi_cme_cmefutures_ebsspectrum_sbe_v12_0 = Proto("Omi.Cme.CmeFutures.EbsSpectrum.Sbe.v12.0", "Cme CmeFutures EbsSpectrum Sbe 12.0")
 
 -- Protocol table
 local cme_cmefutures_ebsspectrum_sbe_v12_0 = {}

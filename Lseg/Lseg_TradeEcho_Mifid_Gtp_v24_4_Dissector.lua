@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg TradeEcho Mifid Gtp 24.4 Protocol
-local omi_lseg_tradeecho_mifid_gtp_v24_4 = Proto("Lseg.TradeEcho.Mifid.Gtp.v24.4.Lua", "Lseg TradeEcho Mifid Gtp 24.4")
+local omi_lseg_tradeecho_mifid_gtp_v24_4 = Proto("Omi.Lseg.TradeEcho.Mifid.Gtp.v24.4", "Lseg TradeEcho Mifid Gtp 24.4")
 
 -- Protocol table
 local lseg_tradeecho_mifid_gtp_v24_4 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities NlsPlus Itch 4.0 Protocol
-local omi_nasdaq_nsmequities_nlsplus_itch_v4_0 = Proto("Nasdaq.NsmEquities.NlsPlus.Itch.v4.0.Lua", "Nasdaq NsmEquities NlsPlus Itch 4.0")
+local omi_nasdaq_nsmequities_nlsplus_itch_v4_0 = Proto("Omi.Nasdaq.NsmEquities.NlsPlus.Itch.v4.0", "Nasdaq NsmEquities NlsPlus Itch 4.0")
 
 -- Protocol table
 local nasdaq_nsmequities_nlsplus_itch_v4_0 = {}

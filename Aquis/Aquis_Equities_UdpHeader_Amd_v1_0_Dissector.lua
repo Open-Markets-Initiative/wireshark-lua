@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Aquis Equities UdpHeader Amd 1.0 Protocol
-local omi_aquis_equities_udpheader_amd_v1_0 = Proto("Aquis.Equities.UdpHeader.Amd.v1.0.Lua", "Aquis Equities UdpHeader Amd 1.0")
+local omi_aquis_equities_udpheader_amd_v1_0 = Proto("Omi.Aquis.Equities.UdpHeader.Amd.v1.0", "Aquis Equities UdpHeader Amd 1.0")
 
 -- Protocol table
 local aquis_equities_udpheader_amd_v1_0 = {}

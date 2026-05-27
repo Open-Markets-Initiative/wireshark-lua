@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- 24X 24XEquities Memo Sbe 1.13 Protocol
-local omi_n24x_24xequities_memo_sbe_v1_13 = Proto("24X.24XEquities.Memo.Sbe.v1.13.Lua", "24X 24XEquities Memo Sbe 1.13")
+local omi_n24x_24xequities_memo_sbe_v1_13 = Proto("Omi.24X.24XEquities.Memo.Sbe.v1.13", "24X 24XEquities Memo Sbe 1.13")
 
 -- Protocol table
 local n24x_24xequities_memo_sbe_v1_13 = {}

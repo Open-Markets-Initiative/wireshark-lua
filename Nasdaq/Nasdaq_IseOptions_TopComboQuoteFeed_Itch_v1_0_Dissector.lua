@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Protocol
-local omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0 = Proto("Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.Lua", "Nasdaq IseOptions TopComboQuoteFeed Itch 1.0")
+local omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0 = Proto("Omi.Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0", "Nasdaq IseOptions TopComboQuoteFeed Itch 1.0")
 
 -- Protocol table
 local nasdaq_iseoptions_topcomboquotefeed_itch_v1_0 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse AmexEquities Bqt Xdp 2.4.a Protocol
-local omi_nyse_amexequities_bqt_xdp_v2_4_a = Proto("Nyse.AmexEquities.Bqt.Xdp.v2.4.a.Lua", "Nyse AmexEquities Bqt Xdp 2.4.a")
+local omi_nyse_amexequities_bqt_xdp_v2_4_a = Proto("Omi.Nyse.AmexEquities.Bqt.Xdp.v2.4.a", "Nyse AmexEquities Bqt Xdp 2.4.a")
 
 -- Protocol table
 local nyse_amexequities_bqt_xdp_v2_4_a = {}

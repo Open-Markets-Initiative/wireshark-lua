@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe C1Options MarketLevel2 Csm 1.0.4 Protocol
-local omi_cboe_c1options_marketlevel2_csm_v1_0_4 = Proto("Cboe.C1Options.MarketLevel2.Csm.v1.0.4.Lua", "Cboe C1Options MarketLevel2 Csm 1.0.4")
+local omi_cboe_c1options_marketlevel2_csm_v1_0_4 = Proto("Omi.Cboe.C1Options.MarketLevel2.Csm.v1.0.4", "Cboe C1Options MarketLevel2 Csm 1.0.4")
 
 -- Protocol table
 local cboe_c1options_marketlevel2_csm_v1_0_4 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq IseOptions SpreadDepthOfMarket Itch 2.1 Protocol
-local omi_nasdaq_iseoptions_spreaddepthofmarket_itch_v2_1 = Proto("Nasdaq.IseOptions.SpreadDepthOfMarket.Itch.v2.1.Lua", "Nasdaq IseOptions SpreadDepthOfMarket Itch 2.1")
+local omi_nasdaq_iseoptions_spreaddepthofmarket_itch_v2_1 = Proto("Omi.Nasdaq.IseOptions.SpreadDepthOfMarket.Itch.v2.1", "Nasdaq IseOptions SpreadDepthOfMarket Itch 2.1")
 
 -- Protocol table
 local nasdaq_iseoptions_spreaddepthofmarket_itch_v2_1 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe BxeEquities TcpDepthOfBook AsciiPitch 4.34 Protocol
-local omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34 = Proto("Cboe.BxeEquities.TcpDepthOfBook.AsciiPitch.v4.34.Lua", "Cboe BxeEquities TcpDepthOfBook AsciiPitch 4.34")
+local omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34 = Proto("Omi.Cboe.BxeEquities.TcpDepthOfBook.AsciiPitch.v4.34", "Cboe BxeEquities TcpDepthOfBook AsciiPitch 4.34")
 
 -- Protocol table
 local cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34 = {}

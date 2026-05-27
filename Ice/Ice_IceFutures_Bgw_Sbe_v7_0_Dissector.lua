@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Ice IceFutures Bgw Sbe 7.0 Protocol
-local omi_ice_icefutures_bgw_sbe_v7_0 = Proto("Ice.IceFutures.Bgw.Sbe.v7.0.Lua", "Ice IceFutures Bgw Sbe 7.0")
+local omi_ice_icefutures_bgw_sbe_v7_0 = Proto("Omi.Ice.IceFutures.Bgw.Sbe.v7.0", "Ice IceFutures Bgw Sbe 7.0")
 
 -- Protocol table
 local ice_icefutures_bgw_sbe_v7_0 = {}

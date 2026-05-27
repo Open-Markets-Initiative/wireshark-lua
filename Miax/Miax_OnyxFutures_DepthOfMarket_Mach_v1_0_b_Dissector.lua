@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax OnyxFutures DepthOfMarket Mach 1.0.b Protocol
-local omi_miax_onyxfutures_depthofmarket_mach_v1_0_b = Proto("Miax.OnyxFutures.DepthOfMarket.Mach.v1.0.b.Lua", "Miax OnyxFutures DepthOfMarket Mach 1.0.b")
+local omi_miax_onyxfutures_depthofmarket_mach_v1_0_b = Proto("Omi.Miax.OnyxFutures.DepthOfMarket.Mach.v1.0.b", "Miax OnyxFutures DepthOfMarket Mach 1.0.b")
 
 -- Protocol table
 local miax_onyxfutures_depthofmarket_mach_v1_0_b = {}

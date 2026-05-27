@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Mifid Gtp 24.4 Protocol
-local omi_lseg_turquoise_mifid_gtp_v24_4 = Proto("Lseg.Turquoise.Mifid.Gtp.v24.4.Lua", "Lseg Turquoise Mifid Gtp 24.4")
+local omi_lseg_turquoise_mifid_gtp_v24_4 = Proto("Omi.Lseg.Turquoise.Mifid.Gtp.v24.4", "Lseg Turquoise Mifid Gtp 24.4")
 
 -- Protocol table
 local lseg_turquoise_mifid_gtp_v24_4 = {}

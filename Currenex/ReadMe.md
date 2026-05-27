@@ -3,11 +3,11 @@
 
 ## Currenex
 
-| Division | [Protocol][Omi.Currenex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Currenex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Currenex.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [CurrenexForex][CurrenexForex.Exchange] | [Esp][Currenex.CurrenexForex.Esp] | [Cbp][Omi.Encoding.Cbp] | [9.0][Currenex.CurrenexForex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1662 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.Esp.Cbp.v9.0.Url] - [pdf][Currenex.CurrenexForex.Esp.Cbp.v9.0.Pdf] |
-| [CurrenexForex][CurrenexForex.Exchange] | [Now][Currenex.CurrenexForex.Now] | [Cbp][Omi.Encoding.Cbp] | [10.0][Currenex.CurrenexForex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2308 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.Now.Cbp.v10.0.Url] - [pdf][Currenex.CurrenexForex.Now.Cbp.v10.0.Pdf] |
-| [CurrenexForex][CurrenexForex.Exchange] | [OrderService][Currenex.CurrenexForex.OrderService] | [Cbp][Omi.Encoding.Cbp] | [26.0][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2537 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Url] - [pdf][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Pdf] |
+| [CurrenexForex][CurrenexForex.Exchange] | [Esp][Currenex.CurrenexForex.Esp] | [Cbp][Omi.Encoding.Cbp] | [9.0][Currenex.CurrenexForex.Esp.Cbp.v9.0.Dissector] | 3/24/2021 | 1662 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [Documentation][Omi.Currenex.Specifications] |
+| [CurrenexForex][CurrenexForex.Exchange] | [Now][Currenex.CurrenexForex.Now] | [Cbp][Omi.Encoding.Cbp] | [10.0][Currenex.CurrenexForex.Now.Cbp.v10.0.Dissector] | 5/7/2018 | 2308 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [Documentation][Omi.Currenex.Specifications] |
+| [CurrenexForex][CurrenexForex.Exchange] | [OrderService][Currenex.CurrenexForex.OrderService] | [Cbp][Omi.Encoding.Cbp] | [26.0][Currenex.CurrenexForex.OrderService.Cbp.v26.0.Dissector] | 4/6/2024 | 2537 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [Documentation][Omi.Currenex.Specifications] |
 
 
 Currenex: [website](https://currenex.com "Go to Currenex")
@@ -26,6 +26,7 @@ Currenex: [website](https://currenex.com "Go to Currenex")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Currenex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Protocols "Currenex Protocol Directory"
+[Omi.Currenex.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Specifications "Currenex Specifications Directory"
 [Omi.Encoding.Cbp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cbp.md "Cbp Encoding"
 [CurrenexForex.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Protocols/CurrenexForex "Currenex CurrenexForex"
 [Currenex.CurrenexForex.Esp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Protocols/CurrenexForex/Esp.md "Currenex Executable Streaming Prices"

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Analytics Gtp 24.4 Protocol
-local omi_lseg_turquoise_analytics_gtp_v24_4 = Proto("Lseg.Turquoise.Analytics.Gtp.v24.4.Lua", "Lseg Turquoise Analytics Gtp 24.4")
+local omi_lseg_turquoise_analytics_gtp_v24_4 = Proto("Omi.Lseg.Turquoise.Analytics.Gtp.v24.4", "Lseg Turquoise Analytics Gtp 24.4")
 
 -- Protocol table
 local lseg_turquoise_analytics_gtp_v24_4 = {}

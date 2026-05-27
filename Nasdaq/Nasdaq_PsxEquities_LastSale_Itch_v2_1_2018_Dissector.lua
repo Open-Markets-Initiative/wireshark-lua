@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities LastSale Itch 2.1.2018 Protocol
-local omi_nasdaq_psxequities_lastsale_itch_v2_1_2018 = Proto("Nasdaq.PsxEquities.LastSale.Itch.v2.1.2018.Lua", "Nasdaq PsxEquities LastSale Itch 2.1.2018")
+local omi_nasdaq_psxequities_lastsale_itch_v2_1_2018 = Proto("Omi.Nasdaq.PsxEquities.LastSale.Itch.v2.1.2018", "Nasdaq PsxEquities LastSale Itch 2.1.2018")
 
 -- Protocol table
 local nasdaq_psxequities_lastsale_itch_v2_1_2018 = {}

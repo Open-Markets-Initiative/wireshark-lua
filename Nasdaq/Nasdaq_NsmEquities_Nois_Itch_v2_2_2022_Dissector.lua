@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Nois Itch 2.2.2022 Protocol
-local omi_nasdaq_nsmequities_nois_itch_v2_2_2022 = Proto("Nasdaq.NsmEquities.Nois.Itch.v2.2.2022.Lua", "Nasdaq NsmEquities Nois Itch 2.2.2022")
+local omi_nasdaq_nsmequities_nois_itch_v2_2_2022 = Proto("Omi.Nasdaq.NsmEquities.Nois.Itch.v2.2.2022", "Nasdaq NsmEquities Nois Itch 2.2.2022")
 
 -- Protocol table
 local nasdaq_nsmequities_nois_itch_v2_2_2022 = {}

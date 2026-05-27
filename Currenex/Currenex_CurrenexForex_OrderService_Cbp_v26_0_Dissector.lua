@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Currenex CurrenexForex OrderService Cbp 26.0 Protocol
-local omi_currenex_currenexforex_orderservice_cbp_v26_0 = Proto("Currenex.CurrenexForex.OrderService.Cbp.v26.0.Lua", "Currenex CurrenexForex OrderService Cbp 26.0")
+local omi_currenex_currenexforex_orderservice_cbp_v26_0 = Proto("Omi.Currenex.CurrenexForex.OrderService.Cbp.v26.0", "Currenex CurrenexForex OrderService Cbp 26.0")
 
 -- Protocol table
 local currenex_currenexforex_orderservice_cbp_v26_0 = {}

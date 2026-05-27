@@ -3,14 +3,14 @@
 
 ## Intercontinental Exchange
 
-| Division | [Protocol][Omi.Ice.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Ice.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Ice.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.51][Ice.IceFutures.Mdf.iMpact.v1.1.51.Dissector] | 1/1/2025 | 12492 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Ice.IceFutures.Mdf.iMpact.v1.1.51.Pdf] |
-| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.43][Ice.IceFutures.Mdf.iMpact.v1.1.43.Dissector] | 11/18/2020 | 12403 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Ice.IceFutures.Mdf.iMpact.v1.1.43.Pdf] |
-| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.34][Ice.IceFutures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | 11617 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Ice.IceFutures.Mdf.iMpact.v1.1.34.Pdf] |
-| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.33][Ice.IceFutures.Mdf.iMpact.v1.1.33.Dissector] | 8/6/2018 | 11380 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Ice.IceFutures.Mdf.iMpact.v1.1.33.Pdf] |
-| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.24][Ice.IceFutures.Mdf.iMpact.v1.1.24.Dissector] | 3/30/2016 | 9984 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Ice.IceFutures.Mdf.iMpact.v1.1.24.Pdf] |
-| [IceFutures][IceFutures.Exchange] | [Bgw][Ice.IceFutures.Bgw] | [Sbe][Omi.Encoding.Sbe] | [7.0][Ice.IceFutures.Bgw.Sbe.v7.0.Dissector] | 10/24/2025 | 16629 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Ice.IceFutures.Bgw.Sbe.v7.0.Url] - [pdf][Ice.IceFutures.Bgw.Sbe.v7.0.Pdf] |
+| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.51][Ice.IceFutures.Mdf.iMpact.v1.1.51.Dissector] | 1/1/2025 | 12492 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Ice.Specifications] |
+| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.43][Ice.IceFutures.Mdf.iMpact.v1.1.43.Dissector] | 11/18/2020 | 12403 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Ice.Specifications] |
+| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.34][Ice.IceFutures.Mdf.iMpact.v1.1.34.Dissector] | 9/4/2018 | 11617 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Ice.Specifications] |
+| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.33][Ice.IceFutures.Mdf.iMpact.v1.1.33.Dissector] | 8/6/2018 | 11380 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Ice.Specifications] |
+| [IceFutures][IceFutures.Exchange] | [Mdf][Ice.IceFutures.Mdf] | [iMpact][Omi.Encoding.iMpact] | [1.1.24][Ice.IceFutures.Mdf.iMpact.v1.1.24.Dissector] | 3/30/2016 | 9984 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Ice.Specifications] |
+| [IceFutures][IceFutures.Exchange] | [Bgw][Ice.IceFutures.Bgw] | [Sbe][Omi.Encoding.Sbe] | [7.0][Ice.IceFutures.Bgw.Sbe.v7.0.Dissector] | 10/24/2025 | 16629 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Ice.Specifications] |
 
 
 Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
@@ -29,6 +29,7 @@ Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Ice.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols "Ice Protocol Directory"
+[Omi.Ice.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Specifications "Ice Specifications Directory"
 [Omi.Encoding.iMpact]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/iMpact.md "iMpact Encoding"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [IceFutures.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols/IceFutures "Ice IceFutures"

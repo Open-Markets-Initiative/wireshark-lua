@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- A2X Equities Rtmdf Amd 1.3.2 Protocol
-local omi_a2x_equities_rtmdf_amd_v1_3_2 = Proto("A2X.Equities.Rtmdf.Amd.v1.3.2.Lua", "A2X Equities Rtmdf Amd 1.3.2")
+local omi_a2x_equities_rtmdf_amd_v1_3_2 = Proto("Omi.A2X.Equities.Rtmdf.Amd.v1.3.2", "A2X Equities Rtmdf Amd 1.3.2")
 
 -- Protocol table
 local a2x_equities_rtmdf_amd_v1_3_2 = {}

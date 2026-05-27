@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Protocol
-local omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4 = Proto("Cboe.BxeEquities.AuctionFeed.AsciiPitch.v1.4.Lua", "Cboe BxeEquities AuctionFeed AsciiPitch 1.4")
+local omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4 = Proto("Omi.Cboe.BxeEquities.AuctionFeed.AsciiPitch.v1.4", "Cboe BxeEquities AuctionFeed AsciiPitch 1.4")
 
 -- Protocol table
 local cboe_bxeequities_auctionfeed_asciipitch_v1_4 = {}

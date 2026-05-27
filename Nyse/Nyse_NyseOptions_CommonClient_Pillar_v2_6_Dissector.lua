@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 Protocol
-local omi_nyse_nyseoptions_commonclient_pillar_v2_6 = Proto("Nyse.NyseOptions.CommonClient.Pillar.v2.6.Lua", "Nyse NyseOptions CommonClient Pillar 2.6")
+local omi_nyse_nyseoptions_commonclient_pillar_v2_6 = Proto("Omi.Nyse.NyseOptions.CommonClient.Pillar.v2.6", "Nyse NyseOptions CommonClient Pillar 2.6")
 
 -- Protocol table
 local nyse_nyseoptions_commonclient_pillar_v2_6 = {}

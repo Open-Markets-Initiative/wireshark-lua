@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax PearlEquities ExpressOrders Meo 2.7 Protocol
-local omi_miax_pearlequities_expressorders_meo_v2_7 = Proto("Miax.PearlEquities.ExpressOrders.Meo.v2.7.Lua", "Miax PearlEquities ExpressOrders Meo 2.7")
+local omi_miax_pearlequities_expressorders_meo_v2_7 = Proto("Omi.Miax.PearlEquities.ExpressOrders.Meo.v2.7", "Miax PearlEquities ExpressOrders Meo 2.7")
 
 -- Protocol table
 local miax_pearlequities_expressorders_meo_v2_7 = {}

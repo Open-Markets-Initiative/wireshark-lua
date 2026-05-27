@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Otc Markets Multicast Ats 4.3 Protocol
-local omi_otc_markets_multicast_ats_v4_3 = Proto("Otc.Markets.Multicast.Ats.v4.3.Lua", "Otc Markets Multicast Ats 4.3")
+local omi_otc_markets_multicast_ats_v4_3 = Proto("Omi.Otc.Markets.Multicast.Ats.v4.3", "Otc Markets Multicast Ats 4.3")
 
 -- Protocol table
 local otc_markets_multicast_ats_v4_3 = {}

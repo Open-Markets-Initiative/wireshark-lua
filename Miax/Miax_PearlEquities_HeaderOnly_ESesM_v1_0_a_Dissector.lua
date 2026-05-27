@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Protocol
-local omi_miax_pearlequities_headeronly_esesm_v1_0_a = Proto("Miax.PearlEquities.HeaderOnly.ESesM.v1.0.a.Lua", "Miax PearlEquities HeaderOnly ESesM 1.0.a")
+local omi_miax_pearlequities_headeronly_esesm_v1_0_a = Proto("Omi.Miax.PearlEquities.HeaderOnly.ESesM.v1.0.a", "Miax PearlEquities HeaderOnly ESesM 1.0.a")
 
 -- Protocol table
 local miax_pearlequities_headeronly_esesm_v1_0_a = {}

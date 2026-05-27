@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Jnx JnxEquities Pts Ouch 1.12 Protocol
-local omi_jnx_jnxequities_pts_ouch_v1_12 = Proto("Jnx.JnxEquities.Pts.Ouch.v1.12.Lua", "Jnx JnxEquities Pts Ouch 1.12")
+local omi_jnx_jnxequities_pts_ouch_v1_12 = Proto("Omi.Jnx.JnxEquities.Pts.Ouch.v1.12", "Jnx JnxEquities Pts Ouch 1.12")
 
 -- Protocol table
 local jnx_jnxequities_pts_ouch_v1_12 = {}

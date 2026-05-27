@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities NoiView Itch 3.0.2017 Protocol
-local omi_nasdaq_nsmequities_noiview_itch_v3_0_2017 = Proto("Nasdaq.NsmEquities.NoiView.Itch.v3.0.2017.Lua", "Nasdaq NsmEquities NoiView Itch 3.0.2017")
+local omi_nasdaq_nsmequities_noiview_itch_v3_0_2017 = Proto("Omi.Nasdaq.NsmEquities.NoiView.Itch.v3.0.2017", "Nasdaq NsmEquities NoiView Itch 3.0.2017")
 
 -- Protocol table
 local nasdaq_nsmequities_noiview_itch_v3_0_2017 = {}

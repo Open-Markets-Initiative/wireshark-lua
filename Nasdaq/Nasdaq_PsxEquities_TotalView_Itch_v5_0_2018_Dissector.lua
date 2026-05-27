@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities TotalView Itch 5.0.2018 Protocol
-local omi_nasdaq_psxequities_totalview_itch_v5_0_2018 = Proto("Nasdaq.PsxEquities.TotalView.Itch.v5.0.2018.Lua", "Nasdaq PsxEquities TotalView Itch 5.0.2018")
+local omi_nasdaq_psxequities_totalview_itch_v5_0_2018 = Proto("Omi.Nasdaq.PsxEquities.TotalView.Itch.v5.0.2018", "Nasdaq PsxEquities TotalView Itch 5.0.2018")
 
 -- Protocol table
 local nasdaq_psxequities_totalview_itch_v5_0_2018 = {}

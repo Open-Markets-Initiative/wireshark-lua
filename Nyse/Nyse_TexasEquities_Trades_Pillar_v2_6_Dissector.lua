@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse TexasEquities Trades Pillar 2.6 Protocol
-local omi_nyse_texasequities_trades_pillar_v2_6 = Proto("Nyse.TexasEquities.Trades.Pillar.v2.6.Lua", "Nyse TexasEquities Trades Pillar 2.6")
+local omi_nyse_texasequities_trades_pillar_v2_6 = Proto("Omi.Nyse.TexasEquities.Trades.Pillar.v2.6", "Nyse TexasEquities Trades Pillar 2.6")
 
 -- Protocol table
 local nyse_texasequities_trades_pillar_v2_6 = {}

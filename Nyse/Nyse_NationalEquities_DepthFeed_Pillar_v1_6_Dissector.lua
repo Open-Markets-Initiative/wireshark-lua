@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse NationalEquities DepthFeed Pillar 1.6 Protocol
-local omi_nyse_nationalequities_depthfeed_pillar_v1_6 = Proto("Nyse.NationalEquities.DepthFeed.Pillar.v1.6.Lua", "Nyse NationalEquities DepthFeed Pillar 1.6")
+local omi_nyse_nationalequities_depthfeed_pillar_v1_6 = Proto("Omi.Nyse.NationalEquities.DepthFeed.Pillar.v1.6", "Nyse NationalEquities DepthFeed Pillar 1.6")
 
 -- Protocol table
 local nyse_nationalequities_depthfeed_pillar_v1_6 = {}

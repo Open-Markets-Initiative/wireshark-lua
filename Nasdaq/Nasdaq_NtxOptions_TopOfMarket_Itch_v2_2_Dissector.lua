@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NtxOptions TopOfMarket Itch 2.2 Protocol
-local omi_nasdaq_ntxoptions_topofmarket_itch_v2_2 = Proto("Nasdaq.NtxOptions.TopOfMarket.Itch.v2.2.Lua", "Nasdaq NtxOptions TopOfMarket Itch 2.2")
+local omi_nasdaq_ntxoptions_topofmarket_itch_v2_2 = Proto("Omi.Nasdaq.NtxOptions.TopOfMarket.Itch.v2.2", "Nasdaq NtxOptions TopOfMarket Itch 2.2")
 
 -- Protocol table
 local nasdaq_ntxoptions_topofmarket_itch_v2_2 = {}

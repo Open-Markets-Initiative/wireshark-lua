@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8 Protocol
-local omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8 = Proto("Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Lua", "Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8")
+local omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8 = Proto("Omi.Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8", "Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8")
 
 -- Protocol table
 local tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8 = {}

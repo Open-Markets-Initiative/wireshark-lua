@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx MemxEquities Memo Sbe 1.1 Protocol
-local omi_memx_memxequities_memo_sbe_v1_1 = Proto("Memx.MemxEquities.Memo.Sbe.v1.1.Lua", "Memx MemxEquities Memo Sbe 1.1")
+local omi_memx_memxequities_memo_sbe_v1_1 = Proto("Omi.Memx.MemxEquities.Memo.Sbe.v1.1", "Memx MemxEquities Memo Sbe 1.1")
 
 -- Protocol table
 local memx_memxequities_memo_sbe_v1_1 = {}

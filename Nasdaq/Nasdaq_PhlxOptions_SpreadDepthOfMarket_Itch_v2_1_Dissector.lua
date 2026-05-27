@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions SpreadDepthOfMarket Itch 2.1 Protocol
-local omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1 = Proto("Nasdaq.PhlxOptions.SpreadDepthOfMarket.Itch.v2.1.Lua", "Nasdaq PhlxOptions SpreadDepthOfMarket Itch 2.1")
+local omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1 = Proto("Omi.Nasdaq.PhlxOptions.SpreadDepthOfMarket.Itch.v2.1", "Nasdaq PhlxOptions SpreadDepthOfMarket Itch 2.1")
 
 -- Protocol table
 local nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1 = {}

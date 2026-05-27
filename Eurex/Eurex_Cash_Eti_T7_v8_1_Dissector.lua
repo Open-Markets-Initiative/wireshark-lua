@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Eurex Cash Eti T7 8.1 Protocol
-local omi_eurex_cash_eti_t7_v8_1 = Proto("Eurex.Cash.Eti.T7.v8.1.Lua", "Eurex Cash Eti T7 8.1")
+local omi_eurex_cash_eti_t7_v8_1 = Proto("Omi.Eurex.Cash.Eti.T7.v8.1", "Eurex Cash Eti T7 8.1")
 
 -- Protocol table
 local eurex_cash_eti_t7_v8_1 = {}

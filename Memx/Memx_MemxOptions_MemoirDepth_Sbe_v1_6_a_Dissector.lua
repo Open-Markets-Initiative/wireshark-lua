@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx MemxOptions MemoirDepth Sbe 1.6.a Protocol
-local omi_memx_memxoptions_memoirdepth_sbe_v1_6_a = Proto("Memx.MemxOptions.MemoirDepth.Sbe.v1.6.a.Lua", "Memx MemxOptions MemoirDepth Sbe 1.6.a")
+local omi_memx_memxoptions_memoirdepth_sbe_v1_6_a = Proto("Omi.Memx.MemxOptions.MemoirDepth.Sbe.v1.6.a", "Memx MemxOptions MemoirDepth Sbe 1.6.a")
 
 -- Protocol table
 local memx_memxoptions_memoirdepth_sbe_v1_6_a = {}

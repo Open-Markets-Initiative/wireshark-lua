@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Protocol
-local omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10 = Proto("Cboe.TitaniumConsolidated.OneOptions.Pitch.v1.0.10.Lua", "Cboe TitaniumConsolidated OneOptions Pitch 1.0.10")
+local omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10 = Proto("Omi.Cboe.TitaniumConsolidated.OneOptions.Pitch.v1.0.10", "Cboe TitaniumConsolidated OneOptions Pitch 1.0.10")
 
 -- Protocol table
 local cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10 = {}

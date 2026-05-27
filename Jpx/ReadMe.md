@@ -3,10 +3,10 @@
 
 ## Japan Exchange Group
 
-| Division | [Protocol][Omi.Jpx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Jpx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Jpx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Itch][Omi.Encoding.Itch] | [1.1][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | 5/8/2024 | 3082 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Pdf] |
-| [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Ouch][Omi.Encoding.Ouch] | [5.0][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | 9/16/2020 | 3099 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Pdf] |
+| [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Itch][Omi.Encoding.Itch] | [1.1][Jpx.OseDerivatives.GeniumInet.Itch.v1.1.Dissector] | 5/8/2024 | 3082 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Jpx.Specifications] |
+| [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Ouch][Omi.Encoding.Ouch] | [5.0][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | 9/16/2020 | 3099 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Jpx.Specifications] |
 
 
 Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
@@ -25,6 +25,7 @@ Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Jpx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jpx/Protocols "Jpx Protocol Directory"
+[Omi.Jpx.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jpx/Specifications "Jpx Specifications Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
 [OseDerivatives]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jpx/Protocols/OseDerivatives "Jpx OseDerivatives"

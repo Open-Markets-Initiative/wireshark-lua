@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Lseg TradeEcho Level2 Gtp 24.4 Protocol
-local omi_lseg_tradeecho_level2_gtp_v24_4 = Proto("Lseg.TradeEcho.Level2.Gtp.v24.4.Lua", "Lseg TradeEcho Level2 Gtp 24.4")
+local omi_lseg_tradeecho_level2_gtp_v24_4 = Proto("Omi.Lseg.TradeEcho.Level2.Gtp.v24.4", "Lseg TradeEcho Level2 Gtp 24.4")
 
 -- Protocol table
 local lseg_tradeecho_level2_gtp_v24_4 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Protocol
-local omi_miax_onyxfutures_expressinterface_fei_v1_0_c = Proto("Miax.OnyxFutures.ExpressInterface.Fei.v1.0.c.Lua", "Miax OnyxFutures ExpressInterface Fei 1.0.c")
+local omi_miax_onyxfutures_expressinterface_fei_v1_0_c = Proto("Omi.Miax.OnyxFutures.ExpressInterface.Fei.v1.0.c", "Miax OnyxFutures ExpressInterface Fei 1.0.c")
 
 -- Protocol table
 local miax_onyxfutures_expressinterface_fei_v1_0_c = {}

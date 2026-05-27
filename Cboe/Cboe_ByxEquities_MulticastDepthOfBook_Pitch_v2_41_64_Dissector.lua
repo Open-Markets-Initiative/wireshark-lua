@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.64 Protocol
-local omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64 = Proto("Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.64.Lua", "Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.64")
+local omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64 = Proto("Omi.Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.64", "Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.64")
 
 -- Protocol table
 local cboe_byxequities_multicastdepthofbook_pitch_v2_41_64 = {}

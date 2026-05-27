@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- B3 Securities BinaryPacketHeader Udp 1.0 Protocol
-local omi_b3_securities_binarypacketheader_udp_v1_0 = Proto("B3.Securities.BinaryPacketHeader.Udp.v1.0.Lua", "B3 Securities BinaryPacketHeader Udp 1.0")
+local omi_b3_securities_binarypacketheader_udp_v1_0 = Proto("Omi.B3.Securities.BinaryPacketHeader.Udp.v1.0", "B3 Securities BinaryPacketHeader Udp 1.0")
 
 -- Protocol table
 local b3_securities_binarypacketheader_udp_v1_0 = {}

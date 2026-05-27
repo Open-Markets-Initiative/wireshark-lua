@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq NomOptions Itto Itch 4.0 Protocol
-local omi_nasdaq_nomoptions_itto_itch_v4_0 = Proto("Nasdaq.NomOptions.Itto.Itch.v4.0.Lua", "Nasdaq NomOptions Itto Itch 4.0")
+local omi_nasdaq_nomoptions_itto_itch_v4_0 = Proto("Omi.Nasdaq.NomOptions.Itto.Itch.v4.0", "Nasdaq NomOptions Itto Itch 4.0")
 
 -- Protocol table
 local nasdaq_nomoptions_itto_itch_v4_0 = {}

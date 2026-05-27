@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme CmeFutures Mdp3 Sbe 1.13 Protocol
-local omi_cme_cmefutures_mdp3_sbe_v1_13 = Proto("Cme.CmeFutures.Mdp3.Sbe.v1.13.Lua", "Cme CmeFutures Mdp3 Sbe 1.13")
+local omi_cme_cmefutures_mdp3_sbe_v1_13 = Proto("Omi.Cme.CmeFutures.Mdp3.Sbe.v1.13", "Cme CmeFutures Mdp3 Sbe 1.13")
 
 -- Protocol table
 local cme_cmefutures_mdp3_sbe_v1_13 = {}

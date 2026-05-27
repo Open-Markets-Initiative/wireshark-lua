@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe EdgaEquities TcpDepthOfBook AsciiPitch 1.15.13 Protocol
-local omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13 = Proto("Cboe.EdgaEquities.TcpDepthOfBook.AsciiPitch.v1.15.13.Lua", "Cboe EdgaEquities TcpDepthOfBook AsciiPitch 1.15.13")
+local omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13 = Proto("Omi.Cboe.EdgaEquities.TcpDepthOfBook.AsciiPitch.v1.15.13", "Cboe EdgaEquities TcpDepthOfBook AsciiPitch 1.15.13")
 
 -- Protocol table
 local cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13 = {}

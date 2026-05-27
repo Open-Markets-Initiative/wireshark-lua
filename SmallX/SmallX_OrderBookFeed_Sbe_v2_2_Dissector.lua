@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- SmallX OrderBookFeed Sbe 2.2 Protocol
-local omi_smallx_orderbookfeed_sbe_v2_2 = Proto("SmallX.OrderBookFeed.Sbe.v2.2.Lua", "SmallX OrderBookFeed Sbe 2.2")
+local omi_smallx_orderbookfeed_sbe_v2_2 = Proto("Omi.SmallX.OrderBookFeed.Sbe.v2.2", "SmallX OrderBookFeed Sbe 2.2")
 
 -- Protocol table
 local smallx_orderbookfeed_sbe_v2_2 = {}

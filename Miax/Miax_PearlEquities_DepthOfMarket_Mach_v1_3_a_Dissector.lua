@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Miax PearlEquities DepthOfMarket Mach 1.3.a Protocol
-local omi_miax_pearlequities_depthofmarket_mach_v1_3_a = Proto("Miax.PearlEquities.DepthOfMarket.Mach.v1.3.a.Lua", "Miax PearlEquities DepthOfMarket Mach 1.3.a")
+local omi_miax_pearlequities_depthofmarket_mach_v1_3_a = Proto("Omi.Miax.PearlEquities.DepthOfMarket.Mach.v1.3.a", "Miax PearlEquities DepthOfMarket Mach 1.3.a")
 
 -- Protocol table
 local miax_pearlequities_depthofmarket_mach_v1_3_a = {}

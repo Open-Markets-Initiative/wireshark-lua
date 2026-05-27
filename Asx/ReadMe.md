@@ -3,14 +3,14 @@
 
 ## Australian Securities Exchange
 
-| Division | [Protocol][Omi.Asx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
+| Division | [Protocol][Omi.Asx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Asx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [AsxSecurities][AsxSecurities.Exchange] | [Ntp][Asx.AsxSecurities.Ntp] | [Itch][Omi.Encoding.Itch] | [1.05][Asx.AsxSecurities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5288 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Asx.AsxSecurities.Ntp.Itch.v1.05.Url] - [pdf][Asx.AsxSecurities.Ntp.Itch.v1.05.Pdf] |
-| [AsxSecurities][AsxSecurities.Exchange] | [T24][Asx.AsxSecurities.T24] | [Itch][Omi.Encoding.Itch] | [1.13][Asx.AsxSecurities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5625 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.AsxSecurities.T24.Itch.v1.13.Pdf] |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [3.1][Asx.AsxSecurities.Trade.Itch.v3.1.Dissector] | 3/1/2023 | 3156 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Itch.v3.1.Url] - [pdf][Asx.AsxSecurities.Trade.Itch.v3.1.Pdf] |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [2.0][Asx.AsxSecurities.Trade.Itch.v2.0.Dissector] | 4/1/2015 | 3203 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.AsxSecurities.Trade.Itch.v2.0.Pdf] |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [3.6][Asx.AsxSecurities.Trade.Ouch.v3.6.Dissector] | 2/1/2023 | 2809 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Asx.AsxSecurities.Trade.Ouch.v3.6.Url] - [pdf][Asx.AsxSecurities.Trade.Ouch.v3.6.Pdf] |
-| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [2.0][Asx.AsxSecurities.Trade.Ouch.v2.0.Dissector] | 4/1/2015 | 2786 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Asx.AsxSecurities.Trade.Ouch.v2.0.Pdf] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Ntp][Asx.AsxSecurities.Ntp] | [Itch][Omi.Encoding.Itch] | [1.05][Asx.AsxSecurities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | 5288 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [Documentation][Omi.Asx.Specifications] |
+| [AsxSecurities][AsxSecurities.Exchange] | [T24][Asx.AsxSecurities.T24] | [Itch][Omi.Encoding.Itch] | [1.13][Asx.AsxSecurities.T24.Itch.v1.13.Dissector] | 7/15/2014 | 5625 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Asx.Specifications] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [3.1][Asx.AsxSecurities.Trade.Itch.v3.1.Dissector] | 3/1/2023 | 3156 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Asx.Specifications] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Itch][Omi.Encoding.Itch] | [2.0][Asx.AsxSecurities.Trade.Itch.v2.0.Dissector] | 4/1/2015 | 3203 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Asx.Specifications] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [3.6][Asx.AsxSecurities.Trade.Ouch.v3.6.Dissector] | 2/1/2023 | 2809 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Asx.Specifications] |
+| [AsxSecurities][AsxSecurities.Exchange] | [Trade][Asx.AsxSecurities.Trade] | [Ouch][Omi.Encoding.Ouch] | [2.0][Asx.AsxSecurities.Trade.Ouch.v2.0.Dissector] | 4/1/2015 | 2786 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [Documentation][Omi.Asx.Specifications] |
 
 
 Asx: [website](https://www.asx.com.au "Go to Australian Securities Exchange")
@@ -29,6 +29,7 @@ Asx: [website](https://www.asx.com.au "Go to Australian Securities Exchange")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Asx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Protocols "Asx Protocol Directory"
+[Omi.Asx.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Specifications "Asx Specifications Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
 [AsxSecurities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Protocols/AsxSecurities "Asx AsxSecurities"

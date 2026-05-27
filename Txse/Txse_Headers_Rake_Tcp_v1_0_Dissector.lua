@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Txse Headers Rake Tcp 1.0 Protocol
-local omi_txse_headers_rake_tcp_v1_0 = Proto("Txse.Headers.Rake.Tcp.v1.0.Lua", "Txse Headers Rake Tcp 1.0")
+local omi_txse_headers_rake_tcp_v1_0 = Proto("Omi.Txse.Headers.Rake.Tcp.v1.0", "Txse Headers Rake Tcp 1.0")
 
 -- Protocol table
 local txse_headers_rake_tcp_v1_0 = {}

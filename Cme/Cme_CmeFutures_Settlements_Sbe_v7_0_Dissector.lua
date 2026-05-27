@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme CmeFutures Settlements Sbe 7.0 Protocol
-local omi_cme_cmefutures_settlements_sbe_v7_0 = Proto("Cme.CmeFutures.Settlements.Sbe.v7.0.Lua", "Cme CmeFutures Settlements Sbe 7.0")
+local omi_cme_cmefutures_settlements_sbe_v7_0 = Proto("Omi.Cme.CmeFutures.Settlements.Sbe.v7.0", "Cme CmeFutures Settlements Sbe 7.0")
 
 -- Protocol table
 local cme_cmefutures_settlements_sbe_v7_0 = {}

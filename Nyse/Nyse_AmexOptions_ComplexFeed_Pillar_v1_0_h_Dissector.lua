@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse AmexOptions ComplexFeed Pillar 1.0.h Protocol
-local omi_nyse_amexoptions_complexfeed_pillar_v1_0_h = Proto("Nyse.AmexOptions.ComplexFeed.Pillar.v1.0.h.Lua", "Nyse AmexOptions ComplexFeed Pillar 1.0.h")
+local omi_nyse_amexoptions_complexfeed_pillar_v1_0_h = Proto("Omi.Nyse.AmexOptions.ComplexFeed.Pillar.v1.0.h", "Nyse AmexOptions ComplexFeed Pillar 1.0.h")
 
 -- Protocol table
 local nyse_amexoptions_complexfeed_pillar_v1_0_h = {}

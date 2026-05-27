@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- BruceAts BruceEquities BestBidAndOffer Itch 1.0 Protocol
-local omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0 = Proto("BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0.Lua", "BruceAts BruceEquities BestBidAndOffer Itch 1.0")
+local omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0 = Proto("Omi.BruceAts.BruceEquities.BestBidAndOffer.Itch.v1.0", "BruceAts BruceEquities BestBidAndOffer Itch 1.0")
 
 -- Protocol table
 local bruceats_bruceequities_bestbidandoffer_itch_v1_0 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq GemxOptions TopOfMarket Itch 2.1 Protocol
-local omi_nasdaq_gemxoptions_topofmarket_itch_v2_1 = Proto("Nasdaq.GemxOptions.TopOfMarket.Itch.v2.1.Lua", "Nasdaq GemxOptions TopOfMarket Itch 2.1")
+local omi_nasdaq_gemxoptions_topofmarket_itch_v2_1 = Proto("Omi.Nasdaq.GemxOptions.TopOfMarket.Itch.v2.1", "Nasdaq GemxOptions TopOfMarket Itch 2.1")
 
 -- Protocol table
 local nasdaq_gemxoptions_topofmarket_itch_v2_1 = {}

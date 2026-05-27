@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse ArcaOptions DeepFeed Xdp 1.3.a Protocol
-local omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a = Proto("Nyse.ArcaOptions.DeepFeed.Xdp.v1.3.a.Lua", "Nyse ArcaOptions DeepFeed Xdp 1.3.a")
+local omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a = Proto("Omi.Nyse.ArcaOptions.DeepFeed.Xdp.v1.3.a", "Nyse ArcaOptions DeepFeed Xdp 1.3.a")
 
 -- Protocol table
 local nyse_arcaoptions_deepfeed_xdp_v1_3_a = {}

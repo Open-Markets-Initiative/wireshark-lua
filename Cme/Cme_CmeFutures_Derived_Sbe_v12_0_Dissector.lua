@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cme CmeFutures Derived Sbe 12.0 Protocol
-local omi_cme_cmefutures_derived_sbe_v12_0 = Proto("Cme.CmeFutures.Derived.Sbe.v12.0.Lua", "Cme CmeFutures Derived Sbe 12.0")
+local omi_cme_cmefutures_derived_sbe_v12_0 = Proto("Omi.Cme.CmeFutures.Derived.Sbe.v12.0", "Cme CmeFutures Derived Sbe 12.0")
 
 -- Protocol table
 local cme_cmefutures_derived_sbe_v12_0 = {}

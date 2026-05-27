@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.7 Protocol
-local omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7 = Proto("Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.7.Lua", "Coinbase CoinbaseDerivatives OrdersApi Sbe 1.7")
+local omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7 = Proto("Omi.Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.7", "Coinbase CoinbaseDerivatives OrdersApi Sbe 1.7")
 
 -- Protocol table
 local coinbase_coinbasederivatives_ordersapi_sbe_v1_7 = {}

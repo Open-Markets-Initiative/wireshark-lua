@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Odx OdxSecurityToken Pts Itch 1.2 Protocol
-local omi_odx_odxsecuritytoken_pts_itch_v1_2 = Proto("Odx.OdxSecurityToken.Pts.Itch.v1.2.Lua", "Odx OdxSecurityToken Pts Itch 1.2")
+local omi_odx_odxsecuritytoken_pts_itch_v1_2 = Proto("Omi.Odx.OdxSecurityToken.Pts.Itch.v1.2", "Odx OdxSecurityToken Pts Itch 1.2")
 
 -- Protocol table
 local odx_odxsecuritytoken_pts_itch_v1_2 = {}

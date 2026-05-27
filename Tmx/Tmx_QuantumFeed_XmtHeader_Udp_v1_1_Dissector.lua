@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Tmx QuantumFeed XmtHeader Udp 1.1 Protocol
-local omi_tmx_quantumfeed_xmtheader_udp_v1_1 = Proto("Tmx.QuantumFeed.XmtHeader.Udp.v1.1.Lua", "Tmx QuantumFeed XmtHeader Udp 1.1")
+local omi_tmx_quantumfeed_xmtheader_udp_v1_1 = Proto("Omi.Tmx.QuantumFeed.XmtHeader.Udp.v1.1", "Tmx QuantumFeed XmtHeader Udp 1.1")
 
 -- Protocol table
 local tmx_quantumfeed_xmtheader_udp_v1_1 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx MemxOptions RiskControl Sbe 1.6 Protocol
-local omi_memx_memxoptions_riskcontrol_sbe_v1_6 = Proto("Memx.MemxOptions.RiskControl.Sbe.v1.6.Lua", "Memx MemxOptions RiskControl Sbe 1.6")
+local omi_memx_memxoptions_riskcontrol_sbe_v1_6 = Proto("Omi.Memx.MemxOptions.RiskControl.Sbe.v1.6", "Memx MemxOptions RiskControl Sbe 1.6")
 
 -- Protocol table
 local memx_memxoptions_riskcontrol_sbe_v1_6 = {}

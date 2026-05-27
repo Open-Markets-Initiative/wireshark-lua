@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Otc Markets Headers Ats 1.0 Protocol
-local omi_otc_markets_headers_ats_v1_0 = Proto("Otc.Markets.Headers.Ats.v1.0.Lua", "Otc Markets Headers Ats 1.0")
+local omi_otc_markets_headers_ats_v1_0 = Proto("Omi.Otc.Markets.Headers.Ats.v1.0", "Otc Markets Headers Ats 1.0")
 
 -- Protocol table
 local otc_markets_headers_ats_v1_0 = {}

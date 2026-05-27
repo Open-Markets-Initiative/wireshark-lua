@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities Bbo Itch 2.1.2018 Protocol
-local omi_nasdaq_psxequities_bbo_itch_v2_1_2018 = Proto("Nasdaq.PsxEquities.Bbo.Itch.v2.1.2018.Lua", "Nasdaq PsxEquities Bbo Itch 2.1.2018")
+local omi_nasdaq_psxequities_bbo_itch_v2_1_2018 = Proto("Omi.Nasdaq.PsxEquities.Bbo.Itch.v2.1.2018", "Nasdaq PsxEquities Bbo Itch 2.1.2018")
 
 -- Protocol table
 local nasdaq_psxequities_bbo_itch_v2_1_2018 = {}

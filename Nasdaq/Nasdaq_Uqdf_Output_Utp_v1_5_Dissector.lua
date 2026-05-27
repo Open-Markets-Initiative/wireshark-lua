@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq Uqdf Output Utp 1.5 Protocol
-local omi_nasdaq_uqdf_output_utp_v1_5 = Proto("Nasdaq.Uqdf.Output.Utp.v1.5.Lua", "Nasdaq Uqdf Output Utp 1.5")
+local omi_nasdaq_uqdf_output_utp_v1_5 = Proto("Omi.Nasdaq.Uqdf.Output.Utp.v1.5", "Nasdaq Uqdf Output Utp 1.5")
 
 -- Protocol table
 local nasdaq_uqdf_output_utp_v1_5 = {}

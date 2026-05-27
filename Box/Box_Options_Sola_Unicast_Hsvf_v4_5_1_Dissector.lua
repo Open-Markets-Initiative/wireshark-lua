@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Box Options Sola Unicast Hsvf 4.5.1 Protocol
-local omi_box_options_sola_unicast_hsvf_v4_5_1 = Proto("Box.Options.Sola.Unicast.Hsvf.v4.5.1.Lua", "Box Options Sola Unicast Hsvf 4.5.1")
+local omi_box_options_sola_unicast_hsvf_v4_5_1 = Proto("Omi.Box.Options.Sola.Unicast.Hsvf.v4.5.1", "Box Options Sola Unicast Hsvf 4.5.1")
 
 -- Protocol table
 local box_options_sola_unicast_hsvf_v4_5_1 = {}

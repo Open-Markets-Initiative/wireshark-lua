@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe ByxEquities SummaryDepth Pitch 1.0.7 Protocol
-local omi_cboe_byxequities_summarydepth_pitch_v1_0_7 = Proto("Cboe.ByxEquities.SummaryDepth.Pitch.v1.0.7.Lua", "Cboe ByxEquities SummaryDepth Pitch 1.0.7")
+local omi_cboe_byxequities_summarydepth_pitch_v1_0_7 = Proto("Omi.Cboe.ByxEquities.SummaryDepth.Pitch.v1.0.7", "Cboe ByxEquities SummaryDepth Pitch 1.0.7")
 
 -- Protocol table
 local cboe_byxequities_summarydepth_pitch_v1_0_7 = {}

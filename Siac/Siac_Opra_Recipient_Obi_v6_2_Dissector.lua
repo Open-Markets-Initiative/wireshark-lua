@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Siac Opra Recipient Obi 6.2 Protocol
-local omi_siac_opra_recipient_obi_v6_2 = Proto("Siac.Opra.Recipient.Obi.v6.2.Lua", "Siac Opra Recipient Obi 6.2")
+local omi_siac_opra_recipient_obi_v6_2 = Proto("Omi.Siac.Opra.Recipient.Obi.v6.2", "Siac Opra Recipient Obi 6.2")
 
 -- Protocol table
 local siac_opra_recipient_obi_v6_2 = {}

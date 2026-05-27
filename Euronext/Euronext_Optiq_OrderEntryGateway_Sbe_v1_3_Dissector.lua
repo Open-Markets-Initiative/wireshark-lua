@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Euronext Optiq OrderEntryGateway Sbe 1.3 Protocol
-local omi_euronext_optiq_orderentrygateway_sbe_v1_3 = Proto("Euronext.Optiq.OrderEntryGateway.Sbe.v1.3.Lua", "Euronext Optiq OrderEntryGateway Sbe 1.3")
+local omi_euronext_optiq_orderentrygateway_sbe_v1_3 = Proto("Omi.Euronext.Optiq.OrderEntryGateway.Sbe.v1.3", "Euronext Optiq OrderEntryGateway Sbe 1.3")
 
 -- Protocol table
 local euronext_optiq_orderentrygateway_sbe_v1_3 = {}

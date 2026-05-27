@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Siac Cqs Snapshot Cta 2.1 Protocol
-local omi_siac_cqs_snapshot_cta_v2_1 = Proto("Siac.Cqs.Snapshot.Cta.v2.1.Lua", "Siac Cqs Snapshot Cta 2.1")
+local omi_siac_cqs_snapshot_cta_v2_1 = Proto("Omi.Siac.Cqs.Snapshot.Cta.v2.1", "Siac Cqs Snapshot Cta 2.1")
 
 -- Protocol table
 local siac_cqs_snapshot_cta_v2_1 = {}

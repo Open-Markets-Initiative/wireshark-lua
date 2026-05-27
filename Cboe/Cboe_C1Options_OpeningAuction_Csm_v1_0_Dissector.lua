@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe C1Options OpeningAuction Csm 1.0 Protocol
-local omi_cboe_c1options_openingauction_csm_v1_0 = Proto("Cboe.C1Options.OpeningAuction.Csm.v1.0.Lua", "Cboe C1Options OpeningAuction Csm 1.0")
+local omi_cboe_c1options_openingauction_csm_v1_0 = Proto("Omi.Cboe.C1Options.OpeningAuction.Csm.v1.0", "Cboe C1Options OpeningAuction Csm 1.0")
 
 -- Protocol table
 local cboe_c1options_openingauction_csm_v1_0 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Memx MemxOptions Memo Sbe 1.8 Protocol
-local omi_memx_memxoptions_memo_sbe_v1_8 = Proto("Memx.MemxOptions.Memo.Sbe.v1.8.Lua", "Memx MemxOptions Memo Sbe 1.8")
+local omi_memx_memxoptions_memo_sbe_v1_8 = Proto("Omi.Memx.MemxOptions.Memo.Sbe.v1.8", "Memx MemxOptions Memo Sbe 1.8")
 
 -- Protocol table
 local memx_memxoptions_memo_sbe_v1_8 = {}

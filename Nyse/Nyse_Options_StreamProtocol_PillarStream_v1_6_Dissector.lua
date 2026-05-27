@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse Options StreamProtocol PillarStream 1.6 Protocol
-local omi_nyse_options_streamprotocol_pillarstream_v1_6 = Proto("Nyse.Options.StreamProtocol.PillarStream.v1.6.Lua", "Nyse Options StreamProtocol PillarStream 1.6")
+local omi_nyse_options_streamprotocol_pillarstream_v1_6 = Proto("Omi.Nyse.Options.StreamProtocol.PillarStream.v1.6", "Nyse Options StreamProtocol PillarStream 1.6")
 
 -- Protocol table
 local nyse_options_streamprotocol_pillarstream_v1_6 = {}

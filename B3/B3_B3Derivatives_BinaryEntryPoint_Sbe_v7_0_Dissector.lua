@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- B3 B3Derivatives BinaryEntryPoint Sbe 7.0 Protocol
-local omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0 = Proto("B3.B3Derivatives.BinaryEntryPoint.Sbe.v7.0.Lua", "B3 B3Derivatives BinaryEntryPoint Sbe 7.0")
+local omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0 = Proto("Omi.B3.B3Derivatives.BinaryEntryPoint.Sbe.v7.0", "B3 B3Derivatives BinaryEntryPoint Sbe 7.0")
 
 -- Protocol table
 local b3_b3derivatives_binaryentrypoint_sbe_v7_0 = {}

@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Protocol
-local omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2 = Proto("Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.Lua", "Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2")
+local omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2 = Proto("Omi.Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2", "Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2")
 
 -- Protocol table
 local coinbase_coinbasederivatives_marketdataapi_sbe_v1_2 = {}

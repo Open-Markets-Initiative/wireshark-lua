@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Imperative IntelligentCross Mdf 1.11 Protocol
-local omi_imperative_intelligentcross_mdf_v1_11 = Proto("Imperative.IntelligentCross.Mdf.v1.11.Lua", "Imperative IntelligentCross Mdf 1.11")
+local omi_imperative_intelligentcross_mdf_v1_11 = Proto("Omi.Imperative.IntelligentCross.Mdf.v1.11", "Imperative IntelligentCross Mdf 1.11")
 
 -- Protocol table
 local imperative_intelligentcross_mdf_v1_11 = {}

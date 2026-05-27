@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nasdaq Common SoupBin Tcp 3.0 Protocol
-local omi_nasdaq_common_soupbin_tcp_v3_0 = Proto("Nasdaq.Common.SoupBin.Tcp.v3.0.Lua", "Nasdaq Common SoupBin Tcp 3.0")
+local omi_nasdaq_common_soupbin_tcp_v3_0 = Proto("Omi.Nasdaq.Common.SoupBin.Tcp.v3.0", "Nasdaq Common SoupBin Tcp 3.0")
 
 -- Protocol table
 local nasdaq_common_soupbin_tcp_v3_0 = {}

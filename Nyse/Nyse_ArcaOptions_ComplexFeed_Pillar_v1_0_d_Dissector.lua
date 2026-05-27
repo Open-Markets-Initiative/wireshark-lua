@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.d Protocol
-local omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d = Proto("Nyse.ArcaOptions.ComplexFeed.Pillar.v1.0.d.Lua", "Nyse ArcaOptions ComplexFeed Pillar 1.0.d")
+local omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d = Proto("Omi.Nyse.ArcaOptions.ComplexFeed.Pillar.v1.0.d", "Nyse ArcaOptions ComplexFeed Pillar 1.0.d")
 
 -- Protocol table
 local nyse_arcaoptions_complexfeed_pillar_v1_0_d = {}

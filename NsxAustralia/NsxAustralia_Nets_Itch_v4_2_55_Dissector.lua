@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- NsxAustralia Nets Itch 4.2.55 Protocol
-local omi_nsxaustralia_nets_itch_v4_2_55 = Proto("NsxAustralia.Nets.Itch.v4.2.55.Lua", "NsxAustralia Nets Itch 4.2.55")
+local omi_nsxaustralia_nets_itch_v4_2_55 = Proto("Omi.NsxAustralia.Nets.Itch.v4.2.55", "NsxAustralia Nets Itch 4.2.55")
 
 -- Protocol table
 local nsxaustralia_nets_itch_v4_2_55 = {}

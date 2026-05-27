@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Nyse AmexEquities IntegratedFeed Xdp 2.1.g Protocol
-local omi_nyse_amexequities_integratedfeed_xdp_v2_1_g = Proto("Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.Lua", "Nyse AmexEquities IntegratedFeed Xdp 2.1.g")
+local omi_nyse_amexequities_integratedfeed_xdp_v2_1_g = Proto("Omi.Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g", "Nyse AmexEquities IntegratedFeed Xdp 2.1.g")
 
 -- Protocol table
 local nyse_amexequities_integratedfeed_xdp_v2_1_g = {}

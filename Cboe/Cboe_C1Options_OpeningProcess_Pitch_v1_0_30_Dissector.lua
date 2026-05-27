@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
 -- Cboe C1Options OpeningProcess Pitch 1.0.30 Protocol
-local omi_cboe_c1options_openingprocess_pitch_v1_0_30 = Proto("Cboe.C1Options.OpeningProcess.Pitch.v1.0.30.Lua", "Cboe C1Options OpeningProcess Pitch 1.0.30")
+local omi_cboe_c1options_openingprocess_pitch_v1_0_30 = Proto("Omi.Cboe.C1Options.OpeningProcess.Pitch.v1.0.30", "Cboe C1Options OpeningProcess Pitch 1.0.30")
 
 -- Protocol table
 local cboe_c1options_openingprocess_pitch_v1_0_30 = {}
