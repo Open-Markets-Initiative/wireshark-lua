@@ -27,9 +27,10 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_best_
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_best_bid_quantity_short = ProtoField.new("Consolidated Best Bid Quantity Short", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.consolidatedbestbidquantityshort", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_best_quote_price = ProtoField.new("Consolidated Best Quote Price", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.consolidatedbestquoteprice", ftypes.DOUBLE)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_quote_quantity = ProtoField.new("Consolidated Quote Quantity", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.consolidatedquotequantity", ftypes.UINT64)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.count = ProtoField.new("Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.count", ftypes.UINT16)
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.count = ProtoField.new("Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.count", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.feedsymbol", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.filler = ProtoField.new("Filler", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.filler", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_count = ProtoField.new("Gap Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.gapcount", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_response_status = ProtoField.new("Gap Response Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.gapresponsestatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.halt_status = ProtoField.new("Halt Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.haltstatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_count = ProtoField.new("Instrument Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.instrumentcount", ftypes.UINT32)
@@ -477,7 +478,7 @@ end
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count = {}
 
 -- Size: Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.size = 2
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.size = 1
 
 -- Display: Count
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.display = function(value)
@@ -538,6 +539,29 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.dissect = function(buf
   local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.filler, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gap Count
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count = {}
+
+-- Size: Gap Count
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.size = 2
+
+-- Display: Gap Count
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.display = function(value)
+  return "Gap Count: "..value
+end
+
+-- Dissect: Gap Count
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_count, range, value, display)
 
   return offset + length, value
 end
@@ -2016,7 +2040,7 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.size =
   cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.size + 
   cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.size + 
+  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.size + 
   cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.size
 
 -- Display: Gap Response Message
@@ -2034,8 +2058,8 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.fields =
   -- Sequence: Binary
   index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
 
-  -- Count: Binary
-  index, count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.dissect(buffer, index, packet, parent)
+  -- Gap Count: Binary
+  index, gap_count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.dissect(buffer, index, packet, parent)
 
   -- Gap Response Status: Alphanumeric
   index, gap_response_status = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.dissect(buffer, index, packet, parent)
@@ -2068,7 +2092,7 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.size =
   cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.size + 
   cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.size
+  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.size
 
 -- Display: Gap Request Message
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.display = function(packet, parent, length)
@@ -2085,8 +2109,8 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.fields = 
   -- Sequence: Binary
   index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
 
-  -- Count: Binary
-  index, count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.dissect(buffer, index, packet, parent)
+  -- Gap Count: Binary
+  index, gap_count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2880,7 +2904,7 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header.fields = functi
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.length.dissect(buffer, index, packet, parent)
 
-  -- Count: Binary
+  -- Count: 1 Byte Unsigned Fixed Width Integer
   index, count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.dissect(buffer, index, packet, parent)
 
   -- Unit: Binary
@@ -2926,7 +2950,7 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet.dissect = function(buf
   index, packet_header = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Count
-  local count = buffer(index - 7, 2):le_uint()
+  local count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect(buffer, index, packet, parent, count)
