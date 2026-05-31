@@ -67,6 +67,8 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.sequence_number = ProtoFie
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.session = ProtoField.new("Session", "nasdaq.psxequities.lastsale.itch.v2.1.2026.session", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.psxequities.lastsale.itch.v2.1.2026.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.lastsale.itch.v2.1.2026.stock", ftypes.STRING)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.lastsale.itch.v2.1.2026.timestamp", ftypes.UINT64)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psxequities.lastsale.itch.v2.1.2026.trackingnumber", ftypes.UINT16)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_control_number = ProtoField.new("Trade Control Number", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradecontrolnumber", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradeprice", ftypes.DOUBLE)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradesize", ftypes.UINT32)
@@ -91,6 +93,24 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trading_action_message = P
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nasdaq PsxEquities LastSale Itch 2.1.2026 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_psxequities_lastsale_itch_v2_1_2026.utc_offset_hours = 5
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -112,6 +132,8 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_packet = Pref.bool("Sh
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs_changed()
@@ -134,6 +156,12 @@ function omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs_changed()
   end
   if show.message_index ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_message_index then
     show.message_index = omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_message_index
+  end
+  if nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.timestamp_format then
+    nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format = omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.timestamp_format
+  end
+  if nasdaq_psxequities_lastsale_itch_v2_1_2026.utc_offset_hours ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.utc_offset_hours then
+    nasdaq_psxequities_lastsale_itch_v2_1_2026.utc_offset_hours = omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.utc_offset_hours
   end
 end
 
@@ -1904,6 +1932,72 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.stock.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Timestamp
+nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp = {}
+
+-- Size: Timestamp
+nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size = 6
+
+-- Display: Timestamp
+nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_psxequities_lastsale_itch_v2_1_2026.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Timestamp
+nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tracking Number
+nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number = {}
+
+-- Size: Tracking Number
+nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size = 2
+
+-- Display: Tracking Number
+nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.display = function(value)
+  return "Tracking Number: "..value
+end
+
+-- Dissect: Tracking Number
+nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.tracking_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Control Number
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_control_number = {}
 
@@ -2115,6 +2209,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_message = {}
 
 -- Size: Operational Halt Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.stock.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.market_code.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_action.size
@@ -2127,6 +2223,12 @@ end
 -- Dissect Fields: Operational Halt Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_lastsale_itch_v2_1_2026.stock.dissect(buffer, index, packet, parent)
@@ -2163,6 +2265,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_breach_message = {}
 
 -- Size: Mwcb Breach Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_breach_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.breached_level.size
 
 -- Display: Mwcb Breach Message
@@ -2173,6 +2277,12 @@ end
 -- Dissect Fields: Mwcb Breach Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_breach_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Breached Level: Alpha
   index, breached_level = nasdaq_psxequities_lastsale_itch_v2_1_2026.breached_level.dissect(buffer, index, packet, parent)
@@ -2203,6 +2313,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_decline_level_message = {}
 
 -- Size: Mwcb Decline Level Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_decline_level_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.level_1.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.level_2.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.level_3.size
@@ -2215,6 +2327,12 @@ end
 -- Dissect Fields: Mwcb Decline Level Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_decline_level_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Level 1: Price (8)
   index, level_1 = nasdaq_psxequities_lastsale_itch_v2_1_2026.level_1.dissect(buffer, index, packet, parent)
@@ -2251,6 +2369,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.stock_directory_message = {}
 
 -- Size: Stock Directory Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.stock_directory_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.stock.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.market_category.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.financial_status_indicator.size + 
@@ -2274,6 +2394,12 @@ end
 -- Dissect Fields: Stock Directory Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_lastsale_itch_v2_1_2026.stock.dissect(buffer, index, packet, parent)
@@ -2343,6 +2469,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_short_sale_price_test_restric
 
 -- Size: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_short_sale_price_test_restricted_indicator_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.stock.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_action.size
 
@@ -2354,6 +2482,12 @@ end
 -- Dissect Fields: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_lastsale_itch_v2_1_2026.stock.dissect(buffer, index, packet, parent)
@@ -2387,6 +2521,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trading_action_message = {}
 
 -- Size: Trading Action Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trading_action_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_symbol.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.current_trading_state.size + 
@@ -2400,6 +2536,12 @@ end
 -- Dissect Fields: Trading Action Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Issue Symbol: Alpha
   index, issue_symbol = nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_symbol.dissect(buffer, index, packet, parent)
@@ -2439,6 +2581,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_for_next_shares_mess
 
 -- Size: Trade Correction For Next Shares Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_for_next_shares_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_symbol.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.size + 
@@ -2461,6 +2605,12 @@ end
 -- Dissect Fields: Trade Correction For Next Shares Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_for_next_shares_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Market Center Identifier: Alpha
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.dissect(buffer, index, packet, parent)
@@ -2527,6 +2677,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_message = {}
 
 -- Size: Trade Correction Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_symbol.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.size + 
@@ -2547,6 +2699,12 @@ end
 -- Dissect Fields: Trade Correction Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Market Center Identifier: Alpha
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.dissect(buffer, index, packet, parent)
@@ -2607,6 +2765,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_for_next_shares_me
 
 -- Size: Trade Cancel Error For Next Shares Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_for_next_shares_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_symbol.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.size + 
@@ -2624,6 +2784,12 @@ end
 -- Dissect Fields: Trade Cancel Error For Next Shares Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_for_next_shares_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Market Center Identifier: Alpha
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.dissect(buffer, index, packet, parent)
@@ -2675,6 +2841,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_message = {}
 
 -- Size: Trade Cancel Error Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_symbol.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.size + 
@@ -2691,6 +2859,12 @@ end
 -- Dissect Fields: Trade Cancel Error Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Market Center Identifier: Alpha
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.dissect(buffer, index, packet, parent)
@@ -2739,6 +2913,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.next_shares_trade_report_message = {}
 
 -- Size: Next Shares Trade Report Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.next_shares_trade_report_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.next_shares_symbol.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.size + 
@@ -2759,6 +2935,12 @@ end
 -- Dissect Fields: Next Shares Trade Report Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.next_shares_trade_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Market Center Identifier: Alpha
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.dissect(buffer, index, packet, parent)
@@ -2819,6 +3001,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_report_message = {}
 
 -- Size: Trade Report Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_report_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_symbol.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.size + 
@@ -2838,6 +3022,12 @@ end
 -- Dissect Fields: Trade Report Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Market Center Identifier: Alpha
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.dissect(buffer, index, packet, parent)
@@ -2895,6 +3085,8 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.system_event_message = {}
 
 -- Size: System Event Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.system_event_message.size =
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.size + 
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.size + 
   nasdaq_psxequities_lastsale_itch_v2_1_2026.event_code.size
 
 -- Display: System Event Message
@@ -2905,6 +3097,12 @@ end
 -- Dissect Fields: System Event Message
 nasdaq_psxequities_lastsale_itch_v2_1_2026.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_psxequities_lastsale_itch_v2_1_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: Alpha
   index, event_code = nasdaq_psxequities_lastsale_itch_v2_1_2026.event_code.dissect(buffer, index, packet, parent)
