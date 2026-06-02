@@ -41,7 +41,6 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_header = Pr
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.messagelength", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.messagetype", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.modifyflags", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.nanoseconds = ProtoField.new("Nanoseconds", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.nanoseconds", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.order_id = ProtoField.new("Order Id", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.orderid", ftypes.UINT64)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.osisymbol", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packet", ftypes.STRING)
@@ -65,6 +64,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.stock_symbol = Prot
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.symbol = ProtoField.new("Symbol", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.symbol", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.symbolcondition", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.time = ProtoField.new("Time", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.time", ftypes.UINT32)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.timestamp", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.tradecondition", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.trading_status = ProtoField.new("Trading Status", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.tradingstatus", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.unit = ProtoField.new("Unit", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.unit", ftypes.UINT8)
@@ -105,14 +105,14 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.timestamp = ProtoFi
 -----------------------------------------------------------------------
 
 -- timestamp format
-local nanoseconds_format_enum = {
+local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "Full DateTime", 2 }
 }
 
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds_format = 2
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours = 5
@@ -144,7 +144,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_packet = Pref.b
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
@@ -175,8 +175,8 @@ function omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs_changed()
   if show.message_index ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_message_index then
     show.message_index = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_message_index
   end
-  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds_format ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.nanoseconds_format then
-    cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds_format = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.nanoseconds_format
+  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.timestamp_format then
+    cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.timestamp_format
   end
   if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.utc_offset_hours then
     cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.utc_offset_hours
@@ -819,29 +819,6 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_type.dissect = functio
   return offset + length, value
 end
 
--- Nanoseconds
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds = {}
-
--- Size: Nanoseconds
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size = 4
-
--- Display: Nanoseconds
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Id
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id = {}
 
@@ -1335,6 +1312,29 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time.dissect = function(buffer
   return offset + length, value
 end
 
+-- Timestamp
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp = {}
+
+-- Size: Timestamp
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size = 4
+
+-- Display: Timestamp
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Condition
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_condition = {}
 
@@ -1431,44 +1431,44 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp = {}
 
 -- Translate: Timestamp
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.translate = function(nanoseconds, stored_time)
-  return UInt64.new(stored_time * 1000000000 + nanoseconds)
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.translate = function(timestamp, stored_time)
+  return UInt64.new(stored_time * 1000000000 + timestamp)
 end
 
 -- Display: Timestamp
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.display = function(nanoseconds, stored_time, packet)
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.display = function(timestamp, stored_time, packet)
   -- Raw display mode
-  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds_format == 0 then
-    return "Timestamp: "..(stored_time * 1000000000 + nanoseconds)
+  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format == 0 then
+    return "Timestamp: "..(stored_time * 1000000000 + timestamp)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds_format == 2 and packet then
+  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
     local full_seconds = local_midnight + stored_time
 
-    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", timestamp)
 end
 
 -- Composite: Timestamp
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.composite = function(buffer, offset, stored_time, packet, parent)
-  local length = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size
+  local length = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size
   local range = buffer(offset, length)
-  local nanoseconds = range:le_uint()
-  local value = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.translate(nanoseconds, stored_time)
-  local display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.display(nanoseconds, stored_time, packet)
+  local timestamp = range:le_uint()
+  local value = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.translate(timestamp, stored_time)
+  local display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.display(timestamp, stored_time, packet)
   parent = parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.timestamp, range, value, display)
 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time.generated(stored_time, range, packet, parent)
 
-  display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.display(nanoseconds)
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.nanoseconds, range, nanoseconds, display)
+  display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.display(timestamp)
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.timestamp, range, timestamp, display)
 
   return offset + length, value
 end
@@ -1481,7 +1481,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect = function(b
     return cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.composite(buffer, offset, stored_time, packet, parent)
   end
 
-  return cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.dissect(buffer, offset, packet, parent)
+  return cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -1494,7 +1494,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.retail_price_improvement_messa
 
 -- Size: Retail Price Improvement Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.retail_price_improvement_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.expanded_symbol.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.retail_price_improvement.size
 
@@ -1507,8 +1507,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.retail_price_improvement_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Expanded Symbol: 8 Byte Ascii String
   index, expanded_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.expanded_symbol.dissect(buffer, index, packet, parent)
@@ -1542,7 +1542,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_trade_message = {}
 
 -- Size: Auction Trade Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_trade_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.execution_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_price.size + 
@@ -1557,8 +1557,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_id.dissect(buffer, index, packet, parent)
@@ -1598,7 +1598,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_cancel_message = {}
 
 -- Size: Auction Cancel Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_cancel_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_id.size
 
 -- Display: Auction Cancel Message
@@ -1610,8 +1610,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_id.dissect(buffer, index, packet, parent)
@@ -1642,7 +1642,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_notification_message =
 
 -- Size: Auction Notification Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_notification_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.symbol.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_type.size + 
@@ -1662,8 +1662,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
   index, symbol = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.symbol.dissect(buffer, index, packet, parent)
@@ -1718,7 +1718,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_summary_message = {}
 
 -- Size: Auction Summary Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_summary_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.stock_symbol.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_type.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_price.size + 
@@ -1733,8 +1733,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock Symbol: 8 Byte Ascii String
   index, stock_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.stock_symbol.dissect(buffer, index, packet, parent)
@@ -1774,7 +1774,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_update_message = {}
 
 -- Size: Auction Update Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_update_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.stock_symbol.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_type.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reference_price.size + 
@@ -1792,8 +1792,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock Symbol: 8 Byte Ascii String
   index, stock_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.stock_symbol.dissect(buffer, index, packet, parent)
@@ -1842,7 +1842,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trading_status_message = {}
 
 -- Size: Trading Status Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trading_status_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.expanded_symbol.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trading_status.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reg_sho_action.size + 
@@ -1858,8 +1858,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Expanded Symbol: 8 Byte Ascii String
   index, expanded_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.expanded_symbol.dissect(buffer, index, packet, parent)
@@ -1950,7 +1950,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.end_of_session_message = {}
 
 -- Size: End Of Session Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.end_of_session_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size
 
 -- Display: End Of Session Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.end_of_session_message.display = function(packet, parent, length)
@@ -1961,8 +1961,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1990,7 +1990,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_break_message = {}
 
 -- Size: Trade Break Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_break_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.execution_id.size
 
 -- Display: Trade Break Message
@@ -2002,8 +2002,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_break_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
   index, execution_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.execution_id.dissect(buffer, index, packet, parent)
@@ -2034,7 +2034,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_expanded_message = {}
 
 -- Size: Trade Expanded Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_expanded_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.side_indicator.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_quantity.size + 
@@ -2052,8 +2052,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2102,7 +2102,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_short_message = {}
 
 -- Size: Trade Short Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_short_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.side_indicator.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.short_quantity.size + 
@@ -2120,8 +2120,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2170,7 +2170,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_long_message = {}
 
 -- Size: Trade Long Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_long_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.side_indicator.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_quantity.size + 
@@ -2188,8 +2188,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2238,7 +2238,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.delete_order_message = {}
 
 -- Size: Delete Order Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.delete_order_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size
 
 -- Display: Delete Order Message
@@ -2250,8 +2250,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2332,7 +2332,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.modify_order_short_message = {
 
 -- Size: Modify Order Short Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.modify_order_short_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.short_quantity.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.short_price.size + 
@@ -2347,8 +2347,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.modify_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2388,7 +2388,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.modify_order_long_message = {}
 
 -- Size: Modify Order Long Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.modify_order_long_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_quantity.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_price.size + 
@@ -2403,8 +2403,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.modify_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2444,7 +2444,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reduce_size_short_message = {}
 
 -- Size: Reduce Size Short Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reduce_size_short_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.canceled_short_quantity.size
 
@@ -2457,8 +2457,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reduce_size_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2492,7 +2492,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reduce_size_long_message = {}
 
 -- Size: Reduce Size Long Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reduce_size_long_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.canceled_long_quantity.size
 
@@ -2505,8 +2505,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.reduce_size_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2540,7 +2540,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_executed_at_price_size_m
 
 -- Size: Order Executed At Price Size Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_executed_at_price_size_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.executed_quantity.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.remaining_quantity.size + 
@@ -2557,8 +2557,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_executed_at_price_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2604,7 +2604,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_executed_message = {}
 
 -- Size: Order Executed Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_executed_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.executed_quantity.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.execution_id.size + 
@@ -2619,8 +2619,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2703,7 +2703,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_expanded_message = {
 
 -- Size: Add Order Expanded Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_expanded_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.side_indicator.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_quantity.size + 
@@ -2722,8 +2722,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2775,7 +2775,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_short_message = {}
 
 -- Size: Add Order Short Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_short_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.side_indicator.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.short_quantity.size + 
@@ -2792,8 +2792,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2839,7 +2839,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_long_message = {}
 
 -- Size: Add Order Long Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_long_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.side_indicator.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_quantity.size + 
@@ -2856,8 +2856,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.add_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.order_id.dissect(buffer, index, packet, parent)
@@ -2903,7 +2903,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.unit_clear_message = {}
 
 -- Size: Unit Clear Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.unit_clear_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.nanoseconds.size
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.size
 
 -- Display: Unit Clear Message
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.unit_clear_message.display = function(packet, parent, length)
@@ -2914,8 +2914,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end

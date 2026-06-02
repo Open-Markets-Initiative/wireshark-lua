@@ -10,7 +10,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json 2> Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderLongMessage) ---"; cat Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.nanoseconds" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json
+grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.timestamp" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json
 grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.orderid" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json
 grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.sideindicator" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json
 grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.longquantity" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.AddOrderLongMessage.json
@@ -24,7 +24,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json 2> Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.nanoseconds" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json
+grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.timestamp" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json
 grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.orderid" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.DeleteOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.MulticastDepthOfBook.Pitch.v2.39.4/ModifyOrderLongMessage.pcap" \
@@ -33,7 +33,7 @@ runuser -u tester -- tshark \
   > Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json 2> Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json.stderr \
   || { echo "--- tshark FAILED (ModifyOrderLongMessage) ---"; cat Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json.stderr; exit 1; }
 
-grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.nanoseconds" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json
+grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.timestamp" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json
 grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.orderid" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json
 grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.longquantity" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json
 grep "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.longprice" Cboe.C1Options.MulticastDepthOfBook.Pitch.v2.39.4.ModifyOrderLongMessage.json

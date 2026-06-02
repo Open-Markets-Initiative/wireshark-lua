@@ -502,6 +502,9 @@ function omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs_changed()
   if show.quote_short_index ~= omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_quote_short_index then
     show.quote_short_index = omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_quote_short_index
   end
+  if show.custom_group_id_index ~= omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_custom_group_id_index then
+    show.custom_group_id_index = omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_custom_group_id_index
+  end
   if show.quote_acknowledgement_index ~= omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_index then
     show.quote_acknowledgement_index = omi_cboe_c2options_orderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_index
   end

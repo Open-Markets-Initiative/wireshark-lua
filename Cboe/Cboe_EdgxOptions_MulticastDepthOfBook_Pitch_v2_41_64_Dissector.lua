@@ -31,7 +31,6 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.contracts = Prot
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.count = ProtoField.new("Count", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.count", ftypes.UINT8)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.customerindicator", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.display = ProtoField.new("Display", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.display", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.epochtime", ftypes.UINT32)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.executedquantity", ftypes.UINT32)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.execution_id = ProtoField.new("Execution Id", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.executionid", ftypes.UINT64)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.feedsymbol", ftypes.STRING)
@@ -43,10 +42,8 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.message = ProtoF
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.message_header = ProtoField.new("Message Header", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.messageheader", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.message_length = ProtoField.new("Message Length", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.messagelength", ftypes.UINT8)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.message_type = ProtoField.new("Message Type", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.messagetype", ftypes.UINT8)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.midnightreference", ftypes.UINT32)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.modifyflags", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.multiplier = ProtoField.new("Multiplier", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.multiplier", ftypes.DOUBLE)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.nanoseconds = ProtoField.new("Nanoseconds", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.nanoseconds", ftypes.UINT32)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.openingcondition", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.order_id = ProtoField.new("Order Id", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.orderid", ftypes.UINT64)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.osisymbol", ftypes.STRING)
@@ -77,10 +74,8 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.symbol = ProtoFi
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.symbolcondition", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.symbolextended", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.time = ProtoField.new("Time", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.time", ftypes.UINT32)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.time_reference = ProtoField.new("Time Reference", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.timereference", ftypes.UINT32)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.timestamp", ftypes.UINT32)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.tradecondition", ftypes.STRING)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.trade_date = ProtoField.new("Trade Date", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.tradedate", ftypes.UINT32)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.trading_status = ProtoField.new("Trading Status", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.tradingstatus", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.underlying = ProtoField.new("Underlying", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.underlying", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.unit", ftypes.UINT8)
@@ -108,7 +103,6 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_reduce_size_s
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_soq_strike_range_update_message = ProtoField.new("Ox Soq Strike Range Update Message", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.oxsoqstrikerangeupdatemessage", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_symbol_mapping_message = ProtoField.new("Ox Symbol Mapping Message", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.oxsymbolmappingmessage", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_time_message = ProtoField.new("Ox Time Message", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.oxtimemessage", ftypes.STRING)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_time_reference_message = ProtoField.new("Ox Time Reference Message", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.oxtimereferencemessage", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_trade_break_message = ProtoField.new("Ox Trade Break Message", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.oxtradebreakmessage", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_trade_expanded_message = ProtoField.new("Ox Trade Expanded Message", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.oxtradeexpandedmessage", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_trade_long_message = ProtoField.new("Ox Trade Long Message", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.oxtradelongmessage", ftypes.STRING)
@@ -128,14 +122,14 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = Prot
 -----------------------------------------------------------------------
 
 -- timestamp format
-local nanoseconds_format_enum = {
+local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "Full DateTime", 2 }
 }
 
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds_format = 2
+cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.utc_offset_hours = 5
@@ -167,7 +161,7 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.show_packet = Pre
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
+omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
@@ -198,8 +192,8 @@ function omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs_changed(
   if show.message_index ~= omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_index then
     show.message_index = omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_index
   end
-  if cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds_format ~= omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.nanoseconds_format then
-    cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds_format = omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.nanoseconds_format
+  if cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp_format ~= omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.timestamp_format then
+    cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp_format = omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.timestamp_format
   end
   if cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.utc_offset_hours ~= omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.utc_offset_hours then
     cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.utc_offset_hours = omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.prefs.utc_offset_hours
@@ -596,29 +590,6 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.customer_indicator.dissect 
   return offset + length, value
 end
 
--- Epoch Time
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.epoch_time = {}
-
--- Size: Epoch Time
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.epoch_time.size = 4
-
--- Display: Epoch Time
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
--- Dissect: Epoch Time
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.epoch_time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.epoch_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.epoch_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.epoch_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Executed Quantity
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.executed_quantity = {}
 
@@ -836,9 +807,6 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.message_type.size = 1
 
 -- Display: Message Type
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.message_type.display = function(value)
-  if value == 0xB1 then
-    return "Message Type: Ox Time Reference Message (0xB1)"
-  end
   if value == 0x20 then
     return "Message Type: Ox Time Message (0x20)"
   end
@@ -942,29 +910,6 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.message_type.dissect = func
   return offset + length, value
 end
 
--- Midnight Reference
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.midnight_reference = {}
-
--- Size: Midnight Reference
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.midnight_reference.size = 4
-
--- Display: Midnight Reference
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.midnight_reference.display = function(value)
-  return "Midnight Reference: "..value
-end
-
--- Dissect: Midnight Reference
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.midnight_reference.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.midnight_reference.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.midnight_reference.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.midnight_reference, range, value, display)
-
-  return offset + length, value
-end
-
 -- Multiplier
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.multiplier = {}
 
@@ -990,29 +935,6 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.multiplier.dissect = functi
   local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.multiplier, range, value, display)
-
-  return offset + length, value
-end
-
--- Nanoseconds
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds = {}
-
--- Size: Nanoseconds
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size = 4
-
--- Display: Nanoseconds
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -1627,29 +1549,6 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time.dissect = function(buf
   return offset + length, value
 end
 
--- Time Reference
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time_reference = {}
-
--- Size: Time Reference
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time_reference.size = 4
-
--- Display: Time Reference
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time_reference.display = function(value)
-  return "Time Reference: "..value
-end
-
--- Dissect: Time Reference
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time_reference.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time_reference.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time_reference.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.time_reference, range, value, display)
-
-  return offset + length, value
-end
-
 -- Timestamp
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp = {}
 
@@ -1692,29 +1591,6 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_condition.dissect = f
   local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.trade_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_date = {}
-
--- Size: Trade Date
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_date.size = 4
-
--- Display: Trade Date
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_date.display = function(value)
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
@@ -1867,44 +1743,44 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp = {}
 
 -- Translate: Timestamp
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.translate = function(nanoseconds, stored_time)
-  return UInt64.new(stored_time * 1000000000 + nanoseconds)
+cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.translate = function(timestamp, stored_time)
+  return UInt64.new(stored_time * 1000000000 + timestamp)
 end
 
 -- Display: Timestamp
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.display = function(nanoseconds, stored_time, packet)
+cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.display = function(timestamp, stored_time, packet)
   -- Raw display mode
-  if cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds_format == 0 then
-    return "Timestamp: "..(stored_time * 1000000000 + nanoseconds)
+  if cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp_format == 0 then
+    return "Timestamp: "..(stored_time * 1000000000 + timestamp)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds_format == 2 and packet then
+  if cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
     local full_seconds = local_midnight + stored_time
 
-    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", timestamp)
 end
 
 -- Composite: Timestamp
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.composite = function(buffer, offset, stored_time, packet, parent)
-  local length = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size
+  local length = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size
   local range = buffer(offset, length)
-  local nanoseconds = range:le_uint()
-  local value = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.translate(nanoseconds, stored_time)
-  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.display(nanoseconds, stored_time, packet)
+  local timestamp = range:le_uint()
+  local value = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.translate(timestamp, stored_time)
+  local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.display(timestamp, stored_time, packet)
   parent = parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.timestamp, range, value, display)
 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time.generated(stored_time, range, packet, parent)
 
-  display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.display(nanoseconds)
-  parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.nanoseconds, range, nanoseconds, display)
+  display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.display(timestamp)
+  parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.timestamp, range, timestamp, display)
 
   return offset + length, value
 end
@@ -1917,7 +1793,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect = functio
     return cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.composite(buffer, offset, stored_time, packet, parent)
   end
 
-  return cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.dissect(buffer, offset, packet, parent)
+  return cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -1986,7 +1862,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_soq_strike_range_update_
 
 -- Size: Ox Soq Strike Range Update Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_soq_strike_range_update_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.soq_identifier.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.lower_strike_price.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.upper_strike_price.size
@@ -2000,8 +1876,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_soq_strike_range_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Soq Identifier: Printable ASCII
   index, soq_identifier = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.soq_identifier.dissect(buffer, index, packet, parent)
@@ -2038,7 +1914,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_trade_message = 
 
 -- Size: Ox Auction Trade Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_trade_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.auction_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.execution_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.price_long.size + 
@@ -2053,8 +1929,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.auction_id.dissect(buffer, index, packet, parent)
@@ -2094,7 +1970,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_cancel_message =
 
 -- Size: Ox Auction Cancel Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_cancel_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.auction_id.size
 
 -- Display: Ox Auction Cancel Message
@@ -2106,8 +1982,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.auction_id.dissect(buffer, index, packet, parent)
@@ -2138,7 +2014,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_notification_mes
 
 -- Size: Ox Auction Notification Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_notification_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.symbol.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.auction_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.auction_type.size + 
@@ -2159,8 +2035,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.symbol.dissect(buffer, index, packet, parent)
@@ -2218,7 +2094,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_summary_message 
 
 -- Size: Ox Auction Summary Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_summary_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.stock_symbol.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.auction_type.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.price_long.size + 
@@ -2233,8 +2109,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock Symbol: Printable ASCII
   index, stock_symbol = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.stock_symbol.dissect(buffer, index, packet, parent)
@@ -2274,7 +2150,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_options_auction_update_m
 
 -- Size: Ox Options Auction Update Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_options_auction_update_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.symbol_extended.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.auction_type.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.reference_price.size + 
@@ -2295,8 +2171,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_options_auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.symbol_extended.dissect(buffer, index, packet, parent)
@@ -2354,7 +2230,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_width_update_message = {
 
 -- Size: Ox Width Update Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_width_update_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.underlying.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.width_type.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.multiplier.size
@@ -2368,8 +2244,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_width_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Underlying: Printable ASCII
   index, underlying = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.underlying.dissect(buffer, index, packet, parent)
@@ -2406,7 +2282,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trading_status_message =
 
 -- Size: Ox Trading Status Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trading_status_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.symbol.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.reserved_2.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trading_status.size + 
@@ -2423,8 +2299,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.symbol.dissect(buffer, index, packet, parent)
@@ -2562,7 +2438,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_break_message = {}
 
 -- Size: Ox Trade Break Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_break_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.execution_id.size
 
 -- Display: Ox Trade Break Message
@@ -2574,8 +2450,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_break_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.execution_id.dissect(buffer, index, packet, parent)
@@ -2606,7 +2482,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_expanded_message =
 
 -- Size: Ox Trade Expanded Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_expanded_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.side_indicator.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.quantity_long.size + 
@@ -2624,8 +2500,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -2674,7 +2550,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_short_message = {}
 
 -- Size: Ox Trade Short Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_short_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.side_indicator.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.quantity_short.size + 
@@ -2692,8 +2568,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -2742,7 +2618,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_long_message = {}
 
 -- Size: Ox Trade Long Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_long_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.side_indicator.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.quantity_long.size + 
@@ -2760,8 +2636,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_trade_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -2810,7 +2686,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_delete_order_message = {
 
 -- Size: Ox Delete Order Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_delete_order_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size
 
 -- Display: Ox Delete Order Message
@@ -2822,8 +2698,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -2904,7 +2780,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_short_messa
 
 -- Size: Ox Modify Order Short Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_short_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.quantity_short.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.price_short.size + 
@@ -2919,8 +2795,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -2960,7 +2836,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_long_messag
 
 -- Size: Ox Modify Order Long Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_long_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.quantity_long.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.price_long.size + 
@@ -2975,8 +2851,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -3016,7 +2892,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_short_messag
 
 -- Size: Ox Reduce Size Short Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_short_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.canceled_quantity_short.size
 
@@ -3029,8 +2905,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -3064,7 +2940,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_long_message
 
 -- Size: Ox Reduce Size Long Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_long_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.canceled_quantity_long.size
 
@@ -3077,8 +2953,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -3112,7 +2988,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_at_price_
 
 -- Size: Ox Order Executed At Price Size Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_at_price_size_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.executed_quantity.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.remaining_quantity.size + 
@@ -3129,8 +3005,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_at_price_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -3176,7 +3052,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_message =
 
 -- Size: Ox Order Executed Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.executed_quantity.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.execution_id.size + 
@@ -3191,8 +3067,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -3278,7 +3154,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_expanded_messa
 
 -- Size: Ox Add Order Expanded Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_expanded_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.side_indicator.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.quantity_long.size + 
@@ -3299,8 +3175,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -3358,7 +3234,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_short_message 
 
 -- Size: Ox Add Order Short Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_short_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.side_indicator.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.quantity_short.size + 
@@ -3375,8 +3251,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -3422,7 +3298,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_long_message =
 
 -- Size: Ox Add Order Long Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_long_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.side_indicator.size + 
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.quantity_long.size + 
@@ -3439,8 +3315,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_add_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.order_id.dissect(buffer, index, packet, parent)
@@ -3486,7 +3362,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_transaction_end_message 
 
 -- Size: Ox Transaction End Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_transaction_end_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size
 
 -- Display: Ox Transaction End Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_transaction_end_message.display = function(packet, parent, length)
@@ -3497,8 +3373,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_transaction_end_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3526,7 +3402,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_transaction_begin_messag
 
 -- Size: Ox Transaction Begin Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_transaction_begin_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size
 
 -- Display: Ox Transaction Begin Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_transaction_begin_message.display = function(packet, parent, length)
@@ -3537,8 +3413,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_transaction_begin_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3566,7 +3442,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_unit_clear_message = {}
 
 -- Size: Ox Unit Clear Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_unit_clear_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.size
 
 -- Display: Ox Unit Clear Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_unit_clear_message.display = function(packet, parent, length)
@@ -3577,8 +3453,8 @@ end
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3606,8 +3482,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_message = {}
 
 -- Size: Ox Time Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time.size + 
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.epoch_time.size
+  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time.size
 
 -- Display: Ox Time Message
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_message.display = function(packet, parent, length)
@@ -3620,9 +3495,6 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_message.fields = fu
 
   -- Time: Binary
   index, time = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time.dissect(buffer, index, packet, parent)
-
-  -- Epoch Time: Binary
-  index, epoch_time = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.epoch_time.dissect(buffer, index, packet, parent)
 
   -- Store Time Value
   cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time.current = time
@@ -3652,67 +3524,11 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_message.dissect = f
   end
 end
 
--- Ox Time Reference Message
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message = {}
-
--- Size: Ox Time Reference Message
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message.size =
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.midnight_reference.size + 
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time_reference.size + 
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.nanoseconds.size + 
-  cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_date.size
-
--- Display: Ox Time Reference Message
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ox Time Reference Message
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Midnight Reference: Binary
-  index, midnight_reference = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.midnight_reference.dissect(buffer, index, packet, parent)
-
-  -- Time Reference: Binary
-  index, time_reference = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.time_reference.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: Time Offset
-  index, nanoseconds = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Trade Date: Binary Date
-  index, trade_date = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.trade_date.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ox Time Reference Message
-cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_time_reference_message, buffer(offset, 0))
-    local index = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Payload
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.payload = {}
 
 -- Dissect: Payload
 cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Ox Time Reference Message
-  if message_type == 0xB1 then
-    return cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_reference_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Ox Time Message
   if message_type == 0x20 then
     return cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_time_message.dissect(buffer, offset, packet, parent)
@@ -3853,7 +3669,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.message_header.fields = fun
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
   index, message_length = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 30 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 29 values
   index, message_type = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3911,7 +3727,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.message.fields = function(b
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 30 branches
+  -- Payload: Runtime Type with 29 branches
   index = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
