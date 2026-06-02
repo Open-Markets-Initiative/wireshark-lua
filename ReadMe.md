@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 561 | 4,690,070 |
+| 561 | 4,688,222 |
 
 ## Testing
 
@@ -237,7 +237,7 @@ Enjoy.
 [Lseg.Turquoise.Mifid]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Turquoise/Mifid.md "Turquoise MiFID II Post Trade"
 [Lseg.Turquoise.Analytics]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Turquoise/Analytics.md "Analytics"
 [Miax.PearlOptions.ComplexTopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/PearlOptions/ComplexTopOfMarket.md ""
-[Miax.PearlOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/PearlOptions/TopOfMarket.md "Miax Pearl Options Top Of Market"
+[Miax.PearlOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/PearlOptions/TopOfMarket.md ""
 [Miax.PearlEquities.HeaderOnly]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/PearlEquities/HeaderOnly.md "Headers Only"
 [Miax.PearlEquities.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/PearlEquities/DepthOfMarket.md ""
 [Miax.PearlEquities.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/PearlEquities/TopOfMarket.md ""
