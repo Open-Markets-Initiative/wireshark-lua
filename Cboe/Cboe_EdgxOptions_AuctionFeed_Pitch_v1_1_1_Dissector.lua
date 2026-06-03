@@ -38,6 +38,7 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.side = ProtoField.new("Side
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.symbol = ProtoField.new("Symbol", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.symbol", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.symbolcondition", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.time = ProtoField.new("Time", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.time", ftypes.UINT32)
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.time_offset = ProtoField.new("Time Offset", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.timeoffset", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.unit", ftypes.UINT8)
 
@@ -676,6 +677,29 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Time Offset
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset = {}
+
+-- Size: Time Offset
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.size = 4
+
+-- Display: Time Offset
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.display = function(value)
+  return "Time Offset: "..value
+end
+
+-- Dissect: Time Offset
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.time_offset, range, value, display)
+
+  return offset + length, value
+end
+
 -- Timestamp
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp = {}
 
@@ -727,7 +751,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp = {}
 
 -- Translate: Timestamp
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.translate = function(timestamp, stored_time)
-  return UInt64.new(stored_time * 1000000000 + timestamp)
+  return UInt64.new(stored_time * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp
@@ -877,7 +901,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_trade_message = {}
 
 -- Size: Auction Trade Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_trade_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.size + 
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_id.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_1.execution_id.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_1.price.size + 
@@ -892,8 +916,8 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
@@ -933,7 +957,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_cancel_message = {}
 
 -- Size: Auction Cancel Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_cancel_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.size + 
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_id.size
 
 -- Display: Auction Cancel Message
@@ -945,8 +969,8 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
@@ -977,7 +1001,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_notification_message = {}
 
 -- Size: Auction Notification Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_notification_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.size + 
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_1.symbol.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_id.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_type.size + 
@@ -997,8 +1021,8 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
   index, symbol = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.symbol.dissect(buffer, index, packet, parent)
@@ -1053,7 +1077,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.unit_clear_message = {}
 
 -- Size: Unit Clear Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.unit_clear_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.size
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.size
 
 -- Display: Unit Clear Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.unit_clear_message.display = function(packet, parent, length)
@@ -1064,8 +1088,8 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_offset.dissect(buffer, index, packet, parent)
 
   return index
 end

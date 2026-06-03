@@ -10,7 +10,7 @@ runuser -u tester -- tshark \
   > Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json 2> Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderShortMessage) ---"; cat Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json.stderr; exit 1; }
 
-grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.timestamp" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
+grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.timeoffset" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.orderid" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.sideindicator" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.quantityshort" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
@@ -24,7 +24,7 @@ runuser -u tester -- tshark \
   > Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json 2> Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json.stderr \
   || { echo "--- tshark FAILED (ModifyOrderShortMessage) ---"; cat Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json.stderr; exit 1; }
 
-grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.timestamp" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json
+grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.timeoffset" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.orderid" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.quantityshort" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.priceshort" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json

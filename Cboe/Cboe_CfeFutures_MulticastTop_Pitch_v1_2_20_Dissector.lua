@@ -82,6 +82,7 @@ omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.settlement_price = ProtoFi
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.side = ProtoField.new("Side", "cboe.cfefutures.multicasttop.pitch.v1.2.20.side", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.summary_flags = ProtoField.new("Summary Flags", "cboe.cfefutures.multicasttop.pitch.v1.2.20.summaryflags", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.symbol = ProtoField.new("Symbol", "cboe.cfefutures.multicasttop.pitch.v1.2.20.symbol", ftypes.STRING)
+omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.time_offset = ProtoField.new("Time Offset", "cboe.cfefutures.multicasttop.pitch.v1.2.20.timeoffset", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.time_reference = ProtoField.new("Time Reference", "cboe.cfefutures.multicasttop.pitch.v1.2.20.timereference", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicasttop.pitch.v1.2.20.timestamp", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.total_volume = ProtoField.new("Total Volume", "cboe.cfefutures.multicasttop.pitch.v1.2.20.totalvolume", ftypes.UINT32)
@@ -1639,6 +1640,29 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Time Offset
+cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset = {}
+
+-- Size: Time Offset
+cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size = 4
+
+-- Display: Time Offset
+cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.display = function(value)
+  return "Time Offset: "..value
+end
+
+-- Dissect: Time Offset
+cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.time_offset, range, value, display)
+
+  return offset + length, value
+end
+
 -- Time Reference
 cboe_cfefutures_multicasttop_pitch_v1_2_20.time_reference = {}
 
@@ -1896,7 +1920,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp = {}
 
 -- Translate: Timestamp
 cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.translate = function(timestamp, stored_midnight_reference, stored_time_reference)
-  return UInt64.new(stored_midnight_reference + stored_time_reference * 1000000000 + timestamp)
+  return UInt64.new(stored_midnight_reference + stored_time_reference * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp
@@ -1983,7 +2007,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.open_interest_message = {}
 
 -- Size: Open Interest Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.open_interest_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.trade_date.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.open_interest.size
@@ -1997,8 +2021,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.open_interest_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2035,7 +2059,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.trading_status_message = {}
 
 -- Size: Trading Status Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.trading_status_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.reserved_2.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.trading_status.size + 
@@ -2050,8 +2074,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2162,7 +2186,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.end_of_day_summary_message = {}
 
 -- Size: End Of Day Summary Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.end_of_day_summary_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.trade_date.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.open_interest.size + 
@@ -2184,8 +2208,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2246,7 +2270,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.settlement_message = {}
 
 -- Size: Settlement Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.settlement_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.trade_date.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.settlement_price.size + 
@@ -2261,8 +2285,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.settlement_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2302,7 +2326,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.top_trade_message = {}
 
 -- Size: Top Trade Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.top_trade_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.quantity_long.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.price_long.size + 
@@ -2319,8 +2343,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.top_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2366,7 +2390,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.two_side_update_long_message = {}
 
 -- Size: Two Side Update Long Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.two_side_update_long_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.bid_price_long.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.bid_quantity_long.size + 
@@ -2382,8 +2406,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.two_side_update_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2426,7 +2450,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.two_side_update_short_message = {}
 
 -- Size: Two Side Update Short Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.two_side_update_short_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.bid_price_short.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.bid_quantity_short.size + 
@@ -2442,8 +2466,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.two_side_update_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2486,7 +2510,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.single_side_update_long_message = {}
 
 -- Size: Single Side Update Long Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.single_side_update_long_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.side.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.price_long.size + 
@@ -2501,8 +2525,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.single_side_update_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2542,7 +2566,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.single_side_update_short_message = {}
 
 -- Size: Single Side Update Short Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.single_side_update_short_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.side.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.price_short.size + 
@@ -2557,8 +2581,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.single_side_update_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2598,7 +2622,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.market_snapshot_long_message = {}
 
 -- Size: Market Snapshot Long Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.market_snapshot_long_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.unit_timestamp.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.bid_price_long.size + 
@@ -2621,8 +2645,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.market_snapshot_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2686,7 +2710,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.market_snapshot_short_message = {}
 
 -- Size: Market Snapshot Short Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.market_snapshot_short_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.unit_timestamp.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.bid_price_short.size + 
@@ -2709,8 +2733,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.market_snapshot_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2774,7 +2798,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.price_limits_message = {}
 
 -- Size: Price Limits Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.price_limits_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.upper_price_limit.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.lower_price_limit.size
@@ -2788,8 +2812,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.price_limits_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -2826,7 +2850,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.futures_variance_symbol_mapping_messa
 
 -- Size: Futures Variance Symbol Mapping Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.futures_variance_symbol_mapping_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.unit_timestamp.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.feed_symbol.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.futures_symbol.size + 
@@ -2843,8 +2867,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.futures_variance_symbol_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Unit Timestamp: Binary
   index, unit_timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.unit_timestamp.dissect(buffer, index, packet, parent)
@@ -2942,7 +2966,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.futures_instrument_definition_message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.futures_instrument_definition_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size
 
   index = index + cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.size
 
@@ -2984,8 +3008,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.futures_instrument_definition_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicasttop_pitch_v1_2_20.symbol.dissect(buffer, index, packet, parent)
@@ -3054,7 +3078,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.unit_clear_message = {}
 
 -- Size: Unit Clear Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.unit_clear_message.size =
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size
 
 -- Display: Unit Clear Message
 cboe_cfefutures_multicasttop_pitch_v1_2_20.unit_clear_message.display = function(packet, parent, length)
@@ -3065,8 +3089,8 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_20.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3147,7 +3171,7 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.time_reference_message = {}
 cboe_cfefutures_multicasttop_pitch_v1_2_20.time_reference_message.size =
   cboe_cfefutures_multicasttop_pitch_v1_2_20.midnight_reference.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.time_reference.size + 
-  cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_pitch_v1_2_20.trade_date.size
 
 -- Display: Time Reference Message
@@ -3165,8 +3189,8 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.time_reference_message.fields = funct
   -- Time Reference: Binary
   index, time_reference = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_reference.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_cfefutures_multicasttop_pitch_v1_2_20.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_2_20.time_offset.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Binary Date
   index, trade_date = cboe_cfefutures_multicasttop_pitch_v1_2_20.trade_date.dissect(buffer, index, packet, parent)
