@@ -404,11 +404,6 @@ eurex_derivatives_eobi_t7_v13_0.appl_seq_num.size = 8
 
 -- Display: Appl Seq Num
 eurex_derivatives_eobi_t7_v13_0.appl_seq_num.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFF, 0x0xFFFFFF) then
-    return "Appl Seq Num: No Value"
-  end
-
   return "Appl Seq Num: "..value
 end
 
@@ -7005,7 +7000,7 @@ eurex_derivatives_eobi_t7_v13_0.packet_header.fields = function(buffer, offset, 
   -- Eobi Header: Struct of 3 fields
   index, eobi_header = eurex_derivatives_eobi_t7_v13_0.eobi_header.dissect(buffer, index, packet, parent)
 
-  -- Appl Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Appl Seq Num: 8 Byte Unsigned Fixed Width Integer
   index, appl_seq_num = eurex_derivatives_eobi_t7_v13_0.appl_seq_num.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
