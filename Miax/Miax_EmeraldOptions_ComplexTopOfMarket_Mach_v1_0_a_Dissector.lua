@@ -54,7 +54,6 @@ omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.message = ProtoFie
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.message_type = ProtoField.new("Message Type", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.messagetype", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.nanoseconds", ftypes.UINT32)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.net_price = ProtoField.new("Net Price", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.netprice", ftypes.DOUBLE)
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.notification_time = ProtoField.new("Notification Time", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.notificationtime", ftypes.UINT32)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.numberoflegs", ftypes.UINT8)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.numberofmatchingengines", ftypes.UINT8)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.offer_condition = ProtoField.new("Offer Condition", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.offercondition", ftypes.STRING)
@@ -74,7 +73,6 @@ omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.price_binary_prc_4
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.priority_customer_size_binary_u_2 = ProtoField.new("Priority Customer Size Binary U 2", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.prioritycustomersizebinaryu2", ftypes.UINT16)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.priority_customer_size_binary_u_4 = ProtoField.new("Priority Customer Size Binary U 4", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.prioritycustomersizebinaryu4", ftypes.UINT32)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.priorityquotewidth", ftypes.DOUBLE)
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.productaddupdatetime", ftypes.UINT32)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.product_id = ProtoField.new("Product Id", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.productid", ftypes.UINT32)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.refreshmessagetype", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.requestedsequencenumber", ftypes.UINT64)
@@ -97,7 +95,6 @@ omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.session_number = P
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.size_binary_u_2 = ProtoField.new("Size Binary U 2", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.sizebinaryu2", ftypes.UINT16)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.size_binary_u_4 = ProtoField.new("Size Binary U 4", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.sizebinaryu4", ftypes.UINT32)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.startsequencenumber", ftypes.UINT64)
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.strategy_add_time = ProtoField.new("Strategy Add Time", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.strategyaddtime", ftypes.UINT32)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.strategy_id = ProtoField.new("Strategy Id", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.strategyid", ftypes.UINT32)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.strike_price = ProtoField.new("Strike Price", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.strikeprice", ftypes.DOUBLE)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.synchronizationcomplete", ftypes.STRING)
@@ -1232,29 +1229,6 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.net_price.dissect = function(
   return offset + length, value
 end
 
--- Notification Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.notification_time = {}
-
--- Size: Notification Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.notification_time.size = 4
-
--- Display: Notification Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.notification_time.display = function(value)
-  return "Notification Time: "..value
-end
-
--- Dissect: Notification Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.notification_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.notification_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.notification_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.notification_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Number Of Legs
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.number_of_legs = {}
 
@@ -1834,29 +1808,6 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.priority_quote_width.dissect 
   return offset + length, value
 end
 
--- Product Add Update Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_add_update_time = {}
-
--- Size: Product Add Update Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_add_update_time.size = 4
-
--- Display: Product Add Update Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_add_update_time.display = function(value)
-  return "Product Add Update Time: "..value
-end
-
--- Dissect: Product Add Update Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_add_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_add_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_add_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.product_add_update_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Product Id
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_id = {}
 
@@ -2324,29 +2275,6 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.start_sequence_number.dissect
   local display = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.start_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.start_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Add Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_add_time = {}
-
--- Size: Strategy Add Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_add_time.size = 4
-
--- Display: Strategy Add Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_add_time.display = function(value)
-  return "Strategy Add Time: "..value
-end
-
--- Dissect: Strategy Add Time
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_add_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_add_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_add_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.strategy_add_time, range, value, display)
 
   return offset + length, value
 end
@@ -3605,7 +3533,7 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_state_message = {}
 
 -- Size: System State Message
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_state_message.size =
-  miax_emeraldoptions_complextopofmarket_mach_v1_0_a.notification_time.size + 
+  miax_emeraldoptions_complextopofmarket_mach_v1_0_a.nanoseconds.size + 
   miax_emeraldoptions_complextopofmarket_mach_v1_0_a.c_to_m_version.size + 
   miax_emeraldoptions_complextopofmarket_mach_v1_0_a.session_id.size + 
   miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_status.size
@@ -3619,8 +3547,8 @@ end
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: NanoTime
-  index, notification_time = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.notification_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- C To M Version: Alphanumeric
   index, c_to_m_version = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.c_to_m_version.dissect(buffer, index, packet, parent)
@@ -3717,7 +3645,7 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.complex_strategy_definition_m
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.complex_strategy_definition_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_add_time.size
+  index = index + miax_emeraldoptions_complextopofmarket_mach_v1_0_a.nanoseconds.size
 
   index = index + miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_id.size
 
@@ -3749,8 +3677,8 @@ end
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.complex_strategy_definition_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Strategy Add Time: NanoTime
-  index, strategy_add_time = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_add_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: BinaryU
   index, strategy_id = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.strategy_id.dissect(buffer, index, packet, parent)
@@ -3804,7 +3732,7 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.simple_series_update_message 
 
 -- Size: Simple Series Update Message
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.simple_series_update_message.size =
-  miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_add_update_time.size + 
+  miax_emeraldoptions_complextopofmarket_mach_v1_0_a.nanoseconds.size + 
   miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_id.size + 
   miax_emeraldoptions_complextopofmarket_mach_v1_0_a.underlying_symbol.size + 
   miax_emeraldoptions_complextopofmarket_mach_v1_0_a.security_symbol.size + 
@@ -3831,8 +3759,8 @@ end
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.simple_series_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: NanoTime
-  index, product_add_update_time = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_add_update_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.product_id.dissect(buffer, index, packet, parent)

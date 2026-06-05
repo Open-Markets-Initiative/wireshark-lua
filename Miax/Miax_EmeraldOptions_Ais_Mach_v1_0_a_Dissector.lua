@@ -51,7 +51,6 @@ omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.matching_engine_id = ProtoField.n
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.message = ProtoField.new("Message", "miax.emeraldoptions.ais.mach.v1.0.a.message", ftypes.STRING)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.message_type = ProtoField.new("Message Type", "miax.emeraldoptions.ais.mach.v1.0.a.messagetype", ftypes.STRING)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.emeraldoptions.ais.mach.v1.0.a.nanoseconds", ftypes.UINT32)
-omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.notification_time = ProtoField.new("Notification Time", "miax.emeraldoptions.ais.mach.v1.0.a.notificationtime", ftypes.UINT32)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.emeraldoptions.ais.mach.v1.0.a.numberoflegs", ftypes.UINT8)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.emeraldoptions.ais.mach.v1.0.a.numberofmatchingengines", ftypes.UINT8)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.opening_time = ProtoField.new("Opening Time", "miax.emeraldoptions.ais.mach.v1.0.a.openingtime", ftypes.STRING)
@@ -62,7 +61,6 @@ omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.packet_type = ProtoField.new("Pac
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.price_binary_prc_4s_8 = ProtoField.new("Price Binary Prc 4s 8", "miax.emeraldoptions.ais.mach.v1.0.a.pricebinaryprc4s8", ftypes.DOUBLE)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.price_binary_prc_4u_4 = ProtoField.new("Price Binary Prc 4u 4", "miax.emeraldoptions.ais.mach.v1.0.a.pricebinaryprc4u4", ftypes.DOUBLE)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.emeraldoptions.ais.mach.v1.0.a.priorityquotewidth", ftypes.DOUBLE)
-omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.emeraldoptions.ais.mach.v1.0.a.productaddupdatetime", ftypes.UINT32)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.product_id = ProtoField.new("Product Id", "miax.emeraldoptions.ais.mach.v1.0.a.productid", ftypes.UINT32)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.quantity_1 = ProtoField.new("Quantity 1", "miax.emeraldoptions.ais.mach.v1.0.a.quantity1", ftypes.UINT32)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.quantity_2 = ProtoField.new("Quantity 2", "miax.emeraldoptions.ais.mach.v1.0.a.quantity2", ftypes.UINT32)
@@ -87,7 +85,6 @@ omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.session_id = ProtoField.new("Sess
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.session_number = ProtoField.new("Session Number", "miax.emeraldoptions.ais.mach.v1.0.a.sessionnumber", ftypes.UINT8)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.side = ProtoField.new("Side", "miax.emeraldoptions.ais.mach.v1.0.a.side", ftypes.STRING)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.emeraldoptions.ais.mach.v1.0.a.startsequencenumber", ftypes.UINT64)
-omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.strategy_add_time = ProtoField.new("Strategy Add Time", "miax.emeraldoptions.ais.mach.v1.0.a.strategyaddtime", ftypes.UINT32)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.strategy_id = ProtoField.new("Strategy Id", "miax.emeraldoptions.ais.mach.v1.0.a.strategyid", ftypes.UINT32)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.strike_price = ProtoField.new("Strike Price", "miax.emeraldoptions.ais.mach.v1.0.a.strikeprice", ftypes.DOUBLE)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.emeraldoptions.ais.mach.v1.0.a.synchronizationcomplete", ftypes.STRING)
@@ -1096,29 +1093,6 @@ miax_emeraldoptions_ais_mach_v1_0_a.nanoseconds.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Notification Time
-miax_emeraldoptions_ais_mach_v1_0_a.notification_time = {}
-
--- Size: Notification Time
-miax_emeraldoptions_ais_mach_v1_0_a.notification_time.size = 4
-
--- Display: Notification Time
-miax_emeraldoptions_ais_mach_v1_0_a.notification_time.display = function(value)
-  return "Notification Time: "..value
-end
-
--- Dissect: Notification Time
-miax_emeraldoptions_ais_mach_v1_0_a.notification_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_ais_mach_v1_0_a.notification_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_ais_mach_v1_0_a.notification_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.notification_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Number Of Legs
 miax_emeraldoptions_ais_mach_v1_0_a.number_of_legs = {}
 
@@ -1453,29 +1427,6 @@ miax_emeraldoptions_ais_mach_v1_0_a.priority_quote_width.dissect = function(buff
   local display = miax_emeraldoptions_ais_mach_v1_0_a.priority_quote_width.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.priority_quote_width, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Add Update Time
-miax_emeraldoptions_ais_mach_v1_0_a.product_add_update_time = {}
-
--- Size: Product Add Update Time
-miax_emeraldoptions_ais_mach_v1_0_a.product_add_update_time.size = 4
-
--- Display: Product Add Update Time
-miax_emeraldoptions_ais_mach_v1_0_a.product_add_update_time.display = function(value)
-  return "Product Add Update Time: "..value
-end
-
--- Dissect: Product Add Update Time
-miax_emeraldoptions_ais_mach_v1_0_a.product_add_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_ais_mach_v1_0_a.product_add_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_ais_mach_v1_0_a.product_add_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.product_add_update_time, range, value, display)
 
   return offset + length, value
 end
@@ -1997,29 +1948,6 @@ miax_emeraldoptions_ais_mach_v1_0_a.start_sequence_number.dissect = function(buf
   local display = miax_emeraldoptions_ais_mach_v1_0_a.start_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.start_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Add Time
-miax_emeraldoptions_ais_mach_v1_0_a.strategy_add_time = {}
-
--- Size: Strategy Add Time
-miax_emeraldoptions_ais_mach_v1_0_a.strategy_add_time.size = 4
-
--- Display: Strategy Add Time
-miax_emeraldoptions_ais_mach_v1_0_a.strategy_add_time.display = function(value)
-  return "Strategy Add Time: "..value
-end
-
--- Dissect: Strategy Add Time
-miax_emeraldoptions_ais_mach_v1_0_a.strategy_add_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_ais_mach_v1_0_a.strategy_add_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_ais_mach_v1_0_a.strategy_add_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.strategy_add_time, range, value, display)
 
   return offset + length, value
 end
@@ -2959,7 +2887,7 @@ miax_emeraldoptions_ais_mach_v1_0_a.system_state_message = {}
 
 -- Size: System State Message
 miax_emeraldoptions_ais_mach_v1_0_a.system_state_message.size =
-  miax_emeraldoptions_ais_mach_v1_0_a.notification_time.size + 
+  miax_emeraldoptions_ais_mach_v1_0_a.nanoseconds.size + 
   miax_emeraldoptions_ais_mach_v1_0_a.ais_version.size + 
   miax_emeraldoptions_ais_mach_v1_0_a.session_id.size + 
   miax_emeraldoptions_ais_mach_v1_0_a.system_status.size
@@ -2973,8 +2901,8 @@ end
 miax_emeraldoptions_ais_mach_v1_0_a.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: NanoTime
-  index, notification_time = miax_emeraldoptions_ais_mach_v1_0_a.notification_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_emeraldoptions_ais_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Ais Version: Alphanumeric
   index, ais_version = miax_emeraldoptions_ais_mach_v1_0_a.ais_version.dissect(buffer, index, packet, parent)
@@ -3071,7 +2999,7 @@ miax_emeraldoptions_ais_mach_v1_0_a.complex_strategy_definition_update_message =
 miax_emeraldoptions_ais_mach_v1_0_a.complex_strategy_definition_update_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_emeraldoptions_ais_mach_v1_0_a.strategy_add_time.size
+  index = index + miax_emeraldoptions_ais_mach_v1_0_a.nanoseconds.size
 
   index = index + miax_emeraldoptions_ais_mach_v1_0_a.strategy_id.size
 
@@ -3103,8 +3031,8 @@ end
 miax_emeraldoptions_ais_mach_v1_0_a.complex_strategy_definition_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Strategy Add Time: NanoTime
-  index, strategy_add_time = miax_emeraldoptions_ais_mach_v1_0_a.strategy_add_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_emeraldoptions_ais_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: BinaryU
   index, strategy_id = miax_emeraldoptions_ais_mach_v1_0_a.strategy_id.dissect(buffer, index, packet, parent)
@@ -3158,7 +3086,7 @@ miax_emeraldoptions_ais_mach_v1_0_a.simple_series_update_message = {}
 
 -- Size: Simple Series Update Message
 miax_emeraldoptions_ais_mach_v1_0_a.simple_series_update_message.size =
-  miax_emeraldoptions_ais_mach_v1_0_a.product_add_update_time.size + 
+  miax_emeraldoptions_ais_mach_v1_0_a.nanoseconds.size + 
   miax_emeraldoptions_ais_mach_v1_0_a.product_id.size + 
   miax_emeraldoptions_ais_mach_v1_0_a.underlying_symbol.size + 
   miax_emeraldoptions_ais_mach_v1_0_a.security_symbol.size + 
@@ -3185,8 +3113,8 @@ end
 miax_emeraldoptions_ais_mach_v1_0_a.simple_series_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: NanoTime
-  index, product_add_update_time = miax_emeraldoptions_ais_mach_v1_0_a.product_add_update_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_emeraldoptions_ais_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_ais_mach_v1_0_a.product_id.dissect(buffer, index, packet, parent)

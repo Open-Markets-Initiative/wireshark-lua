@@ -47,7 +47,6 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.message_type = ProtoField.new(
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.miaxoptions.orderfeed.mach.v2.5.b.miaxbbopostingincrementindicator", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.mor_version = ProtoField.new("Mor Version", "miax.miaxoptions.orderfeed.mach.v2.5.b.morversion", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.miaxoptions.orderfeed.mach.v2.5.b.nanoseconds", ftypes.UINT32)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.notification_time = ProtoField.new("Notification Time", "miax.miaxoptions.orderfeed.mach.v2.5.b.notificationtime", ftypes.UINT32)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.miaxoptions.orderfeed.mach.v2.5.b.numberoflegs", ftypes.UINT8)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.miaxoptions.orderfeed.mach.v2.5.b.numberofmatchingengines", ftypes.UINT8)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.openclose_indicator = ProtoField.new("Openclose Indicator", "miax.miaxoptions.orderfeed.mach.v2.5.b.opencloseindicator", ftypes.STRING)
@@ -65,7 +64,6 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.packet_length = ProtoField.new
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.orderfeed.mach.v2.5.b.packettype", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.priority_customer_volume = ProtoField.new("Priority Customer Volume", "miax.miaxoptions.orderfeed.mach.v2.5.b.prioritycustomervolume", ftypes.UINT32)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.miaxoptions.orderfeed.mach.v2.5.b.priorityquotewidth", ftypes.DOUBLE)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.miaxoptions.orderfeed.mach.v2.5.b.productaddupdatetime", ftypes.UINT32)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.product_id = ProtoField.new("Product Id", "miax.miaxoptions.orderfeed.mach.v2.5.b.productid", ftypes.UINT32)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.miaxoptions.orderfeed.mach.v2.5.b.refreshmessagetype", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.remaining_volume_open = ProtoField.new("Remaining Volume Open", "miax.miaxoptions.orderfeed.mach.v2.5.b.remainingvolumeopen", ftypes.UINT32)
@@ -89,7 +87,6 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.session_id = ProtoField.new("S
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.orderfeed.mach.v2.5.b.sessionnumber", ftypes.UINT8)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.simple_or_complex_order = ProtoField.new("Simple Or Complex Order", "miax.miaxoptions.orderfeed.mach.v2.5.b.simpleorcomplexorder", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.miaxoptions.orderfeed.mach.v2.5.b.startsequencenumber", ftypes.UINT64)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.strategy_add_time = ProtoField.new("Strategy Add Time", "miax.miaxoptions.orderfeed.mach.v2.5.b.strategyaddtime", ftypes.UINT32)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.strategy_id = ProtoField.new("Strategy Id", "miax.miaxoptions.orderfeed.mach.v2.5.b.strategyid", ftypes.UINT32)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.strike_price = ProtoField.new("Strike Price", "miax.miaxoptions.orderfeed.mach.v2.5.b.strikeprice", ftypes.DOUBLE)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.miaxoptions.orderfeed.mach.v2.5.b.synchronizationcomplete", ftypes.STRING)
@@ -989,29 +986,6 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.nanoseconds.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Notification Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.notification_time = {}
-
--- Size: Notification Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.notification_time.size = 4
-
--- Display: Notification Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.notification_time.display = function(value)
-  return "Notification Time: "..value
-end
-
--- Dissect: Notification Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.notification_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_orderfeed_mach_v2_5_b.notification_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_orderfeed_mach_v2_5_b.notification_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.notification_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Number Of Legs
 miax_miaxoptions_orderfeed_mach_v2_5_b.number_of_legs = {}
 
@@ -1557,29 +1531,6 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.priority_quote_width.dissect = function(b
   return offset + length, value
 end
 
--- Product Add Update Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.product_add_update_time = {}
-
--- Size: Product Add Update Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.product_add_update_time.size = 4
-
--- Display: Product Add Update Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.product_add_update_time.display = function(value)
-  return "Product Add Update Time: "..value
-end
-
--- Dissect: Product Add Update Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.product_add_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_orderfeed_mach_v2_5_b.product_add_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_orderfeed_mach_v2_5_b.product_add_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.product_add_update_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Product Id
 miax_miaxoptions_orderfeed_mach_v2_5_b.product_id = {}
 
@@ -2081,29 +2032,6 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.start_sequence_number.dissect = function(
   local display = miax_miaxoptions_orderfeed_mach_v2_5_b.start_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.start_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Add Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_add_time = {}
-
--- Size: Strategy Add Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_add_time.size = 4
-
--- Display: Strategy Add Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_add_time.display = function(value)
-  return "Strategy Add Time: "..value
-end
-
--- Dissect: Strategy Add Time
-miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_add_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_add_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_add_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.strategy_add_time, range, value, display)
 
   return offset + length, value
 end
@@ -3058,7 +2986,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.complex_strategy_definition_update_messag
 miax_miaxoptions_orderfeed_mach_v2_5_b.complex_strategy_definition_update_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_add_time.size
+  index = index + miax_miaxoptions_orderfeed_mach_v2_5_b.nanoseconds.size
 
   index = index + miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_id.size
 
@@ -3090,8 +3018,8 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.complex_strategy_definition_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Strategy Add Time: NanoTime
-  index, strategy_add_time = miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_add_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_miaxoptions_orderfeed_mach_v2_5_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_orderfeed_mach_v2_5_b.strategy_id.dissect(buffer, index, packet, parent)
@@ -3305,7 +3233,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.system_state_message = {}
 
 -- Size: System State Message
 miax_miaxoptions_orderfeed_mach_v2_5_b.system_state_message.size =
-  miax_miaxoptions_orderfeed_mach_v2_5_b.notification_time.size + 
+  miax_miaxoptions_orderfeed_mach_v2_5_b.nanoseconds.size + 
   miax_miaxoptions_orderfeed_mach_v2_5_b.mor_version.size + 
   miax_miaxoptions_orderfeed_mach_v2_5_b.session_id.size + 
   miax_miaxoptions_orderfeed_mach_v2_5_b.system_status.size
@@ -3319,8 +3247,8 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: NanoTime
-  index, notification_time = miax_miaxoptions_orderfeed_mach_v2_5_b.notification_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_miaxoptions_orderfeed_mach_v2_5_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Mor Version: Alphanumeric
   index, mor_version = miax_miaxoptions_orderfeed_mach_v2_5_b.mor_version.dissect(buffer, index, packet, parent)
@@ -3357,7 +3285,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.simple_series_update_message = {}
 
 -- Size: Simple Series Update Message
 miax_miaxoptions_orderfeed_mach_v2_5_b.simple_series_update_message.size =
-  miax_miaxoptions_orderfeed_mach_v2_5_b.product_add_update_time.size + 
+  miax_miaxoptions_orderfeed_mach_v2_5_b.nanoseconds.size + 
   miax_miaxoptions_orderfeed_mach_v2_5_b.product_id.size + 
   miax_miaxoptions_orderfeed_mach_v2_5_b.underlying_symbol.size + 
   miax_miaxoptions_orderfeed_mach_v2_5_b.security_symbol.size + 
@@ -3384,8 +3312,8 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.simple_series_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: NanoTime
-  index, product_add_update_time = miax_miaxoptions_orderfeed_mach_v2_5_b.product_add_update_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_miaxoptions_orderfeed_mach_v2_5_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_miaxoptions_orderfeed_mach_v2_5_b.product_id.dissect(buffer, index, packet, parent)

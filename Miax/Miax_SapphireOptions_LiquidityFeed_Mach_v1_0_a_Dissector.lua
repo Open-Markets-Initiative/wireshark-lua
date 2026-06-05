@@ -44,7 +44,6 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.matching_engine_id = P
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.message = ProtoField.new("Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.message", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.message_type = ProtoField.new("Message Type", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.messagetype", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.nanoseconds", ftypes.UINT32)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.notification_time = ProtoField.new("Notification Time", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.notificationtime", ftypes.UINT32)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.numberoflegs", ftypes.UINT8)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.numberofmatchingengines", ftypes.UINT8)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.openclose_indicator = ProtoField.new("Openclose Indicator", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.opencloseindicator", ftypes.STRING)
@@ -61,7 +60,6 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.origin = ProtoField.ne
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.packet_header = ProtoField.new("Packet Header", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.packetheader", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.packet_length = ProtoField.new("Packet Length", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.packetlength", ftypes.UINT16)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.packet_type = ProtoField.new("Packet Type", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.packettype", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.productaddupdatetime", ftypes.UINT32)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.product_id = ProtoField.new("Product Id", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.productid", ftypes.UINT32)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.refreshmessagetype", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.remaining_volume_open = ProtoField.new("Remaining Volume Open", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.remainingvolumeopen", ftypes.UINT32)
@@ -87,7 +85,6 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.session_number = Proto
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.simple_or_complex_order = ProtoField.new("Simple Or Complex Order", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.simpleorcomplexorder", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.slf_version = ProtoField.new("Slf Version", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.slfversion", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.startsequencenumber", ftypes.UINT64)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.strategy_add_time = ProtoField.new("Strategy Add Time", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.strategyaddtime", ftypes.UINT32)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.strategy_id = ProtoField.new("Strategy Id", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.strategyid", ftypes.UINT32)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.strike_price = ProtoField.new("Strike Price", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.strikeprice", ftypes.DOUBLE)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.synchronizationcomplete", ftypes.STRING)
@@ -908,29 +905,6 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.nanoseconds.dissect = function(bu
   return offset + length, value
 end
 
--- Notification Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.notification_time = {}
-
--- Size: Notification Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.notification_time.size = 4
-
--- Display: Notification Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.notification_time.display = function(value)
-  return "Notification Time: "..value
-end
-
--- Dissect: Notification Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.notification_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.notification_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.notification_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.notification_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Number Of Legs
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.number_of_legs = {}
 
@@ -1447,29 +1421,6 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.packet_type.dissect = function(bu
   local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Add Update Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_add_update_time = {}
-
--- Size: Product Add Update Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_add_update_time.size = 4
-
--- Display: Product Add Update Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_add_update_time.display = function(value)
-  return "Product Add Update Time: "..value
-end
-
--- Dissect: Product Add Update Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_add_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_add_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_add_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.product_add_update_time, range, value, display)
 
   return offset + length, value
 end
@@ -2027,29 +1978,6 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.start_sequence_number.dissect = f
   local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.start_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.start_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Add Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_add_time = {}
-
--- Size: Strategy Add Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_add_time.size = 4
-
--- Display: Strategy Add Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_add_time.display = function(value)
-  return "Strategy Add Time: "..value
-end
-
--- Dissect: Strategy Add Time
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_add_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_add_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_add_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.strategy_add_time, range, value, display)
 
   return offset + length, value
 end
@@ -2988,7 +2916,7 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.complex_strategy_definition_updat
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.complex_strategy_definition_update_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_add_time.size
+  index = index + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.nanoseconds.size
 
   index = index + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_id.size
 
@@ -3020,8 +2948,8 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.complex_strategy_definition_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Strategy Add Time: NanoTime
-  index, strategy_add_time = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_add_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: BinaryU
   index, strategy_id = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.strategy_id.dissect(buffer, index, packet, parent)
@@ -3227,7 +3155,7 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_state_message = {}
 
 -- Size: System State Message
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_state_message.size =
-  miax_sapphireoptions_liquidityfeed_mach_v1_0_a.notification_time.size + 
+  miax_sapphireoptions_liquidityfeed_mach_v1_0_a.nanoseconds.size + 
   miax_sapphireoptions_liquidityfeed_mach_v1_0_a.slf_version.size + 
   miax_sapphireoptions_liquidityfeed_mach_v1_0_a.session_id.size + 
   miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_status.size
@@ -3241,8 +3169,8 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: NanoTime
-  index, notification_time = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.notification_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Slf Version: Alphanumeric
   index, slf_version = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.slf_version.dissect(buffer, index, packet, parent)
@@ -3279,7 +3207,7 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.series_update_message = {}
 
 -- Size: Series Update Message
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.series_update_message.size =
-  miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_add_update_time.size + 
+  miax_sapphireoptions_liquidityfeed_mach_v1_0_a.nanoseconds.size + 
   miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_id.size + 
   miax_sapphireoptions_liquidityfeed_mach_v1_0_a.underlying_symbol.size + 
   miax_sapphireoptions_liquidityfeed_mach_v1_0_a.security_symbol.size + 
@@ -3305,8 +3233,8 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.series_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: NanoTime
-  index, product_add_update_time = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_add_update_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.product_id.dissect(buffer, index, packet, parent)

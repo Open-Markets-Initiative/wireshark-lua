@@ -25,6 +25,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.market_state = ProtoFiel
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.message = ProtoField.new("Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.message", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.a.messagetype", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "miax.pearlequities.depthofmarket.mach.v1.3.a.modifyorderflags", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearlequities.depthofmarket.mach.v1.3.a.nanoseconds", ftypes.UINT32)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.depthofmarket.mach.v1.3.a.openingtime", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_execution_flags = ProtoField.new("Order Execution Flags", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderexecutionflags", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_id = ProtoField.new("Order Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderid", ftypes.UINT64)
@@ -37,6 +38,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.price = ProtoField.new("
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.depthofmarket.mach.v1.3.a.primarymarketcode", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearlequities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.a.reserved1", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.depthofmarket.mach.v1.3.a.seconds", ftypes.UINT32)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.a.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.sessionid", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_number = ProtoField.new("Session Number", "miax.pearlequities.depthofmarket.mach.v1.3.a.sessionnumber", ftypes.UINT8)
@@ -47,7 +49,6 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.symbol_id = ProtoField.n
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_status = ProtoField.new("System Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.systemstatus", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.test_security_indicator = ProtoField.new("Test Security Indicator", "miax.pearlequities.depthofmarket.mach.v1.3.a.testsecurityindicator", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.ticker_symbol = ProtoField.new("Ticker Symbol", "miax.pearlequities.depthofmarket.mach.v1.3.a.tickersymbol", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.depthofmarket.mach.v1.3.a.timestamp", ftypes.UINT32)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_flags = ProtoField.new("Trade Flags", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradeflags", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradeid", ftypes.UINT64)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
@@ -65,6 +66,9 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_state_message = P
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.systemtimemessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradecancelmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_message = ProtoField.new("Trade Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.trademessage", ftypes.STRING)
+
+-- Miax PearlEquities DepthOfMarket Mach 1.3.a generated fields
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.depthofmarket.mach.v1.3.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -117,6 +121,36 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs_changed()
     show.trade_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_trade_flags
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+miax_pearlequities_depthofmarket_mach_v1_3_a.conversation = {}
+miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.data = function(packet)
+  local key = miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.key(packet)
+  local data = miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.flows[key]
+  if data == nil then
+    data = { seconds = { last = nil, frames = {} } }
+    miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -345,6 +379,29 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.dissect = function(buf
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds = {}
+
+-- Size: Nanoseconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -614,6 +671,40 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.dissect = function(buffe
   return offset + length, value
 end
 
+-- Seconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.seconds = {}
+
+-- Size: Seconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.size = 4
+
+-- Store: Seconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.current = nil
+
+-- Generated: Seconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.generated = function(value, range, packet, parent)
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.display(value)
+  local seconds = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
+-- Display: Seconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+end
+
+-- Dissect: Seconds
+miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequence Number
 miax_pearlequities_depthofmarket_mach_v1_3_a.sequence_number = {}
 
@@ -871,29 +962,6 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.ticker_symbol.dissect = function(bu
   return offset + length, value
 end
 
--- Timestamp
-miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp = {}
-
--- Size: Timestamp
-miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size = 4
-
--- Display: Timestamp
-miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Id
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id = {}
 
@@ -956,6 +1024,47 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.dissect = function(b
   return offset + length, value
 end
 
+-- Timestamp
+miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp = {}
+
+-- Translate: Timestamp
+miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.translate = function(nanoseconds, stored_seconds)
+  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+end
+
+-- Display: Timestamp
+miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.display = function(nanoseconds, stored_seconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Composite: Timestamp
+miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size
+  local range = buffer(offset, length)
+  local nanoseconds = range:le_uint()
+  local value = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.translate(nanoseconds, stored_seconds)
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.display(nanoseconds, stored_seconds, packet)
+  parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.timestamp, range, value, display)
+
+  miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.generated(stored_seconds, range, packet, parent)
+
+  display = miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.display(nanoseconds)
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.nanoseconds, range, nanoseconds, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_seconds = miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.current
+
+  if stored_seconds ~= nil then
+    return miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+  end
+
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Miax PearlEquities DepthOfMarket Mach 1.3.a
@@ -966,7 +1075,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message = {}
 
 -- Size: Trade Cancel Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.size + 
@@ -982,8 +1091,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1069,7 +1178,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message = {}
 
 -- Size: Trade Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.size + 
@@ -1086,8 +1195,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1176,7 +1285,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message = {}
 
 -- Size: Order Execution Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.trade_id.size + 
@@ -1193,8 +1302,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1240,7 +1349,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message = {}
 
 -- Size: Delete Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size
 
@@ -1253,8 +1362,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1331,7 +1440,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message = {}
 
 -- Size: Modify Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.price.size + 
@@ -1347,8 +1456,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1391,7 +1500,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message = {}
 
 -- Size: Add Order Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.order_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.order_side.size + 
@@ -1408,8 +1517,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1455,7 +1564,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message = {}
 
 -- Size: Symbol Clear Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size
 
 -- Display: Symbol Clear Message
@@ -1467,8 +1576,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1499,7 +1608,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notificatio
 
 -- Size: Security Trading Status Notification Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.size + 
@@ -1514,8 +1623,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1555,7 +1664,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message = {}
 
 -- Size: System State Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.do_m_version.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.session_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.size
@@ -1569,8 +1678,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Do M Version: Alphanumeric
   index, do_m_version = miax_pearlequities_depthofmarket_mach_v1_3_a.do_m_version.dissect(buffer, index, packet, parent)
@@ -1607,7 +1716,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message = {}
 
 -- Size: Symbol Update Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_a.nanoseconds.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.ticker_symbol.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.size + 
@@ -1627,8 +1736,8 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1683,7 +1792,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message = {}
 
 -- Size: System Time Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.size
+  miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.size
 
 -- Display: System Time Message
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.display = function(packet, parent, length)
@@ -1694,8 +1803,15 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_depthofmarket_mach_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Seconds: SecTime
+  index, seconds = miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Seconds Value
+  miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.current = seconds
+
+  if not packet.visited then
+    miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.current.seconds.last = seconds
+  end
 
   return index
 end
@@ -1915,6 +2031,14 @@ end
 
 -- Dissect Packet
 miax_pearlequities_depthofmarket_mach_v1_3_a.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.data(packet)
+  if not packet.visited then
+    data.seconds.frames[packet.number] = data.seconds.last
+  end
+  miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.current = data.seconds.frames[packet.number]
+  miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.current = data
+
   local index = 0
 
   -- Dependency for Message
@@ -1937,6 +2061,9 @@ end
 
 -- Initialize Dissector
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_a.init()
+  miax_pearlequities_depthofmarket_mach_v1_3_a.seconds.current = nil
+  miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.current = nil
+  miax_pearlequities_depthofmarket_mach_v1_3_a.conversation.flows = {}
 end
 
 -- Dissector for Miax PearlEquities DepthOfMarket Mach 1.3.a

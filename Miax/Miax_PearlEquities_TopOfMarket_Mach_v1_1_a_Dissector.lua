@@ -25,6 +25,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.lot_size = ProtoField.new(
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.topofmarket.mach.v1.1.a.marketstate", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message = ProtoField.new("Message", "miax.pearlequities.topofmarket.mach.v1.1.a.message", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.topofmarket.mach.v1.1.a.messagetype", ftypes.UINT8)
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearlequities.topofmarket.mach.v1.1.a.nanoseconds", ftypes.UINT32)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_price = ProtoField.new("Offer Price", "miax.pearlequities.topofmarket.mach.v1.1.a.offerprice", ftypes.DOUBLE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_size = ProtoField.new("Offer Size", "miax.pearlequities.topofmarket.mach.v1.1.a.offersize", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.topofmarket.mach.v1.1.a.openingtime", ftypes.STRING)
@@ -34,6 +35,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet_type = ProtoField.n
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.price = ProtoField.new("Price", "miax.pearlequities.topofmarket.mach.v1.1.a.price", ftypes.DOUBLE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.topofmarket.mach.v1.1.a.primarymarketcode", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.a.reserved1", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.topofmarket.mach.v1.1.a.seconds", ftypes.UINT32)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.topofmarket.mach.v1.1.a.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.topofmarket.mach.v1.1.a.sessionid", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_number = ProtoField.new("Session Number", "miax.pearlequities.topofmarket.mach.v1.1.a.sessionnumber", ftypes.UINT8)
@@ -43,7 +45,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.symbol_id = ProtoField.new
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_status = ProtoField.new("System Status", "miax.pearlequities.topofmarket.mach.v1.1.a.systemstatus", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.test_security_indicator = ProtoField.new("Test Security Indicator", "miax.pearlequities.topofmarket.mach.v1.1.a.testsecurityindicator", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.ticker_symbol = ProtoField.new("Ticker Symbol", "miax.pearlequities.topofmarket.mach.v1.1.a.tickersymbol", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.topofmarket.mach.v1.1.a.timestamp", ftypes.UINT32)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.to_m_version = ProtoField.new("To M Version", "miax.pearlequities.topofmarket.mach.v1.1.a.tomversion", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.topofmarket.mach.v1.1.a.tradeid", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.topofmarket.mach.v1.1.a.tradingstatus", ftypes.UINT8)
@@ -57,6 +58,9 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_state_message = Pro
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.pearlequities.topofmarket.mach.v1.1.a.systemtimemessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.topofmarket.mach.v1.1.a.tradecancelmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bid_and_offer_message = ProtoField.new("Wide Top Of Market Best Bid And Offer Message", "miax.pearlequities.topofmarket.mach.v1.1.a.widetopofmarketbestbidandoffermessage", ftypes.STRING)
+
+-- Miax PearlEquities TopOfMarket Mach 1.1.a generated fields
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.topofmarket.mach.v1.1.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -94,6 +98,36 @@ function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
     show.packet = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_packet
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+miax_pearlequities_topofmarket_mach_v1_1_a.conversation = {}
+miax_pearlequities_topofmarket_mach_v1_1_a.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+miax_pearlequities_topofmarket_mach_v1_1_a.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+miax_pearlequities_topofmarket_mach_v1_1_a.conversation.data = function(packet)
+  local key = miax_pearlequities_topofmarket_mach_v1_1_a.conversation.key(packet)
+  local data = miax_pearlequities_topofmarket_mach_v1_1_a.conversation.flows[key]
+  if data == nil then
+    data = { seconds = { last = nil, frames = {} } }
+    miax_pearlequities_topofmarket_mach_v1_1_a.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+miax_pearlequities_topofmarket_mach_v1_1_a.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -342,6 +376,29 @@ miax_pearlequities_topofmarket_mach_v1_1_a.message_type.dissect = function(buffe
   local display = miax_pearlequities_topofmarket_mach_v1_1_a.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds = {}
+
+-- Size: Nanoseconds
+miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -610,6 +667,40 @@ miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Seconds
+miax_pearlequities_topofmarket_mach_v1_1_a.seconds = {}
+
+-- Size: Seconds
+miax_pearlequities_topofmarket_mach_v1_1_a.seconds.size = 4
+
+-- Store: Seconds
+miax_pearlequities_topofmarket_mach_v1_1_a.seconds.current = nil
+
+-- Generated: Seconds
+miax_pearlequities_topofmarket_mach_v1_1_a.seconds.generated = function(value, range, packet, parent)
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.seconds.display(value)
+  local seconds = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
+-- Display: Seconds
+miax_pearlequities_topofmarket_mach_v1_1_a.seconds.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+end
+
+-- Dissect: Seconds
+miax_pearlequities_topofmarket_mach_v1_1_a.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequence Number
 miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number = {}
 
@@ -844,29 +935,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.dissect = function(buff
   return offset + length, value
 end
 
--- Timestamp
-miax_pearlequities_topofmarket_mach_v1_1_a.timestamp = {}
-
--- Size: Timestamp
-miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size = 4
-
--- Display: Timestamp
-miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- To M Version
 miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version = {}
 
@@ -952,6 +1020,47 @@ miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.dissect = function(buf
   return offset + length, value
 end
 
+-- Timestamp
+miax_pearlequities_topofmarket_mach_v1_1_a.timestamp = {}
+
+-- Translate: Timestamp
+miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.translate = function(nanoseconds, stored_seconds)
+  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+end
+
+-- Display: Timestamp
+miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.display = function(nanoseconds, stored_seconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Composite: Timestamp
+miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size
+  local range = buffer(offset, length)
+  local nanoseconds = range:le_uint()
+  local value = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.translate(nanoseconds, stored_seconds)
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.display(nanoseconds, stored_seconds, packet)
+  parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp, range, value, display)
+
+  miax_pearlequities_topofmarket_mach_v1_1_a.seconds.generated(stored_seconds, range, packet, parent)
+
+  display = miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.display(nanoseconds)
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.nanoseconds, range, nanoseconds, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_seconds = miax_pearlequities_topofmarket_mach_v1_1_a.seconds.current
+
+  if stored_seconds ~= nil then
+    return miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+  end
+
+  return miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Miax PearlEquities TopOfMarket Mach 1.1.a
@@ -962,7 +1071,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message = {}
 
 -- Size: Trade Cancel Message
 miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size + 
@@ -978,8 +1087,8 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1022,7 +1131,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message = {}
 
 -- Size: Last Sale Message
 miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size + 
@@ -1039,8 +1148,8 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1086,7 +1195,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer
 
 -- Size: Wide Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size + 
@@ -1102,8 +1211,8 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.wide_top_of_market_best_bid_and_offer_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1146,7 +1255,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_of
 
 -- Size: Compact Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size + 
@@ -1162,8 +1271,8 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_offer_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1206,7 +1315,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_
 
 -- Size: Security Trading Status Notification Message
 miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.market_state.size + 
@@ -1221,8 +1330,8 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1262,7 +1371,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message = {}
 
 -- Size: System State Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.session_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size
@@ -1276,8 +1385,8 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- To M Version: Alphanumeric
   index, to_m_version = miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.dissect(buffer, index, packet, parent)
@@ -1314,7 +1423,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message = {}
 
 -- Size: Symbol Update Message
 miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.size + 
   miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size + 
@@ -1334,8 +1443,8 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.symbol_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.dissect(buffer, index, packet, parent)
@@ -1390,7 +1499,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message = {}
 
 -- Size: System Time Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.size =
-  miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.size
+  miax_pearlequities_topofmarket_mach_v1_1_a.seconds.size
 
 -- Display: System Time Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.display = function(packet, parent, length)
@@ -1401,8 +1510,15 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect(buffer, index, packet, parent)
+  -- Seconds: SecTime
+  index, seconds = miax_pearlequities_topofmarket_mach_v1_1_a.seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Seconds Value
+  miax_pearlequities_topofmarket_mach_v1_1_a.seconds.current = seconds
+
+  if not packet.visited then
+    miax_pearlequities_topofmarket_mach_v1_1_a.conversation.current.seconds.last = seconds
+  end
 
   return index
 end
@@ -1610,6 +1726,14 @@ end
 
 -- Dissect Packet
 miax_pearlequities_topofmarket_mach_v1_1_a.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = miax_pearlequities_topofmarket_mach_v1_1_a.conversation.data(packet)
+  if not packet.visited then
+    data.seconds.frames[packet.number] = data.seconds.last
+  end
+  miax_pearlequities_topofmarket_mach_v1_1_a.seconds.current = data.seconds.frames[packet.number]
+  miax_pearlequities_topofmarket_mach_v1_1_a.conversation.current = data
+
   local index = 0
 
   -- Dependency for Message
@@ -1632,6 +1756,9 @@ end
 
 -- Initialize Dissector
 function omi_miax_pearlequities_topofmarket_mach_v1_1_a.init()
+  miax_pearlequities_topofmarket_mach_v1_1_a.seconds.current = nil
+  miax_pearlequities_topofmarket_mach_v1_1_a.conversation.current = nil
+  miax_pearlequities_topofmarket_mach_v1_1_a.conversation.flows = {}
 end
 
 -- Dissector for Miax PearlEquities TopOfMarket Mach 1.1.a

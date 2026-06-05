@@ -41,7 +41,6 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.matching_engine_id = ProtoF
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.message = ProtoField.new("Message", "miax.pearloptions.liquidityfeed.mach.v1.2.message", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.message_type = ProtoField.new("Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.messagetype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearloptions.liquidityfeed.mach.v1.2.nanoseconds", ftypes.UINT32)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.notification_time = ProtoField.new("Notification Time", "miax.pearloptions.liquidityfeed.mach.v1.2.notificationtime", ftypes.UINT32)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.pearloptions.liquidityfeed.mach.v1.2.numberofmatchingengines", ftypes.UINT8)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.openclose_indicator = ProtoField.new("Openclose Indicator", "miax.pearloptions.liquidityfeed.mach.v1.2.opencloseindicator", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.opening_time = ProtoField.new("Opening Time", "miax.pearloptions.liquidityfeed.mach.v1.2.openingtime", ftypes.STRING)
@@ -58,7 +57,6 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.packet_length = ProtoField.
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.liquidityfeed.mach.v1.2.packettype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.pearl_bbo_posting_increment_indicator = ProtoField.new("Pearl Bbo Posting Increment Indicator", "miax.pearloptions.liquidityfeed.mach.v1.2.pearlbbopostingincrementindicator", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.plf_version = ProtoField.new("Plf Version", "miax.pearloptions.liquidityfeed.mach.v1.2.plfversion", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.pearloptions.liquidityfeed.mach.v1.2.productaddupdatetime", ftypes.UINT32)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.product_id = ProtoField.new("Product Id", "miax.pearloptions.liquidityfeed.mach.v1.2.productid", ftypes.UINT32)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.refreshmessagetype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.remaining_volume_open = ProtoField.new("Remaining Volume Open", "miax.pearloptions.liquidityfeed.mach.v1.2.remainingvolumeopen", ftypes.UINT32)
@@ -824,29 +822,6 @@ miax_pearloptions_liquidityfeed_mach_v1_2.nanoseconds.dissect = function(buffer,
   return offset + length, value
 end
 
--- Notification Time
-miax_pearloptions_liquidityfeed_mach_v1_2.notification_time = {}
-
--- Size: Notification Time
-miax_pearloptions_liquidityfeed_mach_v1_2.notification_time.size = 4
-
--- Display: Notification Time
-miax_pearloptions_liquidityfeed_mach_v1_2.notification_time.display = function(value)
-  return "Notification Time: "..value
-end
-
--- Dissect: Notification Time
-miax_pearloptions_liquidityfeed_mach_v1_2.notification_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearloptions_liquidityfeed_mach_v1_2.notification_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearloptions_liquidityfeed_mach_v1_2.notification_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.notification_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Number Of Matching Engines
 miax_pearloptions_liquidityfeed_mach_v1_2.number_of_matching_engines = {}
 
@@ -1370,29 +1345,6 @@ miax_pearloptions_liquidityfeed_mach_v1_2.plf_version.dissect = function(buffer,
   local display = miax_pearloptions_liquidityfeed_mach_v1_2.plf_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.plf_version, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Add Update Time
-miax_pearloptions_liquidityfeed_mach_v1_2.product_add_update_time = {}
-
--- Size: Product Add Update Time
-miax_pearloptions_liquidityfeed_mach_v1_2.product_add_update_time.size = 4
-
--- Display: Product Add Update Time
-miax_pearloptions_liquidityfeed_mach_v1_2.product_add_update_time.display = function(value)
-  return "Product Add Update Time: "..value
-end
-
--- Dissect: Product Add Update Time
-miax_pearloptions_liquidityfeed_mach_v1_2.product_add_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearloptions_liquidityfeed_mach_v1_2.product_add_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearloptions_liquidityfeed_mach_v1_2.product_add_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.product_add_update_time, range, value, display)
 
   return offset + length, value
 end
@@ -2684,7 +2636,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.system_state_message = {}
 
 -- Size: System State Message
 miax_pearloptions_liquidityfeed_mach_v1_2.system_state_message.size =
-  miax_pearloptions_liquidityfeed_mach_v1_2.notification_time.size + 
+  miax_pearloptions_liquidityfeed_mach_v1_2.nanoseconds.size + 
   miax_pearloptions_liquidityfeed_mach_v1_2.plf_version.size + 
   miax_pearloptions_liquidityfeed_mach_v1_2.session_id.size + 
   miax_pearloptions_liquidityfeed_mach_v1_2.system_status.size
@@ -2698,8 +2650,8 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: NanoTime
-  index, notification_time = miax_pearloptions_liquidityfeed_mach_v1_2.notification_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_liquidityfeed_mach_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Plf Version: Alphanumeric
   index, plf_version = miax_pearloptions_liquidityfeed_mach_v1_2.plf_version.dissect(buffer, index, packet, parent)
@@ -2736,7 +2688,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.series_update_message = {}
 
 -- Size: Series Update Message
 miax_pearloptions_liquidityfeed_mach_v1_2.series_update_message.size =
-  miax_pearloptions_liquidityfeed_mach_v1_2.product_add_update_time.size + 
+  miax_pearloptions_liquidityfeed_mach_v1_2.nanoseconds.size + 
   miax_pearloptions_liquidityfeed_mach_v1_2.product_id.size + 
   miax_pearloptions_liquidityfeed_mach_v1_2.underlying_symbol.size + 
   miax_pearloptions_liquidityfeed_mach_v1_2.security_symbol.size + 
@@ -2762,8 +2714,8 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.series_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: NanoTime
-  index, product_add_update_time = miax_pearloptions_liquidityfeed_mach_v1_2.product_add_update_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_liquidityfeed_mach_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_liquidityfeed_mach_v1_2.product_id.dissect(buffer, index, packet, parent)

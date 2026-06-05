@@ -70,9 +70,9 @@
 | [PsxEquities][PsxEquities.Exchange] | [TotalView][Nasdaq.PsxEquities.TotalView] | [Itch][Omi.Encoding.Itch] | [5.0][Nasdaq.PsxEquities.TotalView.Itch.v5.0.Dissector] | 2/13/2026 | 4058 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.PsxEquities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.PsxEquities.TotalView.Itch.v5.0.Pdf] |
 | [PsxEquities][PsxEquities.Exchange] | [Orders][Nasdaq.PsxEquities.Orders] | [Ouch][Omi.Encoding.Ouch] | [4.2][Nasdaq.PsxEquities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3100 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.PsxEquities.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.PsxEquities.Orders.Ouch.v4.2.Pdf] |
 | [Uqdf][Uqdf.Consolidator] | [Output][Nasdaq.Uqdf.Output] | [Utp][Omi.Encoding.Utp] | [3.0.c][Nasdaq.Uqdf.Output.Utp.v3.0.c.Dissector] | 2/1/2026 | 6857 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.Uqdf.Output.Utp.v3.0.c.Url] - [pdf][Nasdaq.Uqdf.Output.Utp.v3.0.c.Pdf] |
-| [Uqdf][Uqdf] | [Output][Nasdaq.Uqdf.Output] | [Utp][Omi.Encoding.Utp] | [1.5][Nasdaq.Uqdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | 4812 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nasdaq.Uqdf.Output.Utp.v1.5.Url] - [pdf][Nasdaq.Uqdf.Output.Utp.v1.5.Pdf] |
+| [Uqdf][Uqdf.Consolidator] | [Output][Nasdaq.Uqdf.Output] | [Utp][Omi.Encoding.Utp] | [1.5][Nasdaq.Uqdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | 4812 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nasdaq.Uqdf.Output.Utp.v1.5.Url] - [pdf][Nasdaq.Uqdf.Output.Utp.v1.5.Pdf] |
 | [Utdf][Utdf.Consolidator] | [Output][Nasdaq.Utdf.Output] | [Utp][Omi.Encoding.Utp] | [3.0.c][Nasdaq.Utdf.Output.Utp.v3.0.c.Dissector] | 2/1/2026 | 6493 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.Utdf.Output.Utp.v3.0.c.Url] - [pdf][Nasdaq.Utdf.Output.Utp.v3.0.c.Pdf] |
-| [Utdf][Utdf] | [Output][Nasdaq.Utdf.Output] | [Utp][Omi.Encoding.Utp] | [1.5][Nasdaq.Utdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | 5348 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.Utdf.Output.Utp.v1.5.Url] - [pdf][Nasdaq.Utdf.Output.Utp.v1.5.Pdf] |
+| [Utdf][Utdf.Consolidator] | [Output][Nasdaq.Utdf.Output] | [Utp][Omi.Encoding.Utp] | [1.5][Nasdaq.Utdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | 5348 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.Utdf.Output.Utp.v1.5.Url] - [pdf][Nasdaq.Utdf.Output.Utp.v1.5.Pdf] |
 
 
 Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securities Dealers Automated Quotations (Nasdaq)")
@@ -106,8 +106,6 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [PhlxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/PhlxOptions "Nasdaq PhlxOptions"
 [PsxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/PsxEquities "Nasdaq PsxEquities"
 [NsmEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NsmEquities "Nasdaq NsmEquities"
-[Uqdf]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Uqdf "Nasdaq Uqdf"
-[Utdf]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Utdf "Nasdaq Utdf"
 [Uqdf.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Uqdf "Nasdaq Uqdf"
 [Utdf.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Utdf "Nasdaq Utdf"
 [Common]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Common "Nasdaq Common"

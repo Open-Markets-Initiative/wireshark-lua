@@ -48,7 +48,6 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.matching_engine_id = Proto
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.message = ProtoField.new("Message", "miax.sapphireoptions.topofmarket.mach.v2.0.message", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.message_type = ProtoField.new("Message Type", "miax.sapphireoptions.topofmarket.mach.v2.0.messagetype", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.sapphireoptions.topofmarket.mach.v2.0.nanoseconds", ftypes.UINT32)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.notification_time = ProtoField.new("Notification Time", "miax.sapphireoptions.topofmarket.mach.v2.0.notificationtime", ftypes.UINT32)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.sapphireoptions.topofmarket.mach.v2.0.numberofmatchingengines", ftypes.UINT8)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_condition = ProtoField.new("Offer Condition", "miax.sapphireoptions.topofmarket.mach.v2.0.offercondition", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_binary_prc_2u_2 = ProtoField.new("Offer Price Binary Prc 2u 2", "miax.sapphireoptions.topofmarket.mach.v2.0.offerpricebinaryprc2u2", ftypes.DOUBLE)
@@ -62,7 +61,6 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.opening_underlying_market_
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.packet_header = ProtoField.new("Packet Header", "miax.sapphireoptions.topofmarket.mach.v2.0.packetheader", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.packet_length = ProtoField.new("Packet Length", "miax.sapphireoptions.topofmarket.mach.v2.0.packetlength", ftypes.UINT16)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.packet_type = ProtoField.new("Packet Type", "miax.sapphireoptions.topofmarket.mach.v2.0.packettype", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.sapphireoptions.topofmarket.mach.v2.0.productaddupdatetime", ftypes.UINT32)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.product_id = ProtoField.new("Product Id", "miax.sapphireoptions.topofmarket.mach.v2.0.productid", ftypes.UINT32)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.sapphireoptions.topofmarket.mach.v2.0.referencecorrectionnumber", ftypes.UINT8)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.sapphireoptions.topofmarket.mach.v2.0.referencetradeid", ftypes.UINT32)
@@ -1065,29 +1063,6 @@ miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.dissect = function(buffer
   return offset + length, value
 end
 
--- Notification Time
-miax_sapphireoptions_topofmarket_mach_v2_0.notification_time = {}
-
--- Size: Notification Time
-miax_sapphireoptions_topofmarket_mach_v2_0.notification_time.size = 4
-
--- Display: Notification Time
-miax_sapphireoptions_topofmarket_mach_v2_0.notification_time.display = function(value)
-  return "Notification Time: "..value
-end
-
--- Dissect: Notification Time
-miax_sapphireoptions_topofmarket_mach_v2_0.notification_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.notification_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.notification_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.notification_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Number Of Matching Engines
 miax_sapphireoptions_topofmarket_mach_v2_0.number_of_matching_engines = {}
 
@@ -1501,29 +1476,6 @@ miax_sapphireoptions_topofmarket_mach_v2_0.packet_type.dissect = function(buffer
   local display = miax_sapphireoptions_topofmarket_mach_v2_0.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Add Update Time
-miax_sapphireoptions_topofmarket_mach_v2_0.product_add_update_time = {}
-
--- Size: Product Add Update Time
-miax_sapphireoptions_topofmarket_mach_v2_0.product_add_update_time.size = 4
-
--- Display: Product Add Update Time
-miax_sapphireoptions_topofmarket_mach_v2_0.product_add_update_time.display = function(value)
-  return "Product Add Update Time: "..value
-end
-
--- Dissect: Product Add Update Time
-miax_sapphireoptions_topofmarket_mach_v2_0.product_add_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.product_add_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.product_add_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.product_add_update_time, range, value, display)
 
   return offset + length, value
 end
@@ -3887,7 +3839,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.system_state_message = {}
 
 -- Size: System State Message
 miax_sapphireoptions_topofmarket_mach_v2_0.system_state_message.size =
-  miax_sapphireoptions_topofmarket_mach_v2_0.notification_time.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.to_m_version.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.session_id.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.system_status.size
@@ -3901,8 +3853,8 @@ end
 miax_sapphireoptions_topofmarket_mach_v2_0.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: NanoTime
-  index, notification_time = miax_sapphireoptions_topofmarket_mach_v2_0.notification_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_sapphireoptions_topofmarket_mach_v2_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- To M Version: Alphanumeric
   index, to_m_version = miax_sapphireoptions_topofmarket_mach_v2_0.to_m_version.dissect(buffer, index, packet, parent)
@@ -3939,7 +3891,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.series_update_message = {}
 
 -- Size: Series Update Message
 miax_sapphireoptions_topofmarket_mach_v2_0.series_update_message.size =
-  miax_sapphireoptions_topofmarket_mach_v2_0.product_add_update_time.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.underlying_symbol.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.security_symbol.size + 
@@ -3965,8 +3917,8 @@ end
 miax_sapphireoptions_topofmarket_mach_v2_0.series_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: NanoTime
-  index, product_add_update_time = miax_sapphireoptions_topofmarket_mach_v2_0.product_add_update_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_sapphireoptions_topofmarket_mach_v2_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)

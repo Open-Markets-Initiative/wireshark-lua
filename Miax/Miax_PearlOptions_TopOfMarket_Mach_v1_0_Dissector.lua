@@ -32,7 +32,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.liquidity_acceptance_incremen
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.long_term_option = ProtoField.new("Long Term Option", "miax.pearloptions.topofmarket.mach.v1.0.longtermoption", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.message = ProtoField.new("Message", "miax.pearloptions.topofmarket.mach.v1.0.message", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.message_type = ProtoField.new("Message Type", "miax.pearloptions.topofmarket.mach.v1.0.messagetype", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.notification_time = ProtoField.new("Notification Time", "miax.pearloptions.topofmarket.mach.v1.0.notificationtime", ftypes.UINT32)
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearloptions.topofmarket.mach.v1.0.nanoseconds", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.offer_condition = ProtoField.new("Offer Condition", "miax.pearloptions.topofmarket.mach.v1.0.offercondition", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.offer_price = ProtoField.new("Offer Price", "miax.pearloptions.topofmarket.mach.v1.0.offerprice", ftypes.DOUBLE)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.offer_priority_customer_size = ProtoField.new("Offer Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.offerprioritycustomersize", ftypes.UINT16)
@@ -47,19 +47,18 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_price = ProtoField.new("
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_priority_customer_size = ProtoField.new("Pbbo Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.pbboprioritycustomersize", ftypes.UINT16)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_size = ProtoField.new("Pbbo Size", "miax.pearloptions.topofmarket.mach.v1.0.pbbosize", ftypes.UINT16)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pearl_bbo_posting_increment_indicator = ProtoField.new("Pearl Bbo Posting Increment Indicator", "miax.pearloptions.topofmarket.mach.v1.0.pearlbbopostingincrementindicator", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.pearloptions.topofmarket.mach.v1.0.productaddupdatetime", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.product_id = ProtoField.new("Product Id", "miax.pearloptions.topofmarket.mach.v1.0.productid", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.pearloptions.topofmarket.mach.v1.0.referencecorrectionnumber", ftypes.UINT8)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.pearloptions.topofmarket.mach.v1.0.referencetradeid", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearloptions.topofmarket.mach.v1.0.reserved12", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.restricted_option = ProtoField.new("Restricted Option", "miax.pearloptions.topofmarket.mach.v1.0.restrictedoption", ftypes.STRING)
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v1.0.seconds", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.security_symbol = ProtoField.new("Security Symbol", "miax.pearloptions.topofmarket.mach.v1.0.securitysymbol", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearloptions.topofmarket.mach.v1.0.sequencenumber", ftypes.UINT64)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.session_id = ProtoField.new("Session Id", "miax.pearloptions.topofmarket.mach.v1.0.sessionid", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.pearloptions.topofmarket.mach.v1.0.sessionnumber", ftypes.UINT8)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.strike_price = ProtoField.new("Strike Price", "miax.pearloptions.topofmarket.mach.v1.0.strikeprice", ftypes.DOUBLE)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.system_status = ProtoField.new("System Status", "miax.pearloptions.topofmarket.mach.v1.0.systemstatus", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.topofmarket.mach.v1.0.timestamp", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.to_m_version = ProtoField.new("To M Version", "miax.pearloptions.topofmarket.mach.v1.0.tomversion", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.trade_condition = ProtoField.new("Trade Condition", "miax.pearloptions.topofmarket.mach.v1.0.tradecondition", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.trade_id = ProtoField.new("Trade Id", "miax.pearloptions.topofmarket.mach.v1.0.tradeid", ftypes.UINT32)
@@ -90,6 +89,9 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.underlying_trading_status_not
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top Of Market Message", "miax.pearloptions.topofmarket.mach.v1.0.widedoublesidedtopofmarketmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_bid_message = ProtoField.new("Wide Top Of Market Best Bid Message", "miax.pearloptions.topofmarket.mach.v1.0.widetopofmarketbestbidmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_offer_message = ProtoField.new("Wide Top Of Market Best Offer Message", "miax.pearloptions.topofmarket.mach.v1.0.widetopofmarketbestoffermessage", ftypes.STRING)
+
+-- Miax PearlOptions TopOfMarket Mach 1.0 generated fields
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.topofmarket.mach.v1.0.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -127,6 +129,36 @@ function omi_miax_pearloptions_topofmarket_mach_v1_0.prefs_changed()
     show.packet = omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_packet
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+miax_pearloptions_topofmarket_mach_v1_0.conversation = {}
+miax_pearloptions_topofmarket_mach_v1_0.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+miax_pearloptions_topofmarket_mach_v1_0.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+miax_pearloptions_topofmarket_mach_v1_0.conversation.data = function(packet)
+  local key = miax_pearloptions_topofmarket_mach_v1_0.conversation.key(packet)
+  local data = miax_pearloptions_topofmarket_mach_v1_0.conversation.flows[key]
+  if data == nil then
+    data = { seconds = { last = nil, frames = {} } }
+    miax_pearloptions_topofmarket_mach_v1_0.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+miax_pearloptions_topofmarket_mach_v1_0.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -593,25 +625,25 @@ miax_pearloptions_topofmarket_mach_v1_0.message_type.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Notification Time
-miax_pearloptions_topofmarket_mach_v1_0.notification_time = {}
+-- Nanoseconds
+miax_pearloptions_topofmarket_mach_v1_0.nanoseconds = {}
 
--- Size: Notification Time
-miax_pearloptions_topofmarket_mach_v1_0.notification_time.size = 4
+-- Size: Nanoseconds
+miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size = 4
 
--- Display: Notification Time
-miax_pearloptions_topofmarket_mach_v1_0.notification_time.display = function(value)
-  return "Notification Time: "..value
+-- Display: Nanoseconds
+miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
 end
 
--- Dissect: Notification Time
-miax_pearloptions_topofmarket_mach_v1_0.notification_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearloptions_topofmarket_mach_v1_0.notification_time.size
+-- Dissect: Nanoseconds
+miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_pearloptions_topofmarket_mach_v1_0.notification_time.display(value, buffer, offset, packet, parent)
+  local display = miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.notification_time, range, value, display)
+  parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -1097,29 +1129,6 @@ miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.di
   return offset + length, value
 end
 
--- Product Add Update Time
-miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time = {}
-
--- Size: Product Add Update Time
-miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.size = 4
-
--- Display: Product Add Update Time
-miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.display = function(value)
-  return "Product Add Update Time: "..value
-end
-
--- Dissect: Product Add Update Time
-miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.product_add_update_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Product Id
 miax_pearloptions_topofmarket_mach_v1_0.product_id = {}
 
@@ -1238,6 +1247,40 @@ miax_pearloptions_topofmarket_mach_v1_0.restricted_option.dissect = function(buf
   local display = miax_pearloptions_topofmarket_mach_v1_0.restricted_option.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.restricted_option, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+miax_pearloptions_topofmarket_mach_v1_0.seconds = {}
+
+-- Size: Seconds
+miax_pearloptions_topofmarket_mach_v1_0.seconds.size = 4
+
+-- Store: Seconds
+miax_pearloptions_topofmarket_mach_v1_0.seconds.current = nil
+
+-- Generated: Seconds
+miax_pearloptions_topofmarket_mach_v1_0.seconds.generated = function(value, range, packet, parent)
+  local display = miax_pearloptions_topofmarket_mach_v1_0.seconds.display(value)
+  local seconds = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
+-- Display: Seconds
+miax_pearloptions_topofmarket_mach_v1_0.seconds.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+end
+
+-- Dissect: Seconds
+miax_pearloptions_topofmarket_mach_v1_0.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearloptions_topofmarket_mach_v1_0.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearloptions_topofmarket_mach_v1_0.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -1395,29 +1438,6 @@ miax_pearloptions_topofmarket_mach_v1_0.system_status.dissect = function(buffer,
   local display = miax_pearloptions_topofmarket_mach_v1_0.system_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.system_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-miax_pearloptions_topofmarket_mach_v1_0.timestamp = {}
-
--- Size: Timestamp
-miax_pearloptions_topofmarket_mach_v1_0.timestamp.size = 4
-
--- Display: Timestamp
-miax_pearloptions_topofmarket_mach_v1_0.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearloptions_topofmarket_mach_v1_0.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1814,6 +1834,47 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size.dissect = function(buffer
   return offset + length, value
 end
 
+-- Timestamp
+miax_pearloptions_topofmarket_mach_v1_0.timestamp = {}
+
+-- Translate: Timestamp
+miax_pearloptions_topofmarket_mach_v1_0.timestamp.translate = function(nanoseconds, stored_seconds)
+  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+end
+
+-- Display: Timestamp
+miax_pearloptions_topofmarket_mach_v1_0.timestamp.display = function(nanoseconds, stored_seconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Composite: Timestamp
+miax_pearloptions_topofmarket_mach_v1_0.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size
+  local range = buffer(offset, length)
+  local nanoseconds = range:le_uint()
+  local value = miax_pearloptions_topofmarket_mach_v1_0.timestamp.translate(nanoseconds, stored_seconds)
+  local display = miax_pearloptions_topofmarket_mach_v1_0.timestamp.display(nanoseconds, stored_seconds, packet)
+  parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.timestamp, range, value, display)
+
+  miax_pearloptions_topofmarket_mach_v1_0.seconds.generated(stored_seconds, range, packet, parent)
+
+  display = miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.display(nanoseconds)
+  parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.nanoseconds, range, nanoseconds, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_seconds = miax_pearloptions_topofmarket_mach_v1_0.seconds.current
+
+  if stored_seconds ~= nil then
+    return miax_pearloptions_topofmarket_mach_v1_0.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+  end
+
+  return miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Miax PearlOptions TopOfMarket Mach 1.0
@@ -1824,7 +1885,7 @@ miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification =
 
 -- Size: Underlying Trading Status Notification
 miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol.size + 
   miax_pearloptions_topofmarket_mach_v1_0.trading_status.size + 
   miax_pearloptions_topofmarket_mach_v1_0.event_reason.size + 
@@ -1840,8 +1901,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol.dissect(buffer, index, packet, parent)
@@ -1884,7 +1945,7 @@ miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message = {}
 
 -- Size: Trade Cancel Message
 miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.trade_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.correction_number.size + 
@@ -1901,8 +1962,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -1948,7 +2009,7 @@ miax_pearloptions_topofmarket_mach_v1_0.last_sale_message = {}
 
 -- Size: Last Sale Message
 miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.trade_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.correction_number.size + 
@@ -1967,8 +2028,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -2020,7 +2081,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message 
 
 -- Size: Wide Double Sided Top Of Market Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.wide_bid_price.size + 
   miax_pearloptions_topofmarket_mach_v1_0.wide_bid_size.size + 
@@ -2040,8 +2101,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -2096,7 +2157,7 @@ miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_messa
 
 -- Size: Compact Double Sided Top Of Market Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.bid_price.size + 
   miax_pearloptions_topofmarket_mach_v1_0.bid_size.size + 
@@ -2116,8 +2177,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -2172,7 +2233,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message = 
 
 -- Size: Wide Top Of Market Best Offer Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.size + 
   miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size.size + 
@@ -2188,8 +2249,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -2232,7 +2293,7 @@ miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message = {}
 
 -- Size: Wide Top Of Market Best Bid Message
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_price.size + 
   miax_pearloptions_topofmarket_mach_v1_0.wide_pbbo_size.size + 
@@ -2248,8 +2309,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -2292,7 +2353,7 @@ miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message
 
 -- Size: Compact Top Of Market Best Offer Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.size + 
   miax_pearloptions_topofmarket_mach_v1_0.pbbo_size.size + 
@@ -2308,8 +2369,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -2352,7 +2413,7 @@ miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message = {}
 
 -- Size: Compact Top Of Market Bid Message
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.pbbo_price.size + 
   miax_pearloptions_topofmarket_mach_v1_0.pbbo_size.size + 
@@ -2368,8 +2429,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -2412,7 +2473,7 @@ miax_pearloptions_topofmarket_mach_v1_0.system_state_message = {}
 
 -- Size: System State Message
 miax_pearloptions_topofmarket_mach_v1_0.system_state_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.notification_time.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.to_m_version.size + 
   miax_pearloptions_topofmarket_mach_v1_0.session_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.system_status.size
@@ -2426,8 +2487,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: NanoTime
-  index, notification_time = miax_pearloptions_topofmarket_mach_v1_0.notification_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- To M Version: Alphanumeric
   index, to_m_version = miax_pearloptions_topofmarket_mach_v1_0.to_m_version.dissect(buffer, index, packet, parent)
@@ -2464,7 +2525,7 @@ miax_pearloptions_topofmarket_mach_v1_0.series_update_message = {}
 
 -- Size: Series Update Message
 miax_pearloptions_topofmarket_mach_v1_0.series_update_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.size + 
+  miax_pearloptions_topofmarket_mach_v1_0.nanoseconds.size + 
   miax_pearloptions_topofmarket_mach_v1_0.product_id.size + 
   miax_pearloptions_topofmarket_mach_v1_0.underlying_symbol.size + 
   miax_pearloptions_topofmarket_mach_v1_0.security_symbol.size + 
@@ -2490,8 +2551,8 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.series_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: NanoTime
-  index, product_add_update_time = miax_pearloptions_topofmarket_mach_v1_0.product_add_update_time.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: NanoTime
+  index, nanoseconds = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0.product_id.dissect(buffer, index, packet, parent)
@@ -2564,7 +2625,7 @@ miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message = {}
 
 -- Size: Pearl System Time Message
 miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.size =
-  miax_pearloptions_topofmarket_mach_v1_0.timestamp.size
+  miax_pearloptions_topofmarket_mach_v1_0.seconds.size
 
 -- Display: Pearl System Time Message
 miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.display = function(packet, parent, length)
@@ -2575,8 +2636,15 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: SecTime
-  index, timestamp = miax_pearloptions_topofmarket_mach_v1_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Seconds: SecTime
+  index, seconds = miax_pearloptions_topofmarket_mach_v1_0.seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Seconds Value
+  miax_pearloptions_topofmarket_mach_v1_0.seconds.current = seconds
+
+  if not packet.visited then
+    miax_pearloptions_topofmarket_mach_v1_0.conversation.current.seconds.last = seconds
+  end
 
   return index
 end
@@ -2800,6 +2868,14 @@ end
 
 -- Dissect Packet
 miax_pearloptions_topofmarket_mach_v1_0.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = miax_pearloptions_topofmarket_mach_v1_0.conversation.data(packet)
+  if not packet.visited then
+    data.seconds.frames[packet.number] = data.seconds.last
+  end
+  miax_pearloptions_topofmarket_mach_v1_0.seconds.current = data.seconds.frames[packet.number]
+  miax_pearloptions_topofmarket_mach_v1_0.conversation.current = data
+
   local index = 0
 
   -- Dependency for Message
@@ -2822,6 +2898,9 @@ end
 
 -- Initialize Dissector
 function omi_miax_pearloptions_topofmarket_mach_v1_0.init()
+  miax_pearloptions_topofmarket_mach_v1_0.seconds.current = nil
+  miax_pearloptions_topofmarket_mach_v1_0.conversation.current = nil
+  miax_pearloptions_topofmarket_mach_v1_0.conversation.flows = {}
 end
 
 -- Dissector for Miax PearlOptions TopOfMarket Mach 1.0
