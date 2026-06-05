@@ -112,6 +112,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.unit_clear_message
 -- Cboe CfeFutures MulticastDepthOfBook Pitch 1.2.19 generated fields
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.futurelegindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.messageindex", ftypes.UINT16)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -1655,6 +1656,48 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.upper_price_limit.dissect = f
   return offset + length, value
 end
 
+-- Timestamp
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp = {}
+
+-- Translate: Timestamp
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time_reference)
+  return UInt64.new(stored_midnight_reference + stored_time_reference * 1000000000 + time_offset)
+end
+
+-- Display: Timestamp
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.display = function(time_offset, stored_midnight_reference, stored_time_reference)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference + stored_time_reference)..string.format("%09d", time_offset)
+end
+
+-- Composite: Timestamp
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.composite = function(buffer, offset, stored_midnight_reference, stored_time_reference, packet, parent)
+  local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.size
+  local range = buffer(offset, length)
+  local time_offset = range:le_uint()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.translate(time_offset, stored_midnight_reference, stored_time_reference)
+  local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.display(time_offset, stored_midnight_reference, stored_time_reference)
+  parent = parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.timestamp, range, value, display)
+
+  cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_reference.generated(stored_time_reference, range, packet, parent)
+
+  display = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.display(time_offset)
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.time_offset, range, time_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_midnight_reference = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.midnight_reference.current
+  local stored_time_reference = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_reference.current
+
+  if stored_midnight_reference ~= nil and stored_time_reference ~= nil then
+    return cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.composite(buffer, offset, stored_midnight_reference, stored_time_reference, packet, parent)
+  end
+
+  return cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Cboe CfeFutures MulticastDepthOfBook Pitch 1.2.19
@@ -1677,7 +1720,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.end_of_session_message.fields
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1721,7 +1764,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.trading_status_message.fields
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.symbol.dissect(buffer, index, packet, parent)
@@ -1855,7 +1898,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.end_of_day_summary_message.fi
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.symbol.dissect(buffer, index, packet, parent)
@@ -1931,7 +1974,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.open_interest_message.fields 
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.symbol.dissect(buffer, index, packet, parent)
@@ -1984,7 +2027,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.settlement_message.fields = f
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.symbol.dissect(buffer, index, packet, parent)
@@ -2037,7 +2080,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.trade_break_message.fields = 
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.execution_id.dissect(buffer, index, packet, parent)
@@ -2080,7 +2123,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.transaction_end_message.field
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2120,7 +2163,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.transaction_begin_message.fie
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2167,7 +2210,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.trade_short_message.fields = 
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2235,7 +2278,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.trade_long_message.fields = f
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2297,7 +2340,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.delete_order_message.fields =
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2343,7 +2386,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.modify_order_short_message.fi
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2395,7 +2438,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.modify_order_long_message.fie
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2446,7 +2489,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.reduce_size_short_message.fie
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2494,7 +2537,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.reduce_size_long_message.fiel
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2544,7 +2587,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_executed_message.fields
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2601,7 +2644,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.add_order_short_message.field
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2661,7 +2704,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.add_order_long_message.fields
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.order_id.dissect(buffer, index, packet, parent)
@@ -2719,7 +2762,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.price_limits_message.fields =
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.symbol.dissect(buffer, index, packet, parent)
@@ -2774,7 +2817,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_variance_symbol_mappi
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Unit Timestamp: Binary
   index, unit_timestamp = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.unit_timestamp.dissect(buffer, index, packet, parent)
@@ -2915,7 +2958,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_instrument_definition
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.symbol.dissect(buffer, index, packet, parent)
@@ -2996,7 +3039,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.unit_clear_message.fields = f
   local index = offset
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3096,7 +3139,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_reference_message.fields
   index, time_reference = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_reference.dissect(buffer, index, packet, parent)
 
   -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Binary Date
   index, trade_date = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.trade_date.dissect(buffer, index, packet, parent)

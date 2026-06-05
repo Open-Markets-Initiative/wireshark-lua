@@ -1911,28 +1911,28 @@ end
 cboe_c1options_flex_pitch_v1_1_30.timestamp = {}
 
 -- Translate: Timestamp
-cboe_c1options_flex_pitch_v1_1_30.timestamp.translate = function(timestamp, stored_midnight_reference, stored_time)
+cboe_c1options_flex_pitch_v1_1_30.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time)
   return UInt64.new(stored_midnight_reference + stored_time * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp
-cboe_c1options_flex_pitch_v1_1_30.timestamp.display = function(timestamp, stored_midnight_reference, stored_time)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference + stored_time)..string.format("%09d", timestamp)
+cboe_c1options_flex_pitch_v1_1_30.timestamp.display = function(time_offset, stored_midnight_reference, stored_time)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference + stored_time)..string.format("%09d", time_offset)
 end
 
 -- Composite: Timestamp
 cboe_c1options_flex_pitch_v1_1_30.timestamp.composite = function(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
-  local length = cboe_c1options_flex_pitch_v1_1_30.timestamp.size
+  local length = cboe_c1options_flex_pitch_v1_1_30.time_offset.size
   local range = buffer(offset, length)
-  local timestamp = range:le_uint()
-  local value = cboe_c1options_flex_pitch_v1_1_30.timestamp.translate(timestamp, stored_midnight_reference, stored_time)
-  local display = cboe_c1options_flex_pitch_v1_1_30.timestamp.display(timestamp, stored_midnight_reference, stored_time)
+  local time_offset = range:le_uint()
+  local value = cboe_c1options_flex_pitch_v1_1_30.timestamp.translate(time_offset, stored_midnight_reference, stored_time)
+  local display = cboe_c1options_flex_pitch_v1_1_30.timestamp.display(time_offset, stored_midnight_reference, stored_time)
   parent = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.timestamp, range, value, display)
 
   cboe_c1options_flex_pitch_v1_1_30.time.generated(stored_time, range, packet, parent)
 
-  display = cboe_c1options_flex_pitch_v1_1_30.timestamp.display(timestamp)
-  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.timestamp, range, timestamp, display)
+  display = cboe_c1options_flex_pitch_v1_1_30.time_offset.display(time_offset)
+  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.time_offset, range, time_offset, display)
 
   return offset + length, value
 end
@@ -1946,7 +1946,7 @@ cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect = function(buffer, offset, p
     return cboe_c1options_flex_pitch_v1_1_30.timestamp.composite(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
   end
 
-  return cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, offset, packet, parent)
+  return cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -2017,7 +2017,7 @@ cboe_c1options_flex_pitch_v1_1_30.trading_status_message.fields = function(buffe
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_flex_pitch_v1_1_30.symbol.dissect(buffer, index, packet, parent)
@@ -2128,7 +2128,7 @@ cboe_c1options_flex_pitch_v1_1_30.trade_break_message.fields = function(buffer, 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_c1options_flex_pitch_v1_1_30.execution_id.dissect(buffer, index, packet, parent)
@@ -2181,7 +2181,7 @@ cboe_c1options_flex_pitch_v1_1_30.dac_trade_message.fields = function(buffer, of
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c1options_flex_pitch_v1_1_30.order_id.dissect(buffer, index, packet, parent)
@@ -2258,7 +2258,7 @@ cboe_c1options_flex_pitch_v1_1_30.trade_short_message.fields = function(buffer, 
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c1options_flex_pitch_v1_1_30.order_id.dissect(buffer, index, packet, parent)
@@ -2326,7 +2326,7 @@ cboe_c1options_flex_pitch_v1_1_30.trade_long_message.fields = function(buffer, o
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: Binary
   index, order_id = cboe_c1options_flex_pitch_v1_1_30.order_id.dissect(buffer, index, packet, parent)
@@ -2391,7 +2391,7 @@ cboe_c1options_flex_pitch_v1_1_30.auction_trade_message.fields = function(buffer
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_c1options_flex_pitch_v1_1_30.auction_id.dissect(buffer, index, packet, parent)
@@ -2444,7 +2444,7 @@ cboe_c1options_flex_pitch_v1_1_30.auction_cancel_message.fields = function(buffe
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_c1options_flex_pitch_v1_1_30.auction_id.dissect(buffer, index, packet, parent)
@@ -2566,7 +2566,7 @@ cboe_c1options_flex_pitch_v1_1_30.dac_auction_notification_message.fields = func
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Flex Instrument Id: Printable ASCII
   index, flex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.flex_instrument_id.dissect(buffer, index, packet, parent)
@@ -2657,7 +2657,7 @@ cboe_c1options_flex_pitch_v1_1_30.auction_notification_message.fields = function
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Flex Instrument Id: Printable ASCII
   index, flex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.flex_instrument_id.dissect(buffer, index, packet, parent)
@@ -2804,7 +2804,7 @@ cboe_c1options_flex_pitch_v1_1_30.complex_flex_instrument_definition_message.fie
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.complex_instrument_id.dissect(buffer, index, packet, parent)
@@ -2887,7 +2887,7 @@ cboe_c1options_flex_pitch_v1_1_30.flex_instrument_definition_message.fields = fu
   local index = offset
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Feed Symbol: Printable ASCII
   index, feed_symbol = cboe_c1options_flex_pitch_v1_1_30.feed_symbol.dissect(buffer, index, packet, parent)
@@ -3038,7 +3038,7 @@ cboe_c1options_flex_pitch_v1_1_30.time_reference_message.fields = function(buffe
   index, time_reference = cboe_c1options_flex_pitch_v1_1_30.time_reference.dissect(buffer, index, packet, parent)
 
   -- Time Offset: Time Offset
-  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.time_offset.dissect(buffer, index, packet, parent)
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Binary Date
   index, trade_date = cboe_c1options_flex_pitch_v1_1_30.trade_date.dissect(buffer, index, packet, parent)
