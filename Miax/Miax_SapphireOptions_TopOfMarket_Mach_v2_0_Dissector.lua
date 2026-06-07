@@ -114,7 +114,6 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.end_of_refresh_notificatio
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.sapphireoptions.topofmarket.mach.v2.0.lastsalemessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.sapphireoptions.topofmarket.mach.v2.0.refreshrequestmessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.refresh_response_message = ProtoField.new("Refresh Response Message", "miax.sapphireoptions.topofmarket.mach.v2.0.refreshresponsemessage", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sapphire_system_time_message = ProtoField.new("Sapphire System Time Message", "miax.sapphireoptions.topofmarket.mach.v2.0.sapphiresystemtimemessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.series_update_message = ProtoField.new("Series Update Message", "miax.sapphireoptions.topofmarket.mach.v2.0.seriesupdatemessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.simple_double_sided_top_of_market_best_bid_or_offer_compact_format_message = ProtoField.new("Simple Double Sided Top Of Market Best Bid Or Offer Compact Format Message", "miax.sapphireoptions.topofmarket.mach.v2.0.simpledoublesidedtopofmarketbestbidoroffercompactformatmessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.simple_double_sided_top_of_market_best_bid_or_offer_wide_format_message = ProtoField.new("Simple Double Sided Top Of Market Best Bid Or Offer Wide Format Message", "miax.sapphireoptions.topofmarket.mach.v2.0.simpledoublesidedtopofmarketbestbidorofferwideformatmessage", ftypes.STRING)
@@ -127,6 +126,7 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.simple_top_of_market_best_
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.simple_top_of_market_best_bid_or_offer_wide_format_offer_message = ProtoField.new("Simple Top Of Market Best Bid Or Offer Wide Format Offer Message", "miax.sapphireoptions.topofmarket.mach.v2.0.simpletopofmarketbestbidorofferwideformatoffermessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.simple_top_of_market_best_bid_or_offer_wide_format_offer_priority_customer_message = ProtoField.new("Simple Top Of Market Best Bid Or Offer Wide Format Offer Priority Customer Message", "miax.sapphireoptions.topofmarket.mach.v2.0.simpletopofmarketbestbidorofferwideformatofferprioritycustomermessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.system_state_message = ProtoField.new("System State Message", "miax.sapphireoptions.topofmarket.mach.v2.0.systemstatemessage", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.system_time_message = ProtoField.new("System Time Message", "miax.sapphireoptions.topofmarket.mach.v2.0.systemtimemessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.sapphireoptions.topofmarket.mach.v2.0.tradecancelmessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.sapphireoptions.topofmarket.mach.v2.0.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
@@ -970,7 +970,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.message_type.size = 1
 -- Display: Message Type
 miax_sapphireoptions_topofmarket_mach_v2_0.message_type.display = function(value)
   if value == "1" then
-    return "Message Type: Sapphire System Time Message (1)"
+    return "Message Type: System Time Message (1)"
   end
   if value == "P" then
     return "Message Type: Series Update Message (P)"
@@ -4035,20 +4035,20 @@ miax_sapphireoptions_topofmarket_mach_v2_0.series_update_message.dissect = funct
   end
 end
 
--- Sapphire System Time Message
-miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message = {}
+-- System Time Message
+miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message = {}
 
--- Size: Sapphire System Time Message
-miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.size =
+-- Size: System Time Message
+miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.seconds.size
 
--- Display: Sapphire System Time Message
-miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.display = function(packet, parent, length)
+-- Display: System Time Message
+miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sapphire System Time Message
-miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: System Time Message
+miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: SecTime
@@ -4064,21 +4064,21 @@ miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.fields =
   return index
 end
 
--- Dissect: Sapphire System Time Message
-miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: System Time Message
+miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sapphire_system_time_message, buffer(offset, 0))
-    local index = miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.system_time_message, buffer(offset, 0))
+    local index = miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.display(packet, parent, length)
+    local display = miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.fields(buffer, offset, packet, parent)
+    return miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4087,9 +4087,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.data = {}
 
 -- Dissect: Data
 miax_sapphireoptions_topofmarket_mach_v2_0.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sapphire System Time Message
+  -- Dissect System Time Message
   if message_type == "1" then
-    return miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.dissect(buffer, offset, packet, parent)
+    return miax_sapphireoptions_topofmarket_mach_v2_0.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Series Update Message
   if message_type == "P" then
@@ -4642,6 +4642,18 @@ miax_sapphireoptions_topofmarket_mach_v2_0.payload = {}
 
 -- Dissect: Payload
 miax_sapphireoptions_topofmarket_mach_v2_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_sapphireoptions_topofmarket_mach_v2_0.application_message.dissect(buffer, offset, packet, parent)
@@ -4694,7 +4706,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.mach_message.fields = function(buffer
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_sapphireoptions_topofmarket_mach_v2_0.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_sapphireoptions_topofmarket_mach_v2_0.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

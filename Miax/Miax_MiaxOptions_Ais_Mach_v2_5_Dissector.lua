@@ -127,12 +127,12 @@ omi_miax_miaxoptions_ais_mach_v2_5.fields.username = ProtoField.new("Username", 
 omi_miax_miaxoptions_ais_mach_v2_5.fields.complex_liquidity_seeking_event_notification_message = ProtoField.new("Complex Liquidity Seeking Event Notification Message", "miax.miaxoptions.ais.mach.v2.5.complexliquidityseekingeventnotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.complex_strategy_definition_update_message = ProtoField.new("Complex Strategy Definition Update Message", "miax.miaxoptions.ais.mach.v2.5.complexstrategydefinitionupdatemessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.miaxoptions.ais.mach.v2.5.endofrefreshnotificationmessage", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_5.fields.miax_system_time_message = ProtoField.new("Miax System Time Message", "miax.miaxoptions.ais.mach.v2.5.miaxsystemtimemessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.miaxoptions.ais.mach.v2.5.refreshrequestmessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.refresh_response_message = ProtoField.new("Refresh Response Message", "miax.miaxoptions.ais.mach.v2.5.refreshresponsemessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.simple_liquidity_seeking_event_notification_message = ProtoField.new("Simple Liquidity Seeking Event Notification Message", "miax.miaxoptions.ais.mach.v2.5.simpleliquidityseekingeventnotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.simple_series_update_message = ProtoField.new("Simple Series Update Message", "miax.miaxoptions.ais.mach.v2.5.simpleseriesupdatemessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.system_state_message = ProtoField.new("System State Message", "miax.miaxoptions.ais.mach.v2.5.systemstatemessage", ftypes.STRING)
+omi_miax_miaxoptions_ais_mach_v2_5.fields.system_time_message = ProtoField.new("System Time Message", "miax.miaxoptions.ais.mach.v2.5.systemtimemessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.theoretical_settlement_price_notification_message = ProtoField.new("Theoretical Settlement Price Notification Message", "miax.miaxoptions.ais.mach.v2.5.theoreticalsettlementpricenotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.theoretical_settlement_reference_price_notification_message = ProtoField.new("Theoretical Settlement Reference Price Notification Message", "miax.miaxoptions.ais.mach.v2.5.theoreticalsettlementreferencepricenotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.miaxoptions.ais.mach.v2.5.underlyingtradingstatusnotificationmessage", ftypes.STRING)
@@ -1103,7 +1103,7 @@ miax_miaxoptions_ais_mach_v2_5.message_type.size = 1
 -- Display: Message Type
 miax_miaxoptions_ais_mach_v2_5.message_type.display = function(value)
   if value == "1" then
-    return "Message Type: Miax System Time Message (1)"
+    return "Message Type: System Time Message (1)"
   end
   if value == "P" then
     return "Message Type: Simple Series Update Message (P)"
@@ -4002,20 +4002,20 @@ miax_miaxoptions_ais_mach_v2_5.simple_series_update_message.dissect = function(b
   end
 end
 
--- Miax System Time Message
-miax_miaxoptions_ais_mach_v2_5.miax_system_time_message = {}
+-- System Time Message
+miax_miaxoptions_ais_mach_v2_5.system_time_message = {}
 
--- Size: Miax System Time Message
-miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.size =
+-- Size: System Time Message
+miax_miaxoptions_ais_mach_v2_5.system_time_message.size =
   miax_miaxoptions_ais_mach_v2_5.seconds.size
 
--- Display: Miax System Time Message
-miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.display = function(packet, parent, length)
+-- Display: System Time Message
+miax_miaxoptions_ais_mach_v2_5.system_time_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Miax System Time Message
-miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: System Time Message
+miax_miaxoptions_ais_mach_v2_5.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: SecTime
@@ -4031,21 +4031,21 @@ miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.fields = function(buffer
   return index
 end
 
--- Dissect: Miax System Time Message
-miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: System Time Message
+miax_miaxoptions_ais_mach_v2_5.system_time_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.miax_system_time_message, buffer(offset, 0))
-    local index = miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.system_time_message, buffer(offset, 0))
+    local index = miax_miaxoptions_ais_mach_v2_5.system_time_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.display(packet, parent, length)
+    local display = miax_miaxoptions_ais_mach_v2_5.system_time_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.fields(buffer, offset, packet, parent)
+    return miax_miaxoptions_ais_mach_v2_5.system_time_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4054,9 +4054,9 @@ miax_miaxoptions_ais_mach_v2_5.data = {}
 
 -- Dissect: Data
 miax_miaxoptions_ais_mach_v2_5.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Miax System Time Message
+  -- Dissect System Time Message
   if message_type == "1" then
-    return miax_miaxoptions_ais_mach_v2_5.miax_system_time_message.dissect(buffer, offset, packet, parent)
+    return miax_miaxoptions_ais_mach_v2_5.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Simple Series Update Message
   if message_type == "P" then
@@ -4581,6 +4581,18 @@ miax_miaxoptions_ais_mach_v2_5.payload = {}
 
 -- Dissect: Payload
 miax_miaxoptions_ais_mach_v2_5.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_miaxoptions_ais_mach_v2_5.application_message.dissect(buffer, offset, packet, parent)
@@ -4633,7 +4645,7 @@ miax_miaxoptions_ais_mach_v2_5.mach_message.fields = function(buffer, offset, pa
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_miaxoptions_ais_mach_v2_5.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_miaxoptions_ais_mach_v2_5.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

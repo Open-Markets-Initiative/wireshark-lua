@@ -3009,6 +3009,18 @@ miax_pearloptions_complextopofmarket_mach_v1_3.payload = {}
 
 -- Dissect: Payload
 miax_pearloptions_complextopofmarket_mach_v1_3.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_pearloptions_complextopofmarket_mach_v1_3.application_message.dissect(buffer, offset, packet, parent)
@@ -3061,7 +3073,7 @@ miax_pearloptions_complextopofmarket_mach_v1_3.mach_message.fields = function(bu
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearloptions_complextopofmarket_mach_v1_3.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_pearloptions_complextopofmarket_mach_v1_3.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

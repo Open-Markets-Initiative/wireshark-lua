@@ -97,11 +97,11 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.username = ProtoField.new("
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.pearloptions.liquidityfeed.mach.v1.2.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.order_close_message = ProtoField.new("Order Close Message", "miax.pearloptions.liquidityfeed.mach.v1.2.orderclosemessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.order_message = ProtoField.new("Order Message", "miax.pearloptions.liquidityfeed.mach.v1.2.ordermessage", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.pearl_system_time_message = ProtoField.new("Pearl System Time Message", "miax.pearloptions.liquidityfeed.mach.v1.2.pearlsystemtimemessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.pearloptions.liquidityfeed.mach.v1.2.refreshrequestmessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.refresh_response_message = ProtoField.new("Refresh Response Message", "miax.pearloptions.liquidityfeed.mach.v1.2.refreshresponsemessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.series_update_message = ProtoField.new("Series Update Message", "miax.pearloptions.liquidityfeed.mach.v1.2.seriesupdatemessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.system_state_message = ProtoField.new("System State Message", "miax.pearloptions.liquidityfeed.mach.v1.2.systemstatemessage", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.system_time_message = ProtoField.new("System Time Message", "miax.pearloptions.liquidityfeed.mach.v1.2.systemtimemessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.pearloptions.liquidityfeed.mach.v1.2.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
 -- Miax PearlOptions LiquidityFeed Mach 1.2 generated fields
@@ -759,7 +759,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.message_type.size = 1
 -- Display: Message Type
 miax_pearloptions_liquidityfeed_mach_v1_2.message_type.display = function(value)
   if value == "1" then
-    return "Message Type: Pearl System Time Message (1)"
+    return "Message Type: System Time Message (1)"
   end
   if value == "P" then
     return "Message Type: Series Update Message (P)"
@@ -2832,20 +2832,20 @@ miax_pearloptions_liquidityfeed_mach_v1_2.series_update_message.dissect = functi
   end
 end
 
--- Pearl System Time Message
-miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message = {}
+-- System Time Message
+miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message = {}
 
--- Size: Pearl System Time Message
-miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.size =
+-- Size: System Time Message
+miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message.size =
   miax_pearloptions_liquidityfeed_mach_v1_2.seconds.size
 
--- Display: Pearl System Time Message
-miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.display = function(packet, parent, length)
+-- Display: System Time Message
+miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Pearl System Time Message
-miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: System Time Message
+miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: SecTime
@@ -2861,21 +2861,21 @@ miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.fields = fun
   return index
 end
 
--- Dissect: Pearl System Time Message
-miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: System Time Message
+miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.pearl_system_time_message, buffer(offset, 0))
-    local index = miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.system_time_message, buffer(offset, 0))
+    local index = miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.display(packet, parent, length)
+    local display = miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.fields(buffer, offset, packet, parent)
+    return miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2884,9 +2884,9 @@ miax_pearloptions_liquidityfeed_mach_v1_2.data = {}
 
 -- Dissect: Data
 miax_pearloptions_liquidityfeed_mach_v1_2.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Pearl System Time Message
+  -- Dissect System Time Message
   if message_type == "1" then
-    return miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.dissect(buffer, offset, packet, parent)
+    return miax_pearloptions_liquidityfeed_mach_v1_2.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Series Update Message
   if message_type == "P" then
@@ -3399,6 +3399,18 @@ miax_pearloptions_liquidityfeed_mach_v1_2.payload = {}
 
 -- Dissect: Payload
 miax_pearloptions_liquidityfeed_mach_v1_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_pearloptions_liquidityfeed_mach_v1_2.application_message.dissect(buffer, offset, packet, parent)
@@ -3451,7 +3463,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.fields = function(buffer,
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearloptions_liquidityfeed_mach_v1_2.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_pearloptions_liquidityfeed_mach_v1_2.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

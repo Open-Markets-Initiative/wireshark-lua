@@ -111,10 +111,10 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.end_of_refresh_notific
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.order_close_message = ProtoField.new("Order Close Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.orderclosemessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.refreshrequestmessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.refresh_response_message = ProtoField.new("Refresh Response Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.refreshresponsemessage", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sapphire_system_time_message = ProtoField.new("Sapphire System Time Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sapphiresystemtimemessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.series_update_message = ProtoField.new("Series Update Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.seriesupdatemessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.simple_order_message = ProtoField.new("Simple Order Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.simpleordermessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.system_state_message = ProtoField.new("System State Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.systemstatemessage", ftypes.STRING)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.systemtimemessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
 -- Miax SapphireOptions LiquidityFeed Mach 1.0.a generated fields
@@ -836,7 +836,7 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.message_type.size = 1
 -- Display: Message Type
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.message_type.display = function(value)
   if value == "1" then
-    return "Message Type: Sapphire System Time Message (1)"
+    return "Message Type: System Time Message (1)"
   end
   if value == "P" then
     return "Message Type: Series Update Message (P)"
@@ -3351,20 +3351,20 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.series_update_message.dissect = f
   end
 end
 
--- Sapphire System Time Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message = {}
+-- System Time Message
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message = {}
 
--- Size: Sapphire System Time Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.size =
+-- Size: System Time Message
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message.size =
   miax_sapphireoptions_liquidityfeed_mach_v1_0_a.seconds.size
 
--- Display: Sapphire System Time Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.display = function(packet, parent, length)
+-- Display: System Time Message
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sapphire System Time Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: System Time Message
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: SecTime
@@ -3380,21 +3380,21 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.fiel
   return index
 end
 
--- Dissect: Sapphire System Time Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: System Time Message
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sapphire_system_time_message, buffer(offset, 0))
-    local index = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.system_time_message, buffer(offset, 0))
+    local index = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.display(packet, parent, length)
+    local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.fields(buffer, offset, packet, parent)
+    return miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3403,9 +3403,9 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.data = {}
 
 -- Dissect: Data
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sapphire System Time Message
+  -- Dissect System Time Message
   if message_type == "1" then
-    return miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sapphire_system_time_message.dissect(buffer, offset, packet, parent)
+    return miax_sapphireoptions_liquidityfeed_mach_v1_0_a.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Series Update Message
   if message_type == "P" then
@@ -3926,6 +3926,18 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.payload = {}
 
 -- Dissect: Payload
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_sapphireoptions_liquidityfeed_mach_v1_0_a.application_message.dissect(buffer, offset, packet, parent)
@@ -3978,7 +3990,7 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields = function(bu
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

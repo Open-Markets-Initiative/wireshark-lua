@@ -1945,6 +1945,18 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.payload = {}
 
 -- Dissect: Payload
 miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, mach_packet_type)
+  -- Dissect Heartbeat
+  if mach_packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if mach_packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if mach_packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
   if mach_packet_type == 3 then
     return miax_pearlequities_depthofmarket_mach_v1_3_a.application_message.dissect(buffer, offset, packet, parent)
@@ -1997,7 +2009,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.mach_message.fields = function(buff
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearlequities_depthofmarket_mach_v1_3_a.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dissect(buffer, index, packet, parent, mach_packet_type)
 
   return index

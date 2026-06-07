@@ -122,13 +122,13 @@ omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.complex_top_of_mar
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.complex_top_of_market_best_bid_or_offer_compact_format_offer_message = ProtoField.new("Complex Top Of Market Best Bid Or Offer Compact Format Offer Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.complextopofmarketbestbidoroffercompactformatoffermessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.complex_top_of_market_best_bid_or_offer_wide_format_bid_message = ProtoField.new("Complex Top Of Market Best Bid Or Offer Wide Format Bid Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.complextopofmarketbestbidorofferwideformatbidmessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.complex_top_of_market_best_bid_or_offer_wide_format_offer_message = ProtoField.new("Complex Top Of Market Best Bid Or Offer Wide Format Offer Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.complextopofmarketbestbidorofferwideformatoffermessage", ftypes.STRING)
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.emerald_system_time_message = ProtoField.new("Emerald System Time Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.emeraldsystemtimemessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.refreshrequestmessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.refresh_response_message = ProtoField.new("Refresh Response Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.refreshresponsemessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.simple_series_update_message = ProtoField.new("Simple Series Update Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.simpleseriesupdatemessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.strategy_last_sale_message = ProtoField.new("Strategy Last Sale Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.strategylastsalemessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.system_state_message = ProtoField.new("System State Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.systemstatemessage", ftypes.STRING)
+omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.systemtimemessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
 -- Miax EmeraldOptions ComplexTopOfMarket Mach 1.0.a generated fields
@@ -1119,7 +1119,7 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.message_type.size = 1
 -- Display: Message Type
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.message_type.display = function(value)
   if value == "1" then
-    return "Message Type: Emerald System Time Message (1)"
+    return "Message Type: System Time Message (1)"
   end
   if value == "P" then
     return "Message Type: Simple Series Update Message (P)"
@@ -3880,20 +3880,20 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.simple_series_update_message.
   end
 end
 
--- Emerald System Time Message
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message = {}
+-- System Time Message
+miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message = {}
 
--- Size: Emerald System Time Message
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.size =
+-- Size: System Time Message
+miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message.size =
   miax_emeraldoptions_complextopofmarket_mach_v1_0_a.seconds.size
 
--- Display: Emerald System Time Message
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.display = function(packet, parent, length)
+-- Display: System Time Message
+miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Emerald System Time Message
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: System Time Message
+miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: SecTime
@@ -3909,21 +3909,21 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.f
   return index
 end
 
--- Dissect: Emerald System Time Message
-miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: System Time Message
+miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.emerald_system_time_message, buffer(offset, 0))
-    local index = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.system_time_message, buffer(offset, 0))
+    local index = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.display(packet, parent, length)
+    local display = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.fields(buffer, offset, packet, parent)
+    return miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3932,9 +3932,9 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.data = {}
 
 -- Dissect: Data
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Emerald System Time Message
+  -- Dissect System Time Message
   if message_type == "1" then
-    return miax_emeraldoptions_complextopofmarket_mach_v1_0_a.emerald_system_time_message.dissect(buffer, offset, packet, parent)
+    return miax_emeraldoptions_complextopofmarket_mach_v1_0_a.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Simple Series Update Message
   if message_type == "P" then
@@ -4471,6 +4471,18 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.payload = {}
 
 -- Dissect: Payload
 miax_emeraldoptions_complextopofmarket_mach_v1_0_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_emeraldoptions_complextopofmarket_mach_v1_0_a.application_message.dissect(buffer, offset, packet, parent)
@@ -4523,7 +4535,7 @@ miax_emeraldoptions_complextopofmarket_mach_v1_0_a.mach_message.fields = functio
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_emeraldoptions_complextopofmarket_mach_v1_0_a.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

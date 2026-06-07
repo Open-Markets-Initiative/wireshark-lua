@@ -69,11 +69,11 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.value = ProtoField.new("Value", "miax.
 -- Miax MiaxOptions Mach Mpf 1.1 Application Messages
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.miaxoptions.mpf.mach.v1.1.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.index_value_message = ProtoField.new("Index Value Message", "miax.miaxoptions.mpf.mach.v1.1.indexvaluemessage", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.miax_system_time_message = ProtoField.new("Miax System Time Message", "miax.miaxoptions.mpf.mach.v1.1.miaxsystemtimemessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.miaxoptions.mpf.mach.v1.1.refreshrequestmessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.refresh_response_message = ProtoField.new("Refresh Response Message", "miax.miaxoptions.mpf.mach.v1.1.refreshresponsemessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.symbol_definition_message = ProtoField.new("Symbol Definition Message", "miax.miaxoptions.mpf.mach.v1.1.symboldefinitionmessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.synthetic_future_value_message = ProtoField.new("Synthetic Future Value Message", "miax.miaxoptions.mpf.mach.v1.1.syntheticfuturevaluemessage", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.system_time_message = ProtoField.new("System Time Message", "miax.miaxoptions.mpf.mach.v1.1.systemtimemessage", ftypes.STRING)
 
 -- Miax MiaxOptions Mpf Mach 1.1 generated fields
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.mpf.mach.v1.1.timestamp", ftypes.UINT64)
@@ -458,7 +458,7 @@ miax_miaxoptions_mpf_mach_v1_1.message_type.size = 1
 -- Display: Message Type
 miax_miaxoptions_mpf_mach_v1_1.message_type.display = function(value)
   if value == "1" then
-    return "Message Type: Miax System Time Message (1)"
+    return "Message Type: System Time Message (1)"
   end
   if value == "s" then
     return "Message Type: Symbol Definition Message (s)"
@@ -1773,20 +1773,20 @@ miax_miaxoptions_mpf_mach_v1_1.symbol_definition_message.dissect = function(buff
   end
 end
 
--- Miax System Time Message
-miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message = {}
+-- System Time Message
+miax_miaxoptions_mpf_mach_v1_1.system_time_message = {}
 
--- Size: Miax System Time Message
-miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.size =
+-- Size: System Time Message
+miax_miaxoptions_mpf_mach_v1_1.system_time_message.size =
   miax_miaxoptions_mpf_mach_v1_1.seconds.size
 
--- Display: Miax System Time Message
-miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.display = function(packet, parent, length)
+-- Display: System Time Message
+miax_miaxoptions_mpf_mach_v1_1.system_time_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Miax System Time Message
-miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: System Time Message
+miax_miaxoptions_mpf_mach_v1_1.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: SecTime
@@ -1802,21 +1802,21 @@ miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.fields = function(buffer
   return index
 end
 
--- Dissect: Miax System Time Message
-miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: System Time Message
+miax_miaxoptions_mpf_mach_v1_1.system_time_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_miaxoptions_mpf_mach_v1_1.fields.miax_system_time_message, buffer(offset, 0))
-    local index = miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_miaxoptions_mpf_mach_v1_1.fields.system_time_message, buffer(offset, 0))
+    local index = miax_miaxoptions_mpf_mach_v1_1.system_time_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.display(packet, parent, length)
+    local display = miax_miaxoptions_mpf_mach_v1_1.system_time_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.fields(buffer, offset, packet, parent)
+    return miax_miaxoptions_mpf_mach_v1_1.system_time_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1825,9 +1825,9 @@ miax_miaxoptions_mpf_mach_v1_1.data = {}
 
 -- Dissect: Data
 miax_miaxoptions_mpf_mach_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Miax System Time Message
+  -- Dissect System Time Message
   if message_type == "1" then
-    return miax_miaxoptions_mpf_mach_v1_1.miax_system_time_message.dissect(buffer, offset, packet, parent)
+    return miax_miaxoptions_mpf_mach_v1_1.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Definition Message
   if message_type == "s" then
@@ -2332,6 +2332,18 @@ miax_miaxoptions_mpf_mach_v1_1.payload = {}
 
 -- Dissect: Payload
 miax_miaxoptions_mpf_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
   if packet_type == 3 then
     return miax_miaxoptions_mpf_mach_v1_1.application_message.dissect(buffer, offset, packet, parent)
@@ -2384,7 +2396,7 @@ miax_miaxoptions_mpf_mach_v1_1.mach_message.fields = function(buffer, offset, pa
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_miaxoptions_mpf_mach_v1_1.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_miaxoptions_mpf_mach_v1_1.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

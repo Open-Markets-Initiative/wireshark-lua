@@ -81,9 +81,9 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.compact_double_sided_top_of_m
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_best_offer_message = ProtoField.new("Compact Top Of Market Best Offer Message", "miax.pearloptions.topofmarket.mach.v1.0.compacttopofmarketbestoffermessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_bid_message = ProtoField.new("Compact Top Of Market Bid Message", "miax.pearloptions.topofmarket.mach.v1.0.compacttopofmarketbidmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.pearloptions.topofmarket.mach.v1.0.lastsalemessage", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pearl_system_time_message = ProtoField.new("Pearl System Time Message", "miax.pearloptions.topofmarket.mach.v1.0.pearlsystemtimemessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.series_update_message = ProtoField.new("Series Update Message", "miax.pearloptions.topofmarket.mach.v1.0.seriesupdatemessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.system_state_message = ProtoField.new("System State Message", "miax.pearloptions.topofmarket.mach.v1.0.systemstatemessage", ftypes.STRING)
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.system_time_message = ProtoField.new("System Time Message", "miax.pearloptions.topofmarket.mach.v1.0.systemtimemessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearloptions.topofmarket.mach.v1.0.tradecancelmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.underlying_trading_status_notification = ProtoField.new("Underlying Trading Status Notification", "miax.pearloptions.topofmarket.mach.v1.0.underlyingtradingstatusnotification", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top Of Market Message", "miax.pearloptions.topofmarket.mach.v1.0.widedoublesidedtopofmarketmessage", ftypes.STRING)
@@ -574,7 +574,7 @@ miax_pearloptions_topofmarket_mach_v1_0.message_type.size = 1
 -- Display: Message Type
 miax_pearloptions_topofmarket_mach_v1_0.message_type.display = function(value)
   if value == "1" then
-    return "Message Type: Pearl System Time Message (1)"
+    return "Message Type: System Time Message (1)"
   end
   if value == "P" then
     return "Message Type: Series Update Message (P)"
@@ -2620,20 +2620,20 @@ miax_pearloptions_topofmarket_mach_v1_0.series_update_message.dissect = function
   end
 end
 
--- Pearl System Time Message
-miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message = {}
+-- System Time Message
+miax_pearloptions_topofmarket_mach_v1_0.system_time_message = {}
 
--- Size: Pearl System Time Message
-miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.size =
+-- Size: System Time Message
+miax_pearloptions_topofmarket_mach_v1_0.system_time_message.size =
   miax_pearloptions_topofmarket_mach_v1_0.seconds.size
 
--- Display: Pearl System Time Message
-miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.display = function(packet, parent, length)
+-- Display: System Time Message
+miax_pearloptions_topofmarket_mach_v1_0.system_time_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Pearl System Time Message
-miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: System Time Message
+miax_pearloptions_topofmarket_mach_v1_0.system_time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: SecTime
@@ -2649,21 +2649,21 @@ miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.fields = funct
   return index
 end
 
--- Dissect: Pearl System Time Message
-miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: System Time Message
+miax_pearloptions_topofmarket_mach_v1_0.system_time_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pearl_system_time_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.system_time_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0.system_time_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.display(packet, parent, length)
+    local display = miax_pearloptions_topofmarket_mach_v1_0.system_time_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0.system_time_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2672,9 +2672,9 @@ miax_pearloptions_topofmarket_mach_v1_0.data = {}
 
 -- Dissect: Data
 miax_pearloptions_topofmarket_mach_v1_0.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Pearl System Time Message
+  -- Dissect System Time Message
   if message_type == "1" then
-    return miax_pearloptions_topofmarket_mach_v1_0.pearl_system_time_message.dissect(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0.system_time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Series Update Message
   if message_type == "P" then
@@ -2786,6 +2786,18 @@ miax_pearloptions_topofmarket_mach_v1_0.payload.dissect = function(buffer, offse
   if packet_type == 3 then
     return miax_pearloptions_topofmarket_mach_v1_0.application_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return offset
+  end
 
   return offset
 end
@@ -2834,7 +2846,7 @@ miax_pearloptions_topofmarket_mach_v1_0.mach_message.fields = function(buffer, o
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearloptions_topofmarket_mach_v1_0.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_pearloptions_topofmarket_mach_v1_0.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
