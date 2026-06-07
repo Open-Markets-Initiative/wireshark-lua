@@ -4082,10 +4082,10 @@ miax_pearloptions_topofmarket_mach_v1_2.pearl_system_time_message.dissect = func
   end
 end
 
--- data
+-- Data
 miax_pearloptions_topofmarket_mach_v1_2.data = {}
 
--- Dissect: data
+-- Dissect: Data
 miax_pearloptions_topofmarket_mach_v1_2.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Pearl System Time Message
   if message_type == "1" then
@@ -4170,7 +4170,7 @@ miax_pearloptions_topofmarket_mach_v1_2.application_message.fields = function(bu
   -- Message Type: 1 Byte Ascii String Enum with 19 values
   index, message_type = miax_pearloptions_topofmarket_mach_v1_2.message_type.dissect(buffer, index, packet, parent)
 
-  -- data: Runtime Type with 16 branches
+  -- Data: Runtime Type with 16 branches
   index = miax_pearloptions_topofmarket_mach_v1_2.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -4294,11 +4294,11 @@ miax_pearloptions_topofmarket_mach_v1_2.refresh_request_message.dissect = functi
   end
 end
 
--- unsequencedmessage
-miax_pearloptions_topofmarket_mach_v1_2.unsequencedmessage = {}
+-- Unsequenced Message
+miax_pearloptions_topofmarket_mach_v1_2.unsequenced_message = {}
 
--- Dissect: unsequencedmessage
-miax_pearloptions_topofmarket_mach_v1_2.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+miax_pearloptions_topofmarket_mach_v1_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Refresh Request Message
   if unsequenced_message_type == "R" then
     return miax_pearloptions_topofmarket_mach_v1_2.refresh_request_message.dissect(buffer, offset, packet, parent)
@@ -4340,8 +4340,8 @@ miax_pearloptions_topofmarket_mach_v1_2.unsequenced_data_packet.fields = functio
   -- Unsequenced Message Type: 1 Byte Ascii String
   index, unsequenced_message_type = miax_pearloptions_topofmarket_mach_v1_2.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- unsequencedmessage: Runtime Type with 3 branches
-  index = miax_pearloptions_topofmarket_mach_v1_2.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- Unsequenced Message: Runtime Type with 3 branches
+  index = miax_pearloptions_topofmarket_mach_v1_2.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -4399,8 +4399,8 @@ miax_pearloptions_topofmarket_mach_v1_2.sequenced_data_packet.fields = function(
   -- Sequenced Message Type: 1 Byte Ascii String
   index, sequenced_message_type = miax_pearloptions_topofmarket_mach_v1_2.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- sequencedmessage
-  index, sequencedmessage = miax_pearloptions_topofmarket_mach_v1_2.sequencedmessage.dissect(buffer, index, packet, parent)
+  -- Sequenced Message
+  index, sequenced_message = miax_pearloptions_topofmarket_mach_v1_2.sequenced_message.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4427,11 +4427,11 @@ miax_pearloptions_topofmarket_mach_v1_2.sequenced_data_packet.dissect = function
   end
 end
 
--- sesmpayload
-miax_pearloptions_topofmarket_mach_v1_2.sesmpayload = {}
+-- Sesm Payload
+miax_pearloptions_topofmarket_mach_v1_2.sesm_payload = {}
 
--- Dissect: sesmpayload
-miax_pearloptions_topofmarket_mach_v1_2.sesmpayload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
+-- Dissect: Sesm Payload
+miax_pearloptions_topofmarket_mach_v1_2.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   -- Dissect Sequenced Data Packet
   if sesm_packet_type == "s" then
     return miax_pearloptions_topofmarket_mach_v1_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -4546,8 +4546,8 @@ miax_pearloptions_topofmarket_mach_v1_2.sesm_tcp_packet.fields = function(buffer
   -- Dependency element: Sesm Packet Type
   local sesm_packet_type = buffer(index - 1, 1):string()
 
-  -- sesmpayload: Runtime Type with 12 branches
-  index = miax_pearloptions_topofmarket_mach_v1_2.sesmpayload.dissect(buffer, index, packet, parent, sesm_packet_type)
+  -- Sesm Payload: Runtime Type with 12 branches
+  index = miax_pearloptions_topofmarket_mach_v1_2.sesm_payload.dissect(buffer, index, packet, parent, sesm_packet_type)
 
   return index
 end
@@ -4637,10 +4637,10 @@ miax_pearloptions_topofmarket_mach_v1_2.tcp_packet.dissect = function(buffer, pa
   return index
 end
 
--- payload
+-- Payload
 miax_pearloptions_topofmarket_mach_v1_2.payload = {}
 
--- Dissect: payload
+-- Dissect: Payload
 miax_pearloptions_topofmarket_mach_v1_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -4665,7 +4665,7 @@ miax_pearloptions_topofmarket_mach_v1_2.mach_message.size = function(buffer, off
 
   index = index + miax_pearloptions_topofmarket_mach_v1_2.session_number.size
 
-  -- Calculate runtime size of payload field
+  -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):le_uint()
   index = index + miax_pearloptions_topofmarket_mach_v1_2.payload.size(buffer, payload_offset, payload_type)
@@ -4694,7 +4694,7 @@ miax_pearloptions_topofmarket_mach_v1_2.mach_message.fields = function(buffer, o
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearloptions_topofmarket_mach_v1_2.session_number.dissect(buffer, index, packet, parent)
 
-  -- payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 1 branches
   index = miax_pearloptions_topofmarket_mach_v1_2.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

@@ -2136,10 +2136,10 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.di
   end
 end
 
--- data
+-- Data
 miax_onyxfutures_topofmarket_mach_v1_0_b.data = {}
 
--- Dissect: data
+-- Dissect: Data
 miax_onyxfutures_topofmarket_mach_v1_0_b.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Simple Instrument Definition Message
   if message_type == 1 then
@@ -2198,7 +2198,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.fields = function(b
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, message_type = miax_onyxfutures_topofmarket_mach_v1_0_b.message_type.dissect(buffer, index, packet, parent)
 
-  -- data: Runtime Type with 7 branches
+  -- Data: Runtime Type with 7 branches
   index = miax_onyxfutures_topofmarket_mach_v1_0_b.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -2226,10 +2226,10 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.dissect = function(
   end
 end
 
--- payload
+-- Payload
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload = {}
 
--- Dissect: payload
+-- Dissect: Payload
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -2254,7 +2254,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mach_message.size = function(buffer, of
 
   index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.session_number.size
 
-  -- Calculate runtime size of payload field
+  -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):uint()
   index = index + miax_onyxfutures_topofmarket_mach_v1_0_b.payload.size(buffer, payload_offset, payload_type)
@@ -2283,7 +2283,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mach_message.fields = function(buffer, 
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_onyxfutures_topofmarket_mach_v1_0_b.session_number.dissect(buffer, index, packet, parent)
 
-  -- payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 1 branches
   index = miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

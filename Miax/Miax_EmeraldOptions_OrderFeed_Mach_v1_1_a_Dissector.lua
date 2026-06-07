@@ -3483,10 +3483,10 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.emerald_system_time_message.dissect = 
   end
 end
 
--- data
+-- Data
 miax_emeraldoptions_orderfeed_mach_v1_1_a.data = {}
 
--- Dissect: data
+-- Dissect: Data
 miax_emeraldoptions_orderfeed_mach_v1_1_a.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Emerald System Time Message
   if message_type == "1" then
@@ -3539,7 +3539,7 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.application_message.fields = function(
   -- Message Type: 1 Byte Ascii String Enum with 11 values
   index, message_type = miax_emeraldoptions_orderfeed_mach_v1_1_a.message_type.dissect(buffer, index, packet, parent)
 
-  -- data: Runtime Type with 8 branches
+  -- Data: Runtime Type with 8 branches
   index = miax_emeraldoptions_orderfeed_mach_v1_1_a.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -3663,11 +3663,11 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.refresh_request_message.dissect = func
   end
 end
 
--- unsequencedmessage
-miax_emeraldoptions_orderfeed_mach_v1_1_a.unsequencedmessage = {}
+-- Unsequenced Message
+miax_emeraldoptions_orderfeed_mach_v1_1_a.unsequenced_message = {}
 
--- Dissect: unsequencedmessage
-miax_emeraldoptions_orderfeed_mach_v1_1_a.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+miax_emeraldoptions_orderfeed_mach_v1_1_a.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Refresh Request Message
   if unsequenced_message_type == "R" then
     return miax_emeraldoptions_orderfeed_mach_v1_1_a.refresh_request_message.dissect(buffer, offset, packet, parent)
@@ -3709,8 +3709,8 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.unsequenced_data_packet.fields = funct
   -- Unsequenced Message Type: 1 Byte Ascii String
   index, unsequenced_message_type = miax_emeraldoptions_orderfeed_mach_v1_1_a.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- unsequencedmessage: Runtime Type with 3 branches
-  index = miax_emeraldoptions_orderfeed_mach_v1_1_a.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- Unsequenced Message: Runtime Type with 3 branches
+  index = miax_emeraldoptions_orderfeed_mach_v1_1_a.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -3768,8 +3768,8 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.sequenced_data_packet.fields = functio
   -- Sequenced Message Type: 1 Byte Ascii String
   index, sequenced_message_type = miax_emeraldoptions_orderfeed_mach_v1_1_a.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- sequencedmessage
-  index, sequencedmessage = miax_emeraldoptions_orderfeed_mach_v1_1_a.sequencedmessage.dissect(buffer, index, packet, parent)
+  -- Sequenced Message
+  index, sequenced_message = miax_emeraldoptions_orderfeed_mach_v1_1_a.sequenced_message.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3796,11 +3796,11 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.sequenced_data_packet.dissect = functi
   end
 end
 
--- sesmpayload
-miax_emeraldoptions_orderfeed_mach_v1_1_a.sesmpayload = {}
+-- Sesm Payload
+miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_payload = {}
 
--- Dissect: sesmpayload
-miax_emeraldoptions_orderfeed_mach_v1_1_a.sesmpayload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
+-- Dissect: Sesm Payload
+miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   -- Dissect Sequenced Data Packet
   if sesm_packet_type == "s" then
     return miax_emeraldoptions_orderfeed_mach_v1_1_a.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -3915,8 +3915,8 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_tcp_packet.fields = function(buff
   -- Dependency element: Sesm Packet Type
   local sesm_packet_type = buffer(index - 1, 1):string()
 
-  -- sesmpayload: Runtime Type with 12 branches
-  index = miax_emeraldoptions_orderfeed_mach_v1_1_a.sesmpayload.dissect(buffer, index, packet, parent, sesm_packet_type)
+  -- Sesm Payload: Runtime Type with 12 branches
+  index = miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_payload.dissect(buffer, index, packet, parent, sesm_packet_type)
 
   return index
 end
@@ -4006,10 +4006,10 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.tcp_packet.dissect = function(buffer, 
   return index
 end
 
--- payload
+-- Payload
 miax_emeraldoptions_orderfeed_mach_v1_1_a.payload = {}
 
--- Dissect: payload
+-- Dissect: Payload
 miax_emeraldoptions_orderfeed_mach_v1_1_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -4034,7 +4034,7 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.mach_message.size = function(buffer, o
 
   index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.session_number.size
 
-  -- Calculate runtime size of payload field
+  -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):le_uint()
   index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.payload.size(buffer, payload_offset, payload_type)
@@ -4063,7 +4063,7 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.mach_message.fields = function(buffer,
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_emeraldoptions_orderfeed_mach_v1_1_a.session_number.dissect(buffer, index, packet, parent)
 
-  -- payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 1 branches
   index = miax_emeraldoptions_orderfeed_mach_v1_1_a.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

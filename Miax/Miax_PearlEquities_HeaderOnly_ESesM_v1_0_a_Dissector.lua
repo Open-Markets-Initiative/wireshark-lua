@@ -1229,11 +1229,11 @@ miax_pearlequities_headeronly_esesm_v1_0_a.sequenced_data_packet.dissect = funct
   end
 end
 
--- esesmpayload
-miax_pearlequities_headeronly_esesm_v1_0_a.esesmpayload = {}
+-- Esesm Payload
+miax_pearlequities_headeronly_esesm_v1_0_a.esesm_payload = {}
 
--- Dissect: esesmpayload
-miax_pearlequities_headeronly_esesm_v1_0_a.esesmpayload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
+-- Dissect: Esesm Payload
+miax_pearlequities_headeronly_esesm_v1_0_a.esesm_payload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
   -- Dissect Sequenced Data Packet
   if esesm_packet_type == "s" then
     return miax_pearlequities_headeronly_esesm_v1_0_a.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -1348,8 +1348,8 @@ miax_pearlequities_headeronly_esesm_v1_0_a.esesm_tcp_packet.fields = function(bu
   -- Dependency element: Esesm Packet Type
   local esesm_packet_type = buffer(index - 1, 1):string()
 
-  -- esesmpayload: Runtime Type with 12 branches
-  index = miax_pearlequities_headeronly_esesm_v1_0_a.esesmpayload.dissect(buffer, index, packet, parent, esesm_packet_type)
+  -- Esesm Payload: Runtime Type with 12 branches
+  index = miax_pearlequities_headeronly_esesm_v1_0_a.esesm_payload.dissect(buffer, index, packet, parent, esesm_packet_type)
 
   return index
 end

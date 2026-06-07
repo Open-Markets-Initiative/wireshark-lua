@@ -273,10 +273,10 @@ miax_onyxfutures_headeronly_mach_v1_0.application_message.dissect = function(buf
   end
 end
 
--- payload
+-- Payload
 miax_onyxfutures_headeronly_mach_v1_0.payload = {}
 
--- Dissect: payload
+-- Dissect: Payload
 miax_onyxfutures_headeronly_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -301,7 +301,7 @@ miax_onyxfutures_headeronly_mach_v1_0.mach_message.size = function(buffer, offse
 
   index = index + miax_onyxfutures_headeronly_mach_v1_0.session_number.size
 
-  -- Calculate runtime size of payload field
+  -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):uint()
   index = index + miax_onyxfutures_headeronly_mach_v1_0.payload.size(buffer, payload_offset, payload_type)
@@ -330,7 +330,7 @@ miax_onyxfutures_headeronly_mach_v1_0.mach_message.fields = function(buffer, off
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_onyxfutures_headeronly_mach_v1_0.session_number.dissect(buffer, index, packet, parent)
 
-  -- payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 1 branches
   index = miax_onyxfutures_headeronly_mach_v1_0.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

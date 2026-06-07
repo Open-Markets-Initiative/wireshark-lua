@@ -2208,11 +2208,11 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.refresh_request_message.dissect = f
   end
 end
 
--- unsequencedmessage
-miax_pearlequities_depthofmarket_mach_v1_3_d.unsequencedmessage = {}
+-- Unsequenced Message
+miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_message = {}
 
--- Dissect: unsequencedmessage
-miax_pearlequities_depthofmarket_mach_v1_3_d.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Refresh Request Message
   if unsequenced_message_type == "R" then
     return miax_pearlequities_depthofmarket_mach_v1_3_d.refresh_request_message.dissect(buffer, offset, packet, parent)
@@ -2254,8 +2254,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet.fields = fu
   -- Unsequenced Message Type: 1 Byte Ascii String
   index, unsequenced_message_type = miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- unsequencedmessage: Runtime Type with 3 branches
-  index = miax_pearlequities_depthofmarket_mach_v1_3_d.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- Unsequenced Message: Runtime Type with 3 branches
+  index = miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -2313,8 +2313,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.fields = func
   -- Sequenced Message Type: 1 Byte Unsigned Fixed Width Integer
   index, sequenced_message_type = miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- sequencedmessage
-  index, sequencedmessage = miax_pearlequities_depthofmarket_mach_v1_3_d.sequencedmessage.dissect(buffer, index, packet, parent)
+  -- Sequenced Message
+  index, sequenced_message = miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_message.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2341,11 +2341,11 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.dissect = fun
   end
 end
 
--- esesmpayload
-miax_pearlequities_depthofmarket_mach_v1_3_d.esesmpayload = {}
+-- Esesm Payload
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_payload = {}
 
--- Dissect: esesmpayload
-miax_pearlequities_depthofmarket_mach_v1_3_d.esesmpayload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
+-- Dissect: Esesm Payload
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_payload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
   -- Dissect Sequenced Data Packet
   if esesm_packet_type == "s" then
     return miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -2460,8 +2460,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields = function(
   -- Dependency element: Esesm Packet Type
   local esesm_packet_type = buffer(index - 1, 1):string()
 
-  -- esesmpayload: Runtime Type with 12 branches
-  index = miax_pearlequities_depthofmarket_mach_v1_3_d.esesmpayload.dissect(buffer, index, packet, parent, esesm_packet_type)
+  -- Esesm Payload: Runtime Type with 12 branches
+  index = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_payload.dissect(buffer, index, packet, parent, esesm_packet_type)
 
   return index
 end
@@ -3321,10 +3321,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.system_time_message.dissect = funct
   end
 end
 
--- data
+-- Data
 miax_pearlequities_depthofmarket_mach_v1_3_d.data = {}
 
--- Dissect: data
+-- Dissect: Data
 miax_pearlequities_depthofmarket_mach_v1_3_d.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == 49 then
@@ -3399,7 +3399,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.fields = functi
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, message_type = miax_pearlequities_depthofmarket_mach_v1_3_d.message_type.dissect(buffer, index, packet, parent)
 
-  -- data: Runtime Type with 11 branches
+  -- Data: Runtime Type with 11 branches
   index = miax_pearlequities_depthofmarket_mach_v1_3_d.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -3427,10 +3427,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.dissect = funct
   end
 end
 
--- payload
+-- Payload
 miax_pearlequities_depthofmarket_mach_v1_3_d.payload = {}
 
--- Dissect: payload
+-- Dissect: Payload
 miax_pearlequities_depthofmarket_mach_v1_3_d.payload.dissect = function(buffer, offset, packet, parent, mach_packet_type)
   -- Dissect Heartbeat
   if mach_packet_type == 0 then
@@ -3467,7 +3467,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.size = function(buffer
 
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.session_number.size
 
-  -- Calculate runtime size of payload field
+  -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):le_uint()
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.payload.size(buffer, payload_offset, payload_type)
@@ -3496,7 +3496,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields = function(buff
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearlequities_depthofmarket_mach_v1_3_d.session_number.dissect(buffer, index, packet, parent)
 
-  -- payload: Runtime Type with 4 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_pearlequities_depthofmarket_mach_v1_3_d.payload.dissect(buffer, index, packet, parent, mach_packet_type)
 
   return index

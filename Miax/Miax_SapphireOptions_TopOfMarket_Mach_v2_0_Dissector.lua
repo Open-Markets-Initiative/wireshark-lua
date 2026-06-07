@@ -4082,10 +4082,10 @@ miax_sapphireoptions_topofmarket_mach_v2_0.sapphire_system_time_message.dissect 
   end
 end
 
--- data
+-- Data
 miax_sapphireoptions_topofmarket_mach_v2_0.data = {}
 
--- Dissect: data
+-- Dissect: Data
 miax_sapphireoptions_topofmarket_mach_v2_0.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sapphire System Time Message
   if message_type == "1" then
@@ -4170,7 +4170,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.application_message.fields = function
   -- Message Type: 1 Byte Ascii String Enum with 19 values
   index, message_type = miax_sapphireoptions_topofmarket_mach_v2_0.message_type.dissect(buffer, index, packet, parent)
 
-  -- data: Runtime Type with 16 branches
+  -- Data: Runtime Type with 16 branches
   index = miax_sapphireoptions_topofmarket_mach_v2_0.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -4294,11 +4294,11 @@ miax_sapphireoptions_topofmarket_mach_v2_0.refresh_request_message.dissect = fun
   end
 end
 
--- unsequencedmessage
-miax_sapphireoptions_topofmarket_mach_v2_0.unsequencedmessage = {}
+-- Unsequenced Message
+miax_sapphireoptions_topofmarket_mach_v2_0.unsequenced_message = {}
 
--- Dissect: unsequencedmessage
-miax_sapphireoptions_topofmarket_mach_v2_0.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+miax_sapphireoptions_topofmarket_mach_v2_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Refresh Request Message
   if unsequenced_message_type == "R" then
     return miax_sapphireoptions_topofmarket_mach_v2_0.refresh_request_message.dissect(buffer, offset, packet, parent)
@@ -4340,8 +4340,8 @@ miax_sapphireoptions_topofmarket_mach_v2_0.unsequenced_data_packet.fields = func
   -- Unsequenced Message Type: 1 Byte Ascii String
   index, unsequenced_message_type = miax_sapphireoptions_topofmarket_mach_v2_0.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- unsequencedmessage: Runtime Type with 3 branches
-  index = miax_sapphireoptions_topofmarket_mach_v2_0.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- Unsequenced Message: Runtime Type with 3 branches
+  index = miax_sapphireoptions_topofmarket_mach_v2_0.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -4399,8 +4399,8 @@ miax_sapphireoptions_topofmarket_mach_v2_0.sequenced_data_packet.fields = functi
   -- Sequenced Message Type: 1 Byte Ascii String
   index, sequenced_message_type = miax_sapphireoptions_topofmarket_mach_v2_0.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- sequencedmessage
-  index, sequencedmessage = miax_sapphireoptions_topofmarket_mach_v2_0.sequencedmessage.dissect(buffer, index, packet, parent)
+  -- Sequenced Message
+  index, sequenced_message = miax_sapphireoptions_topofmarket_mach_v2_0.sequenced_message.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4427,11 +4427,11 @@ miax_sapphireoptions_topofmarket_mach_v2_0.sequenced_data_packet.dissect = funct
   end
 end
 
--- sesmpayload
-miax_sapphireoptions_topofmarket_mach_v2_0.sesmpayload = {}
+-- Sesm Payload
+miax_sapphireoptions_topofmarket_mach_v2_0.sesm_payload = {}
 
--- Dissect: sesmpayload
-miax_sapphireoptions_topofmarket_mach_v2_0.sesmpayload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
+-- Dissect: Sesm Payload
+miax_sapphireoptions_topofmarket_mach_v2_0.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   -- Dissect Sequenced Data Packet
   if sesm_packet_type == "s" then
     return miax_sapphireoptions_topofmarket_mach_v2_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -4546,8 +4546,8 @@ miax_sapphireoptions_topofmarket_mach_v2_0.sesm_tcp_packet.fields = function(buf
   -- Dependency element: Sesm Packet Type
   local sesm_packet_type = buffer(index - 1, 1):string()
 
-  -- sesmpayload: Runtime Type with 12 branches
-  index = miax_sapphireoptions_topofmarket_mach_v2_0.sesmpayload.dissect(buffer, index, packet, parent, sesm_packet_type)
+  -- Sesm Payload: Runtime Type with 12 branches
+  index = miax_sapphireoptions_topofmarket_mach_v2_0.sesm_payload.dissect(buffer, index, packet, parent, sesm_packet_type)
 
   return index
 end
@@ -4637,10 +4637,10 @@ miax_sapphireoptions_topofmarket_mach_v2_0.tcp_packet.dissect = function(buffer,
   return index
 end
 
--- payload
+-- Payload
 miax_sapphireoptions_topofmarket_mach_v2_0.payload = {}
 
--- Dissect: payload
+-- Dissect: Payload
 miax_sapphireoptions_topofmarket_mach_v2_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -4665,7 +4665,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.mach_message.size = function(buffer, 
 
   index = index + miax_sapphireoptions_topofmarket_mach_v2_0.session_number.size
 
-  -- Calculate runtime size of payload field
+  -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):le_uint()
   index = index + miax_sapphireoptions_topofmarket_mach_v2_0.payload.size(buffer, payload_offset, payload_type)
@@ -4694,7 +4694,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.mach_message.fields = function(buffer
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_sapphireoptions_topofmarket_mach_v2_0.session_number.dissect(buffer, index, packet, parent)
 
-  -- payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 1 branches
   index = miax_sapphireoptions_topofmarket_mach_v2_0.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

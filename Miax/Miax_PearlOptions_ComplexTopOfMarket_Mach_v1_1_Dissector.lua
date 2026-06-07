@@ -2966,10 +2966,10 @@ miax_pearloptions_complextopofmarket_mach_v1_1.system_time_message.dissect = fun
   end
 end
 
--- data
+-- Data
 miax_pearloptions_complextopofmarket_mach_v1_1.data = {}
 
--- Dissect: data
+-- Dissect: Data
 miax_pearloptions_complextopofmarket_mach_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == "1" then
@@ -3048,7 +3048,7 @@ miax_pearloptions_complextopofmarket_mach_v1_1.application_message.fields = func
   -- Message Type: 1 Byte Ascii String Enum with 12 values
   index, message_type = miax_pearloptions_complextopofmarket_mach_v1_1.message_type.dissect(buffer, index, packet, parent)
 
-  -- data: Runtime Type with 12 branches
+  -- Data: Runtime Type with 12 branches
   index = miax_pearloptions_complextopofmarket_mach_v1_1.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -3076,10 +3076,10 @@ miax_pearloptions_complextopofmarket_mach_v1_1.application_message.dissect = fun
   end
 end
 
--- payload
+-- Payload
 miax_pearloptions_complextopofmarket_mach_v1_1.payload = {}
 
--- Dissect: payload
+-- Dissect: Payload
 miax_pearloptions_complextopofmarket_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -3104,7 +3104,7 @@ miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.size = function(buff
 
   index = index + miax_pearloptions_complextopofmarket_mach_v1_1.session_number.size
 
-  -- Calculate runtime size of payload field
+  -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):le_uint()
   index = index + miax_pearloptions_complextopofmarket_mach_v1_1.payload.size(buffer, payload_offset, payload_type)
@@ -3133,7 +3133,7 @@ miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.fields = function(bu
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearloptions_complextopofmarket_mach_v1_1.session_number.dissect(buffer, index, packet, parent)
 
-  -- payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 1 branches
   index = miax_pearloptions_complextopofmarket_mach_v1_1.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

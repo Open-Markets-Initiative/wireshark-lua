@@ -4981,11 +4981,11 @@ miax_pearlequities_expressorders_meo_v2_6.new_order_request_message.dissect = fu
   end
 end
 
--- unsequencedmessage
-miax_pearlequities_expressorders_meo_v2_6.unsequencedmessage = {}
+-- Unsequenced Message
+miax_pearlequities_expressorders_meo_v2_6.unsequenced_message = {}
 
--- Dissect: unsequencedmessage
-miax_pearlequities_expressorders_meo_v2_6.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect New Order Request Message
   if unsequenced_message_type == "N1" then
     return miax_pearlequities_expressorders_meo_v2_6.new_order_request_message.dissect(buffer, offset, packet, parent)
@@ -5063,8 +5063,8 @@ miax_pearlequities_expressorders_meo_v2_6.unsequenced_data_packet.fields = funct
   -- Unsequenced Message Type: 2 Byte Ascii String Enum with 12 values
   index, unsequenced_message_type = miax_pearlequities_expressorders_meo_v2_6.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- unsequencedmessage: Runtime Type with 12 branches
-  index = miax_pearlequities_expressorders_meo_v2_6.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- Unsequenced Message: Runtime Type with 12 branches
+  index = miax_pearlequities_expressorders_meo_v2_6.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -5611,11 +5611,11 @@ miax_pearlequities_expressorders_meo_v2_6.symbol_update.dissect = function(buffe
   end
 end
 
--- sequencedmessage
-miax_pearlequities_expressorders_meo_v2_6.sequencedmessage = {}
+-- Sequenced Message
+miax_pearlequities_expressorders_meo_v2_6.sequenced_message = {}
 
--- Dissect: sequencedmessage
-miax_pearlequities_expressorders_meo_v2_6.sequencedmessage.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+miax_pearlequities_expressorders_meo_v2_6.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Symbol Update
   if sequenced_message_type == "SU" then
     return miax_pearlequities_expressorders_meo_v2_6.symbol_update.dissect(buffer, offset, packet, parent)
@@ -5699,8 +5699,8 @@ miax_pearlequities_expressorders_meo_v2_6.sequenced_data_packet.fields = functio
   -- Sequenced Message Type: 2 Byte Ascii String Enum with 12 values
   index, sequenced_message_type = miax_pearlequities_expressorders_meo_v2_6.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- sequencedmessage: Runtime Type with 12 branches
-  index = miax_pearlequities_expressorders_meo_v2_6.sequencedmessage.dissect(buffer, index, packet, parent, sequenced_message_type)
+  -- Sequenced Message: Runtime Type with 12 branches
+  index = miax_pearlequities_expressorders_meo_v2_6.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
 
   return index
 end
@@ -5727,11 +5727,11 @@ miax_pearlequities_expressorders_meo_v2_6.sequenced_data_packet.dissect = functi
   end
 end
 
--- esesmpayload
-miax_pearlequities_expressorders_meo_v2_6.esesmpayload = {}
+-- Esesm Payload
+miax_pearlequities_expressorders_meo_v2_6.esesm_payload = {}
 
--- Dissect: esesmpayload
-miax_pearlequities_expressorders_meo_v2_6.esesmpayload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
+-- Dissect: Esesm Payload
+miax_pearlequities_expressorders_meo_v2_6.esesm_payload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
   -- Dissect Sequenced Data Packet
   if esesm_packet_type == "s" then
     return miax_pearlequities_expressorders_meo_v2_6.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -5846,8 +5846,8 @@ miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.fields = function(buf
   -- Dependency element: Esesm Packet Type
   local esesm_packet_type = buffer(index - 1, 1):string()
 
-  -- esesmpayload: Runtime Type with 12 branches
-  index = miax_pearlequities_expressorders_meo_v2_6.esesmpayload.dissect(buffer, index, packet, parent, esesm_packet_type)
+  -- Esesm Payload: Runtime Type with 12 branches
+  index = miax_pearlequities_expressorders_meo_v2_6.esesm_payload.dissect(buffer, index, packet, parent, esesm_packet_type)
 
   return index
 end

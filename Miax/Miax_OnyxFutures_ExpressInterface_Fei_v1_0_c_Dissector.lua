@@ -3531,11 +3531,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect =
   end
 end
 
--- unsequencedmessage
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequencedmessage = {}
+-- Unsequenced Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message = {}
 
--- Dissect: unsequencedmessage
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: Unsequenced Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect New Order Request Message
   if unsequenced_message_type == "N1" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect(buffer, offset, packet, parent)
@@ -3605,8 +3605,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.fields = fu
   -- Unsequenced Message Type: 2 Byte Ascii String Enum with 10 values
   index, unsequenced_message_type = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- unsequencedmessage: Runtime Type with 10 branches
-  index = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- Unsequenced Message: Runtime Type with 10 branches
+  index = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -4277,11 +4277,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.d
   end
 end
 
--- sequencedmessage
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequencedmessage = {}
+-- Sequenced Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message = {}
 
--- Dissect: sequencedmessage
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequencedmessage.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: Sequenced Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect New Order Response Message
   if sequenced_message_type == "NR" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect(buffer, offset, packet, parent)
@@ -4362,8 +4362,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.fields = func
   -- Sequenced Message Type: 2 Byte Ascii String Enum with 12 values
   index, sequenced_message_type = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- sequencedmessage: Runtime Type with 12 branches
-  index = miax_onyxfutures_expressinterface_fei_v1_0_c.sequencedmessage.dissect(buffer, index, packet, parent, sequenced_message_type)
+  -- Sequenced Message: Runtime Type with 12 branches
+  index = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
 
   return index
 end
@@ -4390,11 +4390,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect = fun
   end
 end
 
--- sesmpayload
-miax_onyxfutures_expressinterface_fei_v1_0_c.sesmpayload = {}
+-- Sesm Payload
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload = {}
 
--- Dissect: sesmpayload
-miax_onyxfutures_expressinterface_fei_v1_0_c.sesmpayload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
+-- Dissect: Sesm Payload
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   -- Dissect Sequenced Data Packet
   if sesm_packet_type == "S" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect(buffer, offset, packet, parent)
@@ -4505,8 +4505,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_tcp_packet.fields = function(b
   -- Dependency element: Sesm Packet Type
   local sesm_packet_type = buffer(index - 1, 1):string()
 
-  -- sesmpayload: Runtime Type with 11 branches
-  index = miax_onyxfutures_expressinterface_fei_v1_0_c.sesmpayload.dissect(buffer, index, packet, parent, sesm_packet_type)
+  -- Sesm Payload: Runtime Type with 11 branches
+  index = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dissect(buffer, index, packet, parent, sesm_packet_type)
 
   return index
 end
