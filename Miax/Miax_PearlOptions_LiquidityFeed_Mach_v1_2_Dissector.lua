@@ -37,8 +37,8 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.logout_reason = ProtoField.
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.logout_request = ProtoField.new("Logout Request", "miax.pearloptions.liquidityfeed.mach.v1.2.logoutrequest", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.logout_text = ProtoField.new("Logout Text", "miax.pearloptions.liquidityfeed.mach.v1.2.logouttext", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.long_term_option = ProtoField.new("Long Term Option", "miax.pearloptions.liquidityfeed.mach.v1.2.longtermoption", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.liquidityfeed.mach.v1.2.machmessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.pearloptions.liquidityfeed.mach.v1.2.matchingengineid", ftypes.UINT8)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.message = ProtoField.new("Message", "miax.pearloptions.liquidityfeed.mach.v1.2.message", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.message_type = ProtoField.new("Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.messagetype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearloptions.liquidityfeed.mach.v1.2.nanoseconds", ftypes.UINT32)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.pearloptions.liquidityfeed.mach.v1.2.numberofmatchingengines", ftypes.UINT8)
@@ -52,9 +52,8 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.order_price = ProtoField.ne
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.order_side = ProtoField.new("Order Side", "miax.pearloptions.liquidityfeed.mach.v1.2.orderside", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.order_type = ProtoField.new("Order Type", "miax.pearloptions.liquidityfeed.mach.v1.2.ordertype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.origin = ProtoField.new("Origin", "miax.pearloptions.liquidityfeed.mach.v1.2.origin", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.packet_header = ProtoField.new("Packet Header", "miax.pearloptions.liquidityfeed.mach.v1.2.packetheader", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.packet_length = ProtoField.new("Packet Length", "miax.pearloptions.liquidityfeed.mach.v1.2.packetlength", ftypes.UINT16)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.liquidityfeed.mach.v1.2.packettype", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.liquidityfeed.mach.v1.2.packettype", ftypes.UINT8)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.pearl_bbo_posting_increment_indicator = ProtoField.new("Pearl Bbo Posting Increment Indicator", "miax.pearloptions.liquidityfeed.mach.v1.2.pearlbbopostingincrementindicator", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.plf_version = ProtoField.new("Plf Version", "miax.pearloptions.liquidityfeed.mach.v1.2.plfversion", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.product_id = ProtoField.new("Product Id", "miax.pearloptions.liquidityfeed.mach.v1.2.productid", ftypes.UINT32)
@@ -71,6 +70,9 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.security_symbol = ProtoFiel
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearloptions.liquidityfeed.mach.v1.2.sequencenumber", ftypes.UINT64)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sequenceddatapacket", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.sequencedmessagetype", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpacketheader", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpacketlength", ftypes.UINT16)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpackettype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmtcppacket", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_version = ProtoField.new("Sesm Version", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmversion", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.session_id = ProtoField.new("Session Id", "miax.pearloptions.liquidityfeed.mach.v1.2.sessionid", ftypes.UINT32)
@@ -118,10 +120,10 @@ show.goodbye_packet = true
 show.login_request = true
 show.login_response = true
 show.logout_request = true
-show.message = true
-show.packet_header = true
+show.mach_message = true
 show.retransmission_request = true
 show.sequenced_data_packet = true
+show.sesm_packet_header = true
 show.sesm_tcp_packet = true
 show.synchronization_complete = true
 show.tcp_packet = true
@@ -136,10 +138,10 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_goodbye_packet = Pref.b
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sesm_packet_header = Pref.bool("Show Sesm Packet Header", show.sesm_packet_header, "Parse and add Sesm Packet Header to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sesm_tcp_packet = Pref.bool("Show Sesm Tcp Packet", show.sesm_tcp_packet, "Parse and add Sesm Tcp Packet to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_synchronization_complete = Pref.bool("Show Synchronization Complete", show.synchronization_complete, "Parse and add Synchronization Complete to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_tcp_packet = Pref.bool("Show Tcp Packet", show.tcp_packet, "Parse and add Tcp Packet to protocol tree")
@@ -170,17 +172,17 @@ function omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs_changed()
   if show.logout_request ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_logout_request then
     show.logout_request = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_logout_request
   end
-  if show.message ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_message then
-    show.message = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_message
-  end
-  if show.packet_header ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_packet_header then
-    show.packet_header = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_packet_header
+  if show.mach_message ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_mach_message then
+    show.mach_message = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_mach_message
   end
   if show.retransmission_request ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_retransmission_request then
     show.retransmission_request = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_retransmission_request
   end
   if show.sequenced_data_packet ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sequenced_data_packet then
     show.sequenced_data_packet = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sequenced_data_packet
+  end
+  if show.sesm_packet_header ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sesm_packet_header then
+    show.sesm_packet_header = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sesm_packet_header
   end
   if show.sesm_tcp_packet ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sesm_tcp_packet then
     show.sesm_tcp_packet = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_sesm_tcp_packet
@@ -1229,53 +1231,17 @@ miax_pearloptions_liquidityfeed_mach_v1_2.packet_type.size = 1
 
 -- Display: Packet Type
 miax_pearloptions_liquidityfeed_mach_v1_2.packet_type.display = function(value)
-  if value == "0" then
+  if value == 0 then
     return "Packet Type: Heartbeat (0)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Packet Type: Start Of Session (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Packet Type: End Of Session (2)"
   end
-  if value == "3" then
+  if value == 3 then
     return "Packet Type: Application Message (3)"
-  end
-  if value == "s" then
-    return "Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Packet Type: Test Packet (T)"
   end
 
   return "Packet Type: Unknown("..value..")"
@@ -1285,7 +1251,7 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.packet_type.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_liquidityfeed_mach_v1_2.packet_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:le_uint()
   local display = miax_pearloptions_liquidityfeed_mach_v1_2.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.packet_type, range, value, display)
@@ -1652,6 +1618,89 @@ miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_message_type.dissect = funct
   local display = miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sesm Packet Length
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_length = {}
+
+-- Size: Sesm Packet Length
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_length.size = 2
+
+-- Display: Sesm Packet Length
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_length.display = function(value)
+  return "Sesm Packet Length: "..value
+end
+
+-- Dissect: Sesm Packet Length
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sesm Packet Type
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_type = {}
+
+-- Size: Sesm Packet Type
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_type.size = 1
+
+-- Display: Sesm Packet Type
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_type.display = function(value)
+  if value == "s" then
+    return "Sesm Packet Type: Sequenced Data Packet (s)"
+  end
+  if value == "U" then
+    return "Sesm Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "l" then
+    return "Sesm Packet Type: Login Request (l)"
+  end
+  if value == "r" then
+    return "Sesm Packet Type: Login Response (r)"
+  end
+  if value == "c" then
+    return "Sesm Packet Type: Synchronization Complete (c)"
+  end
+  if value == "a" then
+    return "Sesm Packet Type: Retransmission Request (a)"
+  end
+  if value == "X" then
+    return "Sesm Packet Type: Logout Request (X)"
+  end
+  if value == "G" then
+    return "Sesm Packet Type: Goodbye Packet (G)"
+  end
+  if value == "u" then
+    return "Sesm Packet Type: Trading Session Update (u)"
+  end
+  if value == "0" then
+    return "Sesm Packet Type: Server Heartbeat (0)"
+  end
+  if value == "1" then
+    return "Sesm Packet Type: Client Heartbeat (1)"
+  end
+  if value == "T" then
+    return "Sesm Packet Type: Test Packet (T)"
+  end
+
+  return "Sesm Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Sesm Packet Type
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -2055,11 +2104,11 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.test_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Test Text
-  local size_of_test_text = packet_length - 1
+  local size_of_test_text = sesm_packet_length - 1
 
   -- Test Text: 0 Byte Ascii String
   index, test_text = miax_pearloptions_liquidityfeed_mach_v1_2.test_text.dissect(buffer, index, packet, parent, size_of_test_text)
@@ -2112,11 +2161,11 @@ miax_pearloptions_liquidityfeed_mach_v1_2.goodbye_packet.fields = function(buffe
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = miax_pearloptions_liquidityfeed_mach_v1_2.logout_reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Logout Text
-  local size_of_logout_text = packet_length - 2
+  local size_of_logout_text = sesm_packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
   index, logout_text = miax_pearloptions_liquidityfeed_mach_v1_2.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
@@ -2169,11 +2218,11 @@ miax_pearloptions_liquidityfeed_mach_v1_2.logout_request.fields = function(buffe
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = miax_pearloptions_liquidityfeed_mach_v1_2.logout_reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Logout Text
-  local size_of_logout_text = packet_length - 2
+  local size_of_logout_text = sesm_packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
   index, logout_text = miax_pearloptions_liquidityfeed_mach_v1_2.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
@@ -2830,10 +2879,10 @@ miax_pearloptions_liquidityfeed_mach_v1_2.pearl_system_time_message.dissect = fu
   end
 end
 
--- Data
+-- data
 miax_pearloptions_liquidityfeed_mach_v1_2.data = {}
 
--- Dissect: Data
+-- Dissect: data
 miax_pearloptions_liquidityfeed_mach_v1_2.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Pearl System Time Message
   if message_type == "1" then
@@ -2878,7 +2927,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.application_message.fields = function(
   -- Message Type: 1 Byte Ascii String Enum with 9 values
   index, message_type = miax_pearloptions_liquidityfeed_mach_v1_2.message_type.dissect(buffer, index, packet, parent)
 
-  -- Data: Runtime Type with 6 branches
+  -- data: Runtime Type with 6 branches
   index = miax_pearloptions_liquidityfeed_mach_v1_2.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -2932,11 +2981,11 @@ miax_pearloptions_liquidityfeed_mach_v1_2.refresh_response_message.fields = func
   -- Sequence Number: BinaryU
   index, sequence_number = miax_pearloptions_liquidityfeed_mach_v1_2.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 4, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 4, 2):le_uint()
 
   -- Runtime Size Of: Application Message
-  local size_of_application_message = packet_length - 12
+  local size_of_application_message = sesm_packet_length - 12
 
   -- Application Message: Struct of 2 fields
   index, application_message = miax_pearloptions_liquidityfeed_mach_v1_2.application_message.dissect(buffer, index, packet, parent, size_of_application_message)
@@ -3002,11 +3051,11 @@ miax_pearloptions_liquidityfeed_mach_v1_2.refresh_request_message.dissect = func
   end
 end
 
--- Unsequenced Message
-miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_message = {}
+-- unsequencedmessage
+miax_pearloptions_liquidityfeed_mach_v1_2.unsequencedmessage = {}
 
--- Dissect: Unsequenced Message
-miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: unsequencedmessage
+miax_pearloptions_liquidityfeed_mach_v1_2.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Refresh Request Message
   if unsequenced_message_type == "R" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.refresh_request_message.dissect(buffer, offset, packet, parent)
@@ -3030,10 +3079,10 @@ miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_data_packet = {}
 miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 2
+  return sesm_packet_length - 2
 end
 
 -- Display: Unsequenced Data Packet
@@ -3048,8 +3097,8 @@ miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_data_packet.fields = funct
   -- Unsequenced Message Type: 1 Byte Ascii String
   index, unsequenced_message_type = miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Unsequenced Message: Runtime Type with 3 branches
-  index = miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- unsequencedmessage: Runtime Type with 3 branches
+  index = miax_pearloptions_liquidityfeed_mach_v1_2.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -3083,10 +3132,10 @@ miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_data_packet = {}
 miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 11
+  return sesm_packet_length - 11
 end
 
 -- Display: Sequenced Data Packet
@@ -3107,8 +3156,8 @@ miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_data_packet.fields = functio
   -- Sequenced Message Type: 1 Byte Ascii String
   index, sequenced_message_type = miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Sequenced Message
-  index, sequenced_message = miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_message.dissect(buffer, index, packet, parent)
+  -- sequencedmessage
+  index, sequencedmessage = miax_pearloptions_liquidityfeed_mach_v1_2.sequencedmessage.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3135,108 +3184,104 @@ miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_data_packet.dissect = functi
   end
 end
 
--- Payload
-miax_pearloptions_liquidityfeed_mach_v1_2.payload = {}
+-- sesmpayload
+miax_pearloptions_liquidityfeed_mach_v1_2.sesmpayload = {}
 
--- Dissect: Payload
-miax_pearloptions_liquidityfeed_mach_v1_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Application Message
-  if packet_type == "3" then
-    return miax_pearloptions_liquidityfeed_mach_v1_2.application_message.dissect(buffer, offset, packet, parent)
-  end
+-- Dissect: sesmpayload
+miax_pearloptions_liquidityfeed_mach_v1_2.sesmpayload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   -- Dissect Sequenced Data Packet
-  if packet_type == "s" then
+  if sesm_packet_type == "s" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
+  if sesm_packet_type == "U" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request
-  if packet_type == "l" then
+  if sesm_packet_type == "l" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.login_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Response
-  if packet_type == "r" then
+  if sesm_packet_type == "r" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.login_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Synchronization Complete
-  if packet_type == "c" then
+  if sesm_packet_type == "c" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.synchronization_complete.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request
-  if packet_type == "a" then
+  if sesm_packet_type == "a" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.retransmission_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request
-  if packet_type == "X" then
+  if sesm_packet_type == "X" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Goodbye Packet
-  if packet_type == "G" then
+  if sesm_packet_type == "G" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.goodbye_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Session Update
-  if packet_type == "u" then
+  if sesm_packet_type == "u" then
     return offset
   end
   -- Dissect Server Heartbeat
-  if packet_type == "0" then
+  if sesm_packet_type == "0" then
     return offset
   end
   -- Dissect Client Heartbeat
-  if packet_type == "1" then
+  if sesm_packet_type == "1" then
     return offset
   end
   -- Dissect Test Packet
-  if packet_type == "T" then
+  if sesm_packet_type == "T" then
     return miax_pearloptions_liquidityfeed_mach_v1_2.test_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Packet Header
-miax_pearloptions_liquidityfeed_mach_v1_2.packet_header = {}
+-- Sesm Packet Header
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header = {}
 
--- Size: Packet Header
-miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.size =
-  miax_pearloptions_liquidityfeed_mach_v1_2.packet_length.size + 
-  miax_pearloptions_liquidityfeed_mach_v1_2.packet_type.size
+-- Size: Sesm Packet Header
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.size =
+  miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_length.size + 
+  miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_type.size
 
--- Display: Packet Header
-miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.display = function(packet, parent, length)
+-- Display: Sesm Packet Header
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sesm Packet Header
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = miax_pearloptions_liquidityfeed_mach_v1_2.packet_length.dissect(buffer, index, packet, parent)
+  -- Sesm Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, sesm_packet_length = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 16 values
-  index, packet_type = miax_pearloptions_liquidityfeed_mach_v1_2.packet_type.dissect(buffer, index, packet, parent)
+  -- Sesm Packet Type: 1 Byte Ascii String Enum with 12 values
+  index, sesm_packet_type = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+-- Dissect: Sesm Packet Header
+miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.sesm_packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.packet_header, buffer(offset, 0))
-    local index = miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_header, buffer(offset, 0))
+    local index = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.display(packet, parent, length)
+    local display = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.fields(buffer, offset, packet, parent)
+    return miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3252,14 +3297,14 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.sesm_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
   local index = offset
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.dissect(buffer, index, packet, parent)
+  -- Sesm Packet Header: Struct of 2 fields
+  index, sesm_packet_header = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Sesm Packet Type
+  local sesm_packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 13 branches
-  index = miax_pearloptions_liquidityfeed_mach_v1_2.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- sesmpayload: Runtime Type with 12 branches
+  index = miax_pearloptions_liquidityfeed_mach_v1_2.sesmpayload.dissect(buffer, index, packet, parent, sesm_packet_type)
 
   return index
 end
@@ -3291,7 +3336,7 @@ local sesm_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.size then
+  if remaining < miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -3311,7 +3356,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.tcp_packet = {}
 
 -- Verify required size of Tcp packet
 miax_pearloptions_liquidityfeed_mach_v1_2.tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= miax_pearloptions_liquidityfeed_mach_v1_2.packet_header.size
+  return buffer:len() >= miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.size
 end
 
 -- Dissect Tcp Packet
@@ -3320,9 +3365,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.tcp_packet.dissect = function(buffer, 
   local data = miax_pearloptions_liquidityfeed_mach_v1_2.conversation.data(packet)
   if not packet.visited then
     data.seconds.frames[packet.number] = data.seconds.last
-    data.seconds.frames[packet.number] = data.seconds.last
   end
-  miax_pearloptions_liquidityfeed_mach_v1_2.seconds.current = data.seconds.frames[packet.number]
   miax_pearloptions_liquidityfeed_mach_v1_2.seconds.current = data.seconds.frames[packet.number]
   miax_pearloptions_liquidityfeed_mach_v1_2.conversation.current = data
 
@@ -3351,11 +3394,24 @@ miax_pearloptions_liquidityfeed_mach_v1_2.tcp_packet.dissect = function(buffer, 
   return index
 end
 
--- Message
-miax_pearloptions_liquidityfeed_mach_v1_2.message = {}
+-- payload
+miax_pearloptions_liquidityfeed_mach_v1_2.payload = {}
 
--- Calculate size of: Message
-miax_pearloptions_liquidityfeed_mach_v1_2.message.size = function(buffer, offset)
+-- Dissect: payload
+miax_pearloptions_liquidityfeed_mach_v1_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Application Message
+  if packet_type == 3 then
+    return miax_pearloptions_liquidityfeed_mach_v1_2.application_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Mach Message
+miax_pearloptions_liquidityfeed_mach_v1_2.mach_message = {}
+
+-- Calculate size of: Mach Message
+miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.size = function(buffer, offset)
   local index = 0
 
   index = index + miax_pearloptions_liquidityfeed_mach_v1_2.sequence_number.size
@@ -3366,21 +3422,21 @@ miax_pearloptions_liquidityfeed_mach_v1_2.message.size = function(buffer, offset
 
   index = index + miax_pearloptions_liquidityfeed_mach_v1_2.session_number.size
 
-  -- Calculate runtime size of Payload field
+  -- Calculate runtime size of payload field
   local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 2, 1):string()
+  local payload_type = buffer(payload_offset - 2, 1):le_uint()
   index = index + miax_pearloptions_liquidityfeed_mach_v1_2.payload.size(buffer, payload_offset, payload_type)
 
   return index
 end
 
--- Display: Message
-miax_pearloptions_liquidityfeed_mach_v1_2.message.display = function(packet, parent, length)
+-- Display: Mach Message
+miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-miax_pearloptions_liquidityfeed_mach_v1_2.message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mach Message
+miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: BinaryU
@@ -3389,33 +3445,33 @@ miax_pearloptions_liquidityfeed_mach_v1_2.message.fields = function(buffer, offs
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
   index, packet_length = miax_pearloptions_liquidityfeed_mach_v1_2.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 16 values
+  -- Packet Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, packet_type = miax_pearloptions_liquidityfeed_mach_v1_2.packet_type.dissect(buffer, index, packet, parent)
 
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearloptions_liquidityfeed_mach_v1_2.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 13 branches
+  -- payload: Runtime Type with 1 branches
   index = miax_pearloptions_liquidityfeed_mach_v1_2.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
--- Dissect: Message
-miax_pearloptions_liquidityfeed_mach_v1_2.message.dissect = function(buffer, offset, packet, parent)
-  if show.message then
+-- Dissect: Mach Message
+miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.dissect = function(buffer, offset, packet, parent)
+  if show.mach_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.message, buffer(offset, 0))
-    local index = miax_pearloptions_liquidityfeed_mach_v1_2.message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.mach_message, buffer(offset, 0))
+    local index = miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearloptions_liquidityfeed_mach_v1_2.message.display(packet, parent, length)
+    local display = miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_liquidityfeed_mach_v1_2.message.fields(buffer, offset, packet, parent)
+    return miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3433,22 +3489,20 @@ miax_pearloptions_liquidityfeed_mach_v1_2.udp_packet.dissect = function(buffer, 
   local data = miax_pearloptions_liquidityfeed_mach_v1_2.conversation.data(packet)
   if not packet.visited then
     data.seconds.frames[packet.number] = data.seconds.last
-    data.seconds.frames[packet.number] = data.seconds.last
   end
-  miax_pearloptions_liquidityfeed_mach_v1_2.seconds.current = data.seconds.frames[packet.number]
   miax_pearloptions_liquidityfeed_mach_v1_2.seconds.current = data.seconds.frames[packet.number]
   miax_pearloptions_liquidityfeed_mach_v1_2.conversation.current = data
 
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Mach Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 5 fields
+  -- Mach Message: Struct of 5 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = miax_pearloptions_liquidityfeed_mach_v1_2.message.dissect(buffer, index, packet, parent)
+    index, mach_message = miax_pearloptions_liquidityfeed_mach_v1_2.mach_message.dissect(buffer, index, packet, parent)
   end
 
   return index

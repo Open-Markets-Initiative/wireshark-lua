@@ -17,7 +17,7 @@ local miax_onyxfutures_headeronly_mach_v1_0 = {}
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Fields
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.application_message = ProtoField.new("Application Message", "miax.onyxfutures.headeronly.mach.v1.0.applicationmessage", ftypes.STRING)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.data = ProtoField.new("Data", "miax.onyxfutures.headeronly.mach.v1.0.data", ftypes.BYTES)
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.message = ProtoField.new("Message", "miax.onyxfutures.headeronly.mach.v1.0.message", ftypes.STRING)
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.headeronly.mach.v1.0.machmessage", ftypes.STRING)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.headeronly.mach.v1.0.messagetype", ftypes.UINT8)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.headeronly.mach.v1.0.packet", ftypes.STRING)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.headeronly.mach.v1.0.packetlength", ftypes.UINT16)
@@ -33,12 +33,12 @@ local show = {}
 
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Element Dissection Options
 show.application_message = true
-show.message = true
+show.mach_message = true
 show.packet = true
 
 -- Register Miax OnyxFutures HeaderOnly Mach 1.0 Show Options
 omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
 omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 
 
@@ -49,8 +49,8 @@ function omi_miax_onyxfutures_headeronly_mach_v1_0.prefs_changed()
   if show.application_message ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message then
     show.application_message = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message
   end
-  if show.message ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_message then
-    show.message = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_message
+  if show.mach_message ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_mach_message then
+    show.mach_message = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_mach_message
   end
   if show.packet ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_packet then
     show.packet = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_packet
@@ -273,10 +273,10 @@ miax_onyxfutures_headeronly_mach_v1_0.application_message.dissect = function(buf
   end
 end
 
--- Payload
+-- payload
 miax_onyxfutures_headeronly_mach_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dissect: payload
 miax_onyxfutures_headeronly_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -286,11 +286,11 @@ miax_onyxfutures_headeronly_mach_v1_0.payload.dissect = function(buffer, offset,
   return offset
 end
 
--- Message
-miax_onyxfutures_headeronly_mach_v1_0.message = {}
+-- Mach Message
+miax_onyxfutures_headeronly_mach_v1_0.mach_message = {}
 
--- Calculate size of: Message
-miax_onyxfutures_headeronly_mach_v1_0.message.size = function(buffer, offset)
+-- Calculate size of: Mach Message
+miax_onyxfutures_headeronly_mach_v1_0.mach_message.size = function(buffer, offset)
   local index = 0
 
   index = index + miax_onyxfutures_headeronly_mach_v1_0.sequence_number.size
@@ -301,7 +301,7 @@ miax_onyxfutures_headeronly_mach_v1_0.message.size = function(buffer, offset)
 
   index = index + miax_onyxfutures_headeronly_mach_v1_0.session_number.size
 
-  -- Calculate runtime size of Payload field
+  -- Calculate runtime size of payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):uint()
   index = index + miax_onyxfutures_headeronly_mach_v1_0.payload.size(buffer, payload_offset, payload_type)
@@ -309,13 +309,13 @@ miax_onyxfutures_headeronly_mach_v1_0.message.size = function(buffer, offset)
   return index
 end
 
--- Display: Message
-miax_onyxfutures_headeronly_mach_v1_0.message.display = function(packet, parent, length)
+-- Display: Mach Message
+miax_onyxfutures_headeronly_mach_v1_0.mach_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-miax_onyxfutures_headeronly_mach_v1_0.message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mach Message
+miax_onyxfutures_headeronly_mach_v1_0.mach_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
@@ -330,27 +330,27 @@ miax_onyxfutures_headeronly_mach_v1_0.message.fields = function(buffer, offset, 
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_onyxfutures_headeronly_mach_v1_0.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- payload: Runtime Type with 1 branches
   index = miax_onyxfutures_headeronly_mach_v1_0.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
--- Dissect: Message
-miax_onyxfutures_headeronly_mach_v1_0.message.dissect = function(buffer, offset, packet, parent)
-  if show.message then
+-- Dissect: Mach Message
+miax_onyxfutures_headeronly_mach_v1_0.mach_message.dissect = function(buffer, offset, packet, parent)
+  if show.mach_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_onyxfutures_headeronly_mach_v1_0.fields.message, buffer(offset, 0))
-    local index = miax_onyxfutures_headeronly_mach_v1_0.message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_onyxfutures_headeronly_mach_v1_0.fields.mach_message, buffer(offset, 0))
+    local index = miax_onyxfutures_headeronly_mach_v1_0.mach_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_headeronly_mach_v1_0.message.display(packet, parent, length)
+    local display = miax_onyxfutures_headeronly_mach_v1_0.mach_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_headeronly_mach_v1_0.message.fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_headeronly_mach_v1_0.mach_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -366,14 +366,14 @@ end
 miax_onyxfutures_headeronly_mach_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Mach Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 5 fields
+  -- Mach Message: Struct of 5 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = miax_onyxfutures_headeronly_mach_v1_0.message.dissect(buffer, index, packet, parent)
+    index, mach_message = miax_onyxfutures_headeronly_mach_v1_0.mach_message.dissect(buffer, index, packet, parent)
   end
 
   return index

@@ -30,11 +30,11 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg = ProtoFiel
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_type = ProtoField.new("Instrument Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumenttype", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.leg_ratio = ProtoField.new("Leg Ratio", "miax.onyxfutures.depthofmarket.mach.v1.0.b.legratio", ftypes.INT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.low_limit_price = ProtoField.new("Low Limit Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.lowlimitprice", ftypes.DOUBLE)
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.market_state = ProtoField.new("Market State", "miax.onyxfutures.depthofmarket.mach.v1.0.b.marketstate", ftypes.UINT8)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.match_algorithm = ProtoField.new("Match Algorithm", "miax.onyxfutures.depthofmarket.mach.v1.0.b.matchalgorithm", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "miax.onyxfutures.depthofmarket.mach.v1.0.b.maturitymonthyear", ftypes.UINT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maximum_size = ProtoField.new("Maximum Size", "miax.onyxfutures.depthofmarket.mach.v1.0.b.maximumsize", ftypes.UINT32)
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message = ProtoField.new("Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.message", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.messagetype", ftypes.UINT8)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.minimum_size = ProtoField.new("Minimum Size", "miax.onyxfutures.depthofmarket.mach.v1.0.b.minimumsize", ftypes.UINT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_flags = ProtoField.new("Modify Flags", "miax.onyxfutures.depthofmarket.mach.v1.0.b.modifyflags", ftypes.STRING)
@@ -106,7 +106,7 @@ local show = {}
 show.application_messages = true
 show.application_message = true
 show.instrument_leg = true
-show.message = true
+show.mach_message = true
 show.modify_flags = true
 show.packet = true
 show.instrument_leg_index = true
@@ -115,7 +115,7 @@ show.instrument_leg_index = true
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg_index = Pref.bool("Show Instrument Leg Index", show.instrument_leg_index, "Show generated instrument leg index in protocol tree")
@@ -134,8 +134,8 @@ function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()
   if show.instrument_leg ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg then
     show.instrument_leg = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg
   end
-  if show.message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message then
-    show.message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message
+  if show.mach_message ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_mach_message then
+    show.mach_message = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_mach_message
   end
   if show.modify_flags ~= omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags then
     show.modify_flags = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags
@@ -2731,10 +2731,10 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.
   end
 end
 
--- Data
+-- data
 miax_onyxfutures_depthofmarket_mach_v1_0_b.data = {}
 
--- Dissect: Data
+-- Dissect: data
 miax_onyxfutures_depthofmarket_mach_v1_0_b.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Simple Instrument Definition Message
   if message_type == 1 then
@@ -2821,7 +2821,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.fields = function
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, message_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.message_type.dissect(buffer, index, packet, parent)
 
-  -- Data: Runtime Type with 14 branches
+  -- data: Runtime Type with 14 branches
   index = miax_onyxfutures_depthofmarket_mach_v1_0_b.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -2849,10 +2849,10 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.dissect = functio
   end
 end
 
--- Payload
+-- payload
 miax_onyxfutures_depthofmarket_mach_v1_0_b.payload = {}
 
--- Dissect: Payload
+-- Dissect: payload
 miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -2862,11 +2862,11 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.dissect = function(buffer, of
   return offset
 end
 
--- Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b.message = {}
+-- Mach Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message = {}
 
--- Calculate size of: Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b.message.size = function(buffer, offset)
+-- Calculate size of: Mach Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.size = function(buffer, offset)
   local index = 0
 
   index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.size
@@ -2877,7 +2877,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.message.size = function(buffer, offse
 
   index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.size
 
-  -- Calculate runtime size of Payload field
+  -- Calculate runtime size of payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):uint()
   index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.size(buffer, payload_offset, payload_type)
@@ -2885,13 +2885,13 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.message.size = function(buffer, offse
   return index
 end
 
--- Display: Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b.message.display = function(packet, parent, length)
+-- Display: Mach Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b.message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mach Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
@@ -2906,27 +2906,27 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.message.fields = function(buffer, off
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- payload: Runtime Type with 1 branches
   index = miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
--- Dissect: Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b.message.dissect = function(buffer, offset, packet, parent)
-  if show.message then
+-- Dissect: Mach Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.dissect = function(buffer, offset, packet, parent)
+  if show.mach_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.mach_message, buffer(offset, 0))
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.message.display(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b.message.fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2942,14 +2942,14 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Mach Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 5 fields
+  -- Mach Message: Struct of 5 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = miax_onyxfutures_depthofmarket_mach_v1_0_b.message.dissect(buffer, index, packet, parent)
+    index, mach_message = miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.dissect(buffer, index, packet, parent)
   end
 
   return index

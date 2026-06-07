@@ -23,6 +23,9 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.computer_id = ProtoField
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.correctionnumber", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.do_m_version = ProtoField.new("Do M Version", "miax.pearlequities.depthofmarket.mach.v1.3.d.domversion", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.endsequencenumber", ftypes.UINT64)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketlength", ftypes.UINT16)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpackettype", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmversion", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.goodbyepacket", ftypes.STRING)
@@ -34,9 +37,11 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_reason = ProtoFie
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.logoutrequest", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.depthofmarket.mach.v1.3.d.logouttext", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.depthofmarket.mach.v1.3.d.lotsize", ftypes.UINT16)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.machmessage", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_packet_length = ProtoField.new("Mach Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.d.machpacketlength", ftypes.UINT16)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.machpackettype", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.depthofmarket.mach.v1.3.d.marketstate", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.matchingengineid", ftypes.UINT8)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.message = ProtoField.new("Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.message", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.messagetype", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "miax.pearlequities.depthofmarket.mach.v1.3.d.modifyorderflags", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearlequities.depthofmarket.mach.v1.3.d.nanoseconds", ftypes.UINT32)
@@ -46,9 +51,6 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.order_execution_flags = 
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.order_id = ProtoField.new("Order Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.orderid", ftypes.UINT64)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.order_position = ProtoField.new("Order Position", "miax.pearlequities.depthofmarket.mach.v1.3.d.orderposition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.order_side = ProtoField.new("Order Side", "miax.pearlequities.depthofmarket.mach.v1.3.d.orderside", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.packet_header = ProtoField.new("Packet Header", "miax.pearlequities.depthofmarket.mach.v1.3.d.packetheader", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.packet_length = ProtoField.new("Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.d.packetlength", ftypes.UINT16)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.packet_type = ProtoField.new("Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.packettype", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.price = ProtoField.new("Price", "miax.pearlequities.depthofmarket.mach.v1.3.d.price", ftypes.DOUBLE)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.depthofmarket.mach.v1.3.d.primarymarketcode", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.refreshmessagetype", ftypes.STRING)
@@ -115,15 +117,15 @@ local show = {}
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Element Dissection Options
 show.application_messages = true
 show.application_message = true
+show.esesm_packet_header = true
 show.esesm_tcp_packet = true
 show.goodbye_packet = true
 show.login_request = true
 show.login_response = true
 show.logout_request = true
-show.message = true
+show.mach_message = true
 show.modify_order_flags = true
 show.order_execution_flags = true
-show.packet_header = true
 show.retransmission_request = true
 show.sequenced_data_packet = true
 show.synchronization_complete = true
@@ -136,15 +138,15 @@ show.unsequenced_data_packet = true
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.d Show Options
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_packet_header = Pref.bool("Show Esesm Packet Header", show.esesm_packet_header, "Parse and add Esesm Packet Header to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_tcp_packet = Pref.bool("Show Esesm Tcp Packet", show.esesm_tcp_packet, "Parse and add Esesm Tcp Packet to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_modify_order_flags = Pref.bool("Show Modify Order Flags", show.modify_order_flags, "Parse and add Modify Order Flags to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_order_execution_flags = Pref.bool("Show Order Execution Flags", show.order_execution_flags, "Parse and add Order Execution Flags to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_synchronization_complete = Pref.bool("Show Synchronization Complete", show.synchronization_complete, "Parse and add Synchronization Complete to protocol tree")
@@ -165,6 +167,9 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()
   if show.application_messages ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages then
     show.application_messages = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages
   end
+  if show.esesm_packet_header ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_packet_header then
+    show.esesm_packet_header = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_packet_header
+  end
   if show.esesm_tcp_packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_tcp_packet then
     show.esesm_tcp_packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_tcp_packet
   end
@@ -180,17 +185,14 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()
   if show.logout_request ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_logout_request then
     show.logout_request = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_logout_request
   end
-  if show.message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_message then
-    show.message = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_message
+  if show.mach_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_mach_message then
+    show.mach_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_mach_message
   end
   if show.modify_order_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_modify_order_flags then
     show.modify_order_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_modify_order_flags
   end
   if show.order_execution_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_order_execution_flags then
     show.order_execution_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_order_execution_flags
-  end
-  if show.packet_header ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_packet_header then
-    show.packet_header = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_packet_header
   end
   if show.retransmission_request ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_retransmission_request then
     show.retransmission_request = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_retransmission_request
@@ -432,6 +434,89 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.end_sequence_number.dissect = funct
   return offset + length, value
 end
 
+-- Esesm Packet Length
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_length = {}
+
+-- Size: Esesm Packet Length
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_length.size = 2
+
+-- Display: Esesm Packet Length
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_length.display = function(value)
+  return "Esesm Packet Length: "..value
+end
+
+-- Dissect: Esesm Packet Length
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Esesm Packet Type
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_type = {}
+
+-- Size: Esesm Packet Type
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_type.size = 1
+
+-- Display: Esesm Packet Type
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_type.display = function(value)
+  if value == "s" then
+    return "Esesm Packet Type: Sequenced Data Packet (s)"
+  end
+  if value == "U" then
+    return "Esesm Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "l" then
+    return "Esesm Packet Type: Login Request (l)"
+  end
+  if value == "r" then
+    return "Esesm Packet Type: Login Response (r)"
+  end
+  if value == "c" then
+    return "Esesm Packet Type: Synchronization Complete (c)"
+  end
+  if value == "a" then
+    return "Esesm Packet Type: Retransmission Request (a)"
+  end
+  if value == "X" then
+    return "Esesm Packet Type: Logout Request (X)"
+  end
+  if value == "G" then
+    return "Esesm Packet Type: Goodbye Packet (G)"
+  end
+  if value == "u" then
+    return "Esesm Packet Type: Trading Session Update (u)"
+  end
+  if value == "0" then
+    return "Esesm Packet Type: Server Heartbeat (0)"
+  end
+  if value == "1" then
+    return "Esesm Packet Type: Client Heartbeat (1)"
+  end
+  if value == "T" then
+    return "Esesm Packet Type: Test Packet (T)"
+  end
+
+  return "Esesm Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Esesm Packet Type
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Esesm Version
 miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_version = {}
 
@@ -603,6 +688,65 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.lot_size.dissect = function(buffer,
   local display = miax_pearlequities_depthofmarket_mach_v1_3_d.lot_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mach Packet Length
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length = {}
+
+-- Size: Mach Packet Length
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length.size = 2
+
+-- Display: Mach Packet Length
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length.display = function(value)
+  return "Mach Packet Length: "..value
+end
+
+-- Dissect: Mach Packet Length
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mach Packet Type
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type = {}
+
+-- Size: Mach Packet Type
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type.size = 1
+
+-- Display: Mach Packet Type
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type.display = function(value)
+  if value == 0 then
+    return "Mach Packet Type: Heartbeat (0)"
+  end
+  if value == 1 then
+    return "Mach Packet Type: Start Of Session (1)"
+  end
+  if value == 2 then
+    return "Mach Packet Type: End Of Session (2)"
+  end
+  if value == 3 then
+    return "Mach Packet Type: Application Message (3)"
+  end
+
+  return "Mach Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Mach Packet Type
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -850,101 +994,6 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.order_side.dissect = function(buffe
   local display = miax_pearlequities_depthofmarket_mach_v1_3_d.order_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.order_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Length
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length = {}
-
--- Size: Packet Length
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.size = 2
-
--- Display: Packet Length
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.packet_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Type
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type = {}
-
--- Size: Packet Type
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.size = 1
-
--- Display: Packet Type
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.display = function(value)
-  if value == "0" then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == "2" then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == "3" then
-    return "Packet Type: Application Message (3)"
-  end
-  if value == "s" then
-    return "Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Packet Type: Test Packet (T)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -1699,11 +1748,11 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Test Text
-  local size_of_test_text = packet_length - 1
+  local size_of_test_text = esesm_packet_length - 1
 
   -- Test Text: 0 Byte Ascii String
   index, test_text = miax_pearlequities_depthofmarket_mach_v1_3_d.test_text.dissect(buffer, index, packet, parent, size_of_test_text)
@@ -1756,11 +1805,11 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.fields = function(bu
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = miax_pearlequities_depthofmarket_mach_v1_3_d.logout_reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Logout Text
-  local size_of_logout_text = packet_length - 2
+  local size_of_logout_text = esesm_packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
   index, logout_text = miax_pearlequities_depthofmarket_mach_v1_3_d.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
@@ -1813,11 +1862,11 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.logout_request.fields = function(bu
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = miax_pearlequities_depthofmarket_mach_v1_3_d.logout_reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Logout Text
-  local size_of_logout_text = packet_length - 2
+  local size_of_logout_text = esesm_packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
   index, logout_text = miax_pearlequities_depthofmarket_mach_v1_3_d.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
@@ -2159,11 +2208,11 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.refresh_request_message.dissect = f
   end
 end
 
--- Unsequenced Message
-miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_message = {}
+-- unsequencedmessage
+miax_pearlequities_depthofmarket_mach_v1_3_d.unsequencedmessage = {}
 
--- Dissect: Unsequenced Message
-miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: unsequencedmessage
+miax_pearlequities_depthofmarket_mach_v1_3_d.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect Refresh Request Message
   if unsequenced_message_type == "R" then
     return miax_pearlequities_depthofmarket_mach_v1_3_d.refresh_request_message.dissect(buffer, offset, packet, parent)
@@ -2187,10 +2236,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet = {}
 miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 2
+  return esesm_packet_length - 2
 end
 
 -- Display: Unsequenced Data Packet
@@ -2205,8 +2254,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet.fields = fu
   -- Unsequenced Message Type: 1 Byte Ascii String
   index, unsequenced_message_type = miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Unsequenced Message: Runtime Type with 3 branches
-  index = miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- unsequencedmessage: Runtime Type with 3 branches
+  index = miax_pearlequities_depthofmarket_mach_v1_3_d.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -2240,10 +2289,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet = {}
 miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 11
+  return esesm_packet_length - 11
 end
 
 -- Display: Sequenced Data Packet
@@ -2264,8 +2313,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.fields = func
   -- Sequenced Message Type: 1 Byte Unsigned Fixed Width Integer
   index, sequenced_message_type = miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Sequenced Message
-  index, sequenced_message = miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_message.dissect(buffer, index, packet, parent)
+  -- sequencedmessage
+  index, sequencedmessage = miax_pearlequities_depthofmarket_mach_v1_3_d.sequencedmessage.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2290,6 +2339,208 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.dissect = fun
 
     return index
   end
+end
+
+-- esesmpayload
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesmpayload = {}
+
+-- Dissect: esesmpayload
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesmpayload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
+  -- Dissect Sequenced Data Packet
+  if esesm_packet_type == "s" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if esesm_packet_type == "U" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request
+  if esesm_packet_type == "l" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response
+  if esesm_packet_type == "r" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Synchronization Complete
+  if esesm_packet_type == "c" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmission Request
+  if esesm_packet_type == "a" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.retransmission_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request
+  if esesm_packet_type == "X" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.logout_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Goodbye Packet
+  if esesm_packet_type == "G" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Session Update
+  if esesm_packet_type == "u" then
+    return offset
+  end
+  -- Dissect Server Heartbeat
+  if esesm_packet_type == "0" then
+    return offset
+  end
+  -- Dissect Client Heartbeat
+  if esesm_packet_type == "1" then
+    return offset
+  end
+  -- Dissect Test Packet
+  if esesm_packet_type == "T" then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Esesm Packet Header
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header = {}
+
+-- Size: Esesm Packet Header
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.size =
+  miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_length.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_type.size
+
+-- Display: Esesm Packet Header
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Esesm Packet Header
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Esesm Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, esesm_packet_length = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_length.dissect(buffer, index, packet, parent)
+
+  -- Esesm Packet Type: Alphanumeric
+  index, esesm_packet_type = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Esesm Packet Header
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.esesm_packet_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header, buffer(offset, 0))
+    local index = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Esesm Tcp Packet
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet = {}
+
+-- Display: Esesm Tcp Packet
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Esesm Tcp Packet
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+  local index = offset
+
+  -- Esesm Packet Header: Struct of 2 fields
+  index, esesm_packet_header = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Esesm Packet Type
+  local esesm_packet_type = buffer(index - 1, 1):string()
+
+  -- esesmpayload: Runtime Type with 12 branches
+  index = miax_pearlequities_depthofmarket_mach_v1_3_d.esesmpayload.dissect(buffer, index, packet, parent, esesm_packet_type)
+
+  return index
+end
+
+-- Dissect: Esesm Tcp Packet
+miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+  local index = offset + size_of_esesm_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.esesm_tcp_packet then
+    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet, buffer(offset, 0))
+    local current = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    parent:set_len(size_of_esesm_tcp_packet)
+    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Esesm Tcp Packet
+local esesm_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Tcp Packet
+miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet = {}
+
+-- Verify required size of Tcp packet
+miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.size
+end
+
+-- Dissect Tcp Packet
+miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Esesm Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Esesm Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_esesm_tcp_packet = esesm_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.dissect(buffer, index, packet, parent, size_of_esesm_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
 end
 
 -- Trade Cancel Message
@@ -3070,10 +3321,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.system_time_message.dissect = funct
   end
 end
 
--- Data
+-- data
 miax_pearlequities_depthofmarket_mach_v1_3_d.data = {}
 
--- Dissect: Data
+-- Dissect: data
 miax_pearlequities_depthofmarket_mach_v1_3_d.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == 49 then
@@ -3130,10 +3381,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.application_message = {}
 miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Mach Packet Length
+  local mach_packet_length = buffer(offset - 4, 2):le_uint()
 
-  return packet_length - 12
+  return mach_packet_length - 12
 end
 
 -- Display: Application Message
@@ -3148,7 +3399,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.fields = functi
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, message_type = miax_pearlequities_depthofmarket_mach_v1_3_d.message_type.dissect(buffer, index, packet, parent)
 
-  -- Data: Runtime Type with 11 branches
+  -- data: Runtime Type with 11 branches
   index = miax_pearlequities_depthofmarket_mach_v1_3_d.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -3176,285 +3427,96 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.dissect = funct
   end
 end
 
--- Payload
+-- payload
 miax_pearlequities_depthofmarket_mach_v1_3_d.payload = {}
 
--- Dissect: Payload
-miax_pearlequities_depthofmarket_mach_v1_3_d.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: payload
+miax_pearlequities_depthofmarket_mach_v1_3_d.payload.dissect = function(buffer, offset, packet, parent, mach_packet_type)
+  -- Dissect Heartbeat
+  if mach_packet_type == 0 then
+    return offset
+  end
+  -- Dissect Start Of Session
+  if mach_packet_type == 1 then
+    return offset
+  end
+  -- Dissect End Of Session
+  if mach_packet_type == 2 then
+    return offset
+  end
   -- Dissect Application Message
-  if packet_type == "3" then
+  if mach_packet_type == 3 then
     return miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if packet_type == "s" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if packet_type == "l" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if packet_type == "r" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if packet_type == "c" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if packet_type == "a" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if packet_type == "X" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if packet_type == "G" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Update
-  if packet_type == "u" then
-    return offset
-  end
-  -- Dissect Server Heartbeat
-  if packet_type == "0" then
-    return offset
-  end
-  -- Dissect Client Heartbeat
-  if packet_type == "1" then
-    return offset
-  end
-  -- Dissect Test Packet
-  if packet_type == "T" then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Packet Header
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header = {}
+-- Mach Message
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message = {}
 
--- Size: Packet Header
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.size =
-  miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.size
-
--- Display: Packet Header
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Packet Header
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.dissect(buffer, index, packet, parent)
-
-  -- Packet Type: 1 Byte Ascii String Enum with 16 values
-  index, packet_type = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Packet Header
-miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.packet_header, buffer(offset, 0))
-    local index = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Esesm Tcp Packet
-miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet = {}
-
--- Display: Esesm Tcp Packet
-miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Esesm Tcp Packet
-miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
-  local index = offset
-
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
-
-  -- Payload: Runtime Type with 13 branches
-  index = miax_pearlequities_depthofmarket_mach_v1_3_d.payload.dissect(buffer, index, packet, parent, packet_type)
-
-  return index
-end
-
--- Dissect: Esesm Tcp Packet
-miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
-  local index = offset + size_of_esesm_tcp_packet
-
-  -- Optionally add group/struct element to protocol tree
-  if show.esesm_tcp_packet then
-    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet, buffer(offset, 0))
-    local current = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
-    parent:set_len(size_of_esesm_tcp_packet)
-    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
-
-    return index
-  end
-end
-
--- Remaining Bytes For: Esesm Tcp Packet
-local esesm_tcp_packet_bytes_remaining = function(buffer, index, available)
-  -- Calculate the number of bytes remaining
-  local remaining = available - index
-
-  -- Check if packet size can be read
-  if remaining < miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.size then
-    return -DESEGMENT_ONE_MORE_SEGMENT
-  end
-
-  -- Parse runtime size
-  local current = buffer(index, 2):le_uint() + 2
-
-  -- Check if enough bytes remain
-  if remaining < current then
-    return -(current - remaining)
-  end
-
-  return remaining, current
-end
-
--- Tcp Packet
-miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet = {}
-
--- Verify required size of Tcp packet
-miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= miax_pearlequities_depthofmarket_mach_v1_3_d.packet_header.size
-end
-
--- Dissect Tcp Packet
-miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.dissect = function(buffer, packet, parent)
-  -- establish frame context from the conversation's stored values
-  local data = miax_pearlequities_depthofmarket_mach_v1_3_d.conversation.data(packet)
-  if not packet.visited then
-    data.seconds.frames[packet.number] = data.seconds.last
-  end
-  miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.current = data.seconds.frames[packet.number]
-  miax_pearlequities_depthofmarket_mach_v1_3_d.conversation.current = data
-
-  local index = 0
-
-  -- Dependency for Esesm Tcp Packet
-  local end_of_payload = buffer:len()
-
-  -- Esesm Tcp Packet: Struct of 2 fields
-  while index < end_of_payload do
-
-    -- Are minimum number of bytes are available?
-    local available, size_of_esesm_tcp_packet = esesm_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
-
-    if available > 0 then
-      index = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.dissect(buffer, index, packet, parent, size_of_esesm_tcp_packet)
-    else
-      -- More bytes needed, so set packet information
-      packet.desegment_offset = index
-      packet.desegment_len = -(available)
-
-      break
-    end
-  end
-
-  return index
-end
-
--- Message
-miax_pearlequities_depthofmarket_mach_v1_3_d.message = {}
-
--- Calculate size of: Message
-miax_pearlequities_depthofmarket_mach_v1_3_d.message.size = function(buffer, offset)
+-- Calculate size of: Mach Message
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.size = function(buffer, offset)
   local index = 0
 
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.sequence_number.size
 
-  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.size
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length.size
 
-  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.size
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type.size
 
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.session_number.size
 
-  -- Calculate runtime size of Payload field
+  -- Calculate runtime size of payload field
   local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 2, 1):string()
+  local payload_type = buffer(payload_offset - 2, 1):le_uint()
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.payload.size(buffer, payload_offset, payload_type)
 
   return index
 end
 
--- Display: Message
-miax_pearlequities_depthofmarket_mach_v1_3_d.message.display = function(packet, parent, length)
+-- Display: Mach Message
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-miax_pearlequities_depthofmarket_mach_v1_3_d.message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mach Message
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: BinaryU
   index, sequence_number = miax_pearlequities_depthofmarket_mach_v1_3_d.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.dissect(buffer, index, packet, parent)
+  -- Mach Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, mach_packet_length = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 16 values
-  index, packet_type = miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.dissect(buffer, index, packet, parent)
+  -- Mach Packet Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, mach_packet_type = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type.dissect(buffer, index, packet, parent)
 
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearlequities_depthofmarket_mach_v1_3_d.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 13 branches
-  index = miax_pearlequities_depthofmarket_mach_v1_3_d.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- payload: Runtime Type with 4 branches
+  index = miax_pearlequities_depthofmarket_mach_v1_3_d.payload.dissect(buffer, index, packet, parent, mach_packet_type)
 
   return index
 end
 
--- Dissect: Message
-miax_pearlequities_depthofmarket_mach_v1_3_d.message.dissect = function(buffer, offset, packet, parent)
-  if show.message then
+-- Dissect: Mach Message
+miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.dissect = function(buffer, offset, packet, parent)
+  if show.mach_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.message, buffer(offset, 0))
-    local index = miax_pearlequities_depthofmarket_mach_v1_3_d.message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message, buffer(offset, 0))
+    local index = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.message.display(packet, parent, length)
+    local display = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.message.fields(buffer, offset, packet, parent)
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3463,7 +3525,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet = {}
 
 -- Verify required size of Udp packet
 miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.requiredsize = function(buffer)
-  return buffer:len() >= miax_pearlequities_depthofmarket_mach_v1_3_d.sequence_number.size + miax_pearlequities_depthofmarket_mach_v1_3_d.packet_length.size + miax_pearlequities_depthofmarket_mach_v1_3_d.packet_type.size + miax_pearlequities_depthofmarket_mach_v1_3_d.session_number.size
+  return buffer:len() >= miax_pearlequities_depthofmarket_mach_v1_3_d.sequence_number.size + miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_length.size + miax_pearlequities_depthofmarket_mach_v1_3_d.mach_packet_type.size + miax_pearlequities_depthofmarket_mach_v1_3_d.session_number.size
 end
 
 -- Dissect Udp Packet
@@ -3478,14 +3540,14 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.dissect = function(buffe
 
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Mach Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 5 fields
+  -- Mach Message: Struct of 5 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = miax_pearlequities_depthofmarket_mach_v1_3_d.message.dissect(buffer, index, packet, parent)
+    index, mach_message = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.dissect(buffer, index, packet, parent)
   end
 
   return index

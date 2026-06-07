@@ -62,9 +62,6 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_type = ProtoField.
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order = ProtoField.new("Original Client Order", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorder", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorderid", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.packet", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header = ProtoField.new("Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.packetheader", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.expressinterface.fei.v1.0.c.packetlength", ftypes.UINT16)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.packettype", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price = ProtoField.new("Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.price", ftypes.DOUBLE)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.productgroupcode", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type = ProtoField.new("Product Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.producttype", ftypes.STRING)
@@ -85,6 +82,9 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_le
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequenceddatapacket", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessagetype", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpacketheader", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpacketlength", ftypes.UINT16)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpackettype", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmversion", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.sessionid", ftypes.UINT8)
@@ -148,10 +148,10 @@ show.login_response = true
 show.logout_request = true
 show.order_instructions = true
 show.packet = true
-show.packet_header = true
 show.retransmission_request = true
 show.self_trade_protection = true
 show.sequenced_data_packet = true
+show.sesm_packet_header = true
 show.sesm_tcp_packet = true
 show.strategy_leg = true
 show.unsequenced_data_packet = true
@@ -166,10 +166,10 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response = Pre
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection = Pref.bool("Show Self Trade Protection", show.self_trade_protection, "Parse and add Self Trade Protection to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_packet_header = Pref.bool("Show Sesm Packet Header", show.sesm_packet_header, "Parse and add Sesm Packet Header to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet = Pref.bool("Show Sesm Tcp Packet", show.sesm_tcp_packet, "Parse and add Sesm Tcp Packet to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg = Pref.bool("Show Strategy Leg", show.strategy_leg, "Parse and add Strategy Leg to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
@@ -204,9 +204,6 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
   if show.packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet then
     show.packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet
   end
-  if show.packet_header ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header then
-    show.packet_header = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet_header
-  end
   if show.retransmission_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request then
     show.retransmission_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request
   end
@@ -215,6 +212,9 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
   end
   if show.sequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet then
     show.sequenced_data_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet
+  end
+  if show.sesm_packet_header ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_packet_header then
+    show.sesm_packet_header = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_packet_header
   end
   if show.sesm_tcp_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet then
     show.sesm_tcp_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet
@@ -1287,86 +1287,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.dissect = 
   return offset + length, value
 end
 
--- Packet Length
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length = {}
-
--- Size: Packet Length
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.size = 2
-
--- Display: Packet Length
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Type
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type = {}
-
--- Size: Packet Type
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.size = 1
-
--- Display: Packet Type
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.display = function(value)
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request (L)"
-  end
-  if value == "R" then
-    return "Packet Type: Login Response (R)"
-  end
-  if value == "C" then
-    return "Packet Type: Synchronization Complete (C)"
-  end
-  if value == "A" then
-    return "Packet Type: Retransmission Request (A)"
-  end
-  if value == "X" then
-    return "Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Packet Type: Goodbye Packet (G)"
-  end
-  if value == "E" then
-    return "Packet Type: End Of Session (E)"
-  end
-  if value == "0" then
-    return "Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Packet Type: Client Heartbeat (1)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Price
 miax_onyxfutures_expressinterface_fei_v1_0_c.price = {}
 
@@ -1783,6 +1703,86 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.dissect = fu
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sesm Packet Length
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_length = {}
+
+-- Size: Sesm Packet Length
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_length.size = 2
+
+-- Display: Sesm Packet Length
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_length.display = function(value)
+  return "Sesm Packet Length: "..value
+end
+
+-- Dissect: Sesm Packet Length
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sesm Packet Type
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type = {}
+
+-- Size: Sesm Packet Type
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.size = 1
+
+-- Display: Sesm Packet Type
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.display = function(value)
+  if value == "S" then
+    return "Sesm Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "U" then
+    return "Sesm Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "L" then
+    return "Sesm Packet Type: Login Request (L)"
+  end
+  if value == "R" then
+    return "Sesm Packet Type: Login Response (R)"
+  end
+  if value == "C" then
+    return "Sesm Packet Type: Synchronization Complete (C)"
+  end
+  if value == "A" then
+    return "Sesm Packet Type: Retransmission Request (A)"
+  end
+  if value == "X" then
+    return "Sesm Packet Type: Logout Request (X)"
+  end
+  if value == "G" then
+    return "Sesm Packet Type: Goodbye Packet (G)"
+  end
+  if value == "E" then
+    return "Sesm Packet Type: End Of Session (E)"
+  end
+  if value == "0" then
+    return "Sesm Packet Type: Server Heartbeat (0)"
+  end
+  if value == "1" then
+    return "Sesm Packet Type: Client Heartbeat (1)"
+  end
+
+  return "Sesm Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Sesm Packet Type
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -2308,11 +2308,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.fields = function(bu
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Logout Text
-  local size_of_logout_text = packet_length - 2
+  local size_of_logout_text = sesm_packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
   index, logout_text = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
@@ -2365,11 +2365,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.fields = function(bu
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Logout Text
-  local size_of_logout_text = packet_length - 2
+  local size_of_logout_text = sesm_packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
   index, logout_text = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
@@ -3531,11 +3531,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect =
   end
 end
 
--- Unsequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message = {}
+-- unsequencedmessage
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequencedmessage = {}
 
--- Dissect: Unsequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: unsequencedmessage
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect New Order Request Message
   if unsequenced_message_type == "N1" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect(buffer, offset, packet, parent)
@@ -3587,10 +3587,10 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length
+  return sesm_packet_length
 end
 
 -- Display: Unsequenced Data Packet
@@ -3605,8 +3605,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.fields = fu
   -- Unsequenced Message Type: 2 Byte Ascii String Enum with 10 values
   index, unsequenced_message_type = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Unsequenced Message: Runtime Type with 10 branches
-  index = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- unsequencedmessage: Runtime Type with 10 branches
+  index = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -4277,11 +4277,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.d
   end
 end
 
--- Sequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message = {}
+-- sequencedmessage
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequencedmessage = {}
 
--- Dissect: Sequenced Message
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: sequencedmessage
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequencedmessage.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect New Order Response Message
   if sequenced_message_type == "NR" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect(buffer, offset, packet, parent)
@@ -4341,10 +4341,10 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Sesm Packet Length
+  local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 9
+  return sesm_packet_length - 9
 end
 
 -- Display: Sequenced Data Packet
@@ -4362,8 +4362,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.fields = func
   -- Sequenced Message Type: 2 Byte Ascii String Enum with 12 values
   index, sequenced_message_type = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Sequenced Message: Runtime Type with 12 branches
-  index = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
+  -- sequencedmessage: Runtime Type with 12 branches
+  index = miax_onyxfutures_expressinterface_fei_v1_0_c.sequencedmessage.dissect(buffer, index, packet, parent, sequenced_message_type)
 
   return index
 end
@@ -4390,100 +4390,100 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect = fun
   end
 end
 
--- Payload
-miax_onyxfutures_expressinterface_fei_v1_0_c.payload = {}
+-- sesmpayload
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesmpayload = {}
 
--- Dissect: Payload
-miax_onyxfutures_expressinterface_fei_v1_0_c.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: sesmpayload
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesmpayload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if sesm_packet_type == "S" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
+  if sesm_packet_type == "U" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request
-  if packet_type == "L" then
+  if sesm_packet_type == "L" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Response
-  if packet_type == "R" then
+  if sesm_packet_type == "R" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Synchronization Complete
-  if packet_type == "C" then
+  if sesm_packet_type == "C" then
     return offset
   end
   -- Dissect Retransmission Request
-  if packet_type == "A" then
+  if sesm_packet_type == "A" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request
-  if packet_type == "X" then
+  if sesm_packet_type == "X" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Goodbye Packet
-  if packet_type == "G" then
+  if sesm_packet_type == "G" then
     return miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
-  if packet_type == "E" then
+  if sesm_packet_type == "E" then
     return offset
   end
   -- Dissect Server Heartbeat
-  if packet_type == "0" then
+  if sesm_packet_type == "0" then
     return offset
   end
   -- Dissect Client Heartbeat
-  if packet_type == "1" then
+  if sesm_packet_type == "1" then
     return offset
   end
 
   return offset
 end
 
--- Packet Header
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header = {}
+-- Sesm Packet Header
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header = {}
 
--- Size: Packet Header
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.size =
-  miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.size
+-- Size: Sesm Packet Header
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.size =
+  miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_length.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.size
 
--- Display: Packet Header
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.display = function(packet, parent, length)
+-- Display: Sesm Packet Header
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sesm Packet Header
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_length.dissect(buffer, index, packet, parent)
+  -- Sesm Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, sesm_packet_length = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 11 values
-  index, packet_type = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_type.dissect(buffer, index, packet, parent)
+  -- Sesm Packet Type: 1 Byte Ascii String Enum with 11 values
+  index, sesm_packet_type = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+-- Dissect: Sesm Packet Header
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.sesm_packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.display(packet, parent, length)
+    local display = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4499,14 +4499,14 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
   local index = offset
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.dissect(buffer, index, packet, parent)
+  -- Sesm Packet Header: Struct of 2 fields
+  index, sesm_packet_header = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Sesm Packet Type
+  local sesm_packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 11 branches
-  index = miax_onyxfutures_expressinterface_fei_v1_0_c.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- sesmpayload: Runtime Type with 11 branches
+  index = miax_onyxfutures_expressinterface_fei_v1_0_c.sesmpayload.dissect(buffer, index, packet, parent, sesm_packet_type)
 
   return index
 end
@@ -4538,7 +4538,7 @@ local sesm_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.size then
+  if remaining < miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -4558,7 +4558,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.packet = {}
 
 -- Verify required size of Tcp packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.packet.requiredsize = function(buffer)
-  return buffer:len() >= miax_onyxfutures_expressinterface_fei_v1_0_c.packet_header.size
+  return buffer:len() >= miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.size
 end
 
 -- Dissect Packet

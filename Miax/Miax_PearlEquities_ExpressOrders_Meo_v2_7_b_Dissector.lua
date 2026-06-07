@@ -37,6 +37,9 @@ omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.display_qty = ProtoField.
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.display_range_qty = ProtoField.new("Display Range Qty", "miax.pearlequities.expressorders.meo.v2.7.b.displayrangeqty", ftypes.UINT32)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.displayed = ProtoField.new("Displayed", "miax.pearlequities.expressorders.meo.v2.7.b.displayed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.expressorders.meo.v2.7.b.endsequencenumber", ftypes.UINT64)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.expressorders.meo.v2.7.b.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.expressorders.meo.v2.7.b.esesmpacketlength", ftypes.UINT16)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.expressorders.meo.v2.7.b.esesmpackettype", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.expressorders.meo.v2.7.b.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.expressorders.meo.v2.7.b.esesmversion", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.executing_trading_center = ProtoField.new("Executing Trading Center", "miax.pearlequities.expressorders.meo.v2.7.b.executingtradingcenter", ftypes.STRING)
@@ -83,9 +86,6 @@ omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.order_type = ProtoField.n
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "miax.pearlequities.expressorders.meo.v2.7.b.originalclientorderid", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.original_order_capacity = ProtoField.new("Original Order Capacity", "miax.pearlequities.expressorders.meo.v2.7.b.originalordercapacity", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.packet = ProtoField.new("Packet", "miax.pearlequities.expressorders.meo.v2.7.b.packet", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.packet_header = ProtoField.new("Packet Header", "miax.pearlequities.expressorders.meo.v2.7.b.packetheader", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.packet_length = ProtoField.new("Packet Length", "miax.pearlequities.expressorders.meo.v2.7.b.packetlength", ftypes.UINT16)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.packet_type = ProtoField.new("Packet Type", "miax.pearlequities.expressorders.meo.v2.7.b.packettype", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.peg_offset = ProtoField.new("Peg Offset", "miax.pearlequities.expressorders.meo.v2.7.b.pegoffset", ftypes.DOUBLE)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.pending_cancel_status = ProtoField.new("Pending Cancel Status", "miax.pearlequities.expressorders.meo.v2.7.b.pendingcancelstatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.pending_modify_status = ProtoField.new("Pending Modify Status", "miax.pearlequities.expressorders.meo.v2.7.b.pendingmodifystatus", ftypes.STRING)
@@ -178,6 +178,7 @@ local show = {}
 show.additional_liquidity_indicator = true
 show.application_messages = true
 show.asp_side = true
+show.esesm_packet_header = true
 show.esesm_tcp_packet = true
 show.execution_order_instructions = true
 show.goodbye_packet = true
@@ -187,7 +188,6 @@ show.logout_request = true
 show.modify_order_instructions = true
 show.new_order_instructions = true
 show.packet = true
-show.packet_header = true
 show.retransmission_request = true
 show.routing = true
 show.self_trade_protection = true
@@ -200,6 +200,7 @@ show.unsequenced_data_packet = true
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_additional_liquidity_indicator = Pref.bool("Show Additional Liquidity Indicator", show.additional_liquidity_indicator, "Parse and add Additional Liquidity Indicator to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_asp_side = Pref.bool("Show Asp Side", show.asp_side, "Parse and add Asp Side to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_esesm_packet_header = Pref.bool("Show Esesm Packet Header", show.esesm_packet_header, "Parse and add Esesm Packet Header to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_esesm_tcp_packet = Pref.bool("Show Esesm Tcp Packet", show.esesm_tcp_packet, "Parse and add Esesm Tcp Packet to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_execution_order_instructions = Pref.bool("Show Execution Order Instructions", show.execution_order_instructions, "Parse and add Execution Order Instructions to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
@@ -209,7 +210,6 @@ omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_logout_request = Pref
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_modify_order_instructions = Pref.bool("Show Modify Order Instructions", show.modify_order_instructions, "Parse and add Modify Order Instructions to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_new_order_instructions = Pref.bool("Show New Order Instructions", show.new_order_instructions, "Parse and add New Order Instructions to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_routing = Pref.bool("Show Routing", show.routing, "Parse and add Routing to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_self_trade_protection = Pref.bool("Show Self Trade Protection", show.self_trade_protection, "Parse and add Self Trade Protection to protocol tree")
@@ -231,6 +231,9 @@ function omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs_changed()
   end
   if show.asp_side ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_asp_side then
     show.asp_side = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_asp_side
+  end
+  if show.esesm_packet_header ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_esesm_packet_header then
+    show.esesm_packet_header = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_esesm_packet_header
   end
   if show.esesm_tcp_packet ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_esesm_tcp_packet then
     show.esesm_tcp_packet = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_esesm_tcp_packet
@@ -258,9 +261,6 @@ function omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs_changed()
   end
   if show.packet ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_packet then
     show.packet = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_packet
-  end
-  if show.packet_header ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_packet_header then
-    show.packet_header = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_packet_header
   end
   if show.retransmission_request ~= omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_retransmission_request then
     show.retransmission_request = omi_miax_pearlequities_expressorders_meo_v2_7_b.prefs.show_retransmission_request
@@ -938,6 +938,89 @@ miax_pearlequities_expressorders_meo_v2_7_b.end_sequence_number.dissect = functi
   local display = miax_pearlequities_expressorders_meo_v2_7_b.end_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.end_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Esesm Packet Length
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_length = {}
+
+-- Size: Esesm Packet Length
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_length.size = 2
+
+-- Display: Esesm Packet Length
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_length.display = function(value)
+  return "Esesm Packet Length: "..value
+end
+
+-- Dissect: Esesm Packet Length
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Esesm Packet Type
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type = {}
+
+-- Size: Esesm Packet Type
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.size = 1
+
+-- Display: Esesm Packet Type
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.display = function(value)
+  if value == "s" then
+    return "Esesm Packet Type: Sequenced Data Packet (s)"
+  end
+  if value == "U" then
+    return "Esesm Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "l" then
+    return "Esesm Packet Type: Login Request (l)"
+  end
+  if value == "r" then
+    return "Esesm Packet Type: Login Response (r)"
+  end
+  if value == "c" then
+    return "Esesm Packet Type: Synchronization Complete (c)"
+  end
+  if value == "a" then
+    return "Esesm Packet Type: Retransmission Request (a)"
+  end
+  if value == "X" then
+    return "Esesm Packet Type: Logout Request (X)"
+  end
+  if value == "G" then
+    return "Esesm Packet Type: Goodbye Packet (G)"
+  end
+  if value == "u" then
+    return "Esesm Packet Type: Trading Session Update (u)"
+  end
+  if value == "0" then
+    return "Esesm Packet Type: Server Heartbeat (0)"
+  end
+  if value == "1" then
+    return "Esesm Packet Type: Client Heartbeat (1)"
+  end
+  if value == "T" then
+    return "Esesm Packet Type: Test Packet (T)"
+  end
+
+  return "Esesm Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Esesm Packet Type
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -2304,89 +2387,6 @@ miax_pearlequities_expressorders_meo_v2_7_b.original_order_capacity.dissect = fu
   return offset + length, value
 end
 
--- Packet Length
-miax_pearlequities_expressorders_meo_v2_7_b.packet_length = {}
-
--- Size: Packet Length
-miax_pearlequities_expressorders_meo_v2_7_b.packet_length.size = 2
-
--- Display: Packet Length
-miax_pearlequities_expressorders_meo_v2_7_b.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-miax_pearlequities_expressorders_meo_v2_7_b.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_expressorders_meo_v2_7_b.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_expressorders_meo_v2_7_b.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.packet_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Type
-miax_pearlequities_expressorders_meo_v2_7_b.packet_type = {}
-
--- Size: Packet Type
-miax_pearlequities_expressorders_meo_v2_7_b.packet_type.size = 1
-
--- Display: Packet Type
-miax_pearlequities_expressorders_meo_v2_7_b.packet_type.display = function(value)
-  if value == "s" then
-    return "Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Packet Type: Test Packet (T)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-miax_pearlequities_expressorders_meo_v2_7_b.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_expressorders_meo_v2_7_b.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_expressorders_meo_v2_7_b.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Peg Offset
 miax_pearlequities_expressorders_meo_v2_7_b.peg_offset = {}
 
@@ -3591,11 +3591,11 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.test_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Test Text
-  local size_of_test_text = packet_length - 1
+  local size_of_test_text = esesm_packet_length - 1
 
   -- Test Text: 0 Byte Ascii String
   index, test_text = miax_pearlequities_expressorders_meo_v2_7_b.test_text.dissect(buffer, index, packet, parent, size_of_test_text)
@@ -3648,11 +3648,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.goodbye_packet.fields = function(buf
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = miax_pearlequities_expressorders_meo_v2_7_b.logout_reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Logout Text
-  local size_of_logout_text = packet_length - 2
+  local size_of_logout_text = esesm_packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
   index, logout_text = miax_pearlequities_expressorders_meo_v2_7_b.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
@@ -3705,11 +3705,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.logout_request.fields = function(buf
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = miax_pearlequities_expressorders_meo_v2_7_b.logout_reason.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
   -- Runtime Size Of: Logout Text
-  local size_of_logout_text = packet_length - 2
+  local size_of_logout_text = esesm_packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
   index, logout_text = miax_pearlequities_expressorders_meo_v2_7_b.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
@@ -5352,11 +5352,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.new_order_request_message.dissect = 
   end
 end
 
--- Unsequenced Message
-miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message = {}
+-- unsequencedmessage
+miax_pearlequities_expressorders_meo_v2_7_b.unsequencedmessage = {}
 
--- Dissect: Unsequenced Message
-miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+-- Dissect: unsequencedmessage
+miax_pearlequities_expressorders_meo_v2_7_b.unsequencedmessage.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   -- Dissect New Order Request Message
   if unsequenced_message_type == "N1" then
     return miax_pearlequities_expressorders_meo_v2_7_b.new_order_request_message.dissect(buffer, offset, packet, parent)
@@ -5424,10 +5424,10 @@ miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_data_packet = {}
 miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 3
+  return esesm_packet_length - 3
 end
 
 -- Display: Unsequenced Data Packet
@@ -5442,8 +5442,8 @@ miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_data_packet.fields = fun
   -- Unsequenced Message Type: 2 Byte Ascii String Enum with 14 values
   index, unsequenced_message_type = miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Unsequenced Message: Runtime Type with 14 branches
-  index = miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
+  -- unsequencedmessage: Runtime Type with 14 branches
+  index = miax_pearlequities_expressorders_meo_v2_7_b.unsequencedmessage.dissect(buffer, index, packet, parent, unsequenced_message_type)
 
   return index
 end
@@ -6006,11 +6006,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.symbol_update_message.dissect = func
   end
 end
 
--- Sequenced Message
-miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message = {}
+-- sequencedmessage
+miax_pearlequities_expressorders_meo_v2_7_b.sequencedmessage = {}
 
--- Dissect: Sequenced Message
-miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
+-- Dissect: sequencedmessage
+miax_pearlequities_expressorders_meo_v2_7_b.sequencedmessage.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect Symbol Update Message
   if sequenced_message_type == "SU" then
     return miax_pearlequities_expressorders_meo_v2_7_b.symbol_update_message.dissect(buffer, offset, packet, parent)
@@ -6070,10 +6070,10 @@ miax_pearlequities_expressorders_meo_v2_7_b.sequenced_data_packet = {}
 miax_pearlequities_expressorders_meo_v2_7_b.sequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):le_uint()
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 12
+  return esesm_packet_length - 12
 end
 
 -- Display: Sequenced Data Packet
@@ -6094,8 +6094,8 @@ miax_pearlequities_expressorders_meo_v2_7_b.sequenced_data_packet.fields = funct
   -- Sequenced Message Type: 2 Byte Ascii String Enum with 12 values
   index, sequenced_message_type = miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Sequenced Message: Runtime Type with 12 branches
-  index = miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
+  -- sequencedmessage: Runtime Type with 12 branches
+  index = miax_pearlequities_expressorders_meo_v2_7_b.sequencedmessage.dissect(buffer, index, packet, parent, sequenced_message_type)
 
   return index
 end
@@ -6122,104 +6122,104 @@ miax_pearlequities_expressorders_meo_v2_7_b.sequenced_data_packet.dissect = func
   end
 end
 
--- Payload
-miax_pearlequities_expressorders_meo_v2_7_b.payload = {}
+-- esesmpayload
+miax_pearlequities_expressorders_meo_v2_7_b.esesmpayload = {}
 
--- Dissect: Payload
-miax_pearlequities_expressorders_meo_v2_7_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: esesmpayload
+miax_pearlequities_expressorders_meo_v2_7_b.esesmpayload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
   -- Dissect Sequenced Data Packet
-  if packet_type == "s" then
+  if esesm_packet_type == "s" then
     return miax_pearlequities_expressorders_meo_v2_7_b.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
+  if esesm_packet_type == "U" then
     return miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request
-  if packet_type == "l" then
+  if esesm_packet_type == "l" then
     return miax_pearlequities_expressorders_meo_v2_7_b.login_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Response
-  if packet_type == "r" then
+  if esesm_packet_type == "r" then
     return miax_pearlequities_expressorders_meo_v2_7_b.login_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Synchronization Complete
-  if packet_type == "c" then
+  if esesm_packet_type == "c" then
     return miax_pearlequities_expressorders_meo_v2_7_b.synchronization_complete.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request
-  if packet_type == "a" then
+  if esesm_packet_type == "a" then
     return miax_pearlequities_expressorders_meo_v2_7_b.retransmission_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request
-  if packet_type == "X" then
+  if esesm_packet_type == "X" then
     return miax_pearlequities_expressorders_meo_v2_7_b.logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Goodbye Packet
-  if packet_type == "G" then
+  if esesm_packet_type == "G" then
     return miax_pearlequities_expressorders_meo_v2_7_b.goodbye_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Session Update
-  if packet_type == "u" then
+  if esesm_packet_type == "u" then
     return offset
   end
   -- Dissect Server Heartbeat
-  if packet_type == "0" then
+  if esesm_packet_type == "0" then
     return offset
   end
   -- Dissect Client Heartbeat
-  if packet_type == "1" then
+  if esesm_packet_type == "1" then
     return offset
   end
   -- Dissect Test Packet
-  if packet_type == "T" then
+  if esesm_packet_type == "T" then
     return miax_pearlequities_expressorders_meo_v2_7_b.test_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Packet Header
-miax_pearlequities_expressorders_meo_v2_7_b.packet_header = {}
+-- Esesm Packet Header
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header = {}
 
--- Size: Packet Header
-miax_pearlequities_expressorders_meo_v2_7_b.packet_header.size =
-  miax_pearlequities_expressorders_meo_v2_7_b.packet_length.size + 
-  miax_pearlequities_expressorders_meo_v2_7_b.packet_type.size
+-- Size: Esesm Packet Header
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.size =
+  miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_length.size + 
+  miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.size
 
--- Display: Packet Header
-miax_pearlequities_expressorders_meo_v2_7_b.packet_header.display = function(packet, parent, length)
+-- Display: Esesm Packet Header
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-miax_pearlequities_expressorders_meo_v2_7_b.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Esesm Packet Header
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = miax_pearlequities_expressorders_meo_v2_7_b.packet_length.dissect(buffer, index, packet, parent)
+  -- Esesm Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, esesm_packet_length = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 12 values
-  index, packet_type = miax_pearlequities_expressorders_meo_v2_7_b.packet_type.dissect(buffer, index, packet, parent)
+  -- Esesm Packet Type: 1 Byte Ascii String Enum with 12 values
+  index, esesm_packet_type = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-miax_pearlequities_expressorders_meo_v2_7_b.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+-- Dissect: Esesm Packet Header
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.esesm_packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.packet_header, buffer(offset, 0))
-    local index = miax_pearlequities_expressorders_meo_v2_7_b.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_packet_header, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_b.packet_header.display(packet, parent, length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_expressorders_meo_v2_7_b.packet_header.fields(buffer, offset, packet, parent)
+    return miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6235,14 +6235,14 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.esesm_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
   local index = offset
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = miax_pearlequities_expressorders_meo_v2_7_b.packet_header.dissect(buffer, index, packet, parent)
+  -- Esesm Packet Header: Struct of 2 fields
+  index, esesm_packet_header = miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Esesm Packet Type
+  local esesm_packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 12 branches
-  index = miax_pearlequities_expressorders_meo_v2_7_b.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- esesmpayload: Runtime Type with 12 branches
+  index = miax_pearlequities_expressorders_meo_v2_7_b.esesmpayload.dissect(buffer, index, packet, parent, esesm_packet_type)
 
   return index
 end
@@ -6274,7 +6274,7 @@ local esesm_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < miax_pearlequities_expressorders_meo_v2_7_b.packet_header.size then
+  if remaining < miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -6294,7 +6294,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.packet = {}
 
 -- Verify required size of Tcp packet
 miax_pearlequities_expressorders_meo_v2_7_b.packet.requiredsize = function(buffer)
-  return buffer:len() >= miax_pearlequities_expressorders_meo_v2_7_b.packet_header.size
+  return buffer:len() >= miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_header.size
 end
 
 -- Dissect Packet

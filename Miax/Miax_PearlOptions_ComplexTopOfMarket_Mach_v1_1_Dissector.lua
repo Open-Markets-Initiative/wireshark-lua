@@ -37,7 +37,7 @@ omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.leg_ratio_qty = ProtoF
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.leg_side = ProtoField.new("Leg Side", "miax.pearloptions.complextopofmarket.mach.v1.1.legside", ftypes.STRING)
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.pearloptions.complextopofmarket.mach.v1.1.liquidityacceptanceincrementindicator", ftypes.STRING)
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.long_term_option = ProtoField.new("Long Term Option", "miax.pearloptions.complextopofmarket.mach.v1.1.longtermoption", ftypes.STRING)
-omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.message = ProtoField.new("Message", "miax.pearloptions.complextopofmarket.mach.v1.1.message", ftypes.STRING)
+omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.complextopofmarket.mach.v1.1.machmessage", ftypes.STRING)
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.message_type = ProtoField.new("Message Type", "miax.pearloptions.complextopofmarket.mach.v1.1.messagetype", ftypes.STRING)
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.pearloptions.complextopofmarket.mach.v1.1.miaxbbopostingincrementindicator", ftypes.STRING)
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearloptions.complextopofmarket.mach.v1.1.nanoseconds", ftypes.UINT32)
@@ -113,7 +113,7 @@ show.compact_bid = true
 show.application_messages = true
 show.compact_offer = true
 show.leg_definition = true
-show.message = true
+show.mach_message = true
 show.packet = true
 show.wide_bid = true
 show.wide_offer = true
@@ -125,7 +125,7 @@ omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_compact_bid = Pref
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_compact_offer = Pref.bool("Show Compact Offer", show.compact_offer, "Parse and add Compact Offer to protocol tree")
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_wide_bid = Pref.bool("Show Wide Bid", show.wide_bid, "Parse and add Wide Bid to protocol tree")
 omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_wide_offer = Pref.bool("Show Wide Offer", show.wide_offer, "Parse and add Wide Offer to protocol tree")
@@ -151,8 +151,8 @@ function omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs_changed()
   if show.leg_definition ~= omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_leg_definition then
     show.leg_definition = omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_leg_definition
   end
-  if show.message ~= omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_message then
-    show.message = omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_message
+  if show.mach_message ~= omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_mach_message then
+    show.mach_message = omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_mach_message
   end
   if show.packet ~= omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_packet then
     show.packet = omi_miax_pearloptions_complextopofmarket_mach_v1_1.prefs.show_packet
@@ -2966,10 +2966,10 @@ miax_pearloptions_complextopofmarket_mach_v1_1.system_time_message.dissect = fun
   end
 end
 
--- Data
+-- data
 miax_pearloptions_complextopofmarket_mach_v1_1.data = {}
 
--- Dissect: Data
+-- Dissect: data
 miax_pearloptions_complextopofmarket_mach_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == "1" then
@@ -3048,7 +3048,7 @@ miax_pearloptions_complextopofmarket_mach_v1_1.application_message.fields = func
   -- Message Type: 1 Byte Ascii String Enum with 12 values
   index, message_type = miax_pearloptions_complextopofmarket_mach_v1_1.message_type.dissect(buffer, index, packet, parent)
 
-  -- Data: Runtime Type with 12 branches
+  -- data: Runtime Type with 12 branches
   index = miax_pearloptions_complextopofmarket_mach_v1_1.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -3076,10 +3076,10 @@ miax_pearloptions_complextopofmarket_mach_v1_1.application_message.dissect = fun
   end
 end
 
--- Payload
+-- payload
 miax_pearloptions_complextopofmarket_mach_v1_1.payload = {}
 
--- Dissect: Payload
+-- Dissect: payload
 miax_pearloptions_complextopofmarket_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
@@ -3089,11 +3089,11 @@ miax_pearloptions_complextopofmarket_mach_v1_1.payload.dissect = function(buffer
   return offset
 end
 
--- Message
-miax_pearloptions_complextopofmarket_mach_v1_1.message = {}
+-- Mach Message
+miax_pearloptions_complextopofmarket_mach_v1_1.mach_message = {}
 
--- Calculate size of: Message
-miax_pearloptions_complextopofmarket_mach_v1_1.message.size = function(buffer, offset)
+-- Calculate size of: Mach Message
+miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.size = function(buffer, offset)
   local index = 0
 
   index = index + miax_pearloptions_complextopofmarket_mach_v1_1.sequence_number.size
@@ -3104,7 +3104,7 @@ miax_pearloptions_complextopofmarket_mach_v1_1.message.size = function(buffer, o
 
   index = index + miax_pearloptions_complextopofmarket_mach_v1_1.session_number.size
 
-  -- Calculate runtime size of Payload field
+  -- Calculate runtime size of payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):le_uint()
   index = index + miax_pearloptions_complextopofmarket_mach_v1_1.payload.size(buffer, payload_offset, payload_type)
@@ -3112,13 +3112,13 @@ miax_pearloptions_complextopofmarket_mach_v1_1.message.size = function(buffer, o
   return index
 end
 
--- Display: Message
-miax_pearloptions_complextopofmarket_mach_v1_1.message.display = function(packet, parent, length)
+-- Display: Mach Message
+miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-miax_pearloptions_complextopofmarket_mach_v1_1.message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mach Message
+miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
@@ -3133,27 +3133,27 @@ miax_pearloptions_complextopofmarket_mach_v1_1.message.fields = function(buffer,
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearloptions_complextopofmarket_mach_v1_1.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- payload: Runtime Type with 1 branches
   index = miax_pearloptions_complextopofmarket_mach_v1_1.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
--- Dissect: Message
-miax_pearloptions_complextopofmarket_mach_v1_1.message.dissect = function(buffer, offset, packet, parent)
-  if show.message then
+-- Dissect: Mach Message
+miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.dissect = function(buffer, offset, packet, parent)
+  if show.mach_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.message, buffer(offset, 0))
-    local index = miax_pearloptions_complextopofmarket_mach_v1_1.message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_miax_pearloptions_complextopofmarket_mach_v1_1.fields.mach_message, buffer(offset, 0))
+    local index = miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearloptions_complextopofmarket_mach_v1_1.message.display(packet, parent, length)
+    local display = miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_complextopofmarket_mach_v1_1.message.fields(buffer, offset, packet, parent)
+    return miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3177,14 +3177,14 @@ miax_pearloptions_complextopofmarket_mach_v1_1.packet.dissect = function(buffer,
 
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Mach Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 5 fields
+  -- Mach Message: Struct of 5 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = miax_pearloptions_complextopofmarket_mach_v1_1.message.dissect(buffer, index, packet, parent)
+    index, mach_message = miax_pearloptions_complextopofmarket_mach_v1_1.mach_message.dissect(buffer, index, packet, parent)
   end
 
   return index
