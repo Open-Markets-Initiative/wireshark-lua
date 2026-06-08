@@ -794,6 +794,15 @@ coinbase_deribit_ordersapi_sbe_v1_0.ask_reject_reason.display = function(value)
   if value == 25 then
     return "Ask Reject Reason: Rate Limit (25)"
   end
+  if value == 26 then
+    return "Ask Reject Reason: Portfolio Locked (26)"
+  end
+  if value == 27 then
+    return "Ask Reject Reason: Position Limit Exceeded (27)"
+  end
+  if value == 28 then
+    return "Ask Reject Reason: Order Size Limit Exceeded (28)"
+  end
 
   return "Ask Reject Reason: Unknown("..value..")"
 end
@@ -1038,6 +1047,15 @@ coinbase_deribit_ordersapi_sbe_v1_0.bid_reject_reason.display = function(value)
   if value == 25 then
     return "Bid Reject Reason: Rate Limit (25)"
   end
+  if value == 26 then
+    return "Bid Reject Reason: Portfolio Locked (26)"
+  end
+  if value == 27 then
+    return "Bid Reject Reason: Position Limit Exceeded (27)"
+  end
+  if value == 28 then
+    return "Bid Reject Reason: Order Size Limit Exceeded (28)"
+  end
 
   return "Bid Reject Reason: Unknown("..value..")"
 end
@@ -1180,6 +1198,12 @@ coinbase_deribit_ordersapi_sbe_v1_0.cancel_reason.display = function(value)
   end
   if value == 14 then
     return "Cancel Reason: Mmp Group Deleted (14)"
+  end
+  if value == 15 then
+    return "Cancel Reason: Portfolio Locked (15)"
+  end
+  if value == 16 then
+    return "Cancel Reason: Post Only (16)"
   end
 
   return "Cancel Reason: Unknown("..value..")"
@@ -2198,6 +2222,9 @@ coinbase_deribit_ordersapi_sbe_v1_0.reason_mass_quote_reject_reason.display = fu
   if value == 6 then
     return "Reason Mass Quote Reject Reason: Rate Limit (6)"
   end
+  if value == 7 then
+    return "Reason Mass Quote Reject Reason: Portfolio Locked (7)"
+  end
 
   return "Reason Mass Quote Reject Reason: Unknown("..value..")"
 end
@@ -2299,6 +2326,15 @@ coinbase_deribit_ordersapi_sbe_v1_0.reason_order_reject_reason.display = functio
   end
   if value == 25 then
     return "Reason Order Reject Reason: Rate Limit (25)"
+  end
+  if value == 26 then
+    return "Reason Order Reject Reason: Portfolio Locked (26)"
+  end
+  if value == 27 then
+    return "Reason Order Reject Reason: Position Limit Exceeded (27)"
+  end
+  if value == 28 then
+    return "Reason Order Reject Reason: Order Size Limit Exceeded (28)"
   end
 
   return "Reason Order Reject Reason: Unknown("..value..")"
@@ -8678,7 +8714,7 @@ udp_table:add(65333, omi_coinbase_deribit_ordersapi_sbe_v1_0)
 -- Protocol:
 --   Organization: Coinbase
 --   Version: 1.0
---   Date: Friday, September 5, 2025
+--   Date: Monday, June 8, 2026
 --
 -- Script:
 --   Generator: 1.5.0.0
