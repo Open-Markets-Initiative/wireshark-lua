@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 580 | 4,774,991 |
+| 600 | 5,140,563 |
 
 ## Testing
 
@@ -210,6 +210,7 @@ Enjoy.
 [Eurex.Derivatives.Edci]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Protocols/Derivatives/Edci.md "Extended Derivatives Clearing Interface"
 [Euronext.Optiq.OrderEntryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/Optiq/OrderEntryGateway.md "Optiq Order Entry Gateway"
 [Euronext.Optiq.MarketDataGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/Optiq/MarketDataGateway.md "Optiq Market Data Gateway"
+[Euronext.Optiq.DropCopyGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/Optiq/DropCopyGateway.md "Optiq Drop Copy Gateway"
 [Euronext.Optiq.MarketDataPacket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/Optiq/MarketDataPacket.md "Market Data Packet"
 [Finra.FinraOrf.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/FinraOrf/Tdds.md "Trade Data Dissemination Service"
 [Finra.FinraOtc.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/FinraOtc/Bbds.md "Bulletin Board Dissemination Service"
