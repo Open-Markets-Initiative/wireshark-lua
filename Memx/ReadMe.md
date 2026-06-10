@@ -63,7 +63,7 @@ Memx: [website](https://www.memx.com "Go to The Members Exchange")
 [Memx.MemxOptions.MemoirTop]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemxOptions/MemoirTop.md "Member Order Information Record Top"
 [Memx.MemxOptions.MemoirDepth]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemxOptions/MemoirDepth.md "Member Order Information Record Depth"
 [Memx.MemxOptions.Memo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemxOptions/Memo.md "Members Orders"
-[Memx.MemxOptions.RiskControl]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemxOptions/RiskControl.md "Memx Risk Control"
+[Memx.MemxOptions.RiskControl]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Protocols/MemxOptions/RiskControl.md "Risk Control"
 
 [Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_1_Dissector.lua "Memx MemxEquities MemoirDepthFeed Sbe v1.1 Wireshark Dissector"
 [Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.1.Url]: https://memxtrading.com/ "The Members Exchange 1.1 Url"

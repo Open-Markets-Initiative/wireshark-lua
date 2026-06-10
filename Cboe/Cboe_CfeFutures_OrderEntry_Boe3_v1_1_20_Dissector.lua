@@ -232,8 +232,8 @@ show.unit_sequence_index = true
 show.leg_position_effect_index = true
 show.quote_update_group_index = true
 show.quote_update_option_group_index = true
-show.quote_update_acknowledgement_group_index = true
 show.option_leg_index = true
+show.quote_update_acknowledgement_group_index = true
 
 -- Register Cboe CfeFutures OrderEntry Boe3 1.1.20 Show Options
 omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_cancel_order = Pref.bool("Show Cancel Order", show.cancel_order, "Parse and add Cancel Order to protocol tree")
@@ -287,8 +287,8 @@ omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_unit_sequence_index = Pre
 omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_leg_position_effect_index = Pref.bool("Show Leg Position Effect Index", show.leg_position_effect_index, "Show generated leg position effect index in protocol tree")
 omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_group_index = Pref.bool("Show Quote Update Group Index", show.quote_update_group_index, "Show generated quote update group index in protocol tree")
 omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_option_group_index = Pref.bool("Show Quote Update Option Group Index", show.quote_update_option_group_index, "Show generated quote update option group index in protocol tree")
-omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_acknowledgement_group_index = Pref.bool("Show Quote Update Acknowledgement Group Index", show.quote_update_acknowledgement_group_index, "Show generated quote update acknowledgement group index in protocol tree")
 omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_option_leg_index = Pref.bool("Show Option Leg Index", show.option_leg_index, "Show generated option leg index in protocol tree")
+omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_acknowledgement_group_index = Pref.bool("Show Quote Update Acknowledgement Group Index", show.quote_update_acknowledgement_group_index, "Show generated quote update acknowledgement group index in protocol tree")
 
 
 -- Handle changed preferences
@@ -448,11 +448,11 @@ function omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs_changed()
   if show.quote_update_option_group_index ~= omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_option_group_index then
     show.quote_update_option_group_index = omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_option_group_index
   end
-  if show.quote_update_acknowledgement_group_index ~= omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_acknowledgement_group_index then
-    show.quote_update_acknowledgement_group_index = omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_acknowledgement_group_index
-  end
   if show.option_leg_index ~= omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_option_leg_index then
     show.option_leg_index = omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_option_leg_index
+  end
+  if show.quote_update_acknowledgement_group_index ~= omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_acknowledgement_group_index then
+    show.quote_update_acknowledgement_group_index = omi_cboe_cfefutures_orderentry_boe3_v1_1_20.prefs.show_quote_update_acknowledgement_group_index
   end
 end
 
@@ -6025,12 +6025,22 @@ end
 -- New Complex Instrument Option
 cboe_cfefutures_orderentry_boe3_v1_1_20.new_complex_instrument_option = {}
 
--- Size: New Complex Instrument Option
-cboe_cfefutures_orderentry_boe3_v1_1_20.new_complex_instrument_option.size =
-  cboe_cfefutures_orderentry_boe3_v1_1_20.cl_ord_id.size + 
-  cboe_cfefutures_orderentry_boe3_v1_1_20.clearing_firm.size + 
-  cboe_cfefutures_orderentry_boe3_v1_1_20.leg_cnt.size + 
-  cboe_cfefutures_orderentry_boe3_v1_1_20.complex_instrument_option_leg.size
+-- Calculate size of: New Complex Instrument Option
+cboe_cfefutures_orderentry_boe3_v1_1_20.new_complex_instrument_option.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_cfefutures_orderentry_boe3_v1_1_20.cl_ord_id.size
+
+  index = index + cboe_cfefutures_orderentry_boe3_v1_1_20.clearing_firm.size
+
+  index = index + cboe_cfefutures_orderentry_boe3_v1_1_20.leg_cnt.size
+
+  -- Calculate field size from count
+  local option_leg_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + option_leg_count * 13
+
+  return index
+end
 
 -- Display: New Complex Instrument Option
 cboe_cfefutures_orderentry_boe3_v1_1_20.new_complex_instrument_option.display = function(packet, parent, length)
@@ -6050,8 +6060,10 @@ cboe_cfefutures_orderentry_boe3_v1_1_20.new_complex_instrument_option.fields = f
   -- Leg Cnt: Binary
   index, leg_cnt = cboe_cfefutures_orderentry_boe3_v1_1_20.leg_cnt.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Option Leg
-  index, complex_instrument_option_leg = cboe_cfefutures_orderentry_boe3_v1_1_20.complex_instrument_option_leg.dissect(buffer, index, packet, parent)
+  -- Repeating: Option Leg
+  for option_leg_index = 1, leg_cnt do
+    index, option_leg = cboe_cfefutures_orderentry_boe3_v1_1_20.option_leg.dissect(buffer, index, packet, parent, option_leg_index)
+  end
 
   return index
 end

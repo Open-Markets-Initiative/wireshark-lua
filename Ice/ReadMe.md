@@ -34,7 +34,7 @@ Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [IceFutures.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols/IceFutures "Ice IceFutures"
 [Ice.IceFutures.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Mdf.md "Multicast Data Feed"
-[Ice.IceFutures.Bgw]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Bgw.md "IceFutures Binary Order Gateway"
+[Ice.IceFutures.Bgw]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Bgw.md "Binary Order Gateway"
 
 [Ice.IceFutures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua "Ice IceFutures Mdf iMpact v1.1.24 Wireshark Dissector"
 [Ice.IceFutures.Mdf.iMpact.v1.1.24.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Specifications/ "Intercontinental Exchange 1.1.24 Pdf"
