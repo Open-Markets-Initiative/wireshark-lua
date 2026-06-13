@@ -29,7 +29,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.call_put = Proto
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.canceled_contracts_binary_2 = ProtoField.new("Canceled Contracts Binary 2", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.canceledcontractsbinary2", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.canceled_contracts_binary_4 = ProtoField.new("Canceled Contracts Binary 4", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.canceledcontractsbinary4", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.cboe_trade_flags = ProtoField.new("Cboe Trade Flags", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.cboetradeflags", ftypes.STRING)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.close_price = ProtoField.new("Close Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.closeprice", ftypes.UINT64)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.close_price = ProtoField.new("Close Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.closeprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.compositemarketbidprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.compositemarketofferprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.contract_size = ProtoField.new("Contract Size", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.contractsize", ftypes.UINT16)
@@ -51,14 +51,14 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.execution_venue 
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.expirationdate", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.extended_trade_flags = ProtoField.new("Extended Trade Flags", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.extendedtradeflags", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.high_price_1 = ProtoField.new("High Price 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.highprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.high_price_binary_price_8 = ProtoField.new("High Price Binary Price 8", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.highpricebinaryprice8", ftypes.UINT64)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.high_price_binary_price_8 = ProtoField.new("High Price Binary Price 8", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.highpricebinaryprice8", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.indicativeprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.is_fast = ProtoField.new("Is Fast", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.isfast", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.issue = ProtoField.new("Issue", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.issue", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.length = ProtoField.new("Length", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.length", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.listing_state = ProtoField.new("Listing State", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.listingstate", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price_1 = ProtoField.new("Low Price 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.lowprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price_binary_price_8 = ProtoField.new("Low Price Binary Price 8", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.lowpricebinaryprice8", ftypes.UINT64)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price_binary_price_8 = ProtoField.new("Low Price Binary Price 8", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.lowpricebinaryprice8", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.market_mechanism = ProtoField.new("Market Mechanism", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.marketmechanism", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message = ProtoField.new("Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.message", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_header = ProtoField.new("Message Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messageheader", ftypes.STRING)
@@ -70,7 +70,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.negotiated_trade
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.offbookautomatedindicator", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.open_and_close_price = ProtoField.new("Open And Close Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.openandcloseprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.open_interest = ProtoField.new("Open Interest", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.openinterest", ftypes.UINT32)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.open_price = ProtoField.new("Open Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.openprice", ftypes.UINT64)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.open_price = ProtoField.new("Open Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.openprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.openingcondition", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.order_id = ProtoField.new("Order Id", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.orderid", ftypes.UINT64)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet = ProtoField.new("Packet", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packet", ftypes.STRING)
@@ -90,11 +90,11 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.quantity = Proto
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.quantityshort", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reference_price = ProtoField.new("Reference Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.referenceprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.remainingquantity", ftypes.UINT32)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved = ProtoField.new("Reserved", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.reserved", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.reserved3", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.reservedflags", ftypes.UINT8, nil, base.DEC, 0x38)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.sellcontracts", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.sequence = ProtoField.new("Sequence", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.sequence", ftypes.UINT32)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.settlementprice", ftypes.UINT64)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.settlementprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.side = ProtoField.new("Side", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.side", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.sideindicator", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.specialdividend", ftypes.STRING)
@@ -676,11 +676,17 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.close_price.display = funct
   return "Close Price: "..value
 end
 
+-- Translate: Close Price
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.close_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Close Price
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.close_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.close_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.close_price.translate(raw)
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.close_price, range, value, display)
@@ -1139,11 +1145,17 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.high_price_binary_price_8.d
   return "High Price Binary Price 8: "..value
 end
 
+-- Translate: High Price Binary Price 8
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.high_price_binary_price_8.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: High Price Binary Price 8
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.high_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.high_price_binary_price_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.high_price_binary_price_8.translate(raw)
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.high_price_binary_price_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.high_price_binary_price_8, range, value, display)
@@ -1300,11 +1312,17 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.low_price_binary_price_8.di
   return "Low Price Binary Price 8: "..value
 end
 
+-- Translate: Low Price Binary Price 8
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.low_price_binary_price_8.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Low Price Binary Price 8
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.low_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.low_price_binary_price_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.low_price_binary_price_8.translate(raw)
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.low_price_binary_price_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price_binary_price_8, range, value, display)
@@ -1652,11 +1670,17 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.open_price.display = functi
   return "Open Price: "..value
 end
 
+-- Translate: Open Price
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.open_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Open Price
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.open_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.open_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.open_price.translate(raw)
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.open_price, range, value, display)
@@ -2062,25 +2086,25 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.remaining_quantity.dissect 
   return offset + length, value
 end
 
--- Reserved
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved = {}
+-- Reserved 3
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved_3 = {}
 
--- Size: Reserved
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved.size = 3
+-- Size: Reserved 3
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved_3.size = 3
 
--- Display: Reserved
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 3
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved_3.display = function(value)
+  return "Reserved 3: "..value
 end
 
--- Dissect: Reserved
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved.size
+-- Dissect: Reserved 3
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved_3.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved.display(value, buffer, offset, packet, parent)
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved, range, value, display)
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_3, range, value, display)
 
   return offset + length, value
 end
@@ -2142,11 +2166,17 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.settlement_price.display = 
   return "Settlement Price: "..value
 end
 
+-- Translate: Settlement Price
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.settlement_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Settlement Price
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.settlement_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.settlement_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.settlement_price.translate(raw)
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.settlement_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.settlement_price, range, value, display)
@@ -3777,7 +3807,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.size
   cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.time_offset.size + 
   cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.symbol_alphanumeric_8.size + 
   cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.status.size + 
-  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved.size
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved_3.size
 
 -- Display: Trading Status Message
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.display = function(packet, parent, length)
@@ -3797,8 +3827,8 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.fiel
   -- Status: Alpha
   index, status = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.status.dissect(buffer, index, packet, parent)
 
-  -- Reserved: Alpha
-  index, reserved = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 3: Alpha
+  index, reserved_3 = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reserved_3.dissect(buffer, index, packet, parent)
 
   return index
 end

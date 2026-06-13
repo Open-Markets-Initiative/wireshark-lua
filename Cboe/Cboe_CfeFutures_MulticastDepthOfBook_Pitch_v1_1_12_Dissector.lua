@@ -18,7 +18,7 @@ local cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12 = {}
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.block_volume = ProtoField.new("Block Volume", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.blockvolume", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.canceled_long_quantity = ProtoField.new("Canceled Long Quantity", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.canceledlongquantity", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.canceled_short_quantity = ProtoField.new("Canceled Short Quantity", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.canceledshortquantity", ftypes.UINT16)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.close_price = ProtoField.new("Close Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.closeprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.close_price = ProtoField.new("Close Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.closeprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.contract_date = ProtoField.new("Contract Date", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.contractdate", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.contract_size = ProtoField.new("Contract Size", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.contractsize", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.count = ProtoField.new("Count", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.count", ftypes.UINT8)
@@ -31,10 +31,10 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.expiration_date = 
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.fedfundsrate", ftypes.INT64)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.future_leg = ProtoField.new("Future Leg", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.futureleg", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.futures_flags = ProtoField.new("Futures Flags", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.futuresflags", ftypes.UINT8)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.highprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.highprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.high_price_is_bid = ProtoField.new("High Price Is Bid", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.highpriceisbid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.high_price_valid = ProtoField.new("High Price Valid", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.highpricevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.initial_strike = ProtoField.new("Initial Strike", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.initialstrike", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.initial_strike = ProtoField.new("Initial Strike", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.initialstrike", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.issue = ProtoField.new("Issue", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.issue", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.leg_count = ProtoField.new("Leg Count", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.legcount", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.leg_offset = ProtoField.new("Leg Offset", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.legoffset", ftypes.UINT8)
@@ -44,7 +44,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.length = ProtoFiel
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.listing_state = ProtoField.new("Listing State", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.listingstate", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.long_price = ProtoField.new("Long Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.longprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.long_quantity = ProtoField.new("Long Quantity", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.longquantity", ftypes.UINT32)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.low_price = ProtoField.new("Low Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.lowprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.low_price = ProtoField.new("Low Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.lowprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.low_price_is_offer = ProtoField.new("Low Price Is Offer", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.lowpriceisoffer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.low_price_valid = ProtoField.new("Low Price Valid", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.lowpricevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.message = ProtoField.new("Message", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.message", ftypes.STRING)
@@ -56,20 +56,20 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.num_elapsed_return
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.num_expected_prices = ProtoField.new("Num Expected Prices", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.numexpectedprices", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.offer_close_valid = ProtoField.new("Offer Close Valid", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.offerclosevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.openinterest", ftypes.UINT32)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.openprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.openprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.order_id = ProtoField.new("Order Id", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.orderid", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.packet", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.packetheader", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_armvm = ProtoField.new("Previous Armvm", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.previousarmvm", ftypes.INT64)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_settlement = ProtoField.new("Previous Settlement", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.previoussettlement", ftypes.UINT64)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.priceincrement", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_settlement = ProtoField.new("Previous Settlement", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.previoussettlement", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.priceincrement", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.realized_variance = ProtoField.new("Realized Variance", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.realizedvariance", ftypes.INT64)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.report_symbol = ProtoField.new("Report Symbol", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reportsymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reserved2", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reserved3", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reservedflags", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.sequence = ProtoField.new("Sequence", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.sequence", ftypes.UINT32)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.settlementprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.settlementprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.short_price = ProtoField.new("Short Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.shortprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.short_quantity = ProtoField.new("Short Quantity", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.shortquantity", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.sideindicator", ftypes.STRING)
@@ -320,11 +320,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.close_price.display = functio
   return "Close Price: "..value
 end
 
+-- Translate: Close Price
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.close_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Close Price
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.close_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.close_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.close_price.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.close_price, range, value, display)
@@ -603,11 +609,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.high_price.display = function
   return "High Price: "..value
 end
 
+-- Translate: High Price
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.high_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: High Price
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.high_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.high_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.high_price.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.high_price, range, value, display)
@@ -626,11 +638,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.initial_strike.display = func
   return "Initial Strike: "..value
 end
 
+-- Translate: Initial Strike
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.initial_strike.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Initial Strike
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.initial_strike.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.initial_strike.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.initial_strike.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.initial_strike.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.initial_strike, range, value, display)
@@ -882,11 +900,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.low_price.display = function(
   return "Low Price: "..value
 end
 
+-- Translate: Low Price
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.low_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Low Price
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.low_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.low_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.low_price.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.low_price, range, value, display)
@@ -1118,11 +1142,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.open_price.display = function
   return "Open Price: "..value
 end
 
+-- Translate: Open Price
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.open_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Open Price
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.open_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.open_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.open_price.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.open_price, range, value, display)
@@ -1187,11 +1217,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_settlement.display =
   return "Previous Settlement: "..value
 end
 
+-- Translate: Previous Settlement
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_settlement.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Previous Settlement
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_settlement.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_settlement.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_settlement.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_settlement.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_settlement, range, value, display)
@@ -1210,11 +1246,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.price_increment.display = fun
   return "Price Increment: "..value
 end
 
+-- Translate: Price Increment
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.price_increment.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Price Increment
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.price_increment.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.price_increment.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.price_increment.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.price_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.price_increment, range, value, display)
@@ -1348,11 +1390,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.settlement_price.display = fu
   return "Settlement Price: "..value
 end
 
+-- Translate: Settlement Price
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.settlement_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Settlement Price
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.settlement_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.settlement_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.settlement_price.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.settlement_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.settlement_price, range, value, display)

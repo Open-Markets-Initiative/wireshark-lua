@@ -53,7 +53,7 @@ omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.quantity = ProtoFie
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.quantityshort", ftypes.UINT16)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.reference_price = ProtoField.new("Reference Price", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.referenceprice", ftypes.DOUBLE)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.remaining_shares = ProtoField.new("Remaining Shares", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.remainingshares", ftypes.UINT32)
-omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.reserved = ProtoField.new("Reserved", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.reserved", ftypes.STRING)
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.reserved3", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.sequence = ProtoField.new("Sequence", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.sequence", ftypes.UINT32)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.shares_binary_2 = ProtoField.new("Shares Binary 2", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.sharesbinary2", ftypes.UINT16)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.shares_binary_4 = ProtoField.new("Shares Binary 4", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.sharesbinary4", ftypes.UINT32)
@@ -1228,25 +1228,25 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.remaining_shares.dissect = fun
   return offset + length, value
 end
 
--- Reserved
-cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved = {}
+-- Reserved 3
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved_3 = {}
 
--- Size: Reserved
-cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved.size = 3
+-- Size: Reserved 3
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved_3.size = 3
 
--- Display: Reserved
-cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 3
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved_3.display = function(value)
+  return "Reserved 3: "..value
 end
 
--- Dissect: Reserved
-cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved.size
+-- Dissect: Reserved 3
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved_3.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved.display(value, buffer, offset, packet, parent)
+  local display = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.reserved, range, value, display)
+  parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.reserved_3, range, value, display)
 
   return offset + length, value
 end
@@ -2159,7 +2159,7 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trading_status_message.size =
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.time_offset.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_8.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trading_status.size + 
-  cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved.size
+  cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved_3.size
 
 -- Display: Trading Status Message
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trading_status_message.display = function(packet, parent, length)
@@ -2179,8 +2179,8 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trading_status_message.fields 
   -- Trading Status: Alpha
   index, trading_status = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trading_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved: Alpha
-  index, reserved = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 3: Alpha
+  index, reserved_3 = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.reserved_3.dissect(buffer, index, packet, parent)
 
   return index
 end

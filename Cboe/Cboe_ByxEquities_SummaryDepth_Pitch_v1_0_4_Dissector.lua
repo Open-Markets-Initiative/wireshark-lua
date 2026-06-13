@@ -43,8 +43,8 @@ omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.packet_header = ProtoField
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.price = ProtoField.new("Price", "cboe.byxequities.summarydepth.pitch.v1.0.4.price", ftypes.DOUBLE)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.quantity = ProtoField.new("Quantity", "cboe.byxequities.summarydepth.pitch.v1.0.4.quantity", ftypes.UINT32)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.byxequities.summarydepth.pitch.v1.0.4.regshoaction", ftypes.STRING)
-omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_alphanumeric_1 = ProtoField.new("Reserved Alphanumeric 1", "cboe.byxequities.summarydepth.pitch.v1.0.4.reservedalphanumeric1", ftypes.STRING)
-omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_binary_8 = ProtoField.new("Reserved Binary 8", "cboe.byxequities.summarydepth.pitch.v1.0.4.reservedbinary8", ftypes.UINT64)
+omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.byxequities.summarydepth.pitch.v1.0.4.reserved1", ftypes.STRING)
+omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.byxequities.summarydepth.pitch.v1.0.4.reserved8", ftypes.UINT64)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_trade_flags = ProtoField.new("Reserved Trade Flags", "cboe.byxequities.summarydepth.pitch.v1.0.4.reservedtradeflags", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.byxequities.summarydepth.pitch.v1.0.4.retailpriceimprovement", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.sequence = ProtoField.new("Sequence", "cboe.byxequities.summarydepth.pitch.v1.0.4.sequence", ftypes.UINT32)
@@ -591,48 +591,48 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.reg_sho_action.dissect = function(buf
   return offset + length, value
 end
 
--- Reserved Alphanumeric 1
-cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1 = {}
+-- Reserved 1
+cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1 = {}
 
--- Size: Reserved Alphanumeric 1
-cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size = 1
+-- Size: Reserved 1
+cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size = 1
 
--- Display: Reserved Alphanumeric 1
-cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.display = function(value)
-  return "Reserved Alphanumeric 1: "..value
+-- Display: Reserved 1
+cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved Alphanumeric 1
-cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
+-- Dissect: Reserved 1
+cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.display(value, buffer, offset, packet, parent)
+  local display = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_alphanumeric_1, range, value, display)
+  parent:add(omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
 
--- Reserved Binary 8
-cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8 = {}
+-- Reserved 8
+cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8 = {}
 
--- Size: Reserved Binary 8
-cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.size = 8
+-- Size: Reserved 8
+cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.size = 8
 
--- Display: Reserved Binary 8
-cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.display = function(value)
-  return "Reserved Binary 8: "..value
+-- Display: Reserved 8
+cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.display = function(value)
+  return "Reserved 8: "..value
 end
 
--- Dissect: Reserved Binary 8
-cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.size
+-- Dissect: Reserved 8
+cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_binary_8, range, value, display)
+  parent:add(omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -876,7 +876,7 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.trading_status_message = {}
 cboe_byxequities_summarydepth_pitch_v1_0_4.trading_status_message.size =
   cboe_byxequities_summarydepth_pitch_v1_0_4.timestamp.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.size + 
-  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.halt_status.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.reg_sho_action.size
 
@@ -895,8 +895,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.trading_status_message.fields = funct
   -- Symbol: Alphanumeric
   index, symbol = cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved Alphanumeric 1: Alphanumeric
-  index, reserved_alphanumeric_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Halt Status: Alphanumeric
   index, halt_status = cboe_byxequities_summarydepth_pitch_v1_0_4.halt_status.dissect(buffer, index, packet, parent)
@@ -932,10 +932,10 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.trade_break_message = {}
 cboe_byxequities_summarydepth_pitch_v1_0_4.trade_break_message.size =
   cboe_byxequities_summarydepth_pitch_v1_0_4.transaction_time.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.size + 
-  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.execution_id.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.cboe_cumulative_executed_volume.size + 
-  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.size + 
+  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.trade_break_flags.size
 
 -- Display: Trade Break Message
@@ -953,8 +953,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.trade_break_message.fields = function
   -- Symbol: Alphanumeric
   index, symbol = cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved Alphanumeric 1: Alphanumeric
-  index, reserved_alphanumeric_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_byxequities_summarydepth_pitch_v1_0_4.execution_id.dissect(buffer, index, packet, parent)
@@ -962,8 +962,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.trade_break_message.fields = function
   -- Cboe Cumulative Executed Volume: Binary
   index, cboe_cumulative_executed_volume = cboe_byxequities_summarydepth_pitch_v1_0_4.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved Binary 8: Binary
-  index, reserved_binary_8 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.dissect(buffer, index, packet, parent)
+  -- Reserved 8: Binary
+  index, reserved_8 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Trade Break Flags: Binary
   index, trade_break_flags = cboe_byxequities_summarydepth_pitch_v1_0_4.trade_break_flags.dissect(buffer, index, packet, parent)
@@ -1046,12 +1046,12 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.trade_message = {}
 cboe_byxequities_summarydepth_pitch_v1_0_4.trade_message.size =
   cboe_byxequities_summarydepth_pitch_v1_0_4.transaction_time.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.size + 
-  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.execution_id.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.last_price.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.last_quantity.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.cboe_cumulative_executed_volume.size + 
-  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.size + 
+  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.trade_flags.size
 
 -- Display: Trade Message
@@ -1069,8 +1069,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.trade_message.fields = function(buffe
   -- Symbol: Alphanumeric
   index, symbol = cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved Alphanumeric 1: Alphanumeric
-  index, reserved_alphanumeric_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_byxequities_summarydepth_pitch_v1_0_4.execution_id.dissect(buffer, index, packet, parent)
@@ -1084,8 +1084,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.trade_message.fields = function(buffe
   -- Cboe Cumulative Executed Volume: Binary
   index, cboe_cumulative_executed_volume = cboe_byxequities_summarydepth_pitch_v1_0_4.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved Binary 8: Binary
-  index, reserved_binary_8 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_binary_8.dissect(buffer, index, packet, parent)
+  -- Reserved 8: Binary
+  index, reserved_8 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Trade Flags: Struct of 3 fields
   index, trade_flags = cboe_byxequities_summarydepth_pitch_v1_0_4.trade_flags.dissect(buffer, index, packet, parent)
@@ -1118,7 +1118,7 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.rpi_message = {}
 cboe_byxequities_summarydepth_pitch_v1_0_4.rpi_message.size =
   cboe_byxequities_summarydepth_pitch_v1_0_4.timestamp.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.size + 
-  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.retail_price_improvement.size
 
 -- Display: Rpi Message
@@ -1136,8 +1136,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.rpi_message.fields = function(buffer,
   -- Symbol: Alphanumeric
   index, symbol = cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved Alphanumeric 1: Alphanumeric
-  index, reserved_alphanumeric_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Retail Price Improvement: Alphanumeric
   index, retail_price_improvement = cboe_byxequities_summarydepth_pitch_v1_0_4.retail_price_improvement.dissect(buffer, index, packet, parent)
@@ -1405,7 +1405,7 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.adap_message.size = function(buffer, 
 
   index = index + cboe_byxequities_summarydepth_pitch_v1_0_4.adap_flags.size
 
-  index = index + cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
+  index = index + cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size
 
   index = index + cboe_byxequities_summarydepth_pitch_v1_0_4.adap_blocks.size
 
@@ -1435,8 +1435,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.adap_message.fields = function(buffer
   -- Adap Flags: Struct of 4 fields
   index, adap_flags = cboe_byxequities_summarydepth_pitch_v1_0_4.adap_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved Alphanumeric 1: Alphanumeric
-  index, reserved_alphanumeric_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Adap Blocks: Binary
   index, adap_blocks = cboe_byxequities_summarydepth_pitch_v1_0_4.adap_blocks.dissect(buffer, index, packet, parent)
@@ -1473,7 +1473,7 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.cboe_market_status_message = {}
 -- Size: Cboe Market Status Message
 cboe_byxequities_summarydepth_pitch_v1_0_4.cboe_market_status_message.size =
   cboe_byxequities_summarydepth_pitch_v1_0_4.timestamp.size + 
-  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size + 
+  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.market_status.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.session_indicator.size
 
@@ -1489,8 +1489,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.cboe_market_status_message.fields = f
   -- Timestamp: Binary
   index, timestamp = cboe_byxequities_summarydepth_pitch_v1_0_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reserved Alphanumeric 1: Alphanumeric
-  index, reserved_alphanumeric_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Market Status: Alphanumeric
   index, market_status = cboe_byxequities_summarydepth_pitch_v1_0_4.market_status.dissect(buffer, index, packet, parent)
@@ -1526,7 +1526,7 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.clear_quote_message = {}
 cboe_byxequities_summarydepth_pitch_v1_0_4.clear_quote_message.size =
   cboe_byxequities_summarydepth_pitch_v1_0_4.last_update_timestamp.size + 
   cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.size + 
-  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.size
+  cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.size
 
 -- Display: Clear Quote Message
 cboe_byxequities_summarydepth_pitch_v1_0_4.clear_quote_message.display = function(packet, parent, length)
@@ -1543,8 +1543,8 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.clear_quote_message.fields = function
   -- Symbol: Alphanumeric
   index, symbol = cboe_byxequities_summarydepth_pitch_v1_0_4.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved Alphanumeric 1: Alphanumeric
-  index, reserved_alphanumeric_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_alphanumeric_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = cboe_byxequities_summarydepth_pitch_v1_0_4.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end

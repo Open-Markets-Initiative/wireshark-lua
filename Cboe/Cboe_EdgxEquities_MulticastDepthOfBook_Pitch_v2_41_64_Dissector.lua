@@ -46,7 +46,6 @@ omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.reference_price
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.64.regshoaction", ftypes.STRING)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.64.remainingquantity", ftypes.UINT32)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.64.reserved1", ftypes.STRING)
-omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.64.reserved2", ftypes.STRING)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_flags_6 = ProtoField.new("Reserved Flags 6", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.64.reservedflags6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_flags_7 = ProtoField.new("Reserved Flags 7", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.64.reservedflags7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.64.retailpriceimprovement", ftypes.STRING)
@@ -870,29 +869,6 @@ cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.dissect = funct
   return offset + length, value
 end
 
--- Reserved 2
-cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_2 = {}
-
--- Size: Reserved 2
-cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_2.size = 1
-
--- Display: Reserved 2
-cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Retail Price Improvement
 cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.retail_price_improvement = {}
 
@@ -1482,7 +1458,7 @@ cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.eq_trading_status_message.
   cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.trading_status.size + 
   cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reg_sho_action.size + 
   cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.size + 
-  cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_2.size
+  cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.size
 
 -- Display: Eq Trading Status Message
 cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.eq_trading_status_message.display = function(packet, parent, length)
@@ -1508,8 +1484,8 @@ cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.eq_trading_status_message.
   -- Reserved 1: Alpha
   index, reserved_1 = cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: Alpha
-  index, reserved_2 = cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_2.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alpha
+  index, reserved_1 = cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end

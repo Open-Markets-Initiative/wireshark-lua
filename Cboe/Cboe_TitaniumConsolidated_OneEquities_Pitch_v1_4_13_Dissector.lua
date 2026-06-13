@@ -58,10 +58,10 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet_header = P
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price = ProtoField.new("Price", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.price", ftypes.DOUBLE)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity = ProtoField.new("Quantity", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.quantity", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.regshoaction", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved1", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_5 = ProtoField.new("Reserved 5", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_7 = ProtoField.new("Reserved 7", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_binary_1 = ProtoField.new("Reserved Binary 1", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reservedbinary1", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.retailpriceimprovement", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.sequence = ProtoField.new("Sequence", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.sequence", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.session_indicator = ProtoField.new("Session Indicator", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.sessionindicator", ftypes.STRING)
@@ -1069,25 +1069,25 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reg_sho_action.dissect = fun
   return offset + length, value
 end
 
--- Reserved Binary 1
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1 = {}
+-- Reserved 1
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1 = {}
 
--- Size: Reserved Binary 1
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.size = 1
+-- Size: Reserved 1
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.size = 1
 
--- Display: Reserved Binary 1
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.display = function(value)
-  return "Reserved Binary 1: "..value
+-- Display: Reserved 1
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved Binary 1
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.size
+-- Dissect: Reserved 1
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.display(value, buffer, offset, packet, parent)
+  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_binary_1, range, value, display)
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1779,7 +1779,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_br
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center_execution_id.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.cboe_cumulative_executed_volume.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.national_cumulative_volume.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.size
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.size
 
 -- Display: Expanded Fractional Trade Break Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_break_message.display = function(packet, parent, length)
@@ -1808,8 +1808,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_br
   -- National Cumulative Volume: Binary 12.6
   index, national_cumulative_volume = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.national_cumulative_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved Binary 1: Binary
-  index, reserved_binary_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Binary
+  index, reserved_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1952,7 +1952,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_me
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_quantity.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.cboe_cumulative_executed_volume.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.national_cumulative_volume.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.size
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.size
 
 -- Display: Expanded Fractional Trade Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_message.display = function(packet, parent, length)
@@ -1987,8 +1987,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_me
   -- National Cumulative Volume: Binary 12.6
   index, national_cumulative_volume = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.national_cumulative_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved Binary 1: Binary
-  index, reserved_binary_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Binary
+  index, reserved_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2433,7 +2433,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_adap_message.size =
 
   index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.size
 
-  index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.size
+  index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.size
 
   index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_blocks.size
 
@@ -2465,8 +2465,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_adap_message.fields
   -- Adap Flags: Struct of 4 fields
   index, adap_flags = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved Binary 1: Binary
-  index, reserved_binary_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Binary
+  index, reserved_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Adap Blocks: Binary
   index, adap_blocks = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_blocks.dissect(buffer, index, packet, parent)
@@ -2513,7 +2513,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_message.size = function
 
   index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.size
 
-  index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.size
+  index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.size
 
   index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_blocks.size
 
@@ -2545,8 +2545,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_message.fields = functi
   -- Adap Flags: Struct of 4 fields
   index, adap_flags = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved Binary 1: Binary
-  index, reserved_binary_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Binary
+  index, reserved_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Adap Blocks: Binary
   index, adap_blocks = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_blocks.dissect(buffer, index, packet, parent)
@@ -2757,7 +2757,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_symbol_s
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_best_ask_price.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_best_ask_quantity.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.national_cumulative_volume.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.size
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.size
 
 -- Display: Expanded Fractional Symbol Summary Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_symbol_summary_message.display = function(packet, parent, length)
@@ -2792,8 +2792,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_symbol_s
   -- National Cumulative Volume: Binary 12.6
   index, national_cumulative_volume = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.national_cumulative_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved Binary 1: Binary
-  index, reserved_binary_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_binary_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Binary
+  index, reserved_1 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end
