@@ -40,7 +40,6 @@ omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.quantity = Prot
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.quantityshort", ftypes.UINT16)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.regshoaction", ftypes.STRING)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.remainingquantity", ftypes.UINT32)
-omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.reservedflags", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.sequence = ProtoField.new("Sequence", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.sequence", ftypes.UINT32)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.sideindicator", ftypes.STRING)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol = ProtoField.new("Symbol", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.symbol", ftypes.STRING)
@@ -49,6 +48,7 @@ omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.time = ProtoFie
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.time_offset = ProtoField.new("Time Offset", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.timeoffset", ftypes.UINT32)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.trading_status = ProtoField.new("Trading Status", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.tradingstatus", ftypes.STRING)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
+omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_7 = ProtoField.new("Unused 7", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -- Cboe EdgxEquities Pitch MulticastDepthOfBook 2.41.29 Application Messages
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)
@@ -1715,8 +1715,8 @@ cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.add_order_flags.bits = fun
   -- Display: 1 Bit
   parent:add(omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.display, range, value)
 
-  -- Reserved Flags: 7 Bit
-  parent:add(omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.reserved_flags, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_7, range, value)
 end
 
 -- Dissect: Add Order Flags

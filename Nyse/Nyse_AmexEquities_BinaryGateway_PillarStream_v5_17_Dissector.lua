@@ -125,7 +125,6 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reinstatement_requ
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reinstatement_required_by_self = ProtoField.new("Reinstatement Required By Self", "nyse.amexequities.binarygateway.pillarstream.v5.17.reinstatementrequiredbyself", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reject_type = ProtoField.new("Reject Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.rejecttype", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reserved_100 = ProtoField.new("Reserved 100", "nyse.amexequities.binarygateway.pillarstream.v5.17.reserved100", ftypes.BYTES)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reserved_12 = ProtoField.new("Reserved 12", "nyse.amexequities.binarygateway.pillarstream.v5.17.reserved12", ftypes.UINT64, nil, base.DEC, 0x0000000000000FFF)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reserved_190 = ProtoField.new("Reserved 190", "nyse.amexequities.binarygateway.pillarstream.v5.17.reserved190", ftypes.BYTES)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reserved_199 = ProtoField.new("Reserved 199", "nyse.amexequities.binarygateway.pillarstream.v5.17.reserved199", ftypes.BYTES)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reserved_200 = ProtoField.new("Reserved 200", "nyse.amexequities.binarygateway.pillarstream.v5.17.reserved200", ftypes.BYTES)
@@ -181,7 +180,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.threshold_breach_l
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.amexequities.binarygateway.pillarstream.v5.17.throttlepreference", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.amexequities.binarygateway.pillarstream.v5.17.throttlethreshold", ftypes.UINT16)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.amexequities.binarygateway.pillarstream.v5.17.throttlewindow", ftypes.UINT16)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttled = ProtoField.new("Throttled", "nyse.amexequities.binarygateway.pillarstream.v5.17.throttled", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x00000000000001)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttled = ProtoField.new("Throttled", "nyse.amexequities.binarygateway.pillarstream.v5.17.throttled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.time_in_force = ProtoField.new("Time In Force", "nyse.amexequities.binarygateway.pillarstream.v5.17.timeinforce", ftypes.UINT64, {[1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close"}, base.DEC, 0x0000000080000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.time_limit = ProtoField.new("Time Limit", "nyse.amexequities.binarygateway.pillarstream.v5.17.timelimit", ftypes.INT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexequities.binarygateway.pillarstream.v5.17.timestamp", ftypes.UINT64)
@@ -189,6 +188,8 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.trading_mpv = Prot
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.amexequities.binarygateway.pillarstream.v5.17.tradingsessionid", ftypes.UINT64, {[1]="Early Trading Session", [2]="Core Trading Session", [3]="Late Trading Session", [4]="Early And Core Trading Sessions", [5]="Core And Late Trading Sessions", [6]="Early Core And Late Trading Sessions"}, base.DEC, 0x0000000070000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.transact_time = ProtoField.new("Transact Time", "nyse.amexequities.binarygateway.pillarstream.v5.17.transacttime", ftypes.UINT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.amexequities.binarygateway.pillarstream.v5.17.unpairedqty", ftypes.UINT32)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.unused_12 = ProtoField.new("Unused 12", "nyse.amexequities.binarygateway.pillarstream.v5.17.unused12", ftypes.UINT64, nil, base.DEC, 0x0000000000000FFF)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.unused_7 = ProtoField.new("Unused 7", "nyse.amexequities.binarygateway.pillarstream.v5.17.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.usd_calculation_1 = ProtoField.new("Usd Calculation 1", "nyse.amexequities.binarygateway.pillarstream.v5.17.usdcalculation1", ftypes.INT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.usd_calculation_2 = ProtoField.new("Usd Calculation 2", "nyse.amexequities.binarygateway.pillarstream.v5.17.usdcalculation2", ftypes.INT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.usd_calculation_3 = ProtoField.new("Usd Calculation 3", "nyse.amexequities.binarygateway.pillarstream.v5.17.usdcalculation3", ftypes.INT64)
@@ -7281,14 +7282,14 @@ end
 nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator = {}
 
 -- Size: Bitfield Flow Indicator
-nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.size = 7
+nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.size = 1
 
 -- Display: Bitfield Flow Indicator
 nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.display = function(range, value, packet, parent)
   local flags = {}
 
   -- Is Throttled flag set?
-  if bit.band(value, 0x00000000000001) ~= 0 then
+  if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Throttled"
   end
 
@@ -7301,8 +7302,8 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.bits 
   -- Throttled: 1 Bit Enum with 2 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttled, range, value)
 
-  -- Reserved 7: char(7)
-  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reserved_7, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.unused_7, range, value)
 end
 
 -- Dissect: Bitfield Flow Indicator
@@ -7441,8 +7442,8 @@ end
 -- Dissect Bit Fields: Bitfield Order Instructions
 nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.bits = function(range, value, packet, parent)
 
-  -- Reserved 12: 12 Bit
-  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reserved_12, range, value)
+  -- Unused 12: 12 Bit
+  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.unused_12, range, value)
 
   -- Sub Id Indicator: 1 Bit Enum with 2 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sub_id_indicator, range, value)

@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 607 | 5,168,471 |
+| 608 | 5,169,704 |
 
 ## Testing
 
@@ -157,22 +157,22 @@ Enjoy.
 [Cboe.BzxEquities.Top]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/Top.md "Top"
 [Cboe.EdgaEquities.Top]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgaEquities/Top.md "Top"
 [Cboe.EdgxEquities.Top]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxEquities/Top.md "Top"
-[Cboe.BzxEquities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/OrderEntry.md "Order Entry"
-[Cboe.EdgxEquities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxEquities/OrderEntry.md "Order Entry"
+[Cboe.BzxEquities.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/BinaryOrderEntry.md "Binary Order Entry"
+[Cboe.EdgxEquities.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxEquities/BinaryOrderEntry.md "Binary Order Entry"
 [Cboe.C1Options.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.C1Options.AuctionFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/AuctionFeed.md "Auction Feed"
-[Cboe.C1Options.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/OrderEntry.md "Order Entry"
+[Cboe.C1Options.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/BinaryOrderEntry.md "Binary Order Entry"
 [Cboe.C1Options.Complex]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/Complex.md "Complex"
 [Cboe.C2Options.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C2Options/MulticastDepthOfBook.md "Multicast Depth Of Book"
-[Cboe.C2Options.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C2Options/OrderEntry.md "Order Entry"
+[Cboe.C2Options.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C2Options/BinaryOrderEntry.md "Binary Order Entry"
 [Cboe.BzxOptions.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxOptions/MulticastDepthOfBook.md "Multicast Depth Of Book"
-[Cboe.BzxOptions.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxOptions/OrderEntry.md "Order Entry"
+[Cboe.BzxOptions.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxOptions/BinaryOrderEntry.md "Binary Order Entry"
 [Cboe.EdgxOptions.AuctionFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxOptions/AuctionFeed.md "Auction Feed"
-[Cboe.EdgxOptions.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxOptions/OrderEntry.md "Order Entry"
+[Cboe.EdgxOptions.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxOptions/BinaryOrderEntry.md "Binary Order Entry"
 [Cboe.EdgxOptions.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxOptions/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.CfeFutures.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/MulticastDepthOfBook.md "Futures Multicast Depth Of Book"
 [Cboe.CfeFutures.MulticastTop]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/MulticastTop.md "Futures Multicast Top"
-[Cboe.CfeFutures.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/OrderEntry.md "Futures Order Entry"
+[Cboe.CfeFutures.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/CfeFutures/BinaryOrderEntry.md "Futures Binary Order Entry"
 [Cboe.DxeDerivatives.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/DxeDerivatives/MulticastDepthOfBook.md "Europe Derivatives Multicast Depth Of Book"
 [Cboe.BxeEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BxeEquities/LastSale.md "Last Sale"
 [Cboe.BxeEquities.AuctionFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BxeEquities/AuctionFeed.md "Auction Feed"
@@ -186,6 +186,7 @@ Enjoy.
 [Cboe.NeoEquities.MulticastMarketByPrice]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/NeoEquities/MulticastMarketByPrice.md "Multicast Market By Price"
 [Cboe.NeoEquities.MulticastTrades]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/NeoEquities/MulticastTrades.md "Multicast Trades"
 [Cboe.NeoEquities.CrossingFacility]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/NeoEquities/CrossingFacility.md "Crossing Facility"
+[Cboe.MatchNow.MulticastTrades]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/MatchNow/MulticastTrades.md "Multicast Trades"
 [Cboe.C1Options.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketDataFeed.md "Market Data Feed"
 [Cboe.C1Options.MarketLevel2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/MarketLevel2.md "Market Level 2 Feed"
 [Cboe.C1Options.OpeningAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/OpeningAuction.md "Opening Auction Feed"

@@ -28,7 +28,7 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.execution_id = ProtoField
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.halt_status = ProtoField.new("Halt Status", "cboe.edgaequities.summarydepth.pitch.v1.0.7.haltstatus", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.last_price = ProtoField.new("Last Price", "cboe.edgaequities.summarydepth.pitch.v1.0.7.lastprice", ftypes.DOUBLE)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.edgaequities.summarydepth.pitch.v1.0.7.lastquantity", ftypes.UINT64)
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.edgaequities.summarydepth.pitch.v1.0.7.lastsaleeligible", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.edgaequities.summarydepth.pitch.v1.0.7.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.edgaequities.summarydepth.pitch.v1.0.7.lastupdatetimestamp", ftypes.UINT64)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.length = ProtoField.new("Length", "cboe.edgaequities.summarydepth.pitch.v1.0.7.length", ftypes.UINT16)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.edgaequities.summarydepth.pitch.v1.0.7.longupdateadapblock", ftypes.STRING)
@@ -43,7 +43,6 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.price = ProtoField.new("P
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.quantity = ProtoField.new("Quantity", "cboe.edgaequities.summarydepth.pitch.v1.0.7.quantity", ftypes.UINT32)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgaequities.summarydepth.pitch.v1.0.7.regshoaction", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgaequities.summarydepth.pitch.v1.0.7.reserved1", ftypes.STRING)
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.edgaequities.summarydepth.pitch.v1.0.7.reserved6", ftypes.UINT16, nil, base.DEC, 0x7E00)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.edgaequities.summarydepth.pitch.v1.0.7.reserved8", ftypes.UINT64)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.edgaequities.summarydepth.pitch.v1.0.7.retailpriceimprovement", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.sequence = ProtoField.new("Sequence", "cboe.edgaequities.summarydepth.pitch.v1.0.7.sequence", ftypes.UINT32)
@@ -58,6 +57,9 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.trade_break_flags = Proto
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.edgaequities.summarydepth.pitch.v1.0.7.tradeflags", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.edgaequities.summarydepth.pitch.v1.0.7.transactiontime", ftypes.UINT64)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.unit = ProtoField.new("Unit", "cboe.edgaequities.summarydepth.pitch.v1.0.7.unit", ftypes.UINT8)
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.unused_1 = ProtoField.new("Unused 1", "cboe.edgaequities.summarydepth.pitch.v1.0.7.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.unused_6 = ProtoField.new("Unused 6", "cboe.edgaequities.summarydepth.pitch.v1.0.7.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.unused_8 = ProtoField.new("Unused 8", "cboe.edgaequities.summarydepth.pitch.v1.0.7.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
 
 -- Cboe EdgaEquities Pitch SummaryDepth 1.0.7 Application Messages
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.adap_message = ProtoField.new("Adap Message", "cboe.edgaequities.summarydepth.pitch.v1.0.7.adapmessage", ftypes.STRING)
@@ -934,40 +936,36 @@ end
 cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags = {}
 
 -- Size: Trade Break Flags
-cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.size =
-  cboe_edgaequities_summarydepth_pitch_v1_0_7.reserved_8.size
+cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.size = 1
 
 -- Display: Trade Break Flags
-cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.display = function(packet, parent, length)
-  return ""
+cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+
+  return table.concat(flags, "|")
 end
 
--- Dissect Fields: Trade Break Flags
-cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect Bit Fields: Trade Break Flags
+cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved 8: Binary
-  index, reserved_8 = cboe_edgaequities_summarydepth_pitch_v1_0_7.reserved_8.dissect(buffer, index, packet, parent)
-
-  return index
+  -- Unused 8: 8 Bit
+  parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.unused_8, range, value)
 end
 
 -- Dissect: Trade Break Flags
 cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.dissect = function(buffer, offset, packet, parent)
-  if show.trade_break_flags then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.trade_break_flags, buffer(offset, 0))
-    local index = cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.display(packet, parent, length)
-    parent:append_text(display)
+  local size = cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.trade_break_flags, range, display)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.fields(buffer, offset, packet, parent)
+  if show.trade_break_flags then
+    cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_break_flags.bits(range, value, packet, element)
   end
+
+  return offset + size, value
 end
 
 -- Trade Break Message
@@ -1038,14 +1036,18 @@ end
 cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_flags = {}
 
 -- Size: Trade Flags
-cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_flags.size = 2
+cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_flags.size = 1
 
 -- Display: Trade Flags
 cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_flags.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Is Unused 1 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Unused 1"
+  end
   -- Is Last Sale Eligible flag set?
-  if bit.band(value, 0x0100) ~= 0 then
+  if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Last Sale Eligible"
   end
 
@@ -1055,14 +1057,14 @@ end
 -- Dissect Bit Fields: Trade Flags
 cboe_edgaequities_summarydepth_pitch_v1_0_7.trade_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved 1: Alphanumeric
-  parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.reserved_1, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.unused_1, range, value)
 
   -- Last Sale Eligible: 1 Bit
   parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.last_sale_eligible, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.reserved_6, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_7.fields.unused_6, range, value)
 end
 
 -- Dissect: Trade Flags

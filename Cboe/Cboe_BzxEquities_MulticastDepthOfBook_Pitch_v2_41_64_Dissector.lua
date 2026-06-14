@@ -46,8 +46,6 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reference_price 
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.regshoaction", ftypes.STRING)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.remainingquantity", ftypes.UINT32)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.reserved1", ftypes.STRING)
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_flags_6 = ProtoField.new("Reserved Flags 6", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.reservedflags6", ftypes.UINT8, nil, base.DEC, 0xFC)
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_flags_7 = ProtoField.new("Reserved Flags 7", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.reservedflags7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.retailpriceimprovement", ftypes.STRING)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.sellshares", ftypes.UINT32)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.sequence = ProtoField.new("Sequence", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.sequence", ftypes.UINT32)
@@ -61,6 +59,8 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.time_offset = Pr
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.timestamp", ftypes.UINT32)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.trading_status = ProtoField.new("Trading Status", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.tradingstatus", ftypes.STRING)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.unit = ProtoField.new("Unit", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.unit", ftypes.UINT8)
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.unused_6 = ProtoField.new("Unused 6", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.unused_7 = ProtoField.new("Unused 7", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -- Cboe BzxEquities Pitch MulticastDepthOfBook 2.41.64 Application Messages
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.eq_add_order_expanded_message = ProtoField.new("Eq Add Order Expanded Message", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.eqaddorderexpandedmessage", ftypes.STRING)
@@ -1859,8 +1859,8 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.modify_flags.bits = functio
   -- Priority: 1 Bit
   parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.priority, range, value)
 
-  -- Reserved Flags 6: 6 Bit
-  parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_flags_6, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.unused_6, range, value)
 end
 
 -- Dissect: Modify Flags
@@ -2222,8 +2222,8 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.add_flags.bits = function(r
   -- Display: 1 Bit
   parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.display, range, value)
 
-  -- Reserved Flags 7: 7 Bit
-  parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_flags_7, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.unused_7, range, value)
 end
 
 -- Dissect: Add Flags

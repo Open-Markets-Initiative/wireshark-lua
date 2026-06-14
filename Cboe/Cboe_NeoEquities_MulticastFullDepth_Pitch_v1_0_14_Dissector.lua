@@ -65,10 +65,7 @@ omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.previous_close = Pr
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.price = ProtoField.new("Price", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.price", ftypes.DOUBLE)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.quantity = ProtoField.new("Quantity", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.quantity", ftypes.UINT32)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reference_price = ProtoField.new("Reference Price", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.referenceprice", ftypes.DOUBLE)
-omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_0 = ProtoField.new("Reserved 0", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.reserved0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_02 = ProtoField.new("Reserved 02", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.reserved02", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.reserved1", ftypes.UINT8)
-omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_27 = ProtoField.new("Reserved 27", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.reserved27", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.reserved4", ftypes.UINT32)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.security_type = ProtoField.new("Security Type", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.securitytype", ftypes.UINT8)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.segment = ProtoField.new("Segment", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.segment", ftypes.STRING)
@@ -85,6 +82,9 @@ omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.trade_flags = Proto
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.trading_status = ProtoField.new("Trading Status", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.tradingstatus", ftypes.STRING)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.trading_sub_status = ProtoField.new("Trading Sub Status", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.tradingsubstatus", ftypes.STRING)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unit = ProtoField.new("Unit", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.unit", ftypes.UINT8)
+omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_1 = ProtoField.new("Unused 1", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_3 = ProtoField.new("Unused 3", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
+omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
 -- Cboe NeoEquities Pitch MulticastFullDepth 1.0.14 Application Messages
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.add_order_message = ProtoField.new("Add Order Message", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.addordermessage", ftypes.STRING)
@@ -2001,8 +2001,8 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trade_flags.bits = function(ra
   -- Auction: 1 Bit
   parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.auction, range, value)
 
-  -- Reserved 27: 6 Bit
-  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_27, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_6, range, value)
 end
 
 -- Dissect: Trade Flags
@@ -2118,9 +2118,9 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.execution_flags.size = 1
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.execution_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Reserved 0 flag set?
+  -- Is Unused 1 flag set?
   if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Reserved 0"
+    flags[#flags + 1] = "Unused 1"
   end
   -- Is Auction flag set?
   if bit.band(value, 0x02) ~= 0 then
@@ -2133,14 +2133,14 @@ end
 -- Dissect Bit Fields: Execution Flags
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.execution_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved 0: 1 Bit
-  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_0, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_1, range, value)
 
   -- Auction: 1 Bit
   parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.auction, range, value)
 
-  -- Reserved 27: 6 Bit
-  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_27, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_6, range, value)
 end
 
 -- Dissect: Execution Flags
@@ -2557,8 +2557,8 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.instrument_flags.bits = functi
   -- Closing Eligible: 1 Bit
   parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.closing_eligible, range, value)
 
-  -- Reserved 27: 6 Bit
-  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_27, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_6, range, value)
 end
 
 -- Dissect: Instrument Flags
@@ -2613,8 +2613,8 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Reserved 02: 3 Bit
-  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.reserved_02, range, value)
+  -- Unused 3: 3 Bit
+  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_3, range, value)
 
   -- Neol: 1 Bit
   parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.neol, range, value)

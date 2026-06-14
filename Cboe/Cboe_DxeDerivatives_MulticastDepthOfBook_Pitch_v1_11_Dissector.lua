@@ -91,7 +91,6 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.quantity_short =
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reference_price = ProtoField.new("Reference Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.referenceprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.remainingquantity", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.reserved3", ftypes.STRING)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.reservedflags", ftypes.UINT8, nil, base.DEC, 0x38)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.sellcontracts", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.sequence = ProtoField.new("Sequence", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.sequence", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.settlementprice", ftypes.DOUBLE)
@@ -115,8 +114,8 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.trade_timestamp 
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.trading_mode = ProtoField.new("Trading Mode", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.tradingmode", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.transactioncategory", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unit = ProtoField.new("Unit", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.unit", ftypes.UINT8)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_1 = ProtoField.new("Unused 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_3 = ProtoField.new("Unused 3", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.unused3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_1 = ProtoField.new("Unused 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_3 = ProtoField.new("Unused 3", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.unused3", ftypes.UINT8, nil, base.DEC, 0x38)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.volume = ProtoField.new("Volume", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.volume", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_type = ProtoField.new("Width Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.widthtype", ftypes.UINT8)
 
@@ -2848,9 +2847,9 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.summary_flags.display = fun
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "High Price 1"
   end
-  -- Is Unused 3 flag set?
+  -- Is Unused 1 flag set?
   if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Unused 3"
+    flags[#flags + 1] = "Unused 1"
   end
   -- Is Unused 1 flag set?
   if bit.band(value, 0x80) ~= 0 then
@@ -2872,11 +2871,11 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.summary_flags.bits = functi
   -- High Price 1: 1 Bit
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.high_price_1, range, value)
 
-  -- Reserved Flags: 3 Bit
-  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_flags, range, value)
-
-  -- Unused 3: 1 Bit
+  -- Unused 3: 3 Bit
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_3, range, value)
+
+  -- Unused 1: 1 Bit
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_1, range, value)
 
   -- Unused 1: 1 Bit
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_1, range, value)

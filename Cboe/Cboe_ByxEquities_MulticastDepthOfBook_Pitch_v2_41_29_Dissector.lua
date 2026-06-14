@@ -35,7 +35,6 @@ omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_header =
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_length = ProtoField.new("Message Length", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.messagelength", ftypes.UINT8)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_type = ProtoField.new("Message Type", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.messagetype", ftypes.UINT8)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.modifyorderflags", ftypes.STRING)
-omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.modify_reserved_flags = ProtoField.new("Modify Reserved Flags", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.modifyreservedflags", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.order_id = ProtoField.new("Order Id", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.orderid", ftypes.UINT64)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
@@ -49,7 +48,6 @@ omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.quantity_short =
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.reference_price = ProtoField.new("Reference Price", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.referenceprice", ftypes.UINT64)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.regshoaction", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.remainingquantity", ftypes.UINT32)
-omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.reservedflags", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.retailpriceimprovement", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.sellshares", ftypes.UINT32)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.sequence = ProtoField.new("Sequence", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.sequence", ftypes.UINT32)
@@ -61,6 +59,8 @@ omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.time = ProtoFiel
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.time_offset = ProtoField.new("Time Offset", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.timeoffset", ftypes.UINT32)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.trading_status = ProtoField.new("Trading Status", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.tradingstatus", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
+omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_6 = ProtoField.new("Unused 6", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_7 = ProtoField.new("Unused 7", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -- Cboe ByxEquities Pitch MulticastDepthOfBook 2.41.29 Application Messages
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)
@@ -1845,8 +1845,8 @@ cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.modify_order_flags.bits = f
   -- Priority: 1 Bit
   parent:add(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.priority, range, value)
 
-  -- Modify Reserved Flags: 6 Bit
-  parent:add(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.modify_reserved_flags, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_6, range, value)
 end
 
 -- Dissect: Modify Order Flags
@@ -2208,8 +2208,8 @@ cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.add_order_flags.bits = func
   -- Display: 1 Bit
   parent:add(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.display, range, value)
 
-  -- Reserved Flags: 7 Bit
-  parent:add(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.reserved_flags, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_7, range, value)
 end
 
 -- Dissect: Add Order Flags

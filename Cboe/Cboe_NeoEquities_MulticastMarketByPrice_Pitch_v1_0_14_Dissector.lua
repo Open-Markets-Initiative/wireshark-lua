@@ -53,9 +53,7 @@ omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.packet_header =
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.previous_close = ProtoField.new("Previous Close", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.previousclose", ftypes.DOUBLE)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.price = ProtoField.new("Price", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.price", ftypes.DOUBLE)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.quantity = ProtoField.new("Quantity", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.quantity", ftypes.UINT32)
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.reserved_02 = ProtoField.new("Reserved 02", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.reserved02", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.reserved1", ftypes.UINT8)
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.reserved_27 = ProtoField.new("Reserved 27", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.reserved27", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.reserved4", ftypes.UINT32)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.security_type = ProtoField.new("Security Type", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.securitytype", ftypes.UINT8)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.segment = ProtoField.new("Segment", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.segment", ftypes.STRING)
@@ -71,6 +69,8 @@ omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.trade_flags = P
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.trading_status = ProtoField.new("Trading Status", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.tradingstatus", ftypes.STRING)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.trading_sub_status = ProtoField.new("Trading Sub Status", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.tradingsubstatus", ftypes.STRING)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unit = ProtoField.new("Unit", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.unit", ftypes.UINT8)
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unused_3 = ProtoField.new("Unused 3", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
 -- Cboe NeoEquities Pitch MulticastMarketByPrice 1.0.14 Application Messages
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.endofsessionmessage", ftypes.STRING)
@@ -1564,8 +1564,8 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_flags.bits = functio
   -- Auction: 1 Bit
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.auction, range, value)
 
-  -- Reserved 27: 6 Bit
-  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.reserved_27, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unused_6, range, value)
 end
 
 -- Dissect: Trade Flags
@@ -1762,8 +1762,8 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.instrument_flags.bits = fu
   -- Closing Eligible: 1 Bit
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.closing_eligible, range, value)
 
-  -- Reserved 27: 6 Bit
-  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.reserved_27, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unused_6, range, value)
 end
 
 -- Dissect: Instrument Flags
@@ -1818,8 +1818,8 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Reserved 02: 3 Bit
-  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.reserved_02, range, value)
+  -- Unused 3: 3 Bit
+  parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unused_3, range, value)
 
   -- Neol: 1 Bit
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.neol, range, value)

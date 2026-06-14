@@ -135,7 +135,6 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.reserved_200 = Prot
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexoptions.binarygateway.pillarstream.v3.25.reserved4", ftypes.BYTES)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.amexoptions.binarygateway.pillarstream.v3.25.reserved49", ftypes.BYTES)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.amexoptions.binarygateway.pillarstream.v3.25.reserved50", ftypes.BYTES)
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.reserved_7 = ProtoField.new("Reserved 7", "nyse.amexoptions.binarygateway.pillarstream.v3.25.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.riskacktype", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.riskactiontype", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_control_activation = ProtoField.new("Risk Control Activation", "nyse.amexoptions.binarygateway.pillarstream.v3.25.riskcontrolactivation", ftypes.UINT8)
@@ -180,6 +179,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.trading_mpv = Proto
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_timestamp_8 = ProtoField.new("Transact Time Timestamp 8", "nyse.amexoptions.binarygateway.pillarstream.v3.25.transacttimetimestamp8", ftypes.UINT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_u_648 = ProtoField.new("Transact Time U 648", "nyse.amexoptions.binarygateway.pillarstream.v3.25.transacttimeu648", ftypes.UINT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.underlying_type = ProtoField.new("Underlying Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.underlyingtype", ftypes.STRING)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.unused_7 = ProtoField.new("Unused 7", "nyse.amexoptions.binarygateway.pillarstream.v3.25.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.usd_calculation_1 = ProtoField.new("Usd Calculation 1", "nyse.amexoptions.binarygateway.pillarstream.v3.25.usdcalculation1", ftypes.INT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.usd_calculation_2 = ProtoField.new("Usd Calculation 2", "nyse.amexoptions.binarygateway.pillarstream.v3.25.usdcalculation2", ftypes.INT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.usd_calculation_3 = ProtoField.new("Usd Calculation 3", "nyse.amexoptions.binarygateway.pillarstream.v3.25.usdcalculation3", ftypes.INT64)
@@ -7301,8 +7301,8 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.bitfield_flow_indicator.bits =
   -- Throttled: 1 Bit Enum with 2 values
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttled, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.reserved_7, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.unused_7, range, value)
 end
 
 -- Dissect: Bitfield Flow Indicator

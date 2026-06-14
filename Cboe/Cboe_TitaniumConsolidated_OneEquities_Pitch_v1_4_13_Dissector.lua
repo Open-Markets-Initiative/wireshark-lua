@@ -59,9 +59,6 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price = ProtoFiel
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity = ProtoField.new("Quantity", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.quantity", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.regshoaction", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved1", ftypes.UINT8)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_5 = ProtoField.new("Reserved 5", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_7 = ProtoField.new("Reserved 7", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.retailpriceimprovement", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.sequence = ProtoField.new("Sequence", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.sequence", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.session_indicator = ProtoField.new("Session Indicator", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.sessionindicator", ftypes.STRING)
@@ -76,6 +73,9 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.timestamp = Proto
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.trading_status = ProtoField.new("Trading Status", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.tradingstatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.transactiontime", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unit", ftypes.UINT8)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_5 = ProtoField.new("Unused 5", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_6 = ProtoField.new("Unused 6", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_7 = ProtoField.new("Unused 7", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -- Cboe TitaniumConsolidated Pitch OneEquities 1.4.13 Application Messages
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.adap_message = ProtoField.new("Adap Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.adapmessage", ftypes.STRING)
@@ -1856,8 +1856,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_trade_break_flags
   -- Sip Volume Status: 1 Bit
   parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.sip_volume_status, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_7, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_7, range, value)
 end
 
 -- Dissect: Fractional Trade Break Flags
@@ -2042,8 +2042,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_trade_flags.bits 
   -- Last Sale Eligible: 1 Bit
   parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.last_sale_eligible, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_6, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_6, range, value)
 end
 
 -- Dissect: Fractional Trade Flags
@@ -2401,8 +2401,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.bits = function(r
   -- Short Long Blocks: 1 Bit
   parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.short_long_blocks, range, value)
 
-  -- Reserved 5: 5 Bit
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_5, range, value)
+  -- Unused 5: 5 Bit
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_5, range, value)
 end
 
 -- Dissect: Adap Flags
@@ -2840,8 +2840,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_symbol_summary_fl
   -- National Volume Status: 1 Bit
   parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.national_volume_status, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_7, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_7, range, value)
 end
 
 -- Dissect: Fractional Symbol Summary Flags
