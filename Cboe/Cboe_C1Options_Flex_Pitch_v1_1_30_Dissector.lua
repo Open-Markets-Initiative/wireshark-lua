@@ -79,7 +79,6 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.symbol_condition = ProtoField.new("
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.time = ProtoField.new("Time", "cboe.c1options.flex.pitch.v1.1.30.time", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.time_offset = ProtoField.new("Time Offset", "cboe.c1options.flex.pitch.v1.1.30.timeoffset", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.time_reference = ProtoField.new("Time Reference", "cboe.c1options.flex.pitch.v1.1.30.timereference", ftypes.UINT32)
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.flex.pitch.v1.1.30.timestamp", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.c1options.flex.pitch.v1.1.30.tradecondition", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.trade_date = ProtoField.new("Trade Date", "cboe.c1options.flex.pitch.v1.1.30.tradedate", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.trading_status = ProtoField.new("Trading Status", "cboe.c1options.flex.pitch.v1.1.30.tradingstatus", ftypes.STRING)
@@ -1733,29 +1732,6 @@ cboe_c1options_flex_pitch_v1_1_30.time_reference.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Timestamp
-cboe_c1options_flex_pitch_v1_1_30.timestamp = {}
-
--- Size: Timestamp
-cboe_c1options_flex_pitch_v1_1_30.timestamp.size = 4
-
--- Display: Timestamp
-cboe_c1options_flex_pitch_v1_1_30.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_flex_pitch_v1_1_30.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_flex_pitch_v1_1_30.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Condition
 cboe_c1options_flex_pitch_v1_1_30.trade_condition = {}
 
@@ -1959,7 +1935,7 @@ cboe_c1options_flex_pitch_v1_1_30.end_of_session_message = {}
 
 -- Size: End Of Session Message
 cboe_c1options_flex_pitch_v1_1_30.end_of_session_message.size =
-  cboe_c1options_flex_pitch_v1_1_30.timestamp.size
+  cboe_c1options_flex_pitch_v1_1_30.time_offset.size
 
 -- Display: End Of Session Message
 cboe_c1options_flex_pitch_v1_1_30.end_of_session_message.display = function(packet, parent, length)
@@ -1970,8 +1946,8 @@ end
 cboe_c1options_flex_pitch_v1_1_30.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Time Offset
+  index, time_offset = cboe_c1options_flex_pitch_v1_1_30.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end

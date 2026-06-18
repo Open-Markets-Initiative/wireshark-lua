@@ -78,7 +78,6 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.symbol_extended = 
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.time = ProtoField.new("Time", "cboe.c1options.multicastdepthofbook.pitch.v2.41.64.time", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.time_offset = ProtoField.new("Time Offset", "cboe.c1options.multicastdepthofbook.pitch.v2.41.64.timeoffset", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.time_reference = ProtoField.new("Time Reference", "cboe.c1options.multicastdepthofbook.pitch.v2.41.64.timereference", ftypes.UINT32)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.multicastdepthofbook.pitch.v2.41.64.timestamp", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.c1options.multicastdepthofbook.pitch.v2.41.64.tradecondition", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.trade_date = ProtoField.new("Trade Date", "cboe.c1options.multicastdepthofbook.pitch.v2.41.64.tradedate", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.trading_status = ProtoField.new("Trading Status", "cboe.c1options.multicastdepthofbook.pitch.v2.41.64.tradingstatus", ftypes.STRING)
@@ -1635,29 +1634,6 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_64.time_reference.dissect = func
   return offset + length, value
 end
 
--- Timestamp
-cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp = {}
-
--- Size: Timestamp
-cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp.size = 4
-
--- Display: Timestamp
-cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Condition
 cboe_c1options_multicastdepthofbook_pitch_v2_41_64.trade_condition = {}
 
@@ -2492,7 +2468,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session = {}
 
 -- Size: Ox End Of Session
 cboe_c1options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp.size
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_64.time_offset.size
 
 -- Display: Ox End Of Session
 cboe_c1options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session.display = function(packet, parent, length)
@@ -2503,8 +2479,8 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Time Offset
+  index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
