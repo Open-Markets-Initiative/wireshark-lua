@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 620 | 5,189,959 |
+| 626 | 5,205,395 |
 
 ## Testing
 
@@ -52,7 +52,7 @@ For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-I
 For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Protocols
 
-Dissectors by exchange: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [BruceAts][BruceAts.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Lseg][Lseg.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
+Dissectors by exchange: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [BruceAts][BruceAts.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
 
 ## Disclaimer
 
@@ -254,6 +254,10 @@ Enjoy.
 [Lseg.Turquoise.Level2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Turquoise/Level2.md "Level 2"
 [Lseg.Turquoise.Mifid]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Turquoise/Mifid.md "MiFID II Post Trade"
 [Lseg.Turquoise.Analytics]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Turquoise/Analytics.md "Analytics"
+[Ltse.LtseEquities.Memo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ltse/Protocols/LtseEquities/Memo.md "Members Orders"
+[Ltse.LtseEquities.MemoirDepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ltse/Protocols/LtseEquities/MemoirDepthFeed.md "Member Order Information Record Depth Feed"
+[Ltse.LtseEquities.MemoirLastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ltse/Protocols/LtseEquities/MemoirLastSale.md "Member Order Information Record Last Sale"
+[Ltse.LtseEquities.MemoirTopOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ltse/Protocols/LtseEquities/MemoirTopOfBook.md "Member Order Information Record Top Of Book"
 [Miax.PearlOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/PearlOptions/TopOfMarket.md ""
 [Miax.PearlOptions.LiquidityFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/PearlOptions/LiquidityFeed.md "Liquidity Feed"
 [Miax.EmeraldOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Protocols/EmeraldOptions/TopOfMarket.md "Top of Market"
@@ -431,6 +435,7 @@ Enjoy.
 [Jnx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jnx "Japannext Securities"
 [Jpx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jpx "Japan Exchange Group"
 [Lseg.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Lseg "London Stock Exchange"
+[Ltse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Ltse "Long-Term Stock Exchange"
 [Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Miax "Miami International Holdings"
 [Memx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Memx "The Members Exchange"
 [Nasdaq.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Nasdaq "National Association of Securities Dealers Automated Quotations (Nasdaq)"
