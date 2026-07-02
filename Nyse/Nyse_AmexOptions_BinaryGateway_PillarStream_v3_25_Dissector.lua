@@ -172,7 +172,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.threshold_breach_le
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.amexoptions.binarygateway.pillarstream.v3.25.throttlepreference", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.amexoptions.binarygateway.pillarstream.v3.25.throttlethreshold", ftypes.UINT16)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.amexoptions.binarygateway.pillarstream.v3.25.throttlewindow", ftypes.UINT16)
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttled = ProtoField.new("Throttled", "nyse.amexoptions.binarygateway.pillarstream.v3.25.throttled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttled = ProtoField.new("Throttled", "nyse.amexoptions.binarygateway.pillarstream.v3.25.throttled", ftypes.UINT8, {[0]="Not Throttled", [1]="Throttled"}, base.DEC, 0x01)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.time_limit = ProtoField.new("Time Limit", "nyse.amexoptions.binarygateway.pillarstream.v3.25.timelimit", ftypes.INT32)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexoptions.binarygateway.pillarstream.v3.25.timestamp", ftypes.UINT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.amexoptions.binarygateway.pillarstream.v3.25.tradingmpv", ftypes.DOUBLE)

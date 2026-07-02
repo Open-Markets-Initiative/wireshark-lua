@@ -469,7 +469,11 @@ nasdaq_utp_input_utp_v4_0.action_time.size = 8
 
 -- Display: Action Time
 nasdaq_utp_input_utp_v4_0.action_time.display = function(value)
-  return "Action Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Action Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Action Time
@@ -2590,7 +2594,11 @@ nasdaq_utp_input_utp_v4_0.sip_time.size = 8
 
 -- Display: Sip Time
 nasdaq_utp_input_utp_v4_0.sip_time.display = function(value)
-  return "Sip Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sip Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sip Time
@@ -2871,7 +2879,11 @@ nasdaq_utp_input_utp_v4_0.trade_time.size = 8
 
 -- Display: Trade Time
 nasdaq_utp_input_utp_v4_0.trade_time.display = function(value)
-  return "Trade Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trade Time

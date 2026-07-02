@@ -61,7 +61,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.limit_down_price = ProtoField.new("Limi
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.limit_up_price = ProtoField.new("Limit Up Price", "nasdaq.uqdf.output.utp.v3.0.c.limitupprice", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_bbo_indicator = ProtoField.new("Luld Bbo Indicator", "nasdaq.uqdf.output.utp.v3.0.c.luldbboindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_national_bbo_indicator = ProtoField.new("Luld National Bbo Indicator", "nasdaq.uqdf.output.utp.v3.0.c.luldnationalbboindicator", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.uqdf.output.utp.v3.0.c.luldpricebandeffectivetime", ftypes.DOUBLE)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.uqdf.output.utp.v3.0.c.luldpricebandeffectivetime", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.uqdf.output.utp.v3.0.c.luldpricebandindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_ask_price = ProtoField.new("Market Center Ask Price", "nasdaq.uqdf.output.utp.v3.0.c.marketcenteraskprice", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_ask_size = ProtoField.new("Market Center Ask Size", "nasdaq.uqdf.output.utp.v3.0.c.marketcenterasksize", ftypes.UINT64)
@@ -297,7 +297,11 @@ nasdaq_uqdf_output_utp_v3_0_c.action_time.size = 8
 
 -- Display: Action Time
 nasdaq_uqdf_output_utp_v3_0_c.action_time.display = function(value)
-  return "Action Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Action Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Action Time
@@ -1637,20 +1641,18 @@ nasdaq_uqdf_output_utp_v3_0_c.luld_price_band_effective_time.size = 8
 
 -- Display: Luld Price Band Effective Time
 nasdaq_uqdf_output_utp_v3_0_c.luld_price_band_effective_time.display = function(value)
-  return "Luld Price Band Effective Time: "..value
-end
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
--- Translate: Luld Price Band Effective Time
-nasdaq_uqdf_output_utp_v3_0_c.luld_price_band_effective_time.translate = function(raw)
-  return raw:tonumber()/1000000
+  return "Luld Price Band Effective Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Luld Price Band Effective Time
 nasdaq_uqdf_output_utp_v3_0_c.luld_price_band_effective_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v3_0_c.luld_price_band_effective_time.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_uqdf_output_utp_v3_0_c.luld_price_band_effective_time.translate(raw)
+  local value = range:uint64()
   local display = nasdaq_uqdf_output_utp_v3_0_c.luld_price_band_effective_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.luld_price_band_effective_time, range, value, display)
