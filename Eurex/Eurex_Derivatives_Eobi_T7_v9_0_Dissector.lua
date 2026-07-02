@@ -5654,9 +5654,9 @@ end
 -- Register Heuristic for Eurex Derivatives Eobi T7 9.0
 omi_eurex_derivatives_eobi_t7_v9_0:register_heuristic("udp", omi_eurex_derivatives_eobi_t7_v9_0_udp_heuristic)
 
--- Register Eurex Derivatives Eobi T7 9.0 on default port
+-- Register Eurex Derivatives Eobi T7 9.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_eurex_derivatives_eobi_t7_v9_0)
+udp_table:add_for_decode_as(omi_eurex_derivatives_eobi_t7_v9_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -26,7 +26,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.canceled_short_quan
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.contracts = ProtoField.new("Contracts", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.contracts", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.count = ProtoField.new("Count", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.count", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.customerindicator", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.display = ProtoField.new("Display", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.display", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.display = ProtoField.new("Display", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.display", ftypes.UINT8, {[0]="Not Aggregated", [1]="Aggregated"}, base.DEC, 0x80)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.executedquantity", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.executionid", ftypes.UINT64)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.expanded_symbol = ProtoField.new("Expanded Symbol", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.expandedsymbol", ftypes.STRING)
@@ -35,7 +35,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.indicative_price = 
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.length = ProtoField.new("Length", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.length", ftypes.UINT16)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.long_price = ProtoField.new("Long Price", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.longprice", ftypes.DOUBLE)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.long_quantity = ProtoField.new("Long Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.longquantity", ftypes.UINT32)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.maintain_priority = ProtoField.new("Maintain Priority", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.maintainpriority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.maintain_priority = ProtoField.new("Maintain Priority", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.maintainpriority", ftypes.UINT8, {[0]="Reset Priority", [1]="Maintain Priority"}, base.DEC, 0x40)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message = ProtoField.new("Message", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.message", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.messageheader", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.messagelength", ftypes.UINT8)
@@ -3349,9 +3349,9 @@ end
 -- Register Heuristic for Cboe C1Options MulticastDepthOfBook Pitch 2.39.4
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4:register_heuristic("udp", omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4_udp_heuristic)
 
--- Register Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 on default port
+-- Register Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4)
+udp_table:add_for_decode_as(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

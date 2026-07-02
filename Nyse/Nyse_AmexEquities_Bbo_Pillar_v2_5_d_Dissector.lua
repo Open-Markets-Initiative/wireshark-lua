@@ -3099,9 +3099,9 @@ end
 -- Register Heuristic for Nyse AmexEquities Bbo Pillar 2.5.d
 omi_nyse_amexequities_bbo_pillar_v2_5_d:register_heuristic("udp", omi_nyse_amexequities_bbo_pillar_v2_5_d_udp_heuristic)
 
--- Register Nyse AmexEquities Bbo Pillar 2.5.d on default port
+-- Register Nyse AmexEquities Bbo Pillar 2.5.d for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_amexequities_bbo_pillar_v2_5_d)
+udp_table:add_for_decode_as(omi_nyse_amexequities_bbo_pillar_v2_5_d)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

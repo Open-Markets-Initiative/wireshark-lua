@@ -9593,9 +9593,9 @@ end
 -- Register Heuristic for Tmx Mx Sola Multicast Hsvf 1.14
 omi_tmx_mx_sola_multicast_hsvf_v1_14:register_heuristic("udp", omi_tmx_mx_sola_multicast_hsvf_v1_14_udp_heuristic)
 
--- Register Tmx Mx Sola Multicast Hsvf 1.14 on default port
+-- Register Tmx Mx Sola Multicast Hsvf 1.14 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_tmx_mx_sola_multicast_hsvf_v1_14)
+udp_table:add_for_decode_as(omi_tmx_mx_sola_multicast_hsvf_v1_14)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

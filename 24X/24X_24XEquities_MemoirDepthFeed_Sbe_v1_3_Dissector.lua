@@ -2200,9 +2200,9 @@ end
 -- Register Heuristic for 24X 24XEquities MemoirDepthFeed Sbe 1.3
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3:register_heuristic("udp", omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3_udp_heuristic)
 
--- Register 24X 24XEquities MemoirDepthFeed Sbe 1.3 on default port
+-- Register 24X 24XEquities MemoirDepthFeed Sbe 1.3 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3)
+udp_table:add_for_decode_as(omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

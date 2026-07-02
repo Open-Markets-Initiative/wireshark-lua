@@ -3257,9 +3257,9 @@ end
 -- Register Heuristic for Cboe C1Options OpeningAuction Csm 1.0
 omi_cboe_c1options_openingauction_csm_v1_0:register_heuristic("udp", omi_cboe_c1options_openingauction_csm_v1_0_udp_heuristic)
 
--- Register Cboe C1Options OpeningAuction Csm 1.0 on default port
+-- Register Cboe C1Options OpeningAuction Csm 1.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_c1options_openingauction_csm_v1_0)
+udp_table:add_for_decode_as(omi_cboe_c1options_openingauction_csm_v1_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

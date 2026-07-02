@@ -1212,9 +1212,9 @@ end
 -- Register Heuristic for Cboe ByxEquities LastSale AsciiPitch 1.2.4
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4:register_heuristic("tcp", omi_cboe_byxequities_lastsale_asciipitch_v1_2_4_tcp_heuristic)
 
--- Register Cboe ByxEquities LastSale AsciiPitch 1.2.4 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_byxequities_lastsale_asciipitch_v1_2_4)
+-- Register Cboe ByxEquities LastSale AsciiPitch 1.2.4 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_byxequities_lastsale_asciipitch_v1_2_4)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

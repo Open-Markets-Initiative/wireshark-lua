@@ -1034,9 +1034,9 @@ end
 -- Register Heuristic for Txse Headers Rake Tcp 1.0
 omi_txse_headers_rake_tcp_v1_0:register_heuristic("tcp", omi_txse_headers_rake_tcp_v1_0_tcp_heuristic)
 
--- Register Txse Headers Rake Tcp 1.0 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_txse_headers_rake_tcp_v1_0)
+-- Register Txse Headers Rake Tcp 1.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_txse_headers_rake_tcp_v1_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

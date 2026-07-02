@@ -1451,9 +1451,9 @@ end
 -- Register Heuristic for Cboe EdgxOptions AuctionFeed Pitch 1.1.1
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1:register_heuristic("udp", omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1_udp_heuristic)
 
--- Register Cboe EdgxOptions AuctionFeed Pitch 1.1.1 on default port
+-- Register Cboe EdgxOptions AuctionFeed Pitch 1.1.1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1)
+udp_table:add_for_decode_as(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

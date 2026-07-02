@@ -2067,9 +2067,9 @@ end
 -- Register Heuristic for Aquis Equities RealTime Amd 4.1
 omi_aquis_equities_realtime_amd_v4_1:register_heuristic("udp", omi_aquis_equities_realtime_amd_v4_1_udp_heuristic)
 
--- Register Aquis Equities RealTime Amd 4.1 on default port
+-- Register Aquis Equities RealTime Amd 4.1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_aquis_equities_realtime_amd_v4_1)
+udp_table:add_for_decode_as(omi_aquis_equities_realtime_amd_v4_1)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

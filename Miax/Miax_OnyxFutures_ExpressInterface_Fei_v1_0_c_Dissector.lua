@@ -4628,9 +4628,9 @@ end
 -- Register Heuristic for Miax OnyxFutures ExpressInterface Fei 1.0.c
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c:register_heuristic("tcp", omi_miax_onyxfutures_expressinterface_fei_v1_0_c_tcp_heuristic)
 
--- Register Miax OnyxFutures ExpressInterface Fei 1.0.c on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_miax_onyxfutures_expressinterface_fei_v1_0_c)
+-- Register Miax OnyxFutures ExpressInterface Fei 1.0.c for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_miax_onyxfutures_expressinterface_fei_v1_0_c)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

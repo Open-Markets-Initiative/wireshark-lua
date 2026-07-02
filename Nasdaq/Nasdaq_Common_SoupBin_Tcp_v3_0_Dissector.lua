@@ -970,9 +970,9 @@ end
 -- Register Heuristic for Nasdaq Common SoupBin Tcp 3.0
 omi_nasdaq_common_soupbin_tcp_v3_0:register_heuristic("tcp", omi_nasdaq_common_soupbin_tcp_v3_0_tcp_heuristic)
 
--- Register Nasdaq Common SoupBin Tcp 3.0 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_common_soupbin_tcp_v3_0)
+-- Register Nasdaq Common SoupBin Tcp 3.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nasdaq_common_soupbin_tcp_v3_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

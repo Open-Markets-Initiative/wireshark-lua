@@ -5202,9 +5202,9 @@ end
 -- Register Heuristic for Nyse NationalEquities Bqt Xdp 2.4.a
 omi_nyse_nationalequities_bqt_xdp_v2_4_a:register_heuristic("udp", omi_nyse_nationalequities_bqt_xdp_v2_4_a_udp_heuristic)
 
--- Register Nyse NationalEquities Bqt Xdp 2.4.a on default port
+-- Register Nyse NationalEquities Bqt Xdp 2.4.a for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_nationalequities_bqt_xdp_v2_4_a)
+udp_table:add_for_decode_as(omi_nyse_nationalequities_bqt_xdp_v2_4_a)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

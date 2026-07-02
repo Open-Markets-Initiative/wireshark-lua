@@ -3544,9 +3544,9 @@ end
 -- Register Heuristic for Cboe CfeFutures MulticastDepthOfBook Pitch 1.2.19
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19:register_heuristic("udp", omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19_udp_heuristic)
 
--- Register Cboe CfeFutures MulticastDepthOfBook Pitch 1.2.19 on default port
+-- Register Cboe CfeFutures MulticastDepthOfBook Pitch 1.2.19 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19)
+udp_table:add_for_decode_as(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

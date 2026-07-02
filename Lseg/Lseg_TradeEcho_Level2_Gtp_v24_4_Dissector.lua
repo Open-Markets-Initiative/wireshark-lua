@@ -1877,9 +1877,9 @@ end
 -- Register Heuristic for Lseg TradeEcho Level2 Gtp 24.4
 omi_lseg_tradeecho_level2_gtp_v24_4:register_heuristic("udp", omi_lseg_tradeecho_level2_gtp_v24_4_udp_heuristic)
 
--- Register Lseg TradeEcho Level2 Gtp 24.4 on default port
+-- Register Lseg TradeEcho Level2 Gtp 24.4 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_lseg_tradeecho_level2_gtp_v24_4)
+udp_table:add_for_decode_as(omi_lseg_tradeecho_level2_gtp_v24_4)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

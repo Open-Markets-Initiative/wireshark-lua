@@ -698,9 +698,9 @@ end
 -- Register Heuristic for Boats CommonHeader Udp 1.1
 omi_boats_commonheader_udp_v1_1:register_heuristic("udp", omi_boats_commonheader_udp_v1_1_udp_heuristic)
 
--- Register Boats CommonHeader Udp 1.1 on default port
+-- Register Boats CommonHeader Udp 1.1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_boats_commonheader_udp_v1_1)
+udp_table:add_for_decode_as(omi_boats_commonheader_udp_v1_1)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

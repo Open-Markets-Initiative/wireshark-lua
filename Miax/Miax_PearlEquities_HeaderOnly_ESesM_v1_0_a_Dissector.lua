@@ -1471,9 +1471,9 @@ end
 -- Register Heuristic for Miax PearlEquities HeaderOnly ESesM 1.0.a
 omi_miax_pearlequities_headeronly_esesm_v1_0_a:register_heuristic("tcp", omi_miax_pearlequities_headeronly_esesm_v1_0_a_tcp_heuristic)
 
--- Register Miax PearlEquities HeaderOnly ESesM 1.0.a on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_miax_pearlequities_headeronly_esesm_v1_0_a)
+-- Register Miax PearlEquities HeaderOnly ESesM 1.0.a for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_miax_pearlequities_headeronly_esesm_v1_0_a)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

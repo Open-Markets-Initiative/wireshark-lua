@@ -1202,9 +1202,9 @@ end
 -- Register Heuristic for BruceAts BruceEquities DepthOfBook Itch 1.0
 omi_bruceats_bruceequities_depthofbook_itch_v1_0:register_heuristic("udp", omi_bruceats_bruceequities_depthofbook_itch_v1_0_udp_heuristic)
 
--- Register BruceAts BruceEquities DepthOfBook Itch 1.0 on default port
+-- Register BruceAts BruceEquities DepthOfBook Itch 1.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_bruceats_bruceequities_depthofbook_itch_v1_0)
+udp_table:add_for_decode_as(omi_bruceats_bruceequities_depthofbook_itch_v1_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

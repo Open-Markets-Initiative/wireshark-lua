@@ -9199,9 +9199,9 @@ end
 -- Register Heuristic for Memx MemxOptions Memo Sbe 1.5.b
 omi_memx_memxoptions_memo_sbe_v1_5_b:register_heuristic("tcp", omi_memx_memxoptions_memo_sbe_v1_5_b_tcp_heuristic)
 
--- Register Memx MemxOptions Memo Sbe 1.5.b on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_memx_memxoptions_memo_sbe_v1_5_b)
+-- Register Memx MemxOptions Memo Sbe 1.5.b for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_memx_memxoptions_memo_sbe_v1_5_b)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

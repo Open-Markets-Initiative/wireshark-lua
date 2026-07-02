@@ -28,71 +28,39 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_best_
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_best_quote_price = ProtoField.new("Consolidated Best Quote Price", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.consolidatedbestquoteprice", ftypes.DOUBLE)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_quote_quantity = ProtoField.new("Consolidated Quote Quantity", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.consolidatedquotequantity", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.count = ProtoField.new("Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.count", ftypes.UINT8)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.feedsymbol", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.filler = ProtoField.new("Filler", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.filler", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_count = ProtoField.new("Gap Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.gapcount", ftypes.UINT16)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_response_status = ProtoField.new("Gap Response Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.gapresponsestatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.halt_status = ProtoField.new("Halt Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.haltstatus", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_count = ProtoField.new("Instrument Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.instrumentcount", ftypes.UINT32)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_definition_response_status = ProtoField.new("Instrument Definition Response Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.instrumentdefinitionresponsestatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.last_price = ProtoField.new("Last Price", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.lastprice", ftypes.DOUBLE)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.lastquantity", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.lastupdatetimestamp", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.length = ProtoField.new("Length", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.length", ftypes.UINT16)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.loginresponsestatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_center = ProtoField.new("Market Center", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.marketcenter", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_center_execution_id = ProtoField.new("Market Center Execution Id", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.marketcenterexecutionid", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_status = ProtoField.new("Market Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.marketstatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message = ProtoField.new("Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.message", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_count = ProtoField.new("Message Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagecount", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_header = ProtoField.new("Message Header", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messageheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagetype", ftypes.UINT8)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.order_count = ProtoField.new("Order Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.ordercount", ftypes.UINT32)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.osisymbol", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packet", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packetheader", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.password = ProtoField.new("Password", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.password", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved1", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_5 = ProtoField.new("Reserved 5", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved5", ftypes.BYTES)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved8", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_9 = ProtoField.new("Reserved 9", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved9", ftypes.BYTES)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.sequence = ProtoField.new("Sequence", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.sequence", ftypes.UINT32)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.sessionsubid", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.sideindicator", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.spinresponsestatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.symbol = ProtoField.new("Symbol", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.symbol", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.symbolcondition", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.timestamp", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradecondition", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_replay_response_status = ProtoField.new("Trade Replay Response Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradereplayresponsestatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.transactiontime", ftypes.UINT64)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.underlying = ProtoField.new("Underlying", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.underlying", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.unit", ftypes.UINT8)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.username = ProtoField.new("Username", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.username", ftypes.STRING)
 
 -- Cboe TitaniumConsolidated Pitch OneOptions 1.0.10 Application Messages
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.best_quote_update_message = ProtoField.new("Best Quote Update Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.bestquoteupdatemessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.cboemarketstatusmessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_request_message = ProtoField.new("Gap Request Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.gaprequestmessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_response_message = ProtoField.new("Gap Response Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.gapresponsemessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.grp_login_message = ProtoField.new("Grp Login Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.grploginmessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_definition_finished_message = ProtoField.new("Instrument Definition Finished Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.instrumentdefinitionfinishedmessage", ftypes.BYTES)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_definition_request_message = ProtoField.new("Instrument Definition Request Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.instrumentdefinitionrequestmessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_definition_response_message = ProtoField.new("Instrument Definition Response Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.instrumentdefinitionresponsemessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.loginresponsemessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.long_symbol_summary_message = ProtoField.new("Long Symbol Summary Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.longsymbolsummarymessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.short_symbol_summary_message = ProtoField.new("Short Symbol Summary Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.shortsymbolsummarymessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_finished_message = ProtoField.new("Spin Finished Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.spinfinishedmessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_image_available_message = ProtoField.new("Spin Image Available Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.spinimageavailablemessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_request_message = ProtoField.new("Spin Request Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.spinrequestmessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_response_message = ProtoField.new("Spin Response Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.spinresponsemessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.symbolmappingmessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_break_message = ProtoField.new("Trade Break Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradebreakmessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_message = ProtoField.new("Trade Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.trademessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_replay_finished_message = ProtoField.new("Trade Replay Finished Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradereplayfinishedmessage", ftypes.BYTES)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_replay_request_message = ProtoField.new("Trade Replay Request Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradereplayrequestmessage", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_replay_response_message = ProtoField.new("Trade Replay Response Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradereplayresponsemessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradingstatusmessage", ftypes.STRING)
 
 -- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 generated fields
@@ -497,123 +465,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.dissect = function(buff
   return offset + length, value
 end
 
--- Feed Symbol
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.feed_symbol = {}
-
--- Size: Feed Symbol
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.feed_symbol.size = 6
-
--- Display: Feed Symbol
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.feed_symbol.display = function(value)
-  return "Feed Symbol: "..value
-end
-
--- Dissect: Feed Symbol
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.feed_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.feed_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.feed_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.feed_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Filler
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler = {}
-
--- Size: Filler
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.size = 2
-
--- Display: Filler
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.display = function(value)
-  return "Filler: "..value
-end
-
--- Dissect: Filler
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.filler, range, value, display)
-
-  return offset + length, value
-end
-
--- Gap Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count = {}
-
--- Size: Gap Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.size = 2
-
--- Display: Gap Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.display = function(value)
-  return "Gap Count: "..value
-end
-
--- Dissect: Gap Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Gap Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status = {}
-
--- Size: Gap Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.size = 1
-
--- Display: Gap Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.display = function(value)
-  if value == "A" then
-    return "Gap Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Gap Response Status: Out Of Range Ahead Of Sequence Or Too Far Behind (O)"
-  end
-  if value == "D" then
-    return "Gap Response Status: Daily Gap Request Allocation Exhausted (D)"
-  end
-  if value == "M" then
-    return "Gap Response Status: Minute Gap Request Allocation Exhausted (M)"
-  end
-  if value == "S" then
-    return "Gap Response Status: Second Gap Request Allocation Exhausted (S)"
-  end
-  if value == "C" then
-    return "Gap Response Status: Count Request Limit For One Gap Request Exceeded (C)"
-  end
-  if value == "I" then
-    return "Gap Response Status: Invalid Unit Specified In Request (I)"
-  end
-  if value == "U" then
-    return "Gap Response Status: Unit Is Currently Unavailable (U)"
-  end
-
-  return "Gap Response Status: Unknown("..value..")"
-end
-
--- Dissect: Gap Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_response_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Halt Status
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.halt_status = {}
 
@@ -646,62 +497,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.halt_status.dissect = functio
   local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.halt_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.halt_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_count = {}
-
--- Size: Instrument Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_count.size = 4
-
--- Display: Instrument Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_count.display = function(value)
-  return "Instrument Count: "..value
-end
-
--- Dissect: Instrument Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Definition Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_status = {}
-
--- Size: Instrument Definition Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_status.size = 1
-
--- Display: Instrument Definition Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_status.display = function(value)
-  if value == "A" then
-    return "Instrument Definition Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Instrument Definition Response Status: Out Of Range Sequence Must Be 0 (O)"
-  end
-  if value == "S" then
-    return "Instrument Definition Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
-
-  return "Instrument Definition Response Status: Unknown("..value..")"
-end
-
--- Dissect: Instrument Definition Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_definition_response_status, range, value, display)
 
   return offset + length, value
 end
@@ -804,42 +599,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.length.dissect = function(buf
   return offset + length, value
 end
 
--- Login Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_status = {}
-
--- Size: Login Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_status.size = 1
-
--- Display: Login Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
-
-  return "Login Response Status: Unknown("..value..")"
-end
-
--- Dissect: Login Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.login_response_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Center
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.market_center = {}
 
@@ -932,29 +691,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.market_status.dissect = funct
   return offset + length, value
 end
 
--- Message Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count = {}
-
--- Size: Message Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.size = 8
-
--- Display: Message Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Length
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_length = {}
 
@@ -1007,51 +743,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_type.display = functi
   if value == 0xAB then
     return "Message Type: Trading Status Message (0xAB)"
   end
-  if value == 0x01 then
-    return "Message Type: Grp Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x03 then
-    return "Message Type: Gap Request Message (0x03)"
-  end
-  if value == 0x04 then
-    return "Message Type: Gap Response Message (0x04)"
-  end
-  if value == 0x80 then
-    return "Message Type: Spin Image Available Message (0x80)"
-  end
-  if value == 0x81 then
-    return "Message Type: Spin Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Spin Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Spin Finished Message (0x83)"
-  end
-  if value == 0x84 then
-    return "Message Type: Instrument Definition Request Message (0x84)"
-  end
-  if value == 0x85 then
-    return "Message Type: Instrument Definition Response Message (0x85)"
-  end
-  if value == 0x86 then
-    return "Message Type: Instrument Definition Finished Message (0x86)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0x87 then
-    return "Message Type: Trade Replay Request Message (0x87)"
-  end
-  if value == 0x88 then
-    return "Message Type: Trade Replay Response Message (0x88)"
-  end
-  if value == 0x89 then
-    return "Message Type: Trade Replay Finished Message (0x89)"
-  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -1064,75 +755,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_type.dissect = functi
   local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.order_count = {}
-
--- Size: Order Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.order_count.size = 4
-
--- Display: Order Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.order_count.display = function(value)
-  return "Order Count: "..value
-end
-
--- Dissect: Order Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.order_count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.order_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.order_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.order_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Osi Symbol
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.osi_symbol = {}
-
--- Size: Osi Symbol
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.osi_symbol.size = 21
-
--- Display: Osi Symbol
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.osi_symbol.display = function(value)
-  return "Osi Symbol: "..value
-end
-
--- Dissect: Osi Symbol
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.osi_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.osi_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.osi_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.osi_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.password = {}
-
--- Size: Password
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.password.size = 10
-
--- Display: Password
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.password.display = function(value)
-  return "Password: "..value
-end
-
--- Dissect: Password
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.password.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.password.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -1252,29 +874,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect = function(b
   return offset + length, value
 end
 
--- Session Sub Id
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.session_sub_id = {}
-
--- Size: Session Sub Id
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.session_sub_id.size = 4
-
--- Display: Session Sub Id
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.session_sub_id.display = function(value)
-  return "Session Sub Id: "..value
-end
-
--- Dissect: Session Sub Id
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.session_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.session_sub_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.session_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.session_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Side Indicator
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.side_indicator = {}
 
@@ -1305,39 +904,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.side_indicator.dissect = func
   return offset + length, value
 end
 
--- Spin Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_status = {}
-
--- Size: Spin Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_status.size = 1
-
--- Display: Spin Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_status.display = function(value)
-  if value == "A" then
-    return "Spin Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)"
-  end
-  if value == "S" then
-    return "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
-
-  return "Spin Response Status: Unknown("..value..")"
-end
-
--- Dissect: Spin Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_response_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol = {}
 
@@ -1357,36 +923,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol.dissect = function(buf
   local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Condition
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_condition = {}
-
--- Size: Symbol Condition
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_condition.size = 1
-
--- Display: Symbol Condition
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
-
-  return "Symbol Condition: Unknown("..value..")"
-end
-
--- Dissect: Symbol Condition
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_condition.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.symbol_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1504,42 +1040,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_condition.dissect = fun
   return offset + length, value
 end
 
--- Trade Replay Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_status = {}
-
--- Size: Trade Replay Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_status.size = 1
-
--- Display: Trade Replay Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_status.display = function(value)
-  if value == "A" then
-    return "Trade Replay Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Trade Replay Response Status: Out Of Range Sequence Must Be 0 (O)"
-  end
-  if value == "U" then
-    return "Trade Replay Response Status: Trade Replay Functionality Is Not Available On This Unit (U)"
-  end
-  if value == "S" then
-    return "Trade Replay Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
-
-  return "Trade Replay Response Status: Unknown("..value..")"
-end
-
--- Dissect: Trade Replay Response Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_replay_response_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Transaction Time
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.transaction_time = {}
 
@@ -1559,29 +1059,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.transaction_time.dissect = fu
   local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.transaction_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.transaction_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.underlying = {}
-
--- Size: Underlying
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.underlying.size = 8
-
--- Display: Underlying
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.underlying.display = function(value)
-  return "Underlying: "..value
-end
-
--- Dissect: Underlying
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.underlying.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.underlying.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.underlying.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.underlying, range, value, display)
 
   return offset + length, value
 end
@@ -1609,621 +1086,10 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.dissect = function(buffe
   return offset + length, value
 end
 
--- Username
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.username = {}
-
--- Size: Username
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.username.size = 4
-
--- Display: Username
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.username.display = function(value)
-  return "Username: "..value
-end
-
--- Dissect: Username
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.username.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.username.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.username, range, value, display)
-
-  return offset + length, value
-end
-
 
 -----------------------------------------------------------------------
 -- Dissect Cboe TitaniumConsolidated OneOptions Pitch 1.0.10
 -----------------------------------------------------------------------
-
--- Trade Replay Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message = {}
-
--- Size: Trade Replay Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_status.size
-
--- Display: Trade Replay Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Replay Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  -- Message Count: Binary
-  index, message_count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.dissect(buffer, index, packet, parent)
-
-  -- Trade Replay Response Status: Alphanumeric
-  index, trade_replay_response_status = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Replay Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_replay_response_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Replay Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message = {}
-
--- Size: Trade Replay Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size
-
--- Display: Trade Replay Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Replay Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Replay Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_replay_request_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Symbol Mapping Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message = {}
-
--- Size: Symbol Mapping Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.feed_symbol.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.osi_symbol.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_condition.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.underlying.size
-
--- Display: Symbol Mapping Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Symbol Mapping Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Feed Symbol: Printable ASCII
-  index, feed_symbol = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.feed_symbol.dissect(buffer, index, packet, parent)
-
-  -- Osi Symbol: Printable ASCII
-  index, osi_symbol = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.osi_symbol.dissect(buffer, index, packet, parent)
-
-  -- Symbol Condition: Alphanumeric
-  index, symbol_condition = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_condition.dissect(buffer, index, packet, parent)
-
-  -- Underlying: Alphanumeric
-  index, underlying = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.underlying.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Symbol Mapping Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.symbol_mapping_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Instrument Definition Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message = {}
-
--- Size: Instrument Definition Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_count.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_status.size
-
--- Display: Instrument Definition Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Instrument Definition Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  -- Instrument Count: Binary
-  index, instrument_count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_count.dissect(buffer, index, packet, parent)
-
-  -- Instrument Definition Response Status: Alphanumeric
-  index, instrument_definition_response_status = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrument Definition Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_definition_response_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Instrument Definition Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message = {}
-
--- Size: Instrument Definition Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size
-
--- Display: Instrument Definition Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Instrument Definition Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrument Definition Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.instrument_definition_request_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Spin Finished Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message = {}
-
--- Size: Spin Finished Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size
-
--- Display: Spin Finished Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Spin Finished Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Spin Finished Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_finished_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Spin Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message = {}
-
--- Size: Spin Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.order_count.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_status.size
-
--- Display: Spin Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Spin Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  -- Order Count: Binary
-  index, order_count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.order_count.dissect(buffer, index, packet, parent)
-
-  -- Spin Response Status: Alphanumeric
-  index, spin_response_status = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Spin Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_response_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Spin Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message = {}
-
--- Size: Spin Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size
-
--- Display: Spin Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Spin Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Spin Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_request_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Spin Image Available Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message = {}
-
--- Size: Spin Image Available Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size
-
--- Display: Spin Image Available Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Spin Image Available Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Spin Image Available Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.spin_image_available_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Gap Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message = {}
-
--- Size: Gap Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.size
-
--- Display: Gap Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Gap Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Unit: Binary
-  index, unit = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.dissect(buffer, index, packet, parent)
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  -- Gap Count: Binary
-  index, gap_count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.dissect(buffer, index, packet, parent)
-
-  -- Gap Response Status: Alphanumeric
-  index, gap_response_status = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Gap Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_response_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Gap Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message = {}
-
--- Size: Gap Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.size
-
--- Display: Gap Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Gap Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Unit: Binary
-  index, unit = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.dissect(buffer, index, packet, parent)
-
-  -- Sequence: Binary
-  index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
-
-  -- Gap Count: Binary
-  index, gap_count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Gap Request Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.gap_request_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message = {}
-
--- Size: Login Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_status.size
-
--- Display: Login Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Login Response Status: Alphanumeric
-  index, login_response_status = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Response Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.login_response_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Grp Login Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message = {}
-
--- Size: Grp Login Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message.size =
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.session_sub_id.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.username.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.password.size
-
--- Display: Grp Login Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Grp Login Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Sub Id: Alphanumeric
-  index, session_sub_id = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.session_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Username: Alphanumeric
-  index, username = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.username.dissect(buffer, index, packet, parent)
-
-  -- Filler: Alphanumeric
-  index, filler = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.filler.dissect(buffer, index, packet, parent)
-
-  -- Password: Alphanumeric
-  index, password = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.password.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Grp Login Message
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.grp_login_message, buffer(offset, 0))
-    local index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- Trading Status Message
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trading_status_message = {}
@@ -2690,66 +1556,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.payload.dissect = function(bu
   if message_type == 0xAB then
     return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trading_status_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Grp Login Message
-  if message_type == 0x01 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.grp_login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Request Message
-  if message_type == 0x03 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Response Message
-  if message_type == 0x04 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.gap_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Image Available Message
-  if message_type == 0x80 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_image_available_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 0x81 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 0x82 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Finished Message
-  if message_type == 0x83 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.spin_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Request Message
-  if message_type == 0x84 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Response Message
-  if message_type == 0x85 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.instrument_definition_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Finished Message
-  if message_type == 0x86 then
-    return offset
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Request Message
-  if message_type == 0x87 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Response Message
-  if message_type == 0x88 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.trade_replay_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Finished Message
-  if message_type == 0x89 then
-    return offset
-  end
 
   return offset
 end
@@ -2774,7 +1580,7 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_header.fields = funct
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
   index, message_length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 22 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, message_type = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -2832,7 +1638,7 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message.fields = function(buf
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 22 branches
+  -- Payload: Runtime Type with 7 branches
   index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -2907,10 +1713,10 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header.fields = functi
   -- Count: 1 Byte Unsigned Fixed Width Integer
   index, count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.dissect(buffer, index, packet, parent)
 
-  -- Unit: Binary
+  -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.dissect(buffer, index, packet, parent)
 
-  -- Sequence: Binary
+  -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
 
   return index
@@ -2998,9 +1804,9 @@ end
 -- Register Heuristic for Cboe TitaniumConsolidated OneOptions Pitch 1.0.10
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10:register_heuristic("udp", omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10_udp_heuristic)
 
--- Register Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 on default port
+-- Register Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10)
+udp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

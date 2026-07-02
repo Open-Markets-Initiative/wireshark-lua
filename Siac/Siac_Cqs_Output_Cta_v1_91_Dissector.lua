@@ -4848,9 +4848,9 @@ end
 -- Register Heuristic for Siac Cqs Output Cta 1.91
 omi_siac_cqs_output_cta_v1_91:register_heuristic("udp", omi_siac_cqs_output_cta_v1_91_udp_heuristic)
 
--- Register Siac Cqs Output Cta 1.91 on default port
+-- Register Siac Cqs Output Cta 1.91 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_siac_cqs_output_cta_v1_91)
+udp_table:add_for_decode_as(omi_siac_cqs_output_cta_v1_91)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -2532,9 +2532,9 @@ end
 -- Register Heuristic for Nasdaq PhlxOptions Topo Itch 3.3
 omi_nasdaq_phlxoptions_topo_itch_v3_3:register_heuristic("udp", omi_nasdaq_phlxoptions_topo_itch_v3_3_udp_heuristic)
 
--- Register Nasdaq PhlxOptions Topo Itch 3.3 on default port
+-- Register Nasdaq PhlxOptions Topo Itch 3.3 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_phlxoptions_topo_itch_v3_3)
+udp_table:add_for_decode_as(omi_nasdaq_phlxoptions_topo_itch_v3_3)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -353,9 +353,9 @@ end
 -- Register Heuristic for A2X Equities UdpHeader Amd 1.0
 omi_a2x_equities_udpheader_amd_v1_0:register_heuristic("udp", omi_a2x_equities_udpheader_amd_v1_0_udp_heuristic)
 
--- Register A2X Equities UdpHeader Amd 1.0 on default port
+-- Register A2X Equities UdpHeader Amd 1.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_a2x_equities_udpheader_amd_v1_0)
+udp_table:add_for_decode_as(omi_a2x_equities_udpheader_amd_v1_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

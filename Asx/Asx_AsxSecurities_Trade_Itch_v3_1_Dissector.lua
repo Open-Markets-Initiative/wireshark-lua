@@ -3119,9 +3119,9 @@ end
 -- Register Heuristic for Asx AsxSecurities Trade Itch 3.1
 omi_asx_asxsecurities_trade_itch_v3_1:register_heuristic("udp", omi_asx_asxsecurities_trade_itch_v3_1_udp_heuristic)
 
--- Register Asx AsxSecurities Trade Itch 3.1 on default port
+-- Register Asx AsxSecurities Trade Itch 3.1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_asx_asxsecurities_trade_itch_v3_1)
+udp_table:add_for_decode_as(omi_asx_asxsecurities_trade_itch_v3_1)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

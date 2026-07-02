@@ -2026,9 +2026,9 @@ end
 -- Register Heuristic for Jnx JnxEquities Pts Itch 2.0
 omi_jnx_jnxequities_pts_itch_v2_0:register_heuristic("udp", omi_jnx_jnxequities_pts_itch_v2_0_udp_heuristic)
 
--- Register Jnx JnxEquities Pts Itch 2.0 on default port
+-- Register Jnx JnxEquities Pts Itch 2.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_jnx_jnxequities_pts_itch_v2_0)
+udp_table:add_for_decode_as(omi_jnx_jnxequities_pts_itch_v2_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

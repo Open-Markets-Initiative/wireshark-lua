@@ -3500,9 +3500,9 @@ end
 -- Register Heuristic for Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n:register_heuristic("udp", omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n_udp_heuristic)
 
--- Register Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n on default port
+-- Register Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n)
+udp_table:add_for_decode_as(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

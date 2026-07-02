@@ -4486,9 +4486,9 @@ end
 -- Register Heuristic for Cboe C1Options MarketDataFeed Csm 1.4.2
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2:register_heuristic("udp", omi_cboe_c1options_marketdatafeed_csm_v1_4_2_udp_heuristic)
 
--- Register Cboe C1Options MarketDataFeed Csm 1.4.2 on default port
+-- Register Cboe C1Options MarketDataFeed Csm 1.4.2 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_c1options_marketdatafeed_csm_v1_4_2)
+udp_table:add_for_decode_as(omi_cboe_c1options_marketdatafeed_csm_v1_4_2)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

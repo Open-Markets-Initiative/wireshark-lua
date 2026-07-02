@@ -3826,9 +3826,9 @@ end
 -- Register Heuristic for Siac Opra Input Obi 5.0.i
 omi_siac_opra_input_obi_v5_0_i:register_heuristic("tcp", omi_siac_opra_input_obi_v5_0_i_tcp_heuristic)
 
--- Register Siac Opra Input Obi 5.0.i on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_siac_opra_input_obi_v5_0_i)
+-- Register Siac Opra Input Obi 5.0.i for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_siac_opra_input_obi_v5_0_i)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

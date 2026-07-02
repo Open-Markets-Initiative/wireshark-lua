@@ -5114,9 +5114,9 @@ end
 -- Register Heuristic for Nyse ArcaOptions DeepFeed Pillar 1.2.f
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f:register_heuristic("udp", omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f_udp_heuristic)
 
--- Register Nyse ArcaOptions DeepFeed Pillar 1.2.f on default port
+-- Register Nyse ArcaOptions DeepFeed Pillar 1.2.f for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f)
+udp_table:add_for_decode_as(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

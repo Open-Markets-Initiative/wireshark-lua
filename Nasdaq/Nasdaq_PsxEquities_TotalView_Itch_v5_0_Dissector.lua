@@ -4021,9 +4021,9 @@ end
 -- Register Heuristic for Nasdaq PsxEquities TotalView Itch 5.0
 omi_nasdaq_psxequities_totalview_itch_v5_0:register_heuristic("udp", omi_nasdaq_psxequities_totalview_itch_v5_0_udp_heuristic)
 
--- Register Nasdaq PsxEquities TotalView Itch 5.0 on default port
+-- Register Nasdaq PsxEquities TotalView Itch 5.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_psxequities_totalview_itch_v5_0)
+udp_table:add_for_decode_as(omi_nasdaq_psxequities_totalview_itch_v5_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

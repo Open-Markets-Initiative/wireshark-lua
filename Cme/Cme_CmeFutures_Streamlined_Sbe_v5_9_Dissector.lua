@@ -13555,9 +13555,9 @@ end
 -- Register Heuristic for Cme CmeFutures Streamlined Sbe 5.9
 omi_cme_cmefutures_streamlined_sbe_v5_9:register_heuristic("udp", omi_cme_cmefutures_streamlined_sbe_v5_9_udp_heuristic)
 
--- Register Cme CmeFutures Streamlined Sbe 5.9 on default port
+-- Register Cme CmeFutures Streamlined Sbe 5.9 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cme_cmefutures_streamlined_sbe_v5_9)
+udp_table:add_for_decode_as(omi_cme_cmefutures_streamlined_sbe_v5_9)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

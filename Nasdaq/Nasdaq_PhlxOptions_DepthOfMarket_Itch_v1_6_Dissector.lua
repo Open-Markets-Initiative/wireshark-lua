@@ -4000,9 +4000,9 @@ end
 -- Register Heuristic for Nasdaq PhlxOptions DepthOfMarket Itch 1.6
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6:register_heuristic("udp", omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6_udp_heuristic)
 
--- Register Nasdaq PhlxOptions DepthOfMarket Itch 1.6 on default port
+-- Register Nasdaq PhlxOptions DepthOfMarket Itch 1.6 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6)
+udp_table:add_for_decode_as(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

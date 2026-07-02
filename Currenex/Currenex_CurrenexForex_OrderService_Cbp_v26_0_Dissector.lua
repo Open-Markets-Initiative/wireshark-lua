@@ -2500,9 +2500,9 @@ end
 -- Register Heuristic for Currenex CurrenexForex OrderService Cbp 26.0
 omi_currenex_currenexforex_orderservice_cbp_v26_0:register_heuristic("tcp", omi_currenex_currenexforex_orderservice_cbp_v26_0_tcp_heuristic)
 
--- Register Currenex CurrenexForex OrderService Cbp 26.0 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_currenex_currenexforex_orderservice_cbp_v26_0)
+-- Register Currenex CurrenexForex OrderService Cbp 26.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_currenex_currenexforex_orderservice_cbp_v26_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

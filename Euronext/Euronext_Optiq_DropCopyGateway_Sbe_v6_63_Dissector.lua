@@ -16935,9 +16935,9 @@ end
 -- Register Heuristic for Euronext Optiq DropCopyGateway Sbe 6.63
 omi_euronext_optiq_dropcopygateway_sbe_v6_63:register_heuristic("tcp", omi_euronext_optiq_dropcopygateway_sbe_v6_63_tcp_heuristic)
 
--- Register Euronext Optiq DropCopyGateway Sbe 6.63 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_euronext_optiq_dropcopygateway_sbe_v6_63)
+-- Register Euronext Optiq DropCopyGateway Sbe 6.63 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_euronext_optiq_dropcopygateway_sbe_v6_63)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

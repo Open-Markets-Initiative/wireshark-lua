@@ -12081,9 +12081,9 @@ end
 -- Register Heuristic for Euronext Optiq OrderEntryGateway Sbe 1.3
 omi_euronext_optiq_orderentrygateway_sbe_v1_3:register_heuristic("tcp", omi_euronext_optiq_orderentrygateway_sbe_v1_3_tcp_heuristic)
 
--- Register Euronext Optiq OrderEntryGateway Sbe 1.3 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_euronext_optiq_orderentrygateway_sbe_v1_3)
+-- Register Euronext Optiq OrderEntryGateway Sbe 1.3 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_euronext_optiq_orderentrygateway_sbe_v1_3)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

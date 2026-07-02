@@ -1637,9 +1637,9 @@ end
 -- Register Heuristic for Imperative IntelligentCross Mdf 1.11
 omi_imperative_intelligentcross_mdf_v1_11:register_heuristic("udp", omi_imperative_intelligentcross_mdf_v1_11_udp_heuristic)
 
--- Register Imperative IntelligentCross Mdf 1.11 on default port
+-- Register Imperative IntelligentCross Mdf 1.11 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_imperative_intelligentcross_mdf_v1_11)
+udp_table:add_for_decode_as(omi_imperative_intelligentcross_mdf_v1_11)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

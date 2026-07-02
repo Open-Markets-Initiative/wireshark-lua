@@ -2901,9 +2901,9 @@ end
 -- Register Heuristic for Cboe EdgxEquities Top AsciiPitch 1.3.9
 omi_cboe_edgxequities_top_asciipitch_v1_3_9:register_heuristic("tcp", omi_cboe_edgxequities_top_asciipitch_v1_3_9_tcp_heuristic)
 
--- Register Cboe EdgxEquities Top AsciiPitch 1.3.9 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_edgxequities_top_asciipitch_v1_3_9)
+-- Register Cboe EdgxEquities Top AsciiPitch 1.3.9 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_edgxequities_top_asciipitch_v1_3_9)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

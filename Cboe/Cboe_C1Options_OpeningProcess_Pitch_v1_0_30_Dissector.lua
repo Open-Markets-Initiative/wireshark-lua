@@ -47,7 +47,6 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.symbol_condition = ProtoF
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.time = ProtoField.new("Time", "cboe.c1options.openingprocess.pitch.v1.0.30.time", ftypes.UINT32)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.time_offset = ProtoField.new("Time Offset", "cboe.c1options.openingprocess.pitch.v1.0.30.timeoffset", ftypes.UINT32)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.time_reference = ProtoField.new("Time Reference", "cboe.c1options.openingprocess.pitch.v1.0.30.timereference", ftypes.UINT32)
-omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.openingprocess.pitch.v1.0.30.timestamp", ftypes.UINT32)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.trade_date = ProtoField.new("Trade Date", "cboe.c1options.openingprocess.pitch.v1.0.30.tradedate", ftypes.UINT32)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.underlying = ProtoField.new("Underlying", "cboe.c1options.openingprocess.pitch.v1.0.30.underlying", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.unit = ProtoField.new("Unit", "cboe.c1options.openingprocess.pitch.v1.0.30.unit", ftypes.UINT8)
@@ -946,29 +945,6 @@ cboe_c1options_openingprocess_pitch_v1_0_30.time_reference.dissect = function(bu
   return offset + length, value
 end
 
--- Timestamp
-cboe_c1options_openingprocess_pitch_v1_0_30.timestamp = {}
-
--- Size: Timestamp
-cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.size = 4
-
--- Display: Timestamp
-cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Date
 cboe_c1options_openingprocess_pitch_v1_0_30.trade_date = {}
 
@@ -1173,7 +1149,7 @@ cboe_c1options_openingprocess_pitch_v1_0_30.constituent_symbol_mapping_message.f
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_openingprocess_pitch_v1_0_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Soq Identifier: Printable ASCII
@@ -1257,7 +1233,7 @@ cboe_c1options_openingprocess_pitch_v1_0_30.end_of_session_message = {}
 
 -- Size: End Of Session Message
 cboe_c1options_openingprocess_pitch_v1_0_30.end_of_session_message.size =
-  cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.size
+  cboe_c1options_openingprocess_pitch_v1_0_30.time_offset.size
 
 -- Display: End Of Session Message
 cboe_c1options_openingprocess_pitch_v1_0_30.end_of_session_message.display = function(packet, parent, length)
@@ -1268,8 +1244,8 @@ end
 cboe_c1options_openingprocess_pitch_v1_0_30.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Binary
-  index, timestamp = cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.dissect(buffer, index, packet, parent)
+  -- Time Offset: Time Offset
+  index, time_offset = cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1320,7 +1296,7 @@ cboe_c1options_openingprocess_pitch_v1_0_30.symbol_mapping_message.fields = func
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_openingprocess_pitch_v1_0_30.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -1366,7 +1342,7 @@ cboe_c1options_openingprocess_pitch_v1_0_30.width_update_message.fields = functi
   -- Time Offset: Time Offset
   index, time_offset = cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_openingprocess_pitch_v1_0_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Width Type: Alphanumeric
@@ -1945,9 +1921,9 @@ end
 -- Register Heuristic for Cboe C1Options OpeningProcess Pitch 1.0.30
 omi_cboe_c1options_openingprocess_pitch_v1_0_30:register_heuristic("udp", omi_cboe_c1options_openingprocess_pitch_v1_0_30_udp_heuristic)
 
--- Register Cboe C1Options OpeningProcess Pitch 1.0.30 on default port
+-- Register Cboe C1Options OpeningProcess Pitch 1.0.30 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_c1options_openingprocess_pitch_v1_0_30)
+udp_table:add_for_decode_as(omi_cboe_c1options_openingprocess_pitch_v1_0_30)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

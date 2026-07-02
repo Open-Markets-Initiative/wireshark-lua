@@ -1556,9 +1556,9 @@ end
 -- Register Heuristic for Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8:register_heuristic("tcp", omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8_tcp_heuristic)
 
--- Register Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8)
+-- Register Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -3062,9 +3062,9 @@ end
 -- Register Heuristic for Jpx OseDerivatives GeniumInet Ouch 5.0
 omi_jpx_osederivatives_geniuminet_ouch_v5_0:register_heuristic("tcp", omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic)
 
--- Register Jpx OseDerivatives GeniumInet Ouch 5.0 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_jpx_osederivatives_geniuminet_ouch_v5_0)
+-- Register Jpx OseDerivatives GeniumInet Ouch 5.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_jpx_osederivatives_geniuminet_ouch_v5_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

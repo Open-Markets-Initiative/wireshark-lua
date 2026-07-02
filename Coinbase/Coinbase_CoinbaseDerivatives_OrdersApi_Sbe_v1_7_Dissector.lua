@@ -5066,9 +5066,9 @@ end
 -- Register Heuristic for Coinbase CoinbaseDerivatives OrdersApi Sbe 1.7
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7:register_heuristic("tcp", omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7_tcp_heuristic)
 
--- Register Coinbase CoinbaseDerivatives OrdersApi Sbe 1.7 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7)
+-- Register Coinbase CoinbaseDerivatives OrdersApi Sbe 1.7 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

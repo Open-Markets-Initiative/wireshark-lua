@@ -26,17 +26,14 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.composite_market_offer_pri
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.contracts = ProtoField.new("Contracts", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.contracts", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.count = ProtoField.new("Count", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.count", ftypes.UINT8)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.customerindicator", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.epochtime", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.execution_id = ProtoField.new("Execution Id", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.executionid", ftypes.UINT64)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.feedsymbol", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.indicativeprice", ftypes.DOUBLE)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.length = ProtoField.new("Length", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.length", ftypes.UINT16)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.lower_strike_price = ProtoField.new("Lower Strike Price", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.lowerstrikeprice", ftypes.DOUBLE)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.message = ProtoField.new("Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.message", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.message_header = ProtoField.new("Message Header", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.messageheader", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.message_length = ProtoField.new("Message Length", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.messagelength", ftypes.UINT8)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.message_type = ProtoField.new("Message Type", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.messagetype", ftypes.UINT8)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.midnightreference", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.multiplier = ProtoField.new("Multiplier", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.multiplier", ftypes.DOUBLE)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.openingcondition", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.osisymbol", ftypes.STRING)
@@ -49,17 +46,14 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.reference_price = ProtoFie
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.sellcontracts", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.sequence = ProtoField.new("Sequence", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.sequence", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.side = ProtoField.new("Side", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.side", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.soq_identifier = ProtoField.new("Soq Identifier", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.soqidentifier", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol = ProtoField.new("Symbol", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.symbol", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.symbolcondition", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.symbolextended", ftypes.STRING)
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.symbollong", ftypes.STRING)
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.symbolshort", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.time = ProtoField.new("Time", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.time", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.time_offset = ProtoField.new("Time Offset", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.timeoffset", ftypes.UINT32)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.time_reference = ProtoField.new("Time Reference", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.timereference", ftypes.UINT32)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.trade_date = ProtoField.new("Trade Date", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.tradedate", ftypes.UINT32)
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.timestamp", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.underlying = ProtoField.new("Underlying", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.underlying", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.unit", ftypes.UINT8)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.width_type = ProtoField.new("Width Type", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.widthtype", ftypes.STRING)
 
 -- Cboe EdgxOptions Pitch AuctionFeed 1.1.39 Application Messages
@@ -67,19 +61,34 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_cancel_message = P
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.auctionsummarymessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.auctiontrademessage", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.constituent_symbol_mapping_message = ProtoField.new("Constituent Symbol Mapping Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.constituentsymbolmappingmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.endofsessionmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.options_auction_update_message = ProtoField.new("Options Auction Update Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.optionsauctionupdatemessage", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.soq_strike_range_update_message = ProtoField.new("Soq Strike Range Update Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.soqstrikerangeupdatemessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.symbolmappingmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.time_message = ProtoField.new("Time Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.timemessage", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.time_reference_message = ProtoField.new("Time Reference Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.timereferencemessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.unitclearmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.widthupdatemessage", ftypes.STRING)
 
 -- Cboe EdgxOptions AuctionFeed Pitch 1.1.39 generated fields
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.message_index = ProtoField.new("Message Index", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.messageindex", ftypes.UINT16)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Cboe EdgxOptions AuctionFeed Pitch 1.1.39 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local time_offset_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.utc_offset_hours = 5
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -103,6 +112,8 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.show_packet = Pref.bool("Sh
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.time_offset_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", time_offset_format_enum, false)
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs_changed()
@@ -126,6 +137,12 @@ function omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs_changed()
   if show.message_index ~= omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.show_message_index then
     show.message_index = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.show_message_index
   end
+  if cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset_format ~= omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.time_offset_format then
+    cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset_format = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.time_offset_format
+  end
+  if cboe_edgxoptions_auctionfeed_pitch_v1_1_39.utc_offset_hours ~= omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.utc_offset_hours then
+    cboe_edgxoptions_auctionfeed_pitch_v1_1_39.utc_offset_hours = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.prefs.utc_offset_hours
+  end
 end
 
 
@@ -148,7 +165,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.data = function(packet)
   local key = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.key(packet)
   local data = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.flows[key]
   if data == nil then
-    data = { midnight_reference = { last = nil, frames = {} }, time = { last = nil, frames = {} } }
+    data = { time = { last = nil, frames = {} } }
     cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.flows[key] = data
   end
   return data
@@ -484,29 +501,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.customer_indicator.dissect = function
   return offset + length, value
 end
 
--- Epoch Time
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.epoch_time = {}
-
--- Size: Epoch Time
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.epoch_time.size = 4
-
--- Display: Epoch Time
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
--- Dissect: Epoch Time
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.epoch_time.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.epoch_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.epoch_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.epoch_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Id
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.execution_id = {}
 
@@ -605,35 +599,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.length.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Lower Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price = {}
-
--- Size: Lower Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.size = 8
-
--- Display: Lower Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.display = function(value)
-  return "Lower Strike Price: "..value
-end
-
--- Translate: Lower Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Lower Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.translate(raw)
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.lower_strike_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Length
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_length = {}
 
@@ -665,9 +630,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.size = 1
 
 -- Display: Message Type
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.display = function(value)
-  if value == 0xB1 then
-    return "Message Type: Time Reference Message (0xB1)"
-  end
   if value == 0x20 then
     return "Message Type: Time Message (0x20)"
   end
@@ -698,12 +660,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.display = function(value
   if value == 0x2D then
     return "Message Type: End Of Session Message (0x2D)"
   end
-  if value == 0x9D then
-    return "Message Type: Soq Strike Range Update Message (0x9D)"
-  end
-  if value == 0x9E then
-    return "Message Type: Constituent Symbol Mapping Message (0x9E)"
-  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -716,40 +672,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.dissect = function(buffe
   local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Midnight Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference = {}
-
--- Size: Midnight Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.size = 4
-
--- Store: Midnight Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.current = nil
-
--- Generated: Midnight Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.generated = function(value, range, packet, parent)
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.display(value)
-  local midnight_reference = parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.midnight_reference, range, value, display)
-  midnight_reference:set_generated()
-end
-
--- Display: Midnight Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Midnight Reference: "..os.date("%Y-%m-%d %H:%M:%S.", value)
-end
-
--- Dissect: Midnight Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.midnight_reference, range, value, display)
 
   return offset + length, value
 end
@@ -1004,10 +926,10 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.side.size = 1
 -- Display: Side
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.side.display = function(value)
   if value == "B" then
-    return "Side: Buy (B)"
+    return "Side: Buy Side (B)"
   end
   if value == "S" then
-    return "Side: Sell (S)"
+    return "Side: Sell Side (S)"
   end
 
   return "Side: Unknown("..value..")"
@@ -1021,52 +943,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.side.dissect = function(buffer, offse
   local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Soq Identifier
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier = {}
-
--- Size: Soq Identifier
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.size = 20
-
--- Display: Soq Identifier
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.display = function(value)
-  return "Soq Identifier: "..value
-end
-
--- Dissect: Soq Identifier
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.soq_identifier, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol = {}
-
--- Size: Symbol
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol.size = 6
-
--- Display: Symbol
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1101,25 +977,48 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_condition.dissect = function(b
   return offset + length, value
 end
 
--- Symbol Extended
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended = {}
+-- Symbol Long
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long = {}
 
--- Size: Symbol Extended
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.size = 8
+-- Size: Symbol Long
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.size = 8
 
--- Display: Symbol Extended
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.display = function(value)
-  return "Symbol Extended: "..value
+-- Display: Symbol Long
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.display = function(value)
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol Extended
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.size
+-- Dissect: Symbol Long
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol_extended, range, value, display)
+  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Short
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_short = {}
+
+-- Size: Symbol Short
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_short.size = 6
+
+-- Display: Symbol Short
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_short.display = function(value)
+  return "Symbol Short: "..value
+end
+
+-- Dissect: Symbol Short
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_short.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -1180,48 +1079,25 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.dissect = function(buffer
   return offset + length, value
 end
 
--- Time Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference = {}
+-- Timestamp
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp = {}
 
--- Size: Time Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference.size = 4
+-- Size: Timestamp
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.size = 4
 
--- Display: Time Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference.display = function(value)
-  return "Time Reference: "..value
+-- Display: Timestamp
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.display = function(value)
+  return "Timestamp: "..value
 end
 
--- Dissect: Time Reference
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference.size
+-- Dissect: Timestamp
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.time_reference, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.trade_date = {}
-
--- Size: Trade Date
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.trade_date.size = 4
-
--- Display: Trade Date
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.trade_date.display = function(value)
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.trade_date, range, value, display)
+  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1272,35 +1148,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.unit.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Upper Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price = {}
-
--- Size: Upper Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.size = 8
-
--- Display: Upper Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.display = function(value)
-  return "Upper Strike Price: "..value
-end
-
--- Translate: Upper Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Upper Strike Price
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.translate(raw)
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.upper_strike_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Width Type
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.width_type = {}
 
@@ -1335,22 +1182,38 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp = {}
 
 -- Translate: Timestamp
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time)
-  return UInt64.new(stored_midnight_reference + stored_time * 1000000000 + time_offset)
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.translate = function(time_offset, stored_time)
+  return UInt64.new(stored_time * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.display = function(time_offset, stored_midnight_reference, stored_time)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_midnight_reference + stored_time)..string.format("%09d", time_offset)
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.display = function(time_offset, stored_time, packet)
+  -- Raw display mode
+  if cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset_format == 0 then
+    return "Timestamp: "..(stored_time * 1000000000 + time_offset)
+  end
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
+    local full_seconds = local_midnight + stored_time
+
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", time_offset)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", time_offset)
 end
 
 -- Composite: Timestamp
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.composite = function(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
+cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.composite = function(buffer, offset, stored_time, packet, parent)
   local length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.size
   local range = buffer(offset, length)
   local time_offset = range:le_uint()
-  local value = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.translate(time_offset, stored_midnight_reference, stored_time)
-  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.display(time_offset, stored_midnight_reference, stored_time)
+  local value = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.translate(time_offset, stored_time)
+  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.display(time_offset, stored_time, packet)
   parent = parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.timestamp, range, value, display)
 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time.generated(stored_time, range, packet, parent)
@@ -1363,11 +1226,10 @@ end
 
 -- Dissect: Timestamp
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_midnight_reference = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.current
   local stored_time = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time.current
 
-  if stored_midnight_reference ~= nil and stored_time ~= nil then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.composite(buffer, offset, stored_midnight_reference, stored_time, packet, parent)
+  if stored_time ~= nil then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.composite(buffer, offset, stored_time, packet, parent)
   end
 
   return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.dissect(buffer, offset, packet, parent)
@@ -1378,120 +1240,12 @@ end
 -- Dissect Cboe EdgxOptions AuctionFeed Pitch 1.1.39
 -----------------------------------------------------------------------
 
--- Constituent Symbol Mapping Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message = {}
-
--- Size: Constituent Symbol Mapping Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.feed_symbol.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.osi_symbol.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_condition.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.underlying.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.size
-
--- Display: Constituent Symbol Mapping Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Constituent Symbol Mapping Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Feed Symbol: Printable ASCII
-  index, feed_symbol = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.feed_symbol.dissect(buffer, index, packet, parent)
-
-  -- Osi Symbol: Printable ASCII
-  index, osi_symbol = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.osi_symbol.dissect(buffer, index, packet, parent)
-
-  -- Symbol Condition: Alphanumeric
-  index, symbol_condition = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_condition.dissect(buffer, index, packet, parent)
-
-  -- Underlying: Printable ASCII
-  index, underlying = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.underlying.dissect(buffer, index, packet, parent)
-
-  -- Soq Identifier: Printable ASCII
-  index, soq_identifier = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Constituent Symbol Mapping Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.constituent_symbol_mapping_message, buffer(offset, 0))
-    local index = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Soq Strike Range Update Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message = {}
-
--- Size: Soq Strike Range Update Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.size
-
--- Display: Soq Strike Range Update Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Soq Strike Range Update Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Soq Identifier: Printable ASCII
-  index, soq_identifier = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_identifier.dissect(buffer, index, packet, parent)
-
-  -- Lower Strike Price: Binary Long Price
-  index, lower_strike_price = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.lower_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Upper Strike Price: Binary Long Price
-  index, upper_strike_price = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.upper_strike_price.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Soq Strike Range Update Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.soq_strike_range_update_message, buffer(offset, 0))
-    local index = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- End Of Session Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.end_of_session_message = {}
 
 -- Size: End Of Session Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.end_of_session_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.size
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.size
 
 -- Display: End Of Session Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.end_of_session_message.display = function(packet, parent, length)
@@ -1502,8 +1256,8 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: Binary
+  index, timestamp = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1554,7 +1308,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_mapping_message.fields = funct
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -1600,7 +1354,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.width_update_message.fields = functio
   -- Time Offset: Time Offset
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.underlying.dissect(buffer, index, packet, parent)
 
   -- Width Type: Alphanumeric
@@ -1636,7 +1390,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_summary_message = {}
 -- Size: Auction Summary Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_summary_message.size =
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.size + 
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_type.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.price.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.quantity.size
@@ -1653,8 +1407,8 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_summary_message.fields = func
   -- Time Offset: Time Offset
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: Printable ASCII
-  index, symbol_extended = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Printable ASCII
+  index, symbol_long = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alphanumeric
   index, auction_type = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_type.dissect(buffer, index, packet, parent)
@@ -1692,7 +1446,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.options_auction_update_message = {}
 -- Size: Options Auction Update Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.options_auction_update_message.size =
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.size + 
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_type.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.reference_price.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.buy_contracts.size + 
@@ -1715,8 +1469,8 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.options_auction_update_message.fields
   -- Time Offset: Time Offset
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: Printable ASCII
-  index, symbol_extended = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_extended.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Printable ASCII
+  index, symbol_long = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alphanumeric
   index, auction_type = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_type.dissect(buffer, index, packet, parent)
@@ -1872,7 +1626,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_notification_message = {}
 -- Size: Auction Notification Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_notification_message.size =
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol.size + 
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_short.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_id.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_type.size + 
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.side.size + 
@@ -1895,8 +1649,8 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_notification_message.fields =
   -- Time Offset: Time Offset
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: Printable ASCII
-  index, symbol = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Printable ASCII
+  index, symbol_short = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Auction Id: Binary
   index, auction_id = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_id.dissect(buffer, index, packet, parent)
@@ -1991,8 +1745,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_message = {}
 
 -- Size: Time Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.epoch_time.size
+  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time.size
 
 -- Display: Time Message
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_message.display = function(packet, parent, length)
@@ -2005,9 +1758,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_message.fields = function(buffer
 
   -- Time: Binary
   index, time = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time.dissect(buffer, index, packet, parent)
-
-  -- Epoch Time: Binary
-  index, epoch_time = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.epoch_time.dissect(buffer, index, packet, parent)
 
   -- Store Time Value
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time.current = time
@@ -2037,74 +1787,11 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_message.dissect = function(buffe
   end
 end
 
--- Time Reference Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message = {}
-
--- Size: Time Reference Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message.size =
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_offset.size + 
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.trade_date.size
-
--- Display: Time Reference Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Time Reference Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Midnight Reference: Binary
-  index, midnight_reference = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.dissect(buffer, index, packet, parent)
-
-  -- Time Reference: Binary
-  index, time_reference = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference.dissect(buffer, index, packet, parent)
-
-  -- Time Offset: Time Offset
-  index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Trade Date: Binary Date
-  index, trade_date = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.trade_date.dissect(buffer, index, packet, parent)
-
-  -- Store Midnight Reference Value
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.current = midnight_reference
-
-  if not packet.visited then
-    cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.current.midnight_reference.last = midnight_reference
-  end
-
-  return index
-end
-
--- Dissect: Time Reference Message
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.time_reference_message, buffer(offset, 0))
-    local index = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Payload
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.payload = {}
 
 -- Dissect: Payload
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Reference Message
-  if message_type == 0xB1 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_reference_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Time Message
   if message_type == 0x20 then
     return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_message.dissect(buffer, offset, packet, parent)
@@ -2145,14 +1832,6 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.payload.dissect = function(buffer, of
   if message_type == 0x2D then
     return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Soq Strike Range Update Message
-  if message_type == 0x9D then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.soq_strike_range_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Constituent Symbol Mapping Message
-  if message_type == 0x9E then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.constituent_symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
@@ -2177,7 +1856,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_header.fields = function(buff
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
   index, message_length = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, message_type = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -2235,7 +1914,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message.fields = function(buffer, off
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 13 branches
+  -- Payload: Runtime Type with 10 branches
   index = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -2350,10 +2029,8 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.packet.dissect = function(buffer, pac
   -- establish frame context from the conversation's stored values
   local data = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.data(packet)
   if not packet.visited then
-    data.midnight_reference.frames[packet.number] = data.midnight_reference.last
     data.time.frames[packet.number] = data.time.last
   end
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.current = data.midnight_reference.frames[packet.number]
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time.current = data.time.frames[packet.number]
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.current = data
 
@@ -2378,7 +2055,6 @@ end
 
 -- Initialize Dissector
 function omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.init()
-  cboe_edgxoptions_auctionfeed_pitch_v1_1_39.midnight_reference.current = nil
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time.current = nil
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.current = nil
   cboe_edgxoptions_auctionfeed_pitch_v1_1_39.conversation.flows = {}
@@ -2415,9 +2091,9 @@ end
 -- Register Heuristic for Cboe EdgxOptions AuctionFeed Pitch 1.1.39
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39:register_heuristic("udp", omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39_udp_heuristic)
 
--- Register Cboe EdgxOptions AuctionFeed Pitch 1.1.39 on default port
+-- Register Cboe EdgxOptions AuctionFeed Pitch 1.1.39 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39)
+udp_table:add_for_decode_as(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

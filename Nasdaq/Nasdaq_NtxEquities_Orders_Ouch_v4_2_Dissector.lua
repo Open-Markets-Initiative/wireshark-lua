@@ -3102,9 +3102,9 @@ end
 -- Register Heuristic for Nasdaq NtxEquities Orders Ouch 4.2
 omi_nasdaq_ntxequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_heuristic)
 
--- Register Nasdaq NtxEquities Orders Ouch 4.2 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_ntxequities_orders_ouch_v4_2)
+-- Register Nasdaq NtxEquities Orders Ouch 4.2 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nasdaq_ntxequities_orders_ouch_v4_2)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -2351,9 +2351,9 @@ end
 -- Register Heuristic for Ltse LtseEquities MemoirLastSale Sbe 1.3
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3:register_heuristic("udp", omi_ltse_ltseequities_memoirlastsale_sbe_v1_3_udp_heuristic)
 
--- Register Ltse LtseEquities MemoirLastSale Sbe 1.3 on default port
+-- Register Ltse LtseEquities MemoirLastSale Sbe 1.3 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_ltse_ltseequities_memoirlastsale_sbe_v1_3)
+udp_table:add_for_decode_as(omi_ltse_ltseequities_memoirlastsale_sbe_v1_3)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

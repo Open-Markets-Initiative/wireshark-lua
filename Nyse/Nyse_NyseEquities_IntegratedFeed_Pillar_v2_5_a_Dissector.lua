@@ -5026,9 +5026,9 @@ end
 -- Register Heuristic for Nyse NyseEquities IntegratedFeed Pillar 2.5.a
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a:register_heuristic("udp", omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a_udp_heuristic)
 
--- Register Nyse NyseEquities IntegratedFeed Pillar 2.5.a on default port
+-- Register Nyse NyseEquities IntegratedFeed Pillar 2.5.a for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a)
+udp_table:add_for_decode_as(omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

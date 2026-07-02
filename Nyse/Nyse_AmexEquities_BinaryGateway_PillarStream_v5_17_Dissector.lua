@@ -9798,9 +9798,9 @@ end
 -- Register Heuristic for Nyse AmexEquities BinaryGateway PillarStream 5.17
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17:register_heuristic("tcp", omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_heuristic)
 
--- Register Nyse AmexEquities BinaryGateway PillarStream 5.17 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nyse_amexequities_binarygateway_pillarstream_v5_17)
+-- Register Nyse AmexEquities BinaryGateway PillarStream 5.17 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nyse_amexequities_binarygateway_pillarstream_v5_17)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

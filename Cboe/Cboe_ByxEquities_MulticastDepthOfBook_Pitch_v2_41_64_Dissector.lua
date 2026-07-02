@@ -2876,9 +2876,9 @@ end
 -- Register Heuristic for Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.64
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64:register_heuristic("udp", omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64_udp_heuristic)
 
--- Register Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.64 on default port
+-- Register Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.64 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64)
+udp_table:add_for_decode_as(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

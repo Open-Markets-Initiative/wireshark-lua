@@ -32081,9 +32081,9 @@ end
 -- Register Heuristic for Cboe BzxOptions BinaryOrderEntry Boe 2.10
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10:register_heuristic("tcp", omi_cboe_bzxoptions_binaryorderentry_boe_v2_10_tcp_heuristic)
 
--- Register Cboe BzxOptions BinaryOrderEntry Boe 2.10 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_bzxoptions_binaryorderentry_boe_v2_10)
+-- Register Cboe BzxOptions BinaryOrderEntry Boe 2.10 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

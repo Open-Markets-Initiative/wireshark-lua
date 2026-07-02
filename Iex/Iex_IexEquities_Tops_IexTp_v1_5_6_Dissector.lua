@@ -2563,9 +2563,9 @@ end
 -- Register Heuristic for Iex IexEquities Tops IexTp 1.5.6
 omi_iex_iexequities_tops_iextp_v1_5_6:register_heuristic("udp", omi_iex_iexequities_tops_iextp_v1_5_6_udp_heuristic)
 
--- Register Iex IexEquities Tops IexTp 1.5.6 on default port
+-- Register Iex IexEquities Tops IexTp 1.5.6 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_iex_iexequities_tops_iextp_v1_5_6)
+udp_table:add_for_decode_as(omi_iex_iexequities_tops_iextp_v1_5_6)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

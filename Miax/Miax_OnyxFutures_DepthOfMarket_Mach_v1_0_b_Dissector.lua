@@ -2995,9 +2995,9 @@ end
 -- Register Heuristic for Miax OnyxFutures DepthOfMarket Mach 1.0.b
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b:register_heuristic("udp", omi_miax_onyxfutures_depthofmarket_mach_v1_0_b_udp_heuristic)
 
--- Register Miax OnyxFutures DepthOfMarket Mach 1.0.b on default port
+-- Register Miax OnyxFutures DepthOfMarket Mach 1.0.b for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_miax_onyxfutures_depthofmarket_mach_v1_0_b)
+udp_table:add_for_decode_as(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

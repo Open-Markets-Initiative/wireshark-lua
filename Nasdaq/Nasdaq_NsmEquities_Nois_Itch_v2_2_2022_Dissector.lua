@@ -1433,9 +1433,9 @@ end
 -- Register Heuristic for Nasdaq NsmEquities Nois Itch 2.2.2022
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022:register_heuristic("udp", omi_nasdaq_nsmequities_nois_itch_v2_2_2022_udp_heuristic)
 
--- Register Nasdaq NsmEquities Nois Itch 2.2.2022 on default port
+-- Register Nasdaq NsmEquities Nois Itch 2.2.2022 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_nasdaq_nsmequities_nois_itch_v2_2_2022)
+udp_table:add_for_decode_as(omi_nasdaq_nsmequities_nois_itch_v2_2_2022)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

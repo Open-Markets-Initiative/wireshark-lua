@@ -2062,7 +2062,7 @@ cboe_c1options_flex_pitch_v1_1_30.symbol_mapping_message.fields = function(buffe
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_flex_pitch_v1_1_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -2785,7 +2785,7 @@ cboe_c1options_flex_pitch_v1_1_30.complex_flex_instrument_definition_message.fie
   -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Type: Alphanumeric
@@ -2892,7 +2892,7 @@ cboe_c1options_flex_pitch_v1_1_30.flex_instrument_definition_message.fields = fu
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_flex_pitch_v1_1_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Exercise Style: Alphanumeric
@@ -3374,9 +3374,9 @@ end
 -- Register Heuristic for Cboe C1Options Flex Pitch 1.1.30
 omi_cboe_c1options_flex_pitch_v1_1_30:register_heuristic("udp", omi_cboe_c1options_flex_pitch_v1_1_30_udp_heuristic)
 
--- Register Cboe C1Options Flex Pitch 1.1.30 on default port
+-- Register Cboe C1Options Flex Pitch 1.1.30 for Decode As
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_c1options_flex_pitch_v1_1_30)
+udp_table:add_for_decode_as(omi_cboe_c1options_flex_pitch_v1_1_30)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

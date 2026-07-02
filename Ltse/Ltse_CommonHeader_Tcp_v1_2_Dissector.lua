@@ -1650,9 +1650,9 @@ end
 -- Register Heuristic for Ltse CommonHeader Tcp 1.2
 omi_ltse_commonheader_tcp_v1_2:register_heuristic("tcp", omi_ltse_commonheader_tcp_v1_2_tcp_heuristic)
 
--- Register Ltse CommonHeader Tcp 1.2 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_ltse_commonheader_tcp_v1_2)
+-- Register Ltse CommonHeader Tcp 1.2 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_ltse_commonheader_tcp_v1_2)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

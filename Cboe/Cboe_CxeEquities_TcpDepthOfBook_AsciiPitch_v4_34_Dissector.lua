@@ -2904,9 +2904,9 @@ end
 -- Register Heuristic for Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34:register_heuristic("tcp", omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34_tcp_heuristic)
 
--- Register Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34)
+-- Register Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

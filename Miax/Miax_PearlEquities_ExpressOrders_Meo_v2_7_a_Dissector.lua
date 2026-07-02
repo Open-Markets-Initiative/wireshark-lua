@@ -6380,9 +6380,9 @@ end
 -- Register Heuristic for Miax PearlEquities ExpressOrders Meo 2.7.a
 omi_miax_pearlequities_expressorders_meo_v2_7_a:register_heuristic("tcp", omi_miax_pearlequities_expressorders_meo_v2_7_a_tcp_heuristic)
 
--- Register Miax PearlEquities ExpressOrders Meo 2.7.a on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_miax_pearlequities_expressorders_meo_v2_7_a)
+-- Register Miax PearlEquities ExpressOrders Meo 2.7.a for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_miax_pearlequities_expressorders_meo_v2_7_a)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

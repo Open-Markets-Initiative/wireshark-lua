@@ -3687,9 +3687,9 @@ end
 -- Register Heuristic for Aquis Equities TradingProtocol Atp 4.0
 omi_aquis_equities_tradingprotocol_atp_v4_0:register_heuristic("tcp", omi_aquis_equities_tradingprotocol_atp_v4_0_tcp_heuristic)
 
--- Register Aquis Equities TradingProtocol Atp 4.0 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_aquis_equities_tradingprotocol_atp_v4_0)
+-- Register Aquis Equities TradingProtocol Atp 4.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_aquis_equities_tradingprotocol_atp_v4_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

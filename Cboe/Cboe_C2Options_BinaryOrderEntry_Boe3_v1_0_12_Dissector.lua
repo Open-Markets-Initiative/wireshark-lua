@@ -8931,9 +8931,9 @@ end
 -- Register Heuristic for Cboe C2Options BinaryOrderEntry Boe3 1.0.12
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_12:register_heuristic("tcp", omi_cboe_c2options_binaryorderentry_boe3_v1_0_12_tcp_heuristic)
 
--- Register Cboe C2Options BinaryOrderEntry Boe3 1.0.12 on default port
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, omi_cboe_c2options_binaryorderentry_boe3_v1_0_12)
+-- Register Cboe C2Options BinaryOrderEntry Boe3 1.0.12 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
