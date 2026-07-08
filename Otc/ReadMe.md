@@ -5,12 +5,15 @@
 
 | Division | [Protocol][Omi.Otc.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Otc.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [DepthOfBook][Otc.DepthOfBook] | [MoonAts][Omi.Encoding.MoonAts] | [1.3][Otc.DepthOfBook.MoonAts.v1.3.Dissector] | 5/1/2026 | 2553 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.DepthOfBook.MoonAts.v1.3.Url] - [pdf][Otc.DepthOfBook.MoonAts.v1.3.Pdf] |
-|  | [Retransmission][Otc.Retransmission] | [MoonAts][Omi.Encoding.MoonAts] | [1.3][Otc.Retransmission.MoonAts.v1.3.Dissector] | 5/1/2026 | 3248 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.Retransmission.MoonAts.v1.3.Url] - [pdf][Otc.Retransmission.MoonAts.v1.3.Pdf] |
-|  | [Top][Otc.Top] | [MoonAts][Omi.Encoding.MoonAts] | [1.3][Otc.Top.MoonAts.v1.3.Dissector] | 5/1/2026 | 2080 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.Top.MoonAts.v1.3.Url] - [pdf][Otc.Top.MoonAts.v1.3.Pdf] |
-| [Markets][Markets] | [Headers][Otc.Markets.Headers] | [Ats][Omi.Encoding.Ats] | [1.0][Otc.Markets.Headers.Ats.v1.0.Dissector] | 12/11/2019 | 576 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Headers.Ats.v1.0.Url] - [pdf][Otc.Markets.Headers.Ats.v1.0.Pdf] |
-| [Markets][Markets] | [Multicast][Otc.Markets.Multicast] | [Ats][Omi.Encoding.Ats] | [4.5][Otc.Markets.Multicast.Ats.v4.5.Dissector] | 7/28/2022 | 4017 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.Markets.Multicast.Ats.v4.5.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.5.Pdf] |
-| [Markets][Markets] | [Multicast][Otc.Markets.Multicast] | [Ats][Omi.Encoding.Ats] | [4.3][Otc.Markets.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | 4017 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.Markets.Multicast.Ats.v4.3.Url] - [pdf][Otc.Markets.Multicast.Ats.v4.3.Pdf] |
+| [OtcLink][OtcLink.Platform] | [Multicast][Otc.OtcLink.Multicast] | [Ats][Omi.Encoding.Ats] | [4.10.4][Otc.OtcLink.Multicast.Ats.v4.10.4.Dissector] | 6/16/2026 | 4421 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.OtcLink.Multicast.Ats.v4.10.4.Url] - [pdf][Otc.OtcLink.Multicast.Ats.v4.10.4.Pdf] |
+| [OtcLink][OtcLink.Platform] | [Multicast][Otc.OtcLink.Multicast] | [Ats][Omi.Encoding.Ats] | [4.5][Otc.OtcLink.Multicast.Ats.v4.5.Dissector] | 7/28/2022 | 4037 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.OtcLink.Multicast.Ats.v4.5.Url] - [pdf][Otc.OtcLink.Multicast.Ats.v4.5.Pdf] |
+| [OtcLink][OtcLink.Platform] | [Multicast][Otc.OtcLink.Multicast] | [Ats][Omi.Encoding.Ats] | [4.3][Otc.OtcLink.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | 4037 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Otc.OtcLink.Multicast.Ats.v4.3.Url] - [pdf][Otc.OtcLink.Multicast.Ats.v4.3.Pdf] |
+| [OtcLink][OtcLink.Platform] | [DepthOfBook][Otc.OtcLink.DepthOfBook] | [MoonAts][Omi.Encoding.MoonAts] | [1.3][Otc.OtcLink.DepthOfBook.MoonAts.v1.3.Dissector] | 5/1/2026 | 2577 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.OtcLink.DepthOfBook.MoonAts.v1.3.Url] - [pdf][Otc.OtcLink.DepthOfBook.MoonAts.v1.3.Pdf] |
+| [OtcLink][OtcLink.Platform] | [Retransmission][Otc.OtcLink.Retransmission] | [MoonAts][Omi.Encoding.MoonAts] | [1.3][Otc.OtcLink.Retransmission.MoonAts.v1.3.Dissector] | 5/1/2026 | 3248 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.OtcLink.Retransmission.MoonAts.v1.3.Url] - [pdf][Otc.OtcLink.Retransmission.MoonAts.v1.3.Pdf] |
+| [OtcLink][OtcLink.Platform] | [Top][Otc.OtcLink.Top] | [MoonAts][Omi.Encoding.MoonAts] | [1.3][Otc.OtcLink.Top.MoonAts.v1.3.Dissector] | 5/1/2026 | 2104 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.OtcLink.Top.MoonAts.v1.3.Url] - [pdf][Otc.OtcLink.Top.MoonAts.v1.3.Pdf] |
+| [OtcLink][OtcLink.Platform] | [DepthOfBook][Otc.OtcLink.DepthOfBook] | [Overnight][Omi.Encoding.Overnight] | [1.0][Otc.OtcLink.DepthOfBook.Overnight.v1.0.Dissector] | 4/1/2026 | 2601 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.OtcLink.DepthOfBook.Overnight.v1.0.Url] - [pdf][Otc.OtcLink.DepthOfBook.Overnight.v1.0.Pdf] |
+| [OtcLink][OtcLink.Platform] | [Retransmission][Otc.OtcLink.Retransmission] | [Overnight][Omi.Encoding.Overnight] | [1.0][Otc.OtcLink.Retransmission.Overnight.v1.0.Dissector] | 4/1/2026 | 3272 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.OtcLink.Retransmission.Overnight.v1.0.Url] - [pdf][Otc.OtcLink.Retransmission.Overnight.v1.0.Pdf] |
+| [OtcLink][OtcLink.Platform] | [Top][Otc.OtcLink.Top] | [Overnight][Omi.Encoding.Overnight] | [1.0][Otc.OtcLink.Top.Overnight.v1.0.Dissector] | 4/1/2026 | 2128 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Otc.OtcLink.Top.Overnight.v1.0.Url] - [pdf][Otc.OtcLink.Top.Overnight.v1.0.Pdf] |
 
 
 Otc: [website](https://www.otcmarkets.com "Go to OTC Markets Group")
@@ -32,28 +35,37 @@ Otc: [website](https://www.otcmarkets.com "Go to OTC Markets Group")
 [Omi.Otc.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Specifications "Otc Specifications Directory"
 [Omi.Encoding.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Encoding"
 [Omi.Encoding.MoonAts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/MoonAts.md "MoonAts Encoding"
-[Markets]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Protocols/Markets "Otc Markets"
-[Otc.Markets.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Multicast.md "Multicast"
-[Otc.Markets.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Markets/Headers.md "Headers"
-[Otc.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/DepthOfBook.md ""
-[Otc.Top]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Top.md ""
-[Otc.Retransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/Retransmission.md ""
+[Omi.Encoding.Overnight]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Overnight.md "Overnight Encoding"
+[OtcLink.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Otc/Protocols/OtcLink "Otc OtcLink"
+[Otc.OtcLink.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/OtcLink/Multicast.md ""
+[Otc.OtcLink.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/OtcLink/DepthOfBook.md ""
+[Otc.OtcLink.Top]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/OtcLink/Top.md ""
+[Otc.OtcLink.Retransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/OtcLink/Retransmission.md ""
 
-[Otc.Markets.Multicast.Ats.v4.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_Markets_Multicast_Ats_v4_3_Dissector.lua "Otc Markets Multicast Ats v4.3 Wireshark Dissector"
-[Otc.Markets.Multicast.Ats.v4.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "Otc Markets 4.3 Url"
-[Otc.Markets.Multicast.Ats.v4.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Otc.Markets.Multicast.Ats.v4.3.pdf "Otc Markets 4.3 Pdf"
-[Otc.Markets.Multicast.Ats.v4.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_Markets_Multicast_Ats_v4_5_Dissector.lua "Otc Markets Multicast Ats v4.5 Wireshark Dissector"
-[Otc.Markets.Multicast.Ats.v4.5.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "Otc Markets 4.5 Url"
-[Otc.Markets.Multicast.Ats.v4.5.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Otc.Markets.Multicast.Ats.v4.5.pdf "Otc Markets 4.5 Pdf"
-[Otc.Markets.Headers.Ats.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_Markets_Headers_Ats_v1_0_Dissector.lua "Otc Markets Headers Ats v1.0 Wireshark Dissector"
-[Otc.Markets.Headers.Ats.v1.0.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "Otc Markets 1.0 Url"
-[Otc.Markets.Headers.Ats.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Otc.Markets.Multicast.Ats.v4.3.pdf "Otc Markets 1.0 Pdf"
-[Otc.DepthOfBook.MoonAts.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_DepthOfBook_MoonAts_v1_3_Dissector.lua "Otc DepthOfBook MoonAts v1.3 Wireshark Dissector"
-[Otc.DepthOfBook.MoonAts.v1.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.3 Url"
-[Otc.DepthOfBook.MoonAts.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Moon/Otc.Moon.Ats.v1.3.pdf "OTC Markets Group 1.3 Pdf"
-[Otc.Top.MoonAts.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_Top_MoonAts_v1_3_Dissector.lua "Otc Top MoonAts v1.3 Wireshark Dissector"
-[Otc.Top.MoonAts.v1.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.3 Url"
-[Otc.Top.MoonAts.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Moon/Otc.Moon.Ats.v1.3.pdf "OTC Markets Group 1.3 Pdf"
-[Otc.Retransmission.MoonAts.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_Retransmission_MoonAts_v1_3_Dissector.lua "Otc Retransmission MoonAts v1.3 Wireshark Dissector"
-[Otc.Retransmission.MoonAts.v1.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.3 Url"
-[Otc.Retransmission.MoonAts.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Moon/Otc.Moon.Ats.v1.3.pdf "OTC Markets Group 1.3 Pdf"
+[Otc.OtcLink.Multicast.Ats.v4.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_Multicast_Ats_v4_3_Dissector.lua "Otc OtcLink Multicast Ats v4.3 Wireshark Dissector"
+[Otc.OtcLink.Multicast.Ats.v4.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 4.3 Url"
+[Otc.OtcLink.Multicast.Ats.v4.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Otc.Markets.Multicast.Ats.v4.3.pdf "OTC Markets Group 4.3 Pdf"
+[Otc.OtcLink.Multicast.Ats.v4.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_Multicast_Ats_v4_5_Dissector.lua "Otc OtcLink Multicast Ats v4.5 Wireshark Dissector"
+[Otc.OtcLink.Multicast.Ats.v4.5.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 4.5 Url"
+[Otc.OtcLink.Multicast.Ats.v4.5.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Otc.Markets.Multicast.Ats.v4.5.pdf "OTC Markets Group 4.5 Pdf"
+[Otc.OtcLink.Multicast.Ats.v4.10.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_Multicast_Ats_v4_10_4_Dissector.lua "Otc OtcLink Multicast Ats v4.10.4 Wireshark Dissector"
+[Otc.OtcLink.Multicast.Ats.v4.10.4.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 4.10.4 Url"
+[Otc.OtcLink.Multicast.Ats.v4.10.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Realtime/Otc.Realtime.Ats.v4.10.4.pdf "OTC Markets Group 4.10.4 Pdf"
+[Otc.OtcLink.DepthOfBook.MoonAts.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_DepthOfBook_MoonAts_v1_3_Dissector.lua "Otc OtcLink DepthOfBook MoonAts v1.3 Wireshark Dissector"
+[Otc.OtcLink.DepthOfBook.MoonAts.v1.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.3 Url"
+[Otc.OtcLink.DepthOfBook.MoonAts.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Moon/Otc.Moon.Ats.v1.3.pdf "OTC Markets Group 1.3 Pdf"
+[Otc.OtcLink.Top.MoonAts.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_Top_MoonAts_v1_3_Dissector.lua "Otc OtcLink Top MoonAts v1.3 Wireshark Dissector"
+[Otc.OtcLink.Top.MoonAts.v1.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.3 Url"
+[Otc.OtcLink.Top.MoonAts.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Moon/Otc.Moon.Ats.v1.3.pdf "OTC Markets Group 1.3 Pdf"
+[Otc.OtcLink.Retransmission.MoonAts.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_Retransmission_MoonAts_v1_3_Dissector.lua "Otc OtcLink Retransmission MoonAts v1.3 Wireshark Dissector"
+[Otc.OtcLink.Retransmission.MoonAts.v1.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.3 Url"
+[Otc.OtcLink.Retransmission.MoonAts.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Moon/Otc.Moon.Ats.v1.3.pdf "OTC Markets Group 1.3 Pdf"
+[Otc.OtcLink.DepthOfBook.Overnight.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_DepthOfBook_Overnight_v1_0_Dissector.lua "Otc OtcLink DepthOfBook Overnight v1.0 Wireshark Dissector"
+[Otc.OtcLink.DepthOfBook.Overnight.v1.0.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.0 Url"
+[Otc.OtcLink.DepthOfBook.Overnight.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Overnight/Otc.Overnight.Md.v1.0.pdf "OTC Markets Group 1.0 Pdf"
+[Otc.OtcLink.Top.Overnight.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_Top_Overnight_v1_0_Dissector.lua "Otc OtcLink Top Overnight v1.0 Wireshark Dissector"
+[Otc.OtcLink.Top.Overnight.v1.0.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.0 Url"
+[Otc.OtcLink.Top.Overnight.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Overnight/Otc.Overnight.Md.v1.0.pdf "OTC Markets Group 1.0 Pdf"
+[Otc.OtcLink.Retransmission.Overnight.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc_OtcLink_Retransmission_Overnight_v1_0_Dissector.lua "Otc OtcLink Retransmission Overnight v1.0 Wireshark Dissector"
+[Otc.OtcLink.Retransmission.Overnight.v1.0.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "OTC Markets Group 1.0 Url"
+[Otc.OtcLink.Retransmission.Overnight.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Specifications/Overnight/Otc.Overnight.Md.v1.0.pdf "OTC Markets Group 1.0 Pdf"
