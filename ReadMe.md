@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 656 | 5,271,316 |
+| 655 | 5,267,279 |
 
 ## Testing
 
@@ -52,7 +52,9 @@ For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-I
 For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Protocols
 
-Dissectors by exchange: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [BruceAts][BruceAts.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
+Dissectors by Organization: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [BruceAts][BruceAts.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [OtcMarkets][OtcMarkets.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
+
+Dissectors by Exchange/Ats/Sip: [24XEquities][24XEquities.Directory], [AmexEquities][AmexEquities.Directory], [AmexOptions][AmexOptions.Directory], [ArcaEquities][ArcaEquities.Directory], [ArcaOptions][ArcaOptions.Directory], [AsxSecurities][AsxSecurities.Directory], [B3Derivatives][B3Derivatives.Directory], [BoatsEquities][BoatsEquities.Directory], [BruceEquities][BruceEquities.Directory], [BxeEquities][BxeEquities.Directory], [ByxEquities][ByxEquities.Directory], [BzxEquities][BzxEquities.Directory], [BzxOptions][BzxOptions.Directory], [C1Options][C1Options.Directory], [C2Options][C2Options.Directory], [CfeFutures][CfeFutures.Directory], [CmeFutures][CmeFutures.Directory], [CoinbaseDerivatives][CoinbaseDerivatives.Directory], [Cqs][Cqs.Directory], [Cts][Cts.Directory], [CurrenexForex][CurrenexForex.Directory], [CxeEquities][CxeEquities.Directory], [DxeDerivatives][DxeDerivatives.Directory], [EdgaEquities][EdgaEquities.Directory], [EdgxEquities][EdgxEquities.Directory], [EdgxOptions][EdgxOptions.Directory], [EmeraldOptions][EmeraldOptions.Directory], [FinraOrf][FinraOrf.Directory], [FinraOtc][FinraOtc.Directory], [GemxOptions][GemxOptions.Directory], [IceFutures][IceFutures.Directory], [IexEquities][IexEquities.Directory], [IseOptions][IseOptions.Directory], [JnxBonds][JnxBonds.Directory], [JnxEquities][JnxEquities.Directory], [LtseEquities][LtseEquities.Directory], [MatchNow][MatchNow.Directory], [MemxEquities][MemxEquities.Directory], [MemxOptions][MemxOptions.Directory], [MiaxOptions][MiaxOptions.Directory], [MrxOptions][MrxOptions.Directory], [NationalEquities][NationalEquities.Directory], [NeoEquities][NeoEquities.Directory], [NomOptions][NomOptions.Directory], [NsmEquities][NsmEquities.Directory], [NtxEquities][NtxEquities.Directory], [NtxOptions][NtxOptions.Directory], [NyseEquities][NyseEquities.Directory], [NyseOptions][NyseOptions.Directory], [OdxSecurityToken][OdxSecurityToken.Directory], [Opra][Opra.Directory], [PearlOptions][PearlOptions.Directory], [PhlxOptions][PhlxOptions.Directory], [PsxEquities][PsxEquities.Directory], [SapphireOptions][SapphireOptions.Directory], [TexasEquities][TexasEquities.Directory], [TxseEquities][TxseEquities.Directory], [Uqdf][Uqdf.Directory], [Utdf][Utdf.Directory], [Utp][Utp.Directory]
 
 ## Disclaimer
 
@@ -103,9 +105,7 @@ Enjoy.
 [Omi.Encoding.Pillar]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Pillar.md "Pillar Encoding"
 [Omi.Encoding.Ultra]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ultra.md "Ultra Encoding"
 [Omi.Encoding.PillarStream]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/PillarStream.md "PillarStream Encoding"
-[Omi.Encoding.Ats]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ats.md "Ats Encoding"
-[Omi.Encoding.MoonAts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/MoonAts.md "MoonAts Encoding"
-[Omi.Encoding.Overnight]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Overnight.md "Overnight Encoding"
+[Omi.Encoding.Link]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Link.md "Link Encoding"
 [Omi.Encoding.Obi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Obi.md "Obi Encoding"
 [Omi.Encoding.Cta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cta.md "Cta Encoding"
 [Omi.Encoding.Xmt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Xmt.md "Xmt Encoding"
@@ -401,10 +401,13 @@ Enjoy.
 [Nyse.NyseOptions.CommonClient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseOptions/CommonClient.md "Common Client"
 [Nyse.Options.StreamProtocol]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/Options/StreamProtocol.md "Stream Protocol"
 [Odx.OdxSecurityToken.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Odx/Protocols/OdxSecurityToken/Pts.md "Proprietary Trading System"
-[Otc.OtcLink.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/OtcLink/Multicast.md ""
-[Otc.OtcLink.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/OtcLink/DepthOfBook.md ""
-[Otc.OtcLink.Top]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/OtcLink/Top.md ""
-[Otc.OtcLink.Retransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Otc/Protocols/OtcLink/Retransmission.md ""
+[OtcMarkets.LinkAts.Multicast]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/OtcMarkets/Protocols/LinkAts/Multicast.md "OTC Markets Multicast"
+[OtcMarkets.MoonAts.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/OtcMarkets/Protocols/MoonAts/DepthOfBook.md "OTC Depth of Book"
+[OtcMarkets.MoonAts.TopOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/OtcMarkets/Protocols/MoonAts/TopOfBook.md "OTC Top of Book"
+[OtcMarkets.MoonAts.Retransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/OtcMarkets/Protocols/MoonAts/Retransmission.md "OTC Retransmission"
+[OtcMarkets.Overnight.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/OtcMarkets/Protocols/Overnight/DepthOfBook.md "OTC Depth of Book"
+[OtcMarkets.Overnight.TopOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/OtcMarkets/Protocols/Overnight/TopOfBook.md "OTC Top of Book"
+[OtcMarkets.Overnight.Retransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/OtcMarkets/Protocols/Overnight/Retransmission.md "OTC Retransmission"
 [Siac.Opra.Recipient]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Recipient.md "Recipient"
 [Siac.Opra.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Output.md "Output"
 [Siac.Opra.Input]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Siac/Protocols/Opra/Input.md "Input"
@@ -452,8 +455,69 @@ Enjoy.
 [NsxAustralia.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/NsxAustralia "Nation Stock Exchange of Australia"
 [Nyse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Nyse "New York Stock Exchange"
 [Odx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Odx "Osaka Digital Exchange"
-[Otc.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Otc "OTC Markets Group"
+[OtcMarkets.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/OtcMarkets "OTC Markets Group"
 [Siac.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Siac "The Securities Industry Automation Corporation"
 [SmallX.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/SmallX "The Small Exchange"
 [Tmx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Tmx "TMX Group"
 [Txse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Txse "Texas Stock Exchange"
+
+[24XEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/24X/Protocols/24XEquities "24X 24XEquities"
+[AmexEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/AmexEquities "Nyse AmexEquities"
+[AmexOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/AmexOptions "Nyse AmexOptions"
+[ArcaEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/ArcaEquities "Nyse ArcaEquities"
+[ArcaOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/ArcaOptions "Nyse ArcaOptions"
+[AsxSecurities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Protocols/AsxSecurities "Asx AsxSecurities"
+[B3Derivatives.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/B3/Protocols/B3Derivatives "B3 B3Derivatives"
+[BoatsEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Boats/Protocols/BoatsEquities "Boats BoatsEquities"
+[BruceEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols/BruceEquities "BruceAts BruceEquities"
+[BxeEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/BxeEquities "Cboe BxeEquities"
+[ByxEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/ByxEquities "Cboe ByxEquities"
+[BzxEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/BzxEquities "Cboe BzxEquities"
+[BzxOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/BzxOptions "Cboe BzxOptions"
+[C1Options.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/C1Options "Cboe C1Options"
+[C2Options.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/C2Options "Cboe C2Options"
+[CfeFutures.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/CfeFutures "Cboe CfeFutures"
+[CmeFutures.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/CmeFutures "Cme CmeFutures"
+[CoinbaseDerivatives.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives "Coinbase CoinbaseDerivatives"
+[Cqs.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cqs "Siac Cqs"
+[Cts.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cts "Siac Cts"
+[CurrenexForex.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Protocols/CurrenexForex "Currenex CurrenexForex"
+[CxeEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/CxeEquities "Cboe CxeEquities"
+[DxeDerivatives.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/DxeDerivatives "Cboe DxeDerivatives"
+[EdgaEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/EdgaEquities "Cboe EdgaEquities"
+[EdgxEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/EdgxEquities "Cboe EdgxEquities"
+[EdgxOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/EdgxOptions "Cboe EdgxOptions"
+[EmeraldOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/EmeraldOptions "Miax EmeraldOptions"
+[FinraOrf.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols/FinraOrf "Finra FinraOrf"
+[FinraOtc.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols/FinraOtc "Finra FinraOtc"
+[GemxOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/GemxOptions "Nasdaq GemxOptions"
+[IceFutures.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols/IceFutures "Ice IceFutures"
+[IexEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Iex/Protocols/IexEquities "Iex IexEquities"
+[IseOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/IseOptions "Nasdaq IseOptions"
+[JnxBonds.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols/JnxBonds "Jnx JnxBonds"
+[JnxEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols/JnxEquities "Jnx JnxEquities"
+[LtseEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ltse/Protocols/LtseEquities "Ltse LtseEquities"
+[MatchNow.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/MatchNow "Cboe MatchNow"
+[MemxEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Memx/Protocols/MemxEquities "Memx MemxEquities"
+[MemxOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Memx/Protocols/MemxOptions "Memx MemxOptions"
+[MiaxOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/MiaxOptions "Miax MiaxOptions"
+[MrxOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/MrxOptions "Nasdaq MrxOptions"
+[NationalEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/NationalEquities "Nyse NationalEquities"
+[NeoEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/NeoEquities "Cboe NeoEquities"
+[NomOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NomOptions "Nasdaq NomOptions"
+[NsmEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NsmEquities "Nasdaq NsmEquities"
+[NtxEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NtxEquities "Nasdaq NtxEquities"
+[NtxOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NtxOptions "Nasdaq NtxOptions"
+[NyseEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/NyseEquities "Nyse NyseEquities"
+[NyseOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/NyseOptions "Nyse NyseOptions"
+[OdxSecurityToken.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols/OdxSecurityToken "Odx OdxSecurityToken"
+[Opra.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Opra "Siac Opra"
+[PearlOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/PearlOptions "Miax PearlOptions"
+[PhlxOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/PhlxOptions "Nasdaq PhlxOptions"
+[PsxEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/PsxEquities "Nasdaq PsxEquities"
+[SapphireOptions.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/SapphireOptions "Miax SapphireOptions"
+[TexasEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/TexasEquities "Nyse TexasEquities"
+[TxseEquities.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols/TxseEquities "Txse TxseEquities"
+[Uqdf.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Uqdf "Nasdaq Uqdf"
+[Utdf.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Utdf "Nasdaq Utdf"
+[Utp.Directory]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Utp "Nasdaq Utp"
