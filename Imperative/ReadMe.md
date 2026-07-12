@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.Imperative.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Imperative.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [IntelligentCross][Imperative.IntelligentCross] | [Mdf][Omi.Encoding.Mdf] | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1674 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Imperative.IntelligentCross.Mdf.v1.11.Url] - [pdf][Imperative.IntelligentCross.Mdf.v1.11.Pdf] |
+| [IntelligentCross][IntelligentCross.Ats] | [DepthOfBook][Imperative.IntelligentCross.DepthOfBook] | [Aspen][Omi.Encoding.Aspen] | [1.11][Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Dissector] | 7/30/2020 | 1674 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Url] - [pdf][Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Pdf] |
 
 
 Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
@@ -25,9 +25,10 @@ Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Imperative.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols "Imperative Protocol Directory"
 [Omi.Imperative.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Specifications "Imperative Specifications Directory"
-[Omi.Encoding.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mdf.md "Mdf Encoding"
-[Imperative.IntelligentCross]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross.md "IntelligentCross"
+[Omi.Encoding.Aspen]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Aspen.md "Aspen Encoding"
+[IntelligentCross.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols/IntelligentCross "Imperative IntelligentCross"
+[Imperative.IntelligentCross.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross/DepthOfBook.md "Depth Of Book"
 
-[Imperative.IntelligentCross.Mdf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua "Imperative IntelligentCross Mdf v1.11 Wireshark Dissector"
-[Imperative.IntelligentCross.Mdf.v1.11.Url]: https://www.imperativex.com/market-data "Imperative Execution 1.11 Url"
-[Imperative.IntelligentCross.Mdf.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Specifications/Imperative.IntelligentCross.Mdf.v1.11.pdf "Imperative Execution 1.11 Pdf"
+[Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Imperative/Imperative_IntelligentCross_DepthOfBook_Aspen_v1_11_Dissector.lua "Imperative IntelligentCross DepthOfBook Aspen v1.11 Wireshark Dissector"
+[Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Url]: https://www.imperativex.com/market-data "Imperative Execution 1.11 Url"
+[Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Specifications/IntelligentCross/DepthOfBook/Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.pdf "Imperative Execution 1.11 Pdf"
