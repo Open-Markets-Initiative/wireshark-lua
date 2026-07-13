@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 655 | 5,267,279 |
+| 656 | 5,285,185 |
 
 ## Testing
 
@@ -93,7 +93,7 @@ Enjoy.
 [Omi.Encoding.Omd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Omd.md "Omd Encoding"
 [Omi.Encoding.iMpact]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/iMpact.md "iMpact Encoding"
 [Omi.Encoding.IexTp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/IexTp.md "IexTp Encoding"
-[Omi.Encoding.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mdf.md "Mdf Encoding"
+[Omi.Encoding.Aspen]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Aspen.md "Aspen Encoding"
 [Omi.Encoding.Mitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mitch.md "Mitch Encoding"
 [Omi.Encoding.Gtp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Gtp.md "Gtp Encoding"
 [Omi.Encoding.Mach]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mach.md "Mach Encoding"
@@ -109,7 +109,7 @@ Enjoy.
 [Omi.Encoding.Obi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Obi.md "Obi Encoding"
 [Omi.Encoding.Cta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cta.md "Cta Encoding"
 [Omi.Encoding.Xmt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Xmt.md "Xmt Encoding"
-[Omi.Encoding.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Seed.md "Seed Encoding"
+[Omi.Encoding.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Rake.md "Rake Encoding"
 
 [24X.24XEquities.Memo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Protocols/24XEquities/Memo.md "Members Orders"
 [24X.24XEquities.MemoirDepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Protocols/24XEquities/MemoirDepthFeed.md "Member Order Information Record Depth Feed"
@@ -249,7 +249,7 @@ Enjoy.
 [Iex.IexEquities.DeepPlus]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexEquities/DeepPlus.md "DeepPlus"
 [Iex.IexEquities.Tops]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexEquities/Tops.md "Top Of Book"
 [Iex.IexEquities.IexTpHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexEquities/IexTpHeader.md "IexTp Header"
-[Imperative.IntelligentCross]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross.md "IntelligentCross"
+[Imperative.IntelligentCross.DepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Protocols/IntelligentCross/DepthOfBook.md "Depth Of Book"
 [Jnx.JnxBonds.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxBonds/Pts.md "Proprietary Trading System"
 [Jnx.JnxEquities.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxEquities/Pts.md "Proprietary Trading System"
 [Jpx.OseDerivatives.GeniumInet]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/OseDerivatives/GeniumInet.md "Genium Inet"
@@ -423,8 +423,8 @@ Enjoy.
 [Tmx.QuantumFeed.TsxTsxvLevel1]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Protocols/QuantumFeed/TsxTsxvLevel1.md "Tsx And Tsxv Level 1"
 [Tmx.QuantumFeed.TsxTsxvLevel2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Protocols/QuantumFeed/TsxTsxvLevel2.md "Tsx Tsxv Level 2"
 [Tmx.QuantumFeed.XmtHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Tmx/Protocols/QuantumFeed/XmtHeader.md "Xmt Header"
-[Txse.Headers.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/Headers/Rake.md "Session and Framing Layer"
-[Txse.TxseEquities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/OrderEntry.md "Order Entry"
+[Txse.TxseEquities.Framing]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/Framing.md ""
+[Txse.TxseEquities.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/Seed.md "Session Enabled Entry Daemon"
 
 [24X.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/24X "24 National Exchange"
 [A2X.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/A2X "A2X Markets"

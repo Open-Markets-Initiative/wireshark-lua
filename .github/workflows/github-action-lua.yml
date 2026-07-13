@@ -97,8 +97,8 @@ jobs:
       - name: Run Iex IexEquities Tops IexTp 1.6.4 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-Tops-IexTp-v1-6-4-Test.sh
 
-      - name: Run Imperative IntelligentCross Mdf 1.11 Dissector Tests
-        run: bash -x .github/tests/Imperative-IntelligentCross-Mdf-v1-11-Test.sh
+      - name: Run Imperative IntelligentCross DepthOfBook Aspen 1.11 Dissector Tests
+        run: bash -x .github/tests/Imperative-IntelligentCross-DepthOfBook-Aspen-v1-11-Test.sh
 
       - name: Run Jnx JnxEquities Pts Itch 1.6 Dissector Tests
         run: bash -x .github/tests/Jnx-JnxEquities-Pts-Itch-v1-6-Test.sh
@@ -166,7 +166,7 @@ jobs:
       - name: Run Tmx QuantumFeed TsxTsxvLevel2 Xmt 2.1 Dissector Tests
         run: bash -x .github/tests/Tmx-QuantumFeed-TsxTsxvLevel2-Xmt-v2-1-Test.sh
 
-      - name: Run Txse TxseEquities OrderEntry Seed 0.1 Dissector Tests
-        run: bash -x .github/tests/Txse-TxseEquities-OrderEntry-Seed-v0-1-Test.sh
+      - name: Run Txse TxseEquities Seed Rake 1.0 Dissector Tests
+        run: bash -x .github/tests/Txse-TxseEquities-Seed-Rake-v1-0-Test.sh
 
 
