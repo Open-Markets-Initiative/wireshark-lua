@@ -1292,6 +1292,40 @@ nasdaq_nsmequities_nois_itch_v2_2_2022.message.dissect = function(buffer, offset
   end
 end
 
+-- End Of Session
+nasdaq_nsmequities_nois_itch_v2_2_2022.end_of_session = {}
+
+-- Display: End Of Session
+nasdaq_nsmequities_nois_itch_v2_2_2022.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+nasdaq_nsmequities_nois_itch_v2_2_2022.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_nois_itch_v2_2_2022.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+nasdaq_nsmequities_nois_itch_v2_2_2022.heartbeat = {}
+
+-- Display: Heartbeat
+nasdaq_nsmequities_nois_itch_v2_2_2022.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nasdaq_nsmequities_nois_itch_v2_2_2022.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_nois_itch_v2_2_2022.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 nasdaq_nsmequities_nois_itch_v2_2_2022.messages = {}
 
@@ -1299,11 +1333,11 @@ nasdaq_nsmequities_nois_itch_v2_2_2022.messages = {}
 nasdaq_nsmequities_nois_itch_v2_2_2022.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
-    return offset
+    return nasdaq_nsmequities_nois_itch_v2_2_2022.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
   if message_count == 65535 then
-    return offset
+    return nasdaq_nsmequities_nois_itch_v2_2_2022.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, message_count do

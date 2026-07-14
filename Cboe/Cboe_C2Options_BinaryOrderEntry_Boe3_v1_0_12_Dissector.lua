@@ -336,6 +336,7 @@ omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_complex_leg_index = 
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_leg_position_effect_index = Pref.bool("Show Leg Position Effect Index", show.leg_position_effect_index, "Show generated leg position effect index in protocol tree")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_index = Pref.bool("Show Quote Index", show.quote_index, "Show generated quote index in protocol tree")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_short_index = Pref.bool("Show Quote Short Index", show.quote_short_index, "Show generated quote short index in protocol tree")
+omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_custom_group_id_index = Pref.bool("Show Custom Group Id Index", show.custom_group_id_index, "Show generated custom group id index in protocol tree")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_index = Pref.bool("Show Quote Acknowledgement Index", show.quote_acknowledgement_index, "Show generated quote acknowledgement index in protocol tree")
 
 

@@ -117,15 +117,11 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.timestamp_message = ProtoField.new("Ti
 omi_nsxaustralia_nets_itch_v4_2_55.fields.trade_message = ProtoField.new("Trade Message", "nsxaustralia.nets.itch.v4.2.55.trademessage", ftypes.STRING)
 
 -- NsxAustralia Itch Nets 4.2.55 Session Messages
-omi_nsxaustralia_nets_itch_v4_2_55.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nsxaustralia.nets.itch.v4.2.55.clientheartbeatpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.debug_packet = ProtoField.new("Debug Packet", "nsxaustralia.nets.itch.v4.2.55.debugpacket", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nsxaustralia.nets.itch.v4.2.55.endofsessionpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nsxaustralia.nets.itch.v4.2.55.loginacceptedpacket", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nsxaustralia.nets.itch.v4.2.55.loginrejectedpacket", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.login_request_packet = ProtoField.new("Login Request Packet", "nsxaustralia.nets.itch.v4.2.55.loginrequestpacket", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nsxaustralia.nets.itch.v4.2.55.logoutrequestpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nsxaustralia.nets.itch.v4.2.55.sequenceddatapacket", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nsxaustralia.nets.itch.v4.2.55.serverheartbeatpacket", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nsxaustralia.nets.itch.v4.2.55.unsequenceddatapacket", ftypes.STRING)
 
 -- NsxAustralia Nets Itch 4.2.55 generated fields
@@ -2357,6 +2353,40 @@ end
 -- Dissect NsxAustralia Nets Itch 4.2.55
 -----------------------------------------------------------------------
 
+-- Logout Request
+nsxaustralia_nets_itch_v4_2_55.logout_request = {}
+
+-- Display: Logout Request
+nsxaustralia_nets_itch_v4_2_55.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+nsxaustralia_nets_itch_v4_2_55.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = nsxaustralia_nets_itch_v4_2_55.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+nsxaustralia_nets_itch_v4_2_55.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+nsxaustralia_nets_itch_v4_2_55.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+nsxaustralia_nets_itch_v4_2_55.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nsxaustralia_nets_itch_v4_2_55.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Unsequenced Data Packet
 nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet = {}
 
@@ -2466,6 +2496,40 @@ nsxaustralia_nets_itch_v4_2_55.login_request_packet.dissect = function(buffer, o
     -- Skip element, add fields directly
     return nsxaustralia_nets_itch_v4_2_55.login_request_packet.fields(buffer, offset, packet, parent)
   end
+end
+
+-- End Of Session
+nsxaustralia_nets_itch_v4_2_55.end_of_session = {}
+
+-- Display: End Of Session
+nsxaustralia_nets_itch_v4_2_55.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+nsxaustralia_nets_itch_v4_2_55.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = nsxaustralia_nets_itch_v4_2_55.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+nsxaustralia_nets_itch_v4_2_55.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+nsxaustralia_nets_itch_v4_2_55.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+nsxaustralia_nets_itch_v4_2_55.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nsxaustralia_nets_itch_v4_2_55.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Index Value Message
@@ -3878,13 +3942,13 @@ nsxaustralia_nets_itch_v4_2_55.payload.dissect = function(buffer, offset, packet
   if packet_type == "S" then
     return nsxaustralia_nets_itch_v4_2_55.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Server Heartbeat Packet
+  -- Dissect Server Heartbeat
   if packet_type == "H" then
-    return offset
+    return nsxaustralia_nets_itch_v4_2_55.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect End Of Session Packet
+  -- Dissect End Of Session
   if packet_type == "Z" then
-    return offset
+    return nsxaustralia_nets_itch_v4_2_55.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request Packet
   if packet_type == "L" then
@@ -3894,13 +3958,13 @@ nsxaustralia_nets_itch_v4_2_55.payload.dissect = function(buffer, offset, packet
   if packet_type == "U" then
     return nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Client Heartbeat Packet
+  -- Dissect Client Heartbeat
   if packet_type == "R" then
-    return offset
+    return nsxaustralia_nets_itch_v4_2_55.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Request Packet
+  -- Dissect Logout Request
   if packet_type == "O" then
-    return offset
+    return nsxaustralia_nets_itch_v4_2_55.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset

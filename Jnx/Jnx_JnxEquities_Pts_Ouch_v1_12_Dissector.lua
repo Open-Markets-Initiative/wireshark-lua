@@ -73,15 +73,11 @@ omi_jnx_jnxequities_pts_ouch_v1_12.fields.replace_order_message = ProtoField.new
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxequities.pts.ouch.v1.12.systemeventmessage", ftypes.STRING)
 
 -- Jnx JnxEquities Ouch Pts 1.12 Session Messages
-omi_jnx_jnxequities_pts_ouch_v1_12.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.ouch.v1.12.clientheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.ouch.v1.12.debugpacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_ouch_v1_12.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxequities.pts.ouch.v1.12.endofsessionpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.ouch.v1.12.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.ouch.v1.12.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxequities.pts.ouch.v1.12.loginrequestpacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_ouch_v1_12.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxequities.pts.ouch.v1.12.logoutrequestpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxequities.pts.ouch.v1.12.sequenceddatapacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_ouch_v1_12.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxequities.pts.ouch.v1.12.serverheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_ouch_v1_12.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.ouch.v1.12.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -1372,6 +1368,40 @@ end
 -- Dissect Jnx JnxEquities Pts Ouch 1.12
 -----------------------------------------------------------------------
 
+-- Logout Request
+jnx_jnxequities_pts_ouch_v1_12.logout_request = {}
+
+-- Display: Logout Request
+jnx_jnxequities_pts_ouch_v1_12.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+jnx_jnxequities_pts_ouch_v1_12.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_ouch_v1_12.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+jnx_jnxequities_pts_ouch_v1_12.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+jnx_jnxequities_pts_ouch_v1_12.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+jnx_jnxequities_pts_ouch_v1_12.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_ouch_v1_12.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Cancel Order Message
 jnx_jnxequities_pts_ouch_v1_12.cancel_order_message = {}
 
@@ -1696,6 +1726,40 @@ jnx_jnxequities_pts_ouch_v1_12.login_request_packet.dissect = function(buffer, o
     -- Skip element, add fields directly
     return jnx_jnxequities_pts_ouch_v1_12.login_request_packet.fields(buffer, offset, packet, parent)
   end
+end
+
+-- End Of Session
+jnx_jnxequities_pts_ouch_v1_12.end_of_session = {}
+
+-- Display: End Of Session
+jnx_jnxequities_pts_ouch_v1_12.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+jnx_jnxequities_pts_ouch_v1_12.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_ouch_v1_12.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+jnx_jnxequities_pts_ouch_v1_12.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+jnx_jnxequities_pts_ouch_v1_12.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+jnx_jnxequities_pts_ouch_v1_12.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_ouch_v1_12.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Order Rejected Message
@@ -2393,13 +2457,13 @@ jnx_jnxequities_pts_ouch_v1_12.payload.dissect = function(buffer, offset, packet
   if packet_type == "S" then
     return jnx_jnxequities_pts_ouch_v1_12.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Server Heartbeat Packet
+  -- Dissect Server Heartbeat
   if packet_type == "H" then
-    return offset
+    return jnx_jnxequities_pts_ouch_v1_12.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect End Of Session Packet
+  -- Dissect End Of Session
   if packet_type == "Z" then
-    return offset
+    return jnx_jnxequities_pts_ouch_v1_12.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request Packet
   if packet_type == "L" then
@@ -2409,13 +2473,13 @@ jnx_jnxequities_pts_ouch_v1_12.payload.dissect = function(buffer, offset, packet
   if packet_type == "U" then
     return jnx_jnxequities_pts_ouch_v1_12.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Client Heartbeat Packet
+  -- Dissect Client Heartbeat
   if packet_type == "R" then
-    return offset
+    return jnx_jnxequities_pts_ouch_v1_12.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Request Packet
+  -- Dissect Logout Request
   if packet_type == "O" then
-    return offset
+    return jnx_jnxequities_pts_ouch_v1_12.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset

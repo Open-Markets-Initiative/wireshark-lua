@@ -2836,6 +2836,23 @@ cboe_c2options_complextop_pitch_v1_1_54.message.dissect = function(buffer, offse
   end
 end
 
+-- Heartbeat
+cboe_c2options_complextop_pitch_v1_1_54.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_c2options_complextop_pitch_v1_1_54.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_c2options_complextop_pitch_v1_1_54.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c2options_complextop_pitch_v1_1_54.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 cboe_c2options_complextop_pitch_v1_1_54.messages = {}
 
@@ -2843,7 +2860,7 @@ cboe_c2options_complextop_pitch_v1_1_54.messages = {}
 cboe_c2options_complextop_pitch_v1_1_54.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return cboe_c2options_complextop_pitch_v1_1_54.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

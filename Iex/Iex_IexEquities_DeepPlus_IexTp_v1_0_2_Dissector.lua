@@ -2172,6 +2172,23 @@ iex_iexequities_deepplus_iextp_v1_0_2.message.dissect = function(buffer, offset,
   end
 end
 
+-- Heartbeat
+iex_iexequities_deepplus_iextp_v1_0_2.heartbeat = {}
+
+-- Display: Heartbeat
+iex_iexequities_deepplus_iextp_v1_0_2.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+iex_iexequities_deepplus_iextp_v1_0_2.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = iex_iexequities_deepplus_iextp_v1_0_2.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 iex_iexequities_deepplus_iextp_v1_0_2.messages = {}
 
@@ -2179,7 +2196,7 @@ iex_iexequities_deepplus_iextp_v1_0_2.messages = {}
 iex_iexequities_deepplus_iextp_v1_0_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
-    return offset
+    return iex_iexequities_deepplus_iextp_v1_0_2.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, message_count do

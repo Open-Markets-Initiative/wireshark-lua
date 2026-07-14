@@ -4668,6 +4668,57 @@ miax_emeraldoptions_topofmarket_mach_v1_3.tcp_packet.dissect = function(buffer, 
   return index
 end
 
+-- End Of Session
+miax_emeraldoptions_topofmarket_mach_v1_3.end_of_session = {}
+
+-- Display: End Of Session
+miax_emeraldoptions_topofmarket_mach_v1_3.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+miax_emeraldoptions_topofmarket_mach_v1_3.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Start Of Session
+miax_emeraldoptions_topofmarket_mach_v1_3.start_of_session = {}
+
+-- Display: Start Of Session
+miax_emeraldoptions_topofmarket_mach_v1_3.start_of_session.display = function(packet, parent, length)
+  return "Start Of Session"
+end
+
+
+-- Dissect: Start Of Session
+miax_emeraldoptions_topofmarket_mach_v1_3.start_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.start_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+miax_emeraldoptions_topofmarket_mach_v1_3.heartbeat = {}
+
+-- Display: Heartbeat
+miax_emeraldoptions_topofmarket_mach_v1_3.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+miax_emeraldoptions_topofmarket_mach_v1_3.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Payload
 miax_emeraldoptions_topofmarket_mach_v1_3.payload = {}
 
@@ -4675,15 +4726,15 @@ miax_emeraldoptions_topofmarket_mach_v1_3.payload = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Heartbeat
   if packet_type == 0 then
-    return offset
+    return miax_emeraldoptions_topofmarket_mach_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Start Of Session
   if packet_type == 1 then
-    return offset
+    return miax_emeraldoptions_topofmarket_mach_v1_3.start_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
   if packet_type == 2 then
-    return offset
+    return miax_emeraldoptions_topofmarket_mach_v1_3.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Application Message
   if packet_type == 3 then

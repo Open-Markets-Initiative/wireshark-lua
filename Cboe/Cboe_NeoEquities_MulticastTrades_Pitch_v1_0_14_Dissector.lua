@@ -2016,6 +2016,23 @@ cboe_neoequities_multicasttrades_pitch_v1_0_14.message.dissect = function(buffer
   end
 end
 
+-- Heartbeat
+cboe_neoequities_multicasttrades_pitch_v1_0_14.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_neoequities_multicasttrades_pitch_v1_0_14.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_neoequities_multicasttrades_pitch_v1_0_14.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_neoequities_multicasttrades_pitch_v1_0_14.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 cboe_neoequities_multicasttrades_pitch_v1_0_14.messages = {}
 
@@ -2023,7 +2040,7 @@ cboe_neoequities_multicasttrades_pitch_v1_0_14.messages = {}
 cboe_neoequities_multicasttrades_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return cboe_neoequities_multicasttrades_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

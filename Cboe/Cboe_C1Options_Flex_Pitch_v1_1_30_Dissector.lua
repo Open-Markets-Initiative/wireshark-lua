@@ -3222,6 +3222,23 @@ cboe_c1options_flex_pitch_v1_1_30.message.dissect = function(buffer, offset, pac
   end
 end
 
+-- Heartbeat
+cboe_c1options_flex_pitch_v1_1_30.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_c1options_flex_pitch_v1_1_30.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_c1options_flex_pitch_v1_1_30.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_flex_pitch_v1_1_30.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 cboe_c1options_flex_pitch_v1_1_30.messages = {}
 
@@ -3229,7 +3246,7 @@ cboe_c1options_flex_pitch_v1_1_30.messages = {}
 cboe_c1options_flex_pitch_v1_1_30.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return cboe_c1options_flex_pitch_v1_1_30.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

@@ -117,15 +117,11 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.system_event_message = ProtoField
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.orders.ouch.v5.0.tradecorrectionmessage", ftypes.STRING)
 
 -- Nasdaq NsmEquities Ouch Orders 5.0 Session Messages
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.nsmequities.orders.ouch.v5.0.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.orders.ouch.v5.0.debugpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.nsmequities.orders.ouch.v5.0.endofsessionpacket", ftypes.BYTES)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.orders.ouch.v5.0.loginrequestpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.nsmequities.orders.ouch.v5.0.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v5.0.sequenceddatapacket", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.nsmequities.orders.ouch.v5.0.serverheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.orders.ouch.v5.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -2447,6 +2443,40 @@ end
 -- Dissect Nasdaq NsmEquities Orders Ouch 5.0
 -----------------------------------------------------------------------
 
+-- Logout Request
+nasdaq_nsmequities_orders_ouch_v5_0.logout_request = {}
+
+-- Display: Logout Request
+nasdaq_nsmequities_orders_ouch_v5_0.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+nasdaq_nsmequities_orders_ouch_v5_0.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+nasdaq_nsmequities_orders_ouch_v5_0.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+nasdaq_nsmequities_orders_ouch_v5_0.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+nasdaq_nsmequities_orders_ouch_v5_0.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Modify Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message = {}
 
@@ -3002,6 +3032,40 @@ nasdaq_nsmequities_orders_ouch_v5_0.login_request_packet.dissect = function(buff
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v5_0.login_request_packet.fields(buffer, offset, packet, parent)
   end
+end
+
+-- End Of Session
+nasdaq_nsmequities_orders_ouch_v5_0.end_of_session = {}
+
+-- Display: End Of Session
+nasdaq_nsmequities_orders_ouch_v5_0.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+nasdaq_nsmequities_orders_ouch_v5_0.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+nasdaq_nsmequities_orders_ouch_v5_0.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+nasdaq_nsmequities_orders_ouch_v5_0.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+nasdaq_nsmequities_orders_ouch_v5_0.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Account Query Response Message
@@ -4541,13 +4605,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.payload.dissect = function(buffer, offset, p
   if packet_type == "S" then
     return nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Server Heartbeat Packet
+  -- Dissect Server Heartbeat
   if packet_type == "H" then
-    return offset
+    return nasdaq_nsmequities_orders_ouch_v5_0.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect End Of Session Packet
+  -- Dissect End Of Session
   if packet_type == "Z" then
-    return offset
+    return nasdaq_nsmequities_orders_ouch_v5_0.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request Packet
   if packet_type == "L" then
@@ -4557,13 +4621,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.payload.dissect = function(buffer, offset, p
   if packet_type == "U" then
     return nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Client Heartbeat Packet
+  -- Dissect Client Heartbeat
   if packet_type == "R" then
-    return offset
+    return nasdaq_nsmequities_orders_ouch_v5_0.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Request Packet
+  -- Dissect Logout Request
   if packet_type == "O" then
-    return offset
+    return nasdaq_nsmequities_orders_ouch_v5_0.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset

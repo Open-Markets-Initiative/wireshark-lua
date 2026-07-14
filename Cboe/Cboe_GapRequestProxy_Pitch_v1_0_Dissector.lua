@@ -766,6 +766,23 @@ cboe_gaprequestproxy_pitch_v1_0.message.dissect = function(buffer, offset, packe
   end
 end
 
+-- Heartbeat
+cboe_gaprequestproxy_pitch_v1_0.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_gaprequestproxy_pitch_v1_0.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_gaprequestproxy_pitch_v1_0.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_gaprequestproxy_pitch_v1_0.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 cboe_gaprequestproxy_pitch_v1_0.messages = {}
 
@@ -773,7 +790,7 @@ cboe_gaprequestproxy_pitch_v1_0.messages = {}
 cboe_gaprequestproxy_pitch_v1_0.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return cboe_gaprequestproxy_pitch_v1_0.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

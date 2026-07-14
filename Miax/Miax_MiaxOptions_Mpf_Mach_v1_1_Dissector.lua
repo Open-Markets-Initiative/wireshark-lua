@@ -2327,6 +2327,57 @@ miax_miaxoptions_mpf_mach_v1_1.tcp_packet.dissect = function(buffer, packet, par
   return index
 end
 
+-- End Of Session
+miax_miaxoptions_mpf_mach_v1_1.end_of_session = {}
+
+-- Display: End Of Session
+miax_miaxoptions_mpf_mach_v1_1.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+miax_miaxoptions_mpf_mach_v1_1.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_miaxoptions_mpf_mach_v1_1.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Start Of Session
+miax_miaxoptions_mpf_mach_v1_1.start_of_session = {}
+
+-- Display: Start Of Session
+miax_miaxoptions_mpf_mach_v1_1.start_of_session.display = function(packet, parent, length)
+  return "Start Of Session"
+end
+
+
+-- Dissect: Start Of Session
+miax_miaxoptions_mpf_mach_v1_1.start_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_miaxoptions_mpf_mach_v1_1.start_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+miax_miaxoptions_mpf_mach_v1_1.heartbeat = {}
+
+-- Display: Heartbeat
+miax_miaxoptions_mpf_mach_v1_1.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+miax_miaxoptions_mpf_mach_v1_1.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_miaxoptions_mpf_mach_v1_1.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Payload
 miax_miaxoptions_mpf_mach_v1_1.payload = {}
 
@@ -2334,15 +2385,15 @@ miax_miaxoptions_mpf_mach_v1_1.payload = {}
 miax_miaxoptions_mpf_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Heartbeat
   if packet_type == 0 then
-    return offset
+    return miax_miaxoptions_mpf_mach_v1_1.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Start Of Session
   if packet_type == 1 then
-    return offset
+    return miax_miaxoptions_mpf_mach_v1_1.start_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
   if packet_type == 2 then
-    return offset
+    return miax_miaxoptions_mpf_mach_v1_1.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Application Message
   if packet_type == 3 then

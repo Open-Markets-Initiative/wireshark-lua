@@ -74,15 +74,11 @@ omi_jnx_jnxbonds_pts_ouch_v1_4.fields.replace_order_message = ProtoField.new("Re
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxbonds.pts.ouch.v1.4.systemeventmessage", ftypes.STRING)
 
 -- Jnx JnxBonds Ouch Pts 1.4 Session Messages
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxbonds.pts.ouch.v1.4.clientheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxbonds.pts.ouch.v1.4.debugpacket", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxbonds.pts.ouch.v1.4.endofsessionpacket", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxbonds.pts.ouch.v1.4.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxbonds.pts.ouch.v1.4.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxbonds.pts.ouch.v1.4.loginrequestpacket", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxbonds.pts.ouch.v1.4.logoutrequestpacket", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxbonds.pts.ouch.v1.4.sequenceddatapacket", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxbonds.pts.ouch.v1.4.serverheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxbonds.pts.ouch.v1.4.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -1360,6 +1356,40 @@ end
 -- Dissect Jnx JnxBonds Pts Ouch 1.4
 -----------------------------------------------------------------------
 
+-- Logout Request
+jnx_jnxbonds_pts_ouch_v1_4.logout_request = {}
+
+-- Display: Logout Request
+jnx_jnxbonds_pts_ouch_v1_4.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+jnx_jnxbonds_pts_ouch_v1_4.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxbonds_pts_ouch_v1_4.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+jnx_jnxbonds_pts_ouch_v1_4.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+jnx_jnxbonds_pts_ouch_v1_4.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+jnx_jnxbonds_pts_ouch_v1_4.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxbonds_pts_ouch_v1_4.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Cancel Order Message
 jnx_jnxbonds_pts_ouch_v1_4.cancel_order_message = {}
 
@@ -1684,6 +1714,40 @@ jnx_jnxbonds_pts_ouch_v1_4.login_request_packet.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return jnx_jnxbonds_pts_ouch_v1_4.login_request_packet.fields(buffer, offset, packet, parent)
   end
+end
+
+-- End Of Session
+jnx_jnxbonds_pts_ouch_v1_4.end_of_session = {}
+
+-- Display: End Of Session
+jnx_jnxbonds_pts_ouch_v1_4.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+jnx_jnxbonds_pts_ouch_v1_4.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxbonds_pts_ouch_v1_4.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+jnx_jnxbonds_pts_ouch_v1_4.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+jnx_jnxbonds_pts_ouch_v1_4.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+jnx_jnxbonds_pts_ouch_v1_4.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxbonds_pts_ouch_v1_4.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Order Rejected Message
@@ -2385,13 +2449,13 @@ jnx_jnxbonds_pts_ouch_v1_4.payload.dissect = function(buffer, offset, packet, pa
   if packet_type == "S" then
     return jnx_jnxbonds_pts_ouch_v1_4.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Server Heartbeat Packet
+  -- Dissect Server Heartbeat
   if packet_type == "H" then
-    return offset
+    return jnx_jnxbonds_pts_ouch_v1_4.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect End Of Session Packet
+  -- Dissect End Of Session
   if packet_type == "Z" then
-    return offset
+    return jnx_jnxbonds_pts_ouch_v1_4.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request Packet
   if packet_type == "L" then
@@ -2401,13 +2465,13 @@ jnx_jnxbonds_pts_ouch_v1_4.payload.dissect = function(buffer, offset, packet, pa
   if packet_type == "U" then
     return jnx_jnxbonds_pts_ouch_v1_4.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Client Heartbeat Packet
+  -- Dissect Client Heartbeat
   if packet_type == "R" then
-    return offset
+    return jnx_jnxbonds_pts_ouch_v1_4.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Request Packet
+  -- Dissect Logout Request
   if packet_type == "O" then
-    return offset
+    return jnx_jnxbonds_pts_ouch_v1_4.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -1302,6 +1302,23 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.message.dissect = function(buffer, off
   end
 end
 
+-- Heartbeat
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.messages = {}
 
@@ -1309,7 +1326,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.messages = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

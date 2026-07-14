@@ -2696,6 +2696,40 @@ nasdaq_phlxoptions_orders_itch_v1_9.message.dissect = function(buffer, offset, p
   end
 end
 
+-- End Of Session
+nasdaq_phlxoptions_orders_itch_v1_9.end_of_session = {}
+
+-- Display: End Of Session
+nasdaq_phlxoptions_orders_itch_v1_9.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+nasdaq_phlxoptions_orders_itch_v1_9.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+nasdaq_phlxoptions_orders_itch_v1_9.heartbeat = {}
+
+-- Display: Heartbeat
+nasdaq_phlxoptions_orders_itch_v1_9.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nasdaq_phlxoptions_orders_itch_v1_9.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 nasdaq_phlxoptions_orders_itch_v1_9.messages = {}
 
@@ -2703,11 +2737,11 @@ nasdaq_phlxoptions_orders_itch_v1_9.messages = {}
 nasdaq_phlxoptions_orders_itch_v1_9.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return nasdaq_phlxoptions_orders_itch_v1_9.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
   if count == 65535 then
-    return offset
+    return nasdaq_phlxoptions_orders_itch_v1_9.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

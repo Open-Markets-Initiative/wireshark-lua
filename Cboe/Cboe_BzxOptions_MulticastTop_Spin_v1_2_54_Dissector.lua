@@ -2589,6 +2589,23 @@ cboe_bzxoptions_multicasttop_spin_v1_2_54.message.dissect = function(buffer, off
   end
 end
 
+-- Heartbeat
+cboe_bzxoptions_multicasttop_spin_v1_2_54.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_bzxoptions_multicasttop_spin_v1_2_54.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_bzxoptions_multicasttop_spin_v1_2_54.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_bzxoptions_multicasttop_spin_v1_2_54.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 cboe_bzxoptions_multicasttop_spin_v1_2_54.messages = {}
 
@@ -2596,7 +2613,7 @@ cboe_bzxoptions_multicasttop_spin_v1_2_54.messages = {}
 cboe_bzxoptions_multicasttop_spin_v1_2_54.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return cboe_bzxoptions_multicasttop_spin_v1_2_54.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

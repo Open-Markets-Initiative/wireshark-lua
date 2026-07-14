@@ -72,15 +72,11 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_replaced = ProtoField.n
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order = ProtoField.new("Replace Order", "jpx.osederivatives.geniuminet.ouch.v5.0.replaceorder", ftypes.STRING)
 
 -- Jpx OseDerivatives Ouch GeniumInet 5.0 Session Messages
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.clientheartbeatpacket", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_packet = ProtoField.new("Debug Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.debugpacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.endofsessionpacket", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginacceptedpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrejectedpacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.loginrequestpacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.logoutrequestpacket", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.sequenceddatapacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.serverheartbeatpacket", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -1728,6 +1724,40 @@ end
 -- Dissect Jpx OseDerivatives GeniumInet Ouch 5.0
 -----------------------------------------------------------------------
 
+-- Logout Request
+jpx_osederivatives_geniuminet_ouch_v5_0.logout_request = {}
+
+-- Display: Logout Request
+jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Mass Cancel
 jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel = {}
 
@@ -2212,6 +2242,40 @@ jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect = function(
     -- Skip element, add fields directly
     return jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.fields(buffer, offset, packet, parent)
   end
+end
+
+-- End Of Session
+jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session = {}
+
+-- Display: End Of Session
+jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Order Executed
@@ -2849,13 +2913,13 @@ jpx_osederivatives_geniuminet_ouch_v5_0.payload.dissect = function(buffer, offse
   if packet_type == "S" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Server Heartbeat Packet
+  -- Dissect Server Heartbeat
   if packet_type == "H" then
-    return offset
+    return jpx_osederivatives_geniuminet_ouch_v5_0.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect End Of Session Packet
+  -- Dissect End Of Session
   if packet_type == "Z" then
-    return offset
+    return jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request Packet
   if packet_type == "L" then
@@ -2865,13 +2929,13 @@ jpx_osederivatives_geniuminet_ouch_v5_0.payload.dissect = function(buffer, offse
   if packet_type == "U" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Client Heartbeat Packet
+  -- Dissect Client Heartbeat
   if packet_type == "R" then
-    return offset
+    return jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Request Packet
+  -- Dissect Logout Request
   if packet_type == "O" then
-    return offset
+    return jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset

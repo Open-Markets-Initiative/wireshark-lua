@@ -2727,6 +2727,23 @@ cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.message.dissect = function
   end
 end
 
+-- Heartbeat
+cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.messages = {}
 
@@ -2734,7 +2751,7 @@ cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.messages = {}
 cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return cboe_edgxequities_multicastdepthofbook_pitch_v2_41_64.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

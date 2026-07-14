@@ -62,15 +62,11 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.upper_price_limit = ProtoField.new
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.username = ProtoField.new("Username", "odx.odxsecuritytoken.pts.itch.v1.2.username", ftypes.STRING)
 
 -- Odx OdxSecurityToken Itch Pts 1.2 Session Messages
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "odx.odxsecuritytoken.pts.itch.v1.2.clientheartbeatpacket", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.debug_packet = ProtoField.new("Debug Packet", "odx.odxsecuritytoken.pts.itch.v1.2.debugpacket", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "odx.odxsecuritytoken.pts.itch.v1.2.endofsessionpacket", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginacceptedpacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginrejectedpacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginrequestpacket", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "odx.odxsecuritytoken.pts.itch.v1.2.logoutrequestpacket", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "odx.odxsecuritytoken.pts.itch.v1.2.sequenceddatapacket", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "odx.odxsecuritytoken.pts.itch.v1.2.serverheartbeatpacket", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "odx.odxsecuritytoken.pts.itch.v1.2.unsequenceddatapacket", ftypes.STRING)
 
 -- Odx OdxSecurityToken Itch Pts 1.2 Application Messages
@@ -1305,6 +1301,40 @@ end
 -- Dissect Odx OdxSecurityToken Pts Itch 1.2
 -----------------------------------------------------------------------
 
+-- Logout Request
+odx_odxsecuritytoken_pts_itch_v1_2.logout_request = {}
+
+-- Display: Logout Request
+odx_odxsecuritytoken_pts_itch_v1_2.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+odx_odxsecuritytoken_pts_itch_v1_2.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+odx_odxsecuritytoken_pts_itch_v1_2.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+odx_odxsecuritytoken_pts_itch_v1_2.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+odx_odxsecuritytoken_pts_itch_v1_2.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Unsequenced Data Packet
 odx_odxsecuritytoken_pts_itch_v1_2.unsequenced_data_packet = {}
 
@@ -1414,6 +1444,40 @@ odx_odxsecuritytoken_pts_itch_v1_2.login_request_packet.dissect = function(buffe
     -- Skip element, add fields directly
     return odx_odxsecuritytoken_pts_itch_v1_2.login_request_packet.fields(buffer, offset, packet, parent)
   end
+end
+
+-- End Of Session
+odx_odxsecuritytoken_pts_itch_v1_2.end_of_session = {}
+
+-- Display: End Of Session
+odx_odxsecuritytoken_pts_itch_v1_2.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+odx_odxsecuritytoken_pts_itch_v1_2.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+odx_odxsecuritytoken_pts_itch_v1_2.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+odx_odxsecuritytoken_pts_itch_v1_2.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+odx_odxsecuritytoken_pts_itch_v1_2.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Equilibrium Price Update Message
@@ -2267,13 +2331,13 @@ odx_odxsecuritytoken_pts_itch_v1_2.payload.dissect = function(buffer, offset, pa
   if packet_type == "S" then
     return odx_odxsecuritytoken_pts_itch_v1_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Server Heartbeat Packet
+  -- Dissect Server Heartbeat
   if packet_type == "H" then
-    return offset
+    return odx_odxsecuritytoken_pts_itch_v1_2.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect End Of Session Packet
+  -- Dissect End Of Session
   if packet_type == "Z" then
-    return offset
+    return odx_odxsecuritytoken_pts_itch_v1_2.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request Packet
   if packet_type == "L" then
@@ -2283,13 +2347,13 @@ odx_odxsecuritytoken_pts_itch_v1_2.payload.dissect = function(buffer, offset, pa
   if packet_type == "U" then
     return odx_odxsecuritytoken_pts_itch_v1_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Client Heartbeat Packet
+  -- Dissect Client Heartbeat
   if packet_type == "R" then
-    return offset
+    return odx_odxsecuritytoken_pts_itch_v1_2.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Request Packet
+  -- Dissect Logout Request
   if packet_type == "O" then
-    return offset
+    return odx_odxsecuritytoken_pts_itch_v1_2.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset

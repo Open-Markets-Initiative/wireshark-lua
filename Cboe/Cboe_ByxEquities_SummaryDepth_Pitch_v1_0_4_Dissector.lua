@@ -1710,6 +1710,23 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.message.dissect = function(buffer, of
   end
 end
 
+-- Heartbeat
+cboe_byxequities_summarydepth_pitch_v1_0_4.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_byxequities_summarydepth_pitch_v1_0_4.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_byxequities_summarydepth_pitch_v1_0_4.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_byxequities_summarydepth_pitch_v1_0_4.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 cboe_byxequities_summarydepth_pitch_v1_0_4.messages = {}
 
@@ -1717,7 +1734,7 @@ cboe_byxequities_summarydepth_pitch_v1_0_4.messages = {}
 cboe_byxequities_summarydepth_pitch_v1_0_4.messages.dissect = function(buffer, offset, packet, parent, count)
   -- Dissect Heartbeat
   if count == 0 then
-    return offset
+    return cboe_byxequities_summarydepth_pitch_v1_0_4.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, count do

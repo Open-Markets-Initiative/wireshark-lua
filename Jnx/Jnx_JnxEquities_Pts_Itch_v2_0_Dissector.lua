@@ -1874,6 +1874,40 @@ jnx_jnxequities_pts_itch_v2_0.message.dissect = function(buffer, offset, packet,
   end
 end
 
+-- End Of Session
+jnx_jnxequities_pts_itch_v2_0.end_of_session = {}
+
+-- Display: End Of Session
+jnx_jnxequities_pts_itch_v2_0.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+jnx_jnxequities_pts_itch_v2_0.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_itch_v2_0.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+jnx_jnxequities_pts_itch_v2_0.heartbeat = {}
+
+-- Display: Heartbeat
+jnx_jnxequities_pts_itch_v2_0.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+jnx_jnxequities_pts_itch_v2_0.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_itch_v2_0.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 jnx_jnxequities_pts_itch_v2_0.messages = {}
 
@@ -1881,11 +1915,11 @@ jnx_jnxequities_pts_itch_v2_0.messages = {}
 jnx_jnxequities_pts_itch_v2_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
-    return offset
+    return jnx_jnxequities_pts_itch_v2_0.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
   if message_count == 65535 then
-    return offset
+    return jnx_jnxequities_pts_itch_v2_0.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, message_count do

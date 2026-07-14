@@ -2893,6 +2893,40 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.message.dissect = function(buffer, off
   end
 end
 
+-- End Of Session
+jpx_osederivatives_geniuminet_itch_v5_0_6.end_of_session = {}
+
+-- Display: End Of Session
+jpx_osederivatives_geniuminet_itch_v5_0_6.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+jpx_osederivatives_geniuminet_itch_v5_0_6.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_itch_v5_0_6.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+jpx_osederivatives_geniuminet_itch_v5_0_6.heartbeat = {}
+
+-- Display: Heartbeat
+jpx_osederivatives_geniuminet_itch_v5_0_6.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+jpx_osederivatives_geniuminet_itch_v5_0_6.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_itch_v5_0_6.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Messages
 jpx_osederivatives_geniuminet_itch_v5_0_6.messages = {}
 
@@ -2900,11 +2934,11 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.messages = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
   if message_count == 0 then
-    return offset
+    return jpx_osederivatives_geniuminet_itch_v5_0_6.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
   if message_count == 65535 then
-    return offset
+    return jpx_osederivatives_geniuminet_itch_v5_0_6.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Repeating: Message
   for message_index = 1, message_count do

@@ -80,15 +80,11 @@ omi_asx_asxsecurities_trade_ouch_v2_0.fields.order_replaced_message = ProtoField
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.asxsecurities.trade.ouch.v2.0.replaceordermessage", ftypes.STRING)
 
 -- Asx AsxSecurities Ouch Trade 2.0 Session Messages
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "asx.asxsecurities.trade.ouch.v2.0.clientheartbeatpacket", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "asx.asxsecurities.trade.ouch.v2.0.debugpacket", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "asx.asxsecurities.trade.ouch.v2.0.endofsessionpacket", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.asxsecurities.trade.ouch.v2.0.loginacceptedpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.asxsecurities.trade.ouch.v2.0.loginrejectedpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.asxsecurities.trade.ouch.v2.0.loginrequestpacket", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "asx.asxsecurities.trade.ouch.v2.0.logoutrequestpacket", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.asxsecurities.trade.ouch.v2.0.sequenceddatapacket", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "asx.asxsecurities.trade.ouch.v2.0.serverheartbeatpacket", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.asxsecurities.trade.ouch.v2.0.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -1381,6 +1377,40 @@ end
 -- Dissect Asx AsxSecurities Trade Ouch 2.0
 -----------------------------------------------------------------------
 
+-- Logout Request
+asx_asxsecurities_trade_ouch_v2_0.logout_request = {}
+
+-- Display: Logout Request
+asx_asxsecurities_trade_ouch_v2_0.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+asx_asxsecurities_trade_ouch_v2_0.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = asx_asxsecurities_trade_ouch_v2_0.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+asx_asxsecurities_trade_ouch_v2_0.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+asx_asxsecurities_trade_ouch_v2_0.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+asx_asxsecurities_trade_ouch_v2_0.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = asx_asxsecurities_trade_ouch_v2_0.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Cancel By Order Id Message
 asx_asxsecurities_trade_ouch_v2_0.cancel_by_order_id_message = {}
 
@@ -1817,6 +1847,40 @@ asx_asxsecurities_trade_ouch_v2_0.login_request_packet.dissect = function(buffer
     -- Skip element, add fields directly
     return asx_asxsecurities_trade_ouch_v2_0.login_request_packet.fields(buffer, offset, packet, parent)
   end
+end
+
+-- End Of Session
+asx_asxsecurities_trade_ouch_v2_0.end_of_session = {}
+
+-- Display: End Of Session
+asx_asxsecurities_trade_ouch_v2_0.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+asx_asxsecurities_trade_ouch_v2_0.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = asx_asxsecurities_trade_ouch_v2_0.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+asx_asxsecurities_trade_ouch_v2_0.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+asx_asxsecurities_trade_ouch_v2_0.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+asx_asxsecurities_trade_ouch_v2_0.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = asx_asxsecurities_trade_ouch_v2_0.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Match Attributes
@@ -2536,13 +2600,13 @@ asx_asxsecurities_trade_ouch_v2_0.payload.dissect = function(buffer, offset, pac
   if packet_type == "S" then
     return asx_asxsecurities_trade_ouch_v2_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Server Heartbeat Packet
+  -- Dissect Server Heartbeat
   if packet_type == "H" then
-    return offset
+    return asx_asxsecurities_trade_ouch_v2_0.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect End Of Session Packet
+  -- Dissect End Of Session
   if packet_type == "Z" then
-    return offset
+    return asx_asxsecurities_trade_ouch_v2_0.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request Packet
   if packet_type == "L" then
@@ -2552,13 +2616,13 @@ asx_asxsecurities_trade_ouch_v2_0.payload.dissect = function(buffer, offset, pac
   if packet_type == "U" then
     return asx_asxsecurities_trade_ouch_v2_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Client Heartbeat Packet
+  -- Dissect Client Heartbeat
   if packet_type == "R" then
-    return offset
+    return asx_asxsecurities_trade_ouch_v2_0.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Request Packet
+  -- Dissect Logout Request
   if packet_type == "O" then
-    return offset
+    return asx_asxsecurities_trade_ouch_v2_0.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset

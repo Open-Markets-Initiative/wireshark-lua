@@ -1778,6 +1778,23 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.dissect = function(buff
   end
 end
 
+-- Client Heartbeat
+miax_pearlequities_depthofmarket_mach_v1_3_d.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+miax_pearlequities_depthofmarket_mach_v1_3_d.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+miax_pearlequities_depthofmarket_mach_v1_3_d.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Goodbye Packet
 miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet = {}
 
@@ -2388,7 +2405,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_payload.dissect = function(bu
   end
   -- Dissect Client Heartbeat
   if esesm_packet_type == "1" then
-    return offset
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Test Packet
   if esesm_packet_type == "T" then
@@ -3427,6 +3444,57 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.dissect = funct
   end
 end
 
+-- End Of Session
+miax_pearlequities_depthofmarket_mach_v1_3_d.end_of_session = {}
+
+-- Display: End Of Session
+miax_pearlequities_depthofmarket_mach_v1_3_d.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+miax_pearlequities_depthofmarket_mach_v1_3_d.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Start Of Session
+miax_pearlequities_depthofmarket_mach_v1_3_d.start_of_session = {}
+
+-- Display: Start Of Session
+miax_pearlequities_depthofmarket_mach_v1_3_d.start_of_session.display = function(packet, parent, length)
+  return "Start Of Session"
+end
+
+
+-- Dissect: Start Of Session
+miax_pearlequities_depthofmarket_mach_v1_3_d.start_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.start_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+miax_pearlequities_depthofmarket_mach_v1_3_d.heartbeat = {}
+
+-- Display: Heartbeat
+miax_pearlequities_depthofmarket_mach_v1_3_d.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+miax_pearlequities_depthofmarket_mach_v1_3_d.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Payload
 miax_pearlequities_depthofmarket_mach_v1_3_d.payload = {}
 
@@ -3434,15 +3502,15 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.payload = {}
 miax_pearlequities_depthofmarket_mach_v1_3_d.payload.dissect = function(buffer, offset, packet, parent, mach_packet_type)
   -- Dissect Heartbeat
   if mach_packet_type == 0 then
-    return offset
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Start Of Session
   if mach_packet_type == 1 then
-    return offset
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.start_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
   if mach_packet_type == 2 then
-    return offset
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Application Message
   if mach_packet_type == 3 then
