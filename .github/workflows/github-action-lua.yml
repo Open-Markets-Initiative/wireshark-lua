@@ -73,14 +73,14 @@ jobs:
       - name: Run Coinbase Deribit OrdersApi Sbe 0.1 Dissector Tests
         run: bash -x .github/tests/Coinbase-Deribit-OrdersApi-Sbe-v0-1-Test.sh
 
-      - name: Run Eurex Cash Eti T7 10.0 Dissector Tests
-        run: bash -x .github/tests/Eurex-Cash-Eti-T7-v10-0-Test.sh
+      - name: Run Eurex T7 Xti Fbe 10.0 Dissector Tests
+        run: bash -x .github/tests/Eurex-T7-Xti-Fbe-v10-0-Test.sh
 
-      - name: Run Eurex Derivatives Eobi T7 3.0 Dissector Tests
-        run: bash -x .github/tests/Eurex-Derivatives-Eobi-T7-v3-0-Test.sh
+      - name: Run Eurex T7 Eobi Fbe 3.0 Dissector Tests
+        run: bash -x .github/tests/Eurex-T7-Eobi-Fbe-v3-0-Test.sh
 
-      - name: Run Eurex Derivatives Eobi T7 6.0 Dissector Tests
-        run: bash -x .github/tests/Eurex-Derivatives-Eobi-T7-v6-0-Test.sh
+      - name: Run Eurex T7 Eobi Fbe 6.0 Dissector Tests
+        run: bash -x .github/tests/Eurex-T7-Eobi-Fbe-v6-0-Test.sh
 
       - name: Run Ice IceFutures Mdf iMpact 1.1.24 Dissector Tests
         run: bash -x .github/tests/Ice-IceFutures-Mdf-iMpact-v1-1-24-Test.sh

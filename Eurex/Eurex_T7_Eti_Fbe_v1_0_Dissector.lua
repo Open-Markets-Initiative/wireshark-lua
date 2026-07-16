@@ -1,0 +1,353 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Eurex T7 Eti Fbe 1.0 Protocol
+local omi_eurex_t7_eti_fbe_v1_0 = Proto("Omi.Eurex.T7.Eti.Fbe.v1.0", "Eurex T7 Eti Fbe 1.0")
+
+-- Protocol table
+local eurex_t7_eti_fbe_v1_0 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Eurex T7 Eti Fbe 1.0 Fields
+omi_eurex_t7_eti_fbe_v1_0.fields.body_len = ProtoField.new("Body Len", "eurex.t7.eti.fbe.v1.0.bodylen", ftypes.UINT32)
+omi_eurex_t7_eti_fbe_v1_0.fields.message = ProtoField.new("Message", "eurex.t7.eti.fbe.v1.0.message", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v1_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v1.0.messageheader", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v1_0.fields.packet = ProtoField.new("Packet", "eurex.t7.eti.fbe.v1.0.packet", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v1_0.fields.payload = ProtoField.new("Payload", "eurex.t7.eti.fbe.v1.0.payload", ftypes.BYTES)
+omi_eurex_t7_eti_fbe_v1_0.fields.template_id = ProtoField.new("Template Id", "eurex.t7.eti.fbe.v1.0.templateid", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Eurex T7 Eti Fbe 1.0 Element Dissection Options
+show.message = true
+show.message_header = true
+show.packet = true
+
+-- Register Eurex T7 Eti Fbe 1.0 Show Options
+omi_eurex_t7_eti_fbe_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_eurex_t7_eti_fbe_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_eurex_t7_eti_fbe_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+
+
+-- Handle changed preferences
+function omi_eurex_t7_eti_fbe_v1_0.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.message ~= omi_eurex_t7_eti_fbe_v1_0.prefs.show_message then
+    show.message = omi_eurex_t7_eti_fbe_v1_0.prefs.show_message
+  end
+  if show.message_header ~= omi_eurex_t7_eti_fbe_v1_0.prefs.show_message_header then
+    show.message_header = omi_eurex_t7_eti_fbe_v1_0.prefs.show_message_header
+  end
+  if show.packet ~= omi_eurex_t7_eti_fbe_v1_0.prefs.show_packet then
+    show.packet = omi_eurex_t7_eti_fbe_v1_0.prefs.show_packet
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Eurex T7 Eti Fbe 1.0 Fields
+-----------------------------------------------------------------------
+
+-- Body Len
+eurex_t7_eti_fbe_v1_0.body_len = {}
+
+-- Size: Body Len
+eurex_t7_eti_fbe_v1_0.body_len.size = 4
+
+-- Display: Body Len
+eurex_t7_eti_fbe_v1_0.body_len.display = function(value)
+  return "Body Len: "..value
+end
+
+-- Dissect: Body Len
+eurex_t7_eti_fbe_v1_0.body_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_eti_fbe_v1_0.body_len.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_t7_eti_fbe_v1_0.body_len.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_t7_eti_fbe_v1_0.fields.body_len, range, value, display)
+
+  return offset + length, value
+end
+
+-- Payload
+eurex_t7_eti_fbe_v1_0.payload = {}
+
+-- Display: Payload
+eurex_t7_eti_fbe_v1_0.payload.display = function(value)
+  return "Payload: "..value
+end
+
+-- Dissect runtime sized field: Payload
+eurex_t7_eti_fbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_t7_eti_fbe_v1_0.payload.display(value, packet, parent, size)
+
+  parent:add(omi_eurex_t7_eti_fbe_v1_0.fields.payload, range, value, display)
+
+  return offset + size, value
+end
+
+-- Template Id
+eurex_t7_eti_fbe_v1_0.template_id = {}
+
+-- Size: Template Id
+eurex_t7_eti_fbe_v1_0.template_id.size = 2
+
+-- Display: Template Id
+eurex_t7_eti_fbe_v1_0.template_id.display = function(value)
+  return "Template Id: "..value
+end
+
+-- Dissect: Template Id
+eurex_t7_eti_fbe_v1_0.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_eti_fbe_v1_0.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_t7_eti_fbe_v1_0.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_t7_eti_fbe_v1_0.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Eurex T7 Eti Fbe 1.0
+-----------------------------------------------------------------------
+
+-- Message Header
+eurex_t7_eti_fbe_v1_0.message_header = {}
+
+-- Size: Message Header
+eurex_t7_eti_fbe_v1_0.message_header.size =
+  eurex_t7_eti_fbe_v1_0.body_len.size + 
+  eurex_t7_eti_fbe_v1_0.template_id.size
+
+-- Display: Message Header
+eurex_t7_eti_fbe_v1_0.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+eurex_t7_eti_fbe_v1_0.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Body Len: 4 Byte Unsigned Fixed Width Integer
+  index, body_len = eurex_t7_eti_fbe_v1_0.body_len.dissect(buffer, index, packet, parent)
+
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer
+  index, template_id = eurex_t7_eti_fbe_v1_0.template_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+eurex_t7_eti_fbe_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.message_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v1_0.fields.message_header, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v1_0.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v1_0.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v1_0.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+eurex_t7_eti_fbe_v1_0.message = {}
+
+-- Display: Message
+eurex_t7_eti_fbe_v1_0.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+eurex_t7_eti_fbe_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = eurex_t7_eti_fbe_v1_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index - 6, 4):le_uint()
+
+  -- Runtime Size Of: Payload
+  local size_of_payload = body_len - 6
+
+  -- Payload: 0 Byte
+  index, payload = eurex_t7_eti_fbe_v1_0.payload.dissect(buffer, index, packet, parent, size_of_payload)
+
+  return index
+end
+
+-- Dissect: Message
+eurex_t7_eti_fbe_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.message then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v1_0.fields.message, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = eurex_t7_eti_fbe_v1_0.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Message
+local message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < eurex_t7_eti_fbe_v1_0.message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 4):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Packet
+eurex_t7_eti_fbe_v1_0.packet = {}
+
+-- Verify required size of Tcp packet
+eurex_t7_eti_fbe_v1_0.packet.requiredsize = function(buffer)
+  return buffer:len() >= eurex_t7_eti_fbe_v1_0.message_header.size + eurex_t7_eti_fbe_v1_0.payload.size
+end
+
+-- Dissect Packet
+eurex_t7_eti_fbe_v1_0.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = eurex_t7_eti_fbe_v1_0.message.dissect(buffer, index, packet, parent, size_of_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_eurex_t7_eti_fbe_v1_0.init()
+end
+
+-- Dissector for Eurex T7 Eti Fbe 1.0
+function omi_eurex_t7_eti_fbe_v1_0.dissector(buffer, packet, parent)
+
+  -- Set protocol name
+  packet.cols.protocol = omi_eurex_t7_eti_fbe_v1_0.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_eurex_t7_eti_fbe_v1_0, buffer(), omi_eurex_t7_eti_fbe_v1_0.description, "("..buffer:len().." Bytes)")
+  return eurex_t7_eti_fbe_v1_0.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Eurex T7 Eti Fbe 1.0 (Tcp)
+local function omi_eurex_t7_eti_fbe_v1_0_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not eurex_t7_eti_fbe_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_eurex_t7_eti_fbe_v1_0
+  omi_eurex_t7_eti_fbe_v1_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Eurex T7 Eti Fbe 1.0
+omi_eurex_t7_eti_fbe_v1_0:register_heuristic("tcp", omi_eurex_t7_eti_fbe_v1_0_tcp_heuristic)
+
+-- Register Eurex T7 Eti Fbe 1.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v1_0)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Eurex Exchange
+--   Version: 1.0
+--   Date: Thursday, January 1, 2015
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: Public/GPLv3
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.  https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--
+-- The Binary Data Compiler technologies used to produce this file
+-- are the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-- For full Omi information:
+--   https://github.com/Open-Markets-Initiative/Directory
+-----------------------------------------------------------------------
