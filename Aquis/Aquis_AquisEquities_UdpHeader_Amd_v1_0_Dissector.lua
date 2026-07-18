@@ -1,0 +1,438 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Aquis AquisEquities UdpHeader Amd 1.0 Protocol
+local omi_aquis_aquisequities_udpheader_amd_v1_0 = Proto("Omi.Aquis.AquisEquities.UdpHeader.Amd.v1.0", "Aquis AquisEquities UdpHeader Amd 1.0")
+
+-- Protocol table
+local aquis_aquisequities_udpheader_amd_v1_0 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Aquis AquisEquities UdpHeader Amd 1.0 Fields
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.udpheader.amd.v1.0.message", ftypes.STRING)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.udpheader.amd.v1.0.messagecount", ftypes.UINT8)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.udpheader.amd.v1.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.udpheader.amd.v1.0.msglength", ftypes.UINT8)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.udpheader.amd.v1.0.msgtype", ftypes.UINT8)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.udpheader.amd.v1.0.packet", ftypes.STRING)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.udpheader.amd.v1.0.packetheader", ftypes.STRING)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.udpheader.amd.v1.0.payload", ftypes.BYTES)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.udpheader.amd.v1.0.seqno", ftypes.UINT32)
+
+-- Aquis AquisEquities UdpHeader Amd 1.0 generated fields
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.udpheader.amd.v1.0.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Aquis AquisEquities UdpHeader Amd 1.0 Element Dissection Options
+show.message = true
+show.message_header = true
+show.packet = true
+show.packet_header = true
+show.message_index = true
+
+-- Register Aquis AquisEquities UdpHeader Amd 1.0 Show Options
+omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+
+
+-- Handle changed preferences
+function omi_aquis_aquisequities_udpheader_amd_v1_0.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.message ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message then
+    show.message = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message
+  end
+  if show.message_header ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_header then
+    show.message_header = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_header
+  end
+  if show.packet ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet then
+    show.packet = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet
+  end
+  if show.packet_header ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet_header then
+    show.packet_header = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet_header
+  end
+  if show.message_index ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_index then
+    show.message_index = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_index
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Aquis AquisEquities UdpHeader Amd 1.0 Fields
+-----------------------------------------------------------------------
+
+-- Message Count
+aquis_aquisequities_udpheader_amd_v1_0.message_count = {}
+
+-- Size: Message Count
+aquis_aquisequities_udpheader_amd_v1_0.message_count.size = 1
+
+-- Display: Message Count
+aquis_aquisequities_udpheader_amd_v1_0.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+aquis_aquisequities_udpheader_amd_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_udpheader_amd_v1_0.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_aquisequities_udpheader_amd_v1_0.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Length
+aquis_aquisequities_udpheader_amd_v1_0.msg_length = {}
+
+-- Size: Msg Length
+aquis_aquisequities_udpheader_amd_v1_0.msg_length.size = 1
+
+-- Display: Msg Length
+aquis_aquisequities_udpheader_amd_v1_0.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+aquis_aquisequities_udpheader_amd_v1_0.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_udpheader_amd_v1_0.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_aquisequities_udpheader_amd_v1_0.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+aquis_aquisequities_udpheader_amd_v1_0.msg_type = {}
+
+-- Size: Msg Type
+aquis_aquisequities_udpheader_amd_v1_0.msg_type.size = 1
+
+-- Display: Msg Type
+aquis_aquisequities_udpheader_amd_v1_0.msg_type.display = function(value)
+  return "Msg Type: "..value
+end
+
+-- Dissect: Msg Type
+aquis_aquisequities_udpheader_amd_v1_0.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_udpheader_amd_v1_0.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_aquisequities_udpheader_amd_v1_0.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Payload
+aquis_aquisequities_udpheader_amd_v1_0.payload = {}
+
+-- Size: Payload
+aquis_aquisequities_udpheader_amd_v1_0.payload.size = 0
+
+-- Display: Payload
+aquis_aquisequities_udpheader_amd_v1_0.payload.display = function(value)
+  return "Payload: "..value
+end
+
+-- Dissect: Payload
+aquis_aquisequities_udpheader_amd_v1_0.payload.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_udpheader_amd_v1_0.payload.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = aquis_aquisequities_udpheader_amd_v1_0.payload.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.payload, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq No
+aquis_aquisequities_udpheader_amd_v1_0.seq_no = {}
+
+-- Size: Seq No
+aquis_aquisequities_udpheader_amd_v1_0.seq_no.size = 4
+
+-- Display: Seq No
+aquis_aquisequities_udpheader_amd_v1_0.seq_no.display = function(value)
+  return "Seq No: "..value
+end
+
+-- Dissect: Seq No
+aquis_aquisequities_udpheader_amd_v1_0.seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_udpheader_amd_v1_0.seq_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_aquisequities_udpheader_amd_v1_0.seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Aquis AquisEquities UdpHeader Amd 1.0
+-----------------------------------------------------------------------
+
+-- Message Header
+aquis_aquisequities_udpheader_amd_v1_0.message_header = {}
+
+-- Size: Message Header
+aquis_aquisequities_udpheader_amd_v1_0.message_header.size =
+  aquis_aquisequities_udpheader_amd_v1_0.msg_type.size + 
+  aquis_aquisequities_udpheader_amd_v1_0.msg_length.size + 
+  aquis_aquisequities_udpheader_amd_v1_0.seq_no.size
+
+-- Display: Message Header
+aquis_aquisequities_udpheader_amd_v1_0.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+aquis_aquisequities_udpheader_amd_v1_0.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Type: u8
+  index, msg_type = aquis_aquisequities_udpheader_amd_v1_0.msg_type.dissect(buffer, index, packet, parent)
+
+  -- Msg Length: u8
+  index, msg_length = aquis_aquisequities_udpheader_amd_v1_0.msg_length.dissect(buffer, index, packet, parent)
+
+  -- Seq No: u32
+  index, seq_no = aquis_aquisequities_udpheader_amd_v1_0.seq_no.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+aquis_aquisequities_udpheader_amd_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.message_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header, buffer(offset, 0))
+    local index = aquis_aquisequities_udpheader_amd_v1_0.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = aquis_aquisequities_udpheader_amd_v1_0.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return aquis_aquisequities_udpheader_amd_v1_0.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+aquis_aquisequities_udpheader_amd_v1_0.message = {}
+
+-- Display: Message
+aquis_aquisequities_udpheader_amd_v1_0.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+aquis_aquisequities_udpheader_amd_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.message_index then
+    local iteration = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 3 fields
+  index, message_header = aquis_aquisequities_udpheader_amd_v1_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Payload: 0 Byte
+  index, payload = aquis_aquisequities_udpheader_amd_v1_0.payload.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message
+aquis_aquisequities_udpheader_amd_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.message then
+    parent = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message, buffer(offset, 0))
+    local current = aquis_aquisequities_udpheader_amd_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = aquis_aquisequities_udpheader_amd_v1_0.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    aquis_aquisequities_udpheader_amd_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Packet Header
+aquis_aquisequities_udpheader_amd_v1_0.packet_header = {}
+
+-- Size: Packet Header
+aquis_aquisequities_udpheader_amd_v1_0.packet_header.size =
+  aquis_aquisequities_udpheader_amd_v1_0.message_count.size
+
+-- Display: Packet Header
+aquis_aquisequities_udpheader_amd_v1_0.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+aquis_aquisequities_udpheader_amd_v1_0.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Count: u8
+  index, message_count = aquis_aquisequities_udpheader_amd_v1_0.message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+aquis_aquisequities_udpheader_amd_v1_0.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.packet_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = aquis_aquisequities_udpheader_amd_v1_0.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = aquis_aquisequities_udpheader_amd_v1_0.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return aquis_aquisequities_udpheader_amd_v1_0.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+aquis_aquisequities_udpheader_amd_v1_0.packet = {}
+
+-- Verify required size of Udp packet
+aquis_aquisequities_udpheader_amd_v1_0.packet.requiredsize = function(buffer)
+  return buffer:len() >= aquis_aquisequities_udpheader_amd_v1_0.packet_header.size
+end
+
+-- Dissect Packet
+aquis_aquisequities_udpheader_amd_v1_0.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Packet Header: Struct of 1 fields
+  index, packet_header = aquis_aquisequities_udpheader_amd_v1_0.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 1, 1):uint()
+
+  -- Repeating: Message
+  for message_index = 1, message_count do
+
+    -- Dependency element: Msg Length
+    local msg_length = buffer(index + 1, 1):uint()
+
+    -- Runtime Size Of: Message
+    index, message = aquis_aquisequities_udpheader_amd_v1_0.message.dissect(buffer, index, packet, parent, msg_length, message_index)
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_aquis_aquisequities_udpheader_amd_v1_0.init()
+end
+
+-- Dissector for Aquis AquisEquities UdpHeader Amd 1.0
+function omi_aquis_aquisequities_udpheader_amd_v1_0.dissector(buffer, packet, parent)
+
+  -- Set protocol name
+  packet.cols.protocol = omi_aquis_aquisequities_udpheader_amd_v1_0.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0, buffer(), omi_aquis_aquisequities_udpheader_amd_v1_0.description, "("..buffer:len().." Bytes)")
+  return aquis_aquisequities_udpheader_amd_v1_0.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Aquis AquisEquities UdpHeader Amd 1.0 (Udp)
+local function omi_aquis_aquisequities_udpheader_amd_v1_0_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not aquis_aquisequities_udpheader_amd_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_aquis_aquisequities_udpheader_amd_v1_0
+  omi_aquis_aquisequities_udpheader_amd_v1_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Aquis AquisEquities UdpHeader Amd 1.0
+omi_aquis_aquisequities_udpheader_amd_v1_0:register_heuristic("udp", omi_aquis_aquisequities_udpheader_amd_v1_0_udp_heuristic)
+
+-- Register Aquis AquisEquities UdpHeader Amd 1.0 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_aquis_aquisequities_udpheader_amd_v1_0)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Aquis Exchange
+--   Version: 1.0
+--   Date: Friday, August 1, 2025
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: Public/GPLv3
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.  https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--
+-- The Binary Data Compiler technologies used to produce this file
+-- are the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-- For full Omi information:
+--   https://github.com/Open-Markets-Initiative/Directory
+-----------------------------------------------------------------------
