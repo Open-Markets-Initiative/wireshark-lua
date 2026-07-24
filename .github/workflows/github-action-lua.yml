@@ -16,6 +16,9 @@ jobs:
       - name: Lua Syntax Check
         run: find . -name '*.lua' | xargs -n 1 luac5.4 -p
 
+      - name: Dissector Load Check
+        run: WIRESHARK_PLUGIN_DIR=$(pwd) tshark -G protocols > /dev/null 2> lua-load.log; if grep -q "Lua:" lua-load.log; then cat lua-load.log; exit 1; fi
+
       - name: Clone Omi Data
         run: git clone --depth=1 https://github.com/Open-Markets-Initiative/omi-data-packets.git
 
