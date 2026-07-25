@@ -17,7 +17,7 @@ jobs:
         run: find . -name '*.lua' | xargs -n 1 luac5.4 -p
 
       - name: Dissector Load Check
-        run: WIRESHARK_PLUGIN_DIR=$(pwd) tshark -G protocols > /dev/null 2> lua-load.log; if grep -q "Lua:" lua-load.log; then cat lua-load.log; exit 1; fi
+        run: printf '\xd4\xc3\xb2\xa1\x02\x00\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\x00\x00\x01\x00\x00\x00' > empty.pcap; status=0; for f in $(find . -name '*_Dissector.lua' | sort); do runuser -u tester -- tshark -r empty.pcap -X lua_script:$f > /dev/null 2> lua-load.log || true; if grep -q "Lua:" lua-load.log; then echo "LOAD FAILED $f"; cat lua-load.log; status=1; fi; done; exit $status
 
       - name: Clone Omi Data
         run: git clone --depth=1 https://github.com/Open-Markets-Initiative/omi-data-packets.git
