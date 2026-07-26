@@ -68,36 +68,6 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.counterpart_firm_id = ProtoF
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.counterparty_reason_type = ProtoField.new("Counterparty Reason Type", "euronext.optiq.dropcopygateway.sbe.v6.63.counterpartyreasontype", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.cross_order_indicator_unsignedchar = ProtoField.new("Cross Order Indicator unsignedchar", "euronext.optiq.dropcopygateway.sbe.v6.63.crossorderindicatorunsignedchar", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.cross_order_indicator_unsignedchar_optional = ProtoField.new("Cross Order Indicator unsignedchar optional", "euronext.optiq.dropcopygateway.sbe.v6.63.crossorderindicatorunsignedcharoptional", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_additional_infos_group = ProtoField.new("D C Long Order Message Additional Infos Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageadditionalinfosgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_additional_infos_groups = ProtoField.new("D C Long Order Message Additional Infos Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageadditionalinfosgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_clearing_fields_group = ProtoField.new("D C Long Order Message Clearing Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageclearingfieldsgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_clearing_fields_groups = ProtoField.new("D C Long Order Message Clearing Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageclearingfieldsgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_commercial_fields_group = ProtoField.new("D C Long Order Message Commercial Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagecommercialfieldsgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_commercial_fields_groups = ProtoField.new("D C Long Order Message Commercial Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagecommercialfieldsgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_extended_clearing_account_group = ProtoField.new("D C Long Order Message Extended Clearing Account Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageextendedclearingaccountgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_extended_clearing_account_groups = ProtoField.new("D C Long Order Message Extended Clearing Account Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageextendedclearingaccountgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_free_text_section_group = ProtoField.new("D C Long Order Message Free Text Section Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagefreetextsectiongroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_free_text_section_groups = ProtoField.new("D C Long Order Message Free Text Section Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagefreetextsectiongroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_commercial_investor_field_group = ProtoField.new("D C Long Order Message Modifiable Commercial Investor Field Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagemodifiablecommercialinvestorfieldgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_commercial_investor_field_groups = ProtoField.new("D C Long Order Message Modifiable Commercial Investor Field Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagemodifiablecommercialinvestorfieldgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_short_codes_group = ProtoField.new("D C Long Order Message Modifiable Short Codes Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagemodifiableshortcodesgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_short_codes_groups = ProtoField.new("D C Long Order Message Modifiable Short Codes Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagemodifiableshortcodesgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_commercial_investor_field_group = ProtoField.new("D C Long Order Message Non Modifiable Commercial Investor Field Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiablecommercialinvestorfieldgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_commercial_investor_field_groups = ProtoField.new("D C Long Order Message Non Modifiable Commercial Investor Field Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiablecommercialinvestorfieldgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_opt_fields_group = ProtoField.new("D C Long Order Message Non Modifiable Opt Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiableoptfieldsgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_opt_fields_groups = ProtoField.new("D C Long Order Message Non Modifiable Opt Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiableoptfieldsgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_short_codes_group = ProtoField.new("D C Long Order Message Non Modifiable Short Codes Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiableshortcodesgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_short_codes_groups = ProtoField.new("D C Long Order Message Non Modifiable Short Codes Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiableshortcodesgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_derivatives_group = ProtoField.new("D C Long Order Message Optional Fields Derivatives Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageoptionalfieldsderivativesgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_derivatives_groups = ProtoField.new("D C Long Order Message Optional Fields Derivatives Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageoptionalfieldsderivativesgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_group = ProtoField.new("D C Long Order Message Optional Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageoptionalfieldsgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_groups = ProtoField.new("D C Long Order Message Optional Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageoptionalfieldsgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_modifiable_group = ProtoField.new("D C Long Order Message Short Codes Details Modifiable Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageshortcodesdetailsmodifiablegroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_modifiable_groups = ProtoField.new("D C Long Order Message Short Codes Details Modifiable Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageshortcodesdetailsmodifiablegroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_non_modifiable_group = ProtoField.new("D C Long Order Message Short Codes Details Non Modifiable Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageshortcodesdetailsnonmodifiablegroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_non_modifiable_groups = ProtoField.new("D C Long Order Message Short Codes Details Non Modifiable Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageshortcodesdetailsnonmodifiablegroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_strategy_fields_group = ProtoField.new("D C Long Order Message Strategy Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagestrategyfieldsgroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_strategy_fields_groups = ProtoField.new("D C Long Order Message Strategy Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagestrategyfieldsgroups", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_quote_message_bid_quoterep_group = ProtoField.new("D C Quote Message Bid Quoterep Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dcquotemessagebidquoterepgroup", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_quote_message_bid_quoterep_groups = ProtoField.new("D C Quote Message Bid Quoterep Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dcquotemessagebidquoterepgroups", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_quote_message_clearing_dataset_group = ProtoField.new("D C Quote Message Clearing Dataset Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dcquotemessageclearingdatasetgroup", ftypes.STRING)
@@ -122,10 +92,6 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_short_trade_declaration_
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_short_trade_declaration_message_short_trade_declarations_groups = ProtoField.new("D C Short Trade Declaration Message Short Trade Declarations Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dcshorttradedeclarationmessageshorttradedeclarationsgroups", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_static_collars_message_static_collarsrep_group = ProtoField.new("D C Static Collars Message Static Collarsrep Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dcstaticcollarsmessagestaticcollarsrepgroup", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_static_collars_message_static_collarsrep_groups = ProtoField.new("D C Static Collars Message Static Collarsrep Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dcstaticcollarsmessagestaticcollarsrepgroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_modifiable_group = ProtoField.new("D C Trade Bust Notification Message Short Codes Details Modifiable Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dctradebustnotificationmessageshortcodesdetailsmodifiablegroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups = ProtoField.new("D C Trade Bust Notification Message Short Codes Details Modifiable Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dctradebustnotificationmessageshortcodesdetailsmodifiablegroups", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group = ProtoField.new("D C Trade Bust Notification Message Short Codes Details Non Modifiable Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dctradebustnotificationmessageshortcodesdetailsnonmodifiablegroup", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups = ProtoField.new("D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dctradebustnotificationmessageshortcodesdetailsnonmodifiablegroups", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_message_matched_declarations_group = ProtoField.new("D C Trade Message Matched Declarations Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dctrademessagematcheddeclarationsgroup", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_message_matched_declarations_groups = ProtoField.new("D C Trade Message Matched Declarations Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.dctrademessagematcheddeclarationsgroups", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_message_matched_orders_group = ProtoField.new("D C Trade Message Matched Orders Group", "euronext.optiq.dropcopygateway.sbe.v6.63.dctrademessagematchedordersgroup", ftypes.STRING)
@@ -220,6 +186,36 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.lis_transaction_id = ProtoFi
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.logical_access_i_d_uint_32t = ProtoField.new("Logical Access I D uint 32t", "euronext.optiq.dropcopygateway.sbe.v6.63.logicalaccessiduint32t", ftypes.UINT32)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.logical_access_i_d_uint_32t_optional = ProtoField.new("Logical Access I D uint 32t optional", "euronext.optiq.dropcopygateway.sbe.v6.63.logicalaccessiduint32toptional", ftypes.UINT32)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_client_id = ProtoField.new("Long Client Id", "euronext.optiq.dropcopygateway.sbe.v6.63.longclientid", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_additional_infos_group = ProtoField.new("Long Order Additional Infos Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderadditionalinfosgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_additional_infos_groups = ProtoField.new("Long Order Additional Infos Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderadditionalinfosgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_clearing_fields_group = ProtoField.new("Long Order Clearing Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderclearingfieldsgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_clearing_fields_groups = ProtoField.new("Long Order Clearing Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderclearingfieldsgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_commercial_fields_group = ProtoField.new("Long Order Commercial Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longordercommercialfieldsgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_commercial_fields_groups = ProtoField.new("Long Order Commercial Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longordercommercialfieldsgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_extended_clearing_account_group = ProtoField.new("Long Order Extended Clearing Account Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderextendedclearingaccountgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_extended_clearing_account_groups = ProtoField.new("Long Order Extended Clearing Account Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderextendedclearingaccountgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_free_text_section_group = ProtoField.new("Long Order Free Text Section Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderfreetextsectiongroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_free_text_section_groups = ProtoField.new("Long Order Free Text Section Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderfreetextsectiongroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_commercial_investor_field_group = ProtoField.new("Long Order Modifiable Commercial Investor Field Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longordermodifiablecommercialinvestorfieldgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_commercial_investor_field_groups = ProtoField.new("Long Order Modifiable Commercial Investor Field Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longordermodifiablecommercialinvestorfieldgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_short_codes_group = ProtoField.new("Long Order Modifiable Short Codes Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longordermodifiableshortcodesgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_short_codes_groups = ProtoField.new("Long Order Modifiable Short Codes Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longordermodifiableshortcodesgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_commercial_investor_field_group = ProtoField.new("Long Order Non Modifiable Commercial Investor Field Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiablecommercialinvestorfieldgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_commercial_investor_field_groups = ProtoField.new("Long Order Non Modifiable Commercial Investor Field Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiablecommercialinvestorfieldgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_opt_fields_group = ProtoField.new("Long Order Non Modifiable Opt Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiableoptfieldsgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_opt_fields_groups = ProtoField.new("Long Order Non Modifiable Opt Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiableoptfieldsgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_short_codes_group = ProtoField.new("Long Order Non Modifiable Short Codes Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiableshortcodesgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_short_codes_groups = ProtoField.new("Long Order Non Modifiable Short Codes Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiableshortcodesgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_derivatives_group = ProtoField.new("Long Order Optional Fields Derivatives Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderoptionalfieldsderivativesgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_derivatives_groups = ProtoField.new("Long Order Optional Fields Derivatives Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderoptionalfieldsderivativesgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_group = ProtoField.new("Long Order Optional Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderoptionalfieldsgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_groups = ProtoField.new("Long Order Optional Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderoptionalfieldsgroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_modifiable_group = ProtoField.new("Long Order Short Codes Details Modifiable Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longordershortcodesdetailsmodifiablegroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_modifiable_groups = ProtoField.new("Long Order Short Codes Details Modifiable Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longordershortcodesdetailsmodifiablegroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_non_modifiable_group = ProtoField.new("Long Order Short Codes Details Non Modifiable Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longordershortcodesdetailsnonmodifiablegroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_non_modifiable_groups = ProtoField.new("Long Order Short Codes Details Non Modifiable Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longordershortcodesdetailsnonmodifiablegroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_strategy_fields_group = ProtoField.new("Long Order Strategy Fields Group", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderstrategyfieldsgroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_strategy_fields_groups = ProtoField.new("Long Order Strategy Fields Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderstrategyfieldsgroups", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.lp_role_lp_roleenum = ProtoField.new("Lp Role Lp Roleenum", "euronext.optiq.dropcopygateway.sbe.v6.63.lprolelproleenum", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.lp_role_lp_roleenum_optional = ProtoField.new("Lp Role Lp Roleenum optional", "euronext.optiq.dropcopygateway.sbe.v6.63.lprolelproleenumoptional", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.margin_trading_flag = ProtoField.new("Margin Trading Flag", "euronext.optiq.dropcopygateway.sbe.v6.63.margintradingflag", ftypes.UINT8)
@@ -351,6 +347,10 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.technical_origin = ProtoFiel
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.template_id = ProtoField.new("Template Id", "euronext.optiq.dropcopygateway.sbe.v6.63.templateid", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.time_in_force_time_in_forceenum = ProtoField.new("Time In Force Time In Forceenum", "euronext.optiq.dropcopygateway.sbe.v6.63.timeinforcetimeinforceenum", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.time_in_force_time_in_forceenum_optional = ProtoField.new("Time In Force Time In Forceenum optional", "euronext.optiq.dropcopygateway.sbe.v6.63.timeinforcetimeinforceenumoptional", ftypes.UINT8)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_modifiable_group = ProtoField.new("Trade Bust Notification Short Codes Details Modifiable Group", "euronext.optiq.dropcopygateway.sbe.v6.63.tradebustnotificationshortcodesdetailsmodifiablegroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_modifiable_groups = ProtoField.new("Trade Bust Notification Short Codes Details Modifiable Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.tradebustnotificationshortcodesdetailsmodifiablegroups", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_non_modifiable_group = ProtoField.new("Trade Bust Notification Short Codes Details Non Modifiable Group", "euronext.optiq.dropcopygateway.sbe.v6.63.tradebustnotificationshortcodesdetailsnonmodifiablegroup", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_non_modifiable_groups = ProtoField.new("Trade Bust Notification Short Codes Details Non Modifiable Groups", "euronext.optiq.dropcopygateway.sbe.v6.63.tradebustnotificationshortcodesdetailsnonmodifiablegroups", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_creation_by_market_operations = ProtoField.new("Trade Creation By Market Operations", "euronext.optiq.dropcopygateway.sbe.v6.63.tradecreationbymarketoperations", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_qualifier_trade_qualifierset = ProtoField.new("Trade Qualifier Trade Qualifierset", "euronext.optiq.dropcopygateway.sbe.v6.63.tradequalifiertradequalifierset", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_qualifier_trade_qualifierset_optional = ProtoField.new("Trade Qualifier Trade Qualifierset optional", "euronext.optiq.dropcopygateway.sbe.v6.63.tradequalifiertradequalifiersetoptional", ftypes.STRING)
@@ -382,7 +382,6 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.wholesale_trade_type = Proto
 -- Euronext Optiq Sbe DropCopyGateway 6.63 Application Messages
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_clear_book_message = ProtoField.new("Dc Clear Book Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcclearbookmessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_declaration_new_message = ProtoField.new("Dc Declaration New Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcdeclarationnewmessage", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_long_order_message = ProtoField.new("Dc Long Order Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_market_status_change_message = ProtoField.new("Dc Market Status Change Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcmarketstatuschangemessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_price_update_message = ProtoField.new("Dc Price Update Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcpriceupdatemessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_quote_message = ProtoField.new("Dc Quote Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcquotemessage", ftypes.STRING)
@@ -396,26 +395,12 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_short_trade_declaration_c
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_short_trade_declaration_message = ProtoField.new("Dc Short Trade Declaration Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcshorttradedeclarationmessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_static_collars_message = ProtoField.new("Dc Static Collars Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcstaticcollarsmessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_trade_bust_declaration_message = ProtoField.new("Dc Trade Bust Declaration Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dctradebustdeclarationmessage", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_trade_bust_notification_message = ProtoField.new("Dc Trade Bust Notification Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dctradebustnotificationmessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_trade_message = ProtoField.new("Dc Trade Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dctrademessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dcafqrfe_message = ProtoField.new("Dcafqrfe Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcafqrfemessage", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_message = ProtoField.new("Long Order Message", "euronext.optiq.dropcopygateway.sbe.v6.63.longordermessage", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_message = ProtoField.new("Trade Bust Notification Message", "euronext.optiq.dropcopygateway.sbe.v6.63.tradebustnotificationmessage", ftypes.STRING)
 
 -- Euronext Optiq DropCopyGateway Sbe 6.63 generated fields
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_additional_infos_group_index = ProtoField.new("D C Long Order Message Additional Infos Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageadditionalinfosgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_clearing_fields_group_index = ProtoField.new("D C Long Order Message Clearing Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageclearingfieldsgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_commercial_fields_group_index = ProtoField.new("D C Long Order Message Commercial Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagecommercialfieldsgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_extended_clearing_account_group_index = ProtoField.new("D C Long Order Message Extended Clearing Account Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageextendedclearingaccountgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_free_text_section_group_index = ProtoField.new("D C Long Order Message Free Text Section Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagefreetextsectiongroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_commercial_investor_field_group_index = ProtoField.new("D C Long Order Message Modifiable Commercial Investor Field Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagemodifiablecommercialinvestorfieldgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_short_codes_group_index = ProtoField.new("D C Long Order Message Modifiable Short Codes Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagemodifiableshortcodesgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_commercial_investor_field_group_index = ProtoField.new("D C Long Order Message Non Modifiable Commercial Investor Field Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiablecommercialinvestorfieldgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_opt_fields_group_index = ProtoField.new("D C Long Order Message Non Modifiable Opt Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiableoptfieldsgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_short_codes_group_index = ProtoField.new("D C Long Order Message Non Modifiable Short Codes Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagenonmodifiableshortcodesgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_derivatives_group_index = ProtoField.new("D C Long Order Message Optional Fields Derivatives Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageoptionalfieldsderivativesgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_group_index = ProtoField.new("D C Long Order Message Optional Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageoptionalfieldsgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_modifiable_group_index = ProtoField.new("D C Long Order Message Short Codes Details Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageshortcodesdetailsmodifiablegroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_non_modifiable_group_index = ProtoField.new("D C Long Order Message Short Codes Details Non Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessageshortcodesdetailsnonmodifiablegroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_strategy_fields_group_index = ProtoField.new("D C Long Order Message Strategy Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dclongordermessagestrategyfieldsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_quote_message_bid_quoterep_group_index = ProtoField.new("D C Quote Message Bid Quoterep Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dcquotemessagebidquoterepgroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_quote_message_clearing_dataset_group_index = ProtoField.new("D C Quote Message Clearing Dataset Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dcquotemessageclearingdatasetgroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_quote_message_modifiable_short_codes_group_index = ProtoField.new("D C Quote Message Modifiable Short Codes Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dcquotemessagemodifiableshortcodesgroupindex", ftypes.UINT16)
@@ -428,10 +413,25 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_short_order_reject_messa
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_short_order_reject_message_short_codes_details_modifiable_group_index = ProtoField.new("D C Short Order Reject Message Short Codes Details Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dcshortorderrejectmessageshortcodesdetailsmodifiablegroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_short_trade_declaration_message_short_trade_declarations_group_index = ProtoField.new("D C Short Trade Declaration Message Short Trade Declarations Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dcshorttradedeclarationmessageshorttradedeclarationsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_static_collars_message_static_collarsrep_group_index = ProtoField.new("D C Static Collars Message Static Collarsrep Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dcstaticcollarsmessagestaticcollarsrepgroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index = ProtoField.new("D C Trade Bust Notification Message Short Codes Details Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dctradebustnotificationmessageshortcodesdetailsmodifiablegroupindex", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index = ProtoField.new("D C Trade Bust Notification Message Short Codes Details Non Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dctradebustnotificationmessageshortcodesdetailsnonmodifiablegroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_message_matched_declarations_group_index = ProtoField.new("D C Trade Message Matched Declarations Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dctrademessagematcheddeclarationsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_message_matched_orders_group_index = ProtoField.new("D C Trade Message Matched Orders Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.dctrademessagematchedordersgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_additional_infos_group_index = ProtoField.new("Long Order Additional Infos Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderadditionalinfosgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_clearing_fields_group_index = ProtoField.new("Long Order Clearing Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderclearingfieldsgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_commercial_fields_group_index = ProtoField.new("Long Order Commercial Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longordercommercialfieldsgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_extended_clearing_account_group_index = ProtoField.new("Long Order Extended Clearing Account Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderextendedclearingaccountgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_free_text_section_group_index = ProtoField.new("Long Order Free Text Section Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderfreetextsectiongroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_commercial_investor_field_group_index = ProtoField.new("Long Order Modifiable Commercial Investor Field Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longordermodifiablecommercialinvestorfieldgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_short_codes_group_index = ProtoField.new("Long Order Modifiable Short Codes Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longordermodifiableshortcodesgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_commercial_investor_field_group_index = ProtoField.new("Long Order Non Modifiable Commercial Investor Field Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiablecommercialinvestorfieldgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_opt_fields_group_index = ProtoField.new("Long Order Non Modifiable Opt Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiableoptfieldsgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_short_codes_group_index = ProtoField.new("Long Order Non Modifiable Short Codes Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longordernonmodifiableshortcodesgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_derivatives_group_index = ProtoField.new("Long Order Optional Fields Derivatives Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderoptionalfieldsderivativesgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_group_index = ProtoField.new("Long Order Optional Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderoptionalfieldsgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_modifiable_group_index = ProtoField.new("Long Order Short Codes Details Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longordershortcodesdetailsmodifiablegroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_non_modifiable_group_index = ProtoField.new("Long Order Short Codes Details Non Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longordershortcodesdetailsnonmodifiablegroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_strategy_fields_group_index = ProtoField.new("Long Order Strategy Fields Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.longorderstrategyfieldsgroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_modifiable_group_index = ProtoField.new("Trade Bust Notification Short Codes Details Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.tradebustnotificationshortcodesdetailsmodifiablegroupindex", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_non_modifiable_group_index = ProtoField.new("Trade Bust Notification Short Codes Details Non Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.63.tradebustnotificationshortcodesdetailsnonmodifiablegroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -441,36 +441,6 @@ local show = {}
 
 -- Euronext Optiq DropCopyGateway Sbe 6.63 Element Dissection Options
 show.ack_qualifiers = true
-show.d_c_long_order_message_additional_infos_group = true
-show.d_c_long_order_message_additional_infos_groups = true
-show.d_c_long_order_message_clearing_fields_group = true
-show.d_c_long_order_message_clearing_fields_groups = true
-show.d_c_long_order_message_commercial_fields_group = true
-show.d_c_long_order_message_commercial_fields_groups = true
-show.d_c_long_order_message_extended_clearing_account_group = true
-show.d_c_long_order_message_extended_clearing_account_groups = true
-show.d_c_long_order_message_free_text_section_group = true
-show.d_c_long_order_message_free_text_section_groups = true
-show.d_c_long_order_message_modifiable_commercial_investor_field_group = true
-show.d_c_long_order_message_modifiable_commercial_investor_field_groups = true
-show.d_c_long_order_message_modifiable_short_codes_group = true
-show.d_c_long_order_message_modifiable_short_codes_groups = true
-show.d_c_long_order_message_non_modifiable_commercial_investor_field_group = true
-show.d_c_long_order_message_non_modifiable_commercial_investor_field_groups = true
-show.d_c_long_order_message_non_modifiable_opt_fields_group = true
-show.d_c_long_order_message_non_modifiable_opt_fields_groups = true
-show.d_c_long_order_message_non_modifiable_short_codes_group = true
-show.d_c_long_order_message_non_modifiable_short_codes_groups = true
-show.d_c_long_order_message_optional_fields_derivatives_group = true
-show.d_c_long_order_message_optional_fields_derivatives_groups = true
-show.d_c_long_order_message_optional_fields_group = true
-show.d_c_long_order_message_optional_fields_groups = true
-show.d_c_long_order_message_short_codes_details_modifiable_group = true
-show.d_c_long_order_message_short_codes_details_modifiable_groups = true
-show.d_c_long_order_message_short_codes_details_non_modifiable_group = true
-show.d_c_long_order_message_short_codes_details_non_modifiable_groups = true
-show.d_c_long_order_message_strategy_fields_group = true
-show.d_c_long_order_message_strategy_fields_groups = true
 show.d_c_quote_message_bid_quoterep_group = true
 show.d_c_quote_message_bid_quoterep_groups = true
 show.d_c_quote_message_clearing_dataset_group = true
@@ -495,10 +465,6 @@ show.d_c_short_trade_declaration_message_short_trade_declarations_group = true
 show.d_c_short_trade_declaration_message_short_trade_declarations_groups = true
 show.d_c_static_collars_message_static_collarsrep_group = true
 show.d_c_static_collars_message_static_collarsrep_groups = true
-show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group = true
-show.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups = true
-show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group = true
-show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups = true
 show.d_c_trade_message_matched_declarations_group = true
 show.d_c_trade_message_matched_declarations_groups = true
 show.d_c_trade_message_matched_orders_group = true
@@ -508,6 +474,36 @@ show.application_messages = true
 show.execution_instruction_execution_instructionset = true
 show.execution_instruction_execution_instructionset_optional = true
 show.group_size_encoding = true
+show.long_order_additional_infos_group = true
+show.long_order_additional_infos_groups = true
+show.long_order_clearing_fields_group = true
+show.long_order_clearing_fields_groups = true
+show.long_order_commercial_fields_group = true
+show.long_order_commercial_fields_groups = true
+show.long_order_extended_clearing_account_group = true
+show.long_order_extended_clearing_account_groups = true
+show.long_order_free_text_section_group = true
+show.long_order_free_text_section_groups = true
+show.long_order_modifiable_commercial_investor_field_group = true
+show.long_order_modifiable_commercial_investor_field_groups = true
+show.long_order_modifiable_short_codes_group = true
+show.long_order_modifiable_short_codes_groups = true
+show.long_order_non_modifiable_commercial_investor_field_group = true
+show.long_order_non_modifiable_commercial_investor_field_groups = true
+show.long_order_non_modifiable_opt_fields_group = true
+show.long_order_non_modifiable_opt_fields_groups = true
+show.long_order_non_modifiable_short_codes_group = true
+show.long_order_non_modifiable_short_codes_groups = true
+show.long_order_optional_fields_derivatives_group = true
+show.long_order_optional_fields_derivatives_groups = true
+show.long_order_optional_fields_group = true
+show.long_order_optional_fields_groups = true
+show.long_order_short_codes_details_modifiable_group = true
+show.long_order_short_codes_details_modifiable_groups = true
+show.long_order_short_codes_details_non_modifiable_group = true
+show.long_order_short_codes_details_non_modifiable_groups = true
+show.long_order_strategy_fields_group = true
+show.long_order_strategy_fields_groups = true
 show.message = true
 show.message_header = true
 show.mi_fid_indicators_mi_fid_indicatorsset = true
@@ -515,29 +511,33 @@ show.mi_fid_indicators_mi_fid_indicatorsset_optional = true
 show.open_close = true
 show.packet = true
 show.phase_qualifier = true
+show.trade_bust_notification_short_codes_details_modifiable_group = true
+show.trade_bust_notification_short_codes_details_modifiable_groups = true
+show.trade_bust_notification_short_codes_details_non_modifiable_group = true
+show.trade_bust_notification_short_codes_details_non_modifiable_groups = true
 show.trade_qualifier_trade_qualifierset = true
 show.trade_qualifier_trade_qualifierset_optional = true
 show.trading_session = true
-show.d_c_long_order_message_free_text_section_group_index = true
-show.d_c_long_order_message_optional_fields_group_index = true
-show.d_c_long_order_message_clearing_fields_group_index = true
-show.d_c_long_order_message_non_modifiable_opt_fields_group_index = true
-show.d_c_long_order_message_non_modifiable_short_codes_group_index = true
-show.d_c_long_order_message_modifiable_short_codes_group_index = true
-show.d_c_long_order_message_commercial_fields_group_index = true
-show.d_c_long_order_message_modifiable_commercial_investor_field_group_index = true
-show.d_c_long_order_message_non_modifiable_commercial_investor_field_group_index = true
-show.d_c_long_order_message_extended_clearing_account_group_index = true
-show.d_c_long_order_message_strategy_fields_group_index = true
-show.d_c_long_order_message_optional_fields_derivatives_group_index = true
-show.d_c_long_order_message_additional_infos_group_index = true
-show.d_c_long_order_message_short_codes_details_non_modifiable_group_index = true
-show.d_c_long_order_message_short_codes_details_modifiable_group_index = true
+show.long_order_free_text_section_group_index = true
+show.long_order_optional_fields_group_index = true
+show.long_order_clearing_fields_group_index = true
+show.long_order_non_modifiable_opt_fields_group_index = true
+show.long_order_non_modifiable_short_codes_group_index = true
+show.long_order_modifiable_short_codes_group_index = true
+show.long_order_commercial_fields_group_index = true
+show.long_order_modifiable_commercial_investor_field_group_index = true
+show.long_order_non_modifiable_commercial_investor_field_group_index = true
+show.long_order_extended_clearing_account_group_index = true
+show.long_order_strategy_fields_group_index = true
+show.long_order_optional_fields_derivatives_group_index = true
+show.long_order_additional_infos_group_index = true
+show.long_order_short_codes_details_non_modifiable_group_index = true
+show.long_order_short_codes_details_modifiable_group_index = true
 show.d_c_short_order_reject_message_modifiable_short_codes_group_index = true
 show.d_c_short_order_reject_message_short_codes_details_modifiable_group_index = true
 show.d_c_static_collars_message_static_collarsrep_group_index = true
-show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index = true
-show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index = true
+show.trade_bust_notification_short_codes_details_non_modifiable_group_index = true
+show.trade_bust_notification_short_codes_details_modifiable_group_index = true
 show.d_c_quote_message_bid_quoterep_group_index = true
 show.d_c_quote_message_offer_quoterep_group_index = true
 show.d_c_quote_message_clearing_dataset_group_index = true
@@ -552,36 +552,6 @@ show.d_c_quote_request_message_rf_q_optional_fields_group_index = true
 
 -- Register Euronext Optiq DropCopyGateway Sbe 6.63 Show Options
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_ack_qualifiers = Pref.bool("Show Ack Qualifiers", show.ack_qualifiers, "Parse and add Ack Qualifiers to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_group = Pref.bool("Show D C Long Order Message Additional Infos Group", show.d_c_long_order_message_additional_infos_group, "Parse and add D C Long Order Message Additional Infos Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_groups = Pref.bool("Show D C Long Order Message Additional Infos Groups", show.d_c_long_order_message_additional_infos_groups, "Parse and add D C Long Order Message Additional Infos Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_group = Pref.bool("Show D C Long Order Message Clearing Fields Group", show.d_c_long_order_message_clearing_fields_group, "Parse and add D C Long Order Message Clearing Fields Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_groups = Pref.bool("Show D C Long Order Message Clearing Fields Groups", show.d_c_long_order_message_clearing_fields_groups, "Parse and add D C Long Order Message Clearing Fields Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_group = Pref.bool("Show D C Long Order Message Commercial Fields Group", show.d_c_long_order_message_commercial_fields_group, "Parse and add D C Long Order Message Commercial Fields Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_groups = Pref.bool("Show D C Long Order Message Commercial Fields Groups", show.d_c_long_order_message_commercial_fields_groups, "Parse and add D C Long Order Message Commercial Fields Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_group = Pref.bool("Show D C Long Order Message Extended Clearing Account Group", show.d_c_long_order_message_extended_clearing_account_group, "Parse and add D C Long Order Message Extended Clearing Account Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_groups = Pref.bool("Show D C Long Order Message Extended Clearing Account Groups", show.d_c_long_order_message_extended_clearing_account_groups, "Parse and add D C Long Order Message Extended Clearing Account Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_group = Pref.bool("Show D C Long Order Message Free Text Section Group", show.d_c_long_order_message_free_text_section_group, "Parse and add D C Long Order Message Free Text Section Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_groups = Pref.bool("Show D C Long Order Message Free Text Section Groups", show.d_c_long_order_message_free_text_section_groups, "Parse and add D C Long Order Message Free Text Section Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_group = Pref.bool("Show D C Long Order Message Modifiable Commercial Investor Field Group", show.d_c_long_order_message_modifiable_commercial_investor_field_group, "Parse and add D C Long Order Message Modifiable Commercial Investor Field Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_groups = Pref.bool("Show D C Long Order Message Modifiable Commercial Investor Field Groups", show.d_c_long_order_message_modifiable_commercial_investor_field_groups, "Parse and add D C Long Order Message Modifiable Commercial Investor Field Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_group = Pref.bool("Show D C Long Order Message Modifiable Short Codes Group", show.d_c_long_order_message_modifiable_short_codes_group, "Parse and add D C Long Order Message Modifiable Short Codes Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_groups = Pref.bool("Show D C Long Order Message Modifiable Short Codes Groups", show.d_c_long_order_message_modifiable_short_codes_groups, "Parse and add D C Long Order Message Modifiable Short Codes Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_group = Pref.bool("Show D C Long Order Message Non Modifiable Commercial Investor Field Group", show.d_c_long_order_message_non_modifiable_commercial_investor_field_group, "Parse and add D C Long Order Message Non Modifiable Commercial Investor Field Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_groups = Pref.bool("Show D C Long Order Message Non Modifiable Commercial Investor Field Groups", show.d_c_long_order_message_non_modifiable_commercial_investor_field_groups, "Parse and add D C Long Order Message Non Modifiable Commercial Investor Field Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_group = Pref.bool("Show D C Long Order Message Non Modifiable Opt Fields Group", show.d_c_long_order_message_non_modifiable_opt_fields_group, "Parse and add D C Long Order Message Non Modifiable Opt Fields Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_groups = Pref.bool("Show D C Long Order Message Non Modifiable Opt Fields Groups", show.d_c_long_order_message_non_modifiable_opt_fields_groups, "Parse and add D C Long Order Message Non Modifiable Opt Fields Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_group = Pref.bool("Show D C Long Order Message Non Modifiable Short Codes Group", show.d_c_long_order_message_non_modifiable_short_codes_group, "Parse and add D C Long Order Message Non Modifiable Short Codes Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_groups = Pref.bool("Show D C Long Order Message Non Modifiable Short Codes Groups", show.d_c_long_order_message_non_modifiable_short_codes_groups, "Parse and add D C Long Order Message Non Modifiable Short Codes Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_group = Pref.bool("Show D C Long Order Message Optional Fields Derivatives Group", show.d_c_long_order_message_optional_fields_derivatives_group, "Parse and add D C Long Order Message Optional Fields Derivatives Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_groups = Pref.bool("Show D C Long Order Message Optional Fields Derivatives Groups", show.d_c_long_order_message_optional_fields_derivatives_groups, "Parse and add D C Long Order Message Optional Fields Derivatives Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_group = Pref.bool("Show D C Long Order Message Optional Fields Group", show.d_c_long_order_message_optional_fields_group, "Parse and add D C Long Order Message Optional Fields Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_groups = Pref.bool("Show D C Long Order Message Optional Fields Groups", show.d_c_long_order_message_optional_fields_groups, "Parse and add D C Long Order Message Optional Fields Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_group = Pref.bool("Show D C Long Order Message Short Codes Details Modifiable Group", show.d_c_long_order_message_short_codes_details_modifiable_group, "Parse and add D C Long Order Message Short Codes Details Modifiable Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_groups = Pref.bool("Show D C Long Order Message Short Codes Details Modifiable Groups", show.d_c_long_order_message_short_codes_details_modifiable_groups, "Parse and add D C Long Order Message Short Codes Details Modifiable Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_group = Pref.bool("Show D C Long Order Message Short Codes Details Non Modifiable Group", show.d_c_long_order_message_short_codes_details_non_modifiable_group, "Parse and add D C Long Order Message Short Codes Details Non Modifiable Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_groups = Pref.bool("Show D C Long Order Message Short Codes Details Non Modifiable Groups", show.d_c_long_order_message_short_codes_details_non_modifiable_groups, "Parse and add D C Long Order Message Short Codes Details Non Modifiable Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_group = Pref.bool("Show D C Long Order Message Strategy Fields Group", show.d_c_long_order_message_strategy_fields_group, "Parse and add D C Long Order Message Strategy Fields Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_groups = Pref.bool("Show D C Long Order Message Strategy Fields Groups", show.d_c_long_order_message_strategy_fields_groups, "Parse and add D C Long Order Message Strategy Fields Groups to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_bid_quoterep_group = Pref.bool("Show D C Quote Message Bid Quoterep Group", show.d_c_quote_message_bid_quoterep_group, "Parse and add D C Quote Message Bid Quoterep Group to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_bid_quoterep_groups = Pref.bool("Show D C Quote Message Bid Quoterep Groups", show.d_c_quote_message_bid_quoterep_groups, "Parse and add D C Quote Message Bid Quoterep Groups to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_clearing_dataset_group = Pref.bool("Show D C Quote Message Clearing Dataset Group", show.d_c_quote_message_clearing_dataset_group, "Parse and add D C Quote Message Clearing Dataset Group to protocol tree")
@@ -606,10 +576,6 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_short_trade_declarat
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_short_trade_declaration_message_short_trade_declarations_groups = Pref.bool("Show D C Short Trade Declaration Message Short Trade Declarations Groups", show.d_c_short_trade_declaration_message_short_trade_declarations_groups, "Parse and add D C Short Trade Declaration Message Short Trade Declarations Groups to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_static_collars_message_static_collarsrep_group = Pref.bool("Show D C Static Collars Message Static Collarsrep Group", show.d_c_static_collars_message_static_collarsrep_group, "Parse and add D C Static Collars Message Static Collarsrep Group to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_static_collars_message_static_collarsrep_groups = Pref.bool("Show D C Static Collars Message Static Collarsrep Groups", show.d_c_static_collars_message_static_collarsrep_groups, "Parse and add D C Static Collars Message Static Collarsrep Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_group = Pref.bool("Show D C Trade Bust Notification Message Short Codes Details Modifiable Group", show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group, "Parse and add D C Trade Bust Notification Message Short Codes Details Modifiable Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_groups = Pref.bool("Show D C Trade Bust Notification Message Short Codes Details Modifiable Groups", show.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups, "Parse and add D C Trade Bust Notification Message Short Codes Details Modifiable Groups to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group = Pref.bool("Show D C Trade Bust Notification Message Short Codes Details Non Modifiable Group", show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group, "Parse and add D C Trade Bust Notification Message Short Codes Details Non Modifiable Group to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups = Pref.bool("Show D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups", show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups, "Parse and add D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_message_matched_declarations_group = Pref.bool("Show D C Trade Message Matched Declarations Group", show.d_c_trade_message_matched_declarations_group, "Parse and add D C Trade Message Matched Declarations Group to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_message_matched_declarations_groups = Pref.bool("Show D C Trade Message Matched Declarations Groups", show.d_c_trade_message_matched_declarations_groups, "Parse and add D C Trade Message Matched Declarations Groups to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_message_matched_orders_group = Pref.bool("Show D C Trade Message Matched Orders Group", show.d_c_trade_message_matched_orders_group, "Parse and add D C Trade Message Matched Orders Group to protocol tree")
@@ -619,6 +585,36 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_application_messages = P
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_execution_instruction_execution_instructionset = Pref.bool("Show Execution Instruction Execution Instructionset", show.execution_instruction_execution_instructionset, "Parse and add Execution Instruction Execution Instructionset to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_execution_instruction_execution_instructionset_optional = Pref.bool("Show Execution Instruction Execution Instructionset optional", show.execution_instruction_execution_instructionset_optional, "Parse and add Execution Instruction Execution Instructionset optional to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_group = Pref.bool("Show Long Order Additional Infos Group", show.long_order_additional_infos_group, "Parse and add Long Order Additional Infos Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_groups = Pref.bool("Show Long Order Additional Infos Groups", show.long_order_additional_infos_groups, "Parse and add Long Order Additional Infos Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_group = Pref.bool("Show Long Order Clearing Fields Group", show.long_order_clearing_fields_group, "Parse and add Long Order Clearing Fields Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_groups = Pref.bool("Show Long Order Clearing Fields Groups", show.long_order_clearing_fields_groups, "Parse and add Long Order Clearing Fields Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_group = Pref.bool("Show Long Order Commercial Fields Group", show.long_order_commercial_fields_group, "Parse and add Long Order Commercial Fields Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_groups = Pref.bool("Show Long Order Commercial Fields Groups", show.long_order_commercial_fields_groups, "Parse and add Long Order Commercial Fields Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_group = Pref.bool("Show Long Order Extended Clearing Account Group", show.long_order_extended_clearing_account_group, "Parse and add Long Order Extended Clearing Account Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_groups = Pref.bool("Show Long Order Extended Clearing Account Groups", show.long_order_extended_clearing_account_groups, "Parse and add Long Order Extended Clearing Account Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_group = Pref.bool("Show Long Order Free Text Section Group", show.long_order_free_text_section_group, "Parse and add Long Order Free Text Section Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_groups = Pref.bool("Show Long Order Free Text Section Groups", show.long_order_free_text_section_groups, "Parse and add Long Order Free Text Section Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_group = Pref.bool("Show Long Order Modifiable Commercial Investor Field Group", show.long_order_modifiable_commercial_investor_field_group, "Parse and add Long Order Modifiable Commercial Investor Field Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_groups = Pref.bool("Show Long Order Modifiable Commercial Investor Field Groups", show.long_order_modifiable_commercial_investor_field_groups, "Parse and add Long Order Modifiable Commercial Investor Field Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_group = Pref.bool("Show Long Order Modifiable Short Codes Group", show.long_order_modifiable_short_codes_group, "Parse and add Long Order Modifiable Short Codes Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_groups = Pref.bool("Show Long Order Modifiable Short Codes Groups", show.long_order_modifiable_short_codes_groups, "Parse and add Long Order Modifiable Short Codes Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_group = Pref.bool("Show Long Order Non Modifiable Commercial Investor Field Group", show.long_order_non_modifiable_commercial_investor_field_group, "Parse and add Long Order Non Modifiable Commercial Investor Field Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_groups = Pref.bool("Show Long Order Non Modifiable Commercial Investor Field Groups", show.long_order_non_modifiable_commercial_investor_field_groups, "Parse and add Long Order Non Modifiable Commercial Investor Field Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_group = Pref.bool("Show Long Order Non Modifiable Opt Fields Group", show.long_order_non_modifiable_opt_fields_group, "Parse and add Long Order Non Modifiable Opt Fields Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_groups = Pref.bool("Show Long Order Non Modifiable Opt Fields Groups", show.long_order_non_modifiable_opt_fields_groups, "Parse and add Long Order Non Modifiable Opt Fields Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_group = Pref.bool("Show Long Order Non Modifiable Short Codes Group", show.long_order_non_modifiable_short_codes_group, "Parse and add Long Order Non Modifiable Short Codes Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_groups = Pref.bool("Show Long Order Non Modifiable Short Codes Groups", show.long_order_non_modifiable_short_codes_groups, "Parse and add Long Order Non Modifiable Short Codes Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_group = Pref.bool("Show Long Order Optional Fields Derivatives Group", show.long_order_optional_fields_derivatives_group, "Parse and add Long Order Optional Fields Derivatives Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_groups = Pref.bool("Show Long Order Optional Fields Derivatives Groups", show.long_order_optional_fields_derivatives_groups, "Parse and add Long Order Optional Fields Derivatives Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_group = Pref.bool("Show Long Order Optional Fields Group", show.long_order_optional_fields_group, "Parse and add Long Order Optional Fields Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_groups = Pref.bool("Show Long Order Optional Fields Groups", show.long_order_optional_fields_groups, "Parse and add Long Order Optional Fields Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_group = Pref.bool("Show Long Order Short Codes Details Modifiable Group", show.long_order_short_codes_details_modifiable_group, "Parse and add Long Order Short Codes Details Modifiable Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_groups = Pref.bool("Show Long Order Short Codes Details Modifiable Groups", show.long_order_short_codes_details_modifiable_groups, "Parse and add Long Order Short Codes Details Modifiable Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_group = Pref.bool("Show Long Order Short Codes Details Non Modifiable Group", show.long_order_short_codes_details_non_modifiable_group, "Parse and add Long Order Short Codes Details Non Modifiable Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_groups = Pref.bool("Show Long Order Short Codes Details Non Modifiable Groups", show.long_order_short_codes_details_non_modifiable_groups, "Parse and add Long Order Short Codes Details Non Modifiable Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_group = Pref.bool("Show Long Order Strategy Fields Group", show.long_order_strategy_fields_group, "Parse and add Long Order Strategy Fields Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_groups = Pref.bool("Show Long Order Strategy Fields Groups", show.long_order_strategy_fields_groups, "Parse and add Long Order Strategy Fields Groups to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_mi_fid_indicators_mi_fid_indicatorsset = Pref.bool("Show Mi Fid Indicators Mi Fid Indicatorsset", show.mi_fid_indicators_mi_fid_indicatorsset, "Parse and add Mi Fid Indicators Mi Fid Indicatorsset to protocol tree")
@@ -626,29 +622,33 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_mi_fid_indicators_mi_fid
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_open_close = Pref.bool("Show Open Close", show.open_close, "Parse and add Open Close to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_phase_qualifier = Pref.bool("Show Phase Qualifier", show.phase_qualifier, "Parse and add Phase Qualifier to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_group = Pref.bool("Show Trade Bust Notification Short Codes Details Modifiable Group", show.trade_bust_notification_short_codes_details_modifiable_group, "Parse and add Trade Bust Notification Short Codes Details Modifiable Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_groups = Pref.bool("Show Trade Bust Notification Short Codes Details Modifiable Groups", show.trade_bust_notification_short_codes_details_modifiable_groups, "Parse and add Trade Bust Notification Short Codes Details Modifiable Groups to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_group = Pref.bool("Show Trade Bust Notification Short Codes Details Non Modifiable Group", show.trade_bust_notification_short_codes_details_non_modifiable_group, "Parse and add Trade Bust Notification Short Codes Details Non Modifiable Group to protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_groups = Pref.bool("Show Trade Bust Notification Short Codes Details Non Modifiable Groups", show.trade_bust_notification_short_codes_details_non_modifiable_groups, "Parse and add Trade Bust Notification Short Codes Details Non Modifiable Groups to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_qualifier_trade_qualifierset = Pref.bool("Show Trade Qualifier Trade Qualifierset", show.trade_qualifier_trade_qualifierset, "Parse and add Trade Qualifier Trade Qualifierset to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_qualifier_trade_qualifierset_optional = Pref.bool("Show Trade Qualifier Trade Qualifierset optional", show.trade_qualifier_trade_qualifierset_optional, "Parse and add Trade Qualifier Trade Qualifierset optional to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trading_session = Pref.bool("Show Trading Session", show.trading_session, "Parse and add Trading Session to protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_group_index = Pref.bool("Show D C Long Order Message Free Text Section Group Index", show.d_c_long_order_message_free_text_section_group_index, "Show generated d c long order message free text section group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_group_index = Pref.bool("Show D C Long Order Message Optional Fields Group Index", show.d_c_long_order_message_optional_fields_group_index, "Show generated d c long order message optional fields group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_group_index = Pref.bool("Show D C Long Order Message Clearing Fields Group Index", show.d_c_long_order_message_clearing_fields_group_index, "Show generated d c long order message clearing fields group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_group_index = Pref.bool("Show D C Long Order Message Non Modifiable Opt Fields Group Index", show.d_c_long_order_message_non_modifiable_opt_fields_group_index, "Show generated d c long order message non modifiable opt fields group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_group_index = Pref.bool("Show D C Long Order Message Non Modifiable Short Codes Group Index", show.d_c_long_order_message_non_modifiable_short_codes_group_index, "Show generated d c long order message non modifiable short codes group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_group_index = Pref.bool("Show D C Long Order Message Modifiable Short Codes Group Index", show.d_c_long_order_message_modifiable_short_codes_group_index, "Show generated d c long order message modifiable short codes group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_group_index = Pref.bool("Show D C Long Order Message Commercial Fields Group Index", show.d_c_long_order_message_commercial_fields_group_index, "Show generated d c long order message commercial fields group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_group_index = Pref.bool("Show D C Long Order Message Modifiable Commercial Investor Field Group Index", show.d_c_long_order_message_modifiable_commercial_investor_field_group_index, "Show generated d c long order message modifiable commercial investor field group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_group_index = Pref.bool("Show D C Long Order Message Non Modifiable Commercial Investor Field Group Index", show.d_c_long_order_message_non_modifiable_commercial_investor_field_group_index, "Show generated d c long order message non modifiable commercial investor field group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_group_index = Pref.bool("Show D C Long Order Message Extended Clearing Account Group Index", show.d_c_long_order_message_extended_clearing_account_group_index, "Show generated d c long order message extended clearing account group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_group_index = Pref.bool("Show D C Long Order Message Strategy Fields Group Index", show.d_c_long_order_message_strategy_fields_group_index, "Show generated d c long order message strategy fields group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_group_index = Pref.bool("Show D C Long Order Message Optional Fields Derivatives Group Index", show.d_c_long_order_message_optional_fields_derivatives_group_index, "Show generated d c long order message optional fields derivatives group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_group_index = Pref.bool("Show D C Long Order Message Additional Infos Group Index", show.d_c_long_order_message_additional_infos_group_index, "Show generated d c long order message additional infos group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_group_index = Pref.bool("Show D C Long Order Message Short Codes Details Non Modifiable Group Index", show.d_c_long_order_message_short_codes_details_non_modifiable_group_index, "Show generated d c long order message short codes details non modifiable group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_group_index = Pref.bool("Show D C Long Order Message Short Codes Details Modifiable Group Index", show.d_c_long_order_message_short_codes_details_modifiable_group_index, "Show generated d c long order message short codes details modifiable group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_group_index = Pref.bool("Show Long Order Free Text Section Group Index", show.long_order_free_text_section_group_index, "Show generated long order free text section group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_group_index = Pref.bool("Show Long Order Optional Fields Group Index", show.long_order_optional_fields_group_index, "Show generated long order optional fields group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_group_index = Pref.bool("Show Long Order Clearing Fields Group Index", show.long_order_clearing_fields_group_index, "Show generated long order clearing fields group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_group_index = Pref.bool("Show Long Order Non Modifiable Opt Fields Group Index", show.long_order_non_modifiable_opt_fields_group_index, "Show generated long order non modifiable opt fields group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_group_index = Pref.bool("Show Long Order Non Modifiable Short Codes Group Index", show.long_order_non_modifiable_short_codes_group_index, "Show generated long order non modifiable short codes group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_group_index = Pref.bool("Show Long Order Modifiable Short Codes Group Index", show.long_order_modifiable_short_codes_group_index, "Show generated long order modifiable short codes group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_group_index = Pref.bool("Show Long Order Commercial Fields Group Index", show.long_order_commercial_fields_group_index, "Show generated long order commercial fields group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_group_index = Pref.bool("Show Long Order Modifiable Commercial Investor Field Group Index", show.long_order_modifiable_commercial_investor_field_group_index, "Show generated long order modifiable commercial investor field group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_group_index = Pref.bool("Show Long Order Non Modifiable Commercial Investor Field Group Index", show.long_order_non_modifiable_commercial_investor_field_group_index, "Show generated long order non modifiable commercial investor field group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_group_index = Pref.bool("Show Long Order Extended Clearing Account Group Index", show.long_order_extended_clearing_account_group_index, "Show generated long order extended clearing account group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_group_index = Pref.bool("Show Long Order Strategy Fields Group Index", show.long_order_strategy_fields_group_index, "Show generated long order strategy fields group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_group_index = Pref.bool("Show Long Order Optional Fields Derivatives Group Index", show.long_order_optional_fields_derivatives_group_index, "Show generated long order optional fields derivatives group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_group_index = Pref.bool("Show Long Order Additional Infos Group Index", show.long_order_additional_infos_group_index, "Show generated long order additional infos group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_group_index = Pref.bool("Show Long Order Short Codes Details Non Modifiable Group Index", show.long_order_short_codes_details_non_modifiable_group_index, "Show generated long order short codes details non modifiable group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_group_index = Pref.bool("Show Long Order Short Codes Details Modifiable Group Index", show.long_order_short_codes_details_modifiable_group_index, "Show generated long order short codes details modifiable group index in protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_short_order_reject_message_modifiable_short_codes_group_index = Pref.bool("Show D C Short Order Reject Message Modifiable Short Codes Group Index", show.d_c_short_order_reject_message_modifiable_short_codes_group_index, "Show generated d c short order reject message modifiable short codes group index in protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_short_order_reject_message_short_codes_details_modifiable_group_index = Pref.bool("Show D C Short Order Reject Message Short Codes Details Modifiable Group Index", show.d_c_short_order_reject_message_short_codes_details_modifiable_group_index, "Show generated d c short order reject message short codes details modifiable group index in protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_static_collars_message_static_collarsrep_group_index = Pref.bool("Show D C Static Collars Message Static Collarsrep Group Index", show.d_c_static_collars_message_static_collarsrep_group_index, "Show generated d c static collars message static collarsrep group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index = Pref.bool("Show D C Trade Bust Notification Message Short Codes Details Non Modifiable Group Index", show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index, "Show generated d c trade bust notification message short codes details non modifiable group index in protocol tree")
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index = Pref.bool("Show D C Trade Bust Notification Message Short Codes Details Modifiable Group Index", show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index, "Show generated d c trade bust notification message short codes details modifiable group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_group_index = Pref.bool("Show Trade Bust Notification Short Codes Details Non Modifiable Group Index", show.trade_bust_notification_short_codes_details_non_modifiable_group_index, "Show generated trade bust notification short codes details non modifiable group index in protocol tree")
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_group_index = Pref.bool("Show Trade Bust Notification Short Codes Details Modifiable Group Index", show.trade_bust_notification_short_codes_details_modifiable_group_index, "Show generated trade bust notification short codes details modifiable group index in protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_bid_quoterep_group_index = Pref.bool("Show D C Quote Message Bid Quoterep Group Index", show.d_c_quote_message_bid_quoterep_group_index, "Show generated d c quote message bid quoterep group index in protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_offer_quoterep_group_index = Pref.bool("Show D C Quote Message Offer Quoterep Group Index", show.d_c_quote_message_offer_quoterep_group_index, "Show generated d c quote message offer quoterep group index in protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_clearing_dataset_group_index = Pref.bool("Show D C Quote Message Clearing Dataset Group Index", show.d_c_quote_message_clearing_dataset_group_index, "Show generated d c quote message clearing dataset group index in protocol tree")
@@ -671,96 +671,6 @@ function omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs_changed()
   end
   if show.application_messages ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_application_messages then
     show.application_messages = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_application_messages
-  end
-  if show.d_c_long_order_message_additional_infos_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_group then
-    show.d_c_long_order_message_additional_infos_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_group
-  end
-  if show.d_c_long_order_message_additional_infos_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_groups then
-    show.d_c_long_order_message_additional_infos_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_groups
-  end
-  if show.d_c_long_order_message_clearing_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_group then
-    show.d_c_long_order_message_clearing_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_group
-  end
-  if show.d_c_long_order_message_clearing_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_groups then
-    show.d_c_long_order_message_clearing_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_groups
-  end
-  if show.d_c_long_order_message_commercial_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_group then
-    show.d_c_long_order_message_commercial_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_group
-  end
-  if show.d_c_long_order_message_commercial_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_groups then
-    show.d_c_long_order_message_commercial_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_groups
-  end
-  if show.d_c_long_order_message_extended_clearing_account_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_group then
-    show.d_c_long_order_message_extended_clearing_account_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_group
-  end
-  if show.d_c_long_order_message_extended_clearing_account_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_groups then
-    show.d_c_long_order_message_extended_clearing_account_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_groups
-  end
-  if show.d_c_long_order_message_free_text_section_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_group then
-    show.d_c_long_order_message_free_text_section_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_group
-  end
-  if show.d_c_long_order_message_free_text_section_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_groups then
-    show.d_c_long_order_message_free_text_section_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_groups
-  end
-  if show.d_c_long_order_message_modifiable_commercial_investor_field_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_group then
-    show.d_c_long_order_message_modifiable_commercial_investor_field_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_group
-  end
-  if show.d_c_long_order_message_modifiable_commercial_investor_field_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_groups then
-    show.d_c_long_order_message_modifiable_commercial_investor_field_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_groups
-  end
-  if show.d_c_long_order_message_modifiable_short_codes_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_group then
-    show.d_c_long_order_message_modifiable_short_codes_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_group
-  end
-  if show.d_c_long_order_message_modifiable_short_codes_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_groups then
-    show.d_c_long_order_message_modifiable_short_codes_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_groups
-  end
-  if show.d_c_long_order_message_non_modifiable_commercial_investor_field_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_group then
-    show.d_c_long_order_message_non_modifiable_commercial_investor_field_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_group
-  end
-  if show.d_c_long_order_message_non_modifiable_commercial_investor_field_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_groups then
-    show.d_c_long_order_message_non_modifiable_commercial_investor_field_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_groups
-  end
-  if show.d_c_long_order_message_non_modifiable_opt_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_group then
-    show.d_c_long_order_message_non_modifiable_opt_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_group
-  end
-  if show.d_c_long_order_message_non_modifiable_opt_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_groups then
-    show.d_c_long_order_message_non_modifiable_opt_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_groups
-  end
-  if show.d_c_long_order_message_non_modifiable_short_codes_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_group then
-    show.d_c_long_order_message_non_modifiable_short_codes_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_group
-  end
-  if show.d_c_long_order_message_non_modifiable_short_codes_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_groups then
-    show.d_c_long_order_message_non_modifiable_short_codes_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_groups
-  end
-  if show.d_c_long_order_message_optional_fields_derivatives_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_group then
-    show.d_c_long_order_message_optional_fields_derivatives_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_group
-  end
-  if show.d_c_long_order_message_optional_fields_derivatives_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_groups then
-    show.d_c_long_order_message_optional_fields_derivatives_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_groups
-  end
-  if show.d_c_long_order_message_optional_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_group then
-    show.d_c_long_order_message_optional_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_group
-  end
-  if show.d_c_long_order_message_optional_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_groups then
-    show.d_c_long_order_message_optional_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_groups
-  end
-  if show.d_c_long_order_message_short_codes_details_modifiable_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_group then
-    show.d_c_long_order_message_short_codes_details_modifiable_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_group
-  end
-  if show.d_c_long_order_message_short_codes_details_modifiable_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_groups then
-    show.d_c_long_order_message_short_codes_details_modifiable_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_groups
-  end
-  if show.d_c_long_order_message_short_codes_details_non_modifiable_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_group then
-    show.d_c_long_order_message_short_codes_details_non_modifiable_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_group
-  end
-  if show.d_c_long_order_message_short_codes_details_non_modifiable_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_groups then
-    show.d_c_long_order_message_short_codes_details_non_modifiable_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_groups
-  end
-  if show.d_c_long_order_message_strategy_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_group then
-    show.d_c_long_order_message_strategy_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_group
-  end
-  if show.d_c_long_order_message_strategy_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_groups then
-    show.d_c_long_order_message_strategy_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_groups
   end
   if show.d_c_quote_message_bid_quoterep_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_bid_quoterep_group then
     show.d_c_quote_message_bid_quoterep_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_bid_quoterep_group
@@ -834,18 +744,6 @@ function omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs_changed()
   if show.d_c_static_collars_message_static_collarsrep_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_static_collars_message_static_collarsrep_groups then
     show.d_c_static_collars_message_static_collarsrep_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_static_collars_message_static_collarsrep_groups
   end
-  if show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_group then
-    show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_group
-  end
-  if show.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_groups then
-    show.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_groups
-  end
-  if show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group then
-    show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group
-  end
-  if show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups then
-    show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups
-  end
   if show.d_c_trade_message_matched_declarations_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_message_matched_declarations_group then
     show.d_c_trade_message_matched_declarations_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_message_matched_declarations_group
   end
@@ -870,6 +768,96 @@ function omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs_changed()
   if show.group_size_encoding ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_group_size_encoding then
     show.group_size_encoding = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_group_size_encoding
   end
+  if show.long_order_additional_infos_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_group then
+    show.long_order_additional_infos_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_group
+  end
+  if show.long_order_additional_infos_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_groups then
+    show.long_order_additional_infos_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_groups
+  end
+  if show.long_order_clearing_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_group then
+    show.long_order_clearing_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_group
+  end
+  if show.long_order_clearing_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_groups then
+    show.long_order_clearing_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_groups
+  end
+  if show.long_order_commercial_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_group then
+    show.long_order_commercial_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_group
+  end
+  if show.long_order_commercial_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_groups then
+    show.long_order_commercial_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_groups
+  end
+  if show.long_order_extended_clearing_account_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_group then
+    show.long_order_extended_clearing_account_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_group
+  end
+  if show.long_order_extended_clearing_account_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_groups then
+    show.long_order_extended_clearing_account_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_groups
+  end
+  if show.long_order_free_text_section_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_group then
+    show.long_order_free_text_section_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_group
+  end
+  if show.long_order_free_text_section_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_groups then
+    show.long_order_free_text_section_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_groups
+  end
+  if show.long_order_modifiable_commercial_investor_field_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_group then
+    show.long_order_modifiable_commercial_investor_field_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_group
+  end
+  if show.long_order_modifiable_commercial_investor_field_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_groups then
+    show.long_order_modifiable_commercial_investor_field_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_groups
+  end
+  if show.long_order_modifiable_short_codes_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_group then
+    show.long_order_modifiable_short_codes_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_group
+  end
+  if show.long_order_modifiable_short_codes_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_groups then
+    show.long_order_modifiable_short_codes_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_groups
+  end
+  if show.long_order_non_modifiable_commercial_investor_field_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_group then
+    show.long_order_non_modifiable_commercial_investor_field_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_group
+  end
+  if show.long_order_non_modifiable_commercial_investor_field_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_groups then
+    show.long_order_non_modifiable_commercial_investor_field_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_groups
+  end
+  if show.long_order_non_modifiable_opt_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_group then
+    show.long_order_non_modifiable_opt_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_group
+  end
+  if show.long_order_non_modifiable_opt_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_groups then
+    show.long_order_non_modifiable_opt_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_groups
+  end
+  if show.long_order_non_modifiable_short_codes_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_group then
+    show.long_order_non_modifiable_short_codes_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_group
+  end
+  if show.long_order_non_modifiable_short_codes_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_groups then
+    show.long_order_non_modifiable_short_codes_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_groups
+  end
+  if show.long_order_optional_fields_derivatives_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_group then
+    show.long_order_optional_fields_derivatives_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_group
+  end
+  if show.long_order_optional_fields_derivatives_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_groups then
+    show.long_order_optional_fields_derivatives_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_groups
+  end
+  if show.long_order_optional_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_group then
+    show.long_order_optional_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_group
+  end
+  if show.long_order_optional_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_groups then
+    show.long_order_optional_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_groups
+  end
+  if show.long_order_short_codes_details_modifiable_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_group then
+    show.long_order_short_codes_details_modifiable_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_group
+  end
+  if show.long_order_short_codes_details_modifiable_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_groups then
+    show.long_order_short_codes_details_modifiable_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_groups
+  end
+  if show.long_order_short_codes_details_non_modifiable_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_group then
+    show.long_order_short_codes_details_non_modifiable_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_group
+  end
+  if show.long_order_short_codes_details_non_modifiable_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_groups then
+    show.long_order_short_codes_details_non_modifiable_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_groups
+  end
+  if show.long_order_strategy_fields_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_group then
+    show.long_order_strategy_fields_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_group
+  end
+  if show.long_order_strategy_fields_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_groups then
+    show.long_order_strategy_fields_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_groups
+  end
   if show.message ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_message then
     show.message = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_message
   end
@@ -891,6 +879,18 @@ function omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs_changed()
   if show.phase_qualifier ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_phase_qualifier then
     show.phase_qualifier = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_phase_qualifier
   end
+  if show.trade_bust_notification_short_codes_details_modifiable_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_group then
+    show.trade_bust_notification_short_codes_details_modifiable_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_group
+  end
+  if show.trade_bust_notification_short_codes_details_modifiable_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_groups then
+    show.trade_bust_notification_short_codes_details_modifiable_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_groups
+  end
+  if show.trade_bust_notification_short_codes_details_non_modifiable_group ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_group then
+    show.trade_bust_notification_short_codes_details_non_modifiable_group = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_group
+  end
+  if show.trade_bust_notification_short_codes_details_non_modifiable_groups ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_groups then
+    show.trade_bust_notification_short_codes_details_non_modifiable_groups = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_groups
+  end
   if show.trade_qualifier_trade_qualifierset ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_qualifier_trade_qualifierset then
     show.trade_qualifier_trade_qualifierset = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_qualifier_trade_qualifierset
   end
@@ -900,50 +900,50 @@ function omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs_changed()
   if show.trading_session ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trading_session then
     show.trading_session = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trading_session
   end
-  if show.d_c_long_order_message_free_text_section_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_group_index then
-    show.d_c_long_order_message_free_text_section_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_free_text_section_group_index
+  if show.long_order_free_text_section_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_group_index then
+    show.long_order_free_text_section_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_free_text_section_group_index
   end
-  if show.d_c_long_order_message_optional_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_group_index then
-    show.d_c_long_order_message_optional_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_group_index
+  if show.long_order_optional_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_group_index then
+    show.long_order_optional_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_group_index
   end
-  if show.d_c_long_order_message_clearing_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_group_index then
-    show.d_c_long_order_message_clearing_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_clearing_fields_group_index
+  if show.long_order_clearing_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_group_index then
+    show.long_order_clearing_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_clearing_fields_group_index
   end
-  if show.d_c_long_order_message_non_modifiable_opt_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_group_index then
-    show.d_c_long_order_message_non_modifiable_opt_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_opt_fields_group_index
+  if show.long_order_non_modifiable_opt_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_group_index then
+    show.long_order_non_modifiable_opt_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_opt_fields_group_index
   end
-  if show.d_c_long_order_message_non_modifiable_short_codes_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_group_index then
-    show.d_c_long_order_message_non_modifiable_short_codes_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_short_codes_group_index
+  if show.long_order_non_modifiable_short_codes_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_group_index then
+    show.long_order_non_modifiable_short_codes_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_short_codes_group_index
   end
-  if show.d_c_long_order_message_modifiable_short_codes_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_group_index then
-    show.d_c_long_order_message_modifiable_short_codes_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_short_codes_group_index
+  if show.long_order_modifiable_short_codes_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_group_index then
+    show.long_order_modifiable_short_codes_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_short_codes_group_index
   end
-  if show.d_c_long_order_message_commercial_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_group_index then
-    show.d_c_long_order_message_commercial_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_commercial_fields_group_index
+  if show.long_order_commercial_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_group_index then
+    show.long_order_commercial_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_commercial_fields_group_index
   end
-  if show.d_c_long_order_message_modifiable_commercial_investor_field_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_group_index then
-    show.d_c_long_order_message_modifiable_commercial_investor_field_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_modifiable_commercial_investor_field_group_index
+  if show.long_order_modifiable_commercial_investor_field_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_group_index then
+    show.long_order_modifiable_commercial_investor_field_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_modifiable_commercial_investor_field_group_index
   end
-  if show.d_c_long_order_message_non_modifiable_commercial_investor_field_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_group_index then
-    show.d_c_long_order_message_non_modifiable_commercial_investor_field_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_non_modifiable_commercial_investor_field_group_index
+  if show.long_order_non_modifiable_commercial_investor_field_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_group_index then
+    show.long_order_non_modifiable_commercial_investor_field_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_non_modifiable_commercial_investor_field_group_index
   end
-  if show.d_c_long_order_message_extended_clearing_account_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_group_index then
-    show.d_c_long_order_message_extended_clearing_account_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_extended_clearing_account_group_index
+  if show.long_order_extended_clearing_account_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_group_index then
+    show.long_order_extended_clearing_account_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_extended_clearing_account_group_index
   end
-  if show.d_c_long_order_message_strategy_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_group_index then
-    show.d_c_long_order_message_strategy_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_strategy_fields_group_index
+  if show.long_order_strategy_fields_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_group_index then
+    show.long_order_strategy_fields_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_strategy_fields_group_index
   end
-  if show.d_c_long_order_message_optional_fields_derivatives_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_group_index then
-    show.d_c_long_order_message_optional_fields_derivatives_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_optional_fields_derivatives_group_index
+  if show.long_order_optional_fields_derivatives_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_group_index then
+    show.long_order_optional_fields_derivatives_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_optional_fields_derivatives_group_index
   end
-  if show.d_c_long_order_message_additional_infos_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_group_index then
-    show.d_c_long_order_message_additional_infos_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_additional_infos_group_index
+  if show.long_order_additional_infos_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_group_index then
+    show.long_order_additional_infos_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_additional_infos_group_index
   end
-  if show.d_c_long_order_message_short_codes_details_non_modifiable_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_group_index then
-    show.d_c_long_order_message_short_codes_details_non_modifiable_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_non_modifiable_group_index
+  if show.long_order_short_codes_details_non_modifiable_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_group_index then
+    show.long_order_short_codes_details_non_modifiable_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_non_modifiable_group_index
   end
-  if show.d_c_long_order_message_short_codes_details_modifiable_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_group_index then
-    show.d_c_long_order_message_short_codes_details_modifiable_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_long_order_message_short_codes_details_modifiable_group_index
+  if show.long_order_short_codes_details_modifiable_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_group_index then
+    show.long_order_short_codes_details_modifiable_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_long_order_short_codes_details_modifiable_group_index
   end
   if show.d_c_short_order_reject_message_modifiable_short_codes_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_short_order_reject_message_modifiable_short_codes_group_index then
     show.d_c_short_order_reject_message_modifiable_short_codes_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_short_order_reject_message_modifiable_short_codes_group_index
@@ -954,11 +954,11 @@ function omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs_changed()
   if show.d_c_static_collars_message_static_collarsrep_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_static_collars_message_static_collarsrep_group_index then
     show.d_c_static_collars_message_static_collarsrep_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_static_collars_message_static_collarsrep_group_index
   end
-  if show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index then
-    show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index
+  if show.trade_bust_notification_short_codes_details_non_modifiable_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_group_index then
+    show.trade_bust_notification_short_codes_details_non_modifiable_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_non_modifiable_group_index
   end
-  if show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index then
-    show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index
+  if show.trade_bust_notification_short_codes_details_modifiable_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_group_index then
+    show.trade_bust_notification_short_codes_details_modifiable_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_trade_bust_notification_short_codes_details_modifiable_group_index
   end
   if show.d_c_quote_message_bid_quoterep_group_index ~= omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_bid_quoterep_group_index then
     show.d_c_quote_message_bid_quoterep_group_index = omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_d_c_quote_message_bid_quoterep_group_index
@@ -12763,27 +12763,27 @@ euronext_optiq_dropcopygateway_sbe_v6_63.dc_quote_message.dissect = function(buf
   end
 end
 
--- D C Trade Bust Notification Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group = {}
+-- Trade Bust Notification Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group = {}
 
--- Size: D C Trade Bust Notification Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group.size =
+-- Size: Trade Bust Notification Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.event_short_code_type.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.short_code_role.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.short_code_role_qualifier.size
 
--- Display: D C Trade Bust Notification Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group.display = function(packet, parent, length)
+-- Display: Trade Bust Notification Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Trade Bust Notification Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group.fields = function(buffer, offset, packet, parent, d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index)
+-- Dissect Fields: Trade Bust Notification Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group.fields = function(buffer, offset, packet, parent, trade_bust_notification_short_codes_details_modifiable_group_index)
   local index = offset
 
-  -- Implicit D C Trade Bust Notification Message Short Codes Details Modifiable Group Index
-  if d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index ~= nil and show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index, d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index)
+  -- Implicit Trade Bust Notification Short Codes Details Modifiable Group Index
+  if trade_bust_notification_short_codes_details_modifiable_group_index ~= nil and show.trade_bust_notification_short_codes_details_modifiable_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_modifiable_group_index, trade_bust_notification_short_codes_details_modifiable_group_index)
     iteration:set_generated()
   end
 
@@ -12799,47 +12799,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_sho
   return index
 end
 
--- Dissect: D C Trade Bust Notification Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group.dissect = function(buffer, offset, packet, parent, d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index)
-  if show.d_c_trade_bust_notification_message_short_codes_details_modifiable_group then
+-- Dissect: Trade Bust Notification Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group.dissect = function(buffer, offset, packet, parent, trade_bust_notification_short_codes_details_modifiable_group_index)
+  if show.trade_bust_notification_short_codes_details_modifiable_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_modifiable_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group.fields(buffer, offset, packet, parent, d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_modifiable_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group.fields(buffer, offset, packet, parent, trade_bust_notification_short_codes_details_modifiable_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group.fields(buffer, offset, packet, parent, d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group.fields(buffer, offset, packet, parent, trade_bust_notification_short_codes_details_modifiable_group_index)
   end
 end
 
--- D C Trade Bust Notification Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups = {}
+-- Trade Bust Notification Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups = {}
 
--- Calculate size of: D C Trade Bust Notification Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.size = function(buffer, offset)
+-- Calculate size of: Trade Bust Notification Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_trade_bust_notification_message_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_trade_bust_notification_message_short_codes_details_modifiable_group_count * 3
+  local trade_bust_notification_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + trade_bust_notification_short_codes_details_modifiable_group_count * 3
 
   return index
 end
 
--- Display: D C Trade Bust Notification Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.display = function(packet, parent, length)
+-- Display: Trade Bust Notification Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Trade Bust Notification Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Bust Notification Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -12848,53 +12848,53 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_sho
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Trade Bust Notification Message Short Codes Details Modifiable Group
-  for d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index = 1, num_in_group do
-    index, d_c_trade_bust_notification_message_short_codes_details_modifiable_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_group.dissect(buffer, index, packet, parent, d_c_trade_bust_notification_message_short_codes_details_modifiable_group_index)
+  -- Repeating: Trade Bust Notification Short Codes Details Modifiable Group
+  for trade_bust_notification_short_codes_details_modifiable_group_index = 1, num_in_group do
+    index, trade_bust_notification_short_codes_details_modifiable_group = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_group.dissect(buffer, index, packet, parent, trade_bust_notification_short_codes_details_modifiable_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Trade Bust Notification Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups then
+-- Dissect: Trade Bust Notification Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.dissect = function(buffer, offset, packet, parent)
+  if show.trade_bust_notification_short_codes_details_modifiable_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_modifiable_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Trade Bust Notification Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group = {}
+-- Trade Bust Notification Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group = {}
 
--- Size: D C Trade Bust Notification Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group.size =
+-- Size: Trade Bust Notification Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.original_short_code_type.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.short_code_role.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.short_code_role_qualifier.size
 
--- Display: D C Trade Bust Notification Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group.display = function(packet, parent, length)
+-- Display: Trade Bust Notification Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Trade Bust Notification Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group.fields = function(buffer, offset, packet, parent, d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index)
+-- Dissect Fields: Trade Bust Notification Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group.fields = function(buffer, offset, packet, parent, trade_bust_notification_short_codes_details_non_modifiable_group_index)
   local index = offset
 
-  -- Implicit D C Trade Bust Notification Message Short Codes Details Non Modifiable Group Index
-  if d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index ~= nil and show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index, d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index)
+  -- Implicit Trade Bust Notification Short Codes Details Non Modifiable Group Index
+  if trade_bust_notification_short_codes_details_non_modifiable_group_index ~= nil and show.trade_bust_notification_short_codes_details_non_modifiable_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_non_modifiable_group_index, trade_bust_notification_short_codes_details_non_modifiable_group_index)
     iteration:set_generated()
   end
 
@@ -12910,47 +12910,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_sho
   return index
 end
 
--- Dissect: D C Trade Bust Notification Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group.dissect = function(buffer, offset, packet, parent, d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index)
-  if show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group then
+-- Dissect: Trade Bust Notification Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group.dissect = function(buffer, offset, packet, parent, trade_bust_notification_short_codes_details_non_modifiable_group_index)
+  if show.trade_bust_notification_short_codes_details_non_modifiable_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group.fields(buffer, offset, packet, parent, d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_non_modifiable_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group.fields(buffer, offset, packet, parent, trade_bust_notification_short_codes_details_non_modifiable_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group.fields(buffer, offset, packet, parent, d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group.fields(buffer, offset, packet, parent, trade_bust_notification_short_codes_details_non_modifiable_group_index)
   end
 end
 
--- D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups = {}
+-- Trade Bust Notification Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups = {}
 
--- Calculate size of: D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.size = function(buffer, offset)
+-- Calculate size of: Trade Bust Notification Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_count * 3
+  local trade_bust_notification_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + trade_bust_notification_short_codes_details_non_modifiable_group_count * 3
 
   return index
 end
 
--- Display: D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.display = function(packet, parent, length)
+-- Display: Trade Bust Notification Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Bust Notification Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -12959,37 +12959,37 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_sho
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Trade Bust Notification Message Short Codes Details Non Modifiable Group
-  for d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index = 1, num_in_group do
-    index, d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group.dissect(buffer, index, packet, parent, d_c_trade_bust_notification_message_short_codes_details_non_modifiable_group_index)
+  -- Repeating: Trade Bust Notification Short Codes Details Non Modifiable Group
+  for trade_bust_notification_short_codes_details_non_modifiable_group_index = 1, num_in_group do
+    index, trade_bust_notification_short_codes_details_non_modifiable_group = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_group.dissect(buffer, index, packet, parent, trade_bust_notification_short_codes_details_non_modifiable_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups then
+-- Dissect: Trade Bust Notification Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.dissect = function(buffer, offset, packet, parent)
+  if show.trade_bust_notification_short_codes_details_non_modifiable_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_short_codes_details_non_modifiable_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- Dc Trade Bust Notification Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message = {}
+-- Trade Bust Notification Message
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message = {}
 
--- Calculate size of: Dc Trade Bust Notification Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.size = function(buffer, offset)
+-- Calculate size of: Trade Bust Notification Message
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.msg_seq_num.size
@@ -13076,20 +13076,20 @@ euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.parent_trade_unique_identifier.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.size(buffer, offset + index)
 
   return index
 end
 
--- Display: Dc Trade Bust Notification Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.display = function(packet, parent, length)
+-- Display: Trade Bust Notification Message
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Dc Trade Bust Notification Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Bust Notification Message
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Msg Seq Num: uint32_t
@@ -13218,30 +13218,30 @@ euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.fiel
   -- Parent Trade Unique Identifier: char16
   index, parent_trade_unique_identifier = euronext_optiq_dropcopygateway_sbe_v6_63.parent_trade_unique_identifier.dissect(buffer, index, packet, parent)
 
-  -- D C Trade Bust Notification Message Short Codes Details Non Modifiable Groups: Struct of 2 fields
-  index, d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_non_modifiable_groups.dissect(buffer, index, packet, parent)
+  -- Trade Bust Notification Short Codes Details Non Modifiable Groups: Struct of 2 fields
+  index, trade_bust_notification_short_codes_details_non_modifiable_groups = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_non_modifiable_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Trade Bust Notification Message Short Codes Details Modifiable Groups: Struct of 2 fields
-  index, d_c_trade_bust_notification_message_short_codes_details_modifiable_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_trade_bust_notification_message_short_codes_details_modifiable_groups.dissect(buffer, index, packet, parent)
+  -- Trade Bust Notification Short Codes Details Modifiable Groups: Struct of 2 fields
+  index, trade_bust_notification_short_codes_details_modifiable_groups = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_short_codes_details_modifiable_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Dc Trade Bust Notification Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Trade Bust Notification Message
+euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_trade_bust_notification_message, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.trade_bust_notification_message, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -13958,27 +13958,27 @@ euronext_optiq_dropcopygateway_sbe_v6_63.dc_short_order_reject_message.dissect =
   end
 end
 
--- D C Long Order Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group = {}
+-- Long Order Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group = {}
 
--- Size: D C Long Order Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group.size =
+-- Size: Long Order Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.event_short_code_type.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.short_code_role.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.short_code_role_qualifier.size
 
--- Display: D C Long Order Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group.display = function(packet, parent, length)
+-- Display: Long Order Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_short_codes_details_modifiable_group_index)
+-- Dissect Fields: Long Order Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group.fields = function(buffer, offset, packet, parent, long_order_short_codes_details_modifiable_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Short Codes Details Modifiable Group Index
-  if d_c_long_order_message_short_codes_details_modifiable_group_index ~= nil and show.d_c_long_order_message_short_codes_details_modifiable_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_modifiable_group_index, d_c_long_order_message_short_codes_details_modifiable_group_index)
+  -- Implicit Long Order Short Codes Details Modifiable Group Index
+  if long_order_short_codes_details_modifiable_group_index ~= nil and show.long_order_short_codes_details_modifiable_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_modifiable_group_index, long_order_short_codes_details_modifiable_group_index)
     iteration:set_generated()
   end
 
@@ -13994,47 +13994,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_deta
   return index
 end
 
--- Dissect: D C Long Order Message Short Codes Details Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_short_codes_details_modifiable_group_index)
-  if show.d_c_long_order_message_short_codes_details_modifiable_group then
+-- Dissect: Long Order Short Codes Details Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group.dissect = function(buffer, offset, packet, parent, long_order_short_codes_details_modifiable_group_index)
+  if show.long_order_short_codes_details_modifiable_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_modifiable_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group.fields(buffer, offset, packet, parent, d_c_long_order_message_short_codes_details_modifiable_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_modifiable_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group.fields(buffer, offset, packet, parent, long_order_short_codes_details_modifiable_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group.fields(buffer, offset, packet, parent, d_c_long_order_message_short_codes_details_modifiable_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group.fields(buffer, offset, packet, parent, long_order_short_codes_details_modifiable_group_index)
   end
 end
 
--- D C Long Order Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups = {}
+-- Long Order Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups = {}
 
--- Calculate size of: D C Long Order Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_short_codes_details_modifiable_group_count * 3
+  local long_order_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_short_codes_details_modifiable_group_count * 3
 
   return index
 end
 
--- Display: D C Long Order Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.display = function(packet, parent, length)
+-- Display: Long Order Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14043,53 +14043,53 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_deta
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Short Codes Details Modifiable Group
-  for d_c_long_order_message_short_codes_details_modifiable_group_index = 1, num_in_group do
-    index, d_c_long_order_message_short_codes_details_modifiable_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_group.dissect(buffer, index, packet, parent, d_c_long_order_message_short_codes_details_modifiable_group_index)
+  -- Repeating: Long Order Short Codes Details Modifiable Group
+  for long_order_short_codes_details_modifiable_group_index = 1, num_in_group do
+    index, long_order_short_codes_details_modifiable_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_group.dissect(buffer, index, packet, parent, long_order_short_codes_details_modifiable_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Short Codes Details Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_short_codes_details_modifiable_groups then
+-- Dissect: Long Order Short Codes Details Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_short_codes_details_modifiable_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_modifiable_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_modifiable_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group = {}
+-- Long Order Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group = {}
 
--- Size: D C Long Order Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group.size =
+-- Size: Long Order Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.original_short_code_type.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.short_code_role.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.short_code_role_qualifier.size
 
--- Display: D C Long Order Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group.display = function(packet, parent, length)
+-- Display: Long Order Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_short_codes_details_non_modifiable_group_index)
+-- Dissect Fields: Long Order Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group.fields = function(buffer, offset, packet, parent, long_order_short_codes_details_non_modifiable_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Short Codes Details Non Modifiable Group Index
-  if d_c_long_order_message_short_codes_details_non_modifiable_group_index ~= nil and show.d_c_long_order_message_short_codes_details_non_modifiable_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_non_modifiable_group_index, d_c_long_order_message_short_codes_details_non_modifiable_group_index)
+  -- Implicit Long Order Short Codes Details Non Modifiable Group Index
+  if long_order_short_codes_details_non_modifiable_group_index ~= nil and show.long_order_short_codes_details_non_modifiable_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_non_modifiable_group_index, long_order_short_codes_details_non_modifiable_group_index)
     iteration:set_generated()
   end
 
@@ -14105,47 +14105,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_deta
   return index
 end
 
--- Dissect: D C Long Order Message Short Codes Details Non Modifiable Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_short_codes_details_non_modifiable_group_index)
-  if show.d_c_long_order_message_short_codes_details_non_modifiable_group then
+-- Dissect: Long Order Short Codes Details Non Modifiable Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group.dissect = function(buffer, offset, packet, parent, long_order_short_codes_details_non_modifiable_group_index)
+  if show.long_order_short_codes_details_non_modifiable_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_non_modifiable_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group.fields(buffer, offset, packet, parent, d_c_long_order_message_short_codes_details_non_modifiable_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_non_modifiable_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group.fields(buffer, offset, packet, parent, long_order_short_codes_details_non_modifiable_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group.fields(buffer, offset, packet, parent, d_c_long_order_message_short_codes_details_non_modifiable_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group.fields(buffer, offset, packet, parent, long_order_short_codes_details_non_modifiable_group_index)
   end
 end
 
--- D C Long Order Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups = {}
+-- Long Order Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups = {}
 
--- Calculate size of: D C Long Order Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_short_codes_details_non_modifiable_group_count * 3
+  local long_order_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_short_codes_details_non_modifiable_group_count * 3
 
   return index
 end
 
--- Display: D C Long Order Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.display = function(packet, parent, length)
+-- Display: Long Order Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14154,51 +14154,51 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_deta
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Short Codes Details Non Modifiable Group
-  for d_c_long_order_message_short_codes_details_non_modifiable_group_index = 1, num_in_group do
-    index, d_c_long_order_message_short_codes_details_non_modifiable_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_group.dissect(buffer, index, packet, parent, d_c_long_order_message_short_codes_details_non_modifiable_group_index)
+  -- Repeating: Long Order Short Codes Details Non Modifiable Group
+  for long_order_short_codes_details_non_modifiable_group_index = 1, num_in_group do
+    index, long_order_short_codes_details_non_modifiable_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_group.dissect(buffer, index, packet, parent, long_order_short_codes_details_non_modifiable_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Short Codes Details Non Modifiable Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_short_codes_details_non_modifiable_groups then
+-- Dissect: Long Order Short Codes Details Non Modifiable Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_short_codes_details_non_modifiable_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_short_codes_details_non_modifiable_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_short_codes_details_non_modifiable_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Additional Infos Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group = {}
+-- Long Order Additional Infos Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group = {}
 
--- Size: D C Long Order Message Additional Infos Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group.size =
+-- Size: Long Order Additional Infos Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.long_client_id.size
 
--- Display: D C Long Order Message Additional Infos Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group.display = function(packet, parent, length)
+-- Display: Long Order Additional Infos Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Additional Infos Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_additional_infos_group_index)
+-- Dissect Fields: Long Order Additional Infos Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group.fields = function(buffer, offset, packet, parent, long_order_additional_infos_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Additional Infos Group Index
-  if d_c_long_order_message_additional_infos_group_index ~= nil and show.d_c_long_order_message_additional_infos_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_additional_infos_group_index, d_c_long_order_message_additional_infos_group_index)
+  -- Implicit Long Order Additional Infos Group Index
+  if long_order_additional_infos_group_index ~= nil and show.long_order_additional_infos_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_additional_infos_group_index, long_order_additional_infos_group_index)
     iteration:set_generated()
   end
 
@@ -14208,47 +14208,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos
   return index
 end
 
--- Dissect: D C Long Order Message Additional Infos Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_additional_infos_group_index)
-  if show.d_c_long_order_message_additional_infos_group then
+-- Dissect: Long Order Additional Infos Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group.dissect = function(buffer, offset, packet, parent, long_order_additional_infos_group_index)
+  if show.long_order_additional_infos_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_additional_infos_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group.fields(buffer, offset, packet, parent, d_c_long_order_message_additional_infos_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_additional_infos_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group.fields(buffer, offset, packet, parent, long_order_additional_infos_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group.fields(buffer, offset, packet, parent, d_c_long_order_message_additional_infos_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group.fields(buffer, offset, packet, parent, long_order_additional_infos_group_index)
   end
 end
 
--- D C Long Order Message Additional Infos Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups = {}
+-- Long Order Additional Infos Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups = {}
 
--- Calculate size of: D C Long Order Message Additional Infos Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Additional Infos Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_additional_infos_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_additional_infos_group_count * 16
+  local long_order_additional_infos_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_additional_infos_group_count * 16
 
   return index
 end
 
--- Display: D C Long Order Message Additional Infos Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.display = function(packet, parent, length)
+-- Display: Long Order Additional Infos Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Additional Infos Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Additional Infos Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14257,54 +14257,54 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Additional Infos Group
-  for d_c_long_order_message_additional_infos_group_index = 1, num_in_group do
-    index, d_c_long_order_message_additional_infos_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_group.dissect(buffer, index, packet, parent, d_c_long_order_message_additional_infos_group_index)
+  -- Repeating: Long Order Additional Infos Group
+  for long_order_additional_infos_group_index = 1, num_in_group do
+    index, long_order_additional_infos_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_group.dissect(buffer, index, packet, parent, long_order_additional_infos_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Additional Infos Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_additional_infos_groups then
+-- Dissect: Long Order Additional Infos Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_additional_infos_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_additional_infos_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_additional_infos_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Optional Fields Derivatives Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group = {}
+-- Long Order Optional Fields Derivatives Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group = {}
 
--- Size: D C Long Order Message Optional Fields Derivatives Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group.size =
+-- Size: Long Order Optional Fields Derivatives Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.evaluated_price.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.message_price_notation.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.final_symbol_index.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.final_execution_id.size
 
--- Display: D C Long Order Message Optional Fields Derivatives Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group.display = function(packet, parent, length)
+-- Display: Long Order Optional Fields Derivatives Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Optional Fields Derivatives Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_optional_fields_derivatives_group_index)
+-- Dissect Fields: Long Order Optional Fields Derivatives Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group.fields = function(buffer, offset, packet, parent, long_order_optional_fields_derivatives_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Optional Fields Derivatives Group Index
-  if d_c_long_order_message_optional_fields_derivatives_group_index ~= nil and show.d_c_long_order_message_optional_fields_derivatives_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_derivatives_group_index, d_c_long_order_message_optional_fields_derivatives_group_index)
+  -- Implicit Long Order Optional Fields Derivatives Group Index
+  if long_order_optional_fields_derivatives_group_index ~= nil and show.long_order_optional_fields_derivatives_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_derivatives_group_index, long_order_optional_fields_derivatives_group_index)
     iteration:set_generated()
   end
 
@@ -14323,47 +14323,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_
   return index
 end
 
--- Dissect: D C Long Order Message Optional Fields Derivatives Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_optional_fields_derivatives_group_index)
-  if show.d_c_long_order_message_optional_fields_derivatives_group then
+-- Dissect: Long Order Optional Fields Derivatives Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group.dissect = function(buffer, offset, packet, parent, long_order_optional_fields_derivatives_group_index)
+  if show.long_order_optional_fields_derivatives_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_derivatives_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group.fields(buffer, offset, packet, parent, d_c_long_order_message_optional_fields_derivatives_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_derivatives_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group.fields(buffer, offset, packet, parent, long_order_optional_fields_derivatives_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group.fields(buffer, offset, packet, parent, d_c_long_order_message_optional_fields_derivatives_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group.fields(buffer, offset, packet, parent, long_order_optional_fields_derivatives_group_index)
   end
 end
 
--- D C Long Order Message Optional Fields Derivatives Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups = {}
+-- Long Order Optional Fields Derivatives Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups = {}
 
--- Calculate size of: D C Long Order Message Optional Fields Derivatives Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Optional Fields Derivatives Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_optional_fields_derivatives_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_optional_fields_derivatives_group_count * 17
+  local long_order_optional_fields_derivatives_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_optional_fields_derivatives_group_count * 17
 
   return index
 end
 
--- Display: D C Long Order Message Optional Fields Derivatives Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.display = function(packet, parent, length)
+-- Display: Long Order Optional Fields Derivatives Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Optional Fields Derivatives Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Optional Fields Derivatives Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14372,37 +14372,37 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Optional Fields Derivatives Group
-  for d_c_long_order_message_optional_fields_derivatives_group_index = 1, num_in_group do
-    index, d_c_long_order_message_optional_fields_derivatives_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_group.dissect(buffer, index, packet, parent, d_c_long_order_message_optional_fields_derivatives_group_index)
+  -- Repeating: Long Order Optional Fields Derivatives Group
+  for long_order_optional_fields_derivatives_group_index = 1, num_in_group do
+    index, long_order_optional_fields_derivatives_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_group.dissect(buffer, index, packet, parent, long_order_optional_fields_derivatives_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Optional Fields Derivatives Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_optional_fields_derivatives_groups then
+-- Dissect: Long Order Optional Fields Derivatives Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_optional_fields_derivatives_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_derivatives_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_derivatives_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Strategy Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group = {}
+-- Long Order Strategy Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group = {}
 
--- Size: D C Long Order Message Strategy Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group.size =
+-- Size: Long Order Strategy Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.leg_last_px.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.leg_last_qty.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.leg_instrument_id.size + 
@@ -14410,18 +14410,18 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_
   euronext_optiq_dropcopygateway_sbe_v6_63.execution_i_d_uint_32t_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.trade_unique_identifier.size
 
--- Display: D C Long Order Message Strategy Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group.display = function(packet, parent, length)
+-- Display: Long Order Strategy Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Strategy Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_strategy_fields_group_index)
+-- Dissect Fields: Long Order Strategy Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group.fields = function(buffer, offset, packet, parent, long_order_strategy_fields_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Strategy Fields Group Index
-  if d_c_long_order_message_strategy_fields_group_index ~= nil and show.d_c_long_order_message_strategy_fields_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_strategy_fields_group_index, d_c_long_order_message_strategy_fields_group_index)
+  -- Implicit Long Order Strategy Fields Group Index
+  if long_order_strategy_fields_group_index ~= nil and show.long_order_strategy_fields_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_strategy_fields_group_index, long_order_strategy_fields_group_index)
     iteration:set_generated()
   end
 
@@ -14446,47 +14446,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_
   return index
 end
 
--- Dissect: D C Long Order Message Strategy Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_strategy_fields_group_index)
-  if show.d_c_long_order_message_strategy_fields_group then
+-- Dissect: Long Order Strategy Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group.dissect = function(buffer, offset, packet, parent, long_order_strategy_fields_group_index)
+  if show.long_order_strategy_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_strategy_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_strategy_fields_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_strategy_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group.fields(buffer, offset, packet, parent, long_order_strategy_fields_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_strategy_fields_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group.fields(buffer, offset, packet, parent, long_order_strategy_fields_group_index)
   end
 end
 
--- D C Long Order Message Strategy Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups = {}
+-- Long Order Strategy Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups = {}
 
--- Calculate size of: D C Long Order Message Strategy Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Strategy Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_strategy_fields_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_strategy_fields_group_count * 41
+  local long_order_strategy_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_strategy_fields_group_count * 41
 
   return index
 end
 
--- Display: D C Long Order Message Strategy Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.display = function(packet, parent, length)
+-- Display: Long Order Strategy Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Strategy Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Strategy Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14495,51 +14495,51 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Strategy Fields Group
-  for d_c_long_order_message_strategy_fields_group_index = 1, num_in_group do
-    index, d_c_long_order_message_strategy_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_group.dissect(buffer, index, packet, parent, d_c_long_order_message_strategy_fields_group_index)
+  -- Repeating: Long Order Strategy Fields Group
+  for long_order_strategy_fields_group_index = 1, num_in_group do
+    index, long_order_strategy_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_group.dissect(buffer, index, packet, parent, long_order_strategy_fields_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Strategy Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_strategy_fields_groups then
+-- Dissect: Long Order Strategy Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_strategy_fields_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_strategy_fields_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_strategy_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Extended Clearing Account Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group = {}
+-- Long Order Extended Clearing Account Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group = {}
 
--- Size: D C Long Order Message Extended Clearing Account Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group.size =
+-- Size: Long Order Extended Clearing Account Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.clearing_account.size
 
--- Display: D C Long Order Message Extended Clearing Account Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group.display = function(packet, parent, length)
+-- Display: Long Order Extended Clearing Account Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Extended Clearing Account Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_extended_clearing_account_group_index)
+-- Dissect Fields: Long Order Extended Clearing Account Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group.fields = function(buffer, offset, packet, parent, long_order_extended_clearing_account_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Extended Clearing Account Group Index
-  if d_c_long_order_message_extended_clearing_account_group_index ~= nil and show.d_c_long_order_message_extended_clearing_account_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_extended_clearing_account_group_index, d_c_long_order_message_extended_clearing_account_group_index)
+  -- Implicit Long Order Extended Clearing Account Group Index
+  if long_order_extended_clearing_account_group_index ~= nil and show.long_order_extended_clearing_account_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_extended_clearing_account_group_index, long_order_extended_clearing_account_group_index)
     iteration:set_generated()
   end
 
@@ -14549,47 +14549,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearin
   return index
 end
 
--- Dissect: D C Long Order Message Extended Clearing Account Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_extended_clearing_account_group_index)
-  if show.d_c_long_order_message_extended_clearing_account_group then
+-- Dissect: Long Order Extended Clearing Account Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group.dissect = function(buffer, offset, packet, parent, long_order_extended_clearing_account_group_index)
+  if show.long_order_extended_clearing_account_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_extended_clearing_account_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group.fields(buffer, offset, packet, parent, d_c_long_order_message_extended_clearing_account_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_extended_clearing_account_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group.fields(buffer, offset, packet, parent, long_order_extended_clearing_account_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group.fields(buffer, offset, packet, parent, d_c_long_order_message_extended_clearing_account_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group.fields(buffer, offset, packet, parent, long_order_extended_clearing_account_group_index)
   end
 end
 
--- D C Long Order Message Extended Clearing Account Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups = {}
+-- Long Order Extended Clearing Account Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups = {}
 
--- Calculate size of: D C Long Order Message Extended Clearing Account Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Extended Clearing Account Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_extended_clearing_account_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_extended_clearing_account_group_count * 16
+  local long_order_extended_clearing_account_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_extended_clearing_account_group_count * 16
 
   return index
 end
 
--- Display: D C Long Order Message Extended Clearing Account Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.display = function(packet, parent, length)
+-- Display: Long Order Extended Clearing Account Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Extended Clearing Account Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Extended Clearing Account Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14598,51 +14598,51 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearin
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Extended Clearing Account Group
-  for d_c_long_order_message_extended_clearing_account_group_index = 1, num_in_group do
-    index, d_c_long_order_message_extended_clearing_account_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_group.dissect(buffer, index, packet, parent, d_c_long_order_message_extended_clearing_account_group_index)
+  -- Repeating: Long Order Extended Clearing Account Group
+  for long_order_extended_clearing_account_group_index = 1, num_in_group do
+    index, long_order_extended_clearing_account_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_group.dissect(buffer, index, packet, parent, long_order_extended_clearing_account_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Extended Clearing Account Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_extended_clearing_account_groups then
+-- Dissect: Long Order Extended Clearing Account Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_extended_clearing_account_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_extended_clearing_account_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_extended_clearing_account_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Non Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group = {}
+-- Long Order Non Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group = {}
 
--- Size: D C Long Order Message Non Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group.size =
+-- Size: Long Order Non Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.original_investor_id.size
 
--- Display: D C Long Order Message Non Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group.display = function(packet, parent, length)
+-- Display: Long Order Non Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Non Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_commercial_investor_field_group_index)
+-- Dissect Fields: Long Order Non Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group.fields = function(buffer, offset, packet, parent, long_order_non_modifiable_commercial_investor_field_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Non Modifiable Commercial Investor Field Group Index
-  if d_c_long_order_message_non_modifiable_commercial_investor_field_group_index ~= nil and show.d_c_long_order_message_non_modifiable_commercial_investor_field_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_commercial_investor_field_group_index, d_c_long_order_message_non_modifiable_commercial_investor_field_group_index)
+  -- Implicit Long Order Non Modifiable Commercial Investor Field Group Index
+  if long_order_non_modifiable_commercial_investor_field_group_index ~= nil and show.long_order_non_modifiable_commercial_investor_field_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_commercial_investor_field_group_index, long_order_non_modifiable_commercial_investor_field_group_index)
     iteration:set_generated()
   end
 
@@ -14652,47 +14652,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_c
   return index
 end
 
--- Dissect: D C Long Order Message Non Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_commercial_investor_field_group_index)
-  if show.d_c_long_order_message_non_modifiable_commercial_investor_field_group then
+-- Dissect: Long Order Non Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group.dissect = function(buffer, offset, packet, parent, long_order_non_modifiable_commercial_investor_field_group_index)
+  if show.long_order_non_modifiable_commercial_investor_field_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_commercial_investor_field_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group.fields(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_commercial_investor_field_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_commercial_investor_field_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group.fields(buffer, offset, packet, parent, long_order_non_modifiable_commercial_investor_field_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group.fields(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_commercial_investor_field_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group.fields(buffer, offset, packet, parent, long_order_non_modifiable_commercial_investor_field_group_index)
   end
 end
 
--- D C Long Order Message Non Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups = {}
+-- Long Order Non Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups = {}
 
--- Calculate size of: D C Long Order Message Non Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Non Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_non_modifiable_commercial_investor_field_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_non_modifiable_commercial_investor_field_group_count * 16
+  local long_order_non_modifiable_commercial_investor_field_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_non_modifiable_commercial_investor_field_group_count * 16
 
   return index
 end
 
--- Display: D C Long Order Message Non Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.display = function(packet, parent, length)
+-- Display: Long Order Non Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Non Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Non Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14701,51 +14701,51 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_c
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Non Modifiable Commercial Investor Field Group
-  for d_c_long_order_message_non_modifiable_commercial_investor_field_group_index = 1, num_in_group do
-    index, d_c_long_order_message_non_modifiable_commercial_investor_field_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_group.dissect(buffer, index, packet, parent, d_c_long_order_message_non_modifiable_commercial_investor_field_group_index)
+  -- Repeating: Long Order Non Modifiable Commercial Investor Field Group
+  for long_order_non_modifiable_commercial_investor_field_group_index = 1, num_in_group do
+    index, long_order_non_modifiable_commercial_investor_field_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_group.dissect(buffer, index, packet, parent, long_order_non_modifiable_commercial_investor_field_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Non Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_non_modifiable_commercial_investor_field_groups then
+-- Dissect: Long Order Non Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_non_modifiable_commercial_investor_field_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_commercial_investor_field_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_commercial_investor_field_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group = {}
+-- Long Order Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group = {}
 
--- Size: D C Long Order Message Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group.size =
+-- Size: Long Order Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.event_investor_id.size
 
--- Display: D C Long Order Message Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group.display = function(packet, parent, length)
+-- Display: Long Order Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_modifiable_commercial_investor_field_group_index)
+-- Dissect Fields: Long Order Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group.fields = function(buffer, offset, packet, parent, long_order_modifiable_commercial_investor_field_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Modifiable Commercial Investor Field Group Index
-  if d_c_long_order_message_modifiable_commercial_investor_field_group_index ~= nil and show.d_c_long_order_message_modifiable_commercial_investor_field_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_commercial_investor_field_group_index, d_c_long_order_message_modifiable_commercial_investor_field_group_index)
+  -- Implicit Long Order Modifiable Commercial Investor Field Group Index
+  if long_order_modifiable_commercial_investor_field_group_index ~= nil and show.long_order_modifiable_commercial_investor_field_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_commercial_investor_field_group_index, long_order_modifiable_commercial_investor_field_group_index)
     iteration:set_generated()
   end
 
@@ -14755,47 +14755,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_comme
   return index
 end
 
--- Dissect: D C Long Order Message Modifiable Commercial Investor Field Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_modifiable_commercial_investor_field_group_index)
-  if show.d_c_long_order_message_modifiable_commercial_investor_field_group then
+-- Dissect: Long Order Modifiable Commercial Investor Field Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group.dissect = function(buffer, offset, packet, parent, long_order_modifiable_commercial_investor_field_group_index)
+  if show.long_order_modifiable_commercial_investor_field_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_commercial_investor_field_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group.fields(buffer, offset, packet, parent, d_c_long_order_message_modifiable_commercial_investor_field_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_commercial_investor_field_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group.fields(buffer, offset, packet, parent, long_order_modifiable_commercial_investor_field_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group.fields(buffer, offset, packet, parent, d_c_long_order_message_modifiable_commercial_investor_field_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group.fields(buffer, offset, packet, parent, long_order_modifiable_commercial_investor_field_group_index)
   end
 end
 
--- D C Long Order Message Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups = {}
+-- Long Order Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups = {}
 
--- Calculate size of: D C Long Order Message Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_modifiable_commercial_investor_field_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_modifiable_commercial_investor_field_group_count * 16
+  local long_order_modifiable_commercial_investor_field_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_modifiable_commercial_investor_field_group_count * 16
 
   return index
 end
 
--- Display: D C Long Order Message Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.display = function(packet, parent, length)
+-- Display: Long Order Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14804,37 +14804,37 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_comme
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Modifiable Commercial Investor Field Group
-  for d_c_long_order_message_modifiable_commercial_investor_field_group_index = 1, num_in_group do
-    index, d_c_long_order_message_modifiable_commercial_investor_field_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_group.dissect(buffer, index, packet, parent, d_c_long_order_message_modifiable_commercial_investor_field_group_index)
+  -- Repeating: Long Order Modifiable Commercial Investor Field Group
+  for long_order_modifiable_commercial_investor_field_group_index = 1, num_in_group do
+    index, long_order_modifiable_commercial_investor_field_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_group.dissect(buffer, index, packet, parent, long_order_modifiable_commercial_investor_field_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Modifiable Commercial Investor Field Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_modifiable_commercial_investor_field_groups then
+-- Dissect: Long Order Modifiable Commercial Investor Field Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_modifiable_commercial_investor_field_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_commercial_investor_field_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_commercial_investor_field_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Commercial Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group = {}
+-- Long Order Commercial Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group = {}
 
--- Size: D C Long Order Message Commercial Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group.size =
+-- Size: Long Order Commercial Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.market_phase_flag.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.margin_trading_flag.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.access_flag.size + 
@@ -14842,18 +14842,18 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_field
   euronext_optiq_dropcopygateway_sbe_v6_63.sender_location_id.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.desk_id.size
 
--- Display: D C Long Order Message Commercial Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group.display = function(packet, parent, length)
+-- Display: Long Order Commercial Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Commercial Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_commercial_fields_group_index)
+-- Dissect Fields: Long Order Commercial Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group.fields = function(buffer, offset, packet, parent, long_order_commercial_fields_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Commercial Fields Group Index
-  if d_c_long_order_message_commercial_fields_group_index ~= nil and show.d_c_long_order_message_commercial_fields_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_commercial_fields_group_index, d_c_long_order_message_commercial_fields_group_index)
+  -- Implicit Long Order Commercial Fields Group Index
+  if long_order_commercial_fields_group_index ~= nil and show.long_order_commercial_fields_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_commercial_fields_group_index, long_order_commercial_fields_group_index)
     iteration:set_generated()
   end
 
@@ -14878,47 +14878,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_field
   return index
 end
 
--- Dissect: D C Long Order Message Commercial Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_commercial_fields_group_index)
-  if show.d_c_long_order_message_commercial_fields_group then
+-- Dissect: Long Order Commercial Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group.dissect = function(buffer, offset, packet, parent, long_order_commercial_fields_group_index)
+  if show.long_order_commercial_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_commercial_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_commercial_fields_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_commercial_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group.fields(buffer, offset, packet, parent, long_order_commercial_fields_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_commercial_fields_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group.fields(buffer, offset, packet, parent, long_order_commercial_fields_group_index)
   end
 end
 
--- D C Long Order Message Commercial Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups = {}
+-- Long Order Commercial Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups = {}
 
--- Calculate size of: D C Long Order Message Commercial Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Commercial Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_commercial_fields_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_commercial_fields_group_count * 41
+  local long_order_commercial_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_commercial_fields_group_count * 41
 
   return index
 end
 
--- Display: D C Long Order Message Commercial Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.display = function(packet, parent, length)
+-- Display: Long Order Commercial Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Commercial Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Commercial Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -14927,52 +14927,52 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Commercial Fields Group
-  for d_c_long_order_message_commercial_fields_group_index = 1, num_in_group do
-    index, d_c_long_order_message_commercial_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_group.dissect(buffer, index, packet, parent, d_c_long_order_message_commercial_fields_group_index)
+  -- Repeating: Long Order Commercial Fields Group
+  for long_order_commercial_fields_group_index = 1, num_in_group do
+    index, long_order_commercial_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_group.dissect(buffer, index, packet, parent, long_order_commercial_fields_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Commercial Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_commercial_fields_groups then
+-- Dissect: Long Order Commercial Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_commercial_fields_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_commercial_fields_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_commercial_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group = {}
+-- Long Order Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group = {}
 
--- Size: D C Long Order Message Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group.size =
+-- Size: Long Order Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.event_client_id_short_code.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.event_exec_w_firm_short_code.size
 
--- Display: D C Long Order Message Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group.display = function(packet, parent, length)
+-- Display: Long Order Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_modifiable_short_codes_group_index)
+-- Dissect Fields: Long Order Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group.fields = function(buffer, offset, packet, parent, long_order_modifiable_short_codes_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Modifiable Short Codes Group Index
-  if d_c_long_order_message_modifiable_short_codes_group_index ~= nil and show.d_c_long_order_message_modifiable_short_codes_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_short_codes_group_index, d_c_long_order_message_modifiable_short_codes_group_index)
+  -- Implicit Long Order Modifiable Short Codes Group Index
+  if long_order_modifiable_short_codes_group_index ~= nil and show.long_order_modifiable_short_codes_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_short_codes_group_index, long_order_modifiable_short_codes_group_index)
     iteration:set_generated()
   end
 
@@ -14985,47 +14985,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short
   return index
 end
 
--- Dissect: D C Long Order Message Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_modifiable_short_codes_group_index)
-  if show.d_c_long_order_message_modifiable_short_codes_group then
+-- Dissect: Long Order Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group.dissect = function(buffer, offset, packet, parent, long_order_modifiable_short_codes_group_index)
+  if show.long_order_modifiable_short_codes_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_short_codes_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group.fields(buffer, offset, packet, parent, d_c_long_order_message_modifiable_short_codes_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_short_codes_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group.fields(buffer, offset, packet, parent, long_order_modifiable_short_codes_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group.fields(buffer, offset, packet, parent, d_c_long_order_message_modifiable_short_codes_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group.fields(buffer, offset, packet, parent, long_order_modifiable_short_codes_group_index)
   end
 end
 
--- D C Long Order Message Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups = {}
+-- Long Order Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups = {}
 
--- Calculate size of: D C Long Order Message Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_modifiable_short_codes_group_count * 8
+  local long_order_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_modifiable_short_codes_group_count * 8
 
   return index
 end
 
--- Display: D C Long Order Message Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.display = function(packet, parent, length)
+-- Display: Long Order Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -15034,54 +15034,54 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Modifiable Short Codes Group
-  for d_c_long_order_message_modifiable_short_codes_group_index = 1, num_in_group do
-    index, d_c_long_order_message_modifiable_short_codes_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_group.dissect(buffer, index, packet, parent, d_c_long_order_message_modifiable_short_codes_group_index)
+  -- Repeating: Long Order Modifiable Short Codes Group
+  for long_order_modifiable_short_codes_group_index = 1, num_in_group do
+    index, long_order_modifiable_short_codes_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_group.dissect(buffer, index, packet, parent, long_order_modifiable_short_codes_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_modifiable_short_codes_groups then
+-- Dissect: Long Order Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_modifiable_short_codes_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_modifiable_short_codes_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_modifiable_short_codes_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Non Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group = {}
+-- Long Order Non Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group = {}
 
--- Size: D C Long Order Message Non Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group.size =
+-- Size: Long Order Non Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.original_client_id_short_code.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.original_exec_w_firm_short_code.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.original_invest_decis_w_firm_short_code.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.original_non_exec_broker_short_code.size
 
--- Display: D C Long Order Message Non Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group.display = function(packet, parent, length)
+-- Display: Long Order Non Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Non Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_short_codes_group_index)
+-- Dissect Fields: Long Order Non Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group.fields = function(buffer, offset, packet, parent, long_order_non_modifiable_short_codes_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Non Modifiable Short Codes Group Index
-  if d_c_long_order_message_non_modifiable_short_codes_group_index ~= nil and show.d_c_long_order_message_non_modifiable_short_codes_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_short_codes_group_index, d_c_long_order_message_non_modifiable_short_codes_group_index)
+  -- Implicit Long Order Non Modifiable Short Codes Group Index
+  if long_order_non_modifiable_short_codes_group_index ~= nil and show.long_order_non_modifiable_short_codes_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_short_codes_group_index, long_order_non_modifiable_short_codes_group_index)
     iteration:set_generated()
   end
 
@@ -15100,47 +15100,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_s
   return index
 end
 
--- Dissect: D C Long Order Message Non Modifiable Short Codes Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_short_codes_group_index)
-  if show.d_c_long_order_message_non_modifiable_short_codes_group then
+-- Dissect: Long Order Non Modifiable Short Codes Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group.dissect = function(buffer, offset, packet, parent, long_order_non_modifiable_short_codes_group_index)
+  if show.long_order_non_modifiable_short_codes_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_short_codes_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group.fields(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_short_codes_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_short_codes_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group.fields(buffer, offset, packet, parent, long_order_non_modifiable_short_codes_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group.fields(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_short_codes_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group.fields(buffer, offset, packet, parent, long_order_non_modifiable_short_codes_group_index)
   end
 end
 
--- D C Long Order Message Non Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups = {}
+-- Long Order Non Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups = {}
 
--- Calculate size of: D C Long Order Message Non Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Non Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_non_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_non_modifiable_short_codes_group_count * 16
+  local long_order_non_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_non_modifiable_short_codes_group_count * 16
 
   return index
 end
 
--- Display: D C Long Order Message Non Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.display = function(packet, parent, length)
+-- Display: Long Order Non Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Non Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Non Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -15149,53 +15149,53 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_s
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Non Modifiable Short Codes Group
-  for d_c_long_order_message_non_modifiable_short_codes_group_index = 1, num_in_group do
-    index, d_c_long_order_message_non_modifiable_short_codes_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_group.dissect(buffer, index, packet, parent, d_c_long_order_message_non_modifiable_short_codes_group_index)
+  -- Repeating: Long Order Non Modifiable Short Codes Group
+  for long_order_non_modifiable_short_codes_group_index = 1, num_in_group do
+    index, long_order_non_modifiable_short_codes_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_group.dissect(buffer, index, packet, parent, long_order_non_modifiable_short_codes_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Non Modifiable Short Codes Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_non_modifiable_short_codes_groups then
+-- Dissect: Long Order Non Modifiable Short Codes Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_non_modifiable_short_codes_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_short_codes_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_short_codes_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Non Modifiable Opt Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group = {}
+-- Long Order Non Modifiable Opt Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group = {}
 
--- Size: D C Long Order Message Non Modifiable Opt Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group.size =
+-- Size: Long Order Non Modifiable Opt Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.trading_capacity_trading_capacityenum_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.minimum_order_quantity.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.account_type_cross.size
 
--- Display: D C Long Order Message Non Modifiable Opt Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group.display = function(packet, parent, length)
+-- Display: Long Order Non Modifiable Opt Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Non Modifiable Opt Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_opt_fields_group_index)
+-- Dissect Fields: Long Order Non Modifiable Opt Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group.fields = function(buffer, offset, packet, parent, long_order_non_modifiable_opt_fields_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Non Modifiable Opt Fields Group Index
-  if d_c_long_order_message_non_modifiable_opt_fields_group_index ~= nil and show.d_c_long_order_message_non_modifiable_opt_fields_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_opt_fields_group_index, d_c_long_order_message_non_modifiable_opt_fields_group_index)
+  -- Implicit Long Order Non Modifiable Opt Fields Group Index
+  if long_order_non_modifiable_opt_fields_group_index ~= nil and show.long_order_non_modifiable_opt_fields_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_opt_fields_group_index, long_order_non_modifiable_opt_fields_group_index)
     iteration:set_generated()
   end
 
@@ -15211,47 +15211,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_o
   return index
 end
 
--- Dissect: D C Long Order Message Non Modifiable Opt Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_opt_fields_group_index)
-  if show.d_c_long_order_message_non_modifiable_opt_fields_group then
+-- Dissect: Long Order Non Modifiable Opt Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group.dissect = function(buffer, offset, packet, parent, long_order_non_modifiable_opt_fields_group_index)
+  if show.long_order_non_modifiable_opt_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_opt_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_opt_fields_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_opt_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group.fields(buffer, offset, packet, parent, long_order_non_modifiable_opt_fields_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_non_modifiable_opt_fields_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group.fields(buffer, offset, packet, parent, long_order_non_modifiable_opt_fields_group_index)
   end
 end
 
--- D C Long Order Message Non Modifiable Opt Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups = {}
+-- Long Order Non Modifiable Opt Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups = {}
 
--- Calculate size of: D C Long Order Message Non Modifiable Opt Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Non Modifiable Opt Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_non_modifiable_opt_fields_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_non_modifiable_opt_fields_group_count * 10
+  local long_order_non_modifiable_opt_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_non_modifiable_opt_fields_group_count * 10
 
   return index
 end
 
--- Display: D C Long Order Message Non Modifiable Opt Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.display = function(packet, parent, length)
+-- Display: Long Order Non Modifiable Opt Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Non Modifiable Opt Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Non Modifiable Opt Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -15260,37 +15260,37 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_o
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Non Modifiable Opt Fields Group
-  for d_c_long_order_message_non_modifiable_opt_fields_group_index = 1, num_in_group do
-    index, d_c_long_order_message_non_modifiable_opt_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_group.dissect(buffer, index, packet, parent, d_c_long_order_message_non_modifiable_opt_fields_group_index)
+  -- Repeating: Long Order Non Modifiable Opt Fields Group
+  for long_order_non_modifiable_opt_fields_group_index = 1, num_in_group do
+    index, long_order_non_modifiable_opt_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_group.dissect(buffer, index, packet, parent, long_order_non_modifiable_opt_fields_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Non Modifiable Opt Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_non_modifiable_opt_fields_groups then
+-- Dissect: Long Order Non Modifiable Opt Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_non_modifiable_opt_fields_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_non_modifiable_opt_fields_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_non_modifiable_opt_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Clearing Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group = {}
+-- Long Order Clearing Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group = {}
 
--- Size: D C Long Order Message Clearing Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group.size =
+-- Size: Long Order Clearing Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.clearing_firm_i_d_char_8_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.client_id.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.account_number.size + 
@@ -15298,18 +15298,18 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_
   euronext_optiq_dropcopygateway_sbe_v6_63.open_close.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.clearing_instruction_clearing_instructionenum_optional.size
 
--- Display: D C Long Order Message Clearing Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group.display = function(packet, parent, length)
+-- Display: Long Order Clearing Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Clearing Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_clearing_fields_group_index)
+-- Dissect Fields: Long Order Clearing Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group.fields = function(buffer, offset, packet, parent, long_order_clearing_fields_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Clearing Fields Group Index
-  if d_c_long_order_message_clearing_fields_group_index ~= nil and show.d_c_long_order_message_clearing_fields_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_clearing_fields_group_index, d_c_long_order_message_clearing_fields_group_index)
+  -- Implicit Long Order Clearing Fields Group Index
+  if long_order_clearing_fields_group_index ~= nil and show.long_order_clearing_fields_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_clearing_fields_group_index, long_order_clearing_fields_group_index)
     iteration:set_generated()
   end
 
@@ -15334,47 +15334,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_
   return index
 end
 
--- Dissect: D C Long Order Message Clearing Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_clearing_fields_group_index)
-  if show.d_c_long_order_message_clearing_fields_group then
+-- Dissect: Long Order Clearing Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group.dissect = function(buffer, offset, packet, parent, long_order_clearing_fields_group_index)
+  if show.long_order_clearing_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_clearing_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_clearing_fields_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_clearing_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group.fields(buffer, offset, packet, parent, long_order_clearing_fields_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_clearing_fields_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group.fields(buffer, offset, packet, parent, long_order_clearing_fields_group_index)
   end
 end
 
--- D C Long Order Message Clearing Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups = {}
+-- Long Order Clearing Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups = {}
 
--- Calculate size of: D C Long Order Message Clearing Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Clearing Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_clearing_fields_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_clearing_fields_group_count * 33
+  local long_order_clearing_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_clearing_fields_group_count * 33
 
   return index
 end
 
--- Display: D C Long Order Message Clearing Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.display = function(packet, parent, length)
+-- Display: Long Order Clearing Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Clearing Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Clearing Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -15383,29 +15383,29 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Clearing Fields Group
-  for d_c_long_order_message_clearing_fields_group_index = 1, num_in_group do
-    index, d_c_long_order_message_clearing_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_group.dissect(buffer, index, packet, parent, d_c_long_order_message_clearing_fields_group_index)
+  -- Repeating: Long Order Clearing Fields Group
+  for long_order_clearing_fields_group_index = 1, num_in_group do
+    index, long_order_clearing_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_group.dissect(buffer, index, packet, parent, long_order_clearing_fields_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Clearing Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_clearing_fields_groups then
+-- Dissect: Long Order Clearing Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_clearing_fields_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_clearing_fields_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_clearing_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -15480,11 +15480,11 @@ euronext_optiq_dropcopygateway_sbe_v6_63.trading_session.dissect = function(buff
   return offset + size, value
 end
 
--- D C Long Order Message Optional Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group = {}
+-- Long Order Optional Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group = {}
 
--- Size: D C Long Order Message Optional Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group.size =
+-- Size: Long Order Optional Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.stop_px.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.peg_offset.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.undisclosed_price.size + 
@@ -15495,18 +15495,18 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_
   euronext_optiq_dropcopygateway_sbe_v6_63.stop_triggered_time_in_force.size + 
   euronext_optiq_dropcopygateway_sbe_v6_63.undisclosed_iceberg_type.size
 
--- Display: D C Long Order Message Optional Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group.display = function(packet, parent, length)
+-- Display: Long Order Optional Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Optional Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_optional_fields_group_index)
+-- Dissect Fields: Long Order Optional Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group.fields = function(buffer, offset, packet, parent, long_order_optional_fields_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Optional Fields Group Index
-  if d_c_long_order_message_optional_fields_group_index ~= nil and show.d_c_long_order_message_optional_fields_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_group_index, d_c_long_order_message_optional_fields_group_index)
+  -- Implicit Long Order Optional Fields Group Index
+  if long_order_optional_fields_group_index ~= nil and show.long_order_optional_fields_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_group_index, long_order_optional_fields_group_index)
     iteration:set_generated()
   end
 
@@ -15540,47 +15540,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_
   return index
 end
 
--- Dissect: D C Long Order Message Optional Fields Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_optional_fields_group_index)
-  if show.d_c_long_order_message_optional_fields_group then
+-- Dissect: Long Order Optional Fields Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group.dissect = function(buffer, offset, packet, parent, long_order_optional_fields_group_index)
+  if show.long_order_optional_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_optional_fields_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group.fields(buffer, offset, packet, parent, long_order_optional_fields_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group.fields(buffer, offset, packet, parent, d_c_long_order_message_optional_fields_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group.fields(buffer, offset, packet, parent, long_order_optional_fields_group_index)
   end
 end
 
--- D C Long Order Message Optional Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups = {}
+-- Long Order Optional Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups = {}
 
--- Calculate size of: D C Long Order Message Optional Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Optional Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_optional_fields_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_optional_fields_group_count * 34
+  local long_order_optional_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_optional_fields_group_count * 34
 
   return index
 end
 
--- Display: D C Long Order Message Optional Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.display = function(packet, parent, length)
+-- Display: Long Order Optional Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Optional Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Optional Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -15589,51 +15589,51 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Optional Fields Group
-  for d_c_long_order_message_optional_fields_group_index = 1, num_in_group do
-    index, d_c_long_order_message_optional_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_group.dissect(buffer, index, packet, parent, d_c_long_order_message_optional_fields_group_index)
+  -- Repeating: Long Order Optional Fields Group
+  for long_order_optional_fields_group_index = 1, num_in_group do
+    index, long_order_optional_fields_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_group.dissect(buffer, index, packet, parent, long_order_optional_fields_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Optional Fields Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_optional_fields_groups then
+-- Dissect: Long Order Optional Fields Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_optional_fields_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_optional_fields_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_optional_fields_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- D C Long Order Message Free Text Section Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group = {}
+-- Long Order Free Text Section Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group = {}
 
--- Size: D C Long Order Message Free Text Section Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group.size =
+-- Size: Long Order Free Text Section Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group.size =
   euronext_optiq_dropcopygateway_sbe_v6_63.free_text.size
 
--- Display: D C Long Order Message Free Text Section Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group.display = function(packet, parent, length)
+-- Display: Long Order Free Text Section Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Free Text Section Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group.fields = function(buffer, offset, packet, parent, d_c_long_order_message_free_text_section_group_index)
+-- Dissect Fields: Long Order Free Text Section Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group.fields = function(buffer, offset, packet, parent, long_order_free_text_section_group_index)
   local index = offset
 
-  -- Implicit D C Long Order Message Free Text Section Group Index
-  if d_c_long_order_message_free_text_section_group_index ~= nil and show.d_c_long_order_message_free_text_section_group_index then
-    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_free_text_section_group_index, d_c_long_order_message_free_text_section_group_index)
+  -- Implicit Long Order Free Text Section Group Index
+  if long_order_free_text_section_group_index ~= nil and show.long_order_free_text_section_group_index then
+    local iteration = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_free_text_section_group_index, long_order_free_text_section_group_index)
     iteration:set_generated()
   end
 
@@ -15643,47 +15643,47 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_sectio
   return index
 end
 
--- Dissect: D C Long Order Message Free Text Section Group
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group.dissect = function(buffer, offset, packet, parent, d_c_long_order_message_free_text_section_group_index)
-  if show.d_c_long_order_message_free_text_section_group then
+-- Dissect: Long Order Free Text Section Group
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group.dissect = function(buffer, offset, packet, parent, long_order_free_text_section_group_index)
+  if show.long_order_free_text_section_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_free_text_section_group, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group.fields(buffer, offset, packet, parent, d_c_long_order_message_free_text_section_group_index)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_free_text_section_group, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group.fields(buffer, offset, packet, parent, long_order_free_text_section_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group.fields(buffer, offset, packet, parent, d_c_long_order_message_free_text_section_group_index)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group.fields(buffer, offset, packet, parent, long_order_free_text_section_group_index)
   end
 end
 
--- D C Long Order Message Free Text Section Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups = {}
+-- Long Order Free Text Section Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups = {}
 
--- Calculate size of: D C Long Order Message Free Text Section Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.size = function(buffer, offset)
+-- Calculate size of: Long Order Free Text Section Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_long_order_message_free_text_section_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + d_c_long_order_message_free_text_section_group_count * 18
+  local long_order_free_text_section_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + long_order_free_text_section_group_count * 18
 
   return index
 end
 
--- Display: D C Long Order Message Free Text Section Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.display = function(packet, parent, length)
+-- Display: Long Order Free Text Section Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: D C Long Order Message Free Text Section Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Free Text Section Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -15692,29 +15692,29 @@ euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_sectio
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: D C Long Order Message Free Text Section Group
-  for d_c_long_order_message_free_text_section_group_index = 1, num_in_group do
-    index, d_c_long_order_message_free_text_section_group = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_group.dissect(buffer, index, packet, parent, d_c_long_order_message_free_text_section_group_index)
+  -- Repeating: Long Order Free Text Section Group
+  for long_order_free_text_section_group_index = 1, num_in_group do
+    index, long_order_free_text_section_group = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_group.dissect(buffer, index, packet, parent, long_order_free_text_section_group_index)
   end
 
   return index
 end
 
--- Dissect: D C Long Order Message Free Text Section Groups
-euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.dissect = function(buffer, offset, packet, parent)
-  if show.d_c_long_order_message_free_text_section_groups then
+-- Dissect: Long Order Free Text Section Groups
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.dissect = function(buffer, offset, packet, parent)
+  if show.long_order_free_text_section_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.d_c_long_order_message_free_text_section_groups, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_free_text_section_groups, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -15896,11 +15896,11 @@ euronext_optiq_dropcopygateway_sbe_v6_63.ack_qualifiers.dissect = function(buffe
   return offset + size, value
 end
 
--- Dc Long Order Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message = {}
+-- Long Order Message
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message = {}
 
--- Calculate size of: Dc Long Order Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.size = function(buffer, offset)
+-- Calculate size of: Long Order Message
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message.size = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.msg_seq_num.size
@@ -16019,46 +16019,46 @@ euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.size = function(b
 
   index = index + euronext_optiq_dropcopygateway_sbe_v6_63.order_sweep_reason.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.size(buffer, offset + index)
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.size(buffer, offset + index)
+  index = index + euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.size(buffer, offset + index)
 
   return index
 end
 
--- Display: Dc Long Order Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.display = function(packet, parent, length)
+-- Display: Long Order Message
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Dc Long Order Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Long Order Message
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Msg Seq Num: uint32_t
@@ -16235,69 +16235,69 @@ euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.fields = function
   -- Order Sweep Reason: OrderSweepReason_enum
   index, order_sweep_reason = euronext_optiq_dropcopygateway_sbe_v6_63.order_sweep_reason.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Free Text Section Groups: Struct of 2 fields
-  index, d_c_long_order_message_free_text_section_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_free_text_section_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Free Text Section Groups: Struct of 2 fields
+  index, long_order_free_text_section_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_free_text_section_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Optional Fields Groups: Struct of 2 fields
-  index, d_c_long_order_message_optional_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Optional Fields Groups: Struct of 2 fields
+  index, long_order_optional_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Clearing Fields Groups: Struct of 2 fields
-  index, d_c_long_order_message_clearing_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_clearing_fields_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Clearing Fields Groups: Struct of 2 fields
+  index, long_order_clearing_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_clearing_fields_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Non Modifiable Opt Fields Groups: Struct of 2 fields
-  index, d_c_long_order_message_non_modifiable_opt_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_opt_fields_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Non Modifiable Opt Fields Groups: Struct of 2 fields
+  index, long_order_non_modifiable_opt_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_opt_fields_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Non Modifiable Short Codes Groups: Struct of 2 fields
-  index, d_c_long_order_message_non_modifiable_short_codes_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_short_codes_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Non Modifiable Short Codes Groups: Struct of 2 fields
+  index, long_order_non_modifiable_short_codes_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_short_codes_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Modifiable Short Codes Groups: Struct of 2 fields
-  index, d_c_long_order_message_modifiable_short_codes_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_short_codes_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Modifiable Short Codes Groups: Struct of 2 fields
+  index, long_order_modifiable_short_codes_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_short_codes_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Commercial Fields Groups: Struct of 2 fields
-  index, d_c_long_order_message_commercial_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_commercial_fields_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Commercial Fields Groups: Struct of 2 fields
+  index, long_order_commercial_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_commercial_fields_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Modifiable Commercial Investor Field Groups: Struct of 2 fields
-  index, d_c_long_order_message_modifiable_commercial_investor_field_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_modifiable_commercial_investor_field_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Modifiable Commercial Investor Field Groups: Struct of 2 fields
+  index, long_order_modifiable_commercial_investor_field_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_modifiable_commercial_investor_field_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Non Modifiable Commercial Investor Field Groups: Struct of 2 fields
-  index, d_c_long_order_message_non_modifiable_commercial_investor_field_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_non_modifiable_commercial_investor_field_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Non Modifiable Commercial Investor Field Groups: Struct of 2 fields
+  index, long_order_non_modifiable_commercial_investor_field_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_non_modifiable_commercial_investor_field_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Extended Clearing Account Groups: Struct of 2 fields
-  index, d_c_long_order_message_extended_clearing_account_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_extended_clearing_account_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Extended Clearing Account Groups: Struct of 2 fields
+  index, long_order_extended_clearing_account_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_extended_clearing_account_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Strategy Fields Groups: Struct of 2 fields
-  index, d_c_long_order_message_strategy_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_strategy_fields_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Strategy Fields Groups: Struct of 2 fields
+  index, long_order_strategy_fields_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_strategy_fields_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Optional Fields Derivatives Groups: Struct of 2 fields
-  index, d_c_long_order_message_optional_fields_derivatives_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_optional_fields_derivatives_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Optional Fields Derivatives Groups: Struct of 2 fields
+  index, long_order_optional_fields_derivatives_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_optional_fields_derivatives_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Additional Infos Groups: Struct of 2 fields
-  index, d_c_long_order_message_additional_infos_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_additional_infos_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Additional Infos Groups: Struct of 2 fields
+  index, long_order_additional_infos_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_additional_infos_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Short Codes Details Non Modifiable Groups: Struct of 2 fields
-  index, d_c_long_order_message_short_codes_details_non_modifiable_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_non_modifiable_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Short Codes Details Non Modifiable Groups: Struct of 2 fields
+  index, long_order_short_codes_details_non_modifiable_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_non_modifiable_groups.dissect(buffer, index, packet, parent)
 
-  -- D C Long Order Message Short Codes Details Modifiable Groups: Struct of 2 fields
-  index, d_c_long_order_message_short_codes_details_modifiable_groups = euronext_optiq_dropcopygateway_sbe_v6_63.d_c_long_order_message_short_codes_details_modifiable_groups.dissect(buffer, index, packet, parent)
+  -- Long Order Short Codes Details Modifiable Groups: Struct of 2 fields
+  index, long_order_short_codes_details_modifiable_groups = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_short_codes_details_modifiable_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Dc Long Order Message
-euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Long Order Message
+euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_long_order_message, buffer(offset, 0))
-    local index = euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.long_order_message, buffer(offset, 0))
+    local index = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.display(packet, parent, length)
+    local display = euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.fields(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -16655,9 +16655,9 @@ euronext_optiq_dropcopygateway_sbe_v6_63.payload.dissect = function(buffer, offs
   if template_id == 16003 then
     return euronext_optiq_dropcopygateway_sbe_v6_63.dc_price_update_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Dc Long Order Message
+  -- Dissect Long Order Message
   if template_id == 16006 then
-    return euronext_optiq_dropcopygateway_sbe_v6_63.dc_long_order_message.dissect(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.long_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Dc Short Order Reject Message
   if template_id == 16010 then
@@ -16671,9 +16671,9 @@ euronext_optiq_dropcopygateway_sbe_v6_63.payload.dissect = function(buffer, offs
   if template_id == 16018 then
     return euronext_optiq_dropcopygateway_sbe_v6_63.dc_static_collars_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Dc Trade Bust Notification Message
+  -- Dissect Trade Bust Notification Message
   if template_id == 16021 then
-    return euronext_optiq_dropcopygateway_sbe_v6_63.dc_trade_bust_notification_message.dissect(buffer, offset, packet, parent)
+    return euronext_optiq_dropcopygateway_sbe_v6_63.trade_bust_notification_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Dc Quote Message
   if template_id == 16050 then
