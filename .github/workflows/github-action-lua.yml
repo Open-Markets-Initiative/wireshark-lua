@@ -17,7 +17,7 @@ jobs:
         run: find . -name '*.lua' | xargs -n 1 luac5.4 -p
 
       - name: Dissector Load Check
-        run: printf '\xd4\xc3\xb2\xa1\x02\x00\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\x00\x00\x01\x00\x00\x00' > empty.pcap; status=0; loaded=0; failed=0; for f in $(find . -name '*_Dissector.lua' | sort); do if runuser -u tester -- tshark -r empty.pcap -X "lua_script:$f" > /dev/null 2> lua-load.log && ! grep -q "Lua:" lua-load.log; then loaded=$((loaded+1)); else echo "FAILED $f"; cat lua-load.log; failed=$((failed+1)); status=1; fi; done; echo "loaded $loaded dissectors, failed $failed"; exit $status
+        run: printf '\324\303\262\241\002\000\004\000\000\000\000\000\000\000\000\000\377\377\000\000\001\000\000\000' > empty.pcap; status=0; loaded=0; failed=0; for f in $(find . -name '*_Dissector.lua' | sort); do if runuser -u tester -- tshark -r empty.pcap -X "lua_script:$f" > /dev/null 2> lua-load.log && ! grep -q "Lua:" lua-load.log; then loaded=$((loaded+1)); else echo "FAILED $f"; cat lua-load.log; failed=$((failed+1)); status=1; fi; done; echo "loaded $loaded dissectors, failed $failed"; exit $status
 
       - name: Clone Omi Data
         run: git clone --depth=1 https://github.com/Open-Markets-Initiative/omi-data-packets.git
