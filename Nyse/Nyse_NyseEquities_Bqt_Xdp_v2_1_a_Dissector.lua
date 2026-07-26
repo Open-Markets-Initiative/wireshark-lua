@@ -23,6 +23,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.bid_price = ProtoField.new("Bid Pric
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.nyseequities.bqt.xdp.v2.1.a.bidquotecondition", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.nyseequities.bqt.xdp.v2.1.a.bidvolume", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.nyseequities.bqt.xdp.v2.1.a.channelid", ftypes.UINT8)
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.close = ProtoField.new("Close", "nyse.nyseequities.bqt.xdp.v2.1.a.close", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.close_price = ProtoField.new("Close Price", "nyse.nyseequities.bqt.xdp.v2.1.a.closeprice", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.complete = ProtoField.new("Complete", "nyse.nyseequities.bqt.xdp.v2.1.a.complete", ftypes.UINT8)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.nyseequities.bqt.xdp.v2.1.a.currentrefreshpkt", ftypes.UINT16)
@@ -41,6 +42,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_best_bid = ProtoField.n
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_high_price = ProtoField.new("Market Id Of High Price", "nyse.nyseequities.bqt.xdp.v2.1.a.marketidofhighprice", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_low_price = ProtoField.new("Market Id Of Low Price", "nyse.nyseequities.bqt.xdp.v2.1.a.marketidoflowprice", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.nyseequities.bqt.xdp.v2.1.a.marketidofopenprice", ftypes.UINT16)
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_the_close = ProtoField.new("Market Id Of The Close", "nyse.nyseequities.bqt.xdp.v2.1.a.marketidoftheclose", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.bqt.xdp.v2.1.a.marketstate", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.bqt.xdp.v2.1.a.message", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_count = ProtoField.new("Message Count", "nyse.nyseequities.bqt.xdp.v2.1.a.messagecount", ftypes.UINT8)
@@ -73,6 +75,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.request_seq_num = ProtoField.new("Re
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.reserved_5 = ProtoField.new("Reserved 5", "nyse.nyseequities.bqt.xdp.v2.1.a.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.reserved_binary_1 = ProtoField.new("Reserved Binary 1", "nyse.nyseequities.bqt.xdp.v2.1.a.reservedbinary1", ftypes.UINT8)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.reserved_binary_2 = ProtoField.new("Reserved Binary 2", "nyse.nyseequities.bqt.xdp.v2.1.a.reservedbinary2", ftypes.UINT16)
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.nyseequities.bqt.xdp.v2.1.a.retailpricingindicator", ftypes.UINT8)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.bqt.xdp.v2.1.a.retransmitmethod", ftypes.UINT8)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.bqt.xdp.v2.1.a.roundlot", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.nyseequities.bqt.xdp.v2.1.a.rpiindicator", ftypes.STRING)
@@ -398,6 +401,29 @@ nyse_nyseequities_bqt_xdp_v2_1_a.channel_id.dissect = function(buffer, offset, p
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Close
+nyse_nyseequities_bqt_xdp_v2_1_a.close = {}
+
+-- Size: Close
+nyse_nyseequities_bqt_xdp_v2_1_a.close.size = 4
+
+-- Display: Close
+nyse_nyseequities_bqt_xdp_v2_1_a.close.display = function(value)
+  return "Close: "..value
+end
+
+-- Dissect: Close
+nyse_nyseequities_bqt_xdp_v2_1_a.close.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_bqt_xdp_v2_1_a.close.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_bqt_xdp_v2_1_a.close.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.close, range, value, display)
 
   return offset + length, value
 end
@@ -982,6 +1008,42 @@ nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_open_price.dissect = function(buff
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id Of The Close
+nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close = {}
+
+-- Size: Market Id Of The Close
+nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.size = 2
+
+-- Display: Market Id Of The Close
+nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.display = function(value)
+  if value == 0 then
+    return "Market Id Of The Close: Nyse Group Bqt (0)"
+  end
+  if value == 1 then
+    return "Market Id Of The Close: Nyse (1)"
+  end
+  if value == 3 then
+    return "Market Id Of The Close: Nyse Arca (3)"
+  end
+  if value == 9 then
+    return "Market Id Of The Close: Nyse American (9)"
+  end
+
+  return "Market Id Of The Close: Unknown("..value..")"
+end
+
+-- Dissect: Market Id Of The Close
+nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_the_close, range, value, display)
 
   return offset + length, value
 end
@@ -1650,6 +1712,42 @@ nyse_nyseequities_bqt_xdp_v2_1_a.reserved_binary_2.dissect = function(buffer, of
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.reserved_binary_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.reserved_binary_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retail Pricing Indicator
+nyse_nyseequities_bqt_xdp_v2_1_a.retail_pricing_indicator = {}
+
+-- Size: Retail Pricing Indicator
+nyse_nyseequities_bqt_xdp_v2_1_a.retail_pricing_indicator.size = 1
+
+-- Display: Retail Pricing Indicator
+nyse_nyseequities_bqt_xdp_v2_1_a.retail_pricing_indicator.display = function(value)
+  if value == 0 then
+    return "Retail Pricing Indicator: No Retail Interest (0)"
+  end
+  if value == 1 then
+    return "Retail Pricing Indicator: Retail Interest On The Bid Side (1)"
+  end
+  if value == 2 then
+    return "Retail Pricing Indicator: Retail Interest On The Ask Side (2)"
+  end
+  if value == 3 then
+    return "Retail Pricing Indicator: Retail Interest On Bid And Ask Side (3)"
+  end
+
+  return "Retail Pricing Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Retail Pricing Indicator
+nyse_nyseequities_bqt_xdp_v2_1_a.retail_pricing_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_bqt_xdp_v2_1_a.retail_pricing_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_bqt_xdp_v2_1_a.retail_pricing_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.retail_pricing_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2765,10 +2863,10 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.close_price.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id Of The Close
+  -- Market Id Of The Close: Binary
   index, market_id_of_the_close = nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.dissect(buffer, index, packet, parent)
 
-  -- Close
+  -- Close: Binary
   index, close = nyse_nyseequities_bqt_xdp_v2_1_a.close.dissect(buffer, index, packet, parent)
 
   return index
@@ -3226,7 +3324,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.bqt_message.fields = function(buffer, offset, p
   -- Bid Quote Condition: ASCII
   index, bid_quote_condition = nyse_nyseequities_bqt_xdp_v2_1_a.bid_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Retail Pricing Indicator
+  -- Retail Pricing Indicator: Binary
   index, retail_pricing_indicator = nyse_nyseequities_bqt_xdp_v2_1_a.retail_pricing_indicator.dissect(buffer, index, packet, parent)
 
   -- Market Id Of Best Ask: Binary

@@ -125,7 +125,7 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_data_packet = ProtoField.new
 omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nsxaustralia.nets.itch.v4.2.55.unsequenceddatapacket", ftypes.STRING)
 
 -- NsxAustralia Nets Itch 4.2.55 generated fields
-omi_nsxaustralia_nets_itch_v4_2_55.fields.timestamp = ProtoField.new("Timestamp", "nsxaustralia.nets.itch.v4.2.55.timestamp", ftypes.UINT64)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.composite_timestamp = ProtoField.new("Composite Timestamp", "nsxaustralia.nets.itch.v4.2.55.compositetimestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -2307,27 +2307,27 @@ nsxaustralia_nets_itch_v4_2_55.weight.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Timestamp
-nsxaustralia_nets_itch_v4_2_55.timestamp = {}
+-- Composite Timestamp
+nsxaustralia_nets_itch_v4_2_55.composite_timestamp = {}
 
--- Translate: Timestamp
-nsxaustralia_nets_itch_v4_2_55.timestamp.translate = function(timestamp, stored_nanosecond)
+-- Translate: Composite Timestamp
+nsxaustralia_nets_itch_v4_2_55.composite_timestamp.translate = function(timestamp, stored_nanosecond)
   return UInt64.new(stored_nanosecond + timestamp)
 end
 
--- Display: Timestamp
-nsxaustralia_nets_itch_v4_2_55.timestamp.display = function(timestamp, stored_nanosecond)
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_nanosecond)..string.format("%09d", timestamp)
+-- Display: Composite Timestamp
+nsxaustralia_nets_itch_v4_2_55.composite_timestamp.display = function(timestamp, stored_nanosecond)
+  return "Composite Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_nanosecond)..string.format("%09d", timestamp)
 end
 
--- Composite: Timestamp
-nsxaustralia_nets_itch_v4_2_55.timestamp.composite = function(buffer, offset, stored_nanosecond, packet, parent)
+-- Composite: Composite Timestamp
+nsxaustralia_nets_itch_v4_2_55.composite_timestamp.composite = function(buffer, offset, stored_nanosecond, packet, parent)
   local length = nsxaustralia_nets_itch_v4_2_55.timestamp.size
   local range = buffer(offset, length)
   local timestamp = range:uint()
-  local value = nsxaustralia_nets_itch_v4_2_55.timestamp.translate(timestamp, stored_nanosecond)
-  local display = nsxaustralia_nets_itch_v4_2_55.timestamp.display(timestamp, stored_nanosecond, packet)
-  parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.timestamp, range, value, display)
+  local value = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.translate(timestamp, stored_nanosecond)
+  local display = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.display(timestamp, stored_nanosecond, packet)
+  parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.composite_timestamp, range, value, display)
 
   nsxaustralia_nets_itch_v4_2_55.nanosecond.generated(stored_nanosecond, range, packet, parent)
 
@@ -2337,12 +2337,12 @@ nsxaustralia_nets_itch_v4_2_55.timestamp.composite = function(buffer, offset, st
   return offset + length, value
 end
 
--- Dissect: Timestamp
-nsxaustralia_nets_itch_v4_2_55.timestamp.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Composite Timestamp
+nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect = function(buffer, offset, packet, parent)
   local stored_nanosecond = nsxaustralia_nets_itch_v4_2_55.nanosecond.current
 
   if stored_nanosecond ~= nil then
-    return nsxaustralia_nets_itch_v4_2_55.timestamp.composite(buffer, offset, stored_nanosecond, packet, parent)
+    return nsxaustralia_nets_itch_v4_2_55.composite_timestamp.composite(buffer, offset, stored_nanosecond, packet, parent)
   end
 
   return nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, offset, packet, parent)
@@ -2551,7 +2551,7 @@ nsxaustralia_nets_itch_v4_2_55.index_value_message.fields = function(buffer, off
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Index Orderbook: Unsigned Integer
   index, index_orderbook = nsxaustralia_nets_itch_v4_2_55.index_orderbook.dissect(buffer, index, packet, parent)
@@ -2600,7 +2600,7 @@ nsxaustralia_nets_itch_v4_2_55.index_member_directory_message.fields = function(
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Index Orderbook: Unsigned Integer
   index, index_orderbook = nsxaustralia_nets_itch_v4_2_55.index_orderbook.dissect(buffer, index, packet, parent)
@@ -2655,7 +2655,7 @@ nsxaustralia_nets_itch_v4_2_55.news_message.fields = function(buffer, offset, pa
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook: Unsigned Integer
   index, orderbook = nsxaustralia_nets_itch_v4_2_55.orderbook.dissect(buffer, index, packet, parent)
@@ -2722,7 +2722,7 @@ nsxaustralia_nets_itch_v4_2_55.trade_message.fields = function(buffer, offset, p
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Executed Quantity: Unsigned Integer
   index, executed_quantity = nsxaustralia_nets_itch_v4_2_55.executed_quantity.dissect(buffer, index, packet, parent)
@@ -2797,7 +2797,7 @@ nsxaustralia_nets_itch_v4_2_55.indicative_price_quantity_message.fields = functi
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Theoretical Opening Quantity: Unsigned Integer
   index, theoretical_opening_quantity = nsxaustralia_nets_itch_v4_2_55.theoretical_opening_quantity.dissect(buffer, index, packet, parent)
@@ -2865,7 +2865,7 @@ nsxaustralia_nets_itch_v4_2_55.order_replace_message.fields = function(buffer, o
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Order Number: Unsigned Integer
   index, original_order_number = nsxaustralia_nets_itch_v4_2_55.original_order_number.dissect(buffer, index, packet, parent)
@@ -2918,7 +2918,7 @@ nsxaustralia_nets_itch_v4_2_55.order_delete_message.fields = function(buffer, of
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Unsigned Integer
   index, order_number = nsxaustralia_nets_itch_v4_2_55.order_number.dissect(buffer, index, packet, parent)
@@ -2963,7 +2963,7 @@ nsxaustralia_nets_itch_v4_2_55.broken_trade_message.fields = function(buffer, of
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Match Number: Unsigned Integer
   index, match_number = nsxaustralia_nets_itch_v4_2_55.match_number.dissect(buffer, index, packet, parent)
@@ -3014,7 +3014,7 @@ nsxaustralia_nets_itch_v4_2_55.order_executed_with_price_message.fields = functi
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Unsigned Integer
   index, order_number = nsxaustralia_nets_itch_v4_2_55.order_number.dissect(buffer, index, packet, parent)
@@ -3074,7 +3074,7 @@ nsxaustralia_nets_itch_v4_2_55.order_executed_message.fields = function(buffer, 
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Unsigned Integer
   index, order_number = nsxaustralia_nets_itch_v4_2_55.order_number.dissect(buffer, index, packet, parent)
@@ -3135,7 +3135,7 @@ nsxaustralia_nets_itch_v4_2_55.add_order_message.fields = function(buffer, offse
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Unsigned Integer
   index, order_number = nsxaustralia_nets_itch_v4_2_55.order_number.dissect(buffer, index, packet, parent)
@@ -3195,7 +3195,7 @@ nsxaustralia_nets_itch_v4_2_55.firm_directory_message.fields = function(buffer, 
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Firm Id: Unsigned Integer
   index, firm_id = nsxaustralia_nets_itch_v4_2_55.firm_id.dissect(buffer, index, packet, parent)
@@ -3245,7 +3245,7 @@ nsxaustralia_nets_itch_v4_2_55.orderbook_attribute_message.fields = function(buf
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook: Unsigned Integer
   index, orderbook = nsxaustralia_nets_itch_v4_2_55.orderbook.dissect(buffer, index, packet, parent)
@@ -3300,7 +3300,7 @@ nsxaustralia_nets_itch_v4_2_55.orderbook_trading_action_message.fields = functio
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook: Unsigned Integer
   index, orderbook = nsxaustralia_nets_itch_v4_2_55.orderbook.dissect(buffer, index, packet, parent)
@@ -3367,7 +3367,7 @@ nsxaustralia_nets_itch_v4_2_55.orderbook_directory_message.fields = function(buf
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook: Unsigned Integer
   index, orderbook = nsxaustralia_nets_itch_v4_2_55.orderbook.dissect(buffer, index, packet, parent)
@@ -3464,7 +3464,7 @@ nsxaustralia_nets_itch_v4_2_55.quantity_tick_size_message.fields = function(buff
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Tick Size Table Id: Unsigned Integer
   index, tick_size_table_id = nsxaustralia_nets_itch_v4_2_55.tick_size_table_id.dissect(buffer, index, packet, parent)
@@ -3516,7 +3516,7 @@ nsxaustralia_nets_itch_v4_2_55.price_tick_size_message.fields = function(buffer,
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Tick Size Table Id: Unsigned Integer
   index, tick_size_table_id = nsxaustralia_nets_itch_v4_2_55.tick_size_table_id.dissect(buffer, index, packet, parent)
@@ -3571,7 +3571,7 @@ nsxaustralia_nets_itch_v4_2_55.system_event_message.fields = function(buffer, of
   local index = offset
 
   -- Timestamp: Unsigned Integer
-  index, timestamp = nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, index, packet, parent)
+  index, timestamp = nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
   index, group = nsxaustralia_nets_itch_v4_2_55.group.dissect(buffer, index, packet, parent)

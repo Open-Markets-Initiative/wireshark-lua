@@ -21,6 +21,12 @@ omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.cross_id = ProtoField.ne
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.currenttradingstate", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.end_of_replay_sequence_number = ProtoField.new("End Of Replay Sequence Number", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.endofreplaysequencenumber", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.eventcode", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.expirationday", ftypes.UINT8)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.expirationmonth", ftypes.UINT8)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.expirationyear", ftypes.UINT8)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.explicitstrikeprice", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.leg_information = ProtoField.new("Leg Information", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.leginformation", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.legratio", ftypes.UINT32)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.message", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.messagecount", ftypes.UINT16)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.messageheader", ftypes.STRING)
@@ -28,6 +34,8 @@ omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.message_length = ProtoFi
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.messagetype", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.moldudp64packet", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.numberoflegs", ftypes.UINT8)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.option_id = ProtoField.new("Option Id", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.optionid", ftypes.UINT32)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.optiontype", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.packetlength", ftypes.UINT16)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.packettype", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.password = ProtoField.new("Password", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.password", ftypes.STRING)
@@ -36,7 +44,9 @@ omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.reject_reason_code = Pro
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.requestedsession", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.reserved16", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.securitysymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.sequencedmessagetype", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.side = ProtoField.new("Side", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.side", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.soupbintcppacket", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.strategyid", ftypes.UINT32)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.strategytype", ftypes.STRING)
@@ -70,6 +80,7 @@ omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.sequenced_data_packet = 
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq PhlxOptions SpreadTradeFeed Itch 2.1 generated fields
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.leg_information_index = ProtoField.new("Leg Information Index", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.leginformationindex", ftypes.UINT16)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -81,6 +92,7 @@ local show = {}
 -- Nasdaq PhlxOptions SpreadTradeFeed Itch 2.1 Element Dissection Options
 show.application_messages = true
 show.session_messages = true
+show.leg_information = true
 show.message = true
 show.message_header = true
 show.mold_udp_64_packet = true
@@ -88,11 +100,13 @@ show.soup_bin_tcp_packet = true
 show.tcp_packet = true
 show.tcp_packet_header = true
 show.udp_packet_header = true
+show.leg_information_index = true
 show.message_index = true
 
 -- Register Nasdaq PhlxOptions SpreadTradeFeed Itch 2.1 Show Options
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_leg_information = Pref.bool("Show Leg Information", show.leg_information, "Parse and add Leg Information to protocol tree")
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_mold_udp_64_packet = Pref.bool("Show Mold Udp 64 Packet", show.mold_udp_64_packet, "Parse and add Mold Udp 64 Packet to protocol tree")
@@ -100,6 +114,7 @@ omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_soup_bin_tcp_packet 
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_tcp_packet = Pref.bool("Show Tcp Packet", show.tcp_packet, "Parse and add Tcp Packet to protocol tree")
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_tcp_packet_header = Pref.bool("Show Tcp Packet Header", show.tcp_packet_header, "Parse and add Tcp Packet Header to protocol tree")
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_udp_packet_header = Pref.bool("Show Udp Packet Header", show.udp_packet_header, "Parse and add Udp Packet Header to protocol tree")
+omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_leg_information_index = Pref.bool("Show Leg Information Index", show.leg_information_index, "Show generated leg information index in protocol tree")
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 
@@ -109,6 +124,9 @@ function omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_application_messages
+  end
+  if show.leg_information ~= omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_leg_information then
+    show.leg_information = omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_leg_information
   end
   if show.message ~= omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_message then
     show.message = omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_message
@@ -133,6 +151,9 @@ function omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs_changed()
   end
   if show.udp_packet_header ~= omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_udp_packet_header then
     show.udp_packet_header = omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_udp_packet_header
+  end
+  if show.leg_information_index ~= omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_leg_information_index then
+    show.leg_information_index = omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_leg_information_index
   end
   if show.message_index ~= omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_message_index then
     show.message_index = omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.prefs.show_message_index
@@ -300,6 +321,127 @@ nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.event_code.dissect = function(buffe
   return offset + length, value
 end
 
+-- Expiration Day
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_day = {}
+
+-- Size: Expiration Day
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_day.size = 1
+
+-- Display: Expiration Day
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_day.display = function(value)
+  return "Expiration Day: "..value
+end
+
+-- Dissect: Expiration Day
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_day.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_day.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.expiration_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Month
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_month = {}
+
+-- Size: Expiration Month
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_month.size = 1
+
+-- Display: Expiration Month
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_month.display = function(value)
+  return "Expiration Month: "..value
+end
+
+-- Dissect: Expiration Month
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.expiration_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Year
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_year = {}
+
+-- Size: Expiration Year
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_year.size = 1
+
+-- Display: Expiration Year
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_year.display = function(value)
+  return "Expiration Year: "..value
+end
+
+-- Dissect: Expiration Year
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.expiration_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Explicit Strike Price
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price = {}
+
+-- Size: Explicit Strike Price
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.size = 4
+
+-- Display: Explicit Strike Price
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.display = function(value)
+  return "Explicit Strike Price: "..value
+end
+
+-- Translate: Explicit Strike Price
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Explicit Strike Price
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.translate(raw)
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.explicit_strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_ratio = {}
+
+-- Size: Leg Ratio
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Count
 nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.message_count = {}
 
@@ -401,6 +543,52 @@ nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.number_of_legs.dissect = function(b
   local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.number_of_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Id
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_id = {}
+
+-- Size: Option Id
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_id.size = 4
+
+-- Display: Option Id
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_id.display = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.option_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_type = {}
+
+-- Size: Option Type
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_type.display = function(value)
+  return "Option Type: "..value
+end
+
+-- Dissect: Option Type
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.option_type, range, value, display)
 
   return offset + length, value
 end
@@ -626,6 +814,29 @@ nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.reserved_16.dissect = function(buff
   return offset + length, value
 end
 
+-- Security Symbol
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.security_symbol.size = 8
+
+-- Display: Security Symbol
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequenced Message Type
 nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.sequenced_message_type = {}
 
@@ -661,6 +872,29 @@ nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.sequenced_message_type.dissect = fu
   local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.sequenced_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.side = {}
+
+-- Size: Side
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.side.size = 1
+
+-- Display: Side
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.side.display = function(value)
+  return "Side: "..value
+end
+
+-- Dissect: Side
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1082,19 +1316,111 @@ nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.strategy_trading_action_message.dis
   end
 end
 
+-- Leg Information
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information = {}
+
+-- Size: Leg Information
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.size =
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_id.size + 
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.security_symbol.size + 
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_year.size + 
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_month.size + 
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_day.size + 
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.size + 
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_type.size + 
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.side.size + 
+  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_ratio.size
+
+-- Display: Leg Information
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Leg Information
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.fields = function(buffer, offset, packet, parent, leg_information_index)
+  local index = offset
+
+  -- Implicit Leg Information Index
+  if leg_information_index ~= nil and show.leg_information_index then
+    local iteration = parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.leg_information_index, leg_information_index)
+    iteration:set_generated()
+  end
+
+  -- Option Id: Integer
+  index, option_id = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiration Year: Integer
+  index, expiration_year = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_year.dissect(buffer, index, packet, parent)
+
+  -- Expiration Month: Integer
+  index, expiration_month = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_month.dissect(buffer, index, packet, parent)
+
+  -- Expiration Day: Integer
+  index, expiration_day = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.expiration_day.dissect(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: Integer
+  index, explicit_strike_price = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.explicit_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.option_type.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.side.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio: Integer
+  index, leg_ratio = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_ratio.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Leg Information
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.dissect = function(buffer, offset, packet, parent, leg_information_index)
+  if show.leg_information then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.leg_information, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.fields(buffer, offset, packet, parent, leg_information_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.fields(buffer, offset, packet, parent, leg_information_index)
+  end
+end
+
 -- Complex Strategy Directory Message
 nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.complex_strategy_directory_message = {}
 
--- Size: Complex Strategy Directory Message
-nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.complex_strategy_directory_message.size =
-  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.tracking_number.size + 
-  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.timestamp.size + 
-  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.strategy_id.size + 
-  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.strategy_type.size + 
-  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.underlying_symbol.size + 
-  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.reserved_16.size + 
-  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.number_of_legs.size + 
-  nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.size
+-- Calculate size of: Complex Strategy Directory Message
+nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.complex_strategy_directory_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.tracking_number.size
+
+  index = index + nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.timestamp.size
+
+  index = index + nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.strategy_id.size
+
+  index = index + nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.strategy_type.size
+
+  index = index + nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.underlying_symbol.size
+
+  index = index + nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.reserved_16.size
+
+  index = index + nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.number_of_legs.size
+
+  -- Calculate field size from count
+  local leg_information_count = buffer(offset + index - 1, 1):uint()
+  index = index + leg_information_count * 25
+
+  return index
+end
 
 -- Display: Complex Strategy Directory Message
 nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.complex_strategy_directory_message.display = function(packet, parent, length)
@@ -1126,8 +1452,10 @@ nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.complex_strategy_directory_message.
   -- Number Of Legs: Integer
   index, number_of_legs = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.number_of_legs.dissect(buffer, index, packet, parent)
 
-  -- Leg Information
-  index, leg_information = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.dissect(buffer, index, packet, parent)
+  -- Repeating: Leg Information
+  for leg_information_index = 1, number_of_legs do
+    index, leg_information = nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.leg_information.dissect(buffer, index, packet, parent, leg_information_index)
+  end
 
   return index
 end

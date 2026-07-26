@@ -83,14 +83,14 @@ omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.timestamp = ProtoField.
 -----------------------------------------------------------------------
 
 -- timestamp format
-local time_offset_format_enum = {
+local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "Full DateTime", 2 }
 }
 
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_edgxoptions_complexauction_pitch_v2_2_41.time_offset_format = 2
+cboe_edgxoptions_complexauction_pitch_v2_2_41.timestamp_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 cboe_edgxoptions_complexauction_pitch_v2_2_41.utc_offset_hours = 5
@@ -122,7 +122,7 @@ omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.show_packet_header = Pre
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.show_complex_leg_index = Pref.bool("Show Complex Leg Index", show.complex_leg_index, "Show generated complex leg index in protocol tree")
 
-omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.time_offset_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", time_offset_format_enum, false)
+omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
@@ -153,8 +153,8 @@ function omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs_changed()
   if show.complex_leg_index ~= omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.show_complex_leg_index then
     show.complex_leg_index = omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.show_complex_leg_index
   end
-  if cboe_edgxoptions_complexauction_pitch_v2_2_41.time_offset_format ~= omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.time_offset_format then
-    cboe_edgxoptions_complexauction_pitch_v2_2_41.time_offset_format = omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.time_offset_format
+  if cboe_edgxoptions_complexauction_pitch_v2_2_41.timestamp_format ~= omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.timestamp_format then
+    cboe_edgxoptions_complexauction_pitch_v2_2_41.timestamp_format = omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.timestamp_format
   end
   if cboe_edgxoptions_complexauction_pitch_v2_2_41.utc_offset_hours ~= omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.utc_offset_hours then
     cboe_edgxoptions_complexauction_pitch_v2_2_41.utc_offset_hours = omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.prefs.utc_offset_hours
@@ -1303,12 +1303,12 @@ end
 -- Display: Timestamp
 cboe_edgxoptions_complexauction_pitch_v2_2_41.timestamp.display = function(time_offset, stored_time, packet)
   -- Raw display mode
-  if cboe_edgxoptions_complexauction_pitch_v2_2_41.time_offset_format == 0 then
+  if cboe_edgxoptions_complexauction_pitch_v2_2_41.timestamp_format == 0 then
     return "Timestamp: "..(stored_time * 1000000000 + time_offset)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if cboe_edgxoptions_complexauction_pitch_v2_2_41.time_offset_format == 2 and packet then
+  if cboe_edgxoptions_complexauction_pitch_v2_2_41.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = cboe_edgxoptions_complexauction_pitch_v2_2_41.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400

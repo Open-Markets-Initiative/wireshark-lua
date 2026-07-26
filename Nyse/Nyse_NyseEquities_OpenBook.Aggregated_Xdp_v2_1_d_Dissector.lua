@@ -39,11 +39,13 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.msg_size = ProtoField
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.msg_type = ProtoField.new("Msg Type", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.msgtype", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.nanoseconds", ftypes.UINT32)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.nextsourceseqnum", ftypes.UINT32)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.num_orders = ProtoField.new("Num Orders", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.numorders", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.packet", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet_size = ProtoField.new("Packet Size", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.packetsize", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.prevcloseprice", ftypes.DOUBLE)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.prevclosevolume", ftypes.UINT32)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.price = ProtoField.new("Price", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.price", ftypes.UINT32)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.price_1 = ProtoField.new("Price 1", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.price1", ftypes.DOUBLE)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.price_2 = ProtoField.new("Price 2", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.price2", ftypes.DOUBLE)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.priceresolution", ftypes.UINT8)
@@ -60,6 +62,7 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.security_status = Pro
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.securitytype", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sequencenumber", ftypes.UINT32)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sessionstate", ftypes.STRING)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.side = ProtoField.new("Side", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.side", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point = ProtoField.new("Snapshot Price Point", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.snapshotpricepoint", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_id = ProtoField.new("Source Id", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sourceid", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sourcetime", ftypes.UINT32)
@@ -79,6 +82,7 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.trading_status = Prot
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.ultra_last_seq_num = ProtoField.new("Ultra Last Seq Num", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.ultralastseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.unitoftrade", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.update_count = ProtoField.new("Update Count", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.updatecount", ftypes.UINT8)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.volume", ftypes.UINT32)
 
 -- Nyse NyseEquities Xdp OpenBook.Aggregated 2.1.d Application Messages
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.heartbeatresponsemessage", ftypes.STRING)
@@ -839,6 +843,29 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.next_source_seq_num.dissect = fu
   return offset + length, value
 end
 
+-- Num Orders
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.num_orders = {}
+
+-- Size: Num Orders
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.num_orders.size = 2
+
+-- Display: Num Orders
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.num_orders.display = function(value)
+  return "Num Orders: "..value
+end
+
+-- Dissect: Num Orders
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.num_orders.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.num_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.num_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.num_orders, range, value, display)
+
+  return offset + length, value
+end
+
 -- Packet Size
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.packet_size = {}
 
@@ -910,6 +937,29 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prev_close_volume.dissect = func
   local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prev_close_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.prev_close_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price = {}
+
+-- Size: Price
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.size = 4
+
+-- Display: Price
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1393,6 +1443,36 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.session_state.dissect = function
   local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.session_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.session_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.side = {}
+
+-- Size: Side
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.side.size = 1
+
+-- Display: Side
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1947,6 +2027,29 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.update_count.dissect = function(
   return offset + length, value
 end
 
+-- Volume
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume = {}
+
+-- Size: Volume
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume.size = 4
+
+-- Display: Volume
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d
@@ -1971,16 +2074,16 @@ end
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price
+  -- Price: Binary
   index, price = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.dissect(buffer, index, packet, parent)
 
-  -- Volume
+  -- Volume: Binary
   index, volume = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume.dissect(buffer, index, packet, parent)
 
-  -- Side
+  -- Side: ASCII
   index, side = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.side.dissect(buffer, index, packet, parent)
 
-  -- Num Orders
+  -- Num Orders: Binary
   index, num_orders = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.num_orders.dissect(buffer, index, packet, parent)
 
   return index
@@ -2099,16 +2202,16 @@ end
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price
+  -- Price: Binary
   index, price = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.dissect(buffer, index, packet, parent)
 
-  -- Volume
+  -- Volume: Binary
   index, volume = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume.dissect(buffer, index, packet, parent)
 
-  -- Side
+  -- Side: ASCII
   index, side = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.side.dissect(buffer, index, packet, parent)
 
-  -- Num Orders
+  -- Num Orders: Binary
   index, num_orders = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.num_orders.dissect(buffer, index, packet, parent)
 
   return index

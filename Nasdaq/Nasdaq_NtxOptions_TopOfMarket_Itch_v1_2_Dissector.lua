@@ -87,14 +87,14 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.timestamp = ProtoField.new("T
 -----------------------------------------------------------------------
 
 -- timestamp format
-local nanoseconds_format_enum = {
+local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "Full DateTime", 2 }
 }
 
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-nasdaq_ntxoptions_topofmarket_itch_v1_2.nanoseconds_format = 2
+nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 nasdaq_ntxoptions_topofmarket_itch_v1_2.utc_offset_hours = 5
@@ -122,7 +122,7 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.show_packet = Pref.bool("Show 
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
-omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.nanoseconds_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", nanoseconds_format_enum, false)
+omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
@@ -147,8 +147,8 @@ function omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs_changed()
   if show.message_index ~= omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.show_message_index then
     show.message_index = omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.show_message_index
   end
-  if nasdaq_ntxoptions_topofmarket_itch_v1_2.nanoseconds_format ~= omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.nanoseconds_format then
-    nasdaq_ntxoptions_topofmarket_itch_v1_2.nanoseconds_format = omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.nanoseconds_format
+  if nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_format ~= omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.timestamp_format then
+    nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_format = omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.timestamp_format
   end
   if nasdaq_ntxoptions_topofmarket_itch_v1_2.utc_offset_hours ~= omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.utc_offset_hours then
     nasdaq_ntxoptions_topofmarket_itch_v1_2.utc_offset_hours = omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.prefs.utc_offset_hours
@@ -1395,12 +1395,12 @@ end
 -- Display: Timestamp
 nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.display = function(nanoseconds, stored_second, packet)
   -- Raw display mode
-  if nasdaq_ntxoptions_topofmarket_itch_v1_2.nanoseconds_format == 0 then
+  if nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_format == 0 then
     return "Timestamp: "..(stored_second * 1000000000 + nanoseconds)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if nasdaq_ntxoptions_topofmarket_itch_v1_2.nanoseconds_format == 2 and packet then
+  if nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400

@@ -1631,7 +1631,7 @@ otcmarkets_overnight_retransmission_link_v1_0.time.size = 4
 -- Display: Time
 otcmarkets_overnight_retransmission_link_v1_0.time.display = function(value, buffer, offset, packet, parent)
   -- Raw display mode
-  if otcmarkets_overnight_retransmission_link_v1_0.time_format == 0 then
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 0 then
     return "Time: "..value
   end
 
@@ -1640,7 +1640,7 @@ otcmarkets_overnight_retransmission_link_v1_0.time.display = function(value, buf
   local milliseconds = value % 1000
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if otcmarkets_overnight_retransmission_link_v1_0.time_format == 2 and packet then
+  if otcmarkets_overnight_retransmission_link_v1_0.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = otcmarkets_overnight_retransmission_link_v1_0.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds

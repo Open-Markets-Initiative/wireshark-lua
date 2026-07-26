@@ -105,14 +105,14 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.timestamp = ProtoFi
 -----------------------------------------------------------------------
 
 -- timestamp format
-local time_offset_format_enum = {
+local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "Full DateTime", 2 }
 }
 
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format = 2
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format = 2
 
 -- Hours behind UTC (EST) for midnight calculation
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours = 5
@@ -144,7 +144,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_packet = Pref.b
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.time_offset_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", time_offset_format_enum, false)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
@@ -175,8 +175,8 @@ function omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs_changed()
   if show.message_index ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_message_index then
     show.message_index = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.show_message_index
   end
-  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.time_offset_format then
-    cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.time_offset_format
+  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.timestamp_format then
+    cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.timestamp_format
   end
   if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.utc_offset_hours then
     cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours = omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.prefs.utc_offset_hours
@@ -1438,12 +1438,12 @@ end
 -- Display: Timestamp
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp.display = function(time_offset, stored_time, packet)
   -- Raw display mode
-  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format == 0 then
+  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format == 0 then
     return "Timestamp: "..(stored_time * 1000000000 + time_offset)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.time_offset_format == 2 and packet then
+  if cboe_c1options_multicastdepthofbook_pitch_v2_39_4.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400

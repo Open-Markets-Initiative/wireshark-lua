@@ -654,7 +654,7 @@ otcmarkets_linknqb_topofbook_link_v1_18.packet_milli.size = 4
 -- Display: Packet Milli
 otcmarkets_linknqb_topofbook_link_v1_18.packet_milli.display = function(value, buffer, offset, packet, parent)
   -- Raw display mode
-  if otcmarkets_linknqb_topofbook_link_v1_18.packet_milli_format == 0 then
+  if otcmarkets_linknqb_topofbook_link_v1_18.timestamp_format == 0 then
     return "Packet Milli: "..value
   end
 
@@ -663,7 +663,7 @@ otcmarkets_linknqb_topofbook_link_v1_18.packet_milli.display = function(value, b
   local milliseconds = value % 1000
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if otcmarkets_linknqb_topofbook_link_v1_18.packet_milli_format == 2 and packet then
+  if otcmarkets_linknqb_topofbook_link_v1_18.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = otcmarkets_linknqb_topofbook_link_v1_18.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
@@ -1189,7 +1189,7 @@ otcmarkets_linknqb_topofbook_link_v1_18.time.size = 4
 -- Display: Time
 otcmarkets_linknqb_topofbook_link_v1_18.time.display = function(value, buffer, offset, packet, parent)
   -- Raw display mode
-  if otcmarkets_linknqb_topofbook_link_v1_18.time_format == 0 then
+  if otcmarkets_linknqb_topofbook_link_v1_18.timestamp_format == 0 then
     return "Time: "..value
   end
 
@@ -1198,7 +1198,7 @@ otcmarkets_linknqb_topofbook_link_v1_18.time.display = function(value, buffer, o
   local milliseconds = value % 1000
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if otcmarkets_linknqb_topofbook_link_v1_18.time_format == 2 and packet then
+  if otcmarkets_linknqb_topofbook_link_v1_18.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = otcmarkets_linknqb_topofbook_link_v1_18.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds

@@ -67,14 +67,14 @@ omi_jnx_jnxbonds_pts_itch_v1_2.fields.timestamp = ProtoField.new("Timestamp", "j
 -----------------------------------------------------------------------
 
 -- timestamp format
-local timestamp_nanoseconds_format_enum = {
+local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "Full DateTime", 2 }
 }
 
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format = 2
+jnx_jnxbonds_pts_itch_v1_2.timestamp_format = 2
 
 -- Hours ahead of UTC (JST) for midnight calculation
 jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours = 9
@@ -102,7 +102,7 @@ omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet = Pref.bool("Show Packet", show
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
-omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_nanoseconds_format_enum, false)
+omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_format_enum, false)
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
 
 -- Handle changed preferences
@@ -127,8 +127,8 @@ function omi_jnx_jnxbonds_pts_itch_v1_2.prefs_changed()
   if show.message_index ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index then
     show.message_index = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index
   end
-  if jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format then
-    jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_nanoseconds_format
+  if jnx_jnxbonds_pts_itch_v1_2.timestamp_format ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format then
+    jnx_jnxbonds_pts_itch_v1_2.timestamp_format = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format
   end
   if jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.utc_offset_hours then
     jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.utc_offset_hours
@@ -916,12 +916,12 @@ end
 -- Display: Timestamp
 jnx_jnxbonds_pts_itch_v1_2.timestamp.display = function(timestamp_nanoseconds, stored_timestamp_seconds, packet)
   -- Raw display mode
-  if jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format == 0 then
+  if jnx_jnxbonds_pts_itch_v1_2.timestamp_format == 0 then
     return "Timestamp: "..(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
-  if jnx_jnxbonds_pts_itch_v1_2.timestamp_nanoseconds_format == 2 and packet then
+  if jnx_jnxbonds_pts_itch_v1_2.timestamp_format == 2 and packet then
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
