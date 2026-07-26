@@ -15,6 +15,7 @@ local cboe_bxeequities_multicastdepthofbook_pitch_v6_67 = {}
 -----------------------------------------------------------------------
 
 -- Cboe BxeEquities MulticastDepthOfBook Pitch 6.67 Fields
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.addorderflags", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.algorithmicindicator", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.algorithmic_trade = ProtoField.new("Algorithmic Trade", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.algorithmictrade", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.auction_type = ProtoField.new("Auction Type", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.auctiontype", ftypes.STRING)
@@ -69,6 +70,7 @@ omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.sequence = ProtoFie
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.shares_binary_2 = ProtoField.new("Shares Binary 2", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.sharesbinary2", ftypes.UINT16)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.shares_binary_4 = ProtoField.new("Shares Binary 4", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.sharesbinary4", ftypes.UINT32)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.shares_binary_8 = ProtoField.new("Shares Binary 8", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.sharesbinary8", ftypes.UINT64)
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.si_quote = ProtoField.new("Si Quote", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.siquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.sideindicator", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.specialdividend", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.statistic_type = ProtoField.new("Statistic Type", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.statistictype", ftypes.STRING)
@@ -85,6 +87,8 @@ omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.trading_mode = Prot
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.trading_status = ProtoField.new("Trading Status", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.tradingstatus", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.transactioncategory", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.unit = ProtoField.new("Unit", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.unit", ftypes.UINT8)
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_1 = ProtoField.new("Unused 1", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_6 = ProtoField.new("Unused 6", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
 -- Cboe BxeEquities Pitch MulticastDepthOfBook 6.67 Application Messages
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.addorderexpandedmessage", ftypes.STRING)
@@ -142,6 +146,7 @@ local show = {}
 
 -- Cboe BxeEquities MulticastDepthOfBook Pitch 6.67 Element Dissection Options
 show.application_messages = true
+show.add_order_flags = true
 show.execution_flags = true
 show.extended_trade_flags = true
 show.message = true
@@ -153,6 +158,7 @@ show.message_index = true
 
 -- Register Cboe BxeEquities MulticastDepthOfBook Pitch 6.67 Show Options
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_add_order_flags = Pref.bool("Show Add Order Flags", show.add_order_flags, "Parse and add Add Order Flags to protocol tree")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_execution_flags = Pref.bool("Show Execution Flags", show.execution_flags, "Parse and add Execution Flags to protocol tree")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_extended_trade_flags = Pref.bool("Show Extended Trade Flags", show.extended_trade_flags, "Parse and add Extended Trade Flags to protocol tree")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -169,6 +175,9 @@ omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.utc_offset_hours = P
 function omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs_changed()
 
   -- Check if preferences have changed
+  if show.add_order_flags ~= omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_add_order_flags then
+    show.add_order_flags = omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_add_order_flags
+  end
   if show.application_messages ~= omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_application_messages then
     show.application_messages = omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.prefs.show_application_messages
   end
@@ -3432,6 +3441,56 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_67.order_executed_message.dissect
   end
 end
 
+-- Add Order Flags
+cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags = {}
+
+-- Size: Add Order Flags
+cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.size = 1
+
+-- Display: Add Order Flags
+cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Si Quote flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Si Quote"
+  end
+  -- Is Unused 1 flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Unused 1"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Add Order Flags
+cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.bits = function(range, value, packet, parent)
+
+  -- Si Quote: 1 Bit
+  parent:add(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.si_quote, range, value)
+
+  -- Unused 1: 1 Bit
+  parent:add(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_1, range, value)
+
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_6, range, value)
+end
+
+-- Dissect: Add Order Flags
+cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.add_order_flags, range, display)
+
+  if show.add_order_flags then
+    cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Add Order Expanded Message
 cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_expanded_message = {}
 
@@ -3473,7 +3532,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_expanded_message.fie
   -- Price Binary Long Price 8: Binary Long Price
   index, price_binary_long_price_8 = cboe_bxeequities_multicastdepthofbook_pitch_v6_67.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
-  -- Add Order Flags
+  -- Add Order Flags: Struct of 3 fields
   index, add_order_flags = cboe_bxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.dissect(buffer, index, packet, parent)
 
   -- Participant Id: Alphanumeric

@@ -30,6 +30,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.execution_id = Pro
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.expirationdate", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.feedsymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.future_leg = ProtoField.new("Future Leg", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.futureleg", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.futures_flags = ProtoField.new("Futures Flags", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.futuresflags", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.futures_symbol = ProtoField.new("Futures Symbol", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.futuressymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.highprice", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.high_price_is_bid = ProtoField.new("High Price Is Bid", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.highpriceisbid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -67,7 +68,8 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.report_symbol = Pr
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.reserved1", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.reserved2", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.reserved3", ftypes.STRING)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.reservedflags", ftypes.UINT8, nil, base.DEC, 0xE0)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_flags_3 = ProtoField.new("Reserved Flags 3", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.reservedflags3", ftypes.UINT8, nil, base.DEC, 0xE0)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_flags_7 = ProtoField.new("Reserved Flags 7", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.reservedflags7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.sequence = ProtoField.new("Sequence", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.sequence", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.settlementprice", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.sideindicator", ftypes.STRING)
@@ -82,6 +84,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.trading_status = P
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.unit = ProtoField.new("Unit", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.unit", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.unit_timestamp = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.unittimestamp", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.upperpricelimit", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.variance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
 -- Cboe CfeFutures Pitch MulticastDepthOfBook 1.2.19 Application Messages
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.cfefutures.multicastdepthofbook.pitch.v1.2.19.addorderlongmessage", ftypes.STRING)
@@ -123,6 +126,7 @@ local show = {}
 -- Cboe CfeFutures MulticastDepthOfBook Pitch 1.2.19 Element Dissection Options
 show.application_messages = true
 show.future_leg = true
+show.futures_flags = true
 show.message = true
 show.message_header = true
 show.packet = true
@@ -134,6 +138,7 @@ show.future_leg_index = true
 -- Register Cboe CfeFutures MulticastDepthOfBook Pitch 1.2.19 Show Options
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_future_leg = Pref.bool("Show Future Leg", show.future_leg, "Parse and add Future Leg to protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_futures_flags = Pref.bool("Show Futures Flags", show.futures_flags, "Parse and add Futures Flags to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -152,6 +157,9 @@ function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs_changed()
   end
   if show.future_leg ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_future_leg then
     show.future_leg = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_future_leg
+  end
+  if show.futures_flags ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_futures_flags then
+    show.futures_flags = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_futures_flags
   end
   if show.message ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_message then
     show.message = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.prefs.show_message
@@ -1851,8 +1859,8 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.summary_flags.bits = function
   -- Open Close Valid: 1 Bit
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.open_close_valid, range, value)
 
-  -- Reserved Flags: 3 Bit
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_flags, range, value)
+  -- Reserved Flags 3: 3 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_flags_3, range, value)
 end
 
 -- Dissect: Summary Flags
@@ -2908,6 +2916,49 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.future_leg.dissect = function
   end
 end
 
+-- Futures Flags
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags = {}
+
+-- Size: Futures Flags
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags.size = 1
+
+-- Display: Futures Flags
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Futures Flags
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags.bits = function(range, value, packet, parent)
+
+  -- Variance: 1 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.variance, range, value)
+
+  -- Reserved Flags 7: 7 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.reserved_flags_7, range, value)
+end
+
+-- Dissect: Futures Flags
+cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.fields.futures_flags, range, display)
+
+  if show.futures_flags then
+    cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Futures Instrument Definition Message
 cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_instrument_definition_message = {}
 
@@ -2969,7 +3020,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_instrument_definition
   -- Report Symbol: Alphanumeric
   index, report_symbol = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.report_symbol.dissect(buffer, index, packet, parent)
 
-  -- Futures Flags
+  -- Futures Flags: Struct of 2 fields
   index, futures_flags = cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.futures_flags.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: Binary Date

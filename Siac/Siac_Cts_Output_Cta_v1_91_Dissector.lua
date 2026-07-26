@@ -111,6 +111,7 @@ omi_siac_cts_output_cta_v1_91.fields.total_volume = ProtoField.new("Total Volume
 omi_siac_cts_output_cta_v1_91.fields.trade = ProtoField.new("Trade", "siac.cts.output.cta.v1.91.trade", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.cts.output.cta.v1.91.trademessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.trade_price = ProtoField.new("Trade Price", "siac.cts.output.cta.v1.91.tradeprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v1_91.fields.trade_price_long = ProtoField.new("Trade Price Long", "siac.cts.output.cta.v1.91.tradepricelong", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v1_91.fields.trade_price_short = ProtoField.new("Trade Price Short", "siac.cts.output.cta.v1.91.tradepriceshort", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v1_91.fields.trade_reporting_facility_id = ProtoField.new("Trade Reporting Facility Id", "siac.cts.output.cta.v1.91.tradereportingfacilityid", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.trade_through_exempt_indicator = ProtoField.new("Trade Through Exempt Indicator", "siac.cts.output.cta.v1.91.tradethroughexemptindicator", ftypes.STRING)
@@ -2855,6 +2856,35 @@ siac_cts_output_cta_v1_91.trade_price.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
+-- Trade Price Long
+siac_cts_output_cta_v1_91.trade_price_long = {}
+
+-- Size: Trade Price Long
+siac_cts_output_cta_v1_91.trade_price_long.size = 8
+
+-- Display: Trade Price Long
+siac_cts_output_cta_v1_91.trade_price_long.display = function(value)
+  return "Trade Price Long: "..value
+end
+
+-- Translate: Trade Price Long
+siac_cts_output_cta_v1_91.trade_price_long.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Trade Price Long
+siac_cts_output_cta_v1_91.trade_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91.trade_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v1_91.trade_price_long.translate(raw)
+  local display = siac_cts_output_cta_v1_91.trade_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v1_91.fields.trade_price_long, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Price Short
 siac_cts_output_cta_v1_91.trade_price_short = {}
 
@@ -3857,7 +3887,7 @@ siac_cts_output_cta_v1_91.original_trade.fields = function(buffer, offset, packe
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v1_91.sale_conditions.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Long
+  -- Trade Price Long: Long
   index, trade_price_long = siac_cts_output_cta_v1_91.trade_price_long.dissect(buffer, index, packet, parent)
 
   -- Trade Volume Long
@@ -3925,7 +3955,7 @@ siac_cts_output_cta_v1_91.corrected_trade.fields = function(buffer, offset, pack
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v1_91.sale_conditions.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Long
+  -- Trade Price Long: Long
   index, trade_price_long = siac_cts_output_cta_v1_91.trade_price_long.dissect(buffer, index, packet, parent)
 
   -- Trade Volume Long

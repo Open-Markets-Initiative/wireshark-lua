@@ -16,11 +16,13 @@ local otcmarkets_linkats_quotereferenceprice_link_v4_10_4 = {}
 
 -- OtcMarkets LinkAts QuoteReferencePrice Link 4.10.4 Fields
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.askprice", ftypes.UINT64)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_priced = ProtoField.new("Ask Priced", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.askpriced", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_size = ProtoField.new("Ask Size", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.asksize", ftypes.UINT32)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_time_milli = ProtoField.new("Ask Time Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.asktimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.asset_class = ProtoField.new("Asset Class", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.assetclass", ftypes.UINT8)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bb_quoted = ProtoField.new("Bb Quoted", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bbquoted", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_price = ProtoField.new("Bid Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidprice", ftypes.UINT64)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_priced = ProtoField.new("Bid Priced", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidpriced", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_size = ProtoField.new("Bid Size", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidsize", ftypes.UINT32)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_time_milli = ProtoField.new("Bid Time Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidtimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.caveat_emptor_warning = ProtoField.new("Caveat Emptor Warning", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.caveatemptorwarning", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -46,10 +48,12 @@ omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.packet_size = Pro
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.price = ProtoField.new("Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.price", ftypes.UINT64)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.proprietary_quote_eligible = ProtoField.new("Proprietary Quote Eligible", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.proprietaryquoteeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.qualified_institutional_buyers_only = ProtoField.new("Qualified Institutional Buyers Only", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.qualifiedinstitutionalbuyersonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.quote_flags = ProtoField.new("Quote Flags", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.quoteflags", ftypes.STRING)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reference_price_action = ProtoField.new("Reference Price Action", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.referencepriceaction", ftypes.UINT8)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reference_price_id = ProtoField.new("Reference Price Id", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.referencepriceid", ftypes.UINT32)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.replay = ProtoField.new("Replay", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.replay", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reporting_status = ProtoField.new("Reporting Status", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.reportingstatus", ftypes.STRING)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1 = ProtoField.new("Reserved 1", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_4 = ProtoField.new("Reserved 4", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.reserved4", ftypes.UINT8, nil, base.DEC, 0x3C)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.saturation_eligible = ProtoField.new("Saturation Eligible", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.saturationeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.security_action = ProtoField.new("Security Action", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.securityaction", ftypes.UINT8)
@@ -64,11 +68,13 @@ omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.spin_last_seq_num
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.spin_msg_ct = ProtoField.new("Spin Msg Ct", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.spinmsgct", ftypes.UINT32)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.spinstarttimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.spin_type = ProtoField.new("Spin Type", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.spintype", ftypes.UINT8)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.state = ProtoField.new("State", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.state", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.symbol = ProtoField.new("Symbol", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.symbol", ftypes.STRING)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.test = ProtoField.new("Test", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.tier = ProtoField.new("Tier", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.tier", ftypes.UINT8)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.time_milli = ProtoField.new("Time Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.timemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.unsolicitedonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.update_side = ProtoField.new("Update Side", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.updateside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
 -- OtcMarkets LinkAts Link QuoteReferencePrice 4.10.4 Application Messages
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.endofspinmessage", ftypes.STRING)
@@ -95,6 +101,7 @@ show.message_header = true
 show.packet = true
 show.packet_flag = true
 show.packet_header = true
+show.quote_flags = true
 show.security_flags = true
 show.message_index = true
 
@@ -105,6 +112,7 @@ omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_message_heade
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_packet_flag = Pref.bool("Show Packet Flag", show.packet_flag, "Parse and add Packet Flag to protocol tree")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_quote_flags = Pref.bool("Show Quote Flags", show.quote_flags, "Parse and add Quote Flags to protocol tree")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
@@ -130,6 +138,9 @@ function omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs_changed()
   end
   if show.packet_header ~= omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_packet_header then
     show.packet_header = omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_packet_header
+  end
+  if show.quote_flags ~= omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_quote_flags then
+    show.quote_flags = omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_quote_flags
   end
   if show.security_flags ~= omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_security_flags then
     show.security_flags = omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.prefs.show_security_flags
@@ -1132,6 +1143,95 @@ end
 -- Dissect OtcMarkets LinkAts QuoteReferencePrice Link 4.10.4
 -----------------------------------------------------------------------
 
+-- Quote Flags
+otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags = {}
+
+-- Size: Quote Flags
+otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.size = 1
+
+-- Display: Quote Flags
+otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Update Side flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Update Side"
+  end
+  -- Is State flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "State"
+  end
+  -- Is Reserved 1 flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Reserved 1"
+  end
+  -- Is Ask Priced flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Ask Priced"
+  end
+  -- Is Reserved 1 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Reserved 1"
+  end
+  -- Is Reserved 1 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Reserved 1"
+  end
+  -- Is Bid Priced flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Bid Priced"
+  end
+  -- Is Reserved 1 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Reserved 1"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Quote Flags
+otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.bits = function(range, value, packet, parent)
+
+  -- Update Side: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.update_side, range, value)
+
+  -- State: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.state, range, value)
+
+  -- Reserved 1: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1, range, value)
+
+  -- Ask Priced: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_priced, range, value)
+
+  -- Reserved 1: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1, range, value)
+
+  -- Reserved 1: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1, range, value)
+
+  -- Bid Priced: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_priced, range, value)
+
+  -- Reserved 1: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1, range, value)
+end
+
+-- Dissect: Quote Flags
+otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.dissect = function(buffer, offset, packet, parent)
+  local size = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.size
+  local range = buffer(offset, size)
+  local value = range:uint()
+  local display = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.quote_flags, range, display)
+
+  if show.quote_flags then
+    otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Reference Price Update Message
 otcmarkets_linkats_quotereferenceprice_link_v4_10_4.reference_price_update_message = {}
 
@@ -1159,7 +1259,7 @@ otcmarkets_linkats_quotereferenceprice_link_v4_10_4.reference_price_update_messa
   -- Reference Price Id: Unsigned Integer
   index, reference_price_id = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.reference_price_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Flags
+  -- Quote Flags: Struct of 8 fields
   index, quote_flags = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.dissect(buffer, index, packet, parent)
 
   -- Price: Unsigned Integer
@@ -1227,7 +1327,7 @@ otcmarkets_linkats_quotereferenceprice_link_v4_10_4.reference_price_message.fiel
   -- Reference Price Action: Unsigned Integer
   index, reference_price_action = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.reference_price_action.dissect(buffer, index, packet, parent)
 
-  -- Quote Flags
+  -- Quote Flags: Struct of 8 fields
   index, quote_flags = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.dissect(buffer, index, packet, parent)
 
   -- Security Id: Unsigned Integer

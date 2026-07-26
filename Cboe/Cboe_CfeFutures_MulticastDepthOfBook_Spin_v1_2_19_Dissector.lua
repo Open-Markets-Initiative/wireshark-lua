@@ -26,6 +26,8 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.epoch_time = ProtoF
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.expirationdate", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.feedsymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.filler = ProtoField.new("Filler", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.filler", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.future_leg = ProtoField.new("Future Leg", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.futureleg", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.futures_flags = ProtoField.new("Futures Flags", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.futuresflags", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.futures_symbol = ProtoField.new("Futures Symbol", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.futuressymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.highprice", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.high_price_is_bid = ProtoField.new("High Price Is Bid", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.highpriceisbid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -33,6 +35,8 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.high_price_valid = 
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.issue = ProtoField.new("Issue", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.issue", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_count = ProtoField.new("Leg Count", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.legcount", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_offset = ProtoField.new("Leg Offset", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.legoffset", ftypes.UINT8)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.legratio", ftypes.INT32)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.legsymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.length = ProtoField.new("Length", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.length", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.listing_state = ProtoField.new("Listing State", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.listingstate", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.loginresponsestatus", ftypes.STRING)
@@ -64,7 +68,8 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.report_symbol = Pro
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reserved1", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reserved2", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reserved3", ftypes.STRING)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reservedflags", ftypes.UINT8, nil, base.DEC, 0xE0)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_flags_3 = ProtoField.new("Reserved Flags 3", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reservedflags3", ftypes.UINT8, nil, base.DEC, 0xE0)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_flags_7 = ProtoField.new("Reserved Flags 7", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reservedflags7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.sequence = ProtoField.new("Sequence", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.sequence", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.sessionsubid", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.settlementprice", ftypes.UINT64)
@@ -81,6 +86,7 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.unit = ProtoField.n
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.unit_timestamp = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.unittimestamp", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.upperpricelimit", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.username = ProtoField.new("Username", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.username", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.variance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
 -- Cboe CfeFutures Spin MulticastDepthOfBook 1.2.19 Application Messages
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.addorderlongmessage", ftypes.STRING)
@@ -101,6 +107,7 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.time_reference_mess
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.tradingstatusmessage", ftypes.STRING)
 
 -- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 generated fields
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.futurelegindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.messageindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.timestamp", ftypes.UINT64)
 
@@ -112,21 +119,27 @@ local show = {}
 
 -- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 Element Dissection Options
 show.application_messages = true
+show.future_leg = true
+show.futures_flags = true
 show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
 show.summary_flags = true
 show.message_index = true
+show.future_leg_index = true
 
 -- Register Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 Show Options
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_future_leg = Pref.bool("Show Future Leg", show.future_leg, "Parse and add Future Leg to protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_futures_flags = Pref.bool("Show Futures Flags", show.futures_flags, "Parse and add Futures Flags to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_summary_flags = Pref.bool("Show Summary Flags", show.summary_flags, "Parse and add Summary Flags to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_future_leg_index = Pref.bool("Show Future Leg Index", show.future_leg_index, "Show generated future leg index in protocol tree")
 
 
 -- Handle changed preferences
@@ -135,6 +148,12 @@ function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_application_messages then
     show.application_messages = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_application_messages
+  end
+  if show.future_leg ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_future_leg then
+    show.future_leg = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_future_leg
+  end
+  if show.futures_flags ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_futures_flags then
+    show.futures_flags = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_futures_flags
   end
   if show.message ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message then
     show.message = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message
@@ -153,6 +172,9 @@ function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs_changed()
   end
   if show.message_index ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message_index then
     show.message_index = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message_index
+  end
+  if show.future_leg_index ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_future_leg_index then
+    show.future_leg_index = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_future_leg_index
   end
 end
 
@@ -573,6 +595,52 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_offset.dissect = function(
   local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_ratio = {}
+
+-- Size: Leg Ratio
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_symbol = {}
+
+-- Size: Leg Symbol
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_symbol.size = 6
+
+-- Display: Leg Symbol
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_symbol.display = function(value)
+  return "Leg Symbol: "..value
+end
+
+-- Dissect: Leg Symbol
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1685,8 +1753,8 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.bits = function(
   -- Offer Close Valid: 1 Bit
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.offer_close_valid, range, value)
 
-  -- Reserved Flags: 3 Bit
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_flags, range, value)
+  -- Reserved Flags 3: 3 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_flags_3, range, value)
 end
 
 -- Dissect: Summary Flags
@@ -2136,25 +2204,138 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_variance_symbol_mappin
   end
 end
 
+-- Future Leg
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg = {}
+
+-- Size: Future Leg
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.size =
+  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_ratio.size + 
+  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_symbol.size
+
+-- Display: Future Leg
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Future Leg
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.fields = function(buffer, offset, packet, parent, future_leg_index)
+  local index = offset
+
+  -- Implicit Future Leg Index
+  if future_leg_index ~= nil and show.future_leg_index then
+    local iteration = parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.future_leg_index, future_leg_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Ratio: Signed Binary
+  index, leg_ratio = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_ratio.dissect(buffer, index, packet, parent)
+
+  -- Leg Symbol: Alphanumeric
+  index, leg_symbol = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_symbol.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Future Leg
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.dissect = function(buffer, offset, packet, parent, future_leg_index)
+  if show.future_leg then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.future_leg, buffer(offset, 0))
+    local index = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.fields(buffer, offset, packet, parent, future_leg_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.fields(buffer, offset, packet, parent, future_leg_index)
+  end
+end
+
+-- Futures Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags = {}
+
+-- Size: Futures Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.size = 1
+
+-- Display: Futures Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Futures Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.bits = function(range, value, packet, parent)
+
+  -- Variance: 1 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.variance, range, value)
+
+  -- Reserved Flags 7: 7 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_flags_7, range, value)
+end
+
+-- Dissect: Futures Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.futures_flags, range, display)
+
+  if show.futures_flags then
+    cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Futures Instrument Definition Message
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_instrument_definition_message = {}
 
--- Size: Futures Instrument Definition Message
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_instrument_definition_message.size =
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.time_offset.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.symbol.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.unit_timestamp.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.report_symbol.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.expiration_date.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.contract_size.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.listing_state.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_increment.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_count.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_offset.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.reserved_1.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.contract_date.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.size
+-- Calculate size of: Futures Instrument Definition Message
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_instrument_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.time_offset.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.symbol.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.unit_timestamp.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.report_symbol.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.expiration_date.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.contract_size.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.listing_state.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_increment.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_count.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.leg_offset.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.reserved_1.size
+
+  index = index + cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.contract_date.size
+
+  -- Calculate field size from count
+  local future_leg_count = buffer(offset + index - 7, 1):le_uint()
+  index = index + future_leg_count * 10
+
+  return index
+end
 
 -- Display: Futures Instrument Definition Message
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_instrument_definition_message.display = function(packet, parent, length)
@@ -2177,7 +2358,7 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_instrument_definition_
   -- Report Symbol: Alphanumeric
   index, report_symbol = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.report_symbol.dissect(buffer, index, packet, parent)
 
-  -- Futures Flags
+  -- Futures Flags: Struct of 2 fields
   index, futures_flags = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_flags.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: Binary Date
@@ -2204,8 +2385,10 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.futures_instrument_definition_
   -- Contract Date: Binary Date
   index, contract_date = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.contract_date.dissect(buffer, index, packet, parent)
 
-  -- Future Leg
-  index, future_leg = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.dissect(buffer, index, packet, parent)
+  -- Repeating: Future Leg
+  for future_leg_index = 1, leg_count do
+    index, future_leg = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.future_leg.dissect(buffer, index, packet, parent, future_leg_index)
+  end
 
   return index
 end
