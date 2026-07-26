@@ -15,12 +15,18 @@ local aquis_aquisequities_realtime_amd_v4_0 = {}
 -----------------------------------------------------------------------
 
 -- Aquis AquisEquities RealTime Amd 4.0 Fields
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "aquis.aquisequities.realtime.amd.v4.0.algorithmicindicator", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x01000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.aod_enabled = ProtoField.new("Aod Enabled", "aquis.aquisequities.realtime.amd.v4.0.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.avx_enabled = ProtoField.new("Avx Enabled", "aquis.aquisequities.realtime.amd.v4.0.avxenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.binary_mmt_u_324 = ProtoField.new("Binary Mmt U 324", "aquis.aquisequities.realtime.amd.v4.0.binarymmtu324", ftypes.UINT32)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.benchmark_reference_price_indicator = ProtoField.new("Benchmark Reference Price Indicator", "aquis.aquisequities.realtime.amd.v4.0.benchmarkreferencepriceindicator", ftypes.UINT32, {[1]="Benchmark Trade", [2]="Reference Price Trade", [3]="No Benchmark Or Reference Price"}, base.DEC, 0x00030000)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.binary_mmt = ProtoField.new("Binary Mmt", "aquis.aquisequities.realtime.amd.v4.0.binarymmt", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "aquis.aquisequities.realtime.amd.v4.0.closingbuyqty", ftypes.UINT32)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "aquis.aquisequities.realtime.amd.v4.0.closingsellqty", ftypes.UINT32)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.crossing_trade = ProtoField.new("Crossing Trade", "aquis.aquisequities.realtime.amd.v4.0.crossingtrade", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00002000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.currency = ProtoField.new("Currency", "aquis.aquisequities.realtime.amd.v4.0.currency", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.deferral_type = ProtoField.new("Deferral Type", "aquis.aquisequities.realtime.amd.v4.0.deferraltype", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x10000000)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.dividend = ProtoField.new("Dividend", "aquis.aquisequities.realtime.amd.v4.0.dividend", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00040000)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "aquis.aquisequities.realtime.amd.v4.0.duplicativeindicator", ftypes.UINT32, {[0]="Unique", [1]="Duplicative"}, base.DEC, 0x20000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.illiquid = ProtoField.new("Illiquid", "aquis.aquisequities.realtime.amd.v4.0.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.indicative_price = ProtoField.new("Indicative Price", "aquis.aquisequities.realtime.amd.v4.0.indicativeprice", ftypes.UINT64)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.isin = ProtoField.new("Isin", "aquis.aquisequities.realtime.amd.v4.0.isin", ftypes.STRING)
@@ -30,19 +36,25 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_enabled = ProtoField.new("M
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_open = ProtoField.new("Mac Open", "aquis.aquisequities.realtime.amd.v4.0.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_run = ProtoField.new("Mac Run", "aquis.aquisequities.realtime.amd.v4.0.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.market_flags = ProtoField.new("Market Flags", "aquis.aquisequities.realtime.amd.v4.0.marketflags", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.market_mechanism = ProtoField.new("Market Mechanism", "aquis.aquisequities.realtime.amd.v4.0.marketmechanism", ftypes.UINT32, {[1]="Central Limit Order Book", [2]="Quote Driven Market", [3]="Dark Order Book", [4]="Off Book", [5]="Periodic Auction", [6]="Rfq", [7]="Other"}, base.DEC, 0x00000007)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.match_vol = ProtoField.new("Match Vol", "aquis.aquisequities.realtime.amd.v4.0.matchvol", ftypes.UINT32)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.md_flags = ProtoField.new("Md Flags", "aquis.aquisequities.realtime.amd.v4.0.mdflags", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.realtime.amd.v4.0.message", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.realtime.amd.v4.0.messagecount", ftypes.UINT8)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.realtime.amd.v4.0.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.mic = ProtoField.new("Mic", "aquis.aquisequities.realtime.amd.v4.0.mic", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.modification_indicator = ProtoField.new("Modification Indicator", "aquis.aquisequities.realtime.amd.v4.0.modificationindicator", ftypes.UINT32, {[1]="Trade Cancelation", [2]="Trade Amendment", [3]="New Trade"}, base.DEC, 0x0000C000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.realtime.amd.v4.0.msglength", ftypes.UINT8)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.realtime.amd.v4.0.msgtype", ftypes.UINT8)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.name = ProtoField.new("Name", "aquis.aquisequities.realtime.amd.v4.0.name", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.negotiation_indicator_or_pre_trade_transparency_waiver = ProtoField.new("Negotiation Indicator Or Pre Trade Transparency Waiver", "aquis.aquisequities.realtime.amd.v4.0.negotiationindicatororpretradetransparencywaiver", ftypes.UINT32, {[0]="Negotiated Trade", [1]="Negotiated Trade In Liquid Instruments", [2]="Negotiated Trade In Illiquid Instruments", [3]="Negotiated Trade Other Than Current Market Price", [4]="No Negotiated Trade", [5]="Si Illiquid Instruments", [6]="Si Above Standard Market Size", [7]="Ilqd And Size"}, base.DEC, 0x00001C00)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.off_book_automation = ProtoField.new("Off Book Automation", "aquis.aquisequities.realtime.amd.v4.0.offbookautomation", ftypes.UINT32, {[1]="Unspecified", [2]="Off Book Non Automated", [3]="Off Book Automated"}, base.DEC, 0x00180000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.order_ref = ProtoField.new("Order Ref", "aquis.aquisequities.realtime.amd.v4.0.orderref", ftypes.UINT32)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.realtime.amd.v4.0.packet", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.realtime.amd.v4.0.packetheader", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.price = ProtoField.new("Price", "aquis.aquisequities.realtime.amd.v4.0.price", ftypes.UINT64)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "aquis.aquisequities.realtime.amd.v4.0.priceformationdiscoveryprocess", ftypes.UINT32, {[1]="Plain Vanilla", [2]="Non Price Forming", [3]="Trade Not Contributing To Price Discovery", [4]="Price Not Currently Available But Pending"}, base.DEC, 0x00E00000)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.publication_mode_post_trade_deferral = ProtoField.new("Publication Mode Post Trade Deferral", "aquis.aquisequities.realtime.amd.v4.0.publicationmodeposttradedeferral", ftypes.UINT32, {[1]="Immediate Publication", [2]="Non Immediate Publication", [3]="Lrgs", [4]="Ilqd", [5]="Size", [6]="Ilqd And Size", [7]="Ilqd And Lrgs"}, base.DEC, 0x0E000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.0.quantity", ftypes.UINT32)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_1 = ProtoField.new("Reserved 1", "aquis.aquisequities.realtime.amd.v4.0.reserved1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_2 = ProtoField.new("Reserved 2", "aquis.aquisequities.realtime.amd.v4.0.reserved2", ftypes.UINT16, nil, base.DEC, 0x0060)
@@ -54,6 +66,7 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.security_definition_flags = Pro
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.security_id = ProtoField.new("Security Id", "aquis.aquisequities.realtime.amd.v4.0.securityid", ftypes.UINT16)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.realtime.amd.v4.0.seqno", ftypes.UINT32)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.side = ProtoField.new("Side", "aquis.aquisequities.realtime.amd.v4.0.side", ftypes.UINT8)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.spare = ProtoField.new("Spare", "aquis.aquisequities.realtime.amd.v4.0.spare", ftypes.UINT32, nil, base.DEC, 0xC0000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.test_stock = ProtoField.new("Test Stock", "aquis.aquisequities.realtime.amd.v4.0.teststock", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.threshold = ProtoField.new("Threshold", "aquis.aquisequities.realtime.amd.v4.0.threshold", ftypes.UINT64)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.tick_size = ProtoField.new("Tick Size", "aquis.aquisequities.realtime.amd.v4.0.ticksize", ftypes.UINT64)
@@ -62,8 +75,10 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.timestamp = ProtoField.new("Tim
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trade_ref = ProtoField.new("Trade Ref", "aquis.aquisequities.realtime.amd.v4.0.traderef", ftypes.UINT32)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trade_type = ProtoField.new("Trade Type", "aquis.aquisequities.realtime.amd.v4.0.tradetype", ftypes.UINT8)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.realtime.amd.v4.0.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.trading_mode = ProtoField.new("Trading Mode", "aquis.aquisequities.realtime.amd.v4.0.tradingmode", ftypes.UINT32, {[1]="Undefined Auction", [2]="Opening Auction", [3]="Closing Auction", [4]="Intraday Auction", [5]="Unscheduled Auction", [6]="Continuous Trading", [7]="At Market Close", [8]="Out Of Main Session", [9]="On Exchange Trade Reporting", [10]="Off Exchange Trade Reporting", [11]="Systematic Internalizer Trade Reporting"}, base.DEC, 0x00000078)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trading_phase = ProtoField.new("Trading Phase", "aquis.aquisequities.realtime.amd.v4.0.tradingphase", ftypes.UINT8)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trading_status = ProtoField.new("Trading Status", "aquis.aquisequities.realtime.amd.v4.0.tradingstatus", ftypes.UINT8)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.transaction_category = ProtoField.new("Transaction Category", "aquis.aquisequities.realtime.amd.v4.0.transactioncategory", ftypes.UINT32, {[1]="Dark Trade", [2]="Trade That Has Received Price Improvement", [3]="Package Trade", [4]="Exchange For Physicals", [5]="None Apply"}, base.DEC, 0x00000380)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.umtf = ProtoField.new("Umtf", "aquis.aquisequities.realtime.amd.v4.0.umtf", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.unrestricted_liquidity_indicator = ProtoField.new("Unrestricted Liquidity Indicator", "aquis.aquisequities.realtime.amd.v4.0.unrestrictedliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
@@ -90,6 +105,7 @@ local show = {}
 
 -- Aquis AquisEquities RealTime Amd 4.0 Element Dissection Options
 show.application_messages = true
+show.binary_mmt = true
 show.market_flags = true
 show.md_flags = true
 show.message = true
@@ -101,6 +117,7 @@ show.message_index = true
 
 -- Register Aquis AquisEquities RealTime Amd 4.0 Show Options
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_binary_mmt = Pref.bool("Show Binary Mmt", show.binary_mmt, "Parse and add Binary Mmt to protocol tree")
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_market_flags = Pref.bool("Show Market Flags", show.market_flags, "Parse and add Market Flags to protocol tree")
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_md_flags = Pref.bool("Show Md Flags", show.md_flags, "Parse and add Md Flags to protocol tree")
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -117,6 +134,9 @@ function omi_aquis_aquisequities_realtime_amd_v4_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_application_messages then
     show.application_messages = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_application_messages
+  end
+  if show.binary_mmt ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_binary_mmt then
+    show.binary_mmt = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_binary_mmt
   end
   if show.market_flags ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_market_flags then
     show.market_flags = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_market_flags
@@ -148,29 +168,6 @@ end
 -----------------------------------------------------------------------
 -- Aquis AquisEquities RealTime Amd 4.0 Fields
 -----------------------------------------------------------------------
-
--- Binary Mmt U 324
-aquis_aquisequities_realtime_amd_v4_0.binary_mmt_u_324 = {}
-
--- Size: Binary Mmt U 324
-aquis_aquisequities_realtime_amd_v4_0.binary_mmt_u_324.size = 4
-
--- Display: Binary Mmt U 324
-aquis_aquisequities_realtime_amd_v4_0.binary_mmt_u_324.display = function(value)
-  return "Binary Mmt U 324: "..value
-end
-
--- Dissect: Binary Mmt U 324
-aquis_aquisequities_realtime_amd_v4_0.binary_mmt_u_324.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_realtime_amd_v4_0.binary_mmt_u_324.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_aquisequities_realtime_amd_v4_0.binary_mmt_u_324.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.binary_mmt_u_324, range, value, display)
-
-  return offset + length, value
-end
 
 -- Closing Buy Qty
 aquis_aquisequities_realtime_amd_v4_0.closing_buy_qty = {}
@@ -1453,6 +1450,104 @@ aquis_aquisequities_realtime_amd_v4_0.tick_table_data_message.dissect = function
   end
 end
 
+-- Binary Mmt
+aquis_aquisequities_realtime_amd_v4_0.binary_mmt = {}
+
+-- Size: Binary Mmt
+aquis_aquisequities_realtime_amd_v4_0.binary_mmt.size = 4
+
+-- Display: Binary Mmt
+aquis_aquisequities_realtime_amd_v4_0.binary_mmt.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Crossing Trade flag set?
+  if bit.band(value, 0x00002000) ~= 0 then
+    flags[#flags + 1] = "Crossing Trade"
+  end
+  -- Is Dividend flag set?
+  if bit.band(value, 0x00040000) ~= 0 then
+    flags[#flags + 1] = "Dividend"
+  end
+  -- Is Algorithmic Indicator flag set?
+  if bit.band(value, 0x01000000) ~= 0 then
+    flags[#flags + 1] = "Algorithmic Indicator"
+  end
+  -- Is Deferral Type flag set?
+  if bit.band(value, 0x10000000) ~= 0 then
+    flags[#flags + 1] = "Deferral Type"
+  end
+  -- Is Duplicative Indicator flag set?
+  if bit.band(value, 0x20000000) ~= 0 then
+    flags[#flags + 1] = "Duplicative Indicator"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Binary Mmt
+aquis_aquisequities_realtime_amd_v4_0.binary_mmt.bits = function(range, value, packet, parent)
+
+  -- Market Mechanism: 3 Bit Enum with 7 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.market_mechanism, range, value)
+
+  -- Trading Mode: 4 Bit Enum with 11 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.trading_mode, range, value)
+
+  -- Transaction Category: 3 Bit Enum with 5 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.transaction_category, range, value)
+
+  -- Negotiation Indicator Or Pre Trade Transparency Waiver: 3 Bit Enum with 8 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.negotiation_indicator_or_pre_trade_transparency_waiver, range, value)
+
+  -- Crossing Trade: 1 Bit Enum with 2 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.crossing_trade, range, value)
+
+  -- Modification Indicator: 2 Bit Enum with 3 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.modification_indicator, range, value)
+
+  -- Benchmark Reference Price Indicator: 2 Bit Enum with 3 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.benchmark_reference_price_indicator, range, value)
+
+  -- Dividend: 1 Bit Enum with 2 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.dividend, range, value)
+
+  -- Off Book Automation: 2 Bit Enum with 3 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.off_book_automation, range, value)
+
+  -- Price Formation Discovery Process: 3 Bit Enum with 4 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.price_formation_discovery_process, range, value)
+
+  -- Algorithmic Indicator: 1 Bit Enum with 2 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.algorithmic_indicator, range, value)
+
+  -- Publication Mode Post Trade Deferral: 3 Bit Enum with 7 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.publication_mode_post_trade_deferral, range, value)
+
+  -- Deferral Type: 1 Bit
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.deferral_type, range, value)
+
+  -- Duplicative Indicator: 1 Bit Enum with 2 values
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.duplicative_indicator, range, value)
+
+  -- Spare: 2 Bit
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.spare, range, value)
+end
+
+-- Dissect: Binary Mmt
+aquis_aquisequities_realtime_amd_v4_0.binary_mmt.dissect = function(buffer, offset, packet, parent)
+  local size = aquis_aquisequities_realtime_amd_v4_0.binary_mmt.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = aquis_aquisequities_realtime_amd_v4_0.binary_mmt.display(range, value, packet, parent)
+  local element = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.binary_mmt, range, display)
+
+  if show.binary_mmt then
+    aquis_aquisequities_realtime_amd_v4_0.binary_mmt.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Trade Bust Message
 aquis_aquisequities_realtime_amd_v4_0.trade_bust_message = {}
 
@@ -1463,7 +1558,7 @@ aquis_aquisequities_realtime_amd_v4_0.trade_bust_message.size =
   aquis_aquisequities_realtime_amd_v4_0.price.size + 
   aquis_aquisequities_realtime_amd_v4_0.trade_ref.size + 
   aquis_aquisequities_realtime_amd_v4_0.timestamp.size + 
-  aquis_aquisequities_realtime_amd_v4_0.binary_mmt_bitfield_4.size
+  aquis_aquisequities_realtime_amd_v4_0.binary_mmt.size
 
 -- Display: Trade Bust Message
 aquis_aquisequities_realtime_amd_v4_0.trade_bust_message.display = function(packet, parent, length)
@@ -1489,8 +1584,8 @@ aquis_aquisequities_realtime_amd_v4_0.trade_bust_message.fields = function(buffe
   -- Timestamp: u64
   index, timestamp = aquis_aquisequities_realtime_amd_v4_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Binary Mmt Bitfield 4
-  index, binary_mmt_bitfield_4 = aquis_aquisequities_realtime_amd_v4_0.binary_mmt_bitfield_4.dissect(buffer, index, packet, parent)
+  -- Binary Mmt: Struct of 15 fields
+  index, binary_mmt = aquis_aquisequities_realtime_amd_v4_0.binary_mmt.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1568,7 +1663,7 @@ aquis_aquisequities_realtime_amd_v4_0.trade.size =
   aquis_aquisequities_realtime_amd_v4_0.order_ref.size + 
   aquis_aquisequities_realtime_amd_v4_0.trade_ref.size + 
   aquis_aquisequities_realtime_amd_v4_0.timestamp.size + 
-  aquis_aquisequities_realtime_amd_v4_0.binary_mmt_u_324.size + 
+  aquis_aquisequities_realtime_amd_v4_0.binary_mmt.size + 
   aquis_aquisequities_realtime_amd_v4_0.md_flags.size
 
 -- Display: Trade
@@ -1601,8 +1696,8 @@ aquis_aquisequities_realtime_amd_v4_0.trade.fields = function(buffer, offset, pa
   -- Timestamp: u64
   index, timestamp = aquis_aquisequities_realtime_amd_v4_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Binary Mmt U 324: u32
-  index, binary_mmt_u_324 = aquis_aquisequities_realtime_amd_v4_0.binary_mmt_u_324.dissect(buffer, index, packet, parent)
+  -- Binary Mmt: Struct of 15 fields
+  index, binary_mmt = aquis_aquisequities_realtime_amd_v4_0.binary_mmt.dissect(buffer, index, packet, parent)
 
   -- Md Flags: Struct of 2 fields
   index, md_flags = aquis_aquisequities_realtime_amd_v4_0.md_flags.dissect(buffer, index, packet, parent)

@@ -15,19 +15,25 @@ local cboe_dxederivatives_multicastdepthofbook_pitch_v6_67 = {}
 -----------------------------------------------------------------------
 
 -- Cboe DxeDerivatives MulticastDepthOfBook Pitch 6.67 Fields
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.algorithmicindicator", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.algorithmic_trade = ProtoField.new("Algorithmic Trade", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.algorithmictrade", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.auction_type = ProtoField.new("Auction Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.auctiontype", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.benchmark_reference_price_indicator = ProtoField.new("Benchmark Reference Price Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.benchmarkreferencepriceindicator", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.canceled_shares_binary_2 = ProtoField.new("Canceled Shares Binary 2", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.canceledsharesbinary2", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.canceled_shares_binary_4 = ProtoField.new("Canceled Shares Binary 4", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.canceledsharesbinary4", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.cboe_trade_flags = ProtoField.new("Cboe Trade Flags", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.cboetradeflags", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.contracts_short = ProtoField.new("Contracts Short", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.contractsshort", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.count = ProtoField.new("Count", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.count", ftypes.UINT8)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.crossing_trade = ProtoField.new("Crossing Trade", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.crossingtrade", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.currency = ProtoField.new("Currency", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.currency", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.deferral_or_enrichment_type = ProtoField.new("Deferral Or Enrichment Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.deferralorenrichmenttype", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.duplicativeindicator", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.ex_cum_dividend = ProtoField.new("Ex Cum Dividend", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.excumdividend", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.executedshares", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.execution_flags = ProtoField.new("Execution Flags", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.executionflags", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.execution_id = ProtoField.new("Execution Id", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.executionid", ftypes.UINT64)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.executionvenue", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.extended_trade_flags = ProtoField.new("Extended Trade Flags", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.extendedtradeflags", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.includes_primary = ProtoField.new("Includes Primary", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.includesprimary", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.index_price = ProtoField.new("Index Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.indexprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.index_status = ProtoField.new("Index Status", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.indexstatus", ftypes.STRING)
@@ -40,6 +46,9 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.message = ProtoF
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.message_header = ProtoField.new("Message Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.messageheader", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.message_length = ProtoField.new("Message Length", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.messagelength", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.message_type = ProtoField.new("Message Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.messagetype", ftypes.UINT8)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.modificationindicator", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.negotiated_trade = ProtoField.new("Negotiated Trade", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.negotiatedtrade", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.offbookautomatedindicator", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.order_id = ProtoField.new("Order Id", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.orderid", ftypes.UINT64)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.outside_tolerance = ProtoField.new("Outside Tolerance", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.outsidetolerance", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.packet = ProtoField.new("Packet", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.packet", ftypes.STRING)
@@ -48,7 +57,9 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.participant_id =
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.price_binary_long_price_8 = ProtoField.new("Price Binary Long Price 8", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.pricebinarylongprice8", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.price_binary_short_price_2 = ProtoField.new("Price Binary Short Price 2", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.pricebinaryshortprice2", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.price_determination = ProtoField.new("Price Determination", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.pricedetermination", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.priceformationdiscoveryprocess", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.price_short = ProtoField.new("Price Short", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.priceshort", ftypes.DOUBLE)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.publication_mode_deferral_reason = ProtoField.new("Publication Mode Deferral Reason", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.publicationmodedeferralreason", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.quantity = ProtoField.new("Quantity", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.quantity", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.quantityshort", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.reference_price = ProtoField.new("Reference Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.referenceprice", ftypes.DOUBLE)
@@ -59,6 +70,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.shares_binary_2 
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.shares_binary_4 = ProtoField.new("Shares Binary 4", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.sharesbinary4", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.shares_binary_8 = ProtoField.new("Shares Binary 8", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.sharesbinary8", ftypes.UINT64)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.sideindicator", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.specialdividend", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.statistic_type = ProtoField.new("Statistic Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.statistictype", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.symbol_alphanumeric_12 = ProtoField.new("Symbol Alphanumeric 12", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.symbolalphanumeric12", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.symbol_alphanumeric_8 = ProtoField.new("Symbol Alphanumeric 8", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.symbolalphanumeric8", ftypes.STRING)
@@ -131,6 +143,7 @@ local show = {}
 -- Cboe DxeDerivatives MulticastDepthOfBook Pitch 6.67 Element Dissection Options
 show.application_messages = true
 show.execution_flags = true
+show.extended_trade_flags = true
 show.message = true
 show.message_header = true
 show.packet = true
@@ -141,6 +154,7 @@ show.message_index = true
 -- Register Cboe DxeDerivatives MulticastDepthOfBook Pitch 6.67 Show Options
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_execution_flags = Pref.bool("Show Execution Flags", show.execution_flags, "Parse and add Execution Flags to protocol tree")
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_extended_trade_flags = Pref.bool("Show Extended Trade Flags", show.extended_trade_flags, "Parse and add Extended Trade Flags to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -160,6 +174,9 @@ function omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs_changed(
   end
   if show.execution_flags ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_execution_flags then
     show.execution_flags = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_execution_flags
+  end
+  if show.extended_trade_flags ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_extended_trade_flags then
+    show.extended_trade_flags = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_extended_trade_flags
   end
   if show.message ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_message then
     show.message = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.prefs.show_message
@@ -240,6 +257,29 @@ end
 -- Cboe DxeDerivatives MulticastDepthOfBook Pitch 6.67 Fields
 -----------------------------------------------------------------------
 
+-- Algorithmic Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_indicator = {}
+
+-- Size: Algorithmic Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_indicator.size = 1
+
+-- Display: Algorithmic Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_indicator.display = function(value)
+  return "Algorithmic Indicator: "..value
+end
+
+-- Dissect: Algorithmic Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.algorithmic_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Algorithmic Trade
 cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_trade = {}
 
@@ -308,6 +348,29 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.auction_type.dissect = func
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Benchmark Reference Price Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indicator = {}
+
+-- Size: Benchmark Reference Price Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indicator.size = 1
+
+-- Display: Benchmark Reference Price Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indicator.display = function(value)
+  return "Benchmark Reference Price Indicator: "..value
+end
+
+-- Dissect: Benchmark Reference Price Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.benchmark_reference_price_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -452,6 +515,36 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.count.dissect = function(bu
   return offset + length, value
 end
 
+-- Crossing Trade
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.crossing_trade = {}
+
+-- Size: Crossing Trade
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.crossing_trade.size = 1
+
+-- Display: Crossing Trade
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.crossing_trade.display = function(value)
+  if value == "X" then
+    return "Crossing Trade: Crossing Trade (X)"
+  end
+  if value == "-" then
+    return "Crossing Trade: Not Specified (-)"
+  end
+
+  return "Crossing Trade: Unknown("..value..")"
+end
+
+-- Dissect: Crossing Trade
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.crossing_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.crossing_trade.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.crossing_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.crossing_trade, range, value, display)
+
+  return offset + length, value
+end
+
 -- Currency
 cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.currency = {}
 
@@ -471,6 +564,52 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.currency.dissect = function
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Deferral Or Enrichment Type
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.deferral_or_enrichment_type = {}
+
+-- Size: Deferral Or Enrichment Type
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.deferral_or_enrichment_type.size = 1
+
+-- Display: Deferral Or Enrichment Type
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.deferral_or_enrichment_type.display = function(value)
+  return "Deferral Or Enrichment Type: "..value
+end
+
+-- Dissect: Deferral Or Enrichment Type
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.deferral_or_enrichment_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.deferral_or_enrichment_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.deferral_or_enrichment_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.deferral_or_enrichment_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Duplicative Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.duplicative_indicator = {}
+
+-- Size: Duplicative Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.duplicative_indicator.size = 1
+
+-- Display: Duplicative Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.duplicative_indicator.display = function(value)
+  return "Duplicative Indicator: "..value
+end
+
+-- Dissect: Duplicative Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.duplicative_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.duplicative_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.duplicative_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.duplicative_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -934,6 +1073,95 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.message_type.dissect = func
   return offset + length, value
 end
 
+-- Modification Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.modification_indicator = {}
+
+-- Size: Modification Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.modification_indicator.size = 1
+
+-- Display: Modification Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.modification_indicator.display = function(value)
+  if value == "A" then
+    return "Modification Indicator: Indicates A Modification Of A Previously Reported Trade (A)"
+  end
+  if value == "C" then
+    return "Modification Indicator: Indicates A Cancellation Of A Previously Reported Trade (C)"
+  end
+  if value == "-" then
+    return "Modification Indicator: Not Specified (-)"
+  end
+
+  return "Modification Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Modification Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.modification_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.modification_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.modification_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.modification_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Negotiated Trade
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.negotiated_trade = {}
+
+-- Size: Negotiated Trade
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.negotiated_trade.size = 1
+
+-- Display: Negotiated Trade
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.negotiated_trade.display = function(value)
+  return "Negotiated Trade: "..value
+end
+
+-- Dissect: Negotiated Trade
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.negotiated_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.negotiated_trade.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.negotiated_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.negotiated_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Book Automated Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.off_book_automated_indicator = {}
+
+-- Size: Off Book Automated Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.off_book_automated_indicator.size = 1
+
+-- Display: Off Book Automated Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.off_book_automated_indicator.display = function(value)
+  if value == "Q" then
+    return "Off Book Automated Indicator: Automated (Q)"
+  end
+  if value == "M" then
+    return "Off Book Automated Indicator: Manual (M)"
+  end
+  if value == "-" then
+    return "Off Book Automated Indicator: Not Specified (-)"
+  end
+
+  return "Off Book Automated Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Off Book Automated Indicator
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.off_book_automated_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.off_book_automated_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.off_book_automated_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Order Id
 cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.order_id = {}
 
@@ -1101,6 +1329,29 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_determination.dissect
   return offset + length, value
 end
 
+-- Price Formation Discovery Process
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_formation_discovery_process = {}
+
+-- Size: Price Formation Discovery Process
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_formation_discovery_process.size = 1
+
+-- Display: Price Formation Discovery Process
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_formation_discovery_process.display = function(value)
+  return "Price Formation Discovery Process: "..value
+end
+
+-- Dissect: Price Formation Discovery Process
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_formation_discovery_process.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_formation_discovery_process.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_formation_discovery_process.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.price_formation_discovery_process, range, value, display)
+
+  return offset + length, value
+end
+
 -- Price Short
 cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_short = {}
 
@@ -1126,6 +1377,29 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_short.dissect = funct
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Publication Mode Deferral Reason
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reason = {}
+
+-- Size: Publication Mode Deferral Reason
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reason.size = 1
+
+-- Display: Publication Mode Deferral Reason
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reason.display = function(value)
+  return "Publication Mode Deferral Reason: "..value
+end
+
+-- Dissect: Publication Mode Deferral Reason
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.publication_mode_deferral_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1369,6 +1643,29 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.side_indicator.dissect = fu
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.side_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.side_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Special Dividend
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.special_dividend = {}
+
+-- Size: Special Dividend
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.special_dividend.size = 1
+
+-- Display: Special Dividend
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.special_dividend.display = function(value)
+  return "Special Dividend: "..value
+end
+
+-- Dissect: Special Dividend
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.special_dividend.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.special_dividend.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.special_dividend.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.special_dividend, range, value, display)
 
   return offset + length, value
 end
@@ -2283,6 +2580,98 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.end_of_session.dissect = fu
   end
 end
 
+-- Extended Trade Flags
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags = {}
+
+-- Size: Extended Trade Flags
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.size =
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.market_mechanism.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.trading_mode.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_category.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.negotiated_trade.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.crossing_trade.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.modification_indicator.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indicator.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.special_dividend.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.off_book_automated_indicator.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_formation_discovery_process.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_indicator.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reason.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.deferral_or_enrichment_type.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.duplicative_indicator.size
+
+-- Display: Extended Trade Flags
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Extended Trade Flags
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Mechanism: Alphanumeric
+  index, market_mechanism = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.market_mechanism.dissect(buffer, index, packet, parent)
+
+  -- Trading Mode: Alphanumeric
+  index, trading_mode = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.trading_mode.dissect(buffer, index, packet, parent)
+
+  -- Transaction Category: Alphanumeric
+  index, transaction_category = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_category.dissect(buffer, index, packet, parent)
+
+  -- Negotiated Trade: Alphanumeric
+  index, negotiated_trade = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.negotiated_trade.dissect(buffer, index, packet, parent)
+
+  -- Crossing Trade: Alphanumeric
+  index, crossing_trade = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.crossing_trade.dissect(buffer, index, packet, parent)
+
+  -- Modification Indicator: Alphanumeric
+  index, modification_indicator = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.modification_indicator.dissect(buffer, index, packet, parent)
+
+  -- Benchmark Reference Price Indicator: Alphanumeric
+  index, benchmark_reference_price_indicator = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indicator.dissect(buffer, index, packet, parent)
+
+  -- Special Dividend: Alphanumeric
+  index, special_dividend = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.special_dividend.dissect(buffer, index, packet, parent)
+
+  -- Off Book Automated Indicator: Alphanumeric
+  index, off_book_automated_indicator = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.off_book_automated_indicator.dissect(buffer, index, packet, parent)
+
+  -- Price Formation Discovery Process: Alphanumeric
+  index, price_formation_discovery_process = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.price_formation_discovery_process.dissect(buffer, index, packet, parent)
+
+  -- Algorithmic Indicator: Alphanumeric
+  index, algorithmic_indicator = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.algorithmic_indicator.dissect(buffer, index, packet, parent)
+
+  -- Publication Mode Deferral Reason: Alphanumeric
+  index, publication_mode_deferral_reason = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reason.dissect(buffer, index, packet, parent)
+
+  -- Deferral Or Enrichment Type: Alphanumeric
+  index, deferral_or_enrichment_type = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.deferral_or_enrichment_type.dissect(buffer, index, packet, parent)
+
+  -- Duplicative Indicator: Alphanumeric
+  index, duplicative_indicator = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.duplicative_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Extended Trade Flags
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.dissect = function(buffer, offset, packet, parent)
+  if show.extended_trade_flags then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.extended_trade_flags, buffer(offset, 0))
+    local index = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Trade Unknown Symbol Message
 cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.trade_unknown_symbol_message = {}
 
@@ -2335,7 +2724,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.trade_unknown_symbol_messag
   -- Cboe Trade Flags: Alphanumeric
   index, cboe_trade_flags = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.cboe_trade_flags.dissect(buffer, index, packet, parent)
 
-  -- Extended Trade Flags
+  -- Extended Trade Flags: Struct of 14 fields
   index, extended_trade_flags = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.dissect(buffer, index, packet, parent)
 
   return index
@@ -2411,7 +2800,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.trade_extended_message.fiel
   -- Cboe Trade Flags: Alphanumeric
   index, cboe_trade_flags = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.cboe_trade_flags.dissect(buffer, index, packet, parent)
 
-  -- Extended Trade Flags
+  -- Extended Trade Flags: Struct of 14 fields
   index, extended_trade_flags = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.extended_trade_flags.dissect(buffer, index, packet, parent)
 
   return index

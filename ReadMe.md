@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 672 | 5,315,888 |
+| 664 | 5,284,698 |
 
 ## Testing
 
@@ -43,6 +43,11 @@ Please report any dissection errors as an [issue](https://github.com/Open-Market
 Production packet captures are required for protocol verification.  If your organization has the rights to packet captures, and you wish to make the world a better place, please post captures to this project.
 
 List of data requests: [Untested Protocols](https://github.com/Open-Markets-Initiative/wireshark-lua/wiki/Data "Unverified Protocol Data List")
+## Support Wireshark
+
+Wireshark is free and open source, maintained under the nonprofit Wireshark Foundation, which relies on donations to fund development, infrastructure, and education.
+
+If these dissectors are useful to you, please consider supporting the foundation: [Donate to the Wireshark Foundation](https://wiresharkfoundation.org/donate/ "Wireshark Foundation Donations")
 ## Open Markets Initiative
 
 [![Omi](https://github.com/Open-Markets-Initiative/Directory/blob/main/About/Images/Logo.png)](https://github.com/Open-Markets-Initiative/Directory)  The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
@@ -52,7 +57,7 @@ For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-I
 For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Protocols
 
-Dissectors by Organization: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [Bist][Bist.Directory], [BruceAts][BruceAts.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [OtcMarkets][OtcMarkets.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
+Dissectors by Organization: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [Bist][Bist.Directory], [BruceAts][BruceAts.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [OtcMarkets][OtcMarkets.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
 
 Dissectors by Exchange/Ats/Sip: [24XEquities][24XEquities.Directory], [AmexEquities][AmexEquities.Directory], [AmexOptions][AmexOptions.Directory], [AquisEquities][AquisEquities.Directory], [ArcaEquities][ArcaEquities.Directory], [ArcaOptions][ArcaOptions.Directory], [AsxSecurities][AsxSecurities.Directory], [B3Derivatives][B3Derivatives.Directory], [BoatsEquities][BoatsEquities.Directory], [BorsaIstanbul][BorsaIstanbul.Directory], [BruceEquities][BruceEquities.Directory], [BxeEquities][BxeEquities.Directory], [ByxEquities][ByxEquities.Directory], [BzxEquities][BzxEquities.Directory], [BzxOptions][BzxOptions.Directory], [C1Options][C1Options.Directory], [C2Options][C2Options.Directory], [CfeFutures][CfeFutures.Directory], [CmeFutures][CmeFutures.Directory], [CoinbaseDerivatives][CoinbaseDerivatives.Directory], [Cqs][Cqs.Directory], [Cts][Cts.Directory], [CurrenexForex][CurrenexForex.Directory], [CxaEquities][CxaEquities.Directory], [CxeEquities][CxeEquities.Directory], [DxeDerivatives][DxeDerivatives.Directory], [EdgaEquities][EdgaEquities.Directory], [EdgxEquities][EdgxEquities.Directory], [EdgxOptions][EdgxOptions.Directory], [EmeraldOptions][EmeraldOptions.Directory], [FinraOrf][FinraOrf.Directory], [FinraOtc][FinraOtc.Directory], [GemxOptions][GemxOptions.Directory], [IceFutures][IceFutures.Directory], [IexEquities][IexEquities.Directory], [IseOptions][IseOptions.Directory], [JnxBonds][JnxBonds.Directory], [JnxEquities][JnxEquities.Directory], [LtseEquities][LtseEquities.Directory], [MatchNow][MatchNow.Directory], [MemxEquities][MemxEquities.Directory], [MemxOptions][MemxOptions.Directory], [MiaxOptions][MiaxOptions.Directory], [MrxOptions][MrxOptions.Directory], [NationalEquities][NationalEquities.Directory], [NeoEquities][NeoEquities.Directory], [NomOptions][NomOptions.Directory], [NsmEquities][NsmEquities.Directory], [NtxEquities][NtxEquities.Directory], [NtxOptions][NtxOptions.Directory], [NyseEquities][NyseEquities.Directory], [NyseOptions][NyseOptions.Directory], [OdxSecurityToken][OdxSecurityToken.Directory], [Opra][Opra.Directory], [PearlOptions][PearlOptions.Directory], [PhlxOptions][PhlxOptions.Directory], [PsxEquities][PsxEquities.Directory], [SapphireOptions][SapphireOptions.Directory], [TexasEquities][TexasEquities.Directory], [TxseEquities][TxseEquities.Directory], [Uqdf][Uqdf.Directory], [Utdf][Utdf.Directory], [Utp][Utp.Directory]
 
@@ -90,7 +95,6 @@ Enjoy.
 [Omi.Encoding.Cbp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cbp.md "Cbp Encoding"
 [Omi.Encoding.Fbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Fbe.md "Fbe Encoding"
 [Omi.Encoding.Dfi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Dfi.md "Dfi Encoding"
-[Omi.Encoding.Omd]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Omd.md "Omd Encoding"
 [Omi.Encoding.iMpact]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/iMpact.md "iMpact Encoding"
 [Omi.Encoding.IexTp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/IexTp.md "IexTp Encoding"
 [Omi.Encoding.Aspen]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Aspen.md "Aspen Encoding"
@@ -243,11 +247,6 @@ Enjoy.
 [Euronext.Optiq.MarketDataPacket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Protocols/Optiq/MarketDataPacket.md "Market Data Packet"
 [Finra.FinraOrf.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/FinraOrf/Tdds.md "Trade Data Dissemination Service"
 [Finra.FinraOtc.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/FinraOtc/Bbds.md "Bulletin Board Dissemination Service"
-[Hkex.Orion.Headers]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Orion/Headers.md "Headers"
-[Hkex.Derivatives.Lite]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Derivatives/Lite.md "Lite"
-[Hkex.Derivatives.Standard]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Derivatives/Standard.md "Standard"
-[Hkex.Derivatives.Premium]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Derivatives/Premium.md "Premium"
-[Hkex.Derivatives.FullTick]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Hkex/Protocols/Derivatives/FullTick.md "FullTick"
 [Ice.IceFutures.Mdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Mdf.md "Multicast Data Feed"
 [Ice.IceFutures.Bgw]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Ice/Protocols/IceFutures/Bgw.md "Binary Order Gateway"
 [Iex.IexEquities.Deep]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexEquities/Deep.md "Depth Of Book"
@@ -459,7 +458,6 @@ Enjoy.
 [Eurex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Eurex "Eurex Exchange"
 [Euronext.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Euronext "Euronext"
 [Finra.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Finra "Financial Industry Regulatory Authority"
-[Hkex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Hkex "Hong Kong Exchanges and Clearing"
 [Ice.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Ice "Intercontinental Exchange"
 [Iex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Iex "Investors Exchange"
 [Imperative.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Imperative "Imperative Execution"

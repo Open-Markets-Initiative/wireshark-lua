@@ -28,6 +28,8 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.feed_symbol = Proto
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.filler = ProtoField.new("Filler", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.filler", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.futures_symbol = ProtoField.new("Futures Symbol", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.futuressymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.highprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.high_price_is_bid = ProtoField.new("High Price Is Bid", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.highpriceisbid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.high_price_valid = ProtoField.new("High Price Valid", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.highpricevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.issue = ProtoField.new("Issue", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.issue", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_count = ProtoField.new("Leg Count", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.legcount", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.leg_offset = ProtoField.new("Leg Offset", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.legoffset", ftypes.UINT8)
@@ -35,6 +37,8 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.length = ProtoField
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.listing_state = ProtoField.new("Listing State", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.listingstate", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.loginresponsestatus", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.low_price = ProtoField.new("Low Price", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.lowprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.low_price_is_offer = ProtoField.new("Low Price Is Offer", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.lowpriceisoffer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.low_price_valid = ProtoField.new("Low Price Valid", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.lowpricevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.lowerpricelimit", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message = ProtoField.new("Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.message", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.messageheader", ftypes.STRING)
@@ -43,6 +47,7 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message_type = Prot
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.midnightreference", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.num_elapsed_returns = ProtoField.new("Num Elapsed Returns", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.numelapsedreturns", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.num_final_returns = ProtoField.new("Num Final Returns", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.numfinalreturns", ftypes.UINT16)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.offer_close_valid = ProtoField.new("Offer Close Valid", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.offerclosevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.openinterest", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.openprice", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.order_count = ProtoField.new("Order Count", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.ordercount", ftypes.UINT32)
@@ -59,11 +64,13 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.report_symbol = Pro
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reserved1", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reserved2", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reserved3", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reservedflags", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.sequence = ProtoField.new("Sequence", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.sequence", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.sessionsubid", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.settlementprice", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.sideindicator", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.spinresponsestatus", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.summary_flags = ProtoField.new("Summary Flags", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.summaryflags", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.symbol = ProtoField.new("Symbol", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.symbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.time_offset = ProtoField.new("Time Offset", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.timeoffset", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.time_reference = ProtoField.new("Time Reference", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.timereference", ftypes.UINT32)
@@ -109,6 +116,7 @@ show.message = true
 show.message_header = true
 show.packet = true
 show.packet_header = true
+show.summary_flags = true
 show.message_index = true
 
 -- Register Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 Show Options
@@ -117,6 +125,7 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message = Pref.
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_summary_flags = Pref.bool("Show Summary Flags", show.summary_flags, "Parse and add Summary Flags to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
 
@@ -138,6 +147,9 @@ function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs_changed()
   end
   if show.packet_header ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_packet_header then
     show.packet_header = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_packet_header
+  end
+  if show.summary_flags ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_summary_flags then
+    show.summary_flags = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_summary_flags
   end
   if show.message_index ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message_index then
     show.message_index = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_message_index
@@ -1621,6 +1633,77 @@ end
 -- Dissect Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19
 -----------------------------------------------------------------------
 
+-- Summary Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags = {}
+
+-- Size: Summary Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.size = 1
+
+-- Display: Summary Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is High Price Valid flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "High Price Valid"
+  end
+  -- Is High Price Is Bid flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "High Price Is Bid"
+  end
+  -- Is Low Price Valid flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Low Price Valid"
+  end
+  -- Is Low Price Is Offer flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Low Price Is Offer"
+  end
+  -- Is Offer Close Valid flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Offer Close Valid"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Summary Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.bits = function(range, value, packet, parent)
+
+  -- High Price Valid: 1 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.high_price_valid, range, value)
+
+  -- High Price Is Bid: 1 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.high_price_is_bid, range, value)
+
+  -- Low Price Valid: 1 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.low_price_valid, range, value)
+
+  -- Low Price Is Offer: 1 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.low_price_is_offer, range, value)
+
+  -- Offer Close Valid: 1 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.offer_close_valid, range, value)
+
+  -- Reserved Flags: 3 Bit
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_flags, range, value)
+end
+
+-- Dissect: Summary Flags
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.summary_flags, range, display)
+
+  if show.summary_flags then
+    cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- End Of Day Summary Message
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.end_of_day_summary_message = {}
 
@@ -1681,7 +1764,7 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.end_of_day_summary_message.fie
   -- Ecrp Volume: Binary
   index, ecrp_volume = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.ecrp_volume.dissect(buffer, index, packet, parent)
 
-  -- Summary Flags
+  -- Summary Flags: Struct of 6 fields
   index, summary_flags = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.summary_flags.dissect(buffer, index, packet, parent)
 
   return index

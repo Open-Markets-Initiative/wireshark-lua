@@ -18,6 +18,7 @@ local cboe_c1options_flex_pitch_v1_1_30 = {}
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.flex.pitch.v1.1.30.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.flex.pitch.v1.1.30.auctionid", ftypes.UINT64)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_type = ProtoField.new("Auction Type", "cboe.c1options.flex.pitch.v1.1.30.auctiontype", ftypes.STRING)
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.bit_fields = ProtoField.new("Bit Fields", "cboe.c1options.flex.pitch.v1.1.30.bitfields", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.call_put_indicator = ProtoField.new("Call Put Indicator", "cboe.c1options.flex.pitch.v1.1.30.callputindicator", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.client_id = ProtoField.new("Client Id", "cboe.c1options.flex.pitch.v1.1.30.clientid", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.complex_flex_leg = ProtoField.new("Complex Flex Leg", "cboe.c1options.flex.pitch.v1.1.30.complexflexleg", ftypes.STRING)
@@ -63,12 +64,14 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet = ProtoField.new("Packet", "
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.pitch.v1.1.30.packetheader", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.participant_id = ProtoField.new("Participant Id", "cboe.c1options.flex.pitch.v1.1.30.participantid", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.percentage = ProtoField.new("Percentage", "cboe.c1options.flex.pitch.v1.1.30.percentage", ftypes.UINT32)
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.percentage_1 = ProtoField.new("Percentage 1", "cboe.c1options.flex.pitch.v1.1.30.percentage1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.price_binary_signed_long_price_8 = ProtoField.new("Price Binary Signed Long Price 8", "cboe.c1options.flex.pitch.v1.1.30.pricebinarysignedlongprice8", ftypes.DOUBLE)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.price_binary_signed_short_price_2 = ProtoField.new("Price Binary Signed Short Price 2", "cboe.c1options.flex.pitch.v1.1.30.pricebinarysignedshortprice2", ftypes.DOUBLE)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.c1options.flex.pitch.v1.1.30.quantitylong", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.c1options.flex.pitch.v1.1.30.quantityshort", ftypes.UINT16)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.c1options.flex.pitch.v1.1.30.reserved1", ftypes.BYTES)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.c1options.flex.pitch.v1.1.30.reserved2", ftypes.BYTES)
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.reserved_7 = ProtoField.new("Reserved 7", "cboe.c1options.flex.pitch.v1.1.30.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.return_cap_percentage = ProtoField.new("Return Cap Percentage", "cboe.c1options.flex.pitch.v1.1.30.returncappercentage", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.sequence = ProtoField.new("Sequence", "cboe.c1options.flex.pitch.v1.1.30.sequence", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.settlement_type = ProtoField.new("Settlement Type", "cboe.c1options.flex.pitch.v1.1.30.settlementtype", ftypes.STRING)
@@ -117,6 +120,7 @@ local show = {}
 
 -- Cboe C1Options Flex Pitch 1.1.30 Element Dissection Options
 show.application_messages = true
+show.bit_fields = true
 show.complex_flex_leg = true
 show.dac_delta = true
 show.message = true
@@ -129,6 +133,7 @@ show.dac_delta_index = true
 
 -- Register Cboe C1Options Flex Pitch 1.1.30 Show Options
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_bit_fields = Pref.bool("Show Bit Fields", show.bit_fields, "Parse and add Bit Fields to protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg = Pref.bool("Show Complex Flex Leg", show.complex_flex_leg, "Parse and add Complex Flex Leg to protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta = Pref.bool("Show Dac Delta", show.dac_delta, "Parse and add Dac Delta to protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -146,6 +151,9 @@ function omi_cboe_c1options_flex_pitch_v1_1_30.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages
+  end
+  if show.bit_fields ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_bit_fields then
+    show.bit_fields = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_bit_fields
   end
   if show.complex_flex_leg ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg then
     show.complex_flex_leg = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg
@@ -2829,6 +2837,49 @@ cboe_c1options_flex_pitch_v1_1_30.complex_flex_instrument_definition_message.dis
   end
 end
 
+-- Bit Fields
+cboe_c1options_flex_pitch_v1_1_30.bit_fields = {}
+
+-- Size: Bit Fields
+cboe_c1options_flex_pitch_v1_1_30.bit_fields.size = 1
+
+-- Display: Bit Fields
+cboe_c1options_flex_pitch_v1_1_30.bit_fields.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Percentage 1 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Percentage 1"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Bit Fields
+cboe_c1options_flex_pitch_v1_1_30.bit_fields.bits = function(range, value, packet, parent)
+
+  -- Percentage 1: 1 Bit
+  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.percentage_1, range, value)
+
+  -- Reserved 7: 7 Bit
+  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.reserved_7, range, value)
+end
+
+-- Dissect: Bit Fields
+cboe_c1options_flex_pitch_v1_1_30.bit_fields.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_c1options_flex_pitch_v1_1_30.bit_fields.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_c1options_flex_pitch_v1_1_30.bit_fields.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.bit_fields, range, display)
+
+  if show.bit_fields then
+    cboe_c1options_flex_pitch_v1_1_30.bit_fields.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Flex Instrument Definition Message
 cboe_c1options_flex_pitch_v1_1_30.flex_instrument_definition_message = {}
 
@@ -2913,7 +2964,7 @@ cboe_c1options_flex_pitch_v1_1_30.flex_instrument_definition_message.fields = fu
   -- Creation Day: Alphanumeric
   index, creation_day = cboe_c1options_flex_pitch_v1_1_30.creation_day.dissect(buffer, index, packet, parent)
 
-  -- Bit Fields
+  -- Bit Fields: Struct of 2 fields
   index, bit_fields = cboe_c1options_flex_pitch_v1_1_30.bit_fields.dissect(buffer, index, packet, parent)
 
   return index

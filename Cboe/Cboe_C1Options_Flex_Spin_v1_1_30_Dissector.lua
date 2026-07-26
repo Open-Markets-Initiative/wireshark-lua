@@ -15,6 +15,7 @@ local cboe_c1options_flex_spin_v1_1_30 = {}
 -----------------------------------------------------------------------
 
 -- Cboe C1Options Flex Spin 1.1.30 Fields
+omi_cboe_c1options_flex_spin_v1_1_30.fields.bit_fields = ProtoField.new("Bit Fields", "cboe.c1options.flex.spin.v1.1.30.bitfields", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.call_put_indicator = ProtoField.new("Call Put Indicator", "cboe.c1options.flex.spin.v1.1.30.callputindicator", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_flex_leg = ProtoField.new("Complex Flex Leg", "cboe.c1options.flex.spin.v1.1.30.complexflexleg", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.c1options.flex.spin.v1.1.30.complexinstrumentid", ftypes.STRING)
@@ -52,9 +53,11 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.osi_symbol = ProtoField.new("Osi Sym
 omi_cboe_c1options_flex_spin_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.spin.v1.1.30.packet", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.spin.v1.1.30.packetheader", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.password = ProtoField.new("Password", "cboe.c1options.flex.spin.v1.1.30.password", ftypes.STRING)
-omi_cboe_c1options_flex_spin_v1_1_30.fields.percentage = ProtoField.new("Percentage", "cboe.c1options.flex.spin.v1.1.30.percentage", ftypes.UINT32)
+omi_cboe_c1options_flex_spin_v1_1_30.fields.percentage_1 = ProtoField.new("Percentage 1", "cboe.c1options.flex.spin.v1.1.30.percentage1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_c1options_flex_spin_v1_1_30.fields.percentage_binary_4 = ProtoField.new("Percentage Binary 4", "cboe.c1options.flex.spin.v1.1.30.percentagebinary4", ftypes.UINT32)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.c1options.flex.spin.v1.1.30.reserved1", ftypes.BYTES)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.c1options.flex.spin.v1.1.30.reserved2", ftypes.BYTES)
+omi_cboe_c1options_flex_spin_v1_1_30.fields.reserved_7 = ProtoField.new("Reserved 7", "cboe.c1options.flex.spin.v1.1.30.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.return_cap_percentage = ProtoField.new("Return Cap Percentage", "cboe.c1options.flex.spin.v1.1.30.returncappercentage", ftypes.UINT32)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.sequence = ProtoField.new("Sequence", "cboe.c1options.flex.spin.v1.1.30.sequence", ftypes.UINT32)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.c1options.flex.spin.v1.1.30.sessionsubid", ftypes.STRING)
@@ -98,6 +101,7 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.message_index = ProtoField.new("Mess
 local show = {}
 
 -- Cboe C1Options Flex Spin 1.1.30 Element Dissection Options
+show.bit_fields = true
 show.application_messages = true
 show.complex_flex_leg = true
 show.message = true
@@ -108,6 +112,7 @@ show.message_index = true
 show.complex_flex_leg_index = true
 
 -- Register Cboe C1Options Flex Spin 1.1.30 Show Options
+omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_bit_fields = Pref.bool("Show Bit Fields", show.bit_fields, "Parse and add Bit Fields to protocol tree")
 omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_complex_flex_leg = Pref.bool("Show Complex Flex Leg", show.complex_flex_leg, "Parse and add Complex Flex Leg to protocol tree")
 omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
@@ -124,6 +129,9 @@ function omi_cboe_c1options_flex_spin_v1_1_30.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_application_messages
+  end
+  if show.bit_fields ~= omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_bit_fields then
+    show.bit_fields = omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_bit_fields
   end
   if show.complex_flex_leg ~= omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_complex_flex_leg then
     show.complex_flex_leg = omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_complex_flex_leg
@@ -1007,25 +1015,25 @@ cboe_c1options_flex_spin_v1_1_30.password.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Percentage
-cboe_c1options_flex_spin_v1_1_30.percentage = {}
+-- Percentage Binary 4
+cboe_c1options_flex_spin_v1_1_30.percentage_binary_4 = {}
 
--- Size: Percentage
-cboe_c1options_flex_spin_v1_1_30.percentage.size = 4
+-- Size: Percentage Binary 4
+cboe_c1options_flex_spin_v1_1_30.percentage_binary_4.size = 4
 
--- Display: Percentage
-cboe_c1options_flex_spin_v1_1_30.percentage.display = function(value)
-  return "Percentage: "..value
+-- Display: Percentage Binary 4
+cboe_c1options_flex_spin_v1_1_30.percentage_binary_4.display = function(value)
+  return "Percentage Binary 4: "..value
 end
 
--- Dissect: Percentage
-cboe_c1options_flex_spin_v1_1_30.percentage.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_flex_spin_v1_1_30.percentage.size
+-- Dissect: Percentage Binary 4
+cboe_c1options_flex_spin_v1_1_30.percentage_binary_4.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_flex_spin_v1_1_30.percentage_binary_4.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_flex_spin_v1_1_30.percentage.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_flex_spin_v1_1_30.percentage_binary_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.percentage, range, value, display)
+  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.percentage_binary_4, range, value, display)
 
   return offset + length, value
 end
@@ -1676,6 +1684,49 @@ cboe_c1options_flex_spin_v1_1_30.complex_flex_instrument_definition_message.diss
   end
 end
 
+-- Bit Fields
+cboe_c1options_flex_spin_v1_1_30.bit_fields = {}
+
+-- Size: Bit Fields
+cboe_c1options_flex_spin_v1_1_30.bit_fields.size = 1
+
+-- Display: Bit Fields
+cboe_c1options_flex_spin_v1_1_30.bit_fields.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Percentage 1 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Percentage 1"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Bit Fields
+cboe_c1options_flex_spin_v1_1_30.bit_fields.bits = function(range, value, packet, parent)
+
+  -- Percentage 1: 1 Bit
+  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.percentage_1, range, value)
+
+  -- Reserved 7: 7 Bit
+  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.reserved_7, range, value)
+end
+
+-- Dissect: Bit Fields
+cboe_c1options_flex_spin_v1_1_30.bit_fields.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_c1options_flex_spin_v1_1_30.bit_fields.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_c1options_flex_spin_v1_1_30.bit_fields.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.bit_fields, range, display)
+
+  if show.bit_fields then
+    cboe_c1options_flex_spin_v1_1_30.bit_fields.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Flex Instrument Definition Message
 cboe_c1options_flex_spin_v1_1_30.flex_instrument_definition_message = {}
 
@@ -1694,7 +1745,7 @@ cboe_c1options_flex_spin_v1_1_30.flex_instrument_definition_message.size =
   cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.size + 
   cboe_c1options_flex_spin_v1_1_30.exercise_style.size + 
   cboe_c1options_flex_spin_v1_1_30.settlement_type.size + 
-  cboe_c1options_flex_spin_v1_1_30.percentage.size + 
+  cboe_c1options_flex_spin_v1_1_30.percentage_binary_4.size + 
   cboe_c1options_flex_spin_v1_1_30.observation_day.size + 
   cboe_c1options_flex_spin_v1_1_30.return_cap_percentage.size + 
   cboe_c1options_flex_spin_v1_1_30.creation_day.size + 
@@ -1748,8 +1799,8 @@ cboe_c1options_flex_spin_v1_1_30.flex_instrument_definition_message.fields = fun
   -- Settlement Type: Alphanumeric
   index, settlement_type = cboe_c1options_flex_spin_v1_1_30.settlement_type.dissect(buffer, index, packet, parent)
 
-  -- Percentage: Binary
-  index, percentage = cboe_c1options_flex_spin_v1_1_30.percentage.dissect(buffer, index, packet, parent)
+  -- Percentage Binary 4: Binary
+  index, percentage_binary_4 = cboe_c1options_flex_spin_v1_1_30.percentage_binary_4.dissect(buffer, index, packet, parent)
 
   -- Observation Day: Alphanumeric
   index, observation_day = cboe_c1options_flex_spin_v1_1_30.observation_day.dissect(buffer, index, packet, parent)
@@ -1760,7 +1811,7 @@ cboe_c1options_flex_spin_v1_1_30.flex_instrument_definition_message.fields = fun
   -- Creation Day: Alphanumeric
   index, creation_day = cboe_c1options_flex_spin_v1_1_30.creation_day.dissect(buffer, index, packet, parent)
 
-  -- Bit Fields
+  -- Bit Fields: Struct of 2 fields
   index, bit_fields = cboe_c1options_flex_spin_v1_1_30.bit_fields.dissect(buffer, index, packet, parent)
 
   return index
