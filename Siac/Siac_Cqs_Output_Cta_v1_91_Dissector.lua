@@ -18,6 +18,9 @@ local siac_cqs_output_cta_v1_91 = {}
 omi_siac_cqs_output_cta_v1_91.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v1.91.adftimestamp", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.administrative_message = ProtoField.new("Administrative Message", "siac.cqs.output.cta.v1.91.administrativemessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cqs.output.cta.v1.91.administrativemessagetype", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cqs.output.cta.v1.91.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
+omi_siac_cqs_output_cta_v1_91.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cqs.output.cta.v1.91.auctioncollarreferenceprice", ftypes.DOUBLE)
+omi_siac_cqs_output_cta_v1_91.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cqs.output.cta.v1.91.auctioncollarupperthresholdprice", ftypes.DOUBLE)
 omi_siac_cqs_output_cta_v1_91.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.cqs.output.cta.v1.91.bestbidparticipantid", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.best_bid_price_long = ProtoField.new("Best Bid Price Long", "siac.cqs.output.cta.v1.91.bestbidpricelong", ftypes.DOUBLE)
 omi_siac_cqs_output_cta_v1_91.fields.best_bid_price_short = ProtoField.new("Best Bid Price Short", "siac.cqs.output.cta.v1.91.bestbidpriceshort", ftypes.DOUBLE)
@@ -272,6 +275,123 @@ siac_cqs_output_cta_v1_91.administrative_message_type.dissect = function(buffer,
   local display = siac_cqs_output_cta_v1_91.administrative_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Lower Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price = {}
+
+-- Size: Auction Collar Lower Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.size = 8
+
+-- Display: Auction Collar Lower Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Auction Collar Lower Threshold Price: No Value"
+  end
+
+  return "Auction Collar Lower Threshold Price: "..value
+end
+
+-- Translate: Auction Collar Lower Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Lower Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.auction_collar_lower_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Reference Price
+siac_cqs_output_cta_v1_91.auction_collar_reference_price = {}
+
+-- Size: Auction Collar Reference Price
+siac_cqs_output_cta_v1_91.auction_collar_reference_price.size = 8
+
+-- Display: Auction Collar Reference Price
+siac_cqs_output_cta_v1_91.auction_collar_reference_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Auction Collar Reference Price: No Value"
+  end
+
+  return "Auction Collar Reference Price: "..value
+end
+
+-- Translate: Auction Collar Reference Price
+siac_cqs_output_cta_v1_91.auction_collar_reference_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Reference Price
+siac_cqs_output_cta_v1_91.auction_collar_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.auction_collar_reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.auction_collar_reference_price.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.auction_collar_reference_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.auction_collar_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Upper Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price = {}
+
+-- Size: Auction Collar Upper Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.size = 8
+
+-- Display: Auction Collar Upper Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Auction Collar Upper Threshold Price: No Value"
+  end
+
+  return "Auction Collar Upper Threshold Price: "..value
+end
+
+-- Translate: Auction Collar Upper Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Upper Threshold Price
+siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.auction_collar_upper_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -3630,13 +3750,13 @@ siac_cqs_output_cta_v1_91.auction_status_message.fields = function(buffer, offse
   -- Instrument Type: Char
   index, instrument_type = siac_cqs_output_cta_v1_91.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Reference Price
+  -- Auction Collar Reference Price: Long
   index, auction_collar_reference_price = siac_cqs_output_cta_v1_91.auction_collar_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Upper Threshold Price
+  -- Auction Collar Upper Threshold Price: Long
   index, auction_collar_upper_threshold_price = siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Lower Threshold Price
+  -- Auction Collar Lower Threshold Price: Long
   index, auction_collar_lower_threshold_price = siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Number Of Extensions: Byte

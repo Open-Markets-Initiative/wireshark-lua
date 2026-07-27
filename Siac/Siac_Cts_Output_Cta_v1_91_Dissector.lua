@@ -3433,7 +3433,7 @@ siac_cts_output_cta_v1_91.trade_cancel_error_message.size =
   siac_cts_output_cta_v1_91.stop_stock_indicator.size + 
   siac_cts_output_cta_v1_91.trade_through_exempt_indicator.size + 
   siac_cts_output_cta_v1_91.trade_reporting_facility_id.size + 
-  siac_cts_output_cta_v1_91.original_participant_reference_number_of_original_transaction_being_cancelled_or_errored.size + 
+  siac_cts_output_cta_v1_91.original_participant_reference_number.size + 
   siac_cts_output_cta_v1_91.timestamp_2.size + 
   siac_cts_output_cta_v1_91.cancel_error_action.size + 
   siac_cts_output_cta_v1_91.short_sale_restriction_indicator.size + 
@@ -3493,8 +3493,8 @@ siac_cts_output_cta_v1_91.trade_cancel_error_message.fields = function(buffer, o
   -- Trade Reporting Facility Id: Char
   index, trade_reporting_facility_id = siac_cts_output_cta_v1_91.trade_reporting_facility_id.dissect(buffer, index, packet, parent)
 
-  -- Original Participant Reference Number Of Original Transaction Being Cancelled Or Errored
-  index, original_participant_reference_number_of_original_transaction_being_cancelled_or_errored = siac_cts_output_cta_v1_91.original_participant_reference_number_of_original_transaction_being_cancelled_or_errored.dissect(buffer, index, packet, parent)
+  -- Original Participant Reference Number: Signed Long
+  index, original_participant_reference_number = siac_cts_output_cta_v1_91.original_participant_reference_number.dissect(buffer, index, packet, parent)
 
   -- Timestamp 2: Struct of 2 fields
   index, timestamp_2 = siac_cts_output_cta_v1_91.timestamp_2.dissect(buffer, index, packet, parent)
