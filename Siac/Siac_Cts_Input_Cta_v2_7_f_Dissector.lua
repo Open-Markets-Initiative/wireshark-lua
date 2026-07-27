@@ -20,6 +20,7 @@ omi_siac_cts_input_cta_v2_7_f.fields.administrative_message_type = ProtoField.ne
 omi_siac_cts_input_cta_v2_7_f.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.input.cta.v2.7.f.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_input_cta_v2_7_f.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.input.cta.v2.7.f.auctioncollarreferenceprice", ftypes.DOUBLE)
 omi_siac_cts_input_cta_v2_7_f.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.input.cta.v2.7.f.auctioncollarupperthresholdprice", ftypes.DOUBLE)
+omi_siac_cts_input_cta_v2_7_f.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.input.cta.v2.7.f.bidindexvalue", ftypes.INT64)
 omi_siac_cts_input_cta_v2_7_f.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.input.cta.v2.7.f.blockchecksum", ftypes.UINT16)
 omi_siac_cts_input_cta_v2_7_f.fields.block_header = ProtoField.new("Block Header", "siac.cts.input.cta.v2.7.f.blockheader", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.input.cta.v2.7.f.blockpadbyte", ftypes.UINT8)
@@ -51,6 +52,8 @@ omi_siac_cts_input_cta_v2_7_f.fields.halt_reason = ProtoField.new("Halt Reason",
 omi_siac_cts_input_cta_v2_7_f.fields.high_indication_price_upper_limit_price_band = ProtoField.new("High Indication Price Upper Limit Price Band", "siac.cts.input.cta.v2.7.f.highindicationpriceupperlimitpriceband", ftypes.DOUBLE)
 omi_siac_cts_input_cta_v2_7_f.fields.index_symbol = ProtoField.new("Index Symbol", "siac.cts.input.cta.v2.7.f.indexsymbol", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.index_value = ProtoField.new("Index Value", "siac.cts.input.cta.v2.7.f.indexvalue", ftypes.INT64)
+omi_siac_cts_input_cta_v2_7_f.fields.indices_message = ProtoField.new("Indices Message", "siac.cts.input.cta.v2.7.f.indicesmessage", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.indices_message_type = ProtoField.new("Indices Message Type", "siac.cts.input.cta.v2.7.f.indicesmessagetype", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cts.input.cta.v2.7.f.instrumenttype", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.last_participant_reference_number = ProtoField.new("Last Participant Reference Number", "siac.cts.input.cta.v2.7.f.lastparticipantreferencenumber", ftypes.INT64)
 omi_siac_cts_input_cta_v2_7_f.fields.last_price_opening_reopening_luld_reference_price = ProtoField.new("Last Price Opening Reopening Luld Reference Price", "siac.cts.input.cta.v2.7.f.lastpriceopeningreopeningluldreferenceprice", ftypes.DOUBLE)
@@ -67,6 +70,7 @@ omi_siac_cts_input_cta_v2_7_f.fields.message_type = ProtoField.new("Message Type
 omi_siac_cts_input_cta_v2_7_f.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.input.cta.v2.7.f.messagesinblock", ftypes.UINT8)
 omi_siac_cts_input_cta_v2_7_f.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cts.input.cta.v2.7.f.nanoseconds", ftypes.UINT32)
 omi_siac_cts_input_cta_v2_7_f.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cts.input.cta.v2.7.f.numberofextensions", ftypes.UINT8)
+omi_siac_cts_input_cta_v2_7_f.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.input.cta.v2.7.f.offerindexvalue", ftypes.INT64)
 omi_siac_cts_input_cta_v2_7_f.fields.original_fractional_trade_volume = ProtoField.new("Original Fractional Trade Volume", "siac.cts.input.cta.v2.7.f.originalfractionaltradevolume", ftypes.UINT64)
 omi_siac_cts_input_cta_v2_7_f.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.input.cta.v2.7.f.originalparticipantreferencenumber", ftypes.INT64)
 omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time = ProtoField.new("Original Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.originalpriordaytradedateandtime", ftypes.STRING)
@@ -112,6 +116,7 @@ omi_siac_cts_input_cta_v2_7_f.fields.version = ProtoField.new("Version", "siac.c
 -- Siac Cts Cta Input 2.7.f Application Messages
 omi_siac_cts_input_cta_v2_7_f.fields.approximate_trades_and_total_dollar_value_message = ProtoField.new("Approximate Trades And Total Dollar Value Message", "siac.cts.input.cta.v2.7.f.approximatetradesandtotaldollarvaluemessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cts.input.cta.v2.7.f.auctionstatusmessage", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.bid_and_offer_index_message = ProtoField.new("Bid And Offer Index Message", "siac.cts.input.cta.v2.7.f.bidandofferindexmessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.crossing_session_message = ProtoField.new("Crossing Session Message", "siac.cts.input.cta.v2.7.f.crossingsessionmessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cts.input.cta.v2.7.f.endofdaymessage", ftypes.BYTES)
 omi_siac_cts_input_cta_v2_7_f.fields.fractional_long_trade_message = ProtoField.new("Fractional Long Trade Message", "siac.cts.input.cta.v2.7.f.fractionallongtrademessage", ftypes.STRING)
@@ -152,6 +157,7 @@ show.application_messages = true
 show.block_header = true
 show.control_message = true
 show.corrected_prior_day_trade_date_and_time = true
+show.indices_message = true
 show.market_status_message = true
 show.message = true
 show.message_header = true
@@ -170,6 +176,7 @@ omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages = Pref.bool("Show 
 omi_siac_cts_input_cta_v2_7_f.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_corrected_prior_day_trade_date_and_time = Pref.bool("Show Corrected Prior Day Trade Date And Time", show.corrected_prior_day_trade_date_and_time, "Parse and add Corrected Prior Day Trade Date And Time to protocol tree")
+omi_siac_cts_input_cta_v2_7_f.prefs.show_indices_message = Pref.bool("Show Indices Message", show.indices_message, "Parse and add Indices Message to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_market_status_message = Pref.bool("Show Market Status Message", show.market_status_message, "Parse and add Market Status Message to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
@@ -201,6 +208,9 @@ function omi_siac_cts_input_cta_v2_7_f.prefs_changed()
   end
   if show.corrected_prior_day_trade_date_and_time ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_corrected_prior_day_trade_date_and_time then
     show.corrected_prior_day_trade_date_and_time = omi_siac_cts_input_cta_v2_7_f.prefs.show_corrected_prior_day_trade_date_and_time
+  end
+  if show.indices_message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_indices_message then
+    show.indices_message = omi_siac_cts_input_cta_v2_7_f.prefs.show_indices_message
   end
   if show.market_status_message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_market_status_message then
     show.market_status_message = omi_siac_cts_input_cta_v2_7_f.prefs.show_market_status_message
@@ -371,6 +381,29 @@ siac_cts_input_cta_v2_7_f.auction_collar_upper_threshold_price.dissect = functio
   local display = siac_cts_input_cta_v2_7_f.auction_collar_upper_threshold_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_input_cta_v2_7_f.fields.auction_collar_upper_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Index Value
+siac_cts_input_cta_v2_7_f.bid_index_value = {}
+
+-- Size: Bid Index Value
+siac_cts_input_cta_v2_7_f.bid_index_value.size = 8
+
+-- Display: Bid Index Value
+siac_cts_input_cta_v2_7_f.bid_index_value.display = function(value)
+  return "Bid Index Value: "..value
+end
+
+-- Dissect: Bid Index Value
+siac_cts_input_cta_v2_7_f.bid_index_value.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_input_cta_v2_7_f.bid_index_value.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_input_cta_v2_7_f.bid_index_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_input_cta_v2_7_f.fields.bid_index_value, range, value, display)
 
   return offset + length, value
 end
@@ -1090,6 +1123,29 @@ siac_cts_input_cta_v2_7_f.index_value.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
+-- Indices Message Type
+siac_cts_input_cta_v2_7_f.indices_message_type = {}
+
+-- Size: Indices Message Type
+siac_cts_input_cta_v2_7_f.indices_message_type.size = 1
+
+-- Display: Indices Message Type
+siac_cts_input_cta_v2_7_f.indices_message_type.display = function(value)
+  return "Indices Message Type: "..value
+end
+
+-- Dissect: Indices Message Type
+siac_cts_input_cta_v2_7_f.indices_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_input_cta_v2_7_f.indices_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_input_cta_v2_7_f.indices_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_input_cta_v2_7_f.fields.indices_message_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Instrument Type
 siac_cts_input_cta_v2_7_f.instrument_type = {}
 
@@ -1245,7 +1301,7 @@ siac_cts_input_cta_v2_7_f.message_category.display = function(value)
     return "Message Category: Control (C)"
   end
   if value == "I" then
-    return "Message Category: Index (I)"
+    return "Message Category: Indices (I)"
   end
   if value == "M" then
     return "Message Category: Market Status (M)"
@@ -1429,6 +1485,29 @@ siac_cts_input_cta_v2_7_f.number_of_extensions.dissect = function(buffer, offset
   local display = siac_cts_input_cta_v2_7_f.number_of_extensions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_input_cta_v2_7_f.fields.number_of_extensions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Index Value
+siac_cts_input_cta_v2_7_f.offer_index_value = {}
+
+-- Size: Offer Index Value
+siac_cts_input_cta_v2_7_f.offer_index_value.size = 8
+
+-- Display: Offer Index Value
+siac_cts_input_cta_v2_7_f.offer_index_value.display = function(value)
+  return "Offer Index Value: "..value
+end
+
+-- Dissect: Offer Index Value
+siac_cts_input_cta_v2_7_f.offer_index_value.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_input_cta_v2_7_f.offer_index_value.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_input_cta_v2_7_f.offer_index_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_input_cta_v2_7_f.fields.offer_index_value, range, value, display)
 
   return offset + length, value
 end
@@ -4056,6 +4135,54 @@ siac_cts_input_cta_v2_7_f.market_status_message.dissect = function(buffer, offse
   end
 end
 
+-- Bid And Offer Index Message
+siac_cts_input_cta_v2_7_f.bid_and_offer_index_message = {}
+
+-- Size: Bid And Offer Index Message
+siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.size =
+  siac_cts_input_cta_v2_7_f.index_symbol.size + 
+  siac_cts_input_cta_v2_7_f.bid_index_value.size + 
+  siac_cts_input_cta_v2_7_f.offer_index_value.size
+
+-- Display: Bid And Offer Index Message
+siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid And Offer Index Message
+siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Index Symbol: Char[]
+  index, index_symbol = siac_cts_input_cta_v2_7_f.index_symbol.dissect(buffer, index, packet, parent)
+
+  -- Bid Index Value: Signed Long
+  index, bid_index_value = siac_cts_input_cta_v2_7_f.bid_index_value.dissect(buffer, index, packet, parent)
+
+  -- Offer Index Value: Signed Long
+  index, offer_index_value = siac_cts_input_cta_v2_7_f.offer_index_value.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid And Offer Index Message
+siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.bid_and_offer_index_message, buffer(offset, 0))
+    local index = siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Index Message
 siac_cts_input_cta_v2_7_f.index_message = {}
 
@@ -4097,6 +4224,76 @@ siac_cts_input_cta_v2_7_f.index_message.dissect = function(buffer, offset, packe
   else
     -- Skip element, add fields directly
     return siac_cts_input_cta_v2_7_f.index_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Indices Message Payload
+siac_cts_input_cta_v2_7_f.indices_message_payload = {}
+
+-- Dissect: Indices Message Payload
+siac_cts_input_cta_v2_7_f.indices_message_payload.dissect = function(buffer, offset, packet, parent, indices_message_type)
+  -- Dissect Index Message
+  if indices_message_type == "I" then
+    return siac_cts_input_cta_v2_7_f.index_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bid And Offer Index Message
+  if indices_message_type == "Q" then
+    return siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Indices Message
+siac_cts_input_cta_v2_7_f.indices_message = {}
+
+-- Calculate size of: Indices Message
+siac_cts_input_cta_v2_7_f.indices_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_input_cta_v2_7_f.indices_message_type.size
+
+  -- Calculate runtime size of Indices Message Payload field
+  local indices_message_payload_offset = offset + index
+  local indices_message_payload_type = buffer(indices_message_payload_offset - 1, 1):string()
+  index = index + siac_cts_input_cta_v2_7_f.indices_message_payload.size(buffer, indices_message_payload_offset, indices_message_payload_type)
+
+  return index
+end
+
+-- Display: Indices Message
+siac_cts_input_cta_v2_7_f.indices_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Indices Message
+siac_cts_input_cta_v2_7_f.indices_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Indices Message Type: Char
+  index, indices_message_type = siac_cts_input_cta_v2_7_f.indices_message_type.dissect(buffer, index, packet, parent)
+
+  -- Indices Message Payload: Runtime Type with 2 branches
+  index = siac_cts_input_cta_v2_7_f.indices_message_payload.dissect(buffer, index, packet, parent, indices_message_type)
+
+  return index
+end
+
+-- Dissect: Indices Message
+siac_cts_input_cta_v2_7_f.indices_message.dissect = function(buffer, offset, packet, parent)
+  if show.indices_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.indices_message, buffer(offset, 0))
+    local index = siac_cts_input_cta_v2_7_f.indices_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_input_cta_v2_7_f.indices_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cts_input_cta_v2_7_f.indices_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4453,9 +4650,9 @@ siac_cts_input_cta_v2_7_f.category_payload.dissect = function(buffer, offset, pa
   if message_category == "C" then
     return siac_cts_input_cta_v2_7_f.control_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Index Message
+  -- Dissect Indices Message
   if message_category == "I" then
-    return siac_cts_input_cta_v2_7_f.index_message.dissect(buffer, offset, packet, parent)
+    return siac_cts_input_cta_v2_7_f.indices_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Status Message
   if message_category == "M" then

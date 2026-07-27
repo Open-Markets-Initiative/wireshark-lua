@@ -16,7 +16,7 @@ local siac_cqs_output_cta_v1_91 = {}
 
 -- Siac Cqs Output Cta 1.91 Fields
 omi_siac_cqs_output_cta_v1_91.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v1.91.adftimestamp", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.administrative = ProtoField.new("Administrative", "siac.cqs.output.cta.v1.91.administrative", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.administrative_message = ProtoField.new("Administrative Message", "siac.cqs.output.cta.v1.91.administrativemessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cqs.output.cta.v1.91.administrativemessagetype", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.cqs.output.cta.v1.91.bestbidparticipantid", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.best_bid_price_long = ProtoField.new("Best Bid Price Long", "siac.cqs.output.cta.v1.91.bestbidpricelong", ftypes.DOUBLE)
@@ -40,7 +40,7 @@ omi_siac_cqs_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header
 omi_siac_cqs_output_cta_v1_91.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.output.cta.v1.91.blockpadbyte", ftypes.UINT8)
 omi_siac_cqs_output_cta_v1_91.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.output.cta.v1.91.blocksequencenumber", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.block_size = ProtoField.new("Block Size", "siac.cqs.output.cta.v1.91.blocksize", ftypes.UINT16)
-omi_siac_cqs_output_cta_v1_91.fields.control = ProtoField.new("Control", "siac.cqs.output.cta.v1.91.control", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.control_message = ProtoField.new("Control Message", "siac.cqs.output.cta.v1.91.controlmessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cqs.output.cta.v1.91.controlmessagetype", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cqs.output.cta.v1.91.datafeedindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.output.cta.v1.91.financialstatusindicator", ftypes.STRING)
@@ -59,11 +59,10 @@ omi_siac_cqs_output_cta_v1_91.fields.future = ProtoField.new("Future", "siac.cqs
 omi_siac_cqs_output_cta_v1_91.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cqs.output.cta.v1.91.instrumenttype", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.luld_indicator = ProtoField.new("Luld Indicator", "siac.cqs.output.cta.v1.91.luldindicator", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.output.cta.v1.91.marketcondition", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.market_status = ProtoField.new("Market Status", "siac.cqs.output.cta.v1.91.marketstatus", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.market_status_message = ProtoField.new("Market Status Message", "siac.cqs.output.cta.v1.91.marketstatusmessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cqs.output.cta.v1.91.marketstatusmessagetype", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v1.91.message", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.message_category = ProtoField.new("Message Category", "siac.cqs.output.cta.v1.91.messagecategory", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.message_header = ProtoField.new("Message Header", "siac.cqs.output.cta.v1.91.messageheader", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.message_id = ProtoField.new("Message Id", "siac.cqs.output.cta.v1.91.messageid", ftypes.UINT8)
 omi_siac_cqs_output_cta_v1_91.fields.message_length = ProtoField.new("Message Length", "siac.cqs.output.cta.v1.91.messagelength", ftypes.UINT16)
 omi_siac_cqs_output_cta_v1_91.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.output.cta.v1.91.messagesinblock", ftypes.UINT8)
@@ -87,8 +86,8 @@ omi_siac_cqs_output_cta_v1_91.fields.participant_id = ProtoField.new("Participan
 omi_siac_cqs_output_cta_v1_91.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cqs.output.cta.v1.91.participantreferencenumber", ftypes.INT64)
 omi_siac_cqs_output_cta_v1_91.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v1.91.participanttimestamp", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.output.cta.v1.91.primarylistingmarketparticipantid", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.quote = ProtoField.new("Quote", "siac.cqs.output.cta.v1.91.quote", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.output.cta.v1.91.quotecondition", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.quote_message = ProtoField.new("Quote Message", "siac.cqs.output.cta.v1.91.quotemessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.cqs.output.cta.v1.91.quotemessagetype", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.reserved = ProtoField.new("Reserved", "siac.cqs.output.cta.v1.91.reserved", ftypes.UINT8)
 omi_siac_cqs_output_cta_v1_91.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.output.cta.v1.91.retailinterestindicator", ftypes.STRING)
@@ -133,39 +132,37 @@ local show = {}
 
 -- Siac Cqs Output Cta 1.91 Element Dissection Options
 show.adf_timestamp = true
-show.administrative = true
+show.administrative_message = true
 show.application_messages = true
 show.block_header = true
-show.control = true
-show.market_status = true
+show.control_message = true
+show.market_status_message = true
 show.message = true
-show.message_header = true
 show.national_best_bid_long_appendage = true
 show.national_best_bid_short_appendage = true
 show.national_best_offer_long_appendage = true
 show.national_best_offer_short_appendage = true
 show.packet = true
 show.participant_timestamp = true
-show.quote = true
+show.quote_message = true
 show.sip_block_timestamp = true
 show.message_index = true
 
 -- Register Siac Cqs Output Cta 1.91 Show Options
 omi_siac_cqs_output_cta_v1_91.prefs.show_adf_timestamp = Pref.bool("Show Adf Timestamp", show.adf_timestamp, "Parse and add Adf Timestamp to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
+omi_siac_cqs_output_cta_v1_91.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_market_status = Pref.bool("Show Market Status", show.market_status, "Parse and add Market Status to protocol tree")
+omi_siac_cqs_output_cta_v1_91.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
+omi_siac_cqs_output_cta_v1_91.prefs.show_market_status_message = Pref.bool("Show Market Status Message", show.market_status_message, "Parse and add Market Status Message to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage = Pref.bool("Show National Best Bid Long Appendage", show.national_best_bid_long_appendage, "Parse and add National Best Bid Long Appendage to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_short_appendage = Pref.bool("Show National Best Bid Short Appendage", show.national_best_bid_short_appendage, "Parse and add National Best Bid Short Appendage to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_long_appendage = Pref.bool("Show National Best Offer Long Appendage", show.national_best_offer_long_appendage, "Parse and add National Best Offer Long Appendage to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_offer_short_appendage = Pref.bool("Show National Best Offer Short Appendage", show.national_best_offer_short_appendage, "Parse and add National Best Offer Short Appendage to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp = Pref.bool("Show Participant Timestamp", show.participant_timestamp, "Parse and add Participant Timestamp to protocol tree")
-omi_siac_cqs_output_cta_v1_91.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
+omi_siac_cqs_output_cta_v1_91.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
 
@@ -177,8 +174,8 @@ function omi_siac_cqs_output_cta_v1_91.prefs_changed()
   if show.adf_timestamp ~= omi_siac_cqs_output_cta_v1_91.prefs.show_adf_timestamp then
     show.adf_timestamp = omi_siac_cqs_output_cta_v1_91.prefs.show_adf_timestamp
   end
-  if show.administrative ~= omi_siac_cqs_output_cta_v1_91.prefs.show_administrative then
-    show.administrative = omi_siac_cqs_output_cta_v1_91.prefs.show_administrative
+  if show.administrative_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_administrative_message then
+    show.administrative_message = omi_siac_cqs_output_cta_v1_91.prefs.show_administrative_message
   end
   if show.application_messages ~= omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages then
     show.application_messages = omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages
@@ -186,17 +183,14 @@ function omi_siac_cqs_output_cta_v1_91.prefs_changed()
   if show.block_header ~= omi_siac_cqs_output_cta_v1_91.prefs.show_block_header then
     show.block_header = omi_siac_cqs_output_cta_v1_91.prefs.show_block_header
   end
-  if show.control ~= omi_siac_cqs_output_cta_v1_91.prefs.show_control then
-    show.control = omi_siac_cqs_output_cta_v1_91.prefs.show_control
+  if show.control_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_control_message then
+    show.control_message = omi_siac_cqs_output_cta_v1_91.prefs.show_control_message
   end
-  if show.market_status ~= omi_siac_cqs_output_cta_v1_91.prefs.show_market_status then
-    show.market_status = omi_siac_cqs_output_cta_v1_91.prefs.show_market_status
+  if show.market_status_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_market_status_message then
+    show.market_status_message = omi_siac_cqs_output_cta_v1_91.prefs.show_market_status_message
   end
   if show.message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_message then
     show.message = omi_siac_cqs_output_cta_v1_91.prefs.show_message
-  end
-  if show.message_header ~= omi_siac_cqs_output_cta_v1_91.prefs.show_message_header then
-    show.message_header = omi_siac_cqs_output_cta_v1_91.prefs.show_message_header
   end
   if show.national_best_bid_long_appendage ~= omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage then
     show.national_best_bid_long_appendage = omi_siac_cqs_output_cta_v1_91.prefs.show_national_best_bid_long_appendage
@@ -216,8 +210,8 @@ function omi_siac_cqs_output_cta_v1_91.prefs_changed()
   if show.participant_timestamp ~= omi_siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp then
     show.participant_timestamp = omi_siac_cqs_output_cta_v1_91.prefs.show_participant_timestamp
   end
-  if show.quote ~= omi_siac_cqs_output_cta_v1_91.prefs.show_quote then
-    show.quote = omi_siac_cqs_output_cta_v1_91.prefs.show_quote
+  if show.quote_message ~= omi_siac_cqs_output_cta_v1_91.prefs.show_quote_message then
+    show.quote_message = omi_siac_cqs_output_cta_v1_91.prefs.show_quote_message
   end
   if show.sip_block_timestamp ~= omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp then
     show.sip_block_timestamp = omi_siac_cqs_output_cta_v1_91.prefs.show_sip_block_timestamp
@@ -235,6 +229,19 @@ end
 -- Is value not even?
 uneven = function(value)
   return (value % 2 == 1)
+end
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
 end
 
 
@@ -1076,7 +1083,7 @@ siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.size = 1
 
 -- Display: Finra Bbo Luld Indicator
 siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.display = function(value)
-  if value == "" then
+  if value == " " then
     return "Finra Bbo Luld Indicator: Limit Up Limit Down Not Applicable (<whitespace>)"
   end
   if value == "A" then
@@ -1122,7 +1129,7 @@ end
 siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_bid_market_maker_id, range, value, display)
@@ -1220,7 +1227,7 @@ end
 siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_market_maker_id, range, value, display)
@@ -1318,7 +1325,7 @@ end
 siac_cqs_output_cta_v1_91.finra_market_maker_id.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v1_91.finra_market_maker_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_cqs_output_cta_v1_91.finra_market_maker_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_market_maker_id, range, value, display)
@@ -2425,7 +2432,7 @@ end
 siac_cqs_output_cta_v1_91.security_symbol_long.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v1_91.security_symbol_long.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_cqs_output_cta_v1_91.security_symbol_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.security_symbol_long, range, value, display)
@@ -2448,7 +2455,7 @@ end
 siac_cqs_output_cta_v1_91.security_symbol_short.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v1_91.security_symbol_short.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_cqs_output_cta_v1_91.security_symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.security_symbol_short, range, value, display)
@@ -2908,14 +2915,105 @@ end
 -- Special Long Quote Message
 siac_cqs_output_cta_v1_91.special_long_quote_message = {}
 
--- Read runtime size of: Special Long Quote Message
+-- Calculate size of: Special Long Quote Message
 siac_cqs_output_cta_v1_91.special_long_quote_message.size = function(buffer, offset)
-  local index = offset
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
+  index = index + siac_cqs_output_cta_v1_91.participant_id.size
 
-  return message_length - 4
+  index = index + siac_cqs_output_cta_v1_91.participant_timestamp.size
+
+  index = index + siac_cqs_output_cta_v1_91.message_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.transaction_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.participant_reference_number.size
+
+  index = index + siac_cqs_output_cta_v1_91.security_symbol_long.size
+
+  index = index + siac_cqs_output_cta_v1_91.instrument_type.size
+
+  index = index + siac_cqs_output_cta_v1_91.quote_condition.size
+
+  index = index + siac_cqs_output_cta_v1_91.security_status_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.bid_price_long.size
+
+  index = index + siac_cqs_output_cta_v1_91.bid_size_long.size
+
+  index = index + siac_cqs_output_cta_v1_91.offer_price_long.size
+
+  index = index + siac_cqs_output_cta_v1_91.offer_size_long.size
+
+  index = index + siac_cqs_output_cta_v1_91.retail_interest_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.settlement_condition.size
+
+  index = index + siac_cqs_output_cta_v1_91.market_condition.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_market_maker_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_best_bid_price.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_best_bid_size.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_best_offer_price.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_best_offer_size.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.adf_timestamp.size
+
+  index = index + siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.financial_status_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.sip_generated_message_identifier.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.national_bbo_luld_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.national_bbo_indicator.size
+
+  local national_bbo_indicator = buffer(offset + index - 1, 1):string()
+
+  if national_bbo_indicator == "U" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 19, 1):string()
+
+  if national_bbo_indicator == "U" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 37, 1):string()
+
+  if national_bbo_indicator == "T" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 42, 1):string()
+
+  if national_bbo_indicator == "T" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size
+
+  end
+
+  return index
 end
 
 -- Display: Special Long Quote Message
@@ -2924,7 +3022,7 @@ siac_cqs_output_cta_v1_91.special_long_quote_message.display = function(packet, 
 end
 
 -- Dissect Fields: Special Long Quote Message
-siac_cqs_output_cta_v1_91.special_long_quote_message.fields = function(buffer, offset, packet, parent, size_of_special_long_quote_message)
+siac_cqs_output_cta_v1_91.special_long_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3066,38 +3164,83 @@ siac_cqs_output_cta_v1_91.special_long_quote_message.fields = function(buffer, o
 end
 
 -- Dissect: Special Long Quote Message
-siac_cqs_output_cta_v1_91.special_long_quote_message.dissect = function(buffer, offset, packet, parent, size_of_special_long_quote_message)
-  local size_of_special_long_quote_message = siac_cqs_output_cta_v1_91.special_long_quote_message.size(buffer, offset)
-  local index = offset + size_of_special_long_quote_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.special_long_quote_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.special_long_quote_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.special_long_quote_message.fields(buffer, offset, packet, parent, size_of_special_long_quote_message)
-    parent:set_len(size_of_special_long_quote_message)
-    local display = siac_cqs_output_cta_v1_91.special_long_quote_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.special_long_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.special_long_quote_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.special_long_quote_message.fields(buffer, offset, packet, parent, size_of_special_long_quote_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.special_long_quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Short Quote Message
 siac_cqs_output_cta_v1_91.short_quote_message = {}
 
--- Read runtime size of: Short Quote Message
+-- Calculate size of: Short Quote Message
 siac_cqs_output_cta_v1_91.short_quote_message.size = function(buffer, offset)
-  local index = offset
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
+  index = index + siac_cqs_output_cta_v1_91.participant_id.size
 
-  return message_length - 4
+  index = index + siac_cqs_output_cta_v1_91.participant_timestamp.size
+
+  index = index + siac_cqs_output_cta_v1_91.message_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.transaction_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.participant_reference_number.size
+
+  index = index + siac_cqs_output_cta_v1_91.security_symbol_short.size
+
+  index = index + siac_cqs_output_cta_v1_91.bid_price_short.size
+
+  index = index + siac_cqs_output_cta_v1_91.bid_size_short.size
+
+  index = index + siac_cqs_output_cta_v1_91.offer_price_short.size
+
+  index = index + siac_cqs_output_cta_v1_91.offer_size_short.size
+
+  index = index + siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.national_bbo_indicator.size
+
+  local national_bbo_indicator = buffer(offset + index - 1, 1):string()
+
+  if national_bbo_indicator == "U" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 19, 1):string()
+
+  if national_bbo_indicator == "U" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 37, 1):string()
+
+  if national_bbo_indicator == "T" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 42, 1):string()
+
+  if national_bbo_indicator == "T" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size
+
+  end
+
+  return index
 end
 
 -- Display: Short Quote Message
@@ -3106,7 +3249,7 @@ siac_cqs_output_cta_v1_91.short_quote_message.display = function(packet, parent,
 end
 
 -- Dissect Fields: Short Quote Message
-siac_cqs_output_cta_v1_91.short_quote_message.fields = function(buffer, offset, packet, parent, size_of_short_quote_message)
+siac_cqs_output_cta_v1_91.short_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3185,38 +3328,111 @@ siac_cqs_output_cta_v1_91.short_quote_message.fields = function(buffer, offset, 
 end
 
 -- Dissect: Short Quote Message
-siac_cqs_output_cta_v1_91.short_quote_message.dissect = function(buffer, offset, packet, parent, size_of_short_quote_message)
-  local size_of_short_quote_message = siac_cqs_output_cta_v1_91.short_quote_message.size(buffer, offset)
-  local index = offset + size_of_short_quote_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.short_quote_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.short_quote_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.short_quote_message.fields(buffer, offset, packet, parent, size_of_short_quote_message)
-    parent:set_len(size_of_short_quote_message)
-    local display = siac_cqs_output_cta_v1_91.short_quote_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.short_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.short_quote_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.short_quote_message.fields(buffer, offset, packet, parent, size_of_short_quote_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.short_quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Long Quote Message
 siac_cqs_output_cta_v1_91.long_quote_message = {}
 
--- Read runtime size of: Long Quote Message
+-- Calculate size of: Long Quote Message
 siac_cqs_output_cta_v1_91.long_quote_message.size = function(buffer, offset)
-  local index = offset
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
+  index = index + siac_cqs_output_cta_v1_91.participant_id.size
 
-  return message_length - 4
+  index = index + siac_cqs_output_cta_v1_91.participant_timestamp.size
+
+  index = index + siac_cqs_output_cta_v1_91.message_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.transaction_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.participant_reference_number.size
+
+  index = index + siac_cqs_output_cta_v1_91.security_symbol_long.size
+
+  index = index + siac_cqs_output_cta_v1_91.instrument_type.size
+
+  index = index + siac_cqs_output_cta_v1_91.quote_condition.size
+
+  index = index + siac_cqs_output_cta_v1_91.security_status_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.size
+
+  index = index + siac_cqs_output_cta_v1_91.bid_size_long.size
+
+  index = index + siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.size
+
+  index = index + siac_cqs_output_cta_v1_91.offer_size_long.size
+
+  index = index + siac_cqs_output_cta_v1_91.retail_interest_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.settlement_condition.size
+
+  index = index + siac_cqs_output_cta_v1_91.market_condition.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_market_maker_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.finra_bbo_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.adf_timestamp.size
+
+  index = index + siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.size
+
+  index = index + siac_cqs_output_cta_v1_91.financial_status_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.sip_generated_message_identifier.size
+
+  index = index + siac_cqs_output_cta_v1_91.luld_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.national_bbo_luld_indicator.size
+
+  index = index + siac_cqs_output_cta_v1_91.national_bbo_indicator.size
+
+  local national_bbo_indicator = buffer(offset + index - 1, 1):string()
+
+  if national_bbo_indicator == "U" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 19, 1):string()
+
+  if national_bbo_indicator == "U" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 37, 1):string()
+
+  if national_bbo_indicator == "T" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size
+
+  end
+
+  local national_bbo_indicator = buffer(offset + index - 42, 1):string()
+
+  if national_bbo_indicator == "T" then
+    index = index + siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size
+
+  end
+
+  return index
 end
 
 -- Display: Long Quote Message
@@ -3225,7 +3441,7 @@ siac_cqs_output_cta_v1_91.long_quote_message.display = function(packet, parent, 
 end
 
 -- Dissect Fields: Long Quote Message
-siac_cqs_output_cta_v1_91.long_quote_message.fields = function(buffer, offset, packet, parent, size_of_long_quote_message)
+siac_cqs_output_cta_v1_91.long_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3346,39 +3562,43 @@ siac_cqs_output_cta_v1_91.long_quote_message.fields = function(buffer, offset, p
 end
 
 -- Dissect: Long Quote Message
-siac_cqs_output_cta_v1_91.long_quote_message.dissect = function(buffer, offset, packet, parent, size_of_long_quote_message)
-  local size_of_long_quote_message = siac_cqs_output_cta_v1_91.long_quote_message.size(buffer, offset)
-  local index = offset + size_of_long_quote_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.long_quote_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.long_quote_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.long_quote_message.fields(buffer, offset, packet, parent, size_of_long_quote_message)
-    parent:set_len(size_of_long_quote_message)
-    local display = siac_cqs_output_cta_v1_91.long_quote_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.long_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.long_quote_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.long_quote_message.fields(buffer, offset, packet, parent, size_of_long_quote_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.long_quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Auction Status Message
 siac_cqs_output_cta_v1_91.auction_status_message = {}
 
--- Read runtime size of: Auction Status Message
-siac_cqs_output_cta_v1_91.auction_status_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Auction Status Message
+siac_cqs_output_cta_v1_91.auction_status_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size + 
+  siac_cqs_output_cta_v1_91.security_symbol_long.size + 
+  siac_cqs_output_cta_v1_91.instrument_type.size + 
+  siac_cqs_output_cta_v1_91.auction_collar_reference_price.size + 
+  siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.size + 
+  siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.size + 
+  siac_cqs_output_cta_v1_91.number_of_extensions.size + 
+  siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.size + 
+  siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.size + 
+  siac_cqs_output_cta_v1_91.financial_status_indicator.size + 
+  siac_cqs_output_cta_v1_91.future.size
 
 -- Display: Auction Status Message
 siac_cqs_output_cta_v1_91.auction_status_message.display = function(packet, parent, length)
@@ -3386,7 +3606,7 @@ siac_cqs_output_cta_v1_91.auction_status_message.display = function(packet, pare
 end
 
 -- Dissect Fields: Auction Status Message
-siac_cqs_output_cta_v1_91.auction_status_message.fields = function(buffer, offset, packet, parent, size_of_auction_status_message)
+siac_cqs_output_cta_v1_91.auction_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3438,32 +3658,28 @@ siac_cqs_output_cta_v1_91.auction_status_message.fields = function(buffer, offse
 end
 
 -- Dissect: Auction Status Message
-siac_cqs_output_cta_v1_91.auction_status_message.dissect = function(buffer, offset, packet, parent, size_of_auction_status_message)
-  local size_of_auction_status_message = siac_cqs_output_cta_v1_91.auction_status_message.size(buffer, offset)
-  local index = offset + size_of_auction_status_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.auction_status_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.auction_status_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.auction_status_message.fields(buffer, offset, packet, parent, size_of_auction_status_message)
-    parent:set_len(size_of_auction_status_message)
-    local display = siac_cqs_output_cta_v1_91.auction_status_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.auction_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.auction_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.auction_status_message.fields(buffer, offset, packet, parent, size_of_auction_status_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.auction_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Quote Payload
-siac_cqs_output_cta_v1_91.quote_payload = {}
+-- Quote Message Payload
+siac_cqs_output_cta_v1_91.quote_message_payload = {}
 
--- Dissect: Quote Payload
-siac_cqs_output_cta_v1_91.quote_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
+-- Dissect: Quote Message Payload
+siac_cqs_output_cta_v1_91.quote_message_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
   -- Dissect Auction Status Message
   if quote_message_type == "A" then
     return siac_cqs_output_cta_v1_91.auction_status_message.dissect(buffer, offset, packet, parent)
@@ -3484,71 +3700,71 @@ siac_cqs_output_cta_v1_91.quote_payload.dissect = function(buffer, offset, packe
   return offset
 end
 
--- Quote
-siac_cqs_output_cta_v1_91.quote = {}
+-- Quote Message
+siac_cqs_output_cta_v1_91.quote_message = {}
 
--- Read runtime size of: Quote
-siac_cqs_output_cta_v1_91.quote.size = function(buffer, offset)
-  local index = offset
+-- Calculate size of: Quote Message
+siac_cqs_output_cta_v1_91.quote_message.size = function(buffer, offset)
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
+  index = index + siac_cqs_output_cta_v1_91.quote_message_type.size
 
-  return message_length - 3
+  -- Calculate runtime size of Quote Message Payload field
+  local quote_message_payload_offset = offset + index
+  local quote_message_payload_type = buffer(quote_message_payload_offset - 1, 1):string()
+  index = index + siac_cqs_output_cta_v1_91.quote_message_payload.size(buffer, quote_message_payload_offset, quote_message_payload_type)
+
+  return index
 end
 
--- Display: Quote
-siac_cqs_output_cta_v1_91.quote.display = function(packet, parent, length)
+-- Display: Quote Message
+siac_cqs_output_cta_v1_91.quote_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote
-siac_cqs_output_cta_v1_91.quote.fields = function(buffer, offset, packet, parent, size_of_quote)
+-- Dissect Fields: Quote Message
+siac_cqs_output_cta_v1_91.quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Quote Message Type: 1 Byte Ascii String Enum with 4 values
   index, quote_message_type = siac_cqs_output_cta_v1_91.quote_message_type.dissect(buffer, index, packet, parent)
 
-  -- Quote Payload: Runtime Type with 4 branches
-  index = siac_cqs_output_cta_v1_91.quote_payload.dissect(buffer, index, packet, parent, quote_message_type)
+  -- Quote Message Payload: Runtime Type with 4 branches
+  index = siac_cqs_output_cta_v1_91.quote_message_payload.dissect(buffer, index, packet, parent, quote_message_type)
 
   return index
 end
 
--- Dissect: Quote
-siac_cqs_output_cta_v1_91.quote.dissect = function(buffer, offset, packet, parent, size_of_quote)
-  local size_of_quote = siac_cqs_output_cta_v1_91.quote.size(buffer, offset)
-  local index = offset + size_of_quote
-
-  -- Optionally add group/struct element to protocol tree
-  if show.quote then
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.quote, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.quote.fields(buffer, offset, packet, parent, size_of_quote)
-    parent:set_len(size_of_quote)
-    local display = siac_cqs_output_cta_v1_91.quote.display(buffer, packet, parent)
+-- Dissect: Quote Message
+siac_cqs_output_cta_v1_91.quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.quote_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.quote_message, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.quote_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.quote.fields(buffer, offset, packet, parent, size_of_quote)
-
-    return index
+    return siac_cqs_output_cta_v1_91.quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Market Wide Circuit Breaker Status Message
 siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message = {}
 
--- Read runtime size of: Market Wide Circuit Breaker Status Message
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Market Wide Circuit Breaker Status Message
+siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size + 
+  siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_level_indicator.size + 
+  siac_cqs_output_cta_v1_91.reserved.size
 
 -- Display: Market Wide Circuit Breaker Status Message
 siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.display = function(packet, parent, length)
@@ -3556,7 +3772,7 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.display = f
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Status Message
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3584,39 +3800,37 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields = fu
 end
 
 -- Dissect: Market Wide Circuit Breaker Status Message
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
-  local size_of_market_wide_circuit_breaker_status_message = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.size(buffer, offset)
-  local index = offset + size_of_market_wide_circuit_breaker_status_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
-    parent:set_len(size_of_market_wide_circuit_breaker_status_message)
-    local display = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Market Wide Circuit Breaker Decline Level Status Message
 siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message = {}
 
--- Read runtime size of: Market Wide Circuit Breaker Decline Level Status Message
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Market Wide Circuit Breaker Decline Level Status Message
+siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size + 
+  siac_cqs_output_cta_v1_91.mwcb_level_1.size + 
+  siac_cqs_output_cta_v1_91.mwcb_level_2.size + 
+  siac_cqs_output_cta_v1_91.mwcb_level_3.size + 
+  siac_cqs_output_cta_v1_91.reserved.size
 
 -- Display: Market Wide Circuit Breaker Decline Level Status Message
 siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.display = function(packet, parent, length)
@@ -3624,7 +3838,7 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_messa
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Decline Level Status Message
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3658,32 +3872,28 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_messa
 end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Message
-siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
-  local size_of_market_wide_circuit_breaker_decline_level_status_message = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.size(buffer, offset)
-  local index = offset + size_of_market_wide_circuit_breaker_decline_level_status_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
-    parent:set_len(size_of_market_wide_circuit_breaker_decline_level_status_message)
-    local display = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Market Status Payload
-siac_cqs_output_cta_v1_91.market_status_payload = {}
+-- Market Status Message Payload
+siac_cqs_output_cta_v1_91.market_status_message_payload = {}
 
--- Dissect: Market Status Payload
-siac_cqs_output_cta_v1_91.market_status_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
+-- Dissect: Market Status Message Payload
+siac_cqs_output_cta_v1_91.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
     return siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
@@ -3696,71 +3906,69 @@ siac_cqs_output_cta_v1_91.market_status_payload.dissect = function(buffer, offse
   return offset
 end
 
--- Market Status
-siac_cqs_output_cta_v1_91.market_status = {}
+-- Market Status Message
+siac_cqs_output_cta_v1_91.market_status_message = {}
 
--- Read runtime size of: Market Status
-siac_cqs_output_cta_v1_91.market_status.size = function(buffer, offset)
-  local index = offset
+-- Calculate size of: Market Status Message
+siac_cqs_output_cta_v1_91.market_status_message.size = function(buffer, offset)
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
+  index = index + siac_cqs_output_cta_v1_91.market_status_message_type.size
 
-  return message_length - 3
+  -- Calculate runtime size of Market Status Message Payload field
+  local market_status_message_payload_offset = offset + index
+  local market_status_message_payload_type = buffer(market_status_message_payload_offset - 1, 1):string()
+  index = index + siac_cqs_output_cta_v1_91.market_status_message_payload.size(buffer, market_status_message_payload_offset, market_status_message_payload_type)
+
+  return index
 end
 
--- Display: Market Status
-siac_cqs_output_cta_v1_91.market_status.display = function(packet, parent, length)
+-- Display: Market Status Message
+siac_cqs_output_cta_v1_91.market_status_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Market Status
-siac_cqs_output_cta_v1_91.market_status.fields = function(buffer, offset, packet, parent, size_of_market_status)
+-- Dissect Fields: Market Status Message
+siac_cqs_output_cta_v1_91.market_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Market Status Message Type: 1 Byte Ascii String Enum with 2 values
   index, market_status_message_type = siac_cqs_output_cta_v1_91.market_status_message_type.dissect(buffer, index, packet, parent)
 
-  -- Market Status Payload: Runtime Type with 2 branches
-  index = siac_cqs_output_cta_v1_91.market_status_payload.dissect(buffer, index, packet, parent, market_status_message_type)
+  -- Market Status Message Payload: Runtime Type with 2 branches
+  index = siac_cqs_output_cta_v1_91.market_status_message_payload.dissect(buffer, index, packet, parent, market_status_message_type)
 
   return index
 end
 
--- Dissect: Market Status
-siac_cqs_output_cta_v1_91.market_status.dissect = function(buffer, offset, packet, parent, size_of_market_status)
-  local size_of_market_status = siac_cqs_output_cta_v1_91.market_status.size(buffer, offset)
-  local index = offset + size_of_market_status
-
-  -- Optionally add group/struct element to protocol tree
-  if show.market_status then
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_status, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.market_status.fields(buffer, offset, packet, parent, size_of_market_status)
-    parent:set_len(size_of_market_status)
-    local display = siac_cqs_output_cta_v1_91.market_status.display(buffer, packet, parent)
+-- Dissect: Market Status Message
+siac_cqs_output_cta_v1_91.market_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.market_status_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_status_message, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.market_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.market_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.market_status.fields(buffer, offset, packet, parent, size_of_market_status)
-
-    return index
+    return siac_cqs_output_cta_v1_91.market_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- End Of Day Message
 siac_cqs_output_cta_v1_91.end_of_day_message = {}
 
--- Read runtime size of: End Of Day Message
-siac_cqs_output_cta_v1_91.end_of_day_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: End Of Day Message
+siac_cqs_output_cta_v1_91.end_of_day_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: End Of Day Message
 siac_cqs_output_cta_v1_91.end_of_day_message.display = function(packet, parent, length)
@@ -3768,7 +3976,7 @@ siac_cqs_output_cta_v1_91.end_of_day_message.display = function(packet, parent, 
 end
 
 -- Dissect Fields: End Of Day Message
-siac_cqs_output_cta_v1_91.end_of_day_message.fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
+siac_cqs_output_cta_v1_91.end_of_day_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3790,39 +3998,33 @@ siac_cqs_output_cta_v1_91.end_of_day_message.fields = function(buffer, offset, p
 end
 
 -- Dissect: End Of Day Message
-siac_cqs_output_cta_v1_91.end_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_day_message)
-  local size_of_end_of_day_message = siac_cqs_output_cta_v1_91.end_of_day_message.size(buffer, offset)
-  local index = offset + size_of_end_of_day_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.end_of_day_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.end_of_day_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
-    parent:set_len(size_of_end_of_day_message)
-    local display = siac_cqs_output_cta_v1_91.end_of_day_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.end_of_day_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.end_of_day_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.end_of_day_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Line Integrity Message
 siac_cqs_output_cta_v1_91.line_integrity_message = {}
 
--- Read runtime size of: Line Integrity Message
-siac_cqs_output_cta_v1_91.line_integrity_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Line Integrity Message
+siac_cqs_output_cta_v1_91.line_integrity_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: Line Integrity Message
 siac_cqs_output_cta_v1_91.line_integrity_message.display = function(packet, parent, length)
@@ -3830,7 +4032,7 @@ siac_cqs_output_cta_v1_91.line_integrity_message.display = function(packet, pare
 end
 
 -- Dissect Fields: Line Integrity Message
-siac_cqs_output_cta_v1_91.line_integrity_message.fields = function(buffer, offset, packet, parent, size_of_line_integrity_message)
+siac_cqs_output_cta_v1_91.line_integrity_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3852,39 +4054,33 @@ siac_cqs_output_cta_v1_91.line_integrity_message.fields = function(buffer, offse
 end
 
 -- Dissect: Line Integrity Message
-siac_cqs_output_cta_v1_91.line_integrity_message.dissect = function(buffer, offset, packet, parent, size_of_line_integrity_message)
-  local size_of_line_integrity_message = siac_cqs_output_cta_v1_91.line_integrity_message.size(buffer, offset)
-  local index = offset + size_of_line_integrity_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.line_integrity_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.line_integrity_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.line_integrity_message.fields(buffer, offset, packet, parent, size_of_line_integrity_message)
-    parent:set_len(size_of_line_integrity_message)
-    local display = siac_cqs_output_cta_v1_91.line_integrity_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.line_integrity_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.line_integrity_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.line_integrity_message.fields(buffer, offset, packet, parent, size_of_line_integrity_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.line_integrity_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Disaster Recovery Data Center Activation Message
 siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message = {}
 
--- Read runtime size of: Disaster Recovery Data Center Activation Message
-siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Disaster Recovery Data Center Activation Message
+siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: Disaster Recovery Data Center Activation Message
 siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.display = function(packet, parent, length)
@@ -3892,7 +4088,7 @@ siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.displ
 end
 
 -- Dissect Fields: Disaster Recovery Data Center Activation Message
-siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3914,39 +4110,33 @@ siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.field
 end
 
 -- Dissect: Disaster Recovery Data Center Activation Message
-siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.dissect = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
-  local size_of_disaster_recovery_data_center_activation_message = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.size(buffer, offset)
-  local index = offset + size_of_disaster_recovery_data_center_activation_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
-    parent:set_len(size_of_disaster_recovery_data_center_activation_message)
-    local display = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.disaster_recovery_data_center_activation_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Finra Open Message
 siac_cqs_output_cta_v1_91.finra_open_message = {}
 
--- Read runtime size of: Finra Open Message
-siac_cqs_output_cta_v1_91.finra_open_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Finra Open Message
+siac_cqs_output_cta_v1_91.finra_open_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: Finra Open Message
 siac_cqs_output_cta_v1_91.finra_open_message.display = function(packet, parent, length)
@@ -3954,7 +4144,7 @@ siac_cqs_output_cta_v1_91.finra_open_message.display = function(packet, parent, 
 end
 
 -- Dissect Fields: Finra Open Message
-siac_cqs_output_cta_v1_91.finra_open_message.fields = function(buffer, offset, packet, parent, size_of_finra_open_message)
+siac_cqs_output_cta_v1_91.finra_open_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -3976,39 +4166,33 @@ siac_cqs_output_cta_v1_91.finra_open_message.fields = function(buffer, offset, p
 end
 
 -- Dissect: Finra Open Message
-siac_cqs_output_cta_v1_91.finra_open_message.dissect = function(buffer, offset, packet, parent, size_of_finra_open_message)
-  local size_of_finra_open_message = siac_cqs_output_cta_v1_91.finra_open_message.size(buffer, offset)
-  local index = offset + size_of_finra_open_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.finra_open_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_open_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.finra_open_message.fields(buffer, offset, packet, parent, size_of_finra_open_message)
-    parent:set_len(size_of_finra_open_message)
-    local display = siac_cqs_output_cta_v1_91.finra_open_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.finra_open_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.finra_open_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.finra_open_message.fields(buffer, offset, packet, parent, size_of_finra_open_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.finra_open_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- End Of Test Cycle Message
 siac_cqs_output_cta_v1_91.end_of_test_cycle_message = {}
 
--- Read runtime size of: End Of Test Cycle Message
-siac_cqs_output_cta_v1_91.end_of_test_cycle_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: End Of Test Cycle Message
+siac_cqs_output_cta_v1_91.end_of_test_cycle_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: End Of Test Cycle Message
 siac_cqs_output_cta_v1_91.end_of_test_cycle_message.display = function(packet, parent, length)
@@ -4016,7 +4200,7 @@ siac_cqs_output_cta_v1_91.end_of_test_cycle_message.display = function(packet, p
 end
 
 -- Dissect Fields: End Of Test Cycle Message
-siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -4038,39 +4222,33 @@ siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields = function(buffer, of
 end
 
 -- Dissect: End Of Test Cycle Message
-siac_cqs_output_cta_v1_91.end_of_test_cycle_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
-  local size_of_end_of_test_cycle_message = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.size(buffer, offset)
-  local index = offset + size_of_end_of_test_cycle_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.end_of_test_cycle_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.end_of_test_cycle_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
-    parent:set_len(size_of_end_of_test_cycle_message)
-    local display = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.end_of_test_cycle_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.end_of_test_cycle_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Start Of Test Cycle Message
 siac_cqs_output_cta_v1_91.start_of_test_cycle_message = {}
 
--- Read runtime size of: Start Of Test Cycle Message
-siac_cqs_output_cta_v1_91.start_of_test_cycle_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Start Of Test Cycle Message
+siac_cqs_output_cta_v1_91.start_of_test_cycle_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: Start Of Test Cycle Message
 siac_cqs_output_cta_v1_91.start_of_test_cycle_message.display = function(packet, parent, length)
@@ -4078,7 +4256,7 @@ siac_cqs_output_cta_v1_91.start_of_test_cycle_message.display = function(packet,
 end
 
 -- Dissect Fields: Start Of Test Cycle Message
-siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -4100,39 +4278,33 @@ siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields = function(buffer, 
 end
 
 -- Dissect: Start Of Test Cycle Message
-siac_cqs_output_cta_v1_91.start_of_test_cycle_message.dissect = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
-  local size_of_start_of_test_cycle_message = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.size(buffer, offset)
-  local index = offset + size_of_start_of_test_cycle_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.start_of_test_cycle_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
-    parent:set_len(size_of_start_of_test_cycle_message)
-    local display = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.start_of_test_cycle_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.start_of_test_cycle_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Reset Block Sequence Number Message
 siac_cqs_output_cta_v1_91.reset_block_sequence_number_message = {}
 
--- Read runtime size of: Reset Block Sequence Number Message
-siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Reset Block Sequence Number Message
+siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: Reset Block Sequence Number Message
 siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.display = function(packet, parent, length)
@@ -4140,7 +4312,7 @@ siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.display = function
 end
 
 -- Dissect Fields: Reset Block Sequence Number Message
-siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -4162,39 +4334,33 @@ siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields = function(
 end
 
 -- Dissect: Reset Block Sequence Number Message
-siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.dissect = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
-  local size_of_reset_block_sequence_number_message = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.size(buffer, offset)
-  local index = offset + size_of_reset_block_sequence_number_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.reset_block_sequence_number_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
-    parent:set_len(size_of_reset_block_sequence_number_message)
-    local display = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.reset_block_sequence_number_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Finra Close Message
 siac_cqs_output_cta_v1_91.finra_close_message = {}
 
--- Read runtime size of: Finra Close Message
-siac_cqs_output_cta_v1_91.finra_close_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Finra Close Message
+siac_cqs_output_cta_v1_91.finra_close_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: Finra Close Message
 siac_cqs_output_cta_v1_91.finra_close_message.display = function(packet, parent, length)
@@ -4202,7 +4368,7 @@ siac_cqs_output_cta_v1_91.finra_close_message.display = function(packet, parent,
 end
 
 -- Dissect Fields: Finra Close Message
-siac_cqs_output_cta_v1_91.finra_close_message.fields = function(buffer, offset, packet, parent, size_of_finra_close_message)
+siac_cqs_output_cta_v1_91.finra_close_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -4224,39 +4390,33 @@ siac_cqs_output_cta_v1_91.finra_close_message.fields = function(buffer, offset, 
 end
 
 -- Dissect: Finra Close Message
-siac_cqs_output_cta_v1_91.finra_close_message.dissect = function(buffer, offset, packet, parent, size_of_finra_close_message)
-  local size_of_finra_close_message = siac_cqs_output_cta_v1_91.finra_close_message.size(buffer, offset)
-  local index = offset + size_of_finra_close_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.finra_close_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_close_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.finra_close_message.fields(buffer, offset, packet, parent, size_of_finra_close_message)
-    parent:set_len(size_of_finra_close_message)
-    local display = siac_cqs_output_cta_v1_91.finra_close_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.finra_close_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.finra_close_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.finra_close_message.fields(buffer, offset, packet, parent, size_of_finra_close_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.finra_close_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Start Of Day Message
 siac_cqs_output_cta_v1_91.start_of_day_message = {}
 
--- Read runtime size of: Start Of Day Message
-siac_cqs_output_cta_v1_91.start_of_day_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Start Of Day Message
+siac_cqs_output_cta_v1_91.start_of_day_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size
 
 -- Display: Start Of Day Message
 siac_cqs_output_cta_v1_91.start_of_day_message.display = function(packet, parent, length)
@@ -4264,7 +4424,7 @@ siac_cqs_output_cta_v1_91.start_of_day_message.display = function(packet, parent
 end
 
 -- Dissect Fields: Start Of Day Message
-siac_cqs_output_cta_v1_91.start_of_day_message.fields = function(buffer, offset, packet, parent, size_of_start_of_day_message)
+siac_cqs_output_cta_v1_91.start_of_day_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -4286,32 +4446,28 @@ siac_cqs_output_cta_v1_91.start_of_day_message.fields = function(buffer, offset,
 end
 
 -- Dissect: Start Of Day Message
-siac_cqs_output_cta_v1_91.start_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_start_of_day_message)
-  local size_of_start_of_day_message = siac_cqs_output_cta_v1_91.start_of_day_message.size(buffer, offset)
-  local index = offset + size_of_start_of_day_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.start_of_day_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.start_of_day_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
-    parent:set_len(size_of_start_of_day_message)
-    local display = siac_cqs_output_cta_v1_91.start_of_day_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.start_of_day_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.start_of_day_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.start_of_day_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Control Payload
-siac_cqs_output_cta_v1_91.control_payload = {}
+-- Control Message Payload
+siac_cqs_output_cta_v1_91.control_message_payload = {}
 
--- Dissect: Control Payload
-siac_cqs_output_cta_v1_91.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
+-- Dissect: Control Message Payload
+siac_cqs_output_cta_v1_91.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "A" then
     return siac_cqs_output_cta_v1_91.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -4352,71 +4508,70 @@ siac_cqs_output_cta_v1_91.control_payload.dissect = function(buffer, offset, pac
   return offset
 end
 
--- Control
-siac_cqs_output_cta_v1_91.control = {}
+-- Control Message
+siac_cqs_output_cta_v1_91.control_message = {}
 
--- Read runtime size of: Control
-siac_cqs_output_cta_v1_91.control.size = function(buffer, offset)
-  local index = offset
+-- Calculate size of: Control Message
+siac_cqs_output_cta_v1_91.control_message.size = function(buffer, offset)
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
+  index = index + siac_cqs_output_cta_v1_91.control_message_type.size
 
-  return message_length - 3
+  -- Calculate runtime size of Control Message Payload field
+  local control_message_payload_offset = offset + index
+  local control_message_payload_type = buffer(control_message_payload_offset - 1, 1):string()
+  index = index + siac_cqs_output_cta_v1_91.control_message_payload.size(buffer, control_message_payload_offset, control_message_payload_type)
+
+  return index
 end
 
--- Display: Control
-siac_cqs_output_cta_v1_91.control.display = function(packet, parent, length)
+-- Display: Control Message
+siac_cqs_output_cta_v1_91.control_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Control
-siac_cqs_output_cta_v1_91.control.fields = function(buffer, offset, packet, parent, size_of_control)
+-- Dissect Fields: Control Message
+siac_cqs_output_cta_v1_91.control_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Control Message Type: 1 Byte Ascii String Enum with 9 values
   index, control_message_type = siac_cqs_output_cta_v1_91.control_message_type.dissect(buffer, index, packet, parent)
 
-  -- Control Payload: Runtime Type with 9 branches
-  index = siac_cqs_output_cta_v1_91.control_payload.dissect(buffer, index, packet, parent, control_message_type)
+  -- Control Message Payload: Runtime Type with 9 branches
+  index = siac_cqs_output_cta_v1_91.control_message_payload.dissect(buffer, index, packet, parent, control_message_type)
 
   return index
 end
 
--- Dissect: Control
-siac_cqs_output_cta_v1_91.control.dissect = function(buffer, offset, packet, parent, size_of_control)
-  local size_of_control = siac_cqs_output_cta_v1_91.control.size(buffer, offset)
-  local index = offset + size_of_control
-
-  -- Optionally add group/struct element to protocol tree
-  if show.control then
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.control, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.control.fields(buffer, offset, packet, parent, size_of_control)
-    parent:set_len(size_of_control)
-    local display = siac_cqs_output_cta_v1_91.control.display(buffer, packet, parent)
+-- Dissect: Control Message
+siac_cqs_output_cta_v1_91.control_message.dissect = function(buffer, offset, packet, parent)
+  if show.control_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.control_message, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.control_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.control_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.control.fields(buffer, offset, packet, parent, size_of_control)
-
-    return index
+    return siac_cqs_output_cta_v1_91.control_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Administrative Unformatted Message
 siac_cqs_output_cta_v1_91.administrative_unformatted_message = {}
 
--- Read runtime size of: Administrative Unformatted Message
-siac_cqs_output_cta_v1_91.administrative_unformatted_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
+-- Size: Administrative Unformatted Message
+siac_cqs_output_cta_v1_91.administrative_unformatted_message.size =
+  siac_cqs_output_cta_v1_91.participant_id.size + 
+  siac_cqs_output_cta_v1_91.participant_timestamp.size + 
+  siac_cqs_output_cta_v1_91.message_id.size + 
+  siac_cqs_output_cta_v1_91.transaction_id.size + 
+  siac_cqs_output_cta_v1_91.participant_reference_number.size + 
+  siac_cqs_output_cta_v1_91.text.size
 
 -- Display: Administrative Unformatted Message
 siac_cqs_output_cta_v1_91.administrative_unformatted_message.display = function(packet, parent, length)
@@ -4424,7 +4579,7 @@ siac_cqs_output_cta_v1_91.administrative_unformatted_message.display = function(
 end
 
 -- Dissect Fields: Administrative Unformatted Message
-siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: Char
@@ -4449,32 +4604,28 @@ siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields = function(b
 end
 
 -- Dissect: Administrative Unformatted Message
-siac_cqs_output_cta_v1_91.administrative_unformatted_message.dissect = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
-  local size_of_administrative_unformatted_message = siac_cqs_output_cta_v1_91.administrative_unformatted_message.size(buffer, offset)
-  local index = offset + size_of_administrative_unformatted_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.administrative_unformatted_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
-    parent:set_len(size_of_administrative_unformatted_message)
-    local display = siac_cqs_output_cta_v1_91.administrative_unformatted_message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.administrative_unformatted_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
-
-    return index
+    return siac_cqs_output_cta_v1_91.administrative_unformatted_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Administrative Payload
-siac_cqs_output_cta_v1_91.administrative_payload = {}
+-- Administrative Message Payload
+siac_cqs_output_cta_v1_91.administrative_message_payload = {}
 
--- Dissect: Administrative Payload
-siac_cqs_output_cta_v1_91.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Administrative Message Payload
+siac_cqs_output_cta_v1_91.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect Administrative Unformatted Message
   if administrative_message_type == "H" then
     return siac_cqs_output_cta_v1_91.administrative_unformatted_message.dissect(buffer, offset, packet, parent)
@@ -4483,130 +4634,102 @@ siac_cqs_output_cta_v1_91.administrative_payload.dissect = function(buffer, offs
   return offset
 end
 
--- Administrative
-siac_cqs_output_cta_v1_91.administrative = {}
+-- Administrative Message
+siac_cqs_output_cta_v1_91.administrative_message = {}
 
--- Read runtime size of: Administrative
-siac_cqs_output_cta_v1_91.administrative.size = function(buffer, offset)
-  local index = offset
+-- Calculate size of: Administrative Message
+siac_cqs_output_cta_v1_91.administrative_message.size = function(buffer, offset)
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
+  index = index + siac_cqs_output_cta_v1_91.administrative_message_type.size
 
-  return message_length - 3
+  -- Calculate runtime size of Administrative Message Payload field
+  local administrative_message_payload_offset = offset + index
+  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 1, 1):string()
+  index = index + siac_cqs_output_cta_v1_91.administrative_message_payload.size(buffer, administrative_message_payload_offset, administrative_message_payload_type)
+
+  return index
 end
 
--- Display: Administrative
-siac_cqs_output_cta_v1_91.administrative.display = function(packet, parent, length)
+-- Display: Administrative Message
+siac_cqs_output_cta_v1_91.administrative_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Administrative
-siac_cqs_output_cta_v1_91.administrative.fields = function(buffer, offset, packet, parent, size_of_administrative)
+-- Dissect Fields: Administrative Message
+siac_cqs_output_cta_v1_91.administrative_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Administrative Message Type: 1 Byte Ascii String Enum with 1 values
   index, administrative_message_type = siac_cqs_output_cta_v1_91.administrative_message_type.dissect(buffer, index, packet, parent)
 
-  -- Administrative Payload: Runtime Type with 1 branches
-  index = siac_cqs_output_cta_v1_91.administrative_payload.dissect(buffer, index, packet, parent, administrative_message_type)
+  -- Administrative Message Payload: Runtime Type with 1 branches
+  index = siac_cqs_output_cta_v1_91.administrative_message_payload.dissect(buffer, index, packet, parent, administrative_message_type)
 
   return index
 end
 
--- Dissect: Administrative
-siac_cqs_output_cta_v1_91.administrative.dissect = function(buffer, offset, packet, parent, size_of_administrative)
-  local size_of_administrative = siac_cqs_output_cta_v1_91.administrative.size(buffer, offset)
-  local index = offset + size_of_administrative
-
-  -- Optionally add group/struct element to protocol tree
-  if show.administrative then
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.administrative.fields(buffer, offset, packet, parent, size_of_administrative)
-    parent:set_len(size_of_administrative)
-    local display = siac_cqs_output_cta_v1_91.administrative.display(buffer, packet, parent)
+-- Dissect: Administrative Message
+siac_cqs_output_cta_v1_91.administrative_message.dissect = function(buffer, offset, packet, parent)
+  if show.administrative_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative_message, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.administrative_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.administrative_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.administrative.fields(buffer, offset, packet, parent, size_of_administrative)
-
-    return index
+    return siac_cqs_output_cta_v1_91.administrative_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Payload
-siac_cqs_output_cta_v1_91.payload = {}
+-- Category Payload
+siac_cqs_output_cta_v1_91.category_payload = {}
 
--- Dissect: Payload
-siac_cqs_output_cta_v1_91.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Administrative
+-- Dissect: Category Payload
+siac_cqs_output_cta_v1_91.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
+  -- Dissect Administrative Message
   if message_category == "A" then
-    return siac_cqs_output_cta_v1_91.administrative.dissect(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91.administrative_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Control
+  -- Dissect Control Message
   if message_category == "C" then
-    return siac_cqs_output_cta_v1_91.control.dissect(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91.control_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Market Status
+  -- Dissect Market Status Message
   if message_category == "M" then
-    return siac_cqs_output_cta_v1_91.market_status.dissect(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91.market_status_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Quote
+  -- Dissect Quote Message
   if message_category == "Q" then
-    return siac_cqs_output_cta_v1_91.quote.dissect(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91.quote_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Message Header
-siac_cqs_output_cta_v1_91.message_header = {}
+-- Message
+siac_cqs_output_cta_v1_91.message = {}
 
--- Size: Message Header
-siac_cqs_output_cta_v1_91.message_header.size =
-  siac_cqs_output_cta_v1_91.message_length.size + 
-  siac_cqs_output_cta_v1_91.message_category.size
+-- Calculate size of: Message
+siac_cqs_output_cta_v1_91.message.size = function(buffer, offset)
+  local index = 0
 
--- Display: Message Header
-siac_cqs_output_cta_v1_91.message_header.display = function(packet, parent, length)
-  return ""
-end
+  index = index + siac_cqs_output_cta_v1_91.message_length.size
 
--- Dissect Fields: Message Header
-siac_cqs_output_cta_v1_91.message_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
+  index = index + siac_cqs_output_cta_v1_91.message_category.size
 
-  -- Message Length: Short
-  index, message_length = siac_cqs_output_cta_v1_91.message_length.dissect(buffer, index, packet, parent)
-
-  -- Message Category: Char
-  index, message_category = siac_cqs_output_cta_v1_91.message_category.dissect(buffer, index, packet, parent)
+  -- Calculate runtime size of Category Payload field
+  local category_payload_offset = offset + index
+  local category_payload_type = buffer(category_payload_offset - 1, 1):string()
+  index = index + siac_cqs_output_cta_v1_91.category_payload.size(buffer, category_payload_offset, category_payload_type)
 
   return index
 end
-
--- Dissect: Message Header
-siac_cqs_output_cta_v1_91.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.message_header, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v1_91.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message
-siac_cqs_output_cta_v1_91.message = {}
 
 -- Display: Message
 siac_cqs_output_cta_v1_91.message.display = function(packet, parent, length)
@@ -4614,7 +4737,7 @@ siac_cqs_output_cta_v1_91.message.display = function(packet, parent, length)
 end
 
 -- Dissect Fields: Message
-siac_cqs_output_cta_v1_91.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+siac_cqs_output_cta_v1_91.message.fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -4623,36 +4746,33 @@ siac_cqs_output_cta_v1_91.message.fields = function(buffer, offset, packet, pare
     iteration:set_generated()
   end
 
-  -- Message Header: Struct of 2 fields
-  index, message_header = siac_cqs_output_cta_v1_91.message_header.dissect(buffer, index, packet, parent)
+  -- Message Length: Short
+  index, message_length = siac_cqs_output_cta_v1_91.message_length.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Category
-  local message_category = buffer(index - 1, 1):string()
+  -- Message Category: Char
+  index, message_category = siac_cqs_output_cta_v1_91.message_category.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 4 branches
-  index = siac_cqs_output_cta_v1_91.payload.dissect(buffer, index, packet, parent, message_category)
+  -- Category Payload: Runtime Type with 4 branches
+  index = siac_cqs_output_cta_v1_91.category_payload.dissect(buffer, index, packet, parent, message_category)
 
   return index
 end
 
 -- Dissect: Message
-siac_cqs_output_cta_v1_91.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
-
-  -- Optionally add group/struct element to protocol tree
+siac_cqs_output_cta_v1_91.message.dissect = function(buffer, offset, packet, parent, message_index)
   if show.message then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.message, buffer(offset, 0))
-    local current = siac_cqs_output_cta_v1_91.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
-    local display = siac_cqs_output_cta_v1_91.message.display(buffer, packet, parent)
+    local index = siac_cqs_output_cta_v1_91.message.fields(buffer, offset, packet, parent, message_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cqs_output_cta_v1_91.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-
-    return index
+    return siac_cqs_output_cta_v1_91.message.fields(buffer, offset, packet, parent, message_index)
   end
 end
 
@@ -4788,12 +4908,7 @@ siac_cqs_output_cta_v1_91.packet.dissect = function(buffer, packet, parent)
 
   -- Repeating: Message
   for message_index = 1, messages_in_block do
-
-    -- Dependency element: Message Length
-    local message_length = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    index, message = siac_cqs_output_cta_v1_91.message.dissect(buffer, index, packet, parent, message_length, message_index)
+    index, message = siac_cqs_output_cta_v1_91.message.dissect(buffer, index, packet, parent, message_index)
   end
 
   -- Runtime optional field: Block Pad Byte
