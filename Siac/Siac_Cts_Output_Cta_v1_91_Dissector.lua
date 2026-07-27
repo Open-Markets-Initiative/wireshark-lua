@@ -19,6 +19,7 @@ omi_siac_cts_output_cta_v1_91.fields.administrative_message = ProtoField.new("Ad
 omi_siac_cts_output_cta_v1_91.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.output.cta.v1.91.administrativemessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v1.91.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v1_91.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v1.91.auctioncollarreferenceprice", ftypes.DOUBLE)
+omi_siac_cts_output_cta_v1_91.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v1.91.auctioncollarupperthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v1_91.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v1.91.bidindexvalue", ftypes.INT64)
 omi_siac_cts_output_cta_v1_91.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v1.91.blockchecksum", ftypes.UINT16)
 omi_siac_cts_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v1.91.blockheader", ftypes.STRING)
@@ -59,11 +60,13 @@ omi_siac_cts_output_cta_v1_91.fields.low_indication_price_lower_limit_price_band
 omi_siac_cts_output_cta_v1_91.fields.low_price = ProtoField.new("Low Price", "siac.cts.output.cta.v1.91.lowprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v1_91.fields.market_status_message = ProtoField.new("Market Status Message", "siac.cts.output.cta.v1.91.marketstatusmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v1.91.marketstatusmessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v1_91.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v1.91.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v1.91.message", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v1.91.messagecategory", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v1.91.messageid", ftypes.UINT8)
 omi_siac_cts_output_cta_v1_91.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v1.91.messagelength", ftypes.UINT16)
 omi_siac_cts_output_cta_v1_91.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.output.cta.v1.91.messagesinblock", ftypes.UINT8)
+omi_siac_cts_output_cta_v1_91.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v1.91.mwcblevel1", ftypes.INT64)
 omi_siac_cts_output_cta_v1_91.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v1.91.mwcblevel2", ftypes.INT64)
 omi_siac_cts_output_cta_v1_91.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v1.91.mwcblevel3", ftypes.INT64)
 omi_siac_cts_output_cta_v1_91.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cts.output.cta.v1.91.nanoseconds", ftypes.UINT32)
@@ -116,6 +119,7 @@ omi_siac_cts_output_cta_v1_91.fields.trade_reporting_facility_id = ProtoField.ne
 omi_siac_cts_output_cta_v1_91.fields.trade_through_exempt_indicator = ProtoField.new("Trade Through Exempt Indicator", "siac.cts.output.cta.v1.91.tradethroughexemptindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.trade_total_volume = ProtoField.new("Trade Total Volume", "siac.cts.output.cta.v1.91.tradetotalvolume", ftypes.UINT64)
 omi_siac_cts_output_cta_v1_91.fields.trade_volume = ProtoField.new("Trade Volume", "siac.cts.output.cta.v1.91.tradevolume", ftypes.UINT32)
+omi_siac_cts_output_cta_v1_91.fields.trade_volume_long = ProtoField.new("Trade Volume Long", "siac.cts.output.cta.v1.91.tradevolumelong", ftypes.UINT32)
 omi_siac_cts_output_cta_v1_91.fields.trade_volume_short = ProtoField.new("Trade Volume Short", "siac.cts.output.cta.v1.91.tradevolumeshort", ftypes.UINT16)
 omi_siac_cts_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cts.output.cta.v1.91.transactionid", ftypes.UINT32)
 omi_siac_cts_output_cta_v1_91.fields.version = ProtoField.new("Version", "siac.cts.output.cta.v1.91.version", ftypes.UINT8)
@@ -410,6 +414,35 @@ siac_cts_output_cta_v1_91.auction_collar_reference_price.dissect = function(buff
   local display = siac_cts_output_cta_v1_91.auction_collar_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.auction_collar_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Upper Threshold Price
+siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price = {}
+
+-- Size: Auction Collar Upper Threshold Price
+siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price.size = 8
+
+-- Display: Auction Collar Upper Threshold Price
+siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price.display = function(value)
+  return "Auction Collar Upper Threshold Price: "..value
+end
+
+-- Translate: Auction Collar Upper Threshold Price
+siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Upper Threshold Price
+siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price.translate(raw)
+  local display = siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v1_91.fields.auction_collar_upper_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -1561,6 +1594,42 @@ siac_cts_output_cta_v1_91.market_status_message_type.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v1_91.market_wide_circuit_breaker_level_indicator = {}
+
+-- Size: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v1_91.market_wide_circuit_breaker_level_indicator.size = 1
+
+-- Display: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v1_91.market_wide_circuit_breaker_level_indicator.display = function(value)
+  if value == " " then
+    return "Market Wide Circuit Breaker Level Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "1" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 1 Breached (1)"
+  end
+  if value == "2" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 2 Breached (2)"
+  end
+  if value == "3" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 3 Breached (3)"
+  end
+
+  return "Market Wide Circuit Breaker Level Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v1_91.market_wide_circuit_breaker_level_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91.market_wide_circuit_breaker_level_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v1_91.market_wide_circuit_breaker_level_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v1_91.fields.market_wide_circuit_breaker_level_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Category
 siac_cts_output_cta_v1_91.message_category = {}
 
@@ -1671,6 +1740,29 @@ siac_cts_output_cta_v1_91.messages_in_block.dissect = function(buffer, offset, p
   local display = siac_cts_output_cta_v1_91.messages_in_block.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v1_91.fields.messages_in_block, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 1
+siac_cts_output_cta_v1_91.mwcb_level_1 = {}
+
+-- Size: Mwcb Level 1
+siac_cts_output_cta_v1_91.mwcb_level_1.size = 8
+
+-- Display: Mwcb Level 1
+siac_cts_output_cta_v1_91.mwcb_level_1.display = function(value)
+  return "Mwcb Level 1: "..value
+end
+
+-- Dissect: Mwcb Level 1
+siac_cts_output_cta_v1_91.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91.mwcb_level_1.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v1_91.mwcb_level_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v1_91.fields.mwcb_level_1, range, value, display)
 
   return offset + length, value
 end
@@ -3072,6 +3164,29 @@ siac_cts_output_cta_v1_91.trade_volume.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Trade Volume Long
+siac_cts_output_cta_v1_91.trade_volume_long = {}
+
+-- Size: Trade Volume Long
+siac_cts_output_cta_v1_91.trade_volume_long.size = 4
+
+-- Display: Trade Volume Long
+siac_cts_output_cta_v1_91.trade_volume_long.display = function(value)
+  return "Trade Volume Long: "..value
+end
+
+-- Dissect: Trade Volume Long
+siac_cts_output_cta_v1_91.trade_volume_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91.trade_volume_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v1_91.trade_volume_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v1_91.fields.trade_volume_long, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Volume Short
 siac_cts_output_cta_v1_91.trade_volume_short = {}
 
@@ -3927,7 +4042,7 @@ siac_cts_output_cta_v1_91.original_trade.fields = function(buffer, offset, packe
   -- Trade Price Long: Long
   index, trade_price_long = siac_cts_output_cta_v1_91.trade_price_long.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume Long
+  -- Trade Volume Long: Integer
   index, trade_volume_long = siac_cts_output_cta_v1_91.trade_volume_long.dissect(buffer, index, packet, parent)
 
   -- Sellers Sale Days: Byte
@@ -3995,7 +4110,7 @@ siac_cts_output_cta_v1_91.corrected_trade.fields = function(buffer, offset, pack
   -- Trade Price Long: Long
   index, trade_price_long = siac_cts_output_cta_v1_91.trade_price_long.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume Long
+  -- Trade Volume Long: Integer
   index, trade_volume_long = siac_cts_output_cta_v1_91.trade_volume_long.dissect(buffer, index, packet, parent)
 
   -- Sellers Sale Days: Byte
@@ -4188,7 +4303,7 @@ siac_cts_output_cta_v1_91.auction_status_message.fields = function(buffer, offse
   -- Auction Collar Reference Price: Long
   index, auction_collar_reference_price = siac_cts_output_cta_v1_91.auction_collar_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Upper Threshold Price
+  -- Auction Collar Upper Threshold Price: Long
   index, auction_collar_upper_threshold_price = siac_cts_output_cta_v1_91.auction_collar_upper_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Auction Collar Lower Threshold Price: Long
@@ -5310,7 +5425,7 @@ siac_cts_output_cta_v1_91.market_wide_circuit_breaker_status_message.fields = fu
   -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Market Wide Circuit Breaker Level Indicator
+  -- Market Wide Circuit Breaker Level Indicator: Char
   index, market_wide_circuit_breaker_level_indicator = siac_cts_output_cta_v1_91.market_wide_circuit_breaker_level_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved: Byte
@@ -5376,7 +5491,7 @@ siac_cts_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_messa
   -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v1_91.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 1
+  -- Mwcb Level 1: Signed Long
   index, mwcb_level_1 = siac_cts_output_cta_v1_91.mwcb_level_1.dissect(buffer, index, packet, parent)
 
   -- Mwcb Level 2: Signed Long
