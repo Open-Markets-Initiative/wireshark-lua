@@ -15,7 +15,6 @@ local koscom_mdcsrealtime_koscom_exture_v1_20 = {}
 -----------------------------------------------------------------------
 
 -- Koscom MdcsRealtime Koscom Exture 1.20 Fields
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw = ProtoField.new("1 Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw", "koscom.mdcsrealtime.koscom.exture.v1.20.1cuunitsharenumberofcontractkrwcashusdcashconvertedamountkrw", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.appraised_value = ProtoField.new("Appraised Value", "koscom.mdcsrealtime.koscom.exture.v1.20.appraisedvalue", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_best_order = ProtoField.new("Ask Best Order", "koscom.mdcsrealtime.koscom.exture.v1.20.askbestorder", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_quote_number = ProtoField.new("Ask Quote Number", "koscom.mdcsrealtime.koscom.exture.v1.20.askquotenumber", ftypes.STRING)
@@ -67,6 +66,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.composition_issue_number = Pr
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.composition_ratio = ProtoField.new("Composition Ratio", "koscom.mdcsrealtime.koscom.exture.v1.20.compositionratio", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.contract_category = ProtoField.new("Contract Category", "koscom.mdcsrealtime.koscom.exture.v1.20.contractcategory", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.contract_date = ProtoField.new("Contract Date", "koscom.mdcsrealtime.koscom.exture.v1.20.contractdate", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw = ProtoField.new("Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw", "koscom.mdcsrealtime.koscom.exture.v1.20.cuunitsharenumberofcontractkrwcashusdcashconvertedamountkrw", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.data_process_category = ProtoField.new("Data Process Category", "koscom.mdcsrealtime.koscom.exture.v1.20.dataprocesscategory", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.data_seq_number = ProtoField.new("Data Seq Number", "koscom.mdcsrealtime.koscom.exture.v1.20.dataseqnumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.data_small_category = ProtoField.new("Data Small Category", "koscom.mdcsrealtime.koscom.exture.v1.20.datasmallcategory", ftypes.STRING)
@@ -90,6 +90,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_net_asset_value_amount = 
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler = ProtoField.new("Filler", "koscom.mdcsrealtime.koscom.exture.v1.20.filler", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_1 = ProtoField.new("Filler 1", "koscom.mdcsrealtime.koscom.exture.v1.20.filler1", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_2 = ProtoField.new("Filler 2", "koscom.mdcsrealtime.koscom.exture.v1.20.filler2", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_long_10 = ProtoField.new("Filler Long 10", "koscom.mdcsrealtime.koscom.exture.v1.20.fillerlong10", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_string_1 = ProtoField.new("Filler String 1", "koscom.mdcsrealtime.koscom.exture.v1.20.fillerstring1", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_string_10 = ProtoField.new("Filler String 10", "koscom.mdcsrealtime.koscom.exture.v1.20.fillerstring10", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_string_11 = ProtoField.new("Filler String 11", "koscom.mdcsrealtime.koscom.exture.v1.20.fillerstring11", ftypes.STRING)
@@ -127,7 +128,6 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.message_code = ProtoField.new
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.name_of_counterparty = ProtoField.new("Name Of Counterparty", "koscom.mdcsrealtime.koscom.exture.v1.20.nameofcounterparty", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.net_assets_amount = ProtoField.new("Net Assets Amount", "koscom.mdcsrealtime.koscom.exture.v1.20.netassetsamount", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares = ProtoField.new("Number Of Freefloating Etf Shares", "koscom.mdcsrealtime.koscom.exture.v1.20.numberoffreefloatingetfshares", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares→_filler_2 = ProtoField.new("Number Of Freefloating Etf Shares→ Filler 2", "koscom.mdcsrealtime.koscom.exture.v1.20.numberoffreefloatingetfshares→filler2", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.office_consignment_companys_registration_number = ProtoField.new("Office Consignment Companys Registration Number", "koscom.mdcsrealtime.koscom.exture.v1.20.officeconsignmentcompanysregistrationnumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.operator_abbreviated_name_english = ProtoField.new("Operator Abbreviated Name English", "koscom.mdcsrealtime.koscom.exture.v1.20.operatorabbreviatednameenglish", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.operator_abbreviated_name_korean = ProtoField.new("Operator Abbreviated Name Korean", "koscom.mdcsrealtime.koscom.exture.v1.20.operatorabbreviatednamekorean", ftypes.STRING)
@@ -295,34 +295,6 @@ end
 -----------------------------------------------------------------------
 -- Koscom MdcsRealtime Koscom Exture 1.20 Fields
 -----------------------------------------------------------------------
-
--- 1 Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw
-koscom_mdcsrealtime_koscom_exture_v1_20.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw = {}
-
--- Size: 1 Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw
-koscom_mdcsrealtime_koscom_exture_v1_20.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.size = 18
-
--- Display: 1 Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw
-koscom_mdcsrealtime_koscom_exture_v1_20.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.display = function(value)
-  return "1 Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw: "..value
-end
-
--- Dissect: 1 Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw
-koscom_mdcsrealtime_koscom_exture_v1_20.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw, range, value, display)
-
-  return offset + length, value
-end
 
 -- Appraised Value
 koscom_mdcsrealtime_koscom_exture_v1_20.appraised_value = {}
@@ -1684,6 +1656,34 @@ koscom_mdcsrealtime_koscom_exture_v1_20.contract_date.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw
+koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw = {}
+
+-- Size: Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw
+koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.size = 18
+
+-- Display: Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw
+koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.display = function(value)
+  return "Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw: "..value
+end
+
+-- Dissect: Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw
+koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw, range, value, display)
+
+  return offset + length, value
+end
+
 -- Data Process Category
 koscom_mdcsrealtime_koscom_exture_v1_20.data_process_category = {}
 
@@ -2269,6 +2269,34 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.dissect = function(buffer, offs
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler Long 10
+koscom_mdcsrealtime_koscom_exture_v1_20.filler_long_10 = {}
+
+-- Size: Filler Long 10
+koscom_mdcsrealtime_koscom_exture_v1_20.filler_long_10.size = 10
+
+-- Display: Filler Long 10
+koscom_mdcsrealtime_koscom_exture_v1_20.filler_long_10.display = function(value)
+  return "Filler Long 10: "..value
+end
+
+-- Dissect: Filler Long 10
+koscom_mdcsrealtime_koscom_exture_v1_20.filler_long_10.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_long_10.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_long_10.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_long_10, range, value, display)
 
   return offset + length, value
 end
@@ -3284,34 +3312,6 @@ koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.dissec
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Freefloating Etf Shares→ Filler 2
-koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares→_filler_2 = {}
-
--- Size: Number Of Freefloating Etf Shares→ Filler 2
-koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares→_filler_2.size = 10
-
--- Display: Number Of Freefloating Etf Shares→ Filler 2
-koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares→_filler_2.display = function(value)
-  return "Number Of Freefloating Etf Shares→ Filler 2: "..value
-end
-
--- Dissect: Number Of Freefloating Etf Shares→ Filler 2
-koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares→_filler_2.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares→_filler_2.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares→_filler_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares→_filler_2, range, value, display)
 
   return offset + length, value
 end
@@ -6218,7 +6218,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.isin.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.data_seq_number.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares→_filler_2.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.filler_long_10.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.etf_flow_net_asset_total_amount.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.etf_foreign_net_asset_value_amount.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.etf_net_asset_value_amount.size + 
@@ -6252,8 +6252,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.fields 
   -- Data Seq Number: Long
   index, data_seq_number = koscom_mdcsrealtime_koscom_exture_v1_20.data_seq_number.dissect(buffer, index, packet, parent)
 
-  -- Number Of Freefloating Etf Shares→ Filler 2: Long
-  index, number_of_freefloating_etf_shares→_filler_2 = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares→_filler_2.dissect(buffer, index, packet, parent)
+  -- Filler Long 10: Long
+  index, filler_long_10 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_long_10.dissect(buffer, index, packet, parent)
 
   -- Etf Flow Net Asset Total Amount: Long
   index, etf_flow_net_asset_total_amount = koscom_mdcsrealtime_koscom_exture_v1_20.etf_flow_net_asset_total_amount.dissect(buffer, index, packet, parent)
@@ -6406,7 +6406,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_pdf_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.office_consignment_companys_registration_number.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_number.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_code.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_market_type.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_name.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.par_value_amount_cash_amount_converted_amount_krw.size + 
@@ -6442,8 +6442,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etp_pdf_message.fields = function(buffer
   -- Composition Issue Code: String
   index, composition_issue_code = koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_code.dissect(buffer, index, packet, parent)
 
-  -- 1 Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw: Double
-  index, 1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw = koscom_mdcsrealtime_koscom_exture_v1_20.1_cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.dissect(buffer, index, packet, parent)
+  -- Cu Unit Share Number Of Contract Krw Cash Usd Cash Converted Amount Krw: Double
+  index, cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw = koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_share_number_of_contract_krw_cash_usd_cash_converted_amount_krw.dissect(buffer, index, packet, parent)
 
   -- Composition Issue Market Type: String
   index, composition_issue_market_type = koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_market_type.dissect(buffer, index, packet, parent)

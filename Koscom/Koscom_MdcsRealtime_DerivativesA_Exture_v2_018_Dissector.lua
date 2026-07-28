@@ -15,9 +15,6 @@ local koscom_mdcsrealtime_derivativesa_exture_v2_018 = {}
 -----------------------------------------------------------------------
 
 -- Koscom MdcsRealtime DerivativesA Exture 2.018 Fields
-omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.180_day_average_interest_rate = ProtoField.new("180 Day Average Interest Rate", "koscom.mdcsrealtime.derivativesa.exture.v2.018.180dayaverageinterestrate", ftypes.STRING)
-omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.30_day_average_interest_rate = ProtoField.new("30 Day Average Interest Rate", "koscom.mdcsrealtime.derivativesa.exture.v2.018.30dayaverageinterestrate", ftypes.STRING)
-omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.90_day_average_interest_rate = ProtoField.new("90 Day Average Interest Rate", "koscom.mdcsrealtime.derivativesa.exture.v2.018.90dayaverageinterestrate", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.derivativesa.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.abbreviatedissuecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.abbreviated_issue_name = ProtoField.new("Abbreviated Issue Name", "koscom.mdcsrealtime.derivativesa.exture.v2.018.abbreviatedissuename", ftypes.STRING)
@@ -165,6 +162,9 @@ omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.implied_volatility = P
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.implied_volatility_type_code = ProtoField.new("Implied Volatility Type Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.impliedvolatilitytypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.indexed_interest_rate = ProtoField.new("Indexed Interest Rate", "koscom.mdcsrealtime.derivativesa.exture.v2.018.indexedinterestrate", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.interest_rate = ProtoField.new("Interest Rate", "koscom.mdcsrealtime.derivativesa.exture.v2.018.interestrate", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.interest_rate_180_day = ProtoField.new("Interest Rate 180 Day", "koscom.mdcsrealtime.derivativesa.exture.v2.018.interestrate180day", ftypes.STRING)
+omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.interest_rate_30_day = ProtoField.new("Interest Rate 30 Day", "koscom.mdcsrealtime.derivativesa.exture.v2.018.interestrate30day", ftypes.STRING)
+omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.interest_rate_90_day = ProtoField.new("Interest Rate 90 Day", "koscom.mdcsrealtime.derivativesa.exture.v2.018.interestrate90day", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.investor_code = ProtoField.new("Investor Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.investorcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.isin_code = ProtoField.new("Isin Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.isincode", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.isin_code_of_a_common_stock = ProtoField.new("Isin Code Of A Common Stock", "koscom.mdcsrealtime.derivativesa.exture.v2.018.isincodeofacommonstock", ftypes.STRING)
@@ -372,75 +372,6 @@ end
 -----------------------------------------------------------------------
 -- Koscom MdcsRealtime DerivativesA Exture 2.018 Fields
 -----------------------------------------------------------------------
-
--- 180 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.180_day_average_interest_rate = {}
-
--- Size: 180 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.180_day_average_interest_rate.size = 12
-
--- Display: 180 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.180_day_average_interest_rate.display = function(value)
-  return "180 Day Average Interest Rate: "..value
-end
-
--- Dissect: 180 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.180_day_average_interest_rate.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.180_day_average_interest_rate.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_derivativesa_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.180_day_average_interest_rate.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.180_day_average_interest_rate, range, value, display)
-
-  return offset + length, value
-end
-
--- 30 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.30_day_average_interest_rate = {}
-
--- Size: 30 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.30_day_average_interest_rate.size = 12
-
--- Display: 30 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.30_day_average_interest_rate.display = function(value)
-  return "30 Day Average Interest Rate: "..value
-end
-
--- Dissect: 30 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.30_day_average_interest_rate.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.30_day_average_interest_rate.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_derivativesa_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.30_day_average_interest_rate.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.30_day_average_interest_rate, range, value, display)
-
-  return offset + length, value
-end
-
--- 90 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.90_day_average_interest_rate = {}
-
--- Size: 90 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.90_day_average_interest_rate.size = 12
-
--- Display: 90 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.90_day_average_interest_rate.display = function(value)
-  return "90 Day Average Interest Rate: "..value
-end
-
--- Dissect: 90 Day Average Interest Rate
-koscom_mdcsrealtime_derivativesa_exture_v2_018.90_day_average_interest_rate.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.90_day_average_interest_rate.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_derivativesa_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.90_day_average_interest_rate.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.90_day_average_interest_rate, range, value, display)
-
-  return offset + length, value
-end
 
 -- A Designated Number For An Issue
 koscom_mdcsrealtime_derivativesa_exture_v2_018.a_designated_number_for_an_issue = {}
@@ -4349,6 +4280,75 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate.dissect = function(
   local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.interest_rate, range, value, display)
+
+  return offset + length, value
+end
+
+-- Interest Rate 180 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_180_day = {}
+
+-- Size: Interest Rate 180 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_180_day.size = 12
+
+-- Display: Interest Rate 180 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_180_day.display = function(value)
+  return "Interest Rate 180 Day: "..value
+end
+
+-- Dissect: Interest Rate 180 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_180_day.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_180_day.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_derivativesa_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_180_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.interest_rate_180_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Interest Rate 30 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_30_day = {}
+
+-- Size: Interest Rate 30 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_30_day.size = 12
+
+-- Display: Interest Rate 30 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_30_day.display = function(value)
+  return "Interest Rate 30 Day: "..value
+end
+
+-- Dissect: Interest Rate 30 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_30_day.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_30_day.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_derivativesa_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_30_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.interest_rate_30_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Interest Rate 90 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_90_day = {}
+
+-- Size: Interest Rate 90 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_90_day.size = 12
+
+-- Display: Interest Rate 90 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_90_day.display = function(value)
+  return "Interest Rate 90 Day: "..value
+end
+
+-- Dissect: Interest Rate 90 Day
+koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_90_day.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_90_day.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_derivativesa_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_90_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.interest_rate_90_day, range, value, display)
 
   return offset + length, value
 end
@@ -8909,9 +8909,9 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.daily_disclosed_rfr_message.size 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.disclosure_date.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.rfr.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.indexed_interest_rate.size + 
-  koscom_mdcsrealtime_derivativesa_exture_v2_018.30_day_average_interest_rate.size + 
-  koscom_mdcsrealtime_derivativesa_exture_v2_018.90_day_average_interest_rate.size + 
-  koscom_mdcsrealtime_derivativesa_exture_v2_018.180_day_average_interest_rate.size + 
+  koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_30_day.size + 
+  koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_90_day.size + 
+  koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_180_day.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.end_keyword.size
 
 -- Display: Daily Disclosed Rfr Message
@@ -8938,14 +8938,14 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.daily_disclosed_rfr_message.field
   -- Indexed Interest Rate: String
   index, indexed_interest_rate = koscom_mdcsrealtime_derivativesa_exture_v2_018.indexed_interest_rate.dissect(buffer, index, packet, parent)
 
-  -- 30 Day Average Interest Rate: String
-  index, 30_day_average_interest_rate = koscom_mdcsrealtime_derivativesa_exture_v2_018.30_day_average_interest_rate.dissect(buffer, index, packet, parent)
+  -- Interest Rate 30 Day: String
+  index, interest_rate_30_day = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_30_day.dissect(buffer, index, packet, parent)
 
-  -- 90 Day Average Interest Rate: String
-  index, 90_day_average_interest_rate = koscom_mdcsrealtime_derivativesa_exture_v2_018.90_day_average_interest_rate.dissect(buffer, index, packet, parent)
+  -- Interest Rate 90 Day: String
+  index, interest_rate_90_day = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_90_day.dissect(buffer, index, packet, parent)
 
-  -- 180 Day Average Interest Rate: String
-  index, 180_day_average_interest_rate = koscom_mdcsrealtime_derivativesa_exture_v2_018.180_day_average_interest_rate.dissect(buffer, index, packet, parent)
+  -- Interest Rate 180 Day: String
+  index, interest_rate_180_day = koscom_mdcsrealtime_derivativesa_exture_v2_018.interest_rate_180_day.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_derivativesa_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)

@@ -15,14 +15,6 @@ local koscom_mdcsrealtime_bonda_exture_v2_018 = {}
 -----------------------------------------------------------------------
 
 -- Koscom MdcsRealtime BondA Exture 2.018 Fields
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.1_st_call_exercise_end_date = ProtoField.new("1 St Call Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.1stcallexerciseenddate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.1_st_call_exercise_start_date = ProtoField.new("1 St Call Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.1stcallexercisestartdate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.1_st_put_exercise_end_date = ProtoField.new("1 St Put Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.1stputexerciseenddate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.1_st_put_exercise_start_date = ProtoField.new("1 St Put Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.1stputexercisestartdate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.2_nd_call_exercise_end_date = ProtoField.new("2 Nd Call Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.2ndcallexerciseenddate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.2_nd_call_exercise_start_date = ProtoField.new("2 Nd Call Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.2ndcallexercisestartdate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.2_nd_put_exercise_end_date = ProtoField.new("2 Nd Put Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.2ndputexerciseenddate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.2_nd_put_exercise_start_date = ProtoField.new("2 Nd Put Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.2ndputexercisestartdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.bonda.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.bonda.exture.v2.018.abbreviatedissuecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_name = ProtoField.new("Abbreviated Issue Name", "koscom.mdcsrealtime.bonda.exture.v2.018.abbreviatedissuename", ftypes.STRING)
@@ -255,6 +247,10 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.exercise_ratio = ProtoField.n
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.expected_time_of_expanding_price_limit_range = ProtoField.new("Expected Time Of Expanding Price Limit Range", "koscom.mdcsrealtime.bonda.exture.v2.018.expectedtimeofexpandingpricelimitrange", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.facility_fund = ProtoField.new("Facility Fund", "koscom.mdcsrealtime.bonda.exture.v2.018.facilityfund", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler = ProtoField.new("Filler", "koscom.mdcsrealtime.bonda.exture.v2.018.filler", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_end_date = ProtoField.new("First Call Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstcallexerciseenddate", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_start_date = ProtoField.new("First Call Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstcallexercisestartdate", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_put_exercise_end_date = ProtoField.new("First Put Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstputexerciseenddate", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_put_exercise_start_date = ProtoField.new("First Put Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstputexercisestartdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.bonda.exture.v2.018.futuresbasisprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.group_code = ProtoField.new("Group Code", "koscom.mdcsrealtime.bonda.exture.v2.018.groupcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.guaranteed_rate_for_payment = ProtoField.new("Guaranteed Rate For Payment", "koscom.mdcsrealtime.bonda.exture.v2.018.guaranteedrateforpayment", ftypes.DOUBLE)
@@ -365,6 +361,10 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.retail_bond_type_code = Proto
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.rfq_accumulated_trading_value = ProtoField.new("Rfq Accumulated Trading Value", "koscom.mdcsrealtime.bonda.exture.v2.018.rfqaccumulatedtradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.risk_bond_redemption_type_code = ProtoField.new("Risk Bond Redemption Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.riskbondredemptiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.sale_date = ProtoField.new("Sale Date", "koscom.mdcsrealtime.bonda.exture.v2.018.saledate", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_call_exercise_end_date = ProtoField.new("Second Call Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.secondcallexerciseenddate", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_call_exercise_start_date = ProtoField.new("Second Call Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.secondcallexercisestartdate", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_put_exercise_end_date = ProtoField.new("Second Put Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.secondputexerciseenddate", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_put_exercise_start_date = ProtoField.new("Second Put Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.secondputexercisestartdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.securitization_type_code = ProtoField.new("Securitization Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.securitizationtypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.session_id = ProtoField.new("Session Id", "koscom.mdcsrealtime.bonda.exture.v2.018.sessionid", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.session_start_end_code = ProtoField.new("Session Start End Code", "koscom.mdcsrealtime.bonda.exture.v2.018.sessionstartendcode", ftypes.STRING)
@@ -507,190 +507,6 @@ end
 -----------------------------------------------------------------------
 -- Koscom MdcsRealtime BondA Exture 2.018 Fields
 -----------------------------------------------------------------------
-
--- 1 St Call Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_end_date = {}
-
--- Size: 1 St Call Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_end_date.size = 8
-
--- Display: 1 St Call Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_end_date.display = function(value)
-  return "1 St Call Exercise End Date: "..value
-end
-
--- Dissect: 1 St Call Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_end_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_end_date.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_end_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.1_st_call_exercise_end_date, range, value, display)
-
-  return offset + length, value
-end
-
--- 1 St Call Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_start_date = {}
-
--- Size: 1 St Call Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_start_date.size = 8
-
--- Display: 1 St Call Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_start_date.display = function(value)
-  return "1 St Call Exercise Start Date: "..value
-end
-
--- Dissect: 1 St Call Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_start_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_start_date.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_start_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.1_st_call_exercise_start_date, range, value, display)
-
-  return offset + length, value
-end
-
--- 1 St Put Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_end_date = {}
-
--- Size: 1 St Put Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_end_date.size = 8
-
--- Display: 1 St Put Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_end_date.display = function(value)
-  return "1 St Put Exercise End Date: "..value
-end
-
--- Dissect: 1 St Put Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_end_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_end_date.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_end_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.1_st_put_exercise_end_date, range, value, display)
-
-  return offset + length, value
-end
-
--- 1 St Put Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_start_date = {}
-
--- Size: 1 St Put Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_start_date.size = 8
-
--- Display: 1 St Put Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_start_date.display = function(value)
-  return "1 St Put Exercise Start Date: "..value
-end
-
--- Dissect: 1 St Put Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_start_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_start_date.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_start_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.1_st_put_exercise_start_date, range, value, display)
-
-  return offset + length, value
-end
-
--- 2 Nd Call Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_end_date = {}
-
--- Size: 2 Nd Call Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_end_date.size = 8
-
--- Display: 2 Nd Call Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_end_date.display = function(value)
-  return "2 Nd Call Exercise End Date: "..value
-end
-
--- Dissect: 2 Nd Call Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_end_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_end_date.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_end_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.2_nd_call_exercise_end_date, range, value, display)
-
-  return offset + length, value
-end
-
--- 2 Nd Call Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_start_date = {}
-
--- Size: 2 Nd Call Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_start_date.size = 8
-
--- Display: 2 Nd Call Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_start_date.display = function(value)
-  return "2 Nd Call Exercise Start Date: "..value
-end
-
--- Dissect: 2 Nd Call Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_start_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_start_date.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_start_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.2_nd_call_exercise_start_date, range, value, display)
-
-  return offset + length, value
-end
-
--- 2 Nd Put Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_end_date = {}
-
--- Size: 2 Nd Put Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_end_date.size = 8
-
--- Display: 2 Nd Put Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_end_date.display = function(value)
-  return "2 Nd Put Exercise End Date: "..value
-end
-
--- Dissect: 2 Nd Put Exercise End Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_end_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_end_date.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_end_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.2_nd_put_exercise_end_date, range, value, display)
-
-  return offset + length, value
-end
-
--- 2 Nd Put Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_start_date = {}
-
--- Size: 2 Nd Put Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_start_date.size = 8
-
--- Display: 2 Nd Put Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_start_date.display = function(value)
-  return "2 Nd Put Exercise Start Date: "..value
-end
-
--- Dissect: 2 Nd Put Exercise Start Date
-koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_start_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_start_date.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_start_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.2_nd_put_exercise_start_date, range, value, display)
-
-  return offset + length, value
-end
 
 -- A Designated Number For An Issue
 koscom_mdcsrealtime_bonda_exture_v2_018.a_designated_number_for_an_issue = {}
@@ -6803,6 +6619,98 @@ koscom_mdcsrealtime_bonda_exture_v2_018.filler.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- First Call Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date = {}
+
+-- Size: First Call Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.size = 8
+
+-- Display: First Call Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.display = function(value)
+  return "First Call Exercise End Date: "..value
+end
+
+-- Dissect: First Call Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_end_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Call Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date = {}
+
+-- Size: First Call Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.size = 8
+
+-- Display: First Call Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.display = function(value)
+  return "First Call Exercise Start Date: "..value
+end
+
+-- Dissect: First Call Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_start_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Put Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date = {}
+
+-- Size: First Put Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.size = 8
+
+-- Display: First Put Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.display = function(value)
+  return "First Put Exercise End Date: "..value
+end
+
+-- Dissect: First Put Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_put_exercise_end_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Put Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date = {}
+
+-- Size: First Put Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.size = 8
+
+-- Display: First Put Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.display = function(value)
+  return "First Put Exercise Start Date: "..value
+end
+
+-- Dissect: First Put Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_put_exercise_start_date, range, value, display)
+
+  return offset + length, value
+end
+
 -- Futures Basis Price
 koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price = {}
 
@@ -9961,6 +9869,98 @@ koscom_mdcsrealtime_bonda_exture_v2_018.sale_date.dissect = function(buffer, off
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.sale_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.sale_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Call Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date = {}
+
+-- Size: Second Call Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.size = 8
+
+-- Display: Second Call Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.display = function(value)
+  return "Second Call Exercise End Date: "..value
+end
+
+-- Dissect: Second Call Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_call_exercise_end_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Call Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date = {}
+
+-- Size: Second Call Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.size = 8
+
+-- Display: Second Call Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.display = function(value)
+  return "Second Call Exercise Start Date: "..value
+end
+
+-- Dissect: Second Call Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_call_exercise_start_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Put Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date = {}
+
+-- Size: Second Put Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.size = 8
+
+-- Display: Second Put Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.display = function(value)
+  return "Second Put Exercise End Date: "..value
+end
+
+-- Dissect: Second Put Exercise End Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_put_exercise_end_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Put Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date = {}
+
+-- Size: Second Put Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.size = 8
+
+-- Display: Second Put Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.display = function(value)
+  return "Second Put Exercise Start Date: "..value
+end
+
+-- Dissect: Second Put Exercise Start Date
+koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_put_exercise_start_date, range, value, display)
 
   return offset + length, value
 end
@@ -13497,14 +13497,14 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.the_date_to_decide_interest_rate.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_start_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_end_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_start_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_end_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_start_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_end_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_start_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_end_date.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_decision_code_for_bank_holidays.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.hybrid_bond.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.co_cos_type_code.size + 
@@ -13783,29 +13783,29 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- The Date To Decide Interest Rate: String
   index, the_date_to_decide_interest_rate = koscom_mdcsrealtime_bonda_exture_v2_018.the_date_to_decide_interest_rate.dissect(buffer, index, packet, parent)
 
-  -- 1 St Call Exercise Start Date: String
-  index, 1_st_call_exercise_start_date = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_start_date.dissect(buffer, index, packet, parent)
+  -- First Call Exercise Start Date: String
+  index, first_call_exercise_start_date = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.dissect(buffer, index, packet, parent)
 
-  -- 1 St Call Exercise End Date: String
-  index, 1_st_call_exercise_end_date = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_call_exercise_end_date.dissect(buffer, index, packet, parent)
+  -- First Call Exercise End Date: String
+  index, first_call_exercise_end_date = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.dissect(buffer, index, packet, parent)
 
-  -- 2 Nd Call Exercise Start Date: String
-  index, 2_nd_call_exercise_start_date = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_start_date.dissect(buffer, index, packet, parent)
+  -- Second Call Exercise Start Date: String
+  index, second_call_exercise_start_date = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.dissect(buffer, index, packet, parent)
 
-  -- 2 Nd Call Exercise End Date: String
-  index, 2_nd_call_exercise_end_date = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_call_exercise_end_date.dissect(buffer, index, packet, parent)
+  -- Second Call Exercise End Date: String
+  index, second_call_exercise_end_date = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.dissect(buffer, index, packet, parent)
 
-  -- 1 St Put Exercise Start Date: String
-  index, 1_st_put_exercise_start_date = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_start_date.dissect(buffer, index, packet, parent)
+  -- First Put Exercise Start Date: String
+  index, first_put_exercise_start_date = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.dissect(buffer, index, packet, parent)
 
-  -- 1 St Put Exercise End Date: String
-  index, 1_st_put_exercise_end_date = koscom_mdcsrealtime_bonda_exture_v2_018.1_st_put_exercise_end_date.dissect(buffer, index, packet, parent)
+  -- First Put Exercise End Date: String
+  index, first_put_exercise_end_date = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.dissect(buffer, index, packet, parent)
 
-  -- 2 Nd Put Exercise Start Date: String
-  index, 2_nd_put_exercise_start_date = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_start_date.dissect(buffer, index, packet, parent)
+  -- Second Put Exercise Start Date: String
+  index, second_put_exercise_start_date = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.dissect(buffer, index, packet, parent)
 
-  -- 2 Nd Put Exercise End Date: String
-  index, 2_nd_put_exercise_end_date = koscom_mdcsrealtime_bonda_exture_v2_018.2_nd_put_exercise_end_date.dissect(buffer, index, packet, parent)
+  -- Second Put Exercise End Date: String
+  index, second_put_exercise_end_date = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.dissect(buffer, index, packet, parent)
 
   -- Coupon Payment Decision Code For Bank Holidays: String
   index, coupon_payment_decision_code_for_bank_holidays = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_decision_code_for_bank_holidays.dissect(buffer, index, packet, parent)
