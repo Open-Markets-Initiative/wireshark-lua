@@ -26,13 +26,16 @@ For configuration information: [Wireshark Plugin Configuration](https://www.wire
 Note: Some packets contain enough information to programmatically determine the correct protocol specification and/or version at runtime.  *Many do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.  In these cases, please manually select protocol dissector using Analyze | Decode As….
 
 For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
+
+The scripts are plain, readable Lua and are LLM friendly: you can point a large language model at a dissector and ask it to hide fields, rename columns, or adjust which parts of a protocol are shown, then reload the plugin to see the change immediately.  This makes real time editing of protocol visibility in Wireshark straightforward without regenerating from the models.
+
 ## Development
 
 Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. If you wish to suggest script updates, the recommended process is to create an issue with changes and explanation.  Time permitting, we will update the models and regenerate.
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 776 | 5,859,409 |
+| 779 | 5,866,879 |
 
 ## Testing
 
@@ -299,6 +302,9 @@ Enjoy.
 [Jnx.JnxBonds.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxBonds/Pts.md "Proprietary Trading System"
 [Jnx.JnxEquities.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxEquities/Pts.md "Proprietary Trading System"
 [Jpx.OseDerivatives.GeniumInet]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/OseDerivatives/GeniumInet.md "Genium Inet"
+[Jpx.FseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/FseEquities/MarketByOrder.md "Market By Order"
+[Jpx.NseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/NseEquities/MarketByOrder.md "Market By Order"
+[Jpx.SseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/SseEquities/MarketByOrder.md "Market By Order"
 [Jpx.TseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/TseEquities/MarketByOrder.md "Market By Order"
 [Koscom.MdcsRealtime.BondA]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/BondA.md "MDCS Realtime Bond A"
 [Koscom.MdcsRealtime.Commodities]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/Commodities.md "MDCS Realtime Commodities"

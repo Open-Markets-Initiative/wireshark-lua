@@ -1899,7 +1899,16 @@ nyse_amexequities_bbo_pillar_v2_5_d.time.size = 4
 
 -- Display: Time
 nyse_amexequities_bbo_pillar_v2_5_d.time.display = function(value)
-  return "Time: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+  return string.format("Time: %02d:%02d:%02d.%03d", hour, minute, second, milli)
 end
 
 -- Dissect: Time
