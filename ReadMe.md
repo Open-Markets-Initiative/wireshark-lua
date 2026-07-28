@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 674 | 5,342,105 |
+| 687 | 5,491,643 |
 
 ## Testing
 
@@ -57,7 +57,7 @@ For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-I
 For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Protocols
 
-Dissectors by Organization: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [Bist][Bist.Directory], [BruceAts][BruceAts.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [OtcMarkets][OtcMarkets.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
+Dissectors by Organization: [24X][24X.Directory], [A2X][A2X.Directory], [Asx][Asx.Directory], [Aquis][Aquis.Directory], [B3][B3.Directory], [Bist][Bist.Directory], [BruceAts][BruceAts.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Koscom][Koscom.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [OtcMarkets][OtcMarkets.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
 
 Dissectors by Exchange/Ats/Sip: [24XEquities][24XEquities.Directory], [AmexEquities][AmexEquities.Directory], [AmexOptions][AmexOptions.Directory], [AquisEquities][AquisEquities.Directory], [ArcaEquities][ArcaEquities.Directory], [ArcaOptions][ArcaOptions.Directory], [AsxSecurities][AsxSecurities.Directory], [B3Derivatives][B3Derivatives.Directory], [BoatsEquities][BoatsEquities.Directory], [BorsaIstanbul][BorsaIstanbul.Directory], [BruceEquities][BruceEquities.Directory], [BxeEquities][BxeEquities.Directory], [ByxEquities][ByxEquities.Directory], [BzxEquities][BzxEquities.Directory], [BzxOptions][BzxOptions.Directory], [C1Options][C1Options.Directory], [C2Options][C2Options.Directory], [CfeFutures][CfeFutures.Directory], [CmeFutures][CmeFutures.Directory], [CoinbaseDerivatives][CoinbaseDerivatives.Directory], [Cqs][Cqs.Directory], [Cts][Cts.Directory], [CurrenexForex][CurrenexForex.Directory], [CxaEquities][CxaEquities.Directory], [CxeEquities][CxeEquities.Directory], [DxeDerivatives][DxeDerivatives.Directory], [EdgaEquities][EdgaEquities.Directory], [EdgxEquities][EdgxEquities.Directory], [EdgxOptions][EdgxOptions.Directory], [EmeraldOptions][EmeraldOptions.Directory], [FinraOrf][FinraOrf.Directory], [FinraOtc][FinraOtc.Directory], [GemxOptions][GemxOptions.Directory], [IceFutures][IceFutures.Directory], [IexEquities][IexEquities.Directory], [IexOptions][IexOptions.Directory], [IseOptions][IseOptions.Directory], [JnxBonds][JnxBonds.Directory], [JnxEquities][JnxEquities.Directory], [LtseEquities][LtseEquities.Directory], [MatchNow][MatchNow.Directory], [MemxEquities][MemxEquities.Directory], [MemxOptions][MemxOptions.Directory], [MiaxOptions][MiaxOptions.Directory], [MrxOptions][MrxOptions.Directory], [NationalEquities][NationalEquities.Directory], [NeoEquities][NeoEquities.Directory], [NomOptions][NomOptions.Directory], [NsmEquities][NsmEquities.Directory], [NtxEquities][NtxEquities.Directory], [NtxOptions][NtxOptions.Directory], [NyseEquities][NyseEquities.Directory], [NyseOptions][NyseOptions.Directory], [OdxSecurityToken][OdxSecurityToken.Directory], [Opra][Opra.Directory], [PearlOptions][PearlOptions.Directory], [PhlxOptions][PhlxOptions.Directory], [PsxEquities][PsxEquities.Directory], [SapphireOptions][SapphireOptions.Directory], [TexasEquities][TexasEquities.Directory], [TxseEquities][TxseEquities.Directory], [Uqdf][Uqdf.Directory], [Utdf][Utdf.Directory], [Utp][Utp.Directory]
 
@@ -99,6 +99,8 @@ Enjoy.
 [Omi.Encoding.iMpact]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/iMpact.md "iMpact Encoding"
 [Omi.Encoding.IexTp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/IexTp.md "IexTp Encoding"
 [Omi.Encoding.Aspen]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Aspen.md "Aspen Encoding"
+[Omi.Encoding.Flex]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Flex.md "Flex Encoding"
+[Omi.Encoding.Exture]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Exture.md "Exture Encoding"
 [Omi.Encoding.Mitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mitch.md "Mitch Encoding"
 [Omi.Encoding.Gtp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Gtp.md "Gtp Encoding"
 [Omi.Encoding.Mach]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mach.md "Mach Encoding"
@@ -264,6 +266,19 @@ Enjoy.
 [Jnx.JnxBonds.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxBonds/Pts.md "Proprietary Trading System"
 [Jnx.JnxEquities.Pts]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jnx/Protocols/JnxEquities/Pts.md "Proprietary Trading System"
 [Jpx.OseDerivatives.GeniumInet]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/OseDerivatives/GeniumInet.md "Genium Inet"
+[Jpx.TseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/TseEquities/MarketByOrder.md "Market By Order"
+[Koscom.MdcsRealtime.BondA]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/BondA.md "MDCS Realtime Bond A"
+[Koscom.MdcsRealtime.Commodities]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/Commodities.md "MDCS Realtime Commodities"
+[Koscom.MdcsRealtime.DerivativesA]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/DerivativesA.md "MDCS Realtime Derivatives A"
+[Koscom.MdcsRealtime.EquityDerivatives]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/EquityDerivatives.md "MDCS Realtime Equity Derivatives"
+[Koscom.MdcsRealtime.IndexProduct1]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/IndexProduct1.md "MDCS Realtime Index Product 1"
+[Koscom.MdcsRealtime.IndexProduct2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/IndexProduct2.md "MDCS Realtime Index Product 2"
+[Koscom.MdcsRealtime.IndexProduct3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/IndexProduct3.md "MDCS Realtime Index Product 3"
+[Koscom.MdcsRealtime.Koscom]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/Koscom.md "MDCS Realtime Koscom"
+[Koscom.MdcsRealtime.ReferenceInfoInvestorActivities]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/ReferenceInfoInvestorActivities.md "MDCS Realtime Reference Info and Investor Activities"
+[Koscom.MdcsRealtime.SecuritiesA]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/SecuritiesA.md "MDCS Realtime Securities A"
+[Koscom.MdcsRealtime.SecuritiesB]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/SecuritiesB.md "MDCS Realtime Securities B"
+[Koscom.MdcsRealtime.SecuritiesC]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/SecuritiesC.md "MDCS Realtime Securities C"
 [Lseg.Millennium.Level2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Millennium/Level2.md "Level 2"
 [Lseg.Millennium.UdpUnitHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Millennium/UdpUnitHeader.md "Udp Unit Header"
 [Lseg.TradeEcho.Level2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/TradeEcho/Level2.md "Level 2"
@@ -471,6 +486,7 @@ Enjoy.
 [Imperative.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Imperative "Imperative Execution"
 [Jnx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jnx "Japannext Securities"
 [Jpx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jpx "Japan Exchange Group"
+[Koscom.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Koscom "Koscom Co., Ltd."
 [Lseg.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Lseg "London Stock Exchange"
 [Ltse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Ltse "Long-Term Stock Exchange"
 [Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Miax "Miami International Holdings"

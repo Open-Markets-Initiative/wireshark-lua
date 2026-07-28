@@ -63,7 +63,6 @@ omi_hkex_derivatives_lite_omd_v1_47.fields.instrument_group = ProtoField.new("In
 omi_hkex_derivatives_lite_omd_v1_47.fields.is_fractions = ProtoField.new("Is Fractions", "hkex.derivatives.lite.omd.v1.47.isfractions", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.isin_code = ProtoField.new("Isin Code", "hkex.derivatives.lite.omd.v1.47.isincode", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.last_fragment = ProtoField.new("Last Fragment", "hkex.derivatives.lite.omd.v1.47.lastfragment", ftypes.STRING)
-omi_hkex_derivatives_lite_omd_v1_47.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.derivatives.lite.omd.v1.47.lastseqnum", ftypes.UINT32)
 omi_hkex_derivatives_lite_omd_v1_47.fields.leg_orderbook_id = ProtoField.new("Leg Orderbook Id", "hkex.derivatives.lite.omd.v1.47.legorderbookid", ftypes.UINT32)
 omi_hkex_derivatives_lite_omd_v1_47.fields.leg_ratio = ProtoField.new("Leg Ratio", "hkex.derivatives.lite.omd.v1.47.legratio", ftypes.INT32)
 omi_hkex_derivatives_lite_omd_v1_47.fields.leg_side = ProtoField.new("Leg Side", "hkex.derivatives.lite.omd.v1.47.legside", ftypes.STRING)
@@ -135,7 +134,6 @@ omi_hkex_derivatives_lite_omd_v1_47.fields.market_alert_message = ProtoField.new
 omi_hkex_derivatives_lite_omd_v1_47.fields.market_status_message = ProtoField.new("Market Status Message", "hkex.derivatives.lite.omd.v1.47.marketstatusmessage", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.open_interest_message = ProtoField.new("Open Interest Message", "hkex.derivatives.lite.omd.v1.47.openinterestmessage", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.quote_request = ProtoField.new("Quote Request", "hkex.derivatives.lite.omd.v1.47.quoterequest", ftypes.STRING)
-omi_hkex_derivatives_lite_omd_v1_47.fields.refresh_complete = ProtoField.new("Refresh Complete", "hkex.derivatives.lite.omd.v1.47.refreshcomplete", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.sequence_reset = ProtoField.new("Sequence Reset", "hkex.derivatives.lite.omd.v1.47.sequencereset", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.series_definition_base_message = ProtoField.new("Series Definition Base Message", "hkex.derivatives.lite.omd.v1.47.seriesdefinitionbasemessage", ftypes.STRING)
 omi_hkex_derivatives_lite_omd_v1_47.fields.series_definition_extended_message = ProtoField.new("Series Definition Extended Message", "hkex.derivatives.lite.omd.v1.47.seriesdefinitionextendedmessage", ftypes.STRING)
@@ -1505,29 +1503,6 @@ hkex_derivatives_lite_omd_v1_47.last_fragment.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Last Seq Num
-hkex_derivatives_lite_omd_v1_47.last_seq_num = {}
-
--- Size: Last Seq Num
-hkex_derivatives_lite_omd_v1_47.last_seq_num.size = 4
-
--- Display: Last Seq Num
-hkex_derivatives_lite_omd_v1_47.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
-end
-
--- Dissect: Last Seq Num
-hkex_derivatives_lite_omd_v1_47.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_lite_omd_v1_47.last_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_lite_omd_v1_47.last_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Leg Orderbook Id
 hkex_derivatives_lite_omd_v1_47.leg_orderbook_id = {}
 
@@ -1896,14 +1871,26 @@ hkex_derivatives_lite_omd_v1_47.msg_type.size = 2
 
 -- Display: Msg Type
 hkex_derivatives_lite_omd_v1_47.msg_type.display = function(value)
+  if value == 353 then
+    return "Msg Type: Aggregate Order Book Update Message (353)"
+  end
+  if value == 364 then
+    return "Msg Type: Calculated Opening Price Message (364)"
+  end
   if value == 100 then
     return "Msg Type: Sequence Reset (100)"
   end
   if value == 105 then
     return "Msg Type: Disaster Recovery Signal Message (105)"
   end
-  if value == 203 then
-    return "Msg Type: Refresh Complete (203)"
+  if value == 323 then
+    return "Msg Type: Market Alert Message (323)"
+  end
+  if value == 366 then
+    return "Msg Type: Open Interest Message (366)"
+  end
+  if value == 336 then
+    return "Msg Type: Quote Request (336)"
   end
   if value == 301 then
     return "Msg Type: Commodity Definition Message (301)"
@@ -1929,23 +1916,8 @@ hkex_derivatives_lite_omd_v1_47.msg_type.display = function(value)
   if value == 322 then
     return "Msg Type: Commodity Status Message (322)"
   end
-  if value == 353 then
-    return "Msg Type: Aggregate Order Book Update Message (353)"
-  end
-  if value == 336 then
-    return "Msg Type: Quote Request (336)"
-  end
   if value == 360 then
     return "Msg Type: Trade Statistics Message (360)"
-  end
-  if value == 364 then
-    return "Msg Type: Calculated Opening Price Message (364)"
-  end
-  if value == 323 then
-    return "Msg Type: Market Alert Message (323)"
-  end
-  if value == 366 then
-    return "Msg Type: Open Interest Message (366)"
   end
 
   return "Msg Type: Unknown("..value..")"
@@ -3331,215 +3303,6 @@ end
 -- Dissect Hkex Derivatives Lite Omd 1.47
 -----------------------------------------------------------------------
 
--- Open Interest Message
-hkex_derivatives_lite_omd_v1_47.open_interest_message = {}
-
--- Size: Open Interest Message
-hkex_derivatives_lite_omd_v1_47.open_interest_message.size =
-  hkex_derivatives_lite_omd_v1_47.day_indicator.size + 
-  hkex_derivatives_lite_omd_v1_47.orderbook_id.size + 
-  hkex_derivatives_lite_omd_v1_47.filler_6.size + 
-  hkex_derivatives_lite_omd_v1_47.settlement.size + 
-  hkex_derivatives_lite_omd_v1_47.deal_count.size + 
-  hkex_derivatives_lite_omd_v1_47.gross_open_interest.size + 
-  hkex_derivatives_lite_omd_v1_47.net_open_interest.size + 
-  hkex_derivatives_lite_omd_v1_47.turnover.size
-
--- Display: Open Interest Message
-hkex_derivatives_lite_omd_v1_47.open_interest_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Interest Message
-hkex_derivatives_lite_omd_v1_47.open_interest_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Day Indicator: Uint16
-  index, day_indicator = hkex_derivatives_lite_omd_v1_47.day_indicator.dissect(buffer, index, packet, parent)
-
-  -- Orderbook Id: Uint32
-  index, orderbook_id = hkex_derivatives_lite_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
-
-  -- Filler 6: String
-  index, filler_6 = hkex_derivatives_lite_omd_v1_47.filler_6.dissect(buffer, index, packet, parent)
-
-  -- Settlement: Int32
-  index, settlement = hkex_derivatives_lite_omd_v1_47.settlement.dissect(buffer, index, packet, parent)
-
-  -- Deal Count: Uint32
-  index, deal_count = hkex_derivatives_lite_omd_v1_47.deal_count.dissect(buffer, index, packet, parent)
-
-  -- Gross Open Interest: Int32
-  index, gross_open_interest = hkex_derivatives_lite_omd_v1_47.gross_open_interest.dissect(buffer, index, packet, parent)
-
-  -- Net Open Interest: Int32
-  index, net_open_interest = hkex_derivatives_lite_omd_v1_47.net_open_interest.dissect(buffer, index, packet, parent)
-
-  -- Turnover: Uint64
-  index, turnover = hkex_derivatives_lite_omd_v1_47.turnover.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Interest Message
-hkex_derivatives_lite_omd_v1_47.open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.open_interest_message, buffer(offset, 0))
-    local index = hkex_derivatives_lite_omd_v1_47.open_interest_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_lite_omd_v1_47.open_interest_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_lite_omd_v1_47.open_interest_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Market Alert Message
-hkex_derivatives_lite_omd_v1_47.market_alert_message = {}
-
--- Calculate size of: Market Alert Message
-hkex_derivatives_lite_omd_v1_47.market_alert_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + hkex_derivatives_lite_omd_v1_47.alert_id.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.source.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.filler_1.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.header.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.last_fragment.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.info_type.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.priority.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.no_lines.size
-
-  -- Calculate field size from count
-  local content_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + content_count * 320
-
-  return index
-end
-
--- Display: Market Alert Message
-hkex_derivatives_lite_omd_v1_47.market_alert_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Market Alert Message
-hkex_derivatives_lite_omd_v1_47.market_alert_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Alert Id: Uint16
-  index, alert_id = hkex_derivatives_lite_omd_v1_47.alert_id.dissect(buffer, index, packet, parent)
-
-  -- Source: String
-  index, source = hkex_derivatives_lite_omd_v1_47.source.dissect(buffer, index, packet, parent)
-
-  -- Filler 1: String
-  index, filler_1 = hkex_derivatives_lite_omd_v1_47.filler_1.dissect(buffer, index, packet, parent)
-
-  -- Header: Binary
-  index, header = hkex_derivatives_lite_omd_v1_47.header.dissect(buffer, index, packet, parent)
-
-  -- Last Fragment: String
-  index, last_fragment = hkex_derivatives_lite_omd_v1_47.last_fragment.dissect(buffer, index, packet, parent)
-
-  -- Info Type: Uint8
-  index, info_type = hkex_derivatives_lite_omd_v1_47.info_type.dissect(buffer, index, packet, parent)
-
-  -- Priority: Uint8
-  index, priority = hkex_derivatives_lite_omd_v1_47.priority.dissect(buffer, index, packet, parent)
-
-  -- No Lines: Uint8
-  index, no_lines = hkex_derivatives_lite_omd_v1_47.no_lines.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Content
-  for content_index = 1, no_lines do
-    index, content = hkex_derivatives_lite_omd_v1_47.content.dissect(buffer, index, packet, parent, content_index)
-  end
-
-  return index
-end
-
--- Dissect: Market Alert Message
-hkex_derivatives_lite_omd_v1_47.market_alert_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.market_alert_message, buffer(offset, 0))
-    local index = hkex_derivatives_lite_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_lite_omd_v1_47.market_alert_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_lite_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Calculated Opening Price Message
-hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message = {}
-
--- Size: Calculated Opening Price Message
-hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.size =
-  hkex_derivatives_lite_omd_v1_47.orderbook_id.size + 
-  hkex_derivatives_lite_omd_v1_47.calculated_opening_price.size + 
-  hkex_derivatives_lite_omd_v1_47.filler_4.size + 
-  hkex_derivatives_lite_omd_v1_47.calculated_opening_quantity.size
-
--- Display: Calculated Opening Price Message
-hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Calculated Opening Price Message
-hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Orderbook Id: Uint32
-  index, orderbook_id = hkex_derivatives_lite_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
-
-  -- Calculated Opening Price: Int32
-  index, calculated_opening_price = hkex_derivatives_lite_omd_v1_47.calculated_opening_price.dissect(buffer, index, packet, parent)
-
-  -- Filler 4: String
-  index, filler_4 = hkex_derivatives_lite_omd_v1_47.filler_4.dissect(buffer, index, packet, parent)
-
-  -- Calculated Opening Quantity: Uint64
-  index, calculated_opening_quantity = hkex_derivatives_lite_omd_v1_47.calculated_opening_quantity.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Calculated Opening Price Message
-hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.calculated_opening_price_message, buffer(offset, 0))
-    local index = hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Trade Statistics Message
 hkex_derivatives_lite_omd_v1_47.trade_statistics_message = {}
 
@@ -3625,196 +3388,6 @@ hkex_derivatives_lite_omd_v1_47.trade_statistics_message.dissect = function(buff
   else
     -- Skip element, add fields directly
     return hkex_derivatives_lite_omd_v1_47.trade_statistics_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quote Request
-hkex_derivatives_lite_omd_v1_47.quote_request = {}
-
--- Size: Quote Request
-hkex_derivatives_lite_omd_v1_47.quote_request.size =
-  hkex_derivatives_lite_omd_v1_47.orderbook_id.size + 
-  hkex_derivatives_lite_omd_v1_47.number_of_lots.size + 
-  hkex_derivatives_lite_omd_v1_47.bid_ask_flag.size + 
-  hkex_derivatives_lite_omd_v1_47.filler_3.size
-
--- Display: Quote Request
-hkex_derivatives_lite_omd_v1_47.quote_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Request
-hkex_derivatives_lite_omd_v1_47.quote_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Orderbook Id: Uint32
-  index, orderbook_id = hkex_derivatives_lite_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
-
-  -- Number Of Lots: Int32
-  index, number_of_lots = hkex_derivatives_lite_omd_v1_47.number_of_lots.dissect(buffer, index, packet, parent)
-
-  -- Bid Ask Flag: Uint8
-  index, bid_ask_flag = hkex_derivatives_lite_omd_v1_47.bid_ask_flag.dissect(buffer, index, packet, parent)
-
-  -- Filler 3: String
-  index, filler_3 = hkex_derivatives_lite_omd_v1_47.filler_3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Request
-hkex_derivatives_lite_omd_v1_47.quote_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.quote_request, buffer(offset, 0))
-    local index = hkex_derivatives_lite_omd_v1_47.quote_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_lite_omd_v1_47.quote_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_lite_omd_v1_47.quote_request.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Book Entry
-hkex_derivatives_lite_omd_v1_47.book_entry = {}
-
--- Size: Book Entry
-hkex_derivatives_lite_omd_v1_47.book_entry.size =
-  hkex_derivatives_lite_omd_v1_47.aggregate_quantity.size + 
-  hkex_derivatives_lite_omd_v1_47.price.size + 
-  hkex_derivatives_lite_omd_v1_47.number_of_orders.size + 
-  hkex_derivatives_lite_omd_v1_47.side.size + 
-  hkex_derivatives_lite_omd_v1_47.filler_1.size + 
-  hkex_derivatives_lite_omd_v1_47.price_level.size + 
-  hkex_derivatives_lite_omd_v1_47.update_action.size + 
-  hkex_derivatives_lite_omd_v1_47.filler_4.size
-
--- Display: Book Entry
-hkex_derivatives_lite_omd_v1_47.book_entry.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Book Entry
-hkex_derivatives_lite_omd_v1_47.book_entry.fields = function(buffer, offset, packet, parent, book_entry_index)
-  local index = offset
-
-  -- Implicit Book Entry Index
-  if book_entry_index ~= nil and show.book_entry_index then
-    local iteration = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.book_entry_index, book_entry_index)
-    iteration:set_generated()
-  end
-
-  -- Aggregate Quantity: Uint64
-  index, aggregate_quantity = hkex_derivatives_lite_omd_v1_47.aggregate_quantity.dissect(buffer, index, packet, parent)
-
-  -- Price: Int32
-  index, price = hkex_derivatives_lite_omd_v1_47.price.dissect(buffer, index, packet, parent)
-
-  -- Number Of Orders: Uint32
-  index, number_of_orders = hkex_derivatives_lite_omd_v1_47.number_of_orders.dissect(buffer, index, packet, parent)
-
-  -- Side: Uint8
-  index, side = hkex_derivatives_lite_omd_v1_47.side.dissect(buffer, index, packet, parent)
-
-  -- Filler 1: String
-  index, filler_1 = hkex_derivatives_lite_omd_v1_47.filler_1.dissect(buffer, index, packet, parent)
-
-  -- Price Level: Uint8
-  index, price_level = hkex_derivatives_lite_omd_v1_47.price_level.dissect(buffer, index, packet, parent)
-
-  -- Update Action: Uint8
-  index, update_action = hkex_derivatives_lite_omd_v1_47.update_action.dissect(buffer, index, packet, parent)
-
-  -- Filler 4: String
-  index, filler_4 = hkex_derivatives_lite_omd_v1_47.filler_4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Book Entry
-hkex_derivatives_lite_omd_v1_47.book_entry.dissect = function(buffer, offset, packet, parent, book_entry_index)
-  if show.book_entry then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.book_entry, buffer(offset, 0))
-    local index = hkex_derivatives_lite_omd_v1_47.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_lite_omd_v1_47.book_entry.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_lite_omd_v1_47.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
-  end
-end
-
--- Aggregate Order Book Update Message
-hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message = {}
-
--- Calculate size of: Aggregate Order Book Update Message
-hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + hkex_derivatives_lite_omd_v1_47.orderbook_id.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.filler_3.size
-
-  index = index + hkex_derivatives_lite_omd_v1_47.no_entries.size
-
-  -- Calculate field size from count
-  local book_entry_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + book_entry_count * 24
-
-  return index
-end
-
--- Display: Aggregate Order Book Update Message
-hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Aggregate Order Book Update Message
-hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Orderbook Id: Uint32
-  index, orderbook_id = hkex_derivatives_lite_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
-
-  -- Filler 3: String
-  index, filler_3 = hkex_derivatives_lite_omd_v1_47.filler_3.dissect(buffer, index, packet, parent)
-
-  -- No Entries: Uint8
-  index, no_entries = hkex_derivatives_lite_omd_v1_47.no_entries.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Book Entry
-  for book_entry_index = 1, no_entries do
-    index, book_entry = hkex_derivatives_lite_omd_v1_47.book_entry.dissect(buffer, index, packet, parent, book_entry_index)
-  end
-
-  return index
-end
-
--- Dissect: Aggregate Order Book Update Message
-hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.aggregate_order_book_update_message, buffer(offset, 0))
-    local index = hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4458,43 +4031,212 @@ hkex_derivatives_lite_omd_v1_47.commodity_definition_message.dissect = function(
   end
 end
 
--- Refresh Complete
-hkex_derivatives_lite_omd_v1_47.refresh_complete = {}
+-- Quote Request
+hkex_derivatives_lite_omd_v1_47.quote_request = {}
 
--- Size: Refresh Complete
-hkex_derivatives_lite_omd_v1_47.refresh_complete.size =
-  hkex_derivatives_lite_omd_v1_47.last_seq_num.size
+-- Size: Quote Request
+hkex_derivatives_lite_omd_v1_47.quote_request.size =
+  hkex_derivatives_lite_omd_v1_47.orderbook_id.size + 
+  hkex_derivatives_lite_omd_v1_47.number_of_lots.size + 
+  hkex_derivatives_lite_omd_v1_47.bid_ask_flag.size + 
+  hkex_derivatives_lite_omd_v1_47.filler_3.size
 
--- Display: Refresh Complete
-hkex_derivatives_lite_omd_v1_47.refresh_complete.display = function(packet, parent, length)
+-- Display: Quote Request
+hkex_derivatives_lite_omd_v1_47.quote_request.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Refresh Complete
-hkex_derivatives_lite_omd_v1_47.refresh_complete.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Request
+hkex_derivatives_lite_omd_v1_47.quote_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Seq Num: Uint32
-  index, last_seq_num = hkex_derivatives_lite_omd_v1_47.last_seq_num.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_lite_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Number Of Lots: Int32
+  index, number_of_lots = hkex_derivatives_lite_omd_v1_47.number_of_lots.dissect(buffer, index, packet, parent)
+
+  -- Bid Ask Flag: Uint8
+  index, bid_ask_flag = hkex_derivatives_lite_omd_v1_47.bid_ask_flag.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_derivatives_lite_omd_v1_47.filler_3.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Refresh Complete
-hkex_derivatives_lite_omd_v1_47.refresh_complete.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Request
+hkex_derivatives_lite_omd_v1_47.quote_request.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.refresh_complete, buffer(offset, 0))
-    local index = hkex_derivatives_lite_omd_v1_47.refresh_complete.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.quote_request, buffer(offset, 0))
+    local index = hkex_derivatives_lite_omd_v1_47.quote_request.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = hkex_derivatives_lite_omd_v1_47.refresh_complete.display(packet, parent, length)
+    local display = hkex_derivatives_lite_omd_v1_47.quote_request.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return hkex_derivatives_lite_omd_v1_47.refresh_complete.fields(buffer, offset, packet, parent)
+    return hkex_derivatives_lite_omd_v1_47.quote_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Open Interest Message
+hkex_derivatives_lite_omd_v1_47.open_interest_message = {}
+
+-- Size: Open Interest Message
+hkex_derivatives_lite_omd_v1_47.open_interest_message.size =
+  hkex_derivatives_lite_omd_v1_47.day_indicator.size + 
+  hkex_derivatives_lite_omd_v1_47.orderbook_id.size + 
+  hkex_derivatives_lite_omd_v1_47.filler_6.size + 
+  hkex_derivatives_lite_omd_v1_47.settlement.size + 
+  hkex_derivatives_lite_omd_v1_47.deal_count.size + 
+  hkex_derivatives_lite_omd_v1_47.gross_open_interest.size + 
+  hkex_derivatives_lite_omd_v1_47.net_open_interest.size + 
+  hkex_derivatives_lite_omd_v1_47.turnover.size
+
+-- Display: Open Interest Message
+hkex_derivatives_lite_omd_v1_47.open_interest_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Open Interest Message
+hkex_derivatives_lite_omd_v1_47.open_interest_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Day Indicator: Uint16
+  index, day_indicator = hkex_derivatives_lite_omd_v1_47.day_indicator.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_lite_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Filler 6: String
+  index, filler_6 = hkex_derivatives_lite_omd_v1_47.filler_6.dissect(buffer, index, packet, parent)
+
+  -- Settlement: Int32
+  index, settlement = hkex_derivatives_lite_omd_v1_47.settlement.dissect(buffer, index, packet, parent)
+
+  -- Deal Count: Uint32
+  index, deal_count = hkex_derivatives_lite_omd_v1_47.deal_count.dissect(buffer, index, packet, parent)
+
+  -- Gross Open Interest: Int32
+  index, gross_open_interest = hkex_derivatives_lite_omd_v1_47.gross_open_interest.dissect(buffer, index, packet, parent)
+
+  -- Net Open Interest: Int32
+  index, net_open_interest = hkex_derivatives_lite_omd_v1_47.net_open_interest.dissect(buffer, index, packet, parent)
+
+  -- Turnover: Uint64
+  index, turnover = hkex_derivatives_lite_omd_v1_47.turnover.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Open Interest Message
+hkex_derivatives_lite_omd_v1_47.open_interest_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.open_interest_message, buffer(offset, 0))
+    local index = hkex_derivatives_lite_omd_v1_47.open_interest_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_lite_omd_v1_47.open_interest_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_lite_omd_v1_47.open_interest_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Alert Message
+hkex_derivatives_lite_omd_v1_47.market_alert_message = {}
+
+-- Calculate size of: Market Alert Message
+hkex_derivatives_lite_omd_v1_47.market_alert_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + hkex_derivatives_lite_omd_v1_47.alert_id.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.source.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.filler_1.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.header.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.last_fragment.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.info_type.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.priority.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.no_lines.size
+
+  -- Calculate field size from count
+  local content_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + content_count * 320
+
+  return index
+end
+
+-- Display: Market Alert Message
+hkex_derivatives_lite_omd_v1_47.market_alert_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Alert Message
+hkex_derivatives_lite_omd_v1_47.market_alert_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Alert Id: Uint16
+  index, alert_id = hkex_derivatives_lite_omd_v1_47.alert_id.dissect(buffer, index, packet, parent)
+
+  -- Source: String
+  index, source = hkex_derivatives_lite_omd_v1_47.source.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_derivatives_lite_omd_v1_47.filler_1.dissect(buffer, index, packet, parent)
+
+  -- Header: Binary
+  index, header = hkex_derivatives_lite_omd_v1_47.header.dissect(buffer, index, packet, parent)
+
+  -- Last Fragment: String
+  index, last_fragment = hkex_derivatives_lite_omd_v1_47.last_fragment.dissect(buffer, index, packet, parent)
+
+  -- Info Type: Uint8
+  index, info_type = hkex_derivatives_lite_omd_v1_47.info_type.dissect(buffer, index, packet, parent)
+
+  -- Priority: Uint8
+  index, priority = hkex_derivatives_lite_omd_v1_47.priority.dissect(buffer, index, packet, parent)
+
+  -- No Lines: Uint8
+  index, no_lines = hkex_derivatives_lite_omd_v1_47.no_lines.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Content
+  for content_index = 1, no_lines do
+    index, content = hkex_derivatives_lite_omd_v1_47.content.dissect(buffer, index, packet, parent, content_index)
+  end
+
+  return index
+end
+
+-- Dissect: Market Alert Message
+hkex_derivatives_lite_omd_v1_47.market_alert_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.market_alert_message, buffer(offset, 0))
+    local index = hkex_derivatives_lite_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_lite_omd_v1_47.market_alert_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_lite_omd_v1_47.market_alert_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4578,11 +4320,209 @@ hkex_derivatives_lite_omd_v1_47.sequence_reset.dissect = function(buffer, offset
   end
 end
 
+-- Calculated Opening Price Message
+hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message = {}
+
+-- Size: Calculated Opening Price Message
+hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.size =
+  hkex_derivatives_lite_omd_v1_47.orderbook_id.size + 
+  hkex_derivatives_lite_omd_v1_47.calculated_opening_price.size + 
+  hkex_derivatives_lite_omd_v1_47.filler_4.size + 
+  hkex_derivatives_lite_omd_v1_47.calculated_opening_quantity.size
+
+-- Display: Calculated Opening Price Message
+hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Calculated Opening Price Message
+hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_lite_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Calculated Opening Price: Int32
+  index, calculated_opening_price = hkex_derivatives_lite_omd_v1_47.calculated_opening_price.dissect(buffer, index, packet, parent)
+
+  -- Filler 4: String
+  index, filler_4 = hkex_derivatives_lite_omd_v1_47.filler_4.dissect(buffer, index, packet, parent)
+
+  -- Calculated Opening Quantity: Uint64
+  index, calculated_opening_quantity = hkex_derivatives_lite_omd_v1_47.calculated_opening_quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Calculated Opening Price Message
+hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.calculated_opening_price_message, buffer(offset, 0))
+    local index = hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Book Entry
+hkex_derivatives_lite_omd_v1_47.book_entry = {}
+
+-- Size: Book Entry
+hkex_derivatives_lite_omd_v1_47.book_entry.size =
+  hkex_derivatives_lite_omd_v1_47.aggregate_quantity.size + 
+  hkex_derivatives_lite_omd_v1_47.price.size + 
+  hkex_derivatives_lite_omd_v1_47.number_of_orders.size + 
+  hkex_derivatives_lite_omd_v1_47.side.size + 
+  hkex_derivatives_lite_omd_v1_47.filler_1.size + 
+  hkex_derivatives_lite_omd_v1_47.price_level.size + 
+  hkex_derivatives_lite_omd_v1_47.update_action.size + 
+  hkex_derivatives_lite_omd_v1_47.filler_4.size
+
+-- Display: Book Entry
+hkex_derivatives_lite_omd_v1_47.book_entry.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Book Entry
+hkex_derivatives_lite_omd_v1_47.book_entry.fields = function(buffer, offset, packet, parent, book_entry_index)
+  local index = offset
+
+  -- Implicit Book Entry Index
+  if book_entry_index ~= nil and show.book_entry_index then
+    local iteration = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.book_entry_index, book_entry_index)
+    iteration:set_generated()
+  end
+
+  -- Aggregate Quantity: Uint64
+  index, aggregate_quantity = hkex_derivatives_lite_omd_v1_47.aggregate_quantity.dissect(buffer, index, packet, parent)
+
+  -- Price: Int32
+  index, price = hkex_derivatives_lite_omd_v1_47.price.dissect(buffer, index, packet, parent)
+
+  -- Number Of Orders: Uint32
+  index, number_of_orders = hkex_derivatives_lite_omd_v1_47.number_of_orders.dissect(buffer, index, packet, parent)
+
+  -- Side: Uint8
+  index, side = hkex_derivatives_lite_omd_v1_47.side.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_derivatives_lite_omd_v1_47.filler_1.dissect(buffer, index, packet, parent)
+
+  -- Price Level: Uint8
+  index, price_level = hkex_derivatives_lite_omd_v1_47.price_level.dissect(buffer, index, packet, parent)
+
+  -- Update Action: Uint8
+  index, update_action = hkex_derivatives_lite_omd_v1_47.update_action.dissect(buffer, index, packet, parent)
+
+  -- Filler 4: String
+  index, filler_4 = hkex_derivatives_lite_omd_v1_47.filler_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Book Entry
+hkex_derivatives_lite_omd_v1_47.book_entry.dissect = function(buffer, offset, packet, parent, book_entry_index)
+  if show.book_entry then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.book_entry, buffer(offset, 0))
+    local index = hkex_derivatives_lite_omd_v1_47.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_lite_omd_v1_47.book_entry.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_lite_omd_v1_47.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
+  end
+end
+
+-- Aggregate Order Book Update Message
+hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message = {}
+
+-- Calculate size of: Aggregate Order Book Update Message
+hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + hkex_derivatives_lite_omd_v1_47.orderbook_id.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.filler_3.size
+
+  index = index + hkex_derivatives_lite_omd_v1_47.no_entries.size
+
+  -- Calculate field size from count
+  local book_entry_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + book_entry_count * 24
+
+  return index
+end
+
+-- Display: Aggregate Order Book Update Message
+hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Aggregate Order Book Update Message
+hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_lite_omd_v1_47.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_derivatives_lite_omd_v1_47.filler_3.dissect(buffer, index, packet, parent)
+
+  -- No Entries: Uint8
+  index, no_entries = hkex_derivatives_lite_omd_v1_47.no_entries.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Book Entry
+  for book_entry_index = 1, no_entries do
+    index, book_entry = hkex_derivatives_lite_omd_v1_47.book_entry.dissect(buffer, index, packet, parent, book_entry_index)
+  end
+
+  return index
+end
+
+-- Dissect: Aggregate Order Book Update Message
+hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_lite_omd_v1_47.fields.aggregate_order_book_update_message, buffer(offset, 0))
+    local index = hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Payload
 hkex_derivatives_lite_omd_v1_47.payload = {}
 
 -- Dissect: Payload
 hkex_derivatives_lite_omd_v1_47.payload.dissect = function(buffer, offset, packet, parent, msg_type)
+  -- Dissect Aggregate Order Book Update Message
+  if msg_type == 353 then
+    return hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Calculated Opening Price Message
+  if msg_type == 364 then
+    return hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Sequence Reset
   if msg_type == 100 then
     return hkex_derivatives_lite_omd_v1_47.sequence_reset.dissect(buffer, offset, packet, parent)
@@ -4591,9 +4531,17 @@ hkex_derivatives_lite_omd_v1_47.payload.dissect = function(buffer, offset, packe
   if msg_type == 105 then
     return hkex_derivatives_lite_omd_v1_47.disaster_recovery_signal_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Refresh Complete
-  if msg_type == 203 then
-    return hkex_derivatives_lite_omd_v1_47.refresh_complete.dissect(buffer, offset, packet, parent)
+  -- Dissect Market Alert Message
+  if msg_type == 323 then
+    return hkex_derivatives_lite_omd_v1_47.market_alert_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Interest Message
+  if msg_type == 366 then
+    return hkex_derivatives_lite_omd_v1_47.open_interest_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Request
+  if msg_type == 336 then
+    return hkex_derivatives_lite_omd_v1_47.quote_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Commodity Definition Message
   if msg_type == 301 then
@@ -4627,29 +4575,9 @@ hkex_derivatives_lite_omd_v1_47.payload.dissect = function(buffer, offset, packe
   if msg_type == 322 then
     return hkex_derivatives_lite_omd_v1_47.commodity_status_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Aggregate Order Book Update Message
-  if msg_type == 353 then
-    return hkex_derivatives_lite_omd_v1_47.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request
-  if msg_type == 336 then
-    return hkex_derivatives_lite_omd_v1_47.quote_request.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Trade Statistics Message
   if msg_type == 360 then
     return hkex_derivatives_lite_omd_v1_47.trade_statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Calculated Opening Price Message
-  if msg_type == 364 then
-    return hkex_derivatives_lite_omd_v1_47.calculated_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Alert Message
-  if msg_type == 323 then
-    return hkex_derivatives_lite_omd_v1_47.market_alert_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if msg_type == 366 then
-    return hkex_derivatives_lite_omd_v1_47.open_interest_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4675,7 +4603,7 @@ hkex_derivatives_lite_omd_v1_47.msg_header.fields = function(buffer, offset, pac
   -- Msg Size: 2 Byte Unsigned Fixed Width Integer
   index, msg_size = hkex_derivatives_lite_omd_v1_47.msg_size.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 17 values
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, msg_type = hkex_derivatives_lite_omd_v1_47.msg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -4723,7 +4651,7 @@ hkex_derivatives_lite_omd_v1_47.message.fields = function(buffer, offset, packet
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 17 branches
+  -- Payload: Runtime Type with 16 branches
   index = hkex_derivatives_lite_omd_v1_47.payload.dissect(buffer, index, packet, parent, msg_type)
 
   return index

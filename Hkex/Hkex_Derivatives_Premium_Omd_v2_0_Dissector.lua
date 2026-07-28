@@ -20,11 +20,9 @@ omi_hkex_derivatives_premium_omd_v2_0.fields.aggregate_quantity = ProtoField.new
 omi_hkex_derivatives_premium_omd_v2_0.fields.alert_id = ProtoField.new("Alert Id", "hkex.derivatives.premium.omd.v2.0.alertid", ftypes.UINT64)
 omi_hkex_derivatives_premium_omd_v2_0.fields.amendment_execution_time = ProtoField.new("Amendment Execution Time", "hkex.derivatives.premium.omd.v2.0.amendmentexecutiontime", ftypes.UINT64)
 omi_hkex_derivatives_premium_omd_v2_0.fields.base_currency = ProtoField.new("Base Currency", "hkex.derivatives.premium.omd.v2.0.basecurrency", ftypes.STRING)
-omi_hkex_derivatives_premium_omd_v2_0.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "hkex.derivatives.premium.omd.v2.0.beginseqnum", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.bid_ask_flag = ProtoField.new("Bid Ask Flag", "hkex.derivatives.premium.omd.v2.0.bidaskflag", ftypes.UINT8)
 omi_hkex_derivatives_premium_omd_v2_0.fields.book_entry = ProtoField.new("Book Entry", "hkex.derivatives.premium.omd.v2.0.bookentry", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "hkex.derivatives.premium.omd.v2.0.calculatedopeningprice", ftypes.INT64)
-omi_hkex_derivatives_premium_omd_v2_0.fields.channel_id = ProtoField.new("Channel Id", "hkex.derivatives.premium.omd.v2.0.channelid", ftypes.UINT16)
 omi_hkex_derivatives_premium_omd_v2_0.fields.combo_orderbook_id = ProtoField.new("Combo Orderbook Id", "hkex.derivatives.premium.omd.v2.0.comboorderbookid", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.commodity_code = ProtoField.new("Commodity Code", "hkex.derivatives.premium.omd.v2.0.commoditycode", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.commodity_id = ProtoField.new("Commodity Id", "hkex.derivatives.premium.omd.v2.0.commodityid", ftypes.STRING)
@@ -43,7 +41,6 @@ omi_hkex_derivatives_premium_omd_v2_0.fields.decimal_in_underlying_price = Proto
 omi_hkex_derivatives_premium_omd_v2_0.fields.dr_status = ProtoField.new("Dr Status", "hkex.derivatives.premium.omd.v2.0.drstatus", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.effective_last_trading_date = ProtoField.new("Effective Last Trading Date", "hkex.derivatives.premium.omd.v2.0.effectivelasttradingdate", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.effective_tomorrow = ProtoField.new("Effective Tomorrow", "hkex.derivatives.premium.omd.v2.0.effectivetomorrow", ftypes.UINT8)
-omi_hkex_derivatives_premium_omd_v2_0.fields.end_seq_num = ProtoField.new("End Seq Num", "hkex.derivatives.premium.omd.v2.0.endseqnum", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.exchange = ProtoField.new("Exchange", "hkex.derivatives.premium.omd.v2.0.exchange", ftypes.UINT16)
 omi_hkex_derivatives_premium_omd_v2_0.fields.filler_1 = ProtoField.new("Filler 1", "hkex.derivatives.premium.omd.v2.0.filler1", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.filler_10 = ProtoField.new("Filler 10", "hkex.derivatives.premium.omd.v2.0.filler10", ftypes.STRING)
@@ -71,7 +68,6 @@ omi_hkex_derivatives_premium_omd_v2_0.fields.isin_code = ProtoField.new("Isin Co
 omi_hkex_derivatives_premium_omd_v2_0.fields.key_type = ProtoField.new("Key Type", "hkex.derivatives.premium.omd.v2.0.keytype", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.last_fragment = ProtoField.new("Last Fragment", "hkex.derivatives.premium.omd.v2.0.lastfragment", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.last_price = ProtoField.new("Last Price", "hkex.derivatives.premium.omd.v2.0.lastprice", ftypes.INT64)
-omi_hkex_derivatives_premium_omd_v2_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.derivatives.premium.omd.v2.0.lastseqnum", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.last_trading_date = ProtoField.new("Last Trading Date", "hkex.derivatives.premium.omd.v2.0.lasttradingdate", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.last_trading_time = ProtoField.new("Last Trading Time", "hkex.derivatives.premium.omd.v2.0.lasttradingtime", ftypes.UINT64)
 omi_hkex_derivatives_premium_omd_v2_0.fields.leg_orderbook_id = ProtoField.new("Leg Orderbook Id", "hkex.derivatives.premium.omd.v2.0.legorderbookid", ftypes.UINT32)
@@ -94,8 +90,8 @@ omi_hkex_derivatives_premium_omd_v2_0.fields.noof_lines = ProtoField.new("Noof L
 omi_hkex_derivatives_premium_omd_v2_0.fields.number_of_legs = ProtoField.new("Number Of Legs", "hkex.derivatives.premium.omd.v2.0.numberoflegs", ftypes.UINT8)
 omi_hkex_derivatives_premium_omd_v2_0.fields.number_of_orders = ProtoField.new("Number Of Orders", "hkex.derivatives.premium.omd.v2.0.numberoforders", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.open_price = ProtoField.new("Open Price", "hkex.derivatives.premium.omd.v2.0.openprice", ftypes.INT64)
-omi_hkex_derivatives_premium_omd_v2_0.fields.order_book_id = ProtoField.new("Order Book Id", "hkex.derivatives.premium.omd.v2.0.orderbookid", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.order_id = ProtoField.new("Order Id", "hkex.derivatives.premium.omd.v2.0.orderid", ftypes.UINT64)
+omi_hkex_derivatives_premium_omd_v2_0.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.derivatives.premium.omd.v2.0.orderbookid", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.packet = ProtoField.new("Packet", "hkex.derivatives.premium.omd.v2.0.packet", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.packet_header = ProtoField.new("Packet Header", "hkex.derivatives.premium.omd.v2.0.packetheader", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.derivatives.premium.omd.v2.0.pktsize", ftypes.UINT16)
@@ -108,11 +104,9 @@ omi_hkex_derivatives_premium_omd_v2_0.fields.priority = ProtoField.new("Priority
 omi_hkex_derivatives_premium_omd_v2_0.fields.quantity_int_324 = ProtoField.new("Quantity Int 324", "hkex.derivatives.premium.omd.v2.0.quantityint324", ftypes.INT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.quantity_uint_324 = ProtoField.new("Quantity Uint 324", "hkex.derivatives.premium.omd.v2.0.quantityuint324", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.quantity_uint_648 = ProtoField.new("Quantity Uint 648", "hkex.derivatives.premium.omd.v2.0.quantityuint648", ftypes.UINT64)
-omi_hkex_derivatives_premium_omd_v2_0.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.derivatives.premium.omd.v2.0.retransstatus", ftypes.UINT8)
 omi_hkex_derivatives_premium_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.derivatives.premium.omd.v2.0.sendtime", ftypes.UINT64)
 omi_hkex_derivatives_premium_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.derivatives.premium.omd.v2.0.seqnum", ftypes.UINT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.session = ProtoField.new("Session", "hkex.derivatives.premium.omd.v2.0.session", ftypes.UINT8)
-omi_hkex_derivatives_premium_omd_v2_0.fields.session_status = ProtoField.new("Session Status", "hkex.derivatives.premium.omd.v2.0.sessionstatus", ftypes.UINT8)
 omi_hkex_derivatives_premium_omd_v2_0.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.derivatives.premium.omd.v2.0.settlementcurrencyid", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.settlement_price = ProtoField.new("Settlement Price", "hkex.derivatives.premium.omd.v2.0.settlementprice", ftypes.INT32)
 omi_hkex_derivatives_premium_omd_v2_0.fields.side = ProtoField.new("Side", "hkex.derivatives.premium.omd.v2.0.side", ftypes.UINT8)
@@ -135,7 +129,6 @@ omi_hkex_derivatives_premium_omd_v2_0.fields.turnover = ProtoField.new("Turnover
 omi_hkex_derivatives_premium_omd_v2_0.fields.underlying_code = ProtoField.new("Underlying Code", "hkex.derivatives.premium.omd.v2.0.underlyingcode", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.derivatives.premium.omd.v2.0.underlyingtype", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.update_action = ProtoField.new("Update Action", "hkex.derivatives.premium.omd.v2.0.updateaction", ftypes.UINT8)
-omi_hkex_derivatives_premium_omd_v2_0.fields.username = ProtoField.new("Username", "hkex.derivatives.premium.omd.v2.0.username", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.vcm_flag = ProtoField.new("Vcm Flag", "hkex.derivatives.premium.omd.v2.0.vcmflag", ftypes.UINT8)
 omi_hkex_derivatives_premium_omd_v2_0.fields.vcm_lower_price = ProtoField.new("Vcm Lower Price", "hkex.derivatives.premium.omd.v2.0.vcmlowerprice", ftypes.INT64)
 omi_hkex_derivatives_premium_omd_v2_0.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.derivatives.premium.omd.v2.0.vcmreferenceprice", ftypes.INT64)
@@ -153,15 +146,10 @@ omi_hkex_derivatives_premium_omd_v2_0.fields.disaster_recovery_signal_message = 
 omi_hkex_derivatives_premium_omd_v2_0.fields.implied_volatility_message = ProtoField.new("Implied Volatility Message", "hkex.derivatives.premium.omd.v2.0.impliedvolatilitymessage", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.instrument_definition = ProtoField.new("Instrument Definition", "hkex.derivatives.premium.omd.v2.0.instrumentdefinition", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.instrument_status = ProtoField.new("Instrument Status", "hkex.derivatives.premium.omd.v2.0.instrumentstatus", ftypes.STRING)
-omi_hkex_derivatives_premium_omd_v2_0.fields.logon = ProtoField.new("Logon", "hkex.derivatives.premium.omd.v2.0.logon", ftypes.STRING)
-omi_hkex_derivatives_premium_omd_v2_0.fields.logon_response = ProtoField.new("Logon Response", "hkex.derivatives.premium.omd.v2.0.logonresponse", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.market_alert_message = ProtoField.new("Market Alert Message", "hkex.derivatives.premium.omd.v2.0.marketalertmessage", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.market_status = ProtoField.new("Market Status", "hkex.derivatives.premium.omd.v2.0.marketstatus", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.open_interest_message = ProtoField.new("Open Interest Message", "hkex.derivatives.premium.omd.v2.0.openinterestmessage", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.quote_request = ProtoField.new("Quote Request", "hkex.derivatives.premium.omd.v2.0.quoterequest", ftypes.STRING)
-omi_hkex_derivatives_premium_omd_v2_0.fields.refresh_complete = ProtoField.new("Refresh Complete", "hkex.derivatives.premium.omd.v2.0.refreshcomplete", ftypes.STRING)
-omi_hkex_derivatives_premium_omd_v2_0.fields.retransmission_request = ProtoField.new("Retransmission Request", "hkex.derivatives.premium.omd.v2.0.retransmissionrequest", ftypes.STRING)
-omi_hkex_derivatives_premium_omd_v2_0.fields.retransmission_response = ProtoField.new("Retransmission Response", "hkex.derivatives.premium.omd.v2.0.retransmissionresponse", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.sequence_reset = ProtoField.new("Sequence Reset", "hkex.derivatives.premium.omd.v2.0.sequencereset", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.thm_trigger = ProtoField.new("Thm Trigger", "hkex.derivatives.premium.omd.v2.0.thmtrigger", ftypes.STRING)
 omi_hkex_derivatives_premium_omd_v2_0.fields.trade = ProtoField.new("Trade", "hkex.derivatives.premium.omd.v2.0.trade", ftypes.STRING)
@@ -357,29 +345,6 @@ hkex_derivatives_premium_omd_v2_0.base_currency.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Begin Seq Num
-hkex_derivatives_premium_omd_v2_0.begin_seq_num = {}
-
--- Size: Begin Seq Num
-hkex_derivatives_premium_omd_v2_0.begin_seq_num.size = 4
-
--- Display: Begin Seq Num
-hkex_derivatives_premium_omd_v2_0.begin_seq_num.display = function(value)
-  return "Begin Seq Num: "..value
-end
-
--- Dissect: Begin Seq Num
-hkex_derivatives_premium_omd_v2_0.begin_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_premium_omd_v2_0.begin_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_premium_omd_v2_0.begin_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.begin_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Bid Ask Flag
 hkex_derivatives_premium_omd_v2_0.bid_ask_flag = {}
 
@@ -432,29 +397,6 @@ hkex_derivatives_premium_omd_v2_0.calculated_opening_price.dissect = function(bu
   local display = hkex_derivatives_premium_omd_v2_0.calculated_opening_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.calculated_opening_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-hkex_derivatives_premium_omd_v2_0.channel_id = {}
-
--- Size: Channel Id
-hkex_derivatives_premium_omd_v2_0.channel_id.size = 2
-
--- Display: Channel Id
-hkex_derivatives_premium_omd_v2_0.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-hkex_derivatives_premium_omd_v2_0.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_premium_omd_v2_0.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_premium_omd_v2_0.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -890,29 +832,6 @@ hkex_derivatives_premium_omd_v2_0.effective_tomorrow.dissect = function(buffer, 
   local display = hkex_derivatives_premium_omd_v2_0.effective_tomorrow.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.effective_tomorrow, range, value, display)
-
-  return offset + length, value
-end
-
--- End Seq Num
-hkex_derivatives_premium_omd_v2_0.end_seq_num = {}
-
--- Size: End Seq Num
-hkex_derivatives_premium_omd_v2_0.end_seq_num.size = 4
-
--- Display: End Seq Num
-hkex_derivatives_premium_omd_v2_0.end_seq_num.display = function(value)
-  return "End Seq Num: "..value
-end
-
--- Dissect: End Seq Num
-hkex_derivatives_premium_omd_v2_0.end_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_premium_omd_v2_0.end_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_premium_omd_v2_0.end_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.end_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1552,29 +1471,6 @@ hkex_derivatives_premium_omd_v2_0.last_price.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Last Seq Num
-hkex_derivatives_premium_omd_v2_0.last_seq_num = {}
-
--- Size: Last Seq Num
-hkex_derivatives_premium_omd_v2_0.last_seq_num.size = 4
-
--- Display: Last Seq Num
-hkex_derivatives_premium_omd_v2_0.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
-end
-
--- Dissect: Last Seq Num
-hkex_derivatives_premium_omd_v2_0.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_premium_omd_v2_0.last_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_premium_omd_v2_0.last_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Last Trading Date
 hkex_derivatives_premium_omd_v2_0.last_trading_date = {}
 
@@ -1866,26 +1762,32 @@ hkex_derivatives_premium_omd_v2_0.msg_type.size = 2
 
 -- Display: Msg Type
 hkex_derivatives_premium_omd_v2_0.msg_type.display = function(value)
+  if value == 337 then
+    return "Msg Type: Aggregate Implied Order (337)"
+  end
+  if value == 353 then
+    return "Msg Type: Aggregate Order Book Update Message (353)"
+  end
+  if value == 364 then
+    return "Msg Type: Calculated Opening Price Message (364)"
+  end
   if value == 100 then
     return "Msg Type: Sequence Reset (100)"
   end
   if value == 105 then
     return "Msg Type: Disaster Recovery Signal Message (105)"
   end
-  if value == 101 then
-    return "Msg Type: Logon (101)"
+  if value == 367 then
+    return "Msg Type: Implied Volatility Message (367)"
   end
-  if value == 102 then
-    return "Msg Type: Logon Response (102)"
+  if value == 323 then
+    return "Msg Type: Market Alert Message (323)"
   end
-  if value == 201 then
-    return "Msg Type: Retransmission Request (201)"
+  if value == 366 then
+    return "Msg Type: Open Interest Message (366)"
   end
-  if value == 202 then
-    return "Msg Type: Retransmission Response (202)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete (203)"
+  if value == 336 then
+    return "Msg Type: Quote Request (336)"
   end
   if value == 301 then
     return "Msg Type: Commodity Definition (301)"
@@ -1917,15 +1819,6 @@ hkex_derivatives_premium_omd_v2_0.msg_type.display = function(value)
   if value == 326 then
     return "Msg Type: Thm Trigger (326)"
   end
-  if value == 353 then
-    return "Msg Type: Aggregate Order Book Update Message (353)"
-  end
-  if value == 336 then
-    return "Msg Type: Quote Request (336)"
-  end
-  if value == 337 then
-    return "Msg Type: Aggregate Implied Order (337)"
-  end
   if value == 350 then
     return "Msg Type: Trade (350)"
   end
@@ -1934,18 +1827,6 @@ hkex_derivatives_premium_omd_v2_0.msg_type.display = function(value)
   end
   if value == 360 then
     return "Msg Type: Trade Statistics Message (360)"
-  end
-  if value == 364 then
-    return "Msg Type: Calculated Opening Price Message (364)"
-  end
-  if value == 323 then
-    return "Msg Type: Market Alert Message (323)"
-  end
-  if value == 366 then
-    return "Msg Type: Open Interest Message (366)"
-  end
-  if value == 367 then
-    return "Msg Type: Implied Volatility Message (367)"
   end
 
   return "Msg Type: Unknown("..value..")"
@@ -2124,29 +2005,6 @@ hkex_derivatives_premium_omd_v2_0.open_price.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Order Book Id
-hkex_derivatives_premium_omd_v2_0.order_book_id = {}
-
--- Size: Order Book Id
-hkex_derivatives_premium_omd_v2_0.order_book_id.size = 4
-
--- Display: Order Book Id
-hkex_derivatives_premium_omd_v2_0.order_book_id.display = function(value)
-  return "Order Book Id: "..value
-end
-
--- Dissect: Order Book Id
-hkex_derivatives_premium_omd_v2_0.order_book_id.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_premium_omd_v2_0.order_book_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_premium_omd_v2_0.order_book_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.order_book_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Id
 hkex_derivatives_premium_omd_v2_0.order_id = {}
 
@@ -2166,6 +2024,29 @@ hkex_derivatives_premium_omd_v2_0.order_id.dissect = function(buffer, offset, pa
   local display = hkex_derivatives_premium_omd_v2_0.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orderbook Id
+hkex_derivatives_premium_omd_v2_0.orderbook_id = {}
+
+-- Size: Orderbook Id
+hkex_derivatives_premium_omd_v2_0.orderbook_id.size = 4
+
+-- Display: Orderbook Id
+hkex_derivatives_premium_omd_v2_0.orderbook_id.display = function(value)
+  return "Orderbook Id: "..value
+end
+
+-- Dissect: Orderbook Id
+hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_derivatives_premium_omd_v2_0.orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_derivatives_premium_omd_v2_0.orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.orderbook_id, range, value, display)
 
   return offset + length, value
 end
@@ -2410,45 +2291,6 @@ hkex_derivatives_premium_omd_v2_0.quantity_uint_648.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Retrans Status
-hkex_derivatives_premium_omd_v2_0.retrans_status = {}
-
--- Size: Retrans Status
-hkex_derivatives_premium_omd_v2_0.retrans_status.size = 1
-
--- Display: Retrans Status
-hkex_derivatives_premium_omd_v2_0.retrans_status.display = function(value)
-  if value == 0 then
-    return "Retrans Status: Request Accepted (0)"
-  end
-  if value == 1 then
-    return "Retrans Status: Unkown Unauthorized Channel Id (1)"
-  end
-  if value == 2 then
-    return "Retrans Status: Messages Not Available (2)"
-  end
-  if value == 100 then
-    return "Retrans Status: Exceeds Maximum Sequence Range (100)"
-  end
-  if value == 101 then
-    return "Retrans Status: Exceeds Maximum Requests In A Day (101)"
-  end
-
-  return "Retrans Status: Unknown("..value..")"
-end
-
--- Dissect: Retrans Status
-hkex_derivatives_premium_omd_v2_0.retrans_status.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_premium_omd_v2_0.retrans_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_premium_omd_v2_0.retrans_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.retrans_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Send Time
 hkex_derivatives_premium_omd_v2_0.send_time = {}
 
@@ -2529,39 +2371,6 @@ hkex_derivatives_premium_omd_v2_0.session.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Session Status
-hkex_derivatives_premium_omd_v2_0.session_status = {}
-
--- Size: Session Status
-hkex_derivatives_premium_omd_v2_0.session_status.size = 1
-
--- Display: Session Status
-hkex_derivatives_premium_omd_v2_0.session_status.display = function(value)
-  if value == 0 then
-    return "Session Status: Session Active (0)"
-  end
-  if value == 5 then
-    return "Session Status: Invalid Username Or Ip Address (5)"
-  end
-  if value == 100 then
-    return "Session Status: User Already Connected (100)"
-  end
-
-  return "Session Status: Unknown("..value..")"
-end
-
--- Dissect: Session Status
-hkex_derivatives_premium_omd_v2_0.session_status.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_premium_omd_v2_0.session_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_derivatives_premium_omd_v2_0.session_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.session_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Settlement Currency Id
 hkex_derivatives_premium_omd_v2_0.settlement_currency_id = {}
 
@@ -2616,11 +2425,11 @@ hkex_derivatives_premium_omd_v2_0.side.size = 1
 
 -- Display: Side
 hkex_derivatives_premium_omd_v2_0.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
+  if value == 0 then
+    return "Side: Bid (0)"
   end
-  if value == 2 then
-    return "Side: Sell (2)"
+  if value == 1 then
+    return "Side: Offer (1)"
   end
   if value == 1 then
     return "Side: Bid (1)"
@@ -2628,11 +2437,11 @@ hkex_derivatives_premium_omd_v2_0.side.display = function(value)
   if value == 2 then
     return "Side: Offer (2)"
   end
-  if value == 0 then
-    return "Side: Bid (0)"
-  end
   if value == 1 then
-    return "Side: Offer (1)"
+    return "Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Side: Sell (2)"
   end
 
   return "Side: Unknown("..value..")"
@@ -3199,29 +3008,6 @@ hkex_derivatives_premium_omd_v2_0.update_action.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Username
-hkex_derivatives_premium_omd_v2_0.username = {}
-
--- Size: Username
-hkex_derivatives_premium_omd_v2_0.username.size = 12
-
--- Display: Username
-hkex_derivatives_premium_omd_v2_0.username.display = function(value)
-  return "Username: "..value
-end
-
--- Dissect: Username
-hkex_derivatives_premium_omd_v2_0.username.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_derivatives_premium_omd_v2_0.username.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = hkex_derivatives_premium_omd_v2_0.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.username, range, value, display)
-
-  return offset + length, value
-end
-
 -- Vcm Flag
 hkex_derivatives_premium_omd_v2_0.vcm_flag = {}
 
@@ -3326,247 +3112,12 @@ end
 -- Dissect Hkex Derivatives Premium Omd 2.0
 -----------------------------------------------------------------------
 
--- Implied Volatility Message
-hkex_derivatives_premium_omd_v2_0.implied_volatility_message = {}
-
--- Size: Implied Volatility Message
-hkex_derivatives_premium_omd_v2_0.implied_volatility_message.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
-  hkex_derivatives_premium_omd_v2_0.implied_volatility.size
-
--- Display: Implied Volatility Message
-hkex_derivatives_premium_omd_v2_0.implied_volatility_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Implied Volatility Message
-hkex_derivatives_premium_omd_v2_0.implied_volatility_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Implied Volatility: Uint32
-  index, implied_volatility = hkex_derivatives_premium_omd_v2_0.implied_volatility.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Implied Volatility Message
-hkex_derivatives_premium_omd_v2_0.implied_volatility_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.implied_volatility_message, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.implied_volatility_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.implied_volatility_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.implied_volatility_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Interest Message
-hkex_derivatives_premium_omd_v2_0.open_interest_message = {}
-
--- Size: Open Interest Message
-hkex_derivatives_premium_omd_v2_0.open_interest_message.size =
-  hkex_derivatives_premium_omd_v2_0.day_indicator.size + 
-  hkex_derivatives_premium_omd_v2_0.filler_6.size + 
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
-  hkex_derivatives_premium_omd_v2_0.settlement_price.size + 
-  hkex_derivatives_premium_omd_v2_0.gross_oi.size + 
-  hkex_derivatives_premium_omd_v2_0.net_oi.size
-
--- Display: Open Interest Message
-hkex_derivatives_premium_omd_v2_0.open_interest_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Interest Message
-hkex_derivatives_premium_omd_v2_0.open_interest_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Day Indicator: Uint16
-  index, day_indicator = hkex_derivatives_premium_omd_v2_0.day_indicator.dissect(buffer, index, packet, parent)
-
-  -- Filler 6: String
-  index, filler_6 = hkex_derivatives_premium_omd_v2_0.filler_6.dissect(buffer, index, packet, parent)
-
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Settlement Price: Int32
-  index, settlement_price = hkex_derivatives_premium_omd_v2_0.settlement_price.dissect(buffer, index, packet, parent)
-
-  -- Gross Oi: Int32
-  index, gross_oi = hkex_derivatives_premium_omd_v2_0.gross_oi.dissect(buffer, index, packet, parent)
-
-  -- Net Oi: Int32
-  index, net_oi = hkex_derivatives_premium_omd_v2_0.net_oi.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Interest Message
-hkex_derivatives_premium_omd_v2_0.open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.open_interest_message, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.open_interest_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.open_interest_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.open_interest_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Market Alert Message
-hkex_derivatives_premium_omd_v2_0.market_alert_message = {}
-
--- Calculate size of: Market Alert Message
-hkex_derivatives_premium_omd_v2_0.market_alert_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + hkex_derivatives_premium_omd_v2_0.alert_id.size
-
-  index = index + hkex_derivatives_premium_omd_v2_0.source.size
-
-  index = index + hkex_derivatives_premium_omd_v2_0.header.size
-
-  index = index + hkex_derivatives_premium_omd_v2_0.last_fragment.size
-
-  index = index + hkex_derivatives_premium_omd_v2_0.priority.size
-
-  index = index + hkex_derivatives_premium_omd_v2_0.noof_lines.size
-
-  -- Calculate field size from count
-  local content_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + content_count * 320
-
-  return index
-end
-
--- Display: Market Alert Message
-hkex_derivatives_premium_omd_v2_0.market_alert_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Market Alert Message
-hkex_derivatives_premium_omd_v2_0.market_alert_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Alert Id: Uint64
-  index, alert_id = hkex_derivatives_premium_omd_v2_0.alert_id.dissect(buffer, index, packet, parent)
-
-  -- Source: String
-  index, source = hkex_derivatives_premium_omd_v2_0.source.dissect(buffer, index, packet, parent)
-
-  -- Header: Binary
-  index, header = hkex_derivatives_premium_omd_v2_0.header.dissect(buffer, index, packet, parent)
-
-  -- Last Fragment: String
-  index, last_fragment = hkex_derivatives_premium_omd_v2_0.last_fragment.dissect(buffer, index, packet, parent)
-
-  -- Priority: Uint8
-  index, priority = hkex_derivatives_premium_omd_v2_0.priority.dissect(buffer, index, packet, parent)
-
-  -- Noof Lines: Uint8
-  index, noof_lines = hkex_derivatives_premium_omd_v2_0.noof_lines.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Content
-  for content_index = 1, noof_lines do
-    index, content = hkex_derivatives_premium_omd_v2_0.content.dissect(buffer, index, packet, parent, content_index)
-  end
-
-  return index
-end
-
--- Dissect: Market Alert Message
-hkex_derivatives_premium_omd_v2_0.market_alert_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.market_alert_message, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.market_alert_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.market_alert_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.market_alert_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Calculated Opening Price Message
-hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message = {}
-
--- Size: Calculated Opening Price Message
-hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
-  hkex_derivatives_premium_omd_v2_0.calculated_opening_price.size + 
-  hkex_derivatives_premium_omd_v2_0.filler_4.size + 
-  hkex_derivatives_premium_omd_v2_0.quantity_uint_648.size
-
--- Display: Calculated Opening Price Message
-hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Calculated Opening Price Message
-hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Calculated Opening Price: Int64
-  index, calculated_opening_price = hkex_derivatives_premium_omd_v2_0.calculated_opening_price.dissect(buffer, index, packet, parent)
-
-  -- Filler 4: String
-  index, filler_4 = hkex_derivatives_premium_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
-
-  -- Quantity Uint 648: Uint64
-  index, quantity_uint_648 = hkex_derivatives_premium_omd_v2_0.quantity_uint_648.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Calculated Opening Price Message
-hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.calculated_opening_price_message, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Trade Statistics Message
 hkex_derivatives_premium_omd_v2_0.trade_statistics_message = {}
 
 -- Size: Trade Statistics Message
 hkex_derivatives_premium_omd_v2_0.trade_statistics_message.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
   hkex_derivatives_premium_omd_v2_0.last_price.size + 
   hkex_derivatives_premium_omd_v2_0.session.size + 
   hkex_derivatives_premium_omd_v2_0.open_price.size + 
@@ -3585,8 +3136,8 @@ end
 hkex_derivatives_premium_omd_v2_0.trade_statistics_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Last Price: Int64
   index, last_price = hkex_derivatives_premium_omd_v2_0.last_price.dissect(buffer, index, packet, parent)
@@ -3638,7 +3189,7 @@ hkex_derivatives_premium_omd_v2_0.trade_amendment_message = {}
 
 -- Size: Trade Amendment Message
 hkex_derivatives_premium_omd_v2_0.trade_amendment_message.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
   hkex_derivatives_premium_omd_v2_0.trade_id.size + 
   hkex_derivatives_premium_omd_v2_0.price.size + 
   hkex_derivatives_premium_omd_v2_0.quantity_uint_324.size + 
@@ -3655,8 +3206,8 @@ end
 hkex_derivatives_premium_omd_v2_0.trade_amendment_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Trade Id: Uint64
   index, trade_id = hkex_derivatives_premium_omd_v2_0.trade_id.dissect(buffer, index, packet, parent)
@@ -3702,7 +3253,7 @@ hkex_derivatives_premium_omd_v2_0.trade = {}
 
 -- Size: Trade
 hkex_derivatives_premium_omd_v2_0.trade.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
   hkex_derivatives_premium_omd_v2_0.order_id.size + 
   hkex_derivatives_premium_omd_v2_0.price.size + 
   hkex_derivatives_premium_omd_v2_0.trade_id.size + 
@@ -3723,8 +3274,8 @@ end
 hkex_derivatives_premium_omd_v2_0.trade.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Order Id: Uint64
   index, order_id = hkex_derivatives_premium_omd_v2_0.order_id.dissect(buffer, index, packet, parent)
@@ -3774,248 +3325,6 @@ hkex_derivatives_premium_omd_v2_0.trade.dissect = function(buffer, offset, packe
   else
     -- Skip element, add fields directly
     return hkex_derivatives_premium_omd_v2_0.trade.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Aggregate Implied Order
-hkex_derivatives_premium_omd_v2_0.aggregate_implied_order = {}
-
--- Size: Aggregate Implied Order
-hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
-  hkex_derivatives_premium_omd_v2_0.implied_price.size + 
-  hkex_derivatives_premium_omd_v2_0.implied_quantity.size + 
-  hkex_derivatives_premium_omd_v2_0.side.size + 
-  hkex_derivatives_premium_omd_v2_0.filler_1.size
-
--- Display: Aggregate Implied Order
-hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Aggregate Implied Order
-hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Implied Price: Int64
-  index, implied_price = hkex_derivatives_premium_omd_v2_0.implied_price.dissect(buffer, index, packet, parent)
-
-  -- Implied Quantity: Uint64
-  index, implied_quantity = hkex_derivatives_premium_omd_v2_0.implied_quantity.dissect(buffer, index, packet, parent)
-
-  -- Side: Uint8
-  index, side = hkex_derivatives_premium_omd_v2_0.side.dissect(buffer, index, packet, parent)
-
-  -- Filler 1: String
-  index, filler_1 = hkex_derivatives_premium_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Aggregate Implied Order
-hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.aggregate_implied_order, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quote Request
-hkex_derivatives_premium_omd_v2_0.quote_request = {}
-
--- Size: Quote Request
-hkex_derivatives_premium_omd_v2_0.quote_request.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
-  hkex_derivatives_premium_omd_v2_0.quantity_int_324.size + 
-  hkex_derivatives_premium_omd_v2_0.bid_ask_flag.size + 
-  hkex_derivatives_premium_omd_v2_0.filler_3.size
-
--- Display: Quote Request
-hkex_derivatives_premium_omd_v2_0.quote_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Request
-hkex_derivatives_premium_omd_v2_0.quote_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Quantity Int 324: Int32
-  index, quantity_int_324 = hkex_derivatives_premium_omd_v2_0.quantity_int_324.dissect(buffer, index, packet, parent)
-
-  -- Bid Ask Flag: Uint8
-  index, bid_ask_flag = hkex_derivatives_premium_omd_v2_0.bid_ask_flag.dissect(buffer, index, packet, parent)
-
-  -- Filler 3: String
-  index, filler_3 = hkex_derivatives_premium_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Request
-hkex_derivatives_premium_omd_v2_0.quote_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.quote_request, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.quote_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.quote_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.quote_request.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Book Entry
-hkex_derivatives_premium_omd_v2_0.book_entry = {}
-
--- Size: Book Entry
-hkex_derivatives_premium_omd_v2_0.book_entry.size =
-  hkex_derivatives_premium_omd_v2_0.aggregate_quantity.size + 
-  hkex_derivatives_premium_omd_v2_0.price.size + 
-  hkex_derivatives_premium_omd_v2_0.number_of_orders.size + 
-  hkex_derivatives_premium_omd_v2_0.side.size + 
-  hkex_derivatives_premium_omd_v2_0.filler_1.size + 
-  hkex_derivatives_premium_omd_v2_0.price_level.size + 
-  hkex_derivatives_premium_omd_v2_0.update_action.size
-
--- Display: Book Entry
-hkex_derivatives_premium_omd_v2_0.book_entry.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Book Entry
-hkex_derivatives_premium_omd_v2_0.book_entry.fields = function(buffer, offset, packet, parent, book_entry_index)
-  local index = offset
-
-  -- Implicit Book Entry Index
-  if book_entry_index ~= nil and show.book_entry_index then
-    local iteration = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.book_entry_index, book_entry_index)
-    iteration:set_generated()
-  end
-
-  -- Aggregate Quantity: Uint64
-  index, aggregate_quantity = hkex_derivatives_premium_omd_v2_0.aggregate_quantity.dissect(buffer, index, packet, parent)
-
-  -- Price: Int64
-  index, price = hkex_derivatives_premium_omd_v2_0.price.dissect(buffer, index, packet, parent)
-
-  -- Number Of Orders: Uint32
-  index, number_of_orders = hkex_derivatives_premium_omd_v2_0.number_of_orders.dissect(buffer, index, packet, parent)
-
-  -- Side: Uint8
-  index, side = hkex_derivatives_premium_omd_v2_0.side.dissect(buffer, index, packet, parent)
-
-  -- Filler 1: String
-  index, filler_1 = hkex_derivatives_premium_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
-
-  -- Price Level: Uint8
-  index, price_level = hkex_derivatives_premium_omd_v2_0.price_level.dissect(buffer, index, packet, parent)
-
-  -- Update Action: Uint8
-  index, update_action = hkex_derivatives_premium_omd_v2_0.update_action.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Book Entry
-hkex_derivatives_premium_omd_v2_0.book_entry.dissect = function(buffer, offset, packet, parent, book_entry_index)
-  if show.book_entry then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.book_entry, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.book_entry.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
-  end
-end
-
--- Aggregate Order Book Update Message
-hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message = {}
-
--- Calculate size of: Aggregate Order Book Update Message
-hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + hkex_derivatives_premium_omd_v2_0.order_book_id.size
-
-  index = index + hkex_derivatives_premium_omd_v2_0.filler_3.size
-
-  index = index + hkex_derivatives_premium_omd_v2_0.no_entries.size
-
-  -- Calculate field size from count
-  local book_entry_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + book_entry_count * 24
-
-  return index
-end
-
--- Display: Aggregate Order Book Update Message
-hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Aggregate Order Book Update Message
-hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Filler 3: String
-  index, filler_3 = hkex_derivatives_premium_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
-
-  -- No Entries: Uint8
-  index, no_entries = hkex_derivatives_premium_omd_v2_0.no_entries.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Book Entry
-  for book_entry_index = 1, no_entries do
-    index, book_entry = hkex_derivatives_premium_omd_v2_0.book_entry.dissect(buffer, index, packet, parent, book_entry_index)
-  end
-
-  return index
-end
-
--- Dissect: Aggregate Order Book Update Message
-hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.aggregate_order_book_update_message, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4070,7 +3379,7 @@ hkex_derivatives_premium_omd_v2_0.vcm_end = {}
 hkex_derivatives_premium_omd_v2_0.vcm_end.size =
   hkex_derivatives_premium_omd_v2_0.msg_size.size + 
   hkex_derivatives_premium_omd_v2_0.msg_type.size + 
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
   hkex_derivatives_premium_omd_v2_0.cooling_off_start_time.size + 
   hkex_derivatives_premium_omd_v2_0.cooling_off_end_time.size
 
@@ -4089,8 +3398,8 @@ hkex_derivatives_premium_omd_v2_0.vcm_end.fields = function(buffer, offset, pack
   -- Msg Type: Uint16
   index, msg_type = hkex_derivatives_premium_omd_v2_0.msg_type.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Cooling Off Start Time: Uint64
   index, cooling_off_start_time = hkex_derivatives_premium_omd_v2_0.cooling_off_start_time.dissect(buffer, index, packet, parent)
@@ -4124,7 +3433,7 @@ hkex_derivatives_premium_omd_v2_0.vcm_trigger = {}
 
 -- Size: Vcm Trigger
 hkex_derivatives_premium_omd_v2_0.vcm_trigger.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
   hkex_derivatives_premium_omd_v2_0.cooling_off_start_time.size + 
   hkex_derivatives_premium_omd_v2_0.cooling_off_end_time.size + 
   hkex_derivatives_premium_omd_v2_0.vcm_reference_price.size + 
@@ -4141,8 +3450,8 @@ end
 hkex_derivatives_premium_omd_v2_0.vcm_trigger.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Cooling Off Start Time: Uint64
   index, cooling_off_start_time = hkex_derivatives_premium_omd_v2_0.cooling_off_start_time.dissect(buffer, index, packet, parent)
@@ -4240,7 +3549,7 @@ hkex_derivatives_premium_omd_v2_0.instrument_status = {}
 
 -- Size: Instrument Status
 hkex_derivatives_premium_omd_v2_0.instrument_status.size =
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
   hkex_derivatives_premium_omd_v2_0.suspension_indicator.size + 
   hkex_derivatives_premium_omd_v2_0.instrument_status_uint_81.size + 
   hkex_derivatives_premium_omd_v2_0.filler_2.size
@@ -4254,8 +3563,8 @@ end
 hkex_derivatives_premium_omd_v2_0.instrument_status.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Suspension Indicator: Uint8
   index, suspension_indicator = hkex_derivatives_premium_omd_v2_0.suspension_indicator.dissect(buffer, index, packet, parent)
@@ -4430,7 +3739,7 @@ hkex_derivatives_premium_omd_v2_0.instrument_definition = {}
 hkex_derivatives_premium_omd_v2_0.instrument_definition.size =
   hkex_derivatives_premium_omd_v2_0.msg_size.size + 
   hkex_derivatives_premium_omd_v2_0.msg_type.size + 
-  hkex_derivatives_premium_omd_v2_0.order_book_id.size + 
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
   hkex_derivatives_premium_omd_v2_0.symbol.size + 
   hkex_derivatives_premium_omd_v2_0.instrument_class_key.size + 
   hkex_derivatives_premium_omd_v2_0.market_uint_162.size + 
@@ -4468,8 +3777,8 @@ hkex_derivatives_premium_omd_v2_0.instrument_definition.fields = function(buffer
   -- Msg Type: Uint16
   index, msg_type = hkex_derivatives_premium_omd_v2_0.msg_type.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Uint32
-  index, order_book_id = hkex_derivatives_premium_omd_v2_0.order_book_id.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Symbol: String
   index, symbol = hkex_derivatives_premium_omd_v2_0.symbol.dissect(buffer, index, packet, parent)
@@ -4759,173 +4068,33 @@ hkex_derivatives_premium_omd_v2_0.commodity_definition.dissect = function(buffer
   end
 end
 
--- Refresh Complete
-hkex_derivatives_premium_omd_v2_0.refresh_complete = {}
+-- Quote Request
+hkex_derivatives_premium_omd_v2_0.quote_request = {}
 
--- Size: Refresh Complete
-hkex_derivatives_premium_omd_v2_0.refresh_complete.size =
-  hkex_derivatives_premium_omd_v2_0.last_seq_num.size
-
--- Display: Refresh Complete
-hkex_derivatives_premium_omd_v2_0.refresh_complete.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Refresh Complete
-hkex_derivatives_premium_omd_v2_0.refresh_complete.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Last Seq Num: Uint32
-  index, last_seq_num = hkex_derivatives_premium_omd_v2_0.last_seq_num.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Refresh Complete
-hkex_derivatives_premium_omd_v2_0.refresh_complete.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.refresh_complete, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.refresh_complete.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.refresh_complete.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.refresh_complete.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Retransmission Response
-hkex_derivatives_premium_omd_v2_0.retransmission_response = {}
-
--- Size: Retransmission Response
-hkex_derivatives_premium_omd_v2_0.retransmission_response.size =
-  hkex_derivatives_premium_omd_v2_0.channel_id.size + 
-  hkex_derivatives_premium_omd_v2_0.retrans_status.size + 
-  hkex_derivatives_premium_omd_v2_0.filler_1.size + 
-  hkex_derivatives_premium_omd_v2_0.begin_seq_num.size + 
-  hkex_derivatives_premium_omd_v2_0.end_seq_num.size
-
--- Display: Retransmission Response
-hkex_derivatives_premium_omd_v2_0.retransmission_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmission Response
-hkex_derivatives_premium_omd_v2_0.retransmission_response.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Channel Id: Uint16
-  index, channel_id = hkex_derivatives_premium_omd_v2_0.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Retrans Status: Uint8
-  index, retrans_status = hkex_derivatives_premium_omd_v2_0.retrans_status.dissect(buffer, index, packet, parent)
-
-  -- Filler 1: String
-  index, filler_1 = hkex_derivatives_premium_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
-
-  -- Begin Seq Num: Uint32
-  index, begin_seq_num = hkex_derivatives_premium_omd_v2_0.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Uint32
-  index, end_seq_num = hkex_derivatives_premium_omd_v2_0.end_seq_num.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmission Response
-hkex_derivatives_premium_omd_v2_0.retransmission_response.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.retransmission_response, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.retransmission_response.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.retransmission_response.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.retransmission_response.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Retransmission Request
-hkex_derivatives_premium_omd_v2_0.retransmission_request = {}
-
--- Size: Retransmission Request
-hkex_derivatives_premium_omd_v2_0.retransmission_request.size =
-  hkex_derivatives_premium_omd_v2_0.channel_id.size + 
-  hkex_derivatives_premium_omd_v2_0.filler_2.size + 
-  hkex_derivatives_premium_omd_v2_0.begin_seq_num.size + 
-  hkex_derivatives_premium_omd_v2_0.end_seq_num.size
-
--- Display: Retransmission Request
-hkex_derivatives_premium_omd_v2_0.retransmission_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmission Request
-hkex_derivatives_premium_omd_v2_0.retransmission_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Channel Id: Uint16
-  index, channel_id = hkex_derivatives_premium_omd_v2_0.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Filler 2: String
-  index, filler_2 = hkex_derivatives_premium_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
-
-  -- Begin Seq Num: Uint32
-  index, begin_seq_num = hkex_derivatives_premium_omd_v2_0.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Uint32
-  index, end_seq_num = hkex_derivatives_premium_omd_v2_0.end_seq_num.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmission Request
-hkex_derivatives_premium_omd_v2_0.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.retransmission_request, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.retransmission_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.retransmission_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.retransmission_request.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Logon Response
-hkex_derivatives_premium_omd_v2_0.logon_response = {}
-
--- Size: Logon Response
-hkex_derivatives_premium_omd_v2_0.logon_response.size =
-  hkex_derivatives_premium_omd_v2_0.session_status.size + 
+-- Size: Quote Request
+hkex_derivatives_premium_omd_v2_0.quote_request.size =
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
+  hkex_derivatives_premium_omd_v2_0.quantity_int_324.size + 
+  hkex_derivatives_premium_omd_v2_0.bid_ask_flag.size + 
   hkex_derivatives_premium_omd_v2_0.filler_3.size
 
--- Display: Logon Response
-hkex_derivatives_premium_omd_v2_0.logon_response.display = function(packet, parent, length)
+-- Display: Quote Request
+hkex_derivatives_premium_omd_v2_0.quote_request.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Logon Response
-hkex_derivatives_premium_omd_v2_0.logon_response.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Request
+hkex_derivatives_premium_omd_v2_0.quote_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Status: Uint8
-  index, session_status = hkex_derivatives_premium_omd_v2_0.session_status.dissect(buffer, index, packet, parent)
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Quantity Int 324: Int32
+  index, quantity_int_324 = hkex_derivatives_premium_omd_v2_0.quantity_int_324.dissect(buffer, index, packet, parent)
+
+  -- Bid Ask Flag: Uint8
+  index, bid_ask_flag = hkex_derivatives_premium_omd_v2_0.bid_ask_flag.dissect(buffer, index, packet, parent)
 
   -- Filler 3: String
   index, filler_3 = hkex_derivatives_premium_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
@@ -4933,61 +4102,204 @@ hkex_derivatives_premium_omd_v2_0.logon_response.fields = function(buffer, offse
   return index
 end
 
--- Dissect: Logon Response
-hkex_derivatives_premium_omd_v2_0.logon_response.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Request
+hkex_derivatives_premium_omd_v2_0.quote_request.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.logon_response, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.logon_response.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.quote_request, buffer(offset, 0))
+    local index = hkex_derivatives_premium_omd_v2_0.quote_request.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.logon_response.display(packet, parent, length)
+    local display = hkex_derivatives_premium_omd_v2_0.quote_request.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.logon_response.fields(buffer, offset, packet, parent)
+    return hkex_derivatives_premium_omd_v2_0.quote_request.fields(buffer, offset, packet, parent)
   end
 end
 
--- Logon
-hkex_derivatives_premium_omd_v2_0.logon = {}
+-- Open Interest Message
+hkex_derivatives_premium_omd_v2_0.open_interest_message = {}
 
--- Size: Logon
-hkex_derivatives_premium_omd_v2_0.logon.size =
-  hkex_derivatives_premium_omd_v2_0.username.size
+-- Size: Open Interest Message
+hkex_derivatives_premium_omd_v2_0.open_interest_message.size =
+  hkex_derivatives_premium_omd_v2_0.day_indicator.size + 
+  hkex_derivatives_premium_omd_v2_0.filler_6.size + 
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
+  hkex_derivatives_premium_omd_v2_0.settlement_price.size + 
+  hkex_derivatives_premium_omd_v2_0.gross_oi.size + 
+  hkex_derivatives_premium_omd_v2_0.net_oi.size
 
--- Display: Logon
-hkex_derivatives_premium_omd_v2_0.logon.display = function(packet, parent, length)
+-- Display: Open Interest Message
+hkex_derivatives_premium_omd_v2_0.open_interest_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Logon
-hkex_derivatives_premium_omd_v2_0.logon.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Open Interest Message
+hkex_derivatives_premium_omd_v2_0.open_interest_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Username: String
-  index, username = hkex_derivatives_premium_omd_v2_0.username.dissect(buffer, index, packet, parent)
+  -- Day Indicator: Uint16
+  index, day_indicator = hkex_derivatives_premium_omd_v2_0.day_indicator.dissect(buffer, index, packet, parent)
+
+  -- Filler 6: String
+  index, filler_6 = hkex_derivatives_premium_omd_v2_0.filler_6.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Settlement Price: Int32
+  index, settlement_price = hkex_derivatives_premium_omd_v2_0.settlement_price.dissect(buffer, index, packet, parent)
+
+  -- Gross Oi: Int32
+  index, gross_oi = hkex_derivatives_premium_omd_v2_0.gross_oi.dissect(buffer, index, packet, parent)
+
+  -- Net Oi: Int32
+  index, net_oi = hkex_derivatives_premium_omd_v2_0.net_oi.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Logon
-hkex_derivatives_premium_omd_v2_0.logon.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Open Interest Message
+hkex_derivatives_premium_omd_v2_0.open_interest_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.logon, buffer(offset, 0))
-    local index = hkex_derivatives_premium_omd_v2_0.logon.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.open_interest_message, buffer(offset, 0))
+    local index = hkex_derivatives_premium_omd_v2_0.open_interest_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = hkex_derivatives_premium_omd_v2_0.logon.display(packet, parent, length)
+    local display = hkex_derivatives_premium_omd_v2_0.open_interest_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return hkex_derivatives_premium_omd_v2_0.logon.fields(buffer, offset, packet, parent)
+    return hkex_derivatives_premium_omd_v2_0.open_interest_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Alert Message
+hkex_derivatives_premium_omd_v2_0.market_alert_message = {}
+
+-- Calculate size of: Market Alert Message
+hkex_derivatives_premium_omd_v2_0.market_alert_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + hkex_derivatives_premium_omd_v2_0.alert_id.size
+
+  index = index + hkex_derivatives_premium_omd_v2_0.source.size
+
+  index = index + hkex_derivatives_premium_omd_v2_0.header.size
+
+  index = index + hkex_derivatives_premium_omd_v2_0.last_fragment.size
+
+  index = index + hkex_derivatives_premium_omd_v2_0.priority.size
+
+  index = index + hkex_derivatives_premium_omd_v2_0.noof_lines.size
+
+  -- Calculate field size from count
+  local content_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + content_count * 320
+
+  return index
+end
+
+-- Display: Market Alert Message
+hkex_derivatives_premium_omd_v2_0.market_alert_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Alert Message
+hkex_derivatives_premium_omd_v2_0.market_alert_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Alert Id: Uint64
+  index, alert_id = hkex_derivatives_premium_omd_v2_0.alert_id.dissect(buffer, index, packet, parent)
+
+  -- Source: String
+  index, source = hkex_derivatives_premium_omd_v2_0.source.dissect(buffer, index, packet, parent)
+
+  -- Header: Binary
+  index, header = hkex_derivatives_premium_omd_v2_0.header.dissect(buffer, index, packet, parent)
+
+  -- Last Fragment: String
+  index, last_fragment = hkex_derivatives_premium_omd_v2_0.last_fragment.dissect(buffer, index, packet, parent)
+
+  -- Priority: Uint8
+  index, priority = hkex_derivatives_premium_omd_v2_0.priority.dissect(buffer, index, packet, parent)
+
+  -- Noof Lines: Uint8
+  index, noof_lines = hkex_derivatives_premium_omd_v2_0.noof_lines.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Content
+  for content_index = 1, noof_lines do
+    index, content = hkex_derivatives_premium_omd_v2_0.content.dissect(buffer, index, packet, parent, content_index)
+  end
+
+  return index
+end
+
+-- Dissect: Market Alert Message
+hkex_derivatives_premium_omd_v2_0.market_alert_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.market_alert_message, buffer(offset, 0))
+    local index = hkex_derivatives_premium_omd_v2_0.market_alert_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_premium_omd_v2_0.market_alert_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_premium_omd_v2_0.market_alert_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Implied Volatility Message
+hkex_derivatives_premium_omd_v2_0.implied_volatility_message = {}
+
+-- Size: Implied Volatility Message
+hkex_derivatives_premium_omd_v2_0.implied_volatility_message.size =
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
+  hkex_derivatives_premium_omd_v2_0.implied_volatility.size
+
+-- Display: Implied Volatility Message
+hkex_derivatives_premium_omd_v2_0.implied_volatility_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Implied Volatility Message
+hkex_derivatives_premium_omd_v2_0.implied_volatility_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Implied Volatility: Uint32
+  index, implied_volatility = hkex_derivatives_premium_omd_v2_0.implied_volatility.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Implied Volatility Message
+hkex_derivatives_premium_omd_v2_0.implied_volatility_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.implied_volatility_message, buffer(offset, 0))
+    local index = hkex_derivatives_premium_omd_v2_0.implied_volatility_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_premium_omd_v2_0.implied_volatility_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_premium_omd_v2_0.implied_volatility_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5071,11 +4383,265 @@ hkex_derivatives_premium_omd_v2_0.sequence_reset.dissect = function(buffer, offs
   end
 end
 
+-- Calculated Opening Price Message
+hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message = {}
+
+-- Size: Calculated Opening Price Message
+hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.size =
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
+  hkex_derivatives_premium_omd_v2_0.calculated_opening_price.size + 
+  hkex_derivatives_premium_omd_v2_0.filler_4.size + 
+  hkex_derivatives_premium_omd_v2_0.quantity_uint_648.size
+
+-- Display: Calculated Opening Price Message
+hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Calculated Opening Price Message
+hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Calculated Opening Price: Int64
+  index, calculated_opening_price = hkex_derivatives_premium_omd_v2_0.calculated_opening_price.dissect(buffer, index, packet, parent)
+
+  -- Filler 4: String
+  index, filler_4 = hkex_derivatives_premium_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
+
+  -- Quantity Uint 648: Uint64
+  index, quantity_uint_648 = hkex_derivatives_premium_omd_v2_0.quantity_uint_648.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Calculated Opening Price Message
+hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.calculated_opening_price_message, buffer(offset, 0))
+    local index = hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Book Entry
+hkex_derivatives_premium_omd_v2_0.book_entry = {}
+
+-- Size: Book Entry
+hkex_derivatives_premium_omd_v2_0.book_entry.size =
+  hkex_derivatives_premium_omd_v2_0.aggregate_quantity.size + 
+  hkex_derivatives_premium_omd_v2_0.price.size + 
+  hkex_derivatives_premium_omd_v2_0.number_of_orders.size + 
+  hkex_derivatives_premium_omd_v2_0.side.size + 
+  hkex_derivatives_premium_omd_v2_0.filler_1.size + 
+  hkex_derivatives_premium_omd_v2_0.price_level.size + 
+  hkex_derivatives_premium_omd_v2_0.update_action.size
+
+-- Display: Book Entry
+hkex_derivatives_premium_omd_v2_0.book_entry.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Book Entry
+hkex_derivatives_premium_omd_v2_0.book_entry.fields = function(buffer, offset, packet, parent, book_entry_index)
+  local index = offset
+
+  -- Implicit Book Entry Index
+  if book_entry_index ~= nil and show.book_entry_index then
+    local iteration = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.book_entry_index, book_entry_index)
+    iteration:set_generated()
+  end
+
+  -- Aggregate Quantity: Uint64
+  index, aggregate_quantity = hkex_derivatives_premium_omd_v2_0.aggregate_quantity.dissect(buffer, index, packet, parent)
+
+  -- Price: Int64
+  index, price = hkex_derivatives_premium_omd_v2_0.price.dissect(buffer, index, packet, parent)
+
+  -- Number Of Orders: Uint32
+  index, number_of_orders = hkex_derivatives_premium_omd_v2_0.number_of_orders.dissect(buffer, index, packet, parent)
+
+  -- Side: Uint8
+  index, side = hkex_derivatives_premium_omd_v2_0.side.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_derivatives_premium_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+
+  -- Price Level: Uint8
+  index, price_level = hkex_derivatives_premium_omd_v2_0.price_level.dissect(buffer, index, packet, parent)
+
+  -- Update Action: Uint8
+  index, update_action = hkex_derivatives_premium_omd_v2_0.update_action.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Book Entry
+hkex_derivatives_premium_omd_v2_0.book_entry.dissect = function(buffer, offset, packet, parent, book_entry_index)
+  if show.book_entry then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.book_entry, buffer(offset, 0))
+    local index = hkex_derivatives_premium_omd_v2_0.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_premium_omd_v2_0.book_entry.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_premium_omd_v2_0.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
+  end
+end
+
+-- Aggregate Order Book Update Message
+hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message = {}
+
+-- Calculate size of: Aggregate Order Book Update Message
+hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + hkex_derivatives_premium_omd_v2_0.orderbook_id.size
+
+  index = index + hkex_derivatives_premium_omd_v2_0.filler_3.size
+
+  index = index + hkex_derivatives_premium_omd_v2_0.no_entries.size
+
+  -- Calculate field size from count
+  local book_entry_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + book_entry_count * 24
+
+  return index
+end
+
+-- Display: Aggregate Order Book Update Message
+hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Aggregate Order Book Update Message
+hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_derivatives_premium_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+
+  -- No Entries: Uint8
+  index, no_entries = hkex_derivatives_premium_omd_v2_0.no_entries.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Book Entry
+  for book_entry_index = 1, no_entries do
+    index, book_entry = hkex_derivatives_premium_omd_v2_0.book_entry.dissect(buffer, index, packet, parent, book_entry_index)
+  end
+
+  return index
+end
+
+-- Dissect: Aggregate Order Book Update Message
+hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.aggregate_order_book_update_message, buffer(offset, 0))
+    local index = hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Aggregate Implied Order
+hkex_derivatives_premium_omd_v2_0.aggregate_implied_order = {}
+
+-- Size: Aggregate Implied Order
+hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.size =
+  hkex_derivatives_premium_omd_v2_0.orderbook_id.size + 
+  hkex_derivatives_premium_omd_v2_0.implied_price.size + 
+  hkex_derivatives_premium_omd_v2_0.implied_quantity.size + 
+  hkex_derivatives_premium_omd_v2_0.side.size + 
+  hkex_derivatives_premium_omd_v2_0.filler_1.size
+
+-- Display: Aggregate Implied Order
+hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Aggregate Implied Order
+hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_derivatives_premium_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Implied Price: Int64
+  index, implied_price = hkex_derivatives_premium_omd_v2_0.implied_price.dissect(buffer, index, packet, parent)
+
+  -- Implied Quantity: Uint64
+  index, implied_quantity = hkex_derivatives_premium_omd_v2_0.implied_quantity.dissect(buffer, index, packet, parent)
+
+  -- Side: Uint8
+  index, side = hkex_derivatives_premium_omd_v2_0.side.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_derivatives_premium_omd_v2_0.filler_1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Aggregate Implied Order
+hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_derivatives_premium_omd_v2_0.fields.aggregate_implied_order, buffer(offset, 0))
+    local index = hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Payload
 hkex_derivatives_premium_omd_v2_0.payload = {}
 
 -- Dissect: Payload
 hkex_derivatives_premium_omd_v2_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
+  -- Dissect Aggregate Implied Order
+  if msg_type == 337 then
+    return hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aggregate Order Book Update Message
+  if msg_type == 353 then
+    return hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Calculated Opening Price Message
+  if msg_type == 364 then
+    return hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Sequence Reset
   if msg_type == 100 then
     return hkex_derivatives_premium_omd_v2_0.sequence_reset.dissect(buffer, offset, packet, parent)
@@ -5084,25 +4650,21 @@ hkex_derivatives_premium_omd_v2_0.payload.dissect = function(buffer, offset, pac
   if msg_type == 105 then
     return hkex_derivatives_premium_omd_v2_0.disaster_recovery_signal_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logon
-  if msg_type == 101 then
-    return hkex_derivatives_premium_omd_v2_0.logon.dissect(buffer, offset, packet, parent)
+  -- Dissect Implied Volatility Message
+  if msg_type == 367 then
+    return hkex_derivatives_premium_omd_v2_0.implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logon Response
-  if msg_type == 102 then
-    return hkex_derivatives_premium_omd_v2_0.logon_response.dissect(buffer, offset, packet, parent)
+  -- Dissect Market Alert Message
+  if msg_type == 323 then
+    return hkex_derivatives_premium_omd_v2_0.market_alert_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Retransmission Request
-  if msg_type == 201 then
-    return hkex_derivatives_premium_omd_v2_0.retransmission_request.dissect(buffer, offset, packet, parent)
+  -- Dissect Open Interest Message
+  if msg_type == 366 then
+    return hkex_derivatives_premium_omd_v2_0.open_interest_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Retransmission Response
-  if msg_type == 202 then
-    return hkex_derivatives_premium_omd_v2_0.retransmission_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete
-  if msg_type == 203 then
-    return hkex_derivatives_premium_omd_v2_0.refresh_complete.dissect(buffer, offset, packet, parent)
+  -- Dissect Quote Request
+  if msg_type == 336 then
+    return hkex_derivatives_premium_omd_v2_0.quote_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Commodity Definition
   if msg_type == 301 then
@@ -5144,18 +4706,6 @@ hkex_derivatives_premium_omd_v2_0.payload.dissect = function(buffer, offset, pac
   if msg_type == 326 then
     return hkex_derivatives_premium_omd_v2_0.thm_trigger.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Aggregate Order Book Update Message
-  if msg_type == 353 then
-    return hkex_derivatives_premium_omd_v2_0.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request
-  if msg_type == 336 then
-    return hkex_derivatives_premium_omd_v2_0.quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aggregate Implied Order
-  if msg_type == 337 then
-    return hkex_derivatives_premium_omd_v2_0.aggregate_implied_order.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Trade
   if msg_type == 350 then
     return hkex_derivatives_premium_omd_v2_0.trade.dissect(buffer, offset, packet, parent)
@@ -5167,22 +4717,6 @@ hkex_derivatives_premium_omd_v2_0.payload.dissect = function(buffer, offset, pac
   -- Dissect Trade Statistics Message
   if msg_type == 360 then
     return hkex_derivatives_premium_omd_v2_0.trade_statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Calculated Opening Price Message
-  if msg_type == 364 then
-    return hkex_derivatives_premium_omd_v2_0.calculated_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Alert Message
-  if msg_type == 323 then
-    return hkex_derivatives_premium_omd_v2_0.market_alert_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if msg_type == 366 then
-    return hkex_derivatives_premium_omd_v2_0.open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Volatility Message
-  if msg_type == 367 then
-    return hkex_derivatives_premium_omd_v2_0.implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5256,7 +4790,7 @@ hkex_derivatives_premium_omd_v2_0.message.fields = function(buffer, offset, pack
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 27 branches
+  -- Payload: Runtime Type with 22 branches
   index = hkex_derivatives_premium_omd_v2_0.payload.dissect(buffer, index, packet, parent, msg_type)
 
   return index

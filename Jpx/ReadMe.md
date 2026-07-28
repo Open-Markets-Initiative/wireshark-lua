@@ -7,6 +7,7 @@
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Itch][Omi.Encoding.Itch] | [5.0.6][Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.Dissector] | 5/8/2024 | 3116 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.Pdf] |
 | [OseDerivatives][OseDerivatives] | [GeniumInet][Jpx.OseDerivatives.GeniumInet] | [Ouch][Omi.Encoding.Ouch] | [5.0][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector] | 9/16/2020 | 3163 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Pdf] |
+| [TseEquities][TseEquities] | [MarketByOrder][Jpx.TseEquities.MarketByOrder] | [Flex][Omi.Encoding.Flex] | [1.1][Jpx.TseEquities.MarketByOrder.Flex.v1.1.Dissector] | 11/20/2024 | 2487 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Jpx.TseEquities.MarketByOrder.Flex.v1.1.Pdf] |
 
 
 Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
@@ -28,10 +29,15 @@ Jpx: [website](https://www.jpx.co.jp/english "Go to Japan Exchange Group")
 [Omi.Jpx.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jpx/Specifications "Jpx Specifications Directory"
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
+[Omi.Encoding.Flex]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Flex.md "Flex Encoding"
 [OseDerivatives]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jpx/Protocols/OseDerivatives "Jpx OseDerivatives"
+[TseEquities]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jpx/Protocols/TseEquities "Jpx TseEquities"
 [Jpx.OseDerivatives.GeniumInet]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/OseDerivatives/GeniumInet.md "Genium Inet"
+[Jpx.TseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/TseEquities/MarketByOrder.md "Market By Order"
 
 [Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jpx/Jpx_OseDerivatives_GeniumInet_Itch_v5_0_6_Dissector.lua "Jpx OseDerivatives GeniumInet Itch v5.0.6 Wireshark Dissector"
 [Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Specifications/OseDerivatives\Itch\Jpx.OseDerivatives.GeniumInet.Itch.v5.0.6.pdf "Japan Exchange Group 5.0.6 Pdf"
 [Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jpx/Jpx_OseDerivatives_GeniumInet_Ouch_v5_0_Dissector.lua "Jpx OseDerivatives GeniumInet Ouch v5.0 Wireshark Dissector"
 [Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Specifications/OseDerivatives\Ouch\Jpx.OseDerivatives.GeniumInet.Ouch.v5.0.pdf "Japan Exchange Group 5.0 Pdf"
+[Jpx.TseEquities.MarketByOrder.Flex.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jpx/Jpx_TseEquities_MarketByOrder_Flex_v1_1_Dissector.lua "Jpx TseEquities MarketByOrder Flex v1.1 Wireshark Dissector"
+[Jpx.TseEquities.MarketByOrder.Flex.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Specifications/Equities\Mbo\Jpx.Equities.Mbo.Flex.v1.1.pdf "Japan Exchange Group 1.1 Pdf"
