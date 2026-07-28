@@ -259,11 +259,11 @@ omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.exercising_period = Pro
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.expected_time_of_expanding_price_limit_range = ProtoField.new("Expected Time Of Expanding Price Limit Range", "koscom.mdcsrealtime.securitiesb.exture.v2.018.expectedtimeofexpandingpricelimitrange", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.expiration_date = ProtoField.new("Expiration Date", "koscom.mdcsrealtime.securitiesb.exture.v2.018.expirationdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.expiration_date_for_right = ProtoField.new("Expiration Date For Right", "koscom.mdcsrealtime.securitiesb.exture.v2.018.expirationdateforright", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler = ProtoField.new("Filler", "koscom.mdcsrealtime.securitiesb.exture.v2.018.filler", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_1 = ProtoField.new("Filler 1", "koscom.mdcsrealtime.securitiesb.exture.v2.018.filler1", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_11 = ProtoField.new("Filler 11", "koscom.mdcsrealtime.securitiesb.exture.v2.018.filler11", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_3 = ProtoField.new("Filler 3", "koscom.mdcsrealtime.securitiesb.exture.v2.018.filler3", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.securitiesb.exture.v2.018.filler4", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_8 = ProtoField.new("Filler 8", "koscom.mdcsrealtime.securitiesb.exture.v2.018.filler8", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_string_1 = ProtoField.new("Filler String 1", "koscom.mdcsrealtime.securitiesb.exture.v2.018.fillerstring1", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_string_3 = ProtoField.new("Filler String 3", "koscom.mdcsrealtime.securitiesb.exture.v2.018.fillerstring3", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.final_ask_bid_type_code = ProtoField.new("Final Ask Bid Type Code", "koscom.mdcsrealtime.securitiesb.exture.v2.018.finalaskbidtypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.first_best_order_permission_type_code = ProtoField.new("First Best Order Permission Type Code", "koscom.mdcsrealtime.securitiesb.exture.v2.018.firstbestorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.securitiesb.exture.v2.018.futuresbasisprice", ftypes.DOUBLE)
@@ -7121,25 +7121,25 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.expiration_date_for_right.dissect 
   return offset + length, value
 end
 
--- Filler
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler = {}
+-- Filler 1
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_1 = {}
 
--- Size: Filler
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size = 4
+-- Size: Filler 1
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_1.size = 1
 
--- Display: Filler
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.display = function(value)
-  return "Filler: "..value
+-- Display: Filler 1
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_1.display = function(value)
+  return "Filler 1: "..value
 end
 
--- Dissect: Filler
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size
+-- Dissect: Filler 1
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_1.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_securitiesb_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_1, range, value, display)
 
   return offset + length, value
 end
@@ -7172,6 +7172,52 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_11.dissect = function(buffe
   return offset + length, value
 end
 
+-- Filler 3
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3 = {}
+
+-- Size: Filler 3
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.size = 3
+
+-- Display: Filler 3
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.display = function(value)
+  return "Filler 3: "..value
+end
+
+-- Dissect: Filler 3
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_securitiesb_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 4
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4 = {}
+
+-- Size: Filler 4
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.size = 4
+
+-- Display: Filler 4
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.display = function(value)
+  return "Filler 4: "..value
+end
+
+-- Dissect: Filler 4
+koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_securitiesb_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_4, range, value, display)
+
+  return offset + length, value
+end
+
 -- Filler 8
 koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_8 = {}
 
@@ -7191,52 +7237,6 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_8.dissect = function(buffer
   local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Filler String 1
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_1 = {}
-
--- Size: Filler String 1
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_1.size = 1
-
--- Display: Filler String 1
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_1.display = function(value)
-  return "Filler String 1: "..value
-end
-
--- Dissect: Filler String 1
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_1.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_1.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_securitiesb_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_string_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Filler String 3
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_3 = {}
-
--- Size: Filler String 3
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_3.size = 3
-
--- Display: Filler String 3
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_3.display = function(value)
-  return "Filler String 3: "..value
-end
-
--- Dissect: Filler String 3
-koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_3.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_3.size
-  local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_securitiesb_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.filler_string_3, range, value, display)
 
   return offset + length, value
 end
@@ -17895,7 +17895,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_knock_out_underlying_me
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_id.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.todays_high.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.todays_low.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size
 
 -- Display: Securities Knock Out Underlying Message
@@ -17937,8 +17937,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_knock_out_underlying_me
   -- Todays Low: Double
   index, todays_low = koscom_mdcsrealtime_securitiesb_exture_v2_018.todays_low.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -18039,7 +18039,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_etp_constituents_messag
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_asset_classification_id_1.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_asset_classification_id_2.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_id.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size
 
 -- Display: Securities Etp Constituents Message
@@ -18081,8 +18081,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_etp_constituents_messag
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_securitiesb_exture_v2_018.index_id.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -18334,7 +18334,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_elw_batch_data_message.
   koscom_mdcsrealtime_securitiesb_exture_v2_018.calculation_methods_of_appraised_price_at_maturity.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.elw_rights_type_code.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.elwlp_holding_quantity.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size
 
 -- Display: Securities Elw Batch Data Message
@@ -18457,8 +18457,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_elw_batch_data_message.
   -- Elwlp Holding Quantity: Long
   index, elwlp_holding_quantity = koscom_mdcsrealtime_securitiesb_exture_v2_018.elwlp_holding_quantity.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -18829,7 +18829,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per
   koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_ask_trading_value.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_bid_trading_volume.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_bid_trading_value.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size
 
 -- Display: Securities Investor Activities Per Industry Message
@@ -18865,8 +18865,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per
   -- Accumulated Bid Trading Value: FLOAT128
   index, accumulated_bid_trading_value = koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_bid_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 3: String
+  index, filler_3 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -18900,7 +18900,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_dividend_yield_per_indu
   koscom_mdcsrealtime_securitiesb_exture_v2_018.message_sequence_number.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_id.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.dividend_yield.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_3.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size
 
 -- Display: Securities Dividend Yield Per Industry Message
@@ -18921,8 +18921,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_dividend_yield_per_indu
   -- Dividend Yield: Double
   index, dividend_yield = koscom_mdcsrealtime_securitiesb_exture_v2_018.dividend_yield.dissect(buffer, index, packet, parent)
 
-  -- Filler String 3: String
-  index, filler_string_3 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_3.dissect(buffer, index, packet, parent)
+  -- Filler 3: String
+  index, filler_3 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_3.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -18968,7 +18968,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equity_index_indicator_
   koscom_mdcsrealtime_securitiesb_exture_v2_018.dps.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.dividend_yield.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.market_capitalization_type_code.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_1.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_1.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_classification_level_1.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_classification_level_2.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_classification_level_3.size + 
@@ -19043,8 +19043,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equity_index_indicator_
   -- Market Capitalization Type Code: String
   index, market_capitalization_type_code = koscom_mdcsrealtime_securitiesb_exture_v2_018.market_capitalization_type_code.dissect(buffer, index, packet, parent)
 
-  -- Filler String 1: String
-  index, filler_string_1 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_string_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: String
+  index, filler_1 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_1.dissect(buffer, index, packet, parent)
 
   -- Index Classification Level 1: String
   index, index_classification_level_1 = koscom_mdcsrealtime_securitiesb_exture_v2_018.index_classification_level_1.dissect(buffer, index, packet, parent)
@@ -22581,7 +22581,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.global_index_message.size =
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.currency_code.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size
 
 -- Display: Global Index Message
@@ -22617,8 +22617,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.global_index_message.fields = func
   -- Currency Code: String
   index, currency_code = koscom_mdcsrealtime_securitiesb_exture_v2_018.currency_code.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -22657,7 +22657,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.krx_estimated_index_message.size =
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_trading_value.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size
 
 -- Display: Krx Estimated Index Message
@@ -22693,8 +22693,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.krx_estimated_index_message.fields
   -- Accumulated Trading Value: FLOAT128
   index, accumulated_trading_value = koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -22733,7 +22733,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.krx_index_message.size =
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_trading_value.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size
 
 -- Display: Krx Index Message
@@ -22769,8 +22769,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.krx_index_message.fields = functio
   -- Accumulated Trading Value: FLOAT128
   index, accumulated_trading_value = koscom_mdcsrealtime_securitiesb_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)

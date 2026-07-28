@@ -246,7 +246,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_type_code = ProtoField.
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.exercise_ratio = ProtoField.new("Exercise Ratio", "koscom.mdcsrealtime.bonda.exture.v2.018.exerciseratio", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.expected_time_of_expanding_price_limit_range = ProtoField.new("Expected Time Of Expanding Price Limit Range", "koscom.mdcsrealtime.bonda.exture.v2.018.expectedtimeofexpandingpricelimitrange", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.facility_fund = ProtoField.new("Facility Fund", "koscom.mdcsrealtime.bonda.exture.v2.018.facilityfund", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler = ProtoField.new("Filler", "koscom.mdcsrealtime.bonda.exture.v2.018.filler", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.bonda.exture.v2.018.filler4", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_end_date = ProtoField.new("First Call Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstcallexerciseenddate", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_start_date = ProtoField.new("First Call Exercise Start Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstcallexercisestartdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_put_exercise_end_date = ProtoField.new("First Put Exercise End Date", "koscom.mdcsrealtime.bonda.exture.v2.018.firstputexerciseenddate", ftypes.STRING)
@@ -6596,25 +6596,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.dissect = function(buffer,
   return offset + length, value
 end
 
--- Filler
-koscom_mdcsrealtime_bonda_exture_v2_018.filler = {}
+-- Filler 4
+koscom_mdcsrealtime_bonda_exture_v2_018.filler_4 = {}
 
--- Size: Filler
-koscom_mdcsrealtime_bonda_exture_v2_018.filler.size = 4
+-- Size: Filler 4
+koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size = 4
 
--- Display: Filler
-koscom_mdcsrealtime_bonda_exture_v2_018.filler.display = function(value)
-  return "Filler: "..value
+-- Display: Filler 4
+koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.display = function(value)
+  return "Filler 4: "..value
 end
 
--- Dissect: Filler
-koscom_mdcsrealtime_bonda_exture_v2_018.filler.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.filler.size
+-- Dissect: Filler 4
+koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.filler.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler_4, range, value, display)
 
   return offset + length, value
 end
@@ -16503,7 +16503,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.global_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.currency_code.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
 -- Display: Global Index Message
@@ -16539,8 +16539,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.global_index_message.fields = function(b
   -- Currency Code: String
   index, currency_code = koscom_mdcsrealtime_bonda_exture_v2_018.currency_code.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_bonda_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -16579,7 +16579,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_estimated_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
 -- Display: Krx Estimated Index Message
@@ -16615,8 +16615,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_estimated_index_message.fields = fun
   -- Accumulated Trading Value: FLOAT128
   index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_bonda_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -16655,7 +16655,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
 -- Display: Krx Index Message
@@ -16691,8 +16691,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_index_message.fields = function(buff
   -- Accumulated Trading Value: FLOAT128
   index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_bonda_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)

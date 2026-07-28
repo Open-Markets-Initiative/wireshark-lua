@@ -60,7 +60,8 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.cur
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.current_time = ProtoField.new("Current Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.currenttime", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.duration = ProtoField.new("Duration", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.duration", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.endkeyword", ftypes.STRING)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.filler = ProtoField.new("Filler", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.filler", ftypes.STRING)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.filler_3 = ProtoField.new("Filler 3", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.filler3", ftypes.STRING)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.filler4", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.futuresbasisprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.group_code = ProtoField.new("Group Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.groupcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.index = ProtoField.new("Index", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.index", ftypes.DOUBLE)
@@ -1385,25 +1386,48 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.di
   return offset + length, value
 end
 
--- Filler
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler = {}
+-- Filler 3
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3 = {}
 
--- Size: Filler
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.size = 3
+-- Size: Filler 3
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.size = 3
 
--- Display: Filler
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.display = function(value)
-  return "Filler: "..value
+-- Display: Filler 3
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.display = function(value)
+  return "Filler 3: "..value
 end
 
--- Dissect: Filler
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.size
+-- Dissect: Filler 3
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.filler, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.filler_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 4
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4 = {}
+
+-- Size: Filler 4
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.size = 4
+
+-- Display: Filler 4
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.display = function(value)
+  return "Filler 4: "..value
+end
+
+-- Dissect: Filler 4
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.filler_4, range, value, display)
 
   return offset + length, value
 end
@@ -2978,7 +3002,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.securities_inv
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_ask_trading_value.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_bid_trading_volume.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_bid_trading_value.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.size
 
 -- Display: Securities Investor Activities Per Industry Message
@@ -3014,8 +3038,8 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.securities_inv
   -- Accumulated Bid Trading Value: FLOAT128
   index, accumulated_bid_trading_value = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_bid_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 3: String
+  index, filler_3 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -3486,7 +3510,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.global_index_m
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.currency_code.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.size
 
 -- Display: Global Index Message
@@ -3522,8 +3546,8 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.global_index_m
   -- Currency Code: String
   index, currency_code = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.currency_code.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -3562,7 +3586,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.krx_estimated_
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_trading_value.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.size
 
 -- Display: Krx Estimated Index Message
@@ -3598,8 +3622,8 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.krx_estimated_
   -- Accumulated Trading Value: Long
   index, accumulated_trading_value = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -3638,7 +3662,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.krx_index_mess
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_trading_value.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.size
 
 -- Display: Krx Index Message
@@ -3674,8 +3698,8 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.krx_index_mess
   -- Accumulated Trading Value: Long
   index, accumulated_trading_value = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
 
-  -- Filler: String
-  index, filler = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
