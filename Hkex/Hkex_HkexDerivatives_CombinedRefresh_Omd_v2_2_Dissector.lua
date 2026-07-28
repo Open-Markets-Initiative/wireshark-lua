@@ -1,0 +1,4595 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Hkex HkexDerivatives CombinedRefresh Omd 2.2 Protocol
+local omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2 = Proto("Omi.Hkex.HkexDerivatives.CombinedRefresh.Omd.v2.2", "Hkex HkexDerivatives CombinedRefresh Omd 2.2")
+
+-- Protocol table
+local hkex_hkexderivatives_combinedrefresh_omd_v2_2 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Hkex HkexDerivatives CombinedRefresh Omd 2.2 Fields
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.actualstarttime", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.aggregatequantity", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.alert_id = ProtoField.new("Alert Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.alertid", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.base_currency = ProtoField.new("Base Currency", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.basecurrency", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.book_entry = ProtoField.new("Book Entry", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.bookentry", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.business_time = ProtoField.new("Business Time", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.businesstime", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.calculatedopeningprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.combo_orderbook_id = ProtoField.new("Combo Orderbook Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.comboorderbookid", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_code = ProtoField.new("Commodity Code", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.commoditycode", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_id = ProtoField.new("Commodity Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.commodityid", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_name = ProtoField.new("Commodity Name", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.commodityname", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.compressionmode", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.content = ProtoField.new("Content", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.content", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.contract_size_int_324 = ProtoField.new("Contract Size Int 324", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.contractsizeint324", ftypes.INT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.contract_size_uint_324 = ProtoField.new("Contract Size Uint 324", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.contractsizeuint324", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.coolingoffendtime", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.coolingoffstarttime", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.day_indicator = ProtoField.new("Day Indicator", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.dayindicator", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.decimalincontractsize", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_price = ProtoField.new("Decimal In Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.decimalinprice", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_strike_price = ProtoField.new("Decimal In Strike Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.decimalinstrikeprice", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_underlying_price = ProtoField.new("Decimal In Underlying Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.decimalinunderlyingprice", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.effective_last_trading_date = ProtoField.new("Effective Last Trading Date", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.effectivelasttradingdate", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.effective_tomorrow = ProtoField.new("Effective Tomorrow", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.effectivetomorrow", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.exchange = ProtoField.new("Exchange", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.exchange", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler1", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_10 = ProtoField.new("Filler 10", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler10", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler2", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler3", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler4", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler5", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_6 = ProtoField.new("Filler 6", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler6", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.first_trading_date = ProtoField.new("First Trading Date", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.firsttradingdate", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.firsttradingtime", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.gross_oi = ProtoField.new("Gross Oi", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.grossoi", ftypes.INT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.header", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.high_price = ProtoField.new("High Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.highprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.implied_price = ProtoField.new("Implied Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.impliedprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.implied_quantity = ProtoField.new("Implied Quantity", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.impliedquantity", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.implied_volatility = ProtoField.new("Implied Volatility", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.impliedvolatility", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.info_type = ProtoField.new("Info Type", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.infotype", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_class_id = ProtoField.new("Instrument Class Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumentclassid", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_class_key = ProtoField.new("Instrument Class Key", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumentclasskey", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_class_name = ProtoField.new("Instrument Class Name", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumentclassname", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_group = ProtoField.new("Instrument Group", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumentgroup", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_status_uint_81 = ProtoField.new("Instrument Status Uint 81", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumentstatusuint81", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_type_id = ProtoField.new("Instrument Type Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumenttypeid", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_type_key = ProtoField.new("Instrument Type Key", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumenttypekey", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.isin_code = ProtoField.new("Isin Code", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.isincode", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.key_type = ProtoField.new("Key Type", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.keytype", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_fragment = ProtoField.new("Last Fragment", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.lastfragment", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_price = ProtoField.new("Last Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.lastprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.lastseqnum", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_trading_date = ProtoField.new("Last Trading Date", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.lasttradingdate", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_trading_time = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.lasttradingtime", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.leg_orderbook_id = ProtoField.new("Leg Orderbook Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.legorderbookid", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.leg_ratio = ProtoField.new("Leg Ratio", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.legratio", ftypes.INT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.leg_side = ProtoField.new("Leg Side", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.legside", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.lot_type = ProtoField.new("Lot Type", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.lottype", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.low_price = ProtoField.new("Low Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.lowprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.market_uint_162 = ProtoField.new("Market Uint 162", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.marketuint162", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.market_uint_164 = ProtoField.new("Market Uint 164", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.marketuint164", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.message", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.modifier = ProtoField.new("Modifier", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.modifier", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.msgcount", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.msgheader", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.msgsize", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.msgtype", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.net_oi = ProtoField.new("Net Oi", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.netoi", ftypes.INT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.no_entries = ProtoField.new("No Entries", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.noentries", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.noof_lines = ProtoField.new("Noof Lines", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.nooflines", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.number_of_legs = ProtoField.new("Number Of Legs", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.numberoflegs", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.number_of_orders = ProtoField.new("Number Of Orders", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.numberoforders", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.open_price = ProtoField.new("Open Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.openprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.order_book_position = ProtoField.new("Order Book Position", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.orderbookposition", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.order_id = ProtoField.new("Order Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.orderid", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.order_type = ProtoField.new("Order Type", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.ordertype", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.orderbookid", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.packet", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.packetheader", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.pktsize", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.plannedstarttime", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.price = ProtoField.new("Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.price", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.price_level = ProtoField.new("Price Level", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.pricelevel", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.price_quotation_factor_int_324 = ProtoField.new("Price Quotation Factor Int 324", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.pricequotationfactorint324", ftypes.INT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.price_quotation_factor_uint_324 = ProtoField.new("Price Quotation Factor Uint 324", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.pricequotationfactoruint324", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.priority", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.quantity_uint_324 = ProtoField.new("Quantity Uint 324", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.quantityuint324", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.quantity_uint_648 = ProtoField.new("Quantity Uint 648", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.quantityuint648", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.sendtime", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.seqnum", ftypes.UINT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.session", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.settlementcurrencyid", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.settlement_price = ProtoField.new("Settlement Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.settlementprice", ftypes.INT32)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.side = ProtoField.new("Side", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.side", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.source = ProtoField.new("Source", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.source", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.state = ProtoField.new("State", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.state", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.state_level = ProtoField.new("State Level", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.statelevel", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.strike_price = ProtoField.new("Strike Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.strikeprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.suspended = ProtoField.new("Suspended", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.suspended", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.suspension_indicator = ProtoField.new("Suspension Indicator", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.suspensionindicator", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.symbol = ProtoField.new("Symbol", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.symbol", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.tick_size = ProtoField.new("Tick Size", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.ticksize", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.tradable = ProtoField.new("Tradable", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.tradable", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.trade_report_volume = ProtoField.new("Trade Report Volume", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.tradereportvolume", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.turnover = ProtoField.new("Turnover", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.turnover", ftypes.UINT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.underlying_code = ProtoField.new("Underlying Code", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.underlyingcode", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.underlyingtype", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.update_action = ProtoField.new("Update Action", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.updateaction", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_flag = ProtoField.new("Vcm Flag", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.vcmflag", ftypes.UINT8)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_lower_price = ProtoField.new("Vcm Lower Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.vcmlowerprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.vcmreferenceprice", ftypes.INT64)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_upper_price = ProtoField.new("Vcm Upper Price", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.vcmupperprice", ftypes.INT64)
+
+-- Hkex HkexDerivatives Omd CombinedRefresh 2.2 Application Messages
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.add_order = ProtoField.new("Add Order", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.addorder", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.aggregate_implied_order = ProtoField.new("Aggregate Implied Order", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.aggregateimpliedorder", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.aggregateorderbookupdatemessage", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.calculated_opening_price_message = ProtoField.new("Calculated Opening Price Message", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.calculatedopeningpricemessage", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.class_definition = ProtoField.new("Class Definition", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.classdefinition", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.combination_definition = ProtoField.new("Combination Definition", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.combinationdefinition", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_and_class_status = ProtoField.new("Commodity And Class Status", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.commodityandclassstatus", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_definition = ProtoField.new("Commodity Definition", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.commoditydefinition", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.implied_volatility_message = ProtoField.new("Implied Volatility Message", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.impliedvolatilitymessage", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_definition = ProtoField.new("Instrument Definition", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumentdefinition", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_status = ProtoField.new("Instrument Status", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.instrumentstatus", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.market_alert_message = ProtoField.new("Market Alert Message", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.marketalertmessage", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.market_status = ProtoField.new("Market Status", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.marketstatus", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.open_interest_message = ProtoField.new("Open Interest Message", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.openinterestmessage", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.refresh_complete = ProtoField.new("Refresh Complete", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.refreshcomplete", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.thm_trigger = ProtoField.new("Thm Trigger", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.thmtrigger", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.trade_statistics_message = ProtoField.new("Trade Statistics Message", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.tradestatisticsmessage", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_trigger = ProtoField.new("Vcm Trigger", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.vcmtrigger", ftypes.STRING)
+
+-- Hkex HkexDerivatives CombinedRefresh Omd 2.2 generated fields
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.book_entry_index = ProtoField.new("Book Entry Index", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.bookentryindex", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.content_index = ProtoField.new("Content Index", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.contentindex", ftypes.UINT16)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Hkex HkexDerivatives CombinedRefresh Omd 2.2 Element Dissection Options
+show.application_messages = true
+show.book_entry = true
+show.message = true
+show.msg_header = true
+show.packet = true
+show.packet_header = true
+show.message_index = true
+show.book_entry_index = true
+show.content_index = true
+
+-- Register Hkex HkexDerivatives CombinedRefresh Omd 2.2 Show Options
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_book_entry = Pref.bool("Show Book Entry", show.book_entry, "Parse and add Book Entry to protocol tree")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_book_entry_index = Pref.bool("Show Book Entry Index", show.book_entry_index, "Show generated book entry index in protocol tree")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_content_index = Pref.bool("Show Content Index", show.content_index, "Show generated content index in protocol tree")
+
+
+-- Handle changed preferences
+function omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_application_messages then
+    show.application_messages = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_application_messages
+  end
+  if show.book_entry ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_book_entry then
+    show.book_entry = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_book_entry
+  end
+  if show.message ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_message then
+    show.message = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_message
+  end
+  if show.msg_header ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_msg_header then
+    show.msg_header = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_msg_header
+  end
+  if show.packet ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_packet then
+    show.packet = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_packet
+  end
+  if show.packet_header ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_packet_header then
+    show.packet_header = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_packet_header
+  end
+  if show.message_index ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_message_index then
+    show.message_index = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_message_index
+  end
+  if show.book_entry_index ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_book_entry_index then
+    show.book_entry_index = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_book_entry_index
+  end
+  if show.content_index ~= omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_content_index then
+    show.content_index = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.prefs.show_content_index
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Hkex HkexDerivatives CombinedRefresh Omd 2.2 Fields
+-----------------------------------------------------------------------
+
+-- Actual Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.actual_start_time = {}
+
+-- Size: Actual Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.actual_start_time.size = 8
+
+-- Display: Actual Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.actual_start_time.display = function(value)
+  return "Actual Start Time: "..value
+end
+
+-- Dissect: Actual Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.actual_start_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.actual_start_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.actual_start_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.actual_start_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aggregate Quantity
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_quantity = {}
+
+-- Size: Aggregate Quantity
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_quantity.size = 8
+
+-- Display: Aggregate Quantity
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_quantity.display = function(value)
+  return "Aggregate Quantity: "..value
+end
+
+-- Dissect: Aggregate Quantity
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.aggregate_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alert Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.alert_id = {}
+
+-- Size: Alert Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.alert_id.size = 8
+
+-- Display: Alert Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.alert_id.display = function(value)
+  return "Alert Id: "..value
+end
+
+-- Dissect: Alert Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.alert_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.alert_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.alert_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.alert_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Base Currency
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency = {}
+
+-- Size: Base Currency
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.size = 3
+
+-- Display: Base Currency
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.display = function(value)
+  return "Base Currency: "..value
+end
+
+-- Dissect: Base Currency
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.base_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Business Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.business_time = {}
+
+-- Size: Business Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.business_time.size = 8
+
+-- Display: Business Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.business_time.display = function(value)
+  return "Business Time: "..value
+end
+
+-- Dissect: Business Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.business_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.business_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.business_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.business_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculated Opening Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price = {}
+
+-- Size: Calculated Opening Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price.size = 8
+
+-- Display: Calculated Opening Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price.display = function(value)
+  return "Calculated Opening Price: "..value
+end
+
+-- Dissect: Calculated Opening Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.calculated_opening_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Combo Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combo_orderbook_id = {}
+
+-- Size: Combo Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combo_orderbook_id.size = 4
+
+-- Display: Combo Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combo_orderbook_id.display = function(value)
+  return "Combo Orderbook Id: "..value
+end
+
+-- Dissect: Combo Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combo_orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.combo_orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.combo_orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.combo_orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Commodity Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code = {}
+
+-- Size: Commodity Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.size = 4
+
+-- Display: Commodity Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.display = function(value)
+  return "Commodity Code: "..value
+end
+
+-- Dissect: Commodity Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Commodity Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_id = {}
+
+-- Size: Commodity Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_id.size = 6
+
+-- Display: Commodity Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_id.display = function(value)
+  return "Commodity Id: "..value
+end
+
+-- Dissect: Commodity Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Commodity Name
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_name = {}
+
+-- Size: Commodity Name
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_name.size = 40
+
+-- Display: Commodity Name
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_name.display = function(value)
+  return "Commodity Name: "..value
+end
+
+-- Dissect: Commodity Name
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_name.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_name.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Compression Mode
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.compression_mode = {}
+
+-- Size: Compression Mode
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.compression_mode.size = 1
+
+-- Display: Compression Mode
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.compression_mode.display = function(value)
+  return "Compression Mode: "..value
+end
+
+-- Dissect: Compression Mode
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.compression_mode.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.compression_mode.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.compression_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.compression_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Content
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.content = {}
+
+-- Size: Content
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.content.size = 320
+
+-- Display: Content
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.content.display = function(value)
+  return "Content: "..value
+end
+
+-- Dissect: Content
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.content.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.content.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.content.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.content, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Size Int 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_int_324 = {}
+
+-- Size: Contract Size Int 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_int_324.size = 4
+
+-- Display: Contract Size Int 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_int_324.display = function(value)
+  return "Contract Size Int 324: "..value
+end
+
+-- Dissect: Contract Size Int 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_int_324.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_int_324.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_int_324.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.contract_size_int_324, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Size Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_uint_324 = {}
+
+-- Size: Contract Size Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_uint_324.size = 4
+
+-- Display: Contract Size Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_uint_324.display = function(value)
+  return "Contract Size Uint 324: "..value
+end
+
+-- Dissect: Contract Size Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_uint_324.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_uint_324.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_uint_324.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.contract_size_uint_324, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cooling Off End Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_end_time = {}
+
+-- Size: Cooling Off End Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_end_time.size = 8
+
+-- Display: Cooling Off End Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_end_time.display = function(value)
+  return "Cooling Off End Time: "..value
+end
+
+-- Dissect: Cooling Off End Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_end_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_end_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_end_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.cooling_off_end_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cooling Off Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_start_time = {}
+
+-- Size: Cooling Off Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_start_time.size = 8
+
+-- Display: Cooling Off Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_start_time.display = function(value)
+  return "Cooling Off Start Time: "..value
+end
+
+-- Dissect: Cooling Off Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_start_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_start_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_start_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.cooling_off_start_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Day Indicator
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator = {}
+
+-- Size: Day Indicator
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator.size = 2
+
+-- Display: Day Indicator
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator.display = function(value)
+  if value == 0 then
+    return "Day Indicator: Current Trading Day (0)"
+  end
+  if value == 1 then
+    return "Day Indicator: Previous Trading Day (1)"
+  end
+
+  return "Day Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Day Indicator
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.day_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decimal In Contract Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_contract_size = {}
+
+-- Size: Decimal In Contract Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_contract_size.size = 2
+
+-- Display: Decimal In Contract Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_contract_size.display = function(value)
+  return "Decimal In Contract Size: "..value
+end
+
+-- Dissect: Decimal In Contract Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_contract_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_contract_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_contract_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decimal In Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_price = {}
+
+-- Size: Decimal In Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_price.size = 2
+
+-- Display: Decimal In Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_price.display = function(value)
+  return "Decimal In Price: "..value
+end
+
+-- Dissect: Decimal In Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decimal In Strike Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_strike_price = {}
+
+-- Size: Decimal In Strike Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_strike_price.size = 2
+
+-- Display: Decimal In Strike Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_strike_price.display = function(value)
+  return "Decimal In Strike Price: "..value
+end
+
+-- Dissect: Decimal In Strike Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_strike_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decimal In Underlying Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_underlying_price = {}
+
+-- Size: Decimal In Underlying Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_underlying_price.size = 2
+
+-- Display: Decimal In Underlying Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_underlying_price.display = function(value)
+  return "Decimal In Underlying Price: "..value
+end
+
+-- Dissect: Decimal In Underlying Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_underlying_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_underlying_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_underlying_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_underlying_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Effective Last Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_last_trading_date = {}
+
+-- Size: Effective Last Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_last_trading_date.size = 4
+
+-- Display: Effective Last Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_last_trading_date.display = function(value)
+  return "Effective Last Trading Date: "..value
+end
+
+-- Dissect: Effective Last Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_last_trading_date.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_last_trading_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_last_trading_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.effective_last_trading_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Effective Tomorrow
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow = {}
+
+-- Size: Effective Tomorrow
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.size = 1
+
+-- Display: Effective Tomorrow
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.display = function(value)
+  if value == 0 then
+    return "Effective Tomorrow: False (0)"
+  end
+  if value == 1 then
+    return "Effective Tomorrow: True (1)"
+  end
+
+  return "Effective Tomorrow: Unknown("..value..")"
+end
+
+-- Dissect: Effective Tomorrow
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.effective_tomorrow, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.exchange = {}
+
+-- Size: Exchange
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.exchange.size = 2
+
+-- Display: Exchange
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.exchange.display = function(value)
+  return "Exchange: "..value
+end
+
+-- Dissect: Exchange
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.exchange.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.exchange.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 1
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1 = {}
+
+-- Size: Filler 1
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.size = 1
+
+-- Display: Filler 1
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.display = function(value)
+  return "Filler 1: "..value
+end
+
+-- Dissect: Filler 1
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 10
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_10 = {}
+
+-- Size: Filler 10
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_10.size = 10
+
+-- Display: Filler 10
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_10.display = function(value)
+  return "Filler 10: "..value
+end
+
+-- Dissect: Filler 10
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_10.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_10.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_10.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_10, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 2
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2 = {}
+
+-- Size: Filler 2
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.size = 2
+
+-- Display: Filler 2
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.display = function(value)
+  return "Filler 2: "..value
+end
+
+-- Dissect: Filler 2
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 3
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3 = {}
+
+-- Size: Filler 3
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size = 3
+
+-- Display: Filler 3
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.display = function(value)
+  return "Filler 3: "..value
+end
+
+-- Dissect: Filler 3
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 4
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4 = {}
+
+-- Size: Filler 4
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.size = 4
+
+-- Display: Filler 4
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.display = function(value)
+  return "Filler 4: "..value
+end
+
+-- Dissect: Filler 4
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 5
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_5 = {}
+
+-- Size: Filler 5
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_5.size = 5
+
+-- Display: Filler 5
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_5.display = function(value)
+  return "Filler 5: "..value
+end
+
+-- Dissect: Filler 5
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_5.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_5.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_5.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_5, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 6
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6 = {}
+
+-- Size: Filler 6
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.size = 6
+
+-- Display: Filler 6
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.display = function(value)
+  return "Filler 6: "..value
+end
+
+-- Dissect: Filler 6
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_date = {}
+
+-- Size: First Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_date.size = 4
+
+-- Display: First Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_date.display = function(value)
+  return "First Trading Date: "..value
+end
+
+-- Dissect: First Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_date.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.first_trading_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Trading Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_time = {}
+
+-- Size: First Trading Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_time.size = 8
+
+-- Display: First Trading Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_time.display = function(value)
+  return "First Trading Time: "..value
+end
+
+-- Dissect: First Trading Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.first_trading_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gross Oi
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.gross_oi = {}
+
+-- Size: Gross Oi
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.gross_oi.size = 4
+
+-- Display: Gross Oi
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.gross_oi.display = function(value)
+  return "Gross Oi: "..value
+end
+
+-- Dissect: Gross Oi
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.gross_oi.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.gross_oi.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.gross_oi.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.gross_oi, range, value, display)
+
+  return offset + length, value
+end
+
+-- Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.header = {}
+
+-- Size: Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.header.size = 320
+
+-- Display: Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.header.display = function(value)
+  return "Header: "..value
+end
+
+-- Dissect: Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.header.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.header.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.header.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.header, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.high_price = {}
+
+-- Size: High Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.high_price.size = 8
+
+-- Display: High Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.high_price.display = function(value)
+  return "High Price: "..value
+end
+
+-- Dissect: High Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.high_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Implied Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_price = {}
+
+-- Size: Implied Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_price.size = 8
+
+-- Display: Implied Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_price.display = function(value)
+  return "Implied Price: "..value
+end
+
+-- Dissect: Implied Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.implied_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Implied Quantity
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_quantity = {}
+
+-- Size: Implied Quantity
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_quantity.size = 8
+
+-- Display: Implied Quantity
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_quantity.display = function(value)
+  return "Implied Quantity: "..value
+end
+
+-- Dissect: Implied Quantity
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.implied_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Implied Volatility
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility = {}
+
+-- Size: Implied Volatility
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility.size = 4
+
+-- Display: Implied Volatility
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility.display = function(value)
+  return "Implied Volatility: "..value
+end
+
+-- Dissect: Implied Volatility
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.implied_volatility, range, value, display)
+
+  return offset + length, value
+end
+
+-- Info Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.info_type = {}
+
+-- Size: Info Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.info_type.size = 1
+
+-- Display: Info Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.info_type.display = function(value)
+  if value == 0 then
+    return "Info Type: Not Specified (0)"
+  end
+  if value == 1 then
+    return "Info Type: Company Announcement (1)"
+  end
+  if value == 2 then
+    return "Info Type: Market Message (2)"
+  end
+  if value == 3 then
+    return "Info Type: Static Line (3)"
+  end
+  if value == 4 then
+    return "Info Type: Notice Received (4)"
+  end
+
+  return "Info Type: Unknown("..value..")"
+end
+
+-- Dissect: Info Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.info_type.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.info_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.info_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.info_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Class Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_id = {}
+
+-- Size: Instrument Class Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_id.size = 14
+
+-- Display: Instrument Class Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_id.display = function(value)
+  return "Instrument Class Id: "..value
+end
+
+-- Dissect: Instrument Class Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_class_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Class Key
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key = {}
+
+-- Size: Instrument Class Key
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.size = 4
+
+-- Display: Instrument Class Key
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.display = function(value)
+  return "Instrument Class Key: "..value
+end
+
+-- Dissect: Instrument Class Key
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_class_key, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Class Name
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_name = {}
+
+-- Size: Instrument Class Name
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_name.size = 40
+
+-- Display: Instrument Class Name
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_name.display = function(value)
+  return "Instrument Class Name: "..value
+end
+
+-- Dissect: Instrument Class Name
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_name.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_name.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_class_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Group
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group = {}
+
+-- Size: Instrument Group
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.size = 2
+
+-- Display: Instrument Group
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.display = function(value)
+  return "Instrument Group: "..value
+end
+
+-- Dissect: Instrument Group
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Status Uint 81
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81 = {}
+
+-- Size: Instrument Status Uint 81
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.size = 1
+
+-- Display: Instrument Status Uint 81
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.display = function(value)
+  return "Instrument Status Uint 81: "..value
+end
+
+-- Dissect: Instrument Status Uint 81
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_status_uint_81, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_id = {}
+
+-- Size: Instrument Type Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_id.size = 8
+
+-- Display: Instrument Type Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_id.display = function(value)
+  return "Instrument Type Id: "..value
+end
+
+-- Dissect: Instrument Type Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_type_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type Key
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key = {}
+
+-- Size: Instrument Type Key
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.size = 4
+
+-- Display: Instrument Type Key
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.display = function(value)
+  return "Instrument Type Key: "..value
+end
+
+-- Dissect: Instrument Type Key
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_type_key, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.isin_code = {}
+
+-- Size: Isin Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.isin_code.size = 12
+
+-- Display: Isin Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.isin_code.display = function(value)
+  return "Isin Code: "..value
+end
+
+-- Dissect: Isin Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.isin_code.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.isin_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.isin_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.isin_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Key Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.key_type = {}
+
+-- Size: Key Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.key_type.size = 1
+
+-- Display: Key Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.key_type.display = function(value)
+  if value == "0" then
+    return "Key Type: Instrument Class (0)"
+  end
+  if value == "1" then
+    return "Key Type: Combo Class (1)"
+  end
+
+  return "Key Type: Unknown("..value..")"
+end
+
+-- Dissect: Key Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.key_type.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.key_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.key_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.key_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Fragment
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_fragment = {}
+
+-- Size: Last Fragment
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_fragment.size = 1
+
+-- Display: Last Fragment
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_fragment.display = function(value)
+  if value == "Y" then
+    return "Last Fragment: Complete (Y)"
+  end
+  if value == "N" then
+    return "Last Fragment: Not Complete (N)"
+  end
+
+  return "Last Fragment: Unknown("..value..")"
+end
+
+-- Dissect: Last Fragment
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_fragment.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_fragment.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_fragment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_fragment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_price = {}
+
+-- Size: Last Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_price.size = 8
+
+-- Display: Last Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_price.display = function(value)
+  return "Last Price: "..value
+end
+
+-- Dissect: Last Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Seq Num
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_seq_num = {}
+
+-- Size: Last Seq Num
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_date = {}
+
+-- Size: Last Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_date.size = 4
+
+-- Display: Last Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_date.display = function(value)
+  return "Last Trading Date: "..value
+end
+
+-- Dissect: Last Trading Date
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_date.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_trading_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trading Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_time = {}
+
+-- Size: Last Trading Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_time.size = 8
+
+-- Display: Last Trading Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_time.display = function(value)
+  return "Last Trading Time: "..value
+end
+
+-- Dissect: Last Trading Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.last_trading_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_orderbook_id = {}
+
+-- Size: Leg Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_orderbook_id.size = 4
+
+-- Display: Leg Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_orderbook_id.display = function(value)
+  return "Leg Orderbook Id: "..value
+end
+
+-- Dissect: Leg Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.leg_orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_ratio = {}
+
+-- Size: Leg Ratio
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_side = {}
+
+-- Size: Leg Side
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_side.size = 1
+
+-- Display: Leg Side
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_side.display = function(value)
+  if value == "B" then
+    return "Leg Side: As Defined (B)"
+  end
+  if value == "C" then
+    return "Leg Side: Opposite (C)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.lot_type = {}
+
+-- Size: Lot Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.lot_type.size = 1
+
+-- Display: Lot Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.lot_type.display = function(value)
+  if value == 2 then
+    return "Lot Type: Round Lot (2)"
+  end
+
+  return "Lot Type: Unknown("..value..")"
+end
+
+-- Dissect: Lot Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.lot_type.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.lot_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.lot_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.lot_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.low_price = {}
+
+-- Size: Low Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.low_price.size = 8
+
+-- Display: Low Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.low_price.display = function(value)
+  return "Low Price: "..value
+end
+
+-- Dissect: Low Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.low_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Uint 162
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162 = {}
+
+-- Size: Market Uint 162
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.size = 2
+
+-- Display: Market Uint 162
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.display = function(value)
+  return "Market Uint 162: "..value
+end
+
+-- Dissect: Market Uint 162
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.market_uint_162, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Uint 164
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_164 = {}
+
+-- Size: Market Uint 164
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_164.size = 4
+
+-- Display: Market Uint 164
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_164.display = function(value)
+  return "Market Uint 164: "..value
+end
+
+-- Dissect: Market Uint 164
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_164.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_164.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_164.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.market_uint_164, range, value, display)
+
+  return offset + length, value
+end
+
+-- Modifier
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.modifier = {}
+
+-- Size: Modifier
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.modifier.size = 2
+
+-- Display: Modifier
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.modifier.display = function(value)
+  return "Modifier: "..value
+end
+
+-- Dissect: Modifier
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.modifier.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.modifier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.modifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.modifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Count
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_count = {}
+
+-- Size: Msg Count
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_count.size = 1
+
+-- Display: Msg Count
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_count.display = function(value)
+  return "Msg Count: "..value
+end
+
+-- Dissect: Msg Count
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_count.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.msg_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size = {}
+
+-- Size: Msg Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.size = 2
+
+-- Display: Msg Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.display = function(value)
+  return "Msg Size: "..value
+end
+
+-- Dissect: Msg Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.msg_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type = {}
+
+-- Size: Msg Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.size = 2
+
+-- Display: Msg Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.display = function(value)
+  if value == 330 then
+    return "Msg Type: Add Order (330)"
+  end
+  if value == 337 then
+    return "Msg Type: Aggregate Implied Order (337)"
+  end
+  if value == 353 then
+    return "Msg Type: Aggregate Order Book Update Message (353)"
+  end
+  if value == 364 then
+    return "Msg Type: Calculated Opening Price Message (364)"
+  end
+  if value == 367 then
+    return "Msg Type: Implied Volatility Message (367)"
+  end
+  if value == 323 then
+    return "Msg Type: Market Alert Message (323)"
+  end
+  if value == 366 then
+    return "Msg Type: Open Interest Message (366)"
+  end
+  if value == 301 then
+    return "Msg Type: Commodity Definition (301)"
+  end
+  if value == 302 then
+    return "Msg Type: Class Definition (302)"
+  end
+  if value == 303 then
+    return "Msg Type: Instrument Definition (303)"
+  end
+  if value == 305 then
+    return "Msg Type: Combination Definition (305)"
+  end
+  if value == 203 then
+    return "Msg Type: Refresh Complete (203)"
+  end
+  if value == 320 then
+    return "Msg Type: Market Status (320)"
+  end
+  if value == 321 then
+    return "Msg Type: Instrument Status (321)"
+  end
+  if value == 322 then
+    return "Msg Type: Commodity And Class Status (322)"
+  end
+  if value == 324 then
+    return "Msg Type: Vcm Trigger (324)"
+  end
+  if value == 325 then
+    return "Msg Type: Thm Trigger (325)"
+  end
+  if value == 360 then
+    return "Msg Type: Trade Statistics Message (360)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Net Oi
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.net_oi = {}
+
+-- Size: Net Oi
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.net_oi.size = 4
+
+-- Display: Net Oi
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.net_oi.display = function(value)
+  return "Net Oi: "..value
+end
+
+-- Dissect: Net Oi
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.net_oi.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.net_oi.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.net_oi.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.net_oi, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Entries
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.no_entries = {}
+
+-- Size: No Entries
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.no_entries.size = 1
+
+-- Display: No Entries
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.no_entries.display = function(value)
+  return "No Entries: "..value
+end
+
+-- Dissect: No Entries
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.no_entries.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.no_entries.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.no_entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.no_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Noof Lines
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.noof_lines = {}
+
+-- Size: Noof Lines
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.noof_lines.size = 1
+
+-- Display: Noof Lines
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.noof_lines.display = function(value)
+  return "Noof Lines: "..value
+end
+
+-- Dissect: Noof Lines
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.noof_lines.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.noof_lines.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.noof_lines.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.noof_lines, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Legs
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_legs = {}
+
+-- Size: Number Of Legs
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_legs.size = 1
+
+-- Display: Number Of Legs
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_legs.display = function(value)
+  return "Number Of Legs: "..value
+end
+
+-- Dissect: Number Of Legs
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_legs.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_legs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Orders
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_orders = {}
+
+-- Size: Number Of Orders
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_orders.size = 4
+
+-- Display: Number Of Orders
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_orders.display = function(value)
+  return "Number Of Orders: "..value
+end
+
+-- Dissect: Number Of Orders
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_orders.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.number_of_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_price = {}
+
+-- Size: Open Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_price.size = 8
+
+-- Display: Open Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_price.display = function(value)
+  return "Open Price: "..value
+end
+
+-- Dissect: Open Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book Position
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_book_position = {}
+
+-- Size: Order Book Position
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_book_position.size = 4
+
+-- Display: Order Book Position
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_book_position.display = function(value)
+  return "Order Book Position: "..value
+end
+
+-- Dissect: Order Book Position
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_book_position.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_book_position.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_book_position.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.order_book_position, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_id = {}
+
+-- Size: Order Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_id.size = 8
+
+-- Display: Order Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_type = {}
+
+-- Size: Order Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_type.size = 1
+
+-- Display: Order Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_type.display = function(value)
+  if value == 1 then
+    return "Order Type: Market (1)"
+  end
+  if value == 2 then
+    return "Order Type: Limit (2)"
+  end
+  if value == 3 then
+    return "Order Type: Market To Limit (3)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id = {}
+
+-- Size: Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size = 4
+
+-- Display: Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.display = function(value)
+  return "Orderbook Id: "..value
+end
+
+-- Dissect: Orderbook Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pkt Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.pkt_size = {}
+
+-- Size: Pkt Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.pkt_size.size = 2
+
+-- Display: Pkt Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.pkt_size.display = function(value)
+  return "Pkt Size: "..value
+end
+
+-- Dissect: Pkt Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.pkt_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.pkt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.pkt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Planned Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.planned_start_time = {}
+
+-- Size: Planned Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.planned_start_time.size = 8
+
+-- Display: Planned Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.planned_start_time.display = function(value)
+  return "Planned Start Time: "..value
+end
+
+-- Dissect: Planned Start Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.planned_start_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.planned_start_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.planned_start_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.planned_start_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price = {}
+
+-- Size: Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.size = 8
+
+-- Display: Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Level
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_level = {}
+
+-- Size: Price Level
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_level.size = 1
+
+-- Display: Price Level
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_level.display = function(value)
+  return "Price Level: "..value
+end
+
+-- Dissect: Price Level
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_level.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_level.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_level.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.price_level, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Quotation Factor Int 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_int_324 = {}
+
+-- Size: Price Quotation Factor Int 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_int_324.size = 4
+
+-- Display: Price Quotation Factor Int 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_int_324.display = function(value)
+  return "Price Quotation Factor Int 324: "..value
+end
+
+-- Dissect: Price Quotation Factor Int 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_int_324.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_int_324.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_int_324.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.price_quotation_factor_int_324, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Quotation Factor Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_uint_324 = {}
+
+-- Size: Price Quotation Factor Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_uint_324.size = 4
+
+-- Display: Price Quotation Factor Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_uint_324.display = function(value)
+  return "Price Quotation Factor Uint 324: "..value
+end
+
+-- Dissect: Price Quotation Factor Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_uint_324.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_uint_324.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_uint_324.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.price_quotation_factor_uint_324, range, value, display)
+
+  return offset + length, value
+end
+
+-- Priority
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.priority = {}
+
+-- Size: Priority
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.priority.size = 1
+
+-- Display: Priority
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.priority.display = function(value)
+  if value == 0 then
+    return "Priority: Critical (0)"
+  end
+  if value == 1 then
+    return "Priority: Important (1)"
+  end
+  if value == 2 then
+    return "Priority: Normal (2)"
+  end
+
+  return "Priority: Unknown("..value..")"
+end
+
+-- Dissect: Priority
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.priority.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.priority.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.priority.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.priority, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_324 = {}
+
+-- Size: Quantity Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_324.size = 4
+
+-- Display: Quantity Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_324.display = function(value)
+  return "Quantity Uint 324: "..value
+end
+
+-- Dissect: Quantity Uint 324
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_324.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_324.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_324.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.quantity_uint_324, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Uint 648
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_648 = {}
+
+-- Size: Quantity Uint 648
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_648.size = 8
+
+-- Display: Quantity Uint 648
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_648.display = function(value)
+  return "Quantity Uint 648: "..value
+end
+
+-- Dissect: Quantity Uint 648
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_648.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_648.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_648.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.quantity_uint_648, range, value, display)
+
+  return offset + length, value
+end
+
+-- Send Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.send_time = {}
+
+-- Size: Send Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.send_time.size = 8
+
+-- Display: Send Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.send_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Send Time
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.send_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.send_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.send_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.send_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Num
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.seq_num = {}
+
+-- Size: Seq Num
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.seq_num.size = 4
+
+-- Display: Seq Num
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.session = {}
+
+-- Size: Session
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.session.size = 1
+
+-- Display: Session
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.session.display = function(value)
+  if value == 0 then
+    return "Session: T Session (0)"
+  end
+  if value == 1 then
+    return "Session: T Plus One Session (1)"
+  end
+
+  return "Session: Unknown("..value..")"
+end
+
+-- Dissect: Session
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.session.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.session.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Currency Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_currency_id = {}
+
+-- Size: Settlement Currency Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_currency_id.size = 3
+
+-- Display: Settlement Currency Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_currency_id.display = function(value)
+  return "Settlement Currency Id: "..value
+end
+
+-- Dissect: Settlement Currency Id
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_currency_id.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_currency_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_currency_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.settlement_currency_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_price = {}
+
+-- Size: Settlement Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_price.size = 4
+
+-- Display: Settlement Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_price.display = function(value)
+  return "Settlement Price: "..value
+end
+
+-- Dissect: Settlement Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.side = {}
+
+-- Size: Side
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.size = 1
+
+-- Display: Side
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.display = function(value)
+  if value == 0 then
+    return "Side: Bid (0)"
+  end
+  if value == 1 then
+    return "Side: Offer (1)"
+  end
+  if value == 1 then
+    return "Side: Bid (1)"
+  end
+  if value == 2 then
+    return "Side: Offer (2)"
+  end
+  if value == 1 then
+    return "Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Side: Sell (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.source = {}
+
+-- Size: Source
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.source.size = 1
+
+-- Display: Source
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.source.display = function(value)
+  if value == "N" then
+    return "Source: News (N)"
+  end
+  if value == "M" then
+    return "Source: Other Market Alerts (M)"
+  end
+
+  return "Source: Unknown("..value..")"
+end
+
+-- Dissect: Source
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.source.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.source.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.source, range, value, display)
+
+  return offset + length, value
+end
+
+-- State
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.state = {}
+
+-- Size: State
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.state.size = 2
+
+-- Display: State
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.state.display = function(value)
+  return "State: "..value
+end
+
+-- Dissect: State
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.state.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.state.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.state, range, value, display)
+
+  return offset + length, value
+end
+
+-- State Level
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.state_level = {}
+
+-- Size: State Level
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.state_level.size = 1
+
+-- Display: State Level
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.state_level.display = function(value)
+  if value == "M" then
+    return "State Level: Market (M)"
+  end
+  if value == "T" then
+    return "State Level: Instrument Type (T)"
+  end
+  if value == "t" then
+    return "State Level: Combo Type (t)"
+  end
+  if value == "C" then
+    return "State Level: Instrument Class (C)"
+  end
+  if value == "c" then
+    return "State Level: Combo Class (c)"
+  end
+
+  return "State Level: Unknown("..value..")"
+end
+
+-- Dissect: State Level
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.state_level.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.state_level.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.state_level.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.state_level, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.strike_price = {}
+
+-- Size: Strike Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.strike_price.size = 8
+
+-- Display: Strike Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Dissect: Strike Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.strike_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Suspended
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspended = {}
+
+-- Size: Suspended
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspended.size = 1
+
+-- Display: Suspended
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspended.display = function(value)
+  if value == "Y" then
+    return "Suspended: Yes (Y)"
+  end
+  if value == "N" then
+    return "Suspended: No (N)"
+  end
+
+  return "Suspended: Unknown("..value..")"
+end
+
+-- Dissect: Suspended
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspended.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspended.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspended.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.suspended, range, value, display)
+
+  return offset + length, value
+end
+
+-- Suspension Indicator
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspension_indicator = {}
+
+-- Size: Suspension Indicator
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspension_indicator.size = 1
+
+-- Display: Suspension Indicator
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspension_indicator.display = function(value)
+  if value == 1 then
+    return "Suspension Indicator: Not Suspended (1)"
+  end
+  if value == 2 then
+    return "Suspension Indicator: Suspended For Trading (2)"
+  end
+
+  return "Suspension Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Suspension Indicator
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspension_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspension_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspension_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.suspension_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.symbol = {}
+
+-- Size: Symbol
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.symbol.size = 32
+
+-- Display: Symbol
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.tick_size = {}
+
+-- Size: Tick Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.tick_size.size = 8
+
+-- Display: Tick Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.tick_size.display = function(value)
+  return "Tick Size: "..value
+end
+
+-- Dissect: Tick Size
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.tick_size.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.tick_size.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.tick_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.tick_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tradable
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.tradable = {}
+
+-- Size: Tradable
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.tradable.size = 1
+
+-- Display: Tradable
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.tradable.display = function(value)
+  if value == 1 then
+    return "Tradable: Yes (1)"
+  end
+  if value == 2 then
+    return "Tradable: No (2)"
+  end
+
+  return "Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Tradable
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.tradable.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.tradable.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Report Volume
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_report_volume = {}
+
+-- Size: Trade Report Volume
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_report_volume.size = 8
+
+-- Display: Trade Report Volume
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_report_volume.display = function(value)
+  return "Trade Report Volume: "..value
+end
+
+-- Dissect: Trade Report Volume
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_report_volume.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_report_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_report_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.trade_report_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Turnover
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.turnover = {}
+
+-- Size: Turnover
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.turnover.size = 8
+
+-- Display: Turnover
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.turnover.display = function(value)
+  return "Turnover: "..value
+end
+
+-- Dissect: Turnover
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.turnover.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.turnover.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.turnover.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.turnover, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_code = {}
+
+-- Size: Underlying Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_code.size = 20
+
+-- Display: Underlying Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_code.display = function(value)
+  return "Underlying Code: "..value
+end
+
+-- Dissect: Underlying Code
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_code.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.underlying_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_type = {}
+
+-- Size: Underlying Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_type.size = 1
+
+-- Display: Underlying Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_type.display = function(value)
+  if value == "S" then
+    return "Underlying Type: Stock (S)"
+  end
+  if value == "C" then
+    return "Underlying Type: Currency (C)"
+  end
+  if value == "I" then
+    return "Underlying Type: Fixed Income (I)"
+  end
+  if value == "E" then
+    return "Underlying Type: Energy Power (E)"
+  end
+  if value == "A" then
+    return "Underlying Type: Commodity (A)"
+  end
+  if value == "M" then
+    return "Underlying Type: Metal (M)"
+  end
+
+  return "Underlying Type: Unknown("..value..")"
+end
+
+-- Dissect: Underlying Type
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_type.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.underlying_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Update Action
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.update_action = {}
+
+-- Size: Update Action
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.update_action.size = 1
+
+-- Display: Update Action
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.update_action.display = function(value)
+  if value == 0 then
+    return "Update Action: New (0)"
+  end
+  if value == 1 then
+    return "Update Action: Change (1)"
+  end
+  if value == 2 then
+    return "Update Action: Delete (2)"
+  end
+  if value == 74 then
+    return "Update Action: Clear (74)"
+  end
+
+  return "Update Action: Unknown("..value..")"
+end
+
+-- Dissect: Update Action
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.update_action.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.update_action.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vcm Flag
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_flag = {}
+
+-- Size: Vcm Flag
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_flag.size = 1
+
+-- Display: Vcm Flag
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_flag.display = function(value)
+  if value == 0 then
+    return "Vcm Flag: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Vcm Flag: Applicable (1)"
+  end
+
+  return "Vcm Flag: Unknown("..value..")"
+end
+
+-- Dissect: Vcm Flag
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_flag.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vcm Lower Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_lower_price = {}
+
+-- Size: Vcm Lower Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_lower_price.size = 8
+
+-- Display: Vcm Lower Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_lower_price.display = function(value)
+  return "Vcm Lower Price: "..value
+end
+
+-- Dissect: Vcm Lower Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_lower_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_lower_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_lower_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_lower_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vcm Reference Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_reference_price = {}
+
+-- Size: Vcm Reference Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_reference_price.size = 8
+
+-- Display: Vcm Reference Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_reference_price.display = function(value)
+  return "Vcm Reference Price: "..value
+end
+
+-- Dissect: Vcm Reference Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_reference_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vcm Upper Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_upper_price = {}
+
+-- Size: Vcm Upper Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_upper_price.size = 8
+
+-- Display: Vcm Upper Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_upper_price.display = function(value)
+  return "Vcm Upper Price: "..value
+end
+
+-- Dissect: Vcm Upper Price
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_upper_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_upper_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_upper_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_upper_price, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Hkex HkexDerivatives CombinedRefresh Omd 2.2
+-----------------------------------------------------------------------
+
+-- Trade Statistics Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message = {}
+
+-- Size: Trade Statistics Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.session.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.high_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.low_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_report_volume.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.turnover.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size
+
+-- Display: Trade Statistics Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Statistics Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Last Price: Int64
+  index, last_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_price.dissect(buffer, index, packet, parent)
+
+  -- Session: Uint8
+  index, session = hkex_hkexderivatives_combinedrefresh_omd_v2_2.session.dissect(buffer, index, packet, parent)
+
+  -- Open Price: Int64
+  index, open_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_price.dissect(buffer, index, packet, parent)
+
+  -- High Price: Int64
+  index, high_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.high_price.dissect(buffer, index, packet, parent)
+
+  -- Low Price: Int64
+  index, low_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.low_price.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Volume: Uint64
+  index, trade_report_volume = hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_report_volume.dissect(buffer, index, packet, parent)
+
+  -- Turnover: Uint64
+  index, turnover = hkex_hkexderivatives_combinedrefresh_omd_v2_2.turnover.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Statistics Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.trade_statistics_message, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Thm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger = {}
+
+-- Size: Thm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_10.size
+
+-- Display: Thm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Thm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Instrument Class Key: Uint32
+  index, instrument_class_key = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.dissect(buffer, index, packet, parent)
+
+  -- Filler 10: String
+  index, filler_10 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_10.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Thm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.thm_trigger, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Vcm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger = {}
+
+-- Size: Vcm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_start_time.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_end_time.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_reference_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_lower_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_upper_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.size
+
+-- Display: Vcm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Vcm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Cooling Off Start Time: Uint64
+  index, cooling_off_start_time = hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_start_time.dissect(buffer, index, packet, parent)
+
+  -- Cooling Off End Time: Uint64
+  index, cooling_off_end_time = hkex_hkexderivatives_combinedrefresh_omd_v2_2.cooling_off_end_time.dissect(buffer, index, packet, parent)
+
+  -- Vcm Reference Price: Int64
+  index, vcm_reference_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_reference_price.dissect(buffer, index, packet, parent)
+
+  -- Vcm Lower Price: Int64
+  index, vcm_lower_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_lower_price.dissect(buffer, index, packet, parent)
+
+  -- Vcm Upper Price: Int64
+  index, vcm_upper_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_upper_price.dissect(buffer, index, packet, parent)
+
+  -- Filler 2: String
+  index, filler_2 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Vcm Trigger
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.vcm_trigger, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Commodity And Class Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status = {}
+
+-- Size: Commodity And Class Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspended.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.size
+
+-- Display: Commodity And Class Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Commodity And Class Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Commodity Code: Uint32
+  index, commodity_code = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.dissect(buffer, index, packet, parent)
+
+  -- Instrument Class Key: Uint32
+  index, instrument_class_key = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.dissect(buffer, index, packet, parent)
+
+  -- Suspended: String
+  index, suspended = hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspended.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Commodity And Class Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_and_class_status, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Instrument Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status = {}
+
+-- Size: Instrument Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspension_indicator.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.size
+
+-- Display: Instrument Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Suspension Indicator: Uint8
+  index, suspension_indicator = hkex_hkexderivatives_combinedrefresh_omd_v2_2.suspension_indicator.dissect(buffer, index, packet, parent)
+
+  -- Instrument Status Uint 81: Uint8
+  index, instrument_status_uint_81 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.dissect(buffer, index, packet, parent)
+
+  -- Filler 2: String
+  index, filler_2 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_status, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status = {}
+
+-- Size: Market Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.state_level.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_164.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.actual_start_time.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.planned_start_time.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.state.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.size
+
+-- Display: Market Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- State Level: String
+  index, state_level = hkex_hkexderivatives_combinedrefresh_omd_v2_2.state_level.dissect(buffer, index, packet, parent)
+
+  -- Market Uint 164: Uint16
+  index, market_uint_164 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_164.dissect(buffer, index, packet, parent)
+
+  -- Instrument Type Key: Uint32
+  index, instrument_type_key = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.dissect(buffer, index, packet, parent)
+
+  -- Instrument Class Key: Uint32
+  index, instrument_class_key = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.dissect(buffer, index, packet, parent)
+
+  -- Filler 4: String
+  index, filler_4 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.dissect(buffer, index, packet, parent)
+
+  -- Actual Start Time: Uint64
+  index, actual_start_time = hkex_hkexderivatives_combinedrefresh_omd_v2_2.actual_start_time.dissect(buffer, index, packet, parent)
+
+  -- Planned Start Time: Uint64
+  index, planned_start_time = hkex_hkexderivatives_combinedrefresh_omd_v2_2.planned_start_time.dissect(buffer, index, packet, parent)
+
+  -- State: Uint16
+  index, state = hkex_hkexderivatives_combinedrefresh_omd_v2_2.state.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Status
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.market_status, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Complete
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete = {}
+
+-- Size: Refresh Complete
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_seq_num.size
+
+-- Display: Refresh Complete
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Complete
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Uint32
+  index, last_seq_num = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Complete
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.refresh_complete, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Combination Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition = {}
+
+-- Size: Combination Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.combo_orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_side.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_ratio.size
+
+-- Display: Combination Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Combination Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Size: Uint16
+  index, msg_size = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.dissect(buffer, index, packet, parent)
+
+  -- Msg Type: Uint16
+  index, msg_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.dissect(buffer, index, packet, parent)
+
+  -- Combo Orderbook Id: Uint32
+  index, combo_orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.combo_orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Orderbook Id: Uint32
+  index, leg_orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: String
+  index, leg_side = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio: Int32
+  index, leg_ratio = hkex_hkexderivatives_combinedrefresh_omd_v2_2.leg_ratio.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Combination Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.combination_definition, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Instrument Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition = {}
+
+-- Size: Instrument Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.symbol.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.modifier.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_date.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_time.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.strike_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_last_trading_date.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_date.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_time.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_int_324.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_int_324.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_legs.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_flag.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.isin_code.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size
+
+-- Display: Instrument Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Size: Uint16
+  index, msg_size = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.dissect(buffer, index, packet, parent)
+
+  -- Msg Type: Uint16
+  index, msg_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol: String
+  index, symbol = hkex_hkexderivatives_combinedrefresh_omd_v2_2.symbol.dissect(buffer, index, packet, parent)
+
+  -- Instrument Class Key: Uint32
+  index, instrument_class_key = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.dissect(buffer, index, packet, parent)
+
+  -- Market Uint 162: Uint16
+  index, market_uint_162 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.dissect(buffer, index, packet, parent)
+
+  -- Instrument Group: Uint16
+  index, instrument_group = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.dissect(buffer, index, packet, parent)
+
+  -- Modifier: Uint16
+  index, modifier = hkex_hkexderivatives_combinedrefresh_omd_v2_2.modifier.dissect(buffer, index, packet, parent)
+
+  -- Commodity Code: Uint32
+  index, commodity_code = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.dissect(buffer, index, packet, parent)
+
+  -- Last Trading Date: Uint32
+  index, last_trading_date = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_date.dissect(buffer, index, packet, parent)
+
+  -- Last Trading Time: Uint64
+  index, last_trading_time = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_trading_time.dissect(buffer, index, packet, parent)
+
+  -- Strike Price: Int64
+  index, strike_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.strike_price.dissect(buffer, index, packet, parent)
+
+  -- Effective Last Trading Date: Uint32
+  index, effective_last_trading_date = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_last_trading_date.dissect(buffer, index, packet, parent)
+
+  -- First Trading Date: Uint32
+  index, first_trading_date = hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_date.dissect(buffer, index, packet, parent)
+
+  -- First Trading Time: Uint64
+  index, first_trading_time = hkex_hkexderivatives_combinedrefresh_omd_v2_2.first_trading_time.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.dissect(buffer, index, packet, parent)
+
+  -- Instrument Status Uint 81: Uint8
+  index, instrument_status_uint_81 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status_uint_81.dissect(buffer, index, packet, parent)
+
+  -- Contract Size Int 324: Int32
+  index, contract_size_int_324 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_int_324.dissect(buffer, index, packet, parent)
+
+  -- Price Quotation Factor Int 324: Int32
+  index, price_quotation_factor_int_324 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_int_324.dissect(buffer, index, packet, parent)
+
+  -- Number Of Legs: Uint8
+  index, number_of_legs = hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_legs.dissect(buffer, index, packet, parent)
+
+  -- Vcm Flag: Uint8
+  index, vcm_flag = hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_flag.dissect(buffer, index, packet, parent)
+
+  -- Isin Code: String
+  index, isin_code = hkex_hkexderivatives_combinedrefresh_omd_v2_2.isin_code.dissect(buffer, index, packet, parent)
+
+  -- Effective Tomorrow: Uint8
+  index, effective_tomorrow = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.instrument_definition, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Class Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition = {}
+
+-- Size: Class Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.key_type.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_name.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.exchange.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_uint_324.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_uint_324.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_contract_size.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_strike_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.tick_size.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.tradable.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_currency_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.size
+
+-- Display: Class Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Class Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Size: Uint16
+  index, msg_size = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.dissect(buffer, index, packet, parent)
+
+  -- Msg Type: Uint16
+  index, msg_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.dissect(buffer, index, packet, parent)
+
+  -- Instrument Class Id: String
+  index, instrument_class_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Class Key: Uint32
+  index, instrument_class_key = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_key.dissect(buffer, index, packet, parent)
+
+  -- Key Type: String
+  index, key_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.key_type.dissect(buffer, index, packet, parent)
+
+  -- Instrument Class Name: String
+  index, instrument_class_name = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_class_name.dissect(buffer, index, packet, parent)
+
+  -- Exchange: Uint16
+  index, exchange = hkex_hkexderivatives_combinedrefresh_omd_v2_2.exchange.dissect(buffer, index, packet, parent)
+
+  -- Market Uint 162: Uint16
+  index, market_uint_162 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_uint_162.dissect(buffer, index, packet, parent)
+
+  -- Instrument Group: Uint16
+  index, instrument_group = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_group.dissect(buffer, index, packet, parent)
+
+  -- Commodity Code: Uint32
+  index, commodity_code = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.dissect(buffer, index, packet, parent)
+
+  -- Instrument Type Id: String
+  index, instrument_type_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Type Key: Uint32
+  index, instrument_type_key = hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_type_key.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.dissect(buffer, index, packet, parent)
+
+  -- Price Quotation Factor Uint 324: Uint32
+  index, price_quotation_factor_uint_324 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_quotation_factor_uint_324.dissect(buffer, index, packet, parent)
+
+  -- Contract Size Uint 324: Uint32
+  index, contract_size_uint_324 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.contract_size_uint_324.dissect(buffer, index, packet, parent)
+
+  -- Decimal In Contract Size: Uint16
+  index, decimal_in_contract_size = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_contract_size.dissect(buffer, index, packet, parent)
+
+  -- Decimal In Strike Price: Uint16
+  index, decimal_in_strike_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Decimal In Price: Uint16
+  index, decimal_in_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_price.dissect(buffer, index, packet, parent)
+
+  -- Tick Size: Int64
+  index, tick_size = hkex_hkexderivatives_combinedrefresh_omd_v2_2.tick_size.dissect(buffer, index, packet, parent)
+
+  -- Tradable: Uint8
+  index, tradable = hkex_hkexderivatives_combinedrefresh_omd_v2_2.tradable.dissect(buffer, index, packet, parent)
+
+  -- Base Currency: String
+  index, base_currency = hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.dissect(buffer, index, packet, parent)
+
+  -- Settlement Currency Id: String
+  index, settlement_currency_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_currency_id.dissect(buffer, index, packet, parent)
+
+  -- Effective Tomorrow: Uint8
+  index, effective_tomorrow = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.dissect(buffer, index, packet, parent)
+
+  -- Filler 2: String
+  index, filler_2 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Class Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.class_definition, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Commodity Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition = {}
+
+-- Size: Commodity Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_name.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_code.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_type.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_underlying_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_5.size
+
+-- Display: Commodity Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Commodity Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Commodity Code: Uint32
+  index, commodity_code = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_code.dissect(buffer, index, packet, parent)
+
+  -- Commodity Name: String
+  index, commodity_name = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_name.dissect(buffer, index, packet, parent)
+
+  -- Commodity Id: String
+  index, commodity_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Code: String
+  index, underlying_code = hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_code.dissect(buffer, index, packet, parent)
+
+  -- Underlying Type: String
+  index, underlying_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.underlying_type.dissect(buffer, index, packet, parent)
+
+  -- Decimal In Underlying Price: Uint16
+  index, decimal_in_underlying_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.decimal_in_underlying_price.dissect(buffer, index, packet, parent)
+
+  -- Base Currency: String
+  index, base_currency = hkex_hkexderivatives_combinedrefresh_omd_v2_2.base_currency.dissect(buffer, index, packet, parent)
+
+  -- Effective Tomorrow: Uint8
+  index, effective_tomorrow = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.dissect(buffer, index, packet, parent)
+
+  -- Filler 5: String
+  index, filler_5 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_5.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Commodity Definition
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.commodity_definition, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Open Interest Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message = {}
+
+-- Size: Open Interest Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.gross_oi.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.net_oi.size
+
+-- Display: Open Interest Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Open Interest Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Day Indicator: Uint16
+  index, day_indicator = hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator.dissect(buffer, index, packet, parent)
+
+  -- Filler 6: String
+  index, filler_6 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Settlement Price: Int32
+  index, settlement_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.settlement_price.dissect(buffer, index, packet, parent)
+
+  -- Gross Oi: Int32
+  index, gross_oi = hkex_hkexderivatives_combinedrefresh_omd_v2_2.gross_oi.dissect(buffer, index, packet, parent)
+
+  -- Net Oi: Int32
+  index, net_oi = hkex_hkexderivatives_combinedrefresh_omd_v2_2.net_oi.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Open Interest Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.open_interest_message, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Alert Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message = {}
+
+-- Calculate size of: Market Alert Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.alert_id.size
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.source.size
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.header.size
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_fragment.size
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.info_type.size
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.priority.size
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.noof_lines.size
+
+  -- Calculate field size from count
+  local content_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + content_count * 320
+
+  return index
+end
+
+-- Display: Market Alert Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Alert Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Alert Id: Uint64
+  index, alert_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.alert_id.dissect(buffer, index, packet, parent)
+
+  -- Source: String
+  index, source = hkex_hkexderivatives_combinedrefresh_omd_v2_2.source.dissect(buffer, index, packet, parent)
+
+  -- Header: Binary
+  index, header = hkex_hkexderivatives_combinedrefresh_omd_v2_2.header.dissect(buffer, index, packet, parent)
+
+  -- Last Fragment: String
+  index, last_fragment = hkex_hkexderivatives_combinedrefresh_omd_v2_2.last_fragment.dissect(buffer, index, packet, parent)
+
+  -- Info Type: Uint8
+  index, info_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.info_type.dissect(buffer, index, packet, parent)
+
+  -- Priority: Uint8
+  index, priority = hkex_hkexderivatives_combinedrefresh_omd_v2_2.priority.dissect(buffer, index, packet, parent)
+
+  -- Noof Lines: Uint8
+  index, noof_lines = hkex_hkexderivatives_combinedrefresh_omd_v2_2.noof_lines.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Content
+  for content_index = 1, noof_lines do
+    index, content = hkex_hkexderivatives_combinedrefresh_omd_v2_2.content.dissect(buffer, index, packet, parent, content_index)
+  end
+
+  return index
+end
+
+-- Dissect: Market Alert Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.market_alert_message, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Implied Volatility Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message = {}
+
+-- Size: Implied Volatility Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility.size
+
+-- Display: Implied Volatility Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Implied Volatility Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Implied Volatility: Uint32
+  index, implied_volatility = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Implied Volatility Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.implied_volatility_message, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Calculated Opening Price Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message = {}
+
+-- Size: Calculated Opening Price Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_648.size
+
+-- Display: Calculated Opening Price Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Calculated Opening Price Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Calculated Opening Price: Int64
+  index, calculated_opening_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price.dissect(buffer, index, packet, parent)
+
+  -- Filler 4: String
+  index, filler_4 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.dissect(buffer, index, packet, parent)
+
+  -- Quantity Uint 648: Uint64
+  index, quantity_uint_648 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_648.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Calculated Opening Price Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.calculated_opening_price_message, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Book Entry
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry = {}
+
+-- Size: Book Entry
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_quantity.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_orders.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_level.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.update_action.size
+
+-- Display: Book Entry
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Book Entry
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry.fields = function(buffer, offset, packet, parent, book_entry_index)
+  local index = offset
+
+  -- Implicit Book Entry Index
+  if book_entry_index ~= nil and show.book_entry_index then
+    local iteration = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.book_entry_index, book_entry_index)
+    iteration:set_generated()
+  end
+
+  -- Aggregate Quantity: Uint64
+  index, aggregate_quantity = hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_quantity.dissect(buffer, index, packet, parent)
+
+  -- Price: Int64
+  index, price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.dissect(buffer, index, packet, parent)
+
+  -- Number Of Orders: Uint32
+  index, number_of_orders = hkex_hkexderivatives_combinedrefresh_omd_v2_2.number_of_orders.dissect(buffer, index, packet, parent)
+
+  -- Side: Uint8
+  index, side = hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.dissect(buffer, index, packet, parent)
+
+  -- Price Level: Uint8
+  index, price_level = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price_level.dissect(buffer, index, packet, parent)
+
+  -- Update Action: Uint8
+  index, update_action = hkex_hkexderivatives_combinedrefresh_omd_v2_2.update_action.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Book Entry
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry.dissect = function(buffer, offset, packet, parent, book_entry_index)
+  if show.book_entry then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.book_entry, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
+  end
+end
+
+-- Aggregate Order Book Update Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message = {}
+
+-- Calculate size of: Aggregate Order Book Update Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size
+
+  index = index + hkex_hkexderivatives_combinedrefresh_omd_v2_2.no_entries.size
+
+  -- Calculate field size from count
+  local book_entry_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + book_entry_count * 24
+
+  return index
+end
+
+-- Display: Aggregate Order Book Update Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Aggregate Order Book Update Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Filler 3: String
+  index, filler_3 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.dissect(buffer, index, packet, parent)
+
+  -- No Entries: Uint8
+  index, no_entries = hkex_hkexderivatives_combinedrefresh_omd_v2_2.no_entries.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Book Entry
+  for book_entry_index = 1, no_entries do
+    index, book_entry = hkex_hkexderivatives_combinedrefresh_omd_v2_2.book_entry.dissect(buffer, index, packet, parent, book_entry_index)
+  end
+
+  return index
+end
+
+-- Dissect: Aggregate Order Book Update Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.aggregate_order_book_update_message, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Aggregate Implied Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order = {}
+
+-- Size: Aggregate Implied Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_quantity.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.size
+
+-- Display: Aggregate Implied Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Aggregate Implied Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Implied Price: Int64
+  index, implied_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_price.dissect(buffer, index, packet, parent)
+
+  -- Implied Quantity: Uint64
+  index, implied_quantity = hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_quantity.dissect(buffer, index, packet, parent)
+
+  -- Side: Uint8
+  index, side = hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Aggregate Implied Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.aggregate_implied_order, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Add Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order = {}
+
+-- Size: Add Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_id.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_324.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.lot_type.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_type.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_book_position.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.business_time.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.size
+
+-- Display: Add Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Orderbook Id: Uint32
+  index, orderbook_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Uint64
+  index, order_id = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Int64
+  index, price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity Uint 324: Uint32
+  index, quantity_uint_324 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.quantity_uint_324.dissect(buffer, index, packet, parent)
+
+  -- Side: Uint8
+  index, side = hkex_hkexderivatives_combinedrefresh_omd_v2_2.side.dissect(buffer, index, packet, parent)
+
+  -- Lot Type: Uint8
+  index, lot_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.lot_type.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Uint8
+  index, order_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_type.dissect(buffer, index, packet, parent)
+
+  -- Order Book Position: Uint32
+  index, order_book_position = hkex_hkexderivatives_combinedrefresh_omd_v2_2.order_book_position.dissect(buffer, index, packet, parent)
+
+  -- Business Time: Uint64
+  index, business_time = hkex_hkexderivatives_combinedrefresh_omd_v2_2.business_time.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Order
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.add_order, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.payload = {}
+
+-- Dissect: Payload
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
+  -- Dissect Add Order
+  if msg_type == 330 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.add_order.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aggregate Implied Order
+  if msg_type == 337 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_implied_order.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aggregate Order Book Update Message
+  if msg_type == 353 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Calculated Opening Price Message
+  if msg_type == 364 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Implied Volatility Message
+  if msg_type == 367 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.implied_volatility_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Alert Message
+  if msg_type == 323 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_alert_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Interest Message
+  if msg_type == 366 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Commodity Definition
+  if msg_type == 301 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Class Definition
+  if msg_type == 302 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.class_definition.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Definition
+  if msg_type == 303 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Combination Definition
+  if msg_type == 305 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.combination_definition.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Refresh Complete
+  if msg_type == 203 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.refresh_complete.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Status
+  if msg_type == 320 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.market_status.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status
+  if msg_type == 321 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_status.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Commodity And Class Status
+  if msg_type == 322 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_and_class_status.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Vcm Trigger
+  if msg_type == 324 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.vcm_trigger.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Thm Trigger
+  if msg_type == 325 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.thm_trigger.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Statistics Message
+  if msg_type == 360 then
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.trade_statistics_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Msg Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header = {}
+
+-- Size: Msg Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.size
+
+-- Display: Msg Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Msg Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Size: Uint16
+  index, msg_size = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_size.dissect(buffer, index, packet, parent)
+
+  -- Msg Type: Uint16
+  index, msg_type = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Msg Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header.dissect = function(buffer, offset, packet, parent)
+  if show.msg_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.msg_header, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.message = {}
+
+-- Display: Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.message_index then
+    local iteration = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(index - 2, 2):le_uint()
+
+  -- Payload: Runtime Type with 18 branches
+  index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.payload.dissect(buffer, index, packet, parent, msg_type)
+
+  return index
+end
+
+-- Dissect: Message
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.message then
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.message, buffer(offset, 0))
+    local current = hkex_hkexderivatives_combinedrefresh_omd_v2_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    hkex_hkexderivatives_combinedrefresh_omd_v2_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Packet Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header = {}
+
+-- Size: Packet Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.size =
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.pkt_size.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_count.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.compression_mode.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.seq_num.size + 
+  hkex_hkexderivatives_combinedrefresh_omd_v2_2.send_time.size
+
+-- Display: Packet Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Pkt Size: 2 Byte Unsigned Fixed Width Integer
+  index, pkt_size = hkex_hkexderivatives_combinedrefresh_omd_v2_2.pkt_size.dissect(buffer, index, packet, parent)
+
+  -- Msg Count: 1 Byte Unsigned Fixed Width Integer
+  index, msg_count = hkex_hkexderivatives_combinedrefresh_omd_v2_2.msg_count.dissect(buffer, index, packet, parent)
+
+  -- Compression Mode: 1 Byte Unsigned Fixed Width Integer
+  index, compression_mode = hkex_hkexderivatives_combinedrefresh_omd_v2_2.compression_mode.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, seq_num = hkex_hkexderivatives_combinedrefresh_omd_v2_2.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Send Time: 8 Byte Unsigned Fixed Width Integer
+  index, send_time = hkex_hkexderivatives_combinedrefresh_omd_v2_2.send_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.packet_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.packet_header, buffer(offset, 0))
+    local index = hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet = {}
+
+-- Verify required size of Udp packet
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet.requiredsize = function(buffer)
+  return buffer:len() >= hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.size
+end
+
+-- Dissect Packet
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Packet Header: Struct of 5 fields
+  index, packet_header = hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Msg Count
+  local msg_count = buffer(index - 14, 1):uint()
+
+  -- Repeating: Message
+  for message_index = 1, msg_count do
+
+    -- Dependency element: Msg Size
+    local msg_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = hkex_hkexderivatives_combinedrefresh_omd_v2_2.message.dissect(buffer, index, packet, parent, msg_size, message_index)
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.init()
+end
+
+-- Dissector for Hkex HkexDerivatives CombinedRefresh Omd 2.2
+function omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.dissector(buffer, packet, parent)
+
+  -- Set protocol name
+  packet.cols.protocol = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2, buffer(), omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.description, "("..buffer:len().." Bytes)")
+  return hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Hkex HkexDerivatives CombinedRefresh Omd 2.2 (Udp)
+local function omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2
+  omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Hkex HkexDerivatives CombinedRefresh Omd 2.2
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2:register_heuristic("udp", omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2_udp_heuristic)
+
+-- Register Hkex HkexDerivatives CombinedRefresh Omd 2.2 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Hong Kong Exchanges and Clearing
+--   Version: 2.2
+--   Date: Tuesday, April 28, 2026
+--   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v2.2.pdf
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: Public/GPLv3
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.  https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--
+-- The Binary Data Compiler technologies used to produce this file
+-- are the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-- For full Omi information:
+--   https://github.com/Open-Markets-Initiative/Directory
+-----------------------------------------------------------------------
