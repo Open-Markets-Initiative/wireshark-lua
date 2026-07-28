@@ -372,7 +372,11 @@ iex_iexequities_deepplus_iextp_v1_0_1.message_protocol_id.size = 2
 
 -- Display: Message Protocol Id
 iex_iexequities_deepplus_iextp_v1_0_1.message_protocol_id.display = function(value)
-  return "Message Protocol Id: "..value
+  if value == 32773 then
+    return "Message Protocol Id: Iex Deep Plus"
+  end
+
+  return "Message Protocol Id: Unknown("..value..")"
 end
 
 -- Dissect: Message Protocol Id
@@ -2245,7 +2249,7 @@ iex_iexequities_deepplus_iextp_v1_0_1.iextp_header.fields = function(buffer, off
   -- Reserved: 1 Byte
   index, reserved = iex_iexequities_deepplus_iextp_v1_0_1.reserved.dissect(buffer, index, packet, parent)
 
-  -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer Static
   index, message_protocol_id = iex_iexequities_deepplus_iextp_v1_0_1.message_protocol_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 4 Byte Unsigned Fixed Width Integer
@@ -2339,10 +2343,25 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Message Protocol Id Field
+iex_iexequities_deepplus_iextp_v1_0_1.message_protocol_id.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(2, 2):le_uint()
+
+  if value == 32773 then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Iex IexEquities DeepPlus IexTp 1.0.1 (Udp)
 local function omi_iex_iexequities_deepplus_iextp_v1_0_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not iex_iexequities_deepplus_iextp_v1_0_1.packet.requiredsize(buffer) then return false end
+
+  -- Verify Message Protocol Id
+  if not iex_iexequities_deepplus_iextp_v1_0_1.message_protocol_id.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_iexequities_deepplus_iextp_v1_0_1
