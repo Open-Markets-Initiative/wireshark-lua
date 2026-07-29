@@ -4,9 +4,6 @@
 
 Omi Lua Wireshark dissectors provide easily customized, cross platform viewing of common binary exchange protocols.
 
-[![Lua](https://github.com/Open-Markets-Initiative/Directory/blob/main/About/Images/Lua.png)](https://www.lua.org)
-
-For more information on lua dissectors: [How Lua fits into Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html "Wireshark Lua Documentation")
 ## Usage
 
 To dissect packets, place lua script(s) in the wireshark plugins directory.
@@ -26,16 +23,21 @@ For configuration information: [Wireshark Plugin Configuration](https://www.wire
 Note: Some packets contain enough information to programmatically determine the correct protocol specification and/or version at runtime.  *Many do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.  In these cases, please manually select protocol dissector using Analyze | Decode As….
 
 For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
+## Customization
 
 Omi Lua dissectors are LLM friendly: you can point a large language model at a dissector and ask it to hide fields, rename columns, or adjust which parts of a protocol are shown, then reload the plugin to see the change immediately.
 
+
+[![Lua](https://github.com/Open-Markets-Initiative/Directory/blob/main/About/Images/Lua.png)](https://www.lua.org)
+
+For more information on lua dissectors: [How Lua fits into Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html "Wireshark Lua Documentation")
 ## Development
 
 Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. If you wish to suggest script updates, the recommended process is to create an issue with changes and explanation.  Time permitting, we will update the models and regenerate.
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 779 | 5,782,467 |
+| 779 | 5,782,459 |
 
 ## Testing
 
@@ -62,7 +64,13 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 
 Dissectors by Organization: [24X][24X.Directory], [A2X][A2X.Directory], [Aquis][Aquis.Directory], [Asx][Asx.Directory], [B3][B3.Directory], [Bist][Bist.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [BruceAts][BruceAts.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Koscom][Koscom.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Memx][Memx.Directory], [Miax][Miax.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [OtcMarkets][OtcMarkets.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]
 
-Dissectors by Exchange/Ats/Sip: [24XEquities][24X.Directory], [AmexEquities][Nyse.Directory], [AmexOptions][Nyse.Directory], [AquisEquities][Aquis.Directory], [ArcaEquities][Nyse.Directory], [ArcaOptions][Nyse.Directory], [AsxSecurities][Asx.Directory], [B3Derivatives][B3.Directory], [BoatsEquities][Boats.Directory], [BorsaIstanbul][Bist.Directory], [BruceEquities][BruceAts.Directory], [BxeEquities][Cboe.Directory], [ByxEquities][Cboe.Directory], [BzxEquities][Cboe.Directory], [BzxOptions][Cboe.Directory], [C1Options][Cboe.Directory], [C2Options][Cboe.Directory], [CfeFutures][Cboe.Directory], [CmeFutures][Cme.Directory], [CoinbaseDerivatives][Coinbase.Directory], [Cqs][Siac.Directory], [Cts][Siac.Directory], [CurrenexForex][Currenex.Directory], [CxaEquities][Cboe.Directory], [CxeEquities][Cboe.Directory], [Deribit][Coinbase.Directory], [DxeDerivatives][Cboe.Directory], [EdgaEquities][Cboe.Directory], [EdgxEquities][Cboe.Directory], [EdgxOptions][Cboe.Directory], [EmeraldOptions][Miax.Directory], [FinraOrf][Finra.Directory], [FinraOtc][Finra.Directory], [GemxOptions][Nasdaq.Directory], [HkexDerivatives][Hkex.Directory], [HkexSecurities][Hkex.Directory], [IceFutures][Ice.Directory], [IexEquities][Iex.Directory], [IexOptions][Iex.Directory], [IseOptions][Nasdaq.Directory], [JnxBonds][Jnx.Directory], [JnxEquities][Jnx.Directory], [LtseEquities][Ltse.Directory], [MatchNow][Cboe.Directory], [MemxEquities][Memx.Directory], [MemxOptions][Memx.Directory], [MiaxOptions][Miax.Directory], [MrxOptions][Nasdaq.Directory], [NationalEquities][Nyse.Directory], [NeoEquities][Cboe.Directory], [NomOptions][Nasdaq.Directory], [NsmEquities][Nasdaq.Directory], [NtxEquities][Nasdaq.Directory], [NtxOptions][Nasdaq.Directory], [NyseEquities][Nyse.Directory], [NyseOptions][Nyse.Directory], [OdxSecurityToken][Odx.Directory], [Opra][Siac.Directory], [PearlOptions][Miax.Directory], [PhlxOptions][Nasdaq.Directory], [PsxEquities][Nasdaq.Directory], [SapphireOptions][Miax.Directory], [Sse][Hkex.Directory], [Szse][Hkex.Directory], [TexasEquities][Nyse.Directory], [TxseEquities][Txse.Directory], [Uqdf][Nasdaq.Directory], [Utdf][Nasdaq.Directory], [Utp][Nasdaq.Directory]
+Dissectors by Exchange: [24XEquities][24XEquities.Exchange], [AmexEquities][AmexEquities.Exchange], [AmexOptions][AmexOptions.Exchange], [AquisEquities][AquisEquities.Exchange], [ArcaEquities][ArcaEquities.Exchange], [ArcaOptions][ArcaOptions.Exchange], [AsxSecurities][AsxSecurities.Exchange], [B3Derivatives][B3Derivatives.Exchange], [BoatsEquities][BoatsEquities.Exchange], [BorsaIstanbul][BorsaIstanbul.Exchange], [BruceEquities][BruceEquities.Exchange], [BxeEquities][BxeEquities.Exchange], [ByxEquities][ByxEquities.Exchange], [BzxEquities][BzxEquities.Exchange], [BzxOptions][BzxOptions.Exchange], [C1Options][C1Options.Exchange], [C2Options][C2Options.Exchange], [CfeFutures][CfeFutures.Exchange], [CoinbaseDerivatives][CoinbaseDerivatives.Exchange], [CurrenexForex][CurrenexForex.Exchange], [CxaEquities][CxaEquities.Exchange], [CxeEquities][CxeEquities.Exchange], [Deribit][Deribit.Exchange], [DxeDerivatives][DxeDerivatives.Exchange], [EdgaEquities][EdgaEquities.Exchange], [EdgxEquities][EdgxEquities.Exchange], [EdgxOptions][EdgxOptions.Exchange], [EmeraldOptions][EmeraldOptions.Exchange], [FinraOrf][FinraOrf.Exchange], [FinraOtc][FinraOtc.Exchange], [GemxOptions][GemxOptions.Exchange], [HkexDerivatives][HkexDerivatives.Exchange], [HkexSecurities][HkexSecurities.Exchange], [IceFutures][IceFutures.Exchange], [IexEquities][IexEquities.Exchange], [IexOptions][IexOptions.Exchange], [IseOptions][IseOptions.Exchange], [JnxBonds][JnxBonds.Exchange], [JnxEquities][JnxEquities.Exchange], [LtseEquities][LtseEquities.Exchange], [MatchNow][MatchNow.Exchange], [MemxEquities][MemxEquities.Exchange], [MemxOptions][MemxOptions.Exchange], [MiaxOptions][MiaxOptions.Exchange], [MrxOptions][MrxOptions.Exchange], [NationalEquities][NationalEquities.Exchange], [NeoEquities][NeoEquities.Exchange], [NomOptions][NomOptions.Exchange], [NsmEquities][NsmEquities.Exchange], [NtxEquities][NtxEquities.Exchange], [NtxOptions][NtxOptions.Exchange], [NyseEquities][NyseEquities.Exchange], [NyseOptions][NyseOptions.Exchange], [OdxSecurityToken][OdxSecurityToken.Exchange], [PearlOptions][PearlOptions.Exchange], [PhlxOptions][PhlxOptions.Exchange], [PsxEquities][PsxEquities.Exchange], [SapphireOptions][SapphireOptions.Exchange], [Sse][Sse.Exchange], [Szse][Szse.Exchange], [TexasEquities][TexasEquities.Exchange], [TxseEquities][TxseEquities.Exchange]
+
+Dissectors by Ats: [IntelligentCross][IntelligentCross.Ats], [LinkAts][LinkAts.Ats], [LinkNqb][LinkNqb.Ats], [MoonAts][MoonAts.Ats], [Overnight][Overnight.Ats]
+
+Dissectors by Sip: [Cqs][Cqs.Consolidator], [Cts][Cts.Consolidator], [MdcsRealtime][MdcsRealtime.Consolidator], [NyseConsolidated][NyseConsolidated.Consolidator], [Opra][Opra.Consolidator], [Uqdf][Uqdf.Consolidator], [Utdf][Utdf.Consolidator], [Utp][Utp.Consolidator]
+
+Dissectors by Platform: [Cme Globex][Globex.Platform], [Euronext Optiq][Optiq.Platform], [Eurex T7][T7.Platform], [Cboe TitaniumConsolidated][TitaniumConsolidated.Platform]
 
 ## Disclaimer
 
@@ -228,13 +236,13 @@ Enjoy.
 [Cboe.C2Options.ComplexAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C2Options/ComplexAuction.md "Complex Auction"
 [Cboe.EdgxOptions.ComplexAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxOptions/ComplexAuction.md "Complex Auction"
 [Cme.Headers.Mdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Headers/Mdp.md "Market Data Protocol"
-[Cme.CmeFutures.Mdp3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Mdp3.md "Market Data Platform 3"
-[Cme.CmeFutures.Streamlined]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Streamlined.md "Streamlined Market Data"
-[Cme.CmeFutures.Settlements]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Settlements.md "Settlements"
-[Cme.CmeFutures.iLink3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/iLink3.md "iLink 3"
-[Cme.CmeFutures.BrokerTecUst]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/BrokerTecUst.md "BrokerTec Us Treasuries"
-[Cme.CmeFutures.Derived]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/Derived.md "Derived Market Data"
-[Cme.CmeFutures.EbsSpectrum]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/CmeFutures/EbsSpectrum.md "Ebs Spectrum Market Data"
+[Cme.Globex.Mdp3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Mdp3.md "Market Data Platform 3"
+[Cme.Globex.Streamlined]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Streamlined.md "Streamlined Market Data"
+[Cme.Globex.Settlements]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Settlements.md "Settlements"
+[Cme.Globex.iLink3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/iLink3.md "iLink 3"
+[Cme.Globex.BrokerTecUst]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/BrokerTecUst.md "BrokerTec Us Treasuries"
+[Cme.Globex.Derived]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Derived.md "Derived Market Data"
+[Cme.Globex.EbsSpectrum]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/EbsSpectrum.md "Ebs Spectrum Market Data"
 [Coinbase.CoinbaseDerivatives.Session]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/Session.md "Session Layer"
 [Coinbase.CoinbaseDerivatives.MarketDataApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/MarketDataApi.md "Market Data Api"
 [Coinbase.CoinbaseDerivatives.OrdersApi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/OrdersApi.md "Orders Api"
@@ -539,3 +547,83 @@ Enjoy.
 [SmallX.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/SmallX "The Small Exchange"
 [Tmx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Tmx "TMX Group"
 [Txse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Txse "Texas Stock Exchange"
+
+[24XEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/24X/Protocols/24XEquities "24X Equities"
+[AmexEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/AmexEquities "Nyse Amex Equities"
+[AmexOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/AmexOptions "Nyse Amex Options"
+[AquisEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Aquis/Protocols/AquisEquities "Aquis Equities"
+[ArcaEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/ArcaEquities "Nyse Arca Equities"
+[ArcaOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/ArcaOptions "Nyse Arca Options"
+[AsxSecurities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Protocols/AsxSecurities "Asx Securities"
+[B3Derivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/B3/Protocols/B3Derivatives "B3 Derivatives"
+[BoatsEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Boats/Protocols/BoatsEquities "Boats Equities"
+[BorsaIstanbul.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Bist/Protocols/BorsaIstanbul "Borsa Istanbul"
+[BruceEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/BruceAts/Protocols/BruceEquities "Bruce ATS Equities"
+[BxeEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/BxeEquities "Cboe BXE"
+[ByxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/ByxEquities "Cboe Byx Equities"
+[BzxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/BzxEquities "Cboe Bzx Equities"
+[BzxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/BzxOptions "Cboe Bzx Options"
+[C1Options.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/C1Options "Cboe C1 Options"
+[C2Options.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/C2Options "Cboe C2 Options"
+[CfeFutures.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/CfeFutures "Cboe Futures Exchange"
+[CoinbaseDerivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives "Coinbase Derivatives"
+[Cqs.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cqs "Consolidated Quotation System"
+[Cts.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cts "Consolidated Tape System"
+[CurrenexForex.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Currenex/Protocols/CurrenexForex "Currenex Forex"
+[CxaEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/CxaEquities "Cboe Australia"
+[CxeEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/CxeEquities "Cboe CXE"
+[Deribit.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Coinbase/Protocols/Deribit "Deribit"
+[DxeDerivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/DxeDerivatives "Cboe Europe Derivatives"
+[EdgaEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/EdgaEquities "Cboe Edga Equities"
+[EdgxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/EdgxEquities "Cboe Edgx Equities"
+[EdgxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/EdgxOptions "Cboe Edgx Options"
+[EmeraldOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/EmeraldOptions "MIAX Emerald Options"
+[FinraOrf.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols/FinraOrf "Finra ORF"
+[FinraOtc.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols/FinraOtc "Finra OTC"
+[GemxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/GemxOptions "Nasdaq GEMX"
+[Globex.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/Globex "CME Globex"
+[HkexDerivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Hkex/Protocols/HkexDerivatives "Hkex Derivatives Market"
+[HkexSecurities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Hkex/Protocols/HkexSecurities "Hkex Securities Market"
+[IceFutures.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ice/Protocols/IceFutures "Intercontinental Exchange Futures"
+[IexEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Iex/Protocols/IexEquities "IEX Equities"
+[IexOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Iex/Protocols/IexOptions "IEX Options"
+[IntelligentCross.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols/IntelligentCross "Intelligent Cross"
+[IseOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/IseOptions "Nasdaq ISE"
+[JnxBonds.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols/JnxBonds "Japannext Bonds"
+[JnxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols/JnxEquities "Japannext Equities"
+[LinkAts.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/OtcMarkets/Protocols/LinkAts "OTC Link ATS"
+[LinkNqb.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/OtcMarkets/Protocols/LinkNqb "OTC Link NQB"
+[LtseEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Ltse/Protocols/LtseEquities "Ltse Equities"
+[MatchNow.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/MatchNow "Cboe Canada MATCHNow"
+[MdcsRealtime.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Koscom/Protocols/MdcsRealtime "MDCS Realtime Market Data"
+[MemxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Memx/Protocols/MemxEquities "Memx Equities"
+[MemxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Memx/Protocols/MemxOptions "Memx Options"
+[MiaxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/MiaxOptions "MIAX Options"
+[MoonAts.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/OtcMarkets/Protocols/MoonAts "MOON ATS"
+[MrxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/MrxOptions "Nasdaq MRX"
+[NationalEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/NationalEquities "Nyse National Equities"
+[NeoEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/NeoEquities "Cboe Canada NEO"
+[NomOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NomOptions "Nasdaq Options Market"
+[NsmEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NsmEquities "Nasdaq Stock Market"
+[NtxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NtxEquities "Nasdaq Texas"
+[NtxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/NtxOptions "Nasdaq Texas Options"
+[NyseConsolidated.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/NyseConsolidated "NYSE Consolidated"
+[NyseEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/NyseEquities "New York Stock Exchange Equities"
+[NyseOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/NyseOptions "New York Stock Exchange Options"
+[OdxSecurityToken.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Odx/Protocols/OdxSecurityToken "Odx Security Token"
+[Opra.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Opra "Options Price Reporting Authority"
+[Optiq.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Euronext/Protocols/Optiq "Euronext Optiq"
+[Overnight.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/OtcMarkets/Protocols/Overnight "OTC Link Overnight OTC"
+[PearlOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/PearlOptions "MIAX Pearl Options"
+[PhlxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/PhlxOptions "Nasdaq PHLX"
+[PsxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/PsxEquities "Nasdaq PSX"
+[SapphireOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/SapphireOptions "MIAX Sapphire Options"
+[Sse.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Hkex/Protocols/Sse "Shanghai Stock Exchange"
+[Szse.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Hkex/Protocols/Szse "Shenzhen Stock Exchange"
+[T7.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Eurex/Protocols/T7 "T7"
+[TexasEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/TexasEquities "Nyse Texas Equities"
+[TitaniumConsolidated.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/TitaniumConsolidated "Cboe Titanium Consolidated"
+[TxseEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols/TxseEquities "Txse Equities"
+[Uqdf.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Uqdf "Nasdaq UTP Quote Data Feed"
+[Utdf.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Utdf "Nasdaq UTP Trade Data Feed"
+[Utp.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Utp "Nasdaq Unlisted Trading Privileges Plan"

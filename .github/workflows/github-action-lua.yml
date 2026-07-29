@@ -52,17 +52,17 @@ jobs:
       - name: Run Cboe C1Options MarketLevel2 Csm 1.0.4 Dissector Tests
         run: bash -x .github/tests/Cboe-C1Options-MarketLevel2-Csm-v1-0-4-Test.sh
 
-      - name: Run Cme CmeFutures Mdp3 Sbe 1.5 Dissector Tests
-        run: bash -x .github/tests/Cme-CmeFutures-Mdp3-Sbe-v1-5-Test.sh
+      - name: Run Cme Globex Mdp3 Sbe 1.5 Dissector Tests
+        run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-5-Test.sh
 
-      - name: Run Cme CmeFutures Mdp3 Sbe 1.8 Dissector Tests
-        run: bash -x .github/tests/Cme-CmeFutures-Mdp3-Sbe-v1-8-Test.sh
+      - name: Run Cme Globex Mdp3 Sbe 1.8 Dissector Tests
+        run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-8-Test.sh
 
-      - name: Run Cme CmeFutures Mdp3 Sbe 1.9 Dissector Tests
-        run: bash -x .github/tests/Cme-CmeFutures-Mdp3-Sbe-v1-9-Test.sh
+      - name: Run Cme Globex Mdp3 Sbe 1.9 Dissector Tests
+        run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-9-Test.sh
 
-      - name: Run Cme CmeFutures iLink3 Sbe 8.5 Dissector Tests
-        run: bash -x .github/tests/Cme-CmeFutures-iLink3-Sbe-v8-5-Test.sh
+      - name: Run Cme Globex iLink3 Sbe 8.5 Dissector Tests
+        run: bash -x .github/tests/Cme-Globex-iLink3-Sbe-v8-5-Test.sh
 
       - name: Run Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Dissector Tests
         run: bash -x .github/tests/Coinbase-CoinbaseDerivatives-MarketDataApi-Sbe-v1-2-Test.sh
